@@ -4,8 +4,7 @@ import time
 from datetime import date, datetime, timedelta
 from typing import Callable, Optional
 
-from main import Song, Entry
-from album import Album, AlbumEntry, AlbumCert
+from model import Album, AlbumEntry, AlbumCert, Song, Entry
 from storage import SongUOW
 from spreadsheet import Spreadsheet
 
@@ -139,7 +138,7 @@ def show_chart(
             song: Song = uow.songs.get(pos['id'])
         prev = song.get_entry(start)
         print(
-            f"{get_movement(end, start, song):>3} | {song.name:<45} | {song.str_artists:<45} | {pos['place']:<2}"
+            f"{get_movement(end, start, song):>3} | {song.name:<45} | {', '.join(song.artists):<45} | {pos['place']:<2}"
             f" | {(prev.place if prev else '-'):<2} | {song.weeks:<2} | {pos['plays']:<3} | {get_peak(song):<3}"
         )
     print('')
@@ -321,12 +320,8 @@ def make_album_chart(
         )
         album.add_entry(entry)
 
-        album_cert = str(
-            AlbumCert(all_time_plays(album, accurate=True) + album.points)
-        )
-
-        # album_cert = str(album.cert)
-
+        album_cert = format(AlbumCert(all_time_plays(album) + album.points), "S")
+        
         prev = album.get_entry(start_date)
         movement = get_movement(end_date, start_date, album)
         peak = get_peak(album)

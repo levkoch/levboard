@@ -112,6 +112,8 @@ class BaseCert:
                 plat_part = ''
 
             return diamond_part + plat_part
+            
+        return NotImplemented
 
     def __lt__(self, other):
         if not isinstance(other, type(self)):

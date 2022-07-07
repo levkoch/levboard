@@ -2,11 +2,8 @@ import json
 
 from typing import Optional, Generator
 
-from .model.song import Song
-from .model.album import Album
-
-SONG_FILE = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/songs.json'
-ALBUM_FILE = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/albums.json'
+from model import Song, Album
+from config import SONG_FILE, ALBUM_FILE
 
 
 class SongRepository:

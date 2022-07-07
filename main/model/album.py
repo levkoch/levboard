@@ -1,5 +1,5 @@
 from datetime import date
-from typing import Iterable, Union, Optional
+from typing import Generator, Iterable, Union, Optional
 from copy import deepcopy
 from pydantic import BaseModel, validator, ValidationError, conint, PositiveInt
 
@@ -64,23 +64,23 @@ class Album:
     __repr__ = __str__
 
     def __hash__(self) -> int:
-        return hash(self.__class__) * 101 + hash(self._title)
+        return hash((self.__class__, self._title))
 
-    def __contains__(self, song: Song):
+    def __contains__(self, song: Song) -> bool:
         return song in self.songs
 
     def __len__(self) -> int:
         return len(self.songs)
 
-    def __iter__(self) -> list[Song]:
-        return deepcopy(self.songs)
+    def __iter__(self) -> Generator:
+        return iter(self.songs)
 
     @property
     def title(self) -> str:
         """
         (`str`): The title of the album.
         """
-        return deepcopy(self._title)
+        return self._title
 
     @property
     def artists(self) -> list[str]:
@@ -179,6 +179,36 @@ class Album:
         """
 
         return AlbumCert(self.units)
+
+    def get_conweeks(self, top: Optional[int] = None) -> int:
+        entries = deepcopy(self.entries)
+        if top:
+            entries = [i for i in entries if i.place <= top]
+
+        if len(entries) == 0:
+            return 0
+        if len(entries) == 1:
+            return 1
+
+        longest = 0
+        current = entries.pop(0)
+
+        while entries:
+            streak = 1
+            next = entries.pop(0)
+
+            while current.end == next.start:
+                streak += 1
+                current = next
+                try:
+                    next = entries.pop(0)
+                except IndexError:
+                    break
+
+            longest = max(longest, streak)
+            current = next
+
+        return longest
 
     def get_weeks(self, top: Optional[int] = None) -> int:
         """(`int`): The total weeks charted in the top `top` by songs from the album."""

@@ -1,4 +1,5 @@
 import requests
+import time
 
 from copy import deepcopy
 from typing import Optional, Union
@@ -12,8 +13,13 @@ from pydantic import (
 )
 
 from .cert import SongCert
-from ..config import date_to_timestamp
 
+def date_to_timestamp(day: date) -> int:
+    """
+    Converts a `datetime.date` to a epoch timestamp, as an `int`,
+    so that Spotistats registers the day correctly.
+    """
+    return int(time.mktime(day.timetuple()) * 1000)
 
 class Entry(BaseModel):
     """

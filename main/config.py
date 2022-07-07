@@ -4,6 +4,11 @@ import time
 from datetime import date
 from typing import Final
 
+## constants ##
+
+# the first date of my listening 
+FIRST_DATE = date.fromisoformat('2021-05-13')
+
 ## files ##
 
 # find path of where the __main__ program was run
@@ -14,8 +19,8 @@ if data_dir.endswith('/main'):
     data_dir = data_dir[:-5]   # remove "/main"
 data_dir += '/data'
 
-ALBUMS_FILE: Final = f'{data_dir}/albums.json'
-SONGS_FILE: Final = f'{data_dir}/songs.json'
+ALBUM_FILE: Final = f'{data_dir}/albums.json'
+SONG_FILE: Final = f'{data_dir}/songs.json'
 
 ## utility functions ##
 def date_to_timestamp(day: date) -> int:

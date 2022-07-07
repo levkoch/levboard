@@ -2,6 +2,25 @@ from storage import SongUOW
 
 uow = SongUOW()
 
+for top in (1, 3, 5, 10, 15, None):
+    with uow:
+        units = []
+        for album_id in uow.albums.list():
+            album = uow.albums.get(album_id)
+            units.append((album, album.get_conweeks(top)))
+
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
+    print(
+        f"Albums with most consecutive weeks {f'in the top {top}' if top else 'on chart'}:"
+    )
+    for (count, (album, weeks)) in enumerate(units):
+        print(
+            f"{count + 1:>2} | {f'{album.title} by {album.str_artists}':<55} | {weeks:>2} wks"
+        )
+
+quit()
+
 for top in (1, 3, 5, 10, 20, 30, None):
     units = []
     for album_title in uow.albums.list():

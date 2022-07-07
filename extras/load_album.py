@@ -1,4 +1,4 @@
-from extras.spreadsheet import Spreadsheet
+from main.spreadsheet import Spreadsheet
 from main.model.album import Album
 from main.storage import SongUOW
 
