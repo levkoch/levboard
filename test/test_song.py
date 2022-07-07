@@ -5,8 +5,6 @@ from main.model.album import Album
 from main.storage import SongUOW
 
 
-
-
 TEST_UOW_PATH = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/test.json'
 TEST_ALBUM_PATH = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/testalbum.py'
 NO_BRAINER = '8191852'
@@ -46,9 +44,7 @@ def test_conweeks_unchanged_entries():
     prior = song.entries
 
     for top in (None, 40, 20, 10, 5, 3, 1):
-        print(
-            f'Found {song.get_conweeks(top = top)} consecutive weeks in the top {top}.'
-        )
+        song.get_conweeks(top = top)
 
     after = song.entries
 

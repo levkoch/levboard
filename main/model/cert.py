@@ -1,8 +1,13 @@
-'''
+"""
 levboard/main/model/cert.py
 
 Where all of the certifications are held.
-'''
+
+Classes:
+* CertType: An Enum with the four different certificaiton types.
+* SongCert: A certification for a song.
+* AlbumCert: A certification for an album.
+"""
 
 from enum import Enum
 from pydantic import NonNegativeInt
@@ -15,8 +20,10 @@ class CertType(Enum):
     Attributes:
     * `NONE`: Music unit is not certified. Maps to "Un-Certified" or "".
     * `GOLD`: Music unit is certified Gold. Maps to "Gold" or "●".
-    * `PLATINUM`: Music unit is certified Platinum or higher. Maps to "Platinum" or "▲".
-    * `DIAMOND`: Music unit is certified 10x multi-Platinum or higher. Maps to "Diamond" or "⬥".
+    * `PLATINUM`: Music unit is certified Platinum or higher. Maps to
+        "Platinum" or "▲".
+    * `DIAMOND`: Music unit is certified 10x multi-Platinum or higher.
+        Maps to "Diamond" or "⬥".
     """
 
     NONE = 'Un-Certified'
@@ -36,34 +43,12 @@ class CertType(Enum):
 
 class BaseCert:
     """
-    Arguments:
-    * units (`NonNegativeInt`): The units the song has. Should be `0` or greater.
-
-    Attributes:
-    * _units (`NonNegativeInt`): The amount of song units the represented by the
-        certification. Should be `0` or greater.
-    * _cert (`CertType`): The certification of the song. Does not include the
-        multiplier, if applicable.
-    * _mult (`NonNegetiveInt`): The multiplier for the certification. Will be `0`
-        if the song is certified `GOLD`, `NONE`, or a single `PLATINUM`. Otherwise,
-        it will be `2` - `9` for multi-`PLATINUM` and `11` or greater for `DIAMOND`.
-    * __str__ (`str`): The certification as a string, in "mult (if has one) x
-        cert symbol" form.
-
-    Formatting flags:
-    * `''`: (blank) Returns the same thing as calling `str(songcert)` on the songcert.
-    * `'s'`: (symbol) The same as the blank call, with normal symbols. Will not split
-        11x Diamond into 1x Diamond and 1x Platinum
-    * `'S'`: (expanded symbol) Returns the certification as symbols, with diamond
-        certification expanded into diamond and platinum.
-    * `'f'`: (full) The certification with the full words instead of symbols.
-    * `'F'`: (expanded full) The certification with the full words and diamond expanded.
-
-    Additionally supports sorting, formatting and equality comparison.
+    Base certification. Do NOT construct.
     """
 
-    __slots__ = ('_cert', '_mult')
+    __slots__ = ('_units', '_cert', '_mult')
 
+    _units: NonNegativeInt
     _cert: CertType
     _mult: NonNegativeInt
 
@@ -84,7 +69,7 @@ class BaseCert:
         return f'{self._mult}x{self._cert.to_symbol()}'
 
     def __repr__(self) -> str:
-        return f'{type(self)}({self._units})'
+        return f'{type(self).__name__}({self._units})'
 
     def __format__(self, fmt: str) -> str:
         # flags are 's', 'S', 'f', and 'F'
@@ -110,7 +95,7 @@ class BaseCert:
             if fmt == 'f' or self._cert != CertType.DIAMOND:
                 return f'{self._mult} times {self._cert.value}'
 
-            # if they wanted the expanded full form 
+            # if they wanted the expanded full form
             # (which only impacts Diamond+ songs)
 
             diamond = self._mult // 10
@@ -148,7 +133,35 @@ class BaseCert:
 
 
 class SongCert(BaseCert):
-    __doc__ = 'Represents an song certification.\n' + super().__doc__
+    """
+    Represents an song certification.
+
+    Arguments:
+    * units (`NonNegativeInt`): The units the song has. Should be `0` or greater.
+
+    Attributes:
+    * _units (`NonNegativeInt`): The amount of song units the represented by the
+        certification. Should be `0` or greater.
+    * _cert (`CertType`): The certification of the song. Does not include the
+        multiplier, if applicable.
+    * _mult (`NonNegetiveInt`): The multiplier for the certification. Will be `0`
+        if the song is certified `GOLD`, `NONE`, or a single `PLATINUM`. Otherwise,
+        it will be `2` - `9` for multi-`PLATINUM` and `11` or greater for `DIAMOND`.
+    * __str__ (`str`): The certification as a string, in "mult (if has one) x
+        cert symbol" form.
+
+    Formatting flags:
+    * `''`: (blank) Returns the same thing as calling `str(songcert)` on the songcert.
+    * `'s'`: (symbol) The same as the blank call, with normal symbols. Will not split
+        11x Diamond into 1x Diamond and 1x Platinum
+    * `'S'`: (expanded symbol) Returns the certification as symbols, with diamond
+        certification expanded into diamond and platinum.
+    * `'f'`: (full) The certification with the full words instead of symbols.
+    * `'F'`: (expanded full) The certification with the full words and diamond expanded.
+
+    Additionally supports sorting, formatting and equality comparison.
+    """
+
     __slots__ = ()
 
     def _load(self) -> None:
@@ -171,7 +184,38 @@ class SongCert(BaseCert):
 
 
 class AlbumCert(BaseCert):
-    __doc__ = 'Represents an album certification.\n' + super().__doc__
+    """
+    Represents an album certification.
+
+    Arguments:
+    * units (`NonNegativeInt`): The units the album has. Should be `0` or
+        greater.
+
+    Attributes:
+    * _units (`NonNegativeInt`): The amount of units the represented
+        by the certification. Should be `0` or greater.
+    * _cert (`CertType`): The certification of the album. Does not include
+        the multiplier, if applicable.
+    * _mult (`NonNegetiveInt`): The multiplier for the certification. Will
+        be `0` if the album is certified `GOLD`, `NONE`, or a single
+        `PLATINUM`. Otherwise, it will be `2` - `9` for multi-`PLATINUM`
+        and `10` or greater for `DIAMOND`.
+
+    Formatting flags:
+    * `''`: (blank) The certification in "mult (if has one) x cert symbol"
+        form.
+    * `'s'`: (symbol) The same as the blank call, with normal symbols.
+        Will not split 11x Diamond into 1x Diamond and 1x Platinum
+    * `'S'`: (expanded symbol) Returns the certification as symbols, with
+        diamond certification expanded into diamond and platinum.
+    * `'f'`: (full) The certification with the full words instead of
+        symbols.
+    * `'F'`: (expanded full) The certification with the full words and
+        diamond expanded.
+
+    Additionally supports sorting, formatting and equality comparison.
+    """
+
     __slots__ = ()
 
     def _load(self) -> None:

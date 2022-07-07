@@ -1,1 +1,1 @@
-'needed to make tests see the main stuff'
+"""needed to make tests see the main stuff"""

@@ -6,13 +6,14 @@ from pydantic import BaseModel, validator, ValidationError, conint, PositiveInt
 from .song import Song
 from .cert import AlbumCert
 
+
 class AlbumEntry(BaseModel):
     """
     A frozen dataclass representing a chart entry.
 
     Attributes / Arguments:
-    * start (`datetime.date`): The date that the week's entry started. 
-        (NOTE: `start` and `end` can be passed in as ISO date strings, they 
+    * start (`datetime.date`): The date that the week's entry started.
+        (NOTE: `start` and `end` can be passed in as ISO date strings, they
         will be parsed as the correct type.)
     * end (`datetime.date`): The date that the week's entry ended.
     * plays (`int`): The plays the song got that week. Will be greater than `1`.
@@ -51,9 +52,9 @@ class Album:
 
         if isinstance(artists, str):
             self._artists: list[str] = artists.split(', ')
-        else: # is an iterable of str
+        else:   # is an iterable of str
             self._artists: list[str] = list(artists)
-            
+
         self.songs: list[Song] = []
         self.entries: list[AlbumEntry] = []
 
