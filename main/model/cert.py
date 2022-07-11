@@ -50,12 +50,15 @@ class CertType(Enum):
 
 def _cmp(operator) -> Callable[['AbstractCert', Any], bool]:
     """Factory function to make comparison attributes."""
+
     def comparer(instance, other) -> bool:
         try:
             return operator(instance.valcode, other.valcode)
         except AttributeError:
             return NotImplemented
+
     return comparer
+
 
 class AbstractCert(ABC):
     """
@@ -70,13 +73,17 @@ class AbstractCert(ABC):
     _cert: CertType
     _mult: NonNegativeInt
 
-    def __init__(self, unitsormult: NonNegativeInt = 0, cert: Optional[CertType] = None):
-        if cert: # passed in both a mult and a cert
+    def __init__(
+        self, unitsormult: NonNegativeInt = 0, cert: Optional[CertType] = None
+    ):
+        if cert:   # passed in both a mult and a cert
             if unitsormult < 0:
-                raise ValueError("Multiplier / Units need to be a nonnegative int.")
+                raise ValueError(
+                    'Multiplier / Units need to be a nonnegative int.'
+                )
             self._mult = int(unitsormult)
             self._cert = cert
-        else: # passed in only a unit / defaulted units
+        else:   # passed in only a unit / defaulted units
             self._mult = 0
             self._cert = CertType.NONE
             self._load(int(unitsormult))
@@ -94,8 +101,10 @@ class AbstractCert(ABC):
         )
 
     @classmethod
-    def from_parts(cls, mult: NonNegativeInt, cert: CertType) -> "AbstractCert":
-        new = cls() # auto-makes a one with 0 units
+    def from_parts(
+        cls, mult: NonNegativeInt, cert: CertType
+    ) -> 'AbstractCert':
+        new = cls()   # auto-makes a one with 0 units
         new._mult = mult
         new._cert = cert
         return new
@@ -173,9 +182,9 @@ class AbstractCert(ABC):
     @property
     def valcode(self) -> int:
         """
-        valcode (`int`): Represents the certification as an integer. Internal 
-        property to make comparison easier. `0` is uncertified, `1` is Gold, 
-        and `2` or more is certified Platinum or higher, depending on how 
+        valcode (`int`): Represents the certification as an integer. Internal
+        property to make comparison easier. `0` is uncertified, `1` is Gold,
+        and `2` or more is certified Platinum or higher, depending on how
         many times platinum.
         """
 
@@ -183,7 +192,7 @@ class AbstractCert(ABC):
             CertType.NONE: 0,
             CertType.GOLD: 1,
             CertType.PLATINUM: 2,
-            CertType.DIAMOND: 2
+            CertType.DIAMOND: 2,
         }
         return code_map[self._cert] + self._mult
 

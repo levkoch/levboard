@@ -2,16 +2,11 @@ import requests
 import time
 
 from copy import deepcopy
-from typing import Optional, Union
+from typing import Optional
 from datetime import date
-from pydantic import (
-    BaseModel,
-    PositiveInt,
-    conint,
-    validator,
-    ValidationError,
-)
+from pydantic import ValidationError
 
+from .entry import Entry
 from .cert import SongCert
 
 
@@ -21,45 +16,6 @@ def date_to_timestamp(day: date) -> int:
     so that Spotistats registers the day correctly.
     """
     return int(time.mktime(day.timetuple()) * 1000)
-
-
-class Entry(BaseModel):
-    """
-    A frozen dataclass representing a chart entry.
-
-    Attributes / Arguments:
-    * start (`datetime.date`): The date that the week's entry started. Accepts
-        and ISO date string, and will convert it to a `datetime.date` object.
-    * end (`datetime.date`): The date that the week's entry ended. Alsoc accepts
-        and ISO date string.
-    * plays (`int`): The plays the song got that week. Will be greater than `1`.
-    * place (`int`): The chart position attained by that song. A positive integer.
-
-    Methods:
-    * to_dict (`dict` method): Collects the Entry into a dictionary.
-    """
-
-    start: date
-    end: date
-    plays: conint(gt=1)
-    place: PositiveInt
-
-    @validator('start', 'end')
-    def format_date(cls, v_date: Union[date, str]):
-        if isinstance(v_date, str):
-            return date.fromisoformat(v_date)
-        if isinstance(v_date, date):
-            return v_date
-        raise TypeError('Only iso date string or date accepted.')
-
-    def to_dict(self) -> dict:
-        """Dictionary representation of entry for storage."""
-        return {
-            'start': self.start.isoformat(),
-            'end': self.end.isoformat(),
-            'plays': self.plays,
-            'place': self.place,
-        }
 
 
 class Song:

@@ -52,14 +52,12 @@ def test_songcert_creation(units: int, cert: CertType, mult: int):
 
 @pytest.mark.parametrize(
     ('cert_type', 'mult', 'cert'),
-    [
-        (SongCert, 3, CertType.PLATINUM),
-        (SongCert, 12, CertType.DIAMOND)
-    ]
+    [(SongCert, 3, CertType.PLATINUM), (SongCert, 12, CertType.DIAMOND)],
 )
 def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
     tester = cert_type(mult, cert)
     assert (tester.mult, tester.cert) == (mult, cert)
+
 
 @pytest.mark.parametrize(
     ('units', 'cert', 'mult'),
@@ -74,6 +72,7 @@ def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
 def test_albumcert_creation(units: int, cert: CertType, mult: int):
     tester = AlbumCert(units)
     assert (tester._cert, tester._mult) == (cert, mult)
+
 
 @pytest.mark.parametrize(
     ('units', 'cert_type', 'text'),
@@ -157,28 +156,35 @@ def test_cert_format(cert, flag: str, text: str):
 def test_cert_align(cert, flag: str, text: str):
     assert format(cert, flag) == text
 
+
 @pytest.mark.parametrize(
     ('cert', 'flag', 'text'),
     [
         (SongCert(100), '>2s', ' ●'),
         (SongCert(100), '<2s', '● '),
         (SongCert(100), '^3s', ' ● '),
-        (SongCert(100), "<6f", "Gold  "),
-        (SongCert(100), ">6f", "  Gold"),
-        (SongCert(100), "^6f", " Gold "),
-        (SongCert(2200), "^5S", ' ⬥ ▲ '),
-        (SongCert(2400), ">7S", '  ⬥ 2x▲')
+        (SongCert(100), '<6f', 'Gold  '),
+        (SongCert(100), '>6f', '  Gold'),
+        (SongCert(100), '^6f', ' Gold '),
+        (SongCert(2200), '^5S', ' ⬥ ▲ '),
+        (SongCert(2400), '>7S', '  ⬥ 2x▲'),
     ],
 )
 def test_cert_align_with_flags(cert, flag: str, text: str):
     assert format(cert, flag) == text
 
+
 def test_cant_make_basecert():
     with pytest.raises(TypeError):
         AbstractCert(200)
 
+
 @pytest.mark.parametrize(
-    ("cert_type"), [(AlbumCert), (SongCert),]
+    ('cert_type'),
+    [
+        (AlbumCert),
+        (SongCert),
+    ],
 )
 def test_make_default_cert(cert_type: type):
     default = cert_type()
