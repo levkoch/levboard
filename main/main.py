@@ -320,8 +320,10 @@ def make_album_chart(
         )
         album.add_entry(entry)
 
-        album_cert = format(AlbumCert(all_time_plays(album) + album.points), "S")
-        
+        album_cert = format(
+            AlbumCert(all_time_plays(album) + album.points), 'S'
+        )
+
         prev = album.get_entry(start_date)
         movement = get_movement(end_date, start_date, album)
         peak = get_peak(album)

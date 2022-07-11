@@ -42,7 +42,7 @@ def test_conweeks_unchanged_entries():
     prior = song.entries
 
     for top in (None, 40, 20, 10, 5, 3, 1):
-        song.get_conweeks(top = top)
+        song.get_conweeks(top=top)
 
     after = song.entries
 

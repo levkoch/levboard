@@ -1,15 +1,22 @@
 """
 levboard/main/model/cert.py
 
-Where all of the certifications are held.
+Where all of the certifications are held. Certifications hold information
+on the units that a musical entity has in a more helpful form.
 
 Classes:
 * CertType: An Enum with the four different certificaiton types.
 * SongCert: A certification for a song.
 * AlbumCert: A certification for an album.
+
+Non-User Classes:
+* Base
 """
 
+import operator
+from abc import ABC, abstractmethod
 from enum import Enum
+from typing import Callable, Any, Optional
 from pydantic import NonNegativeInt
 
 
@@ -41,27 +48,68 @@ class CertType(Enum):
         return convert[self]
 
 
-class BaseCert:
+def _cmp(operator) -> Callable[['AbstractCert', Any], bool]:
+    """Factory function to make comparison attributes."""
+    def comparer(instance, other) -> bool:
+        try:
+            return operator(instance.valcode, other.valcode)
+        except AttributeError:
+            return NotImplemented
+    return comparer
+
+class AbstractCert(ABC):
     """
     Base certification. Do NOT construct.
+
+    Abstract Methods:
+    * _load: Must set internal state of certification with any requirements.
     """
 
-    __slots__ = ('_units', '_cert', '_mult')
+    __slots__ = ('_cert', '_mult')
 
-    _units: NonNegativeInt
     _cert: CertType
     _mult: NonNegativeInt
 
-    def __init__(self, units: NonNegativeInt):
-        self._units = units
-        self._mult = 0
-        self._load()
+    def __init__(self, unitsormult: NonNegativeInt = 0, cert: Optional[CertType] = None):
+        if cert: # passed in both a mult and a cert
+            if unitsormult < 0:
+                raise ValueError("Multiplier / Units need to be a nonnegative int.")
+            self._mult = int(unitsormult)
+            self._cert = cert
+        else: # passed in only a unit / defaulted units
+            self._mult = 0
+            self._cert = CertType.NONE
+            self._load(int(unitsormult))
 
-    def _load(self) -> None:
+    @abstractmethod
+    def _load(self, NonNegativeInt) -> None:
+        """
+        Abstract Method - Loads the multiplier and cert type of the cert
+        based on the units.
+        """
+
         raise NotImplementedError(
             'Cannot instantiate an instance of `BaseCert`. '
             'Use a subclass instead.'
         )
+
+    @classmethod
+    def from_parts(cls, mult: NonNegativeInt, cert: CertType) -> "AbstractCert":
+        new = cls() # auto-makes a one with 0 units
+        new._mult = mult
+        new._cert = cert
+        return new
+
+    @property
+    def mult(self) -> int:
+        """
+        mult (`int`): The multiplier of the certification. A non negative int.
+        """
+        return self._mult
+
+    @property
+    def cert(self) -> CertType:
+        return self._cert
 
     def __str__(self) -> str:
         if self._mult == 0:
@@ -69,18 +117,25 @@ class BaseCert:
         return f'{self._mult}x{self._cert.to_symbol()}'
 
     def __repr__(self) -> str:
-        return f'{type(self).__name__}({self._units})'
+        return f'{self.__class__.__name__}({self.mult!r}, {self.cert!s})'
 
     def __format__(self, fmt: str) -> str:
-        # flags are 's', 'S', 'f', and 'F'
+        # flags are '', 's', 'S', 'f', and 'F'
+
         if not fmt or fmt == 's':
             return str(self)
+
+        if fmt[-1] not in ('s', 'S', 'f', 'F'):
+            return format(str(self), fmt)
+
+        if len(fmt) != 1:
+            return format(format(self, fmt[-1]), fmt[:-1])
 
         if fmt == 'S':
             if self._cert != CertType.DIAMOND:
                 return str(self)
 
-            info = self.__format__('F')
+            info = format(self, 'F')
             for (f, t) in ((i.value, i.to_symbol()) for i in CertType):
                 info = info.replace(f, t)
             info = info.replace(' times ', 'x')
@@ -112,29 +167,34 @@ class BaseCert:
                 plat_part = ''
 
             return diamond_part + plat_part
-            
+
         return NotImplemented
 
-    def __lt__(self, other):
-        if not isinstance(other, type(self)):
-            return NotImplemented   # don't know how to compare
-        if self._cert == other._cert:
-            return self._mult < other._mult
-        if self._cert == CertType.DIAMOND and other._cert != CertType.DIAMOND:
-            return False
-        if self._cert == CertType.PLATINUM and other._cert == CertType.DIAMOND:
-            return True
-        if self._cert == CertType.GOLD and other._cert != CertType.NONE:
-            return True
-        return False
+    @property
+    def valcode(self) -> int:
+        """
+        valcode (`int`): Represents the certification as an integer. Internal 
+        property to make comparison easier. `0` is uncertified, `1` is Gold, 
+        and `2` or more is certified Platinum or higher, depending on how 
+        many times platinum.
+        """
 
-    def __eq__(self, other):
-        if not isinstance(other, type(self)):
-            return NotImplemented   # don't know how to compare
-        return (self._cert, self._mult) == (other._cert, other._mult)
+        code_map = {
+            CertType.NONE: 0,
+            CertType.GOLD: 1,
+            CertType.PLATINUM: 2,
+            CertType.DIAMOND: 2
+        }
+        return code_map[self._cert] + self._mult
+
+    __lt__ = _cmp(operator.lt)
+    __le__ = _cmp(operator.le)
+    __gt__ = _cmp(operator.gt)
+    __ge__ = _cmp(operator.ge)
+    __eq__ = _cmp(operator.eq)
 
 
-class SongCert(BaseCert):
+class SongCert(AbstractCert):
     """
     Represents an song certification.
 
@@ -166,26 +226,26 @@ class SongCert(BaseCert):
 
     __slots__ = ()
 
-    def _load(self) -> None:
+    def _load(self, units: NonNegativeInt) -> None:
         """
         Sets the cert and mult fields with the way that they should be for a song.
         Should only be called once, during construction.
         """
 
-        if self._units < 100:
+        if units < 100:
             self._cert = CertType.NONE
-        elif self._units < 200:
+        elif units < 200:
             self._cert = CertType.GOLD
-        elif self._units < 2000:
-            if self._units >= 400:
-                self._mult = self._units // 200
+        elif units < 2000:
+            if units >= 400:
+                self._mult = units // 200
             self._cert = CertType.PLATINUM
         else:
-            self._mult = self._units // 200
+            self._mult = units // 200
             self._cert = CertType.DIAMOND
 
 
-class AlbumCert(BaseCert):
+class AlbumCert(AbstractCert):
     """
     Represents an album certification.
 
@@ -220,20 +280,20 @@ class AlbumCert(BaseCert):
 
     __slots__ = ()
 
-    def _load(self) -> None:
+    def _load(self, units: NonNegativeInt) -> None:
         """
         Sets the cert and mult fields with the way that they should be for an album.
         Should only be called once, during construction.
         """
 
-        if self._units < 500:
+        if units < 500:
             self._cert = CertType.NONE
-        elif self._units < 1000:
+        elif units < 1000:
             self._cert = CertType.GOLD
-        elif self._units < 10000:
-            if self._units >= 2000:
-                self._mult = self._units // 1000
+        elif units < 10000:
+            if units >= 2000:
+                self._mult = units // 1000
             self._cert = CertType.PLATINUM
         else:
-            self._mult = self._units // 1000
+            self._mult = units // 1000
             self._cert = CertType.DIAMOND

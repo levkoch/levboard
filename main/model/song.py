@@ -14,6 +14,7 @@ from pydantic import (
 
 from .cert import SongCert
 
+
 def date_to_timestamp(day: date) -> int:
     """
     Converts a `datetime.date` to a epoch timestamp, as an `int`,
@@ -21,13 +22,16 @@ def date_to_timestamp(day: date) -> int:
     """
     return int(time.mktime(day.timetuple()) * 1000)
 
+
 class Entry(BaseModel):
     """
     A frozen dataclass representing a chart entry.
 
     Attributes / Arguments:
-    * start (`datetime.date`): The date that the week's entry started.
-    * end (`datetime.date`): The date that the week's entry ended.
+    * start (`datetime.date`): The date that the week's entry started. Accepts
+        and ISO date string, and will convert it to a `datetime.date` object.
+    * end (`datetime.date`): The date that the week's entry ended. Alsoc accepts
+        and ISO date string.
     * plays (`int`): The plays the song got that week. Will be greater than `1`.
     * place (`int`): The chart position attained by that song. A positive integer.
 
@@ -35,8 +39,8 @@ class Entry(BaseModel):
     * to_dict (`dict` method): Collects the Entry into a dictionary.
     """
 
-    start: Union[date, str]  # will always be a date
-    end: Union[date, str]  # also will always be a date
+    start: date
+    end: date
     plays: conint(gt=1)
     place: PositiveInt
 
@@ -46,7 +50,7 @@ class Entry(BaseModel):
             return date.fromisoformat(v_date)
         if isinstance(v_date, date):
             return v_date
-        raise ValidationError('Only iso date string or date accepted.')
+        raise TypeError('Only iso date string or date accepted.')
 
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""

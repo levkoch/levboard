@@ -14,7 +14,6 @@ class Spreadsheet:
     * sheet_id (`str`): The ID of the sheet the instance should manipulate.
     * cred_file (optional `str`): Path to the google_token.json file. Defaults to the one
         that it should be right now but who knows.
-
     """
 
     __slots__ = ['sheet', '_sheet_id', '_credentials']

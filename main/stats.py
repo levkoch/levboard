@@ -19,7 +19,6 @@ for top in (1, 3, 5, 10, 15, None):
             f"{count + 1:>2} | {f'{album.title} by {album.str_artists}':<55} | {weeks:>2} wks"
         )
 
-quit()
 
 for top in (1, 3, 5, 10, 20, 30, None):
     units = []

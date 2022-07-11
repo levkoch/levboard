@@ -1,6 +1,7 @@
 import pytest
 
 from ..main.model import CertType, SongCert, AlbumCert
+from ..main.model.cert import AbstractCert
 
 # comparison mechanism is in `BaseCert` so we only need
 # to check one subtype and not both.
@@ -9,12 +10,12 @@ from ..main.model import CertType, SongCert, AlbumCert
     [
         (600, 100, False),
         (100, 100, False),
-        (110, 100, False), # true because both are Gold
+        (110, 100, False),  # true because both are Gold
         (100, 600, True),
-        (0, 200, False),
+        (0, 200, True),
         (600, 1200, True),
         (3000, 4000, True),
-        (0, 2000, False),
+        (0, 2000, True),
         (100, 2000, True),
         (2000, 0, False),
         (2000, 100, False),
@@ -50,6 +51,17 @@ def test_songcert_creation(units: int, cert: CertType, mult: int):
 
 
 @pytest.mark.parametrize(
+    ('cert_type', 'mult', 'cert'),
+    [
+        (SongCert, 3, CertType.PLATINUM),
+        (SongCert, 12, CertType.DIAMOND)
+    ]
+)
+def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
+    tester = cert_type(mult, cert)
+    assert (tester.mult, tester.cert) == (mult, cert)
+
+@pytest.mark.parametrize(
     ('units', 'cert', 'mult'),
     [
         (11000, CertType.DIAMOND, 11),
@@ -63,18 +75,17 @@ def test_albumcert_creation(units: int, cert: CertType, mult: int):
     tester = AlbumCert(units)
     assert (tester._cert, tester._mult) == (cert, mult)
 
-
 @pytest.mark.parametrize(
     ('units', 'cert_type', 'text'),
     [
-        (0, SongCert, 'SongCert(0)'),
-        (25, SongCert, 'SongCert(25)'),
-        (300, SongCert, 'SongCert(300)'),
-        (1000, SongCert, 'SongCert(1000)'),
-        (0, AlbumCert, 'AlbumCert(0)'),
-        (600, AlbumCert, 'AlbumCert(600)'),
-        (2100, AlbumCert, 'AlbumCert(2100)'),
-        (5000, AlbumCert, 'AlbumCert(5000)'),
+        (0, SongCert, 'SongCert(0, CertType.NONE)'),
+        (25, SongCert, 'SongCert(0, CertType.NONE)'),
+        (300, SongCert, 'SongCert(0, CertType.PLATINUM)'),
+        (1000, SongCert, 'SongCert(5, CertType.PLATINUM)'),
+        (0, AlbumCert, 'AlbumCert(0, CertType.NONE)'),
+        (600, AlbumCert, 'AlbumCert(0, CertType.GOLD)'),
+        (2100, AlbumCert, 'AlbumCert(2, CertType.PLATINUM)'),
+        (5000, AlbumCert, 'AlbumCert(5, CertType.PLATINUM)'),
     ],
 )
 def test_cert_repr(units: int, cert_type: type, text: str):
@@ -133,3 +144,43 @@ def test_cert_str(units: int, cert_type: type, text: str):
 )
 def test_cert_format(cert, flag: str, text: str):
     assert format(cert, flag) == text
+
+
+@pytest.mark.parametrize(
+    ('cert', 'flag', 'text'),
+    [
+        (SongCert(100), '>2', ' ●'),
+        (SongCert(100), '<2', '● '),
+        (SongCert(100), '^3', ' ● '),
+    ],
+)
+def test_cert_align(cert, flag: str, text: str):
+    assert format(cert, flag) == text
+
+@pytest.mark.parametrize(
+    ('cert', 'flag', 'text'),
+    [
+        (SongCert(100), '>2s', ' ●'),
+        (SongCert(100), '<2s', '● '),
+        (SongCert(100), '^3s', ' ● '),
+        (SongCert(100), "<6f", "Gold  "),
+        (SongCert(100), ">6f", "  Gold"),
+        (SongCert(100), "^6f", " Gold "),
+        (SongCert(2200), "^5S", ' ⬥ ▲ '),
+        (SongCert(2400), ">7S", '  ⬥ 2x▲')
+    ],
+)
+def test_cert_align_with_flags(cert, flag: str, text: str):
+    assert format(cert, flag) == text
+
+def test_cant_make_basecert():
+    with pytest.raises(TypeError):
+        AbstractCert(200)
+
+@pytest.mark.parametrize(
+    ("cert_type"), [(AlbumCert), (SongCert),]
+)
+def test_make_default_cert(cert_type: type):
+    default = cert_type()
+
+    assert (default.cert, default.mult) == (CertType.NONE, 0)

@@ -1,6 +1,6 @@
-from spreadsheet import Spreadsheet
-from main import Song
-from storage import SongUOW
+from main.spreadsheet import Spreadsheet
+from main.model import Song
+from main.storage import SongUOW
 
 SONGS_FILE = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/songs.json'
 

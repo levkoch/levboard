@@ -1,3 +1,14 @@
+"""
+levboard/main/config.py
+
+Contains all of the static and user-configurable variables.
+
+Constats:
+* FIRST_DATE: The date to start making charts from.
+* ALBUM_FILE: The file to read stored album json from.
+* SONG_FILE: The file to read stored song json from.
+"""
+
 import pathlib
 import time
 
@@ -6,8 +17,8 @@ from typing import Final
 
 ## constants ##
 
-# the first date of my listening 
-FIRST_DATE = date.fromisoformat('2021-05-13')
+# the first date of my listening
+FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
 
 ## files ##
 
@@ -19,8 +30,8 @@ if data_dir.endswith('/main'):
     data_dir = data_dir[:-5]   # remove "/main"
 data_dir += '/data'
 
-ALBUM_FILE: Final = f'{data_dir}/albums.json'
-SONG_FILE: Final = f'{data_dir}/songs.json'
+ALBUM_FILE: Final[str] = f'{data_dir}/albums.json'
+SONG_FILE: Final[str] = f'{data_dir}/songs.json'
 
 ## utility functions ##
 def date_to_timestamp(day: date) -> int:

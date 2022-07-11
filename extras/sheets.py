@@ -1,4 +1,4 @@
-from spreadsheet import Spreadsheet
+from main.spreadsheet import Spreadsheet
 
 sheet = Spreadsheet('1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk')
 request = sheet.get_range('Flourish Visualization!A1:BD100')
