@@ -25,12 +25,12 @@ class CertType(Enum):
     The four different certification types.
 
     Attributes:
-    * `NONE`: Music unit is not certified. Maps to "Un-Certified" or "".
-    * `GOLD`: Music unit is certified Gold. Maps to "Gold" or "●".
+    * `NONE`: Music unit is not certified. Maps to `"Un-Certified"` or `""`.
+    * `GOLD`: Music unit is certified Gold. Maps to `"Gold"` or `"●"`.
     * `PLATINUM`: Music unit is certified Platinum or higher. Maps to
-        "Platinum" or "▲".
+        `"Platinum"` or `"▲"`.
     * `DIAMOND`: Music unit is certified 10x multi-Platinum or higher.
-        Maps to "Diamond" or "⬥".
+        Maps to `"Diamond"` or `"⬥"`.
     """
 
     NONE = 'Un-Certified'
@@ -39,6 +39,11 @@ class CertType(Enum):
     DIAMOND = 'Diamond'
 
     def to_symbol(self) -> str:
+        """
+        Returns the certification as a symbol, as denoted in the main
+        docstring, for shorthand use.
+        """
+
         convert = {
             CertType.NONE: '-',
             CertType.GOLD: '●',
@@ -48,12 +53,12 @@ class CertType(Enum):
         return convert[self]
 
 
-def _cmp(operator) -> Callable[['AbstractCert', Any], bool]:
+def _cmp(operate) -> Callable[['AbstractCert', Any], bool]:
     """Factory function to make comparison attributes."""
 
     def comparer(instance, other) -> bool:
         try:
-            return operator(instance.valcode, other.valcode)
+            return operate(instance.valcode, other.valcode)
         except AttributeError:
             return NotImplemented
 
@@ -89,7 +94,7 @@ class AbstractCert(ABC):
             self._load(int(unitsormult))
 
     @abstractmethod
-    def _load(self, NonNegativeInt) -> None:
+    def _load(self, units: NonNegativeInt) -> None:
         """
         Abstract Method - Loads the multiplier and cert type of the cert
         based on the units.
@@ -100,15 +105,6 @@ class AbstractCert(ABC):
             'Use a subclass instead.'
         )
 
-    @classmethod
-    def from_parts(
-        cls, mult: NonNegativeInt, cert: CertType
-    ) -> 'AbstractCert':
-        new = cls()   # auto-makes a one with 0 units
-        new._mult = mult
-        new._cert = cert
-        return new
-
     @property
     def mult(self) -> int:
         """
@@ -118,6 +114,10 @@ class AbstractCert(ABC):
 
     @property
     def cert(self) -> CertType:
+        """
+        cert (`CertType`): The certification type of the certification.
+        A cert.CertType enum object.
+        """
         return self._cert
 
     def __str__(self) -> str:
@@ -145,8 +145,10 @@ class AbstractCert(ABC):
                 return str(self)
 
             info = format(self, 'F')
-            for (f, t) in ((i.value, i.to_symbol()) for i in CertType):
-                info = info.replace(f, t)
+            for (value, symbol) in (
+                (i.value, i.to_symbol()) for i in CertType
+            ):
+                info = info.replace(value, symbol)
             info = info.replace(' times ', 'x')
             return info.replace(' and ', ' ')
 
@@ -201,6 +203,9 @@ class AbstractCert(ABC):
     __gt__ = _cmp(operator.gt)
     __ge__ = _cmp(operator.ge)
     __eq__ = _cmp(operator.eq)
+
+    def __hash__(self) -> int:
+        return hash((self.mult, self.cert))
 
 
 class SongCert(AbstractCert):

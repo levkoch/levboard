@@ -2,15 +2,20 @@ from typing import Union
 from datetime import date
 from pydantic import BaseModel, PositiveInt, validator, conint
 
+
 class BaseEntry(BaseModel):
-    '''Base class for entries. Do Not Construct, it's not complete.'''
-    
+    """Base class for entries. Do Not Construct, it's not complete."""
+
     start: date
     end: date
     place: PositiveInt
 
     @validator('start', 'end')
     def format_date(cls, v_date: Union[date, str]):
+        """
+        Format the two date parameters so that ISO strings can be passed in.
+        """
+
         if isinstance(v_date, str):
             return date.fromisoformat(v_date)
         if isinstance(v_date, date):
@@ -24,6 +29,7 @@ class BaseEntry(BaseModel):
             'end': self.end.isoformat(),
             'place': self.place,
         }
+
 
 class Entry(BaseEntry):
     """
@@ -68,10 +74,10 @@ class AlbumEntry(BaseEntry):
     """
 
     units: conint(gt=1)
-    
+
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""
-        
+
         info = super().to_dict()
         info['units'] = self.units
         return info

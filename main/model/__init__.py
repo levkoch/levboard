@@ -1,22 +1,32 @@
 """
 levboard/main/model
 
-This subpackage contains our models, all of the data and functonal models.
+This package contains all of the data and functional models.
 
 Models:
-* Song:
+* Song: Represents a chartable song.
+* Album: Represents a collection of songs.
+* SongCert, AlbumCert: Song and Album certifications, respectively.
+
+Value Models:
+* Entry, AlbumEntry: Represents when a Song or Album has charted.
+
+Enums:
+* CertType: The different certification statuses a song/album could have.
 """
 
-from .album import Album, AlbumEntry
-from .song import Song, Entry
+from .album import Album
 from .cert import SongCert, AlbumCert, CertType
+from .entry import Entry, AlbumEntry
+from .song import Song
 
+# in alphabetical order
 __all__ = [
     'Album',
-    'Song',
-    'AlbumEntry',
-    'Entry',
-    'SongCert',
     'AlbumCert',
+    'AlbumEntry',
     'CertType',
+    'Entry',
+    'Song',
+    'SongCert',
 ]

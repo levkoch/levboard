@@ -1,21 +1,17 @@
-import requests
-import time
+"""
+levboard/main/model/song.py
+
+Contains the central Song model.
+"""
 
 from copy import deepcopy
 from typing import Optional
 from datetime import date
 from pydantic import ValidationError
 
-from .entry import Entry
 from .cert import SongCert
-
-
-def date_to_timestamp(day: date) -> int:
-    """
-    Converts a `datetime.date` to a epoch timestamp, as an `int`,
-    so that Spotistats registers the day correctly.
-    """
-    return int(time.mktime(day.timetuple()) * 1000)
+from .entry import Entry
+from .spotistats import song_info, song_plays
 
 
 class Song:
@@ -35,7 +31,6 @@ class Song:
     * id (`str`): The Spotistats id of the song.
     * name (`str`): The specified name of the song.
     * plays (`int`): The song's plays. Updated by the update_plays() method.
-    * last_updated (`datetime.date`): The date of the song plays were updated last.
     * peak (property `int`): The highest peak of the song on the chart. Defaults to
         `0` if the song has never charted.
     * peakweeks (property `int`): The number of weeks the song has spent at peak,
@@ -68,29 +63,17 @@ class Song:
     ):
         self.id: str = song_id
         self.name: str = song_name
-        self.alt_ids: list[str] = []
+        self.alt_ids: set[str] = set()
         self.plays: int = 0
-        self.last_updated: date = date.today()
         self._entries: list[Entry] = []
-        self.events = []
+
+        # configured by _load_info()
+        # declared here for cpython reasons
+        self.artists = []
+        self.official_name: str = ''
 
         if load:
             self._load_info()
-
-    def __hash__(self) -> int:
-        return hash(self.__class__) * 101 + int(self.id)
-
-    def __eq__(self, other) -> bool:
-        if isinstance(other, self.__class__):
-            return self.id == other.id
-        raise NotImplementedError(
-            f'Unable to compare objects of type Song and {other.__class__}.'
-        )
-
-    def __str__(self) -> str:
-        return f'{self.name} ({self.id}) by {self.str_artists}'
-
-    __repr__ = __str__
 
     def _load_info(self):
         """
@@ -99,8 +82,7 @@ class Song:
         current play count.
         """
 
-        r = requests.get(f'https://api.stats.fm/api/v1/tracks/{self.id}')
-        info = r.json()['item']
+        info = song_info(self.id)
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
@@ -109,8 +91,28 @@ class Song:
         if self.name is None:
             self.name = self.official_name
 
+    def __hash__(self) -> int:
+        return hash((self.name, self.id))
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, self.__class__):
+            return self.id == other.id
+        return NotImplemented
+
+    def __str__(self) -> str:
+        return f'{self.name} by {self.str_artists}'
+
+    def __repr__(self) -> str:
+        return f'Song({self.id!r}, {self.name!r})'
+
     @property
     def str_artists(self) -> str:
+        """
+        (`str`): The artists of the song in a consumable form. Will be
+        "artist" if there's one artist, "artist1 & artist2" if there are two,
+        and "artist1, artist2 & artist3" if there are three or more artists.
+        """
+
         if len(self.artists) == 1:
             return self.artists[0]
         if len(self.artists) == 2:
@@ -179,24 +181,13 @@ class Song:
 
     def period_plays(self, start: date, end: date) -> int:
         """
-        Returns the plays for a period.
+        Returns the song's plays for some period.
         """
 
-        r = requests.get(
-            f'https://api.stats.fm/api/v1/users/lev/streams/tracks/{self.id}/stats'
-            f'?after={date_to_timestamp(start)}'
-            f'&before={date_to_timestamp(end)}'
-        )
+        plays = song_plays(self.id, after=start, before=end)
 
-        plays = r.json()['items']['count']
-
-        for _id in self.alt_ids:
-            r = requests.get(
-                f'https://api.stats.fm/api/v1/users/lev/streams/tracks/{_id}/stats'
-                f'?after={date_to_timestamp(start)}'
-                f'&before={date_to_timestamp(end)}'
-            )
-            plays += r.json()['items']['count']
+        for alt_id in self.alt_ids:
+            plays += song_plays(alt_id, after=start, before=end)
 
         return plays
 
@@ -240,61 +231,65 @@ class Song:
         Updates the lifetime plays for the song.
         """
 
-        r = requests.get(
-            f'https://api.stats.fm/api/v1/users/lev/streams/tracks/{self.id}/stats'
-        )
+        self.plays = song_plays(self.id)
 
-        self.plays = r.json()['items']['count']
-
-        for _id in self.alt_ids:
-            r = requests.get(
-                f'https://api.stats.fm/api/v1/users/lev/streams/tracks/{_id}/stats'
-            )
-            self.plays += r.json()['items']['count']
-
-        self.last_updated = date.today()
+        for alt_id in self.alt_ids:
+            self.plays += song_plays(alt_id)
 
     def add_alt(self, alt_id: str) -> None:
-        ids = self.alt_ids
-        ids.append(alt_id)
-        self.alt_ids = list(set([i for i in ids if i != self.id]))
+        """
+        Adds an alternate id to the song. Alternate ids should only be song ids
+        of songs that should be merged but aren't for some reason in the
+        Spotistats system, such as remastered versions.
+        """
 
-        if self.plays:  # will be `0` if not found already
-            self.update_plays()
+        ids = self.alt_ids
+        ids.add(alt_id)
+        self.alt_ids = {i for i in ids if i != self.id}
 
     def get_weeks(self, top: Optional[int] = None) -> int:
+        """
+        Returns the total number of weeks the song has charted in the top `top`
+        of the chart, or the total number of weeks charted if `top` is `None`
+        or not specified.
+        """
+
         if top is None:
             return self.weeks
 
         return len([entry for entry in self._entries if entry.place <= top])
 
     def get_conweeks(self, top: Optional[int] = None) -> int:
-        entries = deepcopy(self._entries)
+        """
+        The greatest number of consecutive weeks the song has spent in the top
+        `top` of the chart. Will return 0 if the song has never charted or
+        never charted in that region.
+        """
+
+        entries = self.entries # returns a copy, so we can pop
         if top:
             entries = [i for i in entries if i.place <= top]
 
-        if len(entries) == 0:
-            return 0
-        if len(entries) == 1:
-            return 1
+        if len(entries) in (0, 1):
+            return len(entries)
 
         longest = 0
-        current = entries.pop(0)
+        current_entry = entries.pop(0)
 
         while entries:
             streak = 1
-            next = entries.pop(0)
+            next_entry = entries.pop(0)
 
-            while current.end == next.start:
+            while current_entry.end == next_entry.start:
                 streak += 1
-                current = next
+                current_entry = next_entry
                 try:
-                    next = entries.pop(0)
+                    next_entry = entries.pop(0)
                 except IndexError:
                     break
 
             longest = max(longest, streak)
-            current = next
+            current_entry = next_entry
 
         return longest
 
@@ -313,7 +308,6 @@ class Song:
             'artists': self.artists,
             'official_name': self.official_name,
             'plays': self.plays,
-            'last_updated': self.last_updated.isoformat(),
             'entries': [i.to_dict() for i in self._entries],
         }
 
@@ -335,18 +329,17 @@ class Song:
         try:
             new = cls(song_id=info['id'], song_name=info['name'], load=False)
 
-            new.alt_ids = info['alt_ids']
+            new.alt_ids = set(info['alt_ids'])
             new.artists = info['artists']
             new.official_name = info['official_name']
             new.plays = info['plays']
-            new.last_updated = date.fromisoformat(info['last_updated'])
             new._entries = [Entry(**i) for i in info['entries']]
             new._entries.sort(key=lambda i: i.end)  # from earliest to latest
 
-        except (KeyError, ValidationError, AttributeError):
+        except (KeyError, AttributeError, ValidationError) as exc:
             raise ValueError(
                 "Dictionary doesn't have the required fields, only ones with the same "
                 'signature as the ones returned by `Song.to_dict()` are accepted.'
-            )
+            ) from exc
         else:
             return new

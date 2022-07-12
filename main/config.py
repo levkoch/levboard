@@ -19,6 +19,7 @@ from typing import Final
 
 # the first date of my listening
 FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
+USER_NAME: Final[str] = 'lev'
 
 ## files ##
 
