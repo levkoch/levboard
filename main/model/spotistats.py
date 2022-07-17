@@ -3,15 +3,16 @@ A Module with common Spotistats requests to make it easier to make them.
 
 Requests:
 * song_info(): Retrieves the info for a song.
+* song_plays(): Returns the song plays for a specific song id.
 """
 
-from typing import Union
 import requests
 import time
 
 from datetime import date
+from typing import Union, Final
 
-from ..config import USER_NAME
+USER_NAME: Final[str] = 'lev'
 
 
 def date_to_timestamp(day: date) -> int:
@@ -31,16 +32,18 @@ def song_info(song_id: str) -> dict:
 def song_plays(
     song_id: str, *, after: Union[int, date] = 0, before: Union[int, date] = 0
 ) -> int:
-    """"""
+    """
+    Finds the plays for a song with the specified song id, between `after` 
+    and `before`, if specified. The `after` and `before` parameters can be 
+    either date objects or epoch timestamps.
+    """
 
     if isinstance(after, date):
         after = date_to_timestamp(after)
     if isinstance(before, date):
         before = date_to_timestamp(before)
 
-    address = (
-        f'https://api.stats.fm/api/v1/users/{USER_NAME}/streams/tracks/{song_id}/stats'
-    )
+    address = f'https://api.stats.fm/api/v1/users/{USER_NAME}/streams/tracks/{song_id}/stats'
 
     if after or before:
         address += '?'

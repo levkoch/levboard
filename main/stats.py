@@ -1,12 +1,32 @@
 from storage import SongUOW
+from model import SongCert
 
 uow = SongUOW()
+
+certs = (SongCert.from_symbol(i) for i in ('G', "P", '2xP', '3xP', '4xP', '5xP', '6xP', '7xP', '8xP', '9xP', '10xD'))
+
+for cert in certs:
+    with uow:
+        units = []
+        for album_name in uow.albums.list():
+            album = uow.albums.get(album_name)
+            units.append((album, album.get_certs(cert)))
+
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
+    print(
+        f"Albums with most songs {cert:F} or higher:"
+    )
+    for (count, (album, songs)) in enumerate(units, 1):
+        print(
+            f"{count:>2} | {f'{album.title} by {album.str_artists}':<55} | {songs:>2} songs"
+        )
 
 for top in (1, 3, 5, 10, 15, None):
     with uow:
         units = []
-        for album_id in uow.albums.list():
-            album = uow.albums.get(album_id)
+        for album_name in uow.albums.list():
+            album = uow.albums.get(album_name)
             units.append((album, album.get_conweeks(top)))
 
     units.sort(key=lambda i: i[1], reverse=True)
@@ -68,22 +88,22 @@ for weeks in (30, 20, 15, 10, 5, None):
         print(f'{place:>3} | {str(album):<50} | {songs:<2} songs')
     print('')
 
+for top in (None, 30, 20, 15, 10, 5, 3, 1):
+    with uow:
+        units = []
+        for song_id in uow.songs.list():
+            song = uow.songs.get(song_id)
+            units.append((song, song.get_conweeks(top)))
 
-with uow:
-    units = []
-    for song_id in uow.songs.list():
-        song = uow.songs.get(song_id)
-        units.append((song, song.get_conweeks(top)))
-
-units.sort(key=lambda i: i[1], reverse=True)
-units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
-print(
-    f"Songs with most consecutive weeks {f'in the top {top}' if top else 'on chart'}:"
-)
-for (count, (song, weeks)) in enumerate(units):
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
     print(
-        f"{count + 1:>2} | {f'{song.name} by {song.str_artists}':<55} | {weeks:>2} wks"
+        f"Songs with most consecutive weeks {f'in the top {top}' if top else 'on chart'}:"
     )
+    for (count, (song, weeks)) in enumerate(units):
+        print(
+            f"{count + 1:>2} | {f'{song.name} by {song.str_artists}':<55} | {weeks:>2} wks"
+        )
 
 """
 with uow:

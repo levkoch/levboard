@@ -105,6 +105,38 @@ class AbstractCert(ABC):
             'Use a subclass instead.'
         )
 
+    @classmethod
+    def from_symbol(cls, info: str) -> "AbstractCert":
+        if len(info) == 1:
+            return cls.from_symbol("0x" + info)
+
+        items = info.split("x")
+
+        if len(items) == 0:
+            mult, cert_letter = 0, "N"
+
+        elif len(items) == 1:
+            if items[0].isnumeric():
+                mult, cert_letter = items[0], "N"
+            else:
+                mult, cert_letter = 0, items[0]
+        
+        else:
+            mult, cert_letter = items
+        
+        letter_to_cert_type = {
+            "N": CertType.NONE,
+            "-": CertType.NONE,
+            "G": CertType.GOLD,
+            '●': CertType.GOLD,
+            "P": CertType.PLATINUM,
+            '▲': CertType.PLATINUM,
+            "D": CertType.DIAMOND,
+            '⬥': CertType.DIAMOND,
+        }
+
+        return cls(int(mult), letter_to_cert_type[cert_letter.upper()])
+
     @property
     def mult(self) -> int:
         """

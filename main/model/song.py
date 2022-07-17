@@ -4,6 +4,7 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
+from collections import defaultdict
 from copy import deepcopy
 from typing import Optional
 from datetime import date
@@ -63,7 +64,7 @@ class Song:
     ):
         self.id: str = song_id
         self.name: str = song_name
-        self.alt_ids: set[str] = set()
+        self.alt_ids: list[str] = []
         self.plays: int = 0
         self._entries: list[Entry] = []
 
@@ -243,9 +244,8 @@ class Song:
         Spotistats system, such as remastered versions.
         """
 
-        ids = self.alt_ids
-        ids.add(alt_id)
-        self.alt_ids = {i for i in ids if i != self.id}
+        if alt_id not in self.alt_ids:
+            self.alt_ids.append(alt_id)
 
     def get_weeks(self, top: Optional[int] = None) -> int:
         """
@@ -266,7 +266,7 @@ class Song:
         never charted in that region.
         """
 
-        entries = self.entries # returns a copy, so we can pop
+        entries = self.entries   # returns a copy, so we can pop
         if top:
             entries = [i for i in entries if i.place <= top]
 
@@ -329,10 +329,12 @@ class Song:
         try:
             new = cls(song_id=info['id'], song_name=info['name'], load=False)
 
-            new.alt_ids = set(info['alt_ids'])
-            new.artists = info['artists']
-            new.official_name = info['official_name']
-            new.plays = info['plays']
+            alts = info.get('alt_ids')
+            new.alt_ids = (alts if alts is not None else [])
+            
+            new.artists = list(info['artists'])
+            new.official_name = str(info['official_name'])
+            new.plays = int(info['plays'])
             new._entries = [Entry(**i) for i in info['entries']]
             new._entries.sort(key=lambda i: i.end)  # from earliest to latest
 

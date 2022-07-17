@@ -1,6 +1,6 @@
-from main.spreadsheet import Spreadsheet
-from main.model.song import Song
-from main.storage import SongUOW
+from spreadsheet import Spreadsheet
+from model import Song
+from storage import SongUOW
 
 uow = SongUOW()
 sheet = Spreadsheet('1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk')
@@ -34,5 +34,3 @@ for count, sheet_song in enumerate(songs):
                 for alt_id in ids[1:]:
                     new_song.add_alt(alt_id)
             uow.songs.add(new_song)
-
-            uow.commit()

@@ -99,7 +99,7 @@ class AlbumRepository:
         for album_name, album_dict in albums.items():
             self._albums[album_name] = Album.from_dict(album_dict)
 
-    def get(self, album_name: str) -> Optional[Song]:
+    def get(self, album_name: str) -> Optional[Album]:
         """
         Retrieves a `Album` by name, or `None` if that name isn't found found.
         """

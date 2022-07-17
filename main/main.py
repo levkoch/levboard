@@ -180,7 +180,7 @@ def update_song_sheet(
             [
                 "'" + movement,
                 song.name,
-                song.str_artists,
+                ', '.join(song.artists),
                 pos['place'],
                 prev.place if prev else '-',
                 song.weeks,

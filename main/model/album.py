@@ -3,7 +3,7 @@ from typing import Generator, Iterable, Union, Optional
 from copy import deepcopy
 
 from .song import Song
-from .cert import AlbumCert
+from .cert import AlbumCert, SongCert
 from .entry import AlbumEntry
 
 
@@ -142,6 +142,12 @@ class Album:
         return AlbumCert(self.units)
 
     def get_conweeks(self, top: Optional[int] = None) -> int:
+        """
+        The greatest number of consecutive weeks the album has spent in the top
+        `top` of the chart. Will return 0 if the album has never charted or
+        never charted in that region.
+        """
+
         entries = deepcopy(self.entries)
         if top:
             entries = [i for i in entries if i.place <= top]
@@ -188,6 +194,12 @@ class Album:
             ]
         )
 
+    def get_certs(self, cert: Optional[SongCert] = None):
+        if cert is None:
+            return len(self)
+
+        return len([song for song in self.songs if song.cert >= cert])
+
     def get_charted(self, weeks: Optional[int]) -> int:
         """The number of songs that charted for at least `weeks` weeks."""
         if weeks is None:
@@ -203,11 +215,16 @@ class Album:
             self.songs.append(song)
 
     def add_entry(self, entry: AlbumEntry) -> None:
+        """Adds an entry to the album."""
         if entry.end not in [i.end for i in self.entries]:
             self.entries.append(entry)
             self.entries.sort(key=lambda i: i.end)
 
     def get_entry(self, end_date: date) -> Optional[AlbumEntry]:
+        """
+        Returns the entry for the week ending in `end_date`, or None if the 
+        album didn't chart that week.
+        """
         return next((i for i in self.entries if i.end == end_date), None)
 
     def period_plays(self, start: date, end: date) -> int:
@@ -243,11 +260,9 @@ class Album:
     @classmethod
     def from_dict(cls, info: dict) -> 'Album':
         new = cls(info['title'], info['artists'])
-        try:
-            new.entries = [AlbumEntry(**i) for i in info['entries']]
-        except KeyError:
-            new.entries = []
+        new.entries = [AlbumEntry(**i) for i in info['entries']]
         new.entries.sort(key=lambda i: i.end)  # from earliest to latest
+        
         new.stored_ids = []
         for song_id in info['songs']:
             new.stored_ids.append(song_id)
