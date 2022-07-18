@@ -4,15 +4,14 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
-from collections import defaultdict
 from copy import deepcopy
-from typing import Optional
+from typing import Iterable, Optional
 from datetime import date
 from pydantic import ValidationError
 
 from .cert import SongCert
 from .entry import Entry
-from .spotistats import song_info, song_plays
+from . import spotistats
 
 
 class Song:
@@ -83,7 +82,7 @@ class Song:
         current play count.
         """
 
-        info = song_info(self.id)
+        info = spotistats.song_info(self.id)
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
@@ -106,6 +105,43 @@ class Song:
     def __repr__(self) -> str:
         return f'Song({self.id!r}, {self.name!r})'
 
+    def __format__(self, fmt: str) -> str:
+        # flags are "o" and "s"
+        fmt = fmt.lower().strip()
+
+        if not fmt or fmt == 's':
+            # simple version / same as str
+            return str(self)
+
+        if fmt[-1] not in ('o', 's'):
+            # format flag not passed in (hopefully)
+            # so probably was like some sort of str formatting
+            return format(str(self), fmt)
+
+        if len(fmt) != 1:
+            # format flags for both how we want the song and alignment.
+            # such as {song:5<o} will process it with the "o" flag and 
+            # then align the str result 5 spaces to the left.
+            return format(format(self, fmt[-1]), fmt[:-1])
+
+        if fmt == "o":
+            # official formatting, like "No Lie (ft. Dua Lipa) by Sean Paul"
+            artists = [
+                artist for artist in self.artists 
+                if artist not in self.official_name
+            ]
+            return f"{self.official_name} by {self._combine_artists(artists)}"
+
+    def _combine_artists(self, iter: Iterable[str]) -> str:
+        artists = list(iter)
+        if len(artists) == 1:
+            return artists[0]
+        if len(artists) == 2:
+            return ' & '.join(artists)
+        return (
+            f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
+        )
+
     @property
     def str_artists(self) -> str:
         """
@@ -114,13 +150,7 @@ class Song:
         and "artist1, artist2 & artist3" if there are three or more artists.
         """
 
-        if len(self.artists) == 1:
-            return self.artists[0]
-        if len(self.artists) == 2:
-            return ' & '.join(self.artists)
-        return (
-            f'{", ".join(self.artists[:-2])}, {" & ".join(self.artists[-2:])}'
-        )
+        return self._combine_artists(self.artists)
 
     @property
     def peak(self) -> int:
@@ -178,17 +208,17 @@ class Song:
         (`SongCert`): The song's certification.
         """
 
-        return SongCert(self.units)
+        return SongCert.from_units(self.units)
 
     def period_plays(self, start: date, end: date) -> int:
         """
         Returns the song's plays for some period.
         """
 
-        plays = song_plays(self.id, after=start, before=end)
+        plays = spotistats.song_plays(self.id, after=start, before=end)
 
         for alt_id in self.alt_ids:
-            plays += song_plays(alt_id, after=start, before=end)
+            plays += spotistats.song_plays(alt_id, after=start, before=end)
 
         return plays
 
@@ -232,10 +262,10 @@ class Song:
         Updates the lifetime plays for the song.
         """
 
-        self.plays = song_plays(self.id)
+        self.plays = spotistats.song_plays(self.id)
 
         for alt_id in self.alt_ids:
-            self.plays += song_plays(alt_id)
+            self.plays += spotistats.song_plays(alt_id)
 
     def add_alt(self, alt_id: str) -> None:
         """
@@ -330,8 +360,8 @@ class Song:
             new = cls(song_id=info['id'], song_name=info['name'], load=False)
 
             alts = info.get('alt_ids')
-            new.alt_ids = (alts if alts is not None else [])
-            
+            new.alt_ids = alts if alts is not None else []
+
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
             new.plays = int(info['plays'])

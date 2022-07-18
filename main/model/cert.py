@@ -16,7 +16,7 @@ Non-User Classes:
 import operator
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Callable, Any, Optional
+from typing import Callable, Any
 from pydantic import NonNegativeInt
 
 
@@ -79,22 +79,19 @@ class AbstractCert(ABC):
     _mult: NonNegativeInt
 
     def __init__(
-        self, unitsormult: NonNegativeInt = 0, cert: Optional[CertType] = None
+        self, mult: NonNegativeInt = 0, cert: CertType = CertType.NONE
     ):
-        if cert:   # passed in both a mult and a cert
-            if unitsormult < 0:
-                raise ValueError(
-                    'Multiplier / Units need to be a nonnegative int.'
-                )
-            self._mult = int(unitsormult)
-            self._cert = cert
-        else:   # passed in only a unit / defaulted units
-            self._mult = 0
-            self._cert = CertType.NONE
-            self._load(int(unitsormult))
+        if mult < 0:
+            raise ValueError(
+                'Multiplier / Units need to be a nonnegative int.'
+            )
+        self._mult = int(mult)
+        self._cert = cert
 
+
+    @classmethod
     @abstractmethod
-    def _load(self, units: NonNegativeInt) -> None:
+    def from_units(cls, units: NonNegativeInt) -> None:
         """
         Abstract Method - Loads the multiplier and cert type of the cert
         based on the units.
@@ -106,32 +103,32 @@ class AbstractCert(ABC):
         )
 
     @classmethod
-    def from_symbol(cls, info: str) -> "AbstractCert":
+    def from_symbol(cls, info: str) -> 'AbstractCert':
         if len(info) == 1:
-            return cls.from_symbol("0x" + info)
+            return cls.from_symbol('0x' + info)
 
-        items = info.split("x")
+        items = info.split('x')
 
         if len(items) == 0:
-            mult, cert_letter = 0, "N"
+            mult, cert_letter = 0, 'N'
 
         elif len(items) == 1:
             if items[0].isnumeric():
-                mult, cert_letter = items[0], "N"
+                mult, cert_letter = items[0], 'N'
             else:
                 mult, cert_letter = 0, items[0]
-        
+
         else:
             mult, cert_letter = items
-        
+
         letter_to_cert_type = {
-            "N": CertType.NONE,
-            "-": CertType.NONE,
-            "G": CertType.GOLD,
+            'N': CertType.NONE,
+            '-': CertType.NONE,
+            'G': CertType.GOLD,
             '●': CertType.GOLD,
-            "P": CertType.PLATINUM,
+            'P': CertType.PLATINUM,
             '▲': CertType.PLATINUM,
-            "D": CertType.DIAMOND,
+            'D': CertType.DIAMOND,
             '⬥': CertType.DIAMOND,
         }
 
@@ -272,24 +269,26 @@ class SongCert(AbstractCert):
 
     __slots__ = ()
 
-    def _load(self, units: NonNegativeInt) -> None:
+    @classmethod
+    def from_units(cls, units: NonNegativeInt) -> 'SongCert':
         """
-        Sets the cert and mult fields with the way that they should be for a song.
-        Should only be called once, during construction.
+        Constructs a SongCert from units. Returns a new SongCert object.
         """
 
+        mult = 0
         if units < 100:
-            self._cert = CertType.NONE
+            cert = CertType.NONE
         elif units < 200:
-            self._cert = CertType.GOLD
+            cert = CertType.GOLD
         elif units < 2000:
             if units >= 400:
-                self._mult = units // 200
-            self._cert = CertType.PLATINUM
+                mult = units // 200
+            cert = CertType.PLATINUM
         else:
-            self._mult = units // 200
-            self._cert = CertType.DIAMOND
+            mult = units // 200
+            cert = CertType.DIAMOND
 
+        return cls(mult, cert)
 
 class AlbumCert(AbstractCert):
     """
@@ -326,20 +325,23 @@ class AlbumCert(AbstractCert):
 
     __slots__ = ()
 
-    def _load(self, units: NonNegativeInt) -> None:
+    @classmethod
+    def from_units(cls, units: NonNegativeInt) -> None:
         """
-        Sets the cert and mult fields with the way that they should be for an album.
-        Should only be called once, during construction.
+        Returns a new AlbumCert object from the units specified.
         """
 
+        mult = 0
         if units < 500:
-            self._cert = CertType.NONE
+            cert = CertType.NONE
         elif units < 1000:
-            self._cert = CertType.GOLD
+            cert = CertType.GOLD
         elif units < 10000:
             if units >= 2000:
-                self._mult = units // 1000
-            self._cert = CertType.PLATINUM
+                mult = units // 1000
+            cert = CertType.PLATINUM
         else:
-            self._mult = units // 1000
-            self._cert = CertType.DIAMOND
+            mult = units // 1000
+            cert = CertType.DIAMOND
+
+        return cls(mult, cert)

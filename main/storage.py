@@ -69,6 +69,9 @@ class SongRepository:
             (i for i in self._songs.values() if i.name == song_name), None
         )
 
+    def __iter__(self):
+        return iter(self._songs.values())
+
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
         self._songs[song.id] = song

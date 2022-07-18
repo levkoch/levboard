@@ -3,7 +3,22 @@ from model import SongCert
 
 uow = SongUOW()
 
-certs = (SongCert.from_symbol(i) for i in ('G', "P", '2xP', '3xP', '4xP', '5xP', '6xP', '7xP', '8xP', '9xP', '10xD'))
+certs = (
+    SongCert.from_symbol(i)
+    for i in (
+        'G',
+        'P',
+        '2xP',
+        '3xP',
+        '4xP',
+        '5xP',
+        '6xP',
+        '7xP',
+        '8xP',
+        '9xP',
+        '10xD',
+    )
+)
 
 for cert in certs:
     with uow:
@@ -14,9 +29,7 @@ for cert in certs:
 
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
-    print(
-        f"Albums with most songs {cert:F} or higher:"
-    )
+    print(f'Albums with most songs {cert:F} or higher:')
     for (count, (album, songs)) in enumerate(units, 1):
         print(
             f"{count:>2} | {f'{album.title} by {album.str_artists}':<55} | {songs:>2} songs"

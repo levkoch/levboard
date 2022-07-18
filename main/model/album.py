@@ -33,7 +33,7 @@ class Album:
     def __len__(self) -> int:
         return len(self.songs)
 
-    def __iter__(self) -> Generator:
+    def __iter__(self) -> Iterable[Song]:
         return iter(self.songs)
 
     @property
@@ -139,7 +139,7 @@ class Album:
         (`AlbumCert`): The album's certification.
         """
 
-        return AlbumCert(self.units)
+        return AlbumCert.from_units(self.units)
 
     def get_conweeks(self, top: Optional[int] = None) -> int:
         """
@@ -222,7 +222,7 @@ class Album:
 
     def get_entry(self, end_date: date) -> Optional[AlbumEntry]:
         """
-        Returns the entry for the week ending in `end_date`, or None if the 
+        Returns the entry for the week ending in `end_date`, or None if the
         album didn't chart that week.
         """
         return next((i for i in self.entries if i.end == end_date), None)
@@ -262,7 +262,7 @@ class Album:
         new = cls(info['title'], info['artists'])
         new.entries = [AlbumEntry(**i) for i in info['entries']]
         new.entries.sort(key=lambda i: i.end)  # from earliest to latest
-        
+
         new.stored_ids = []
         for song_id in info['songs']:
             new.stored_ids.append(song_id)

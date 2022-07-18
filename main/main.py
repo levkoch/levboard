@@ -1,33 +1,15 @@
-import requests
-import time
-
 from datetime import date, datetime, timedelta
 from typing import Callable, Optional
+from concurrent import futures
 
-from model import Album, AlbumEntry, AlbumCert, Song, Entry
+from model import Album, AlbumEntry, AlbumCert, Song, Entry, spotistats
 from storage import SongUOW
 from spreadsheet import Spreadsheet
-
-# first week of awl time
-FIRST_DATE = date.fromisoformat('2021-05-13')
-
-
-def date_to_timestamp(day: date) -> int:
-    return int(time.mktime(day.timetuple()) * 1000)
+from config import FIRST_DATE, LEVBOARD_SHEET
 
 
 def load_week(start_day: date, end_day: date):
-    r = requests.get(
-        'https://api.stats.fm/api/v1/users/lev/top/tracks'
-        f'?after={date_to_timestamp(start_day)}'
-        f'&before={date_to_timestamp(end_day)}'
-    )
-
-    songs = [
-        {'plays': i['streams'], 'id': str(i['track']['id'])}
-        for i in r.json()['items']
-        if i['streams'] > 1
-    ]
+    songs = spotistats.songs_week(start_day, end_day)
 
     if len(songs) < 60:
         print(f'Only {len(songs)} songs got over 1 stream that week.')
@@ -42,24 +24,26 @@ def load_week(start_day: date, end_day: date):
     return songs
 
 
-def ask_new_song(uow, song_id) -> Song:
+def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     tester = Song(song_id)
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
-    name: str = input('What should the song be called in the database? ')
+    name = input(
+        'What should the song be called in the database? '
+    ).strip()
 
-    if name.strip() == '':
+    if name == '':
         return tester
 
-    if name.lower().strip() == 'merge':
+    if name.lower() == 'merge':
         merge: str = input('Id of the song to merge with: ')
         merge_into = uow.songs.get(merge)
         merge_into.add_alt(song_id)
         print(f'Sucessfully merged {tester.name} into {merge_into.name}')
         return merge_into
 
-    return Song(song_id.strip(), name)
+    return Song(song_id, name)
 
 
 def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
@@ -220,40 +204,13 @@ def get_peak(song: Song) -> str:
 def get_album_week(
     start_date: date, end_date: date
 ) -> Callable[[Album, bool], int]:
-    r = requests.get(
-        'https://api.stats.fm/api/v1/users/lev/top/tracks'
-        f'?after={date_to_timestamp(start_date)}'
-        f'&before={date_to_timestamp(end_date)}'
-    )
-    plays = [
-        {'plays': i['streams'], 'id': str(i['track']['id'])}
-        for i in r.json()['items']
-    ]
 
-    def get_album_plays(album: Album, accurate: bool = False) -> int:
-        album_plays = 0
+    def get_album_plays(album: Album) -> int:
+        with futures.ThreadPoolExecutor as executor:
+            to_do: list[futures.Future] = []
+            for song in album:
+                song.period_plays(start_date, end_date)
 
-        for song in album.songs:
-            song_plays = next(
-                (i['plays'] for i in plays if i['id'] == song.id), None
-            )
-
-            if song_plays is None:
-                # period plays accounts for alternate ids
-                if accurate:
-                    album_plays += song.period_plays(start_date, end_date)
-                # else add 0 becuase it didn't find anything
-
-            else:
-                album_plays += song_plays
-
-                for alt_id in song.alt_ids:
-                    song_plays = next(
-                        (i['plays'] for i in plays if i['id'] == alt_id), 0
-                    )
-                    album_plays += song_plays
-
-        return album_plays
 
     return get_album_plays
 
@@ -321,7 +278,7 @@ def make_album_chart(
         album.add_entry(entry)
 
         album_cert = format(
-            AlbumCert(all_time_plays(album) + album.points), 'S'
+            AlbumCert.from_units((album.plays * 2) + album.points), 'S'
         )
 
         prev = album.get_entry(start_date)
@@ -356,23 +313,31 @@ def make_album_chart(
     new_rows.extend(rows)
     return new_rows
 
+def update_song_plays(song: Song) -> Song:
+    song.update_plays()
+    return (song, song.plays)
+
+def update_all_song_plays(uow: SongUOW) -> None:
+    with futures.ThreadPoolExecutor(max_workers=10) as executor:
+        to_do: list[futures.Future]  = []
+        for song in uow.songs:
+            future = executor.submit(update_song_plays, song)
+            to_do.append(future)
+
+        for count, future in enumerate(futures.as_completed(to_do), 1):
+            song, plays = future.result()
+            print(f'({count}) updated {song:o} -> {plays} plays')
 
 if __name__ == '__main__':
     uow = SongUOW()
-
-    """
-    for top in (1, 3, 5, 10, 20, 40, None):
-        display_longest_runs(uow, top)
-        print('')
-    """
     start_time = datetime.now()
-
     week_count = 0
-    clear_entries(uow)
-
     start_date = FIRST_DATE
     song_rows: list[list] = []
     album_rows: list[list] = []
+
+    clear_entries(uow)
+    update_all_song_plays(uow)
 
     while True:
         end_date = start_date + timedelta(days=7)
@@ -392,7 +357,7 @@ if __name__ == '__main__':
         song_rows = update_song_sheet(
             song_rows, uow, positions, start_date, end_date
         )
-        start_date = end_date  # shift pointer
+        start_date = end_date # shift pointer
 
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
@@ -418,7 +383,7 @@ if __name__ == '__main__':
     start_album_rows.extend(album_rows)
     album_rows = start_album_rows
 
-    sheet = Spreadsheet('1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk')
+    sheet = Spreadsheet(LEVBOARD_SHEET)
 
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
