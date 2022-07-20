@@ -7,14 +7,16 @@ Requests:
 * `songs_week`: Returns the top songs for a specific time period.
 """
 
+from pydantic import NonNegativeInt
 import requests
 import time
 
-from datetime import date
+from datetime import date, datetime
 from typing import Union, Final
 
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
+MAX_ENTRIES: Final[int] = 10000
 
 
 def date_to_timestamp(day: date) -> int:
@@ -107,4 +109,34 @@ def songs_week(
         {'plays': int(i['streams']), 'id': str(i['track']['id'])}
         for i in r.json()['items']
         if i['streams'] > min_plays
+    ]
+
+
+def song_play_history(
+    song_id: str,
+    *,
+    user: str = USER_NAME,
+    max_entries: NonNegativeInt = MAX_ENTRIES,
+) -> list[dict]:
+
+    """Returns a list of song plays for the indicated song id."""
+
+    address = (
+        f'https://api.stats.fm/api/v1/users/{user}/streams/'
+        f'tracks/{song_id}?limit={max_entries}'
+    )
+
+    r = requests.get(address)
+
+    # datetime is like '2022-04-11T05:03:15.000Z'
+    # get rid of milliseconds because they're gonna be 000 anyway
+
+    return [
+        {
+            'played_for': int(i['playedMs']),
+            'finished_playing': datetime.strptime(
+                i['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
+            ),
+        }
+        for i in r.json()['items']
     ]

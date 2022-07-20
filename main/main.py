@@ -29,9 +29,7 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
-    name = input(
-        'What should the song be called in the database? '
-    ).strip()
+    name = input('What should the song be called in the database? ').strip()
 
     if name == '':
         return tester
@@ -204,13 +202,32 @@ def get_peak(song: Song) -> str:
 def get_album_week(
     start_date: date, end_date: date
 ) -> Callable[[Album, bool], int]:
+    plays = spotistats.songs_week(start_date, end_date)
 
-    def get_album_plays(album: Album) -> int:
-        with futures.ThreadPoolExecutor as executor:
-            to_do: list[futures.Future] = []
-            for song in album:
-                song.period_plays(start_date, end_date)
+    def get_album_plays(album: Album, accurate: bool = False) -> int:
+        album_plays = 0
 
+        for song in album.songs:
+            song_plays = next(
+                (i['plays'] for i in plays if i['id'] == song.id), None
+            )
+
+            if song_plays is None:
+                # period plays accounts for alternate ids
+                if accurate:
+                    album_plays += song.period_plays(start_date, end_date)
+                # else add 0 becuase it didn't find anything
+
+            else:
+                album_plays += song_plays
+
+                for alt_id in song.alt_ids:
+                    song_plays = next(
+                        (i['plays'] for i in plays if i['id'] == alt_id), 0
+                    )
+                    album_plays += song_plays
+
+        return album_plays
 
     return get_album_plays
 
@@ -222,6 +239,7 @@ def make_album_chart(
     week_count: int,
     rows: list[list],
 ) -> list[list]:
+
     units: list[tuple[Album, int]] = []
     album_plays = get_album_week(start_date, end_date)
     for album_name in uow.albums.list():
@@ -277,8 +295,9 @@ def make_album_chart(
         )
         album.add_entry(entry)
 
-        album_cert = format(
-            AlbumCert.from_units((album.plays * 2) + album.points), 'S'
+        album_cert = format(  # current certificaiton
+            AlbumCert.from_units((all_time_plays(album) * 2) + album.points),
+            's',
         )
 
         prev = album.get_entry(start_date)
@@ -313,13 +332,15 @@ def make_album_chart(
     new_rows.extend(rows)
     return new_rows
 
+
 def update_song_plays(song: Song) -> Song:
     song.update_plays()
     return (song, song.plays)
 
+
 def update_all_song_plays(uow: SongUOW) -> None:
-    with futures.ThreadPoolExecutor(max_workers=10) as executor:
-        to_do: list[futures.Future]  = []
+    with futures.ThreadPoolExecutor() as executor:
+        to_do: list[futures.Future] = []
         for song in uow.songs:
             future = executor.submit(update_song_plays, song)
             to_do.append(future)
@@ -327,6 +348,7 @@ def update_all_song_plays(uow: SongUOW) -> None:
         for count, future in enumerate(futures.as_completed(to_do), 1):
             song, plays = future.result()
             print(f'({count}) updated {song:o} -> {plays} plays')
+
 
 if __name__ == '__main__':
     uow = SongUOW()
@@ -336,8 +358,9 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-    clear_entries(uow)
     update_all_song_plays(uow)
+    quit()
+    clear_entries(uow)
 
     while True:
         end_date = start_date + timedelta(days=7)
@@ -357,7 +380,7 @@ if __name__ == '__main__':
         song_rows = update_song_sheet(
             song_rows, uow, positions, start_date, end_date
         )
-        start_date = end_date # shift pointer
+        start_date = end_date   # shift pointer
 
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],

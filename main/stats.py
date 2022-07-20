@@ -1,7 +1,63 @@
+import functools
+
+from datetime import timedelta, datetime
+from concurrent import futures
+
 from storage import SongUOW
-from model import SongCert
+from model import SongCert, Song, spotistats
+
 
 uow = SongUOW()
+
+
+def time_to_plays(song: Song, plays: int) -> timedelta:
+    if song.plays < plays:
+        raise ValueError('not enough plays for song')
+
+    play_record = spotistats.song_play_history(song.id)
+
+    play_record.sort(key=lambda i: i['finished_playing'])
+
+    first_play: datetime = play_record[0]['finished_playing']
+    wanted_play: datetime = play_record[plays - 1]['finished_playing']
+
+    time = wanted_play - first_play
+
+    # print(f'{song.name} took {time.days} days to reach {plays} plays')
+
+    return (song, time)
+
+
+def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
+    contenders = (
+        song for song in uow.songs if song.plays >= plays and not song.alt_ids
+    )
+
+    with futures.ThreadPoolExecutor() as executor:
+        mapped = executor.map(
+            functools.partial(time_to_plays, plays=plays), contenders
+        )
+
+    units = [i for i in mapped if i[1].days > 1]
+    units.sort(key=lambda i: i[1])
+    if len(units) > 16:
+        units = [i for i in units if i[1] <= units[19][1]]
+    print(f'Fastest songs to reach {plays} plays:')
+    for (song, time) in units:
+        place = len([unit for unit in units if unit[1].days < time.days]) + 1
+        print(f'{place:<2} | {song:<45} | {time.days} days')
+
+
+MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
+
+if __name__ == '__main__':
+    uow = SongUOW()
+
+    for milestone in MILESTONES[::-1]:
+        top_shortest_time_plays_milestones(uow, milestone)
+        print('')
+
+    quit()
 
 certs = (
     SongCert.from_symbol(i)

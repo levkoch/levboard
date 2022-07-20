@@ -88,7 +88,6 @@ class AbstractCert(ABC):
         self._mult = int(mult)
         self._cert = cert
 
-
     @classmethod
     @abstractmethod
     def from_units(cls, units: NonNegativeInt) -> None:
@@ -289,6 +288,7 @@ class SongCert(AbstractCert):
             cert = CertType.DIAMOND
 
         return cls(mult, cert)
+
 
 class AlbumCert(AbstractCert):
     """

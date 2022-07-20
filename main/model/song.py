@@ -120,17 +120,18 @@ class Song:
 
         if len(fmt) != 1:
             # format flags for both how we want the song and alignment.
-            # such as {song:5<o} will process it with the "o" flag and 
+            # such as {song:5<o} will process it with the "o" flag and
             # then align the str result 5 spaces to the left.
             return format(format(self, fmt[-1]), fmt[:-1])
 
-        if fmt == "o":
+        if fmt == 'o':
             # official formatting, like "No Lie (ft. Dua Lipa) by Sean Paul"
             artists = [
-                artist for artist in self.artists 
+                artist
+                for artist in self.artists
                 if artist not in self.official_name
             ]
-            return f"{self.official_name} by {self._combine_artists(artists)}"
+            return f'{self.official_name} by {self._combine_artists(artists)}'
 
     def _combine_artists(self, iter: Iterable[str]) -> str:
         artists = list(iter)
@@ -138,9 +139,7 @@ class Song:
             return artists[0]
         if len(artists) == 2:
             return ' & '.join(artists)
-        return (
-            f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
-        )
+        return f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
 
     @property
     def str_artists(self) -> str:
