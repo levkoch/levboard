@@ -46,50 +46,50 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
     for (song, time) in units:
         place = len([unit for unit in units if unit[1].days < time.days]) + 1
         print(f'{place:<2} | {song:<45} | {time.days} days')
+    print('')
+
+
+def top_albums_cert_count(uow: SongUOW, cert: SongCert):
+    contenders = [
+           (album, album.get_certs(cert)) for album in uow.albums
+    ]
+    contenders.sort(key=lambda i: i[1], reverse=True)
+    contenders = [i for i in contenders if i[1] >= contenders[19][1] and i[1] > 1]
+    print(f'Albums with most songs {cert:f} or higher:')
+    for (album, songs) in contenders:
+        place = len([unit for unit in contenders if unit[1] > songs]) + 1
+        print(
+            f"{place:>2} | {f'{album.title} by {album.str_artists}':<55} | {songs:>2} songs"
+        )
+    print('')
 
 
 MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
+RAW_CERTS = [
+    'G',
+    'P',
+    '2xP',
+    '3xP',
+    '4xP',
+    '5xP',
+    '6xP',
+    '7xP',
+    '8xP',
+    '9xP',
+    '10xD',
+]
+CERTS = [SongCert.from_symbol(i) for i in RAW_CERTS]
 
 if __name__ == '__main__':
     uow = SongUOW()
 
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-        print('')
+    
+    for cert in CERTS[::-1]:
+        top_albums_cert_count(uow, cert)
 
     quit()
-
-certs = (
-    SongCert.from_symbol(i)
-    for i in (
-        'G',
-        'P',
-        '2xP',
-        '3xP',
-        '4xP',
-        '5xP',
-        '6xP',
-        '7xP',
-        '8xP',
-        '9xP',
-        '10xD',
-    )
-)
-
-for cert in certs:
-    with uow:
-        units = []
-        for album_name in uow.albums.list():
-            album = uow.albums.get(album_name)
-            units.append((album, album.get_certs(cert)))
-
-    units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
-    print(f'Albums with most songs {cert:F} or higher:')
-    for (count, (album, songs)) in enumerate(units, 1):
-        print(
-            f"{count:>2} | {f'{album.title} by {album.str_artists}':<55} | {songs:>2} songs"
-        )
 
 for top in (1, 3, 5, 10, 15, None):
     with uow:

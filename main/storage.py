@@ -1,6 +1,6 @@
 import json
 
-from typing import Optional, Generator
+from typing import Iterable, Optional, Generator
 
 from model import Song, Album
 from config import SONG_FILE, ALBUM_FILE
@@ -65,11 +65,25 @@ class SongRepository:
         return song
 
     def get_by_name(self, song_name: str) -> Optional[Song]:
-        return next(
-            (i for i in self._songs.values() if i.name == song_name), None
+        """
+        Retrieves a song by the song name. Is NOT case sensitive. Will first
+        try to match the whole song name, and then will match the beginning 
+        of the song name from the query, and returns `None` if nothing 
+        fitting was found in either case.
+        """
+        try:
+            match = next(
+            i for i in self._songs.values() if i.name.lower() == song_name.lower()
         )
+        except StopIteration:
+            return next(
+                (i for i in self._songs.values() if i.name.lower().startswith(song_name.lower())), None
+            )
+        else:
+            return match
 
-    def __iter__(self):
+
+    def __iter__(self) -> Iterable[Song]:
         return iter(self._songs.values())
 
     def add(self, song: Song) -> None:
@@ -101,6 +115,9 @@ class AlbumRepository:
 
         for album_name, album_dict in albums.items():
             self._albums[album_name] = Album.from_dict(album_dict)
+
+    def __iter__(self) -> Iterable[Album]:
+        return iter(self._albums.values())
 
     def get(self, album_name: str) -> Optional[Album]:
         """
