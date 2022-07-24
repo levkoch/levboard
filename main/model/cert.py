@@ -9,8 +9,9 @@ Classes:
 * SongCert: A certification for a song.
 * AlbumCert: A certification for an album.
 
-Non-User Classes:
-* Base
+Abstract Classes:
+* AbstractCert: A certification that doesn't support constructing from units.
+    The base class of both SongCert and AlbumCert.
 """
 
 import operator
@@ -144,7 +145,7 @@ class AbstractCert(ABC):
     def cert(self) -> CertType:
         """
         cert (`CertType`): The certification type of the certification.
-        A cert.CertType enum object.
+        A `cert.CertType` enum object.
         """
         return self._cert
 

@@ -34,3 +34,5 @@ for count, sheet_song in enumerate(songs):
                 for alt_id in ids[1:]:
                     new_song.add_alt(alt_id)
             uow.songs.add(new_song)
+
+uow.commit()

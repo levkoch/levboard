@@ -1,10 +1,10 @@
-from main.spreadsheet import Spreadsheet
-from main.model.album import Album
-from main.storage import SongUOW
+from spreadsheet import Spreadsheet
+from model import Album
+from storage import SongUOW
 
 uow = SongUOW()
 sheet = Spreadsheet('1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk')
-request = sheet.get_range('Albums!A1:G1718')
+request = sheet.get_range('Albums!A1:G1775')
 info: list[list] = request.get('values')
 
 print(f'{len(info)} rows found.')

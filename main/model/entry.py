@@ -1,9 +1,22 @@
+"""
+levboard/main/model/entry.py
+
+Where the two entry types are held, for albums and songs.
+
+Data Classes:
+* SongEntry: An entry for a single `Song`.
+* AlbumEntry: An entry for a single `Album`.
+
+Other Classes:
+* _BaseEntry: The base class for both entry types. Do NOT construct.
+"""
+
 from typing import Union
 from datetime import date
 from pydantic import BaseModel, PositiveInt, validator, conint
 
 
-class BaseEntry(BaseModel):
+class _BaseEntry(BaseModel):
     """Base class for entries. Do Not Construct, it's not complete."""
 
     start: date
@@ -31,7 +44,7 @@ class BaseEntry(BaseModel):
         }
 
 
-class Entry(BaseEntry):
+class Entry(_BaseEntry):
     """
     A frozen dataclass representing a chart entry.
 
@@ -57,17 +70,19 @@ class Entry(BaseEntry):
         return info
 
 
-class AlbumEntry(BaseEntry):
+class AlbumEntry(_BaseEntry):
     """
     A frozen dataclass representing a chart entry.
 
     Attributes / Arguments:
     * start (`datetime.date`): The date that the week's entry started.
-        (NOTE: `start` and `end` can be passed in as ISO date strings, they
-        will be parsed as the correct type.)
+        (NOTE: `start` and `end` can be passed in as ISO date strings, 
+        they will be parsed as the correct type.)
     * end (`datetime.date`): The date that the week's entry ended.
-    * plays (`int`): The plays the song got that week. Will be greater than `1`.
-    * place (`int`): The chart position attained by that song. A positive integer.
+    * plays (`int`): The plays the song got that week. Will be greater 
+        than `1`.
+    * place (`int`): The chart position attained by that song. A 
+        positive integer.
 
     Methods:
     * to_dict (`dict` method): Collects the Entry into a dictionary.

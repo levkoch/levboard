@@ -5,6 +5,7 @@ Requests:
 * `song_info`: Retrieves the info for a song.
 * `song_plays`: Returns the song plays for a specific song id.
 * `songs_week`: Returns the top songs for a specific time period.
+* `song_play_history`: The history of the song's plays.
 """
 
 from pydantic import NonNegativeInt

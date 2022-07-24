@@ -1,5 +1,5 @@
 from datetime import date
-from typing import Generator, Iterable, Union, Optional
+from typing import Iterable, Union, Optional
 from copy import deepcopy
 
 from .song import Song

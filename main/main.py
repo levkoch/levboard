@@ -358,8 +358,8 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-    update_all_song_plays(uow)
-    quit()
+    # update_all_song_plays(uow)
+   
     clear_entries(uow)
 
     while True:

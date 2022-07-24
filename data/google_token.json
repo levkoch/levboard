@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lev-bot",
+  "private_key_id": "f95b8eb045aee8b8aa658a7ee1c58e2182a420d4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8NFugIJ49e8vb\nTbVDEJxn1dUyR9qhA57cq3iztL0wXC0sLgoDjl4aYpO19PhJuGurzZVcRN70F56Q\nhGwS9P4qwIxbSZXq1lugogJBBxHKlVTMU0WA3E4olMlpALz/QpVC7iEBSclFAcoC\nYSarlo88SCmuxYNASO7lCM9pGacP3js/+xHhhQkBIzq3QS4gXXgSSV7TcK1ScRgE\nK2CO4xjJ0vf1EE6VA5V+Y/GBQ2PhNTneUxM0of84WrK55r+GjC+vHoUD9CZht9V0\nuQVso742UiSqpjczRHdVLzdyeQr4KOUg1X5VuyVd2hzfOcqpQFUxWTFDj1PlrjuC\nGYPc9hllAgMBAAECggEANY5qsncFwLZNTRNgbPy5nVy+xgengeFPYDlVaEIbAjuA\nyU0yoU9unPCHWySiUQwva5zdj3uzvF9KSpK8VGquN0lCx6l5hXHJcj0YChwyZmU3\nU8uwgBpxDWBFrmE85yCx6/Fqp/ywzzfSnfm6cOKv0PYyEl93WaBHhxqKNzzLCxry\n89iGf2eUkiBw9BvGaM1n3u5LydkB5CjLg4qtG7CfRBICnjYhT/IKGKgqE9Sf7D49\nC5ibZuh8h8W0x0xhkIHOAKb0PEh0ygbgLxCm6C5wzf8EdwzRDujp0n5peXu5gHxJ\nClmQxT3aYDQrUxjnBurp51qjbel+4IE6RGr/ZhxBAwKBgQD47vl/5GHE45egy8sI\nrCbKVEd7jf3gJMrlzsB2aWQyRwRWr6k1hfTqJE9+kMuxHqMNyAU8hcZQFhoHSlc2\nSLvrDBTamKM5xXmef8aLGxtr687JWueSWxllv5vy7A4UQp6dOS9d0bSuu6Gh4HCo\nQE/IOo8ns8oCKIA3NujUAbwQNwKBgQDBjA9CFd9hRn/X0hIJJCIiTLXE4MApvlJH\n+ZRVYgc5FSHYxdeOJfg0Zg2TUHbEqyoVfrHy8I6BYqRt5eJryrqbXvWx0JOvILLV\n6k3g+jtAfPZCIOlXCYRRX99UM+AMLpgFaq8/NHLbOUOZTrbgPCZJfhoFKVPwGzis\nBxZcekV9QwKBgAhyk6Tzax3zW0HpqIoyzV4wXfyjZOomVXxW99EM4omSP2NxspxO\nX3FSqh/xafgowf/FuefD4mb1WQzGSQ9eiIIBdvO0GlXrjaUDUQmHcfbHmczbeOBO\nlx4M0o371L57REaxmhnk8+y6EVIc+7W5+PsigZknUMOh/DfjdSM8q9UhAoGASTVG\nDDQjwzKcZrDx231MX/buBiMQ7HktvEW+ArHKk5/Xppvm1cCs6nzzg5Y65lbr2yeJ\n/Z9Z97ys/1il1SngfaZkfrarNeHDY0B15rQft1vM9eRm/mH+J52A5uOcSl9RZzMc\nSGb5TsyRMirg5145CTFmfC9OrZJOVFt17NLe9+sCgYEA2ZtASGmhvcOLouDZ4lI+\n+jgA5IopX9Js3HSRT22/gza39USEOWEQnrCvFyl5w09DwNcfI3sX0xKp5OV6S+a7\n4stJK7mNes5gdiff3pRUHUIoXxMc2nnZuYS2QKXr4k17uuScMRt3D9BbdC//tKJF\nDAujh/OBf7WuDjm2nOCv+zQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lev-bot@lev-bot.iam.gserviceaccount.com",
+  "client_id": "108663079095462687270",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lev-bot%40lev-bot.iam.gserviceaccount.com"
+}

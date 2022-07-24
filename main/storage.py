@@ -1,6 +1,6 @@
 import json
 
-from typing import Iterable, Optional, Generator
+from typing import Iterable, Iterator, Optional, Generator
 
 from model import Song, Album
 from config import SONG_FILE, ALBUM_FILE
@@ -83,7 +83,7 @@ class SongRepository:
             return match
 
 
-    def __iter__(self) -> Iterable[Song]:
+    def __iter__(self) -> Iterator[Song]:
         return iter(self._songs.values())
 
     def add(self, song: Song) -> None:
@@ -116,7 +116,7 @@ class AlbumRepository:
         for album_name, album_dict in albums.items():
             self._albums[album_name] = Album.from_dict(album_dict)
 
-    def __iter__(self) -> Iterable[Album]:
+    def __iter__(self) -> Iterator[Album]:
         return iter(self._albums.values())
 
     def get(self, album_name: str) -> Optional[Album]:
