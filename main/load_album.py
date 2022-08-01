@@ -1,10 +1,11 @@
 from spreadsheet import Spreadsheet
 from model import Album
 from storage import SongUOW
+from config import LEVBOARD_SHEET
 
 uow = SongUOW()
-sheet = Spreadsheet('1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk')
-request = sheet.get_range('Albums!A1:G1775')
+sheet = Spreadsheet(LEVBOARD_SHEET)
+request = sheet.get_range('Albums!A1:G1788')
 info: list[list] = request.get('values')
 
 print(f'{len(info)} rows found.')

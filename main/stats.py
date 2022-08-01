@@ -3,11 +3,7 @@ import itertools
 
 from datetime import timedelta, datetime
 from concurrent import futures
-<<<<<<< Updated upstream
-from typing import Optional
-=======
-from typing import Iterator, Optional
->>>>>>> Stashed changes
+from typing import Optional, Iterator
 
 from storage import SongUOW
 from model import SongCert, Song, spotistats, Album
@@ -76,10 +72,9 @@ def top_albums_cert_count(uow: SongUOW, cert: SongCert):
         )
     print('')
 
+
 def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
-    units = [
-        (album, album.get_conweeks(top)) for album in uow.albums
-    ]
+    units = [(album, album.get_conweeks(top)) for album in uow.albums]
 
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
@@ -91,6 +86,7 @@ def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
             f"{count + 1:>2} | {f'{album.title} by {album.str_artists}':<55} | {weeks:>2} wks"
         )
     print('')
+
 
 def top_albums_song_weeks(uow: SongUOW, top: Optional[int]):
     units = [(album, album.get_weeks(top)) for album in uow.albums]
@@ -104,70 +100,6 @@ def top_albums_song_weeks(uow: SongUOW, top: Optional[int]):
         place = len([i for i in units if i[1] > weeks]) + 1
         print(f'{place:>3} | {str(album):<50} | {weeks:<3} weeks')
     print('')
-
-
-<<<<<<< Updated upstream
-MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
-RAW_CERTS = [
-    'G',
-    'P',
-    '2xP',
-    '3xP',
-    '4xP',
-    '5xP',
-    '6xP',
-    '7xP',
-    '8xP',
-    '9xP',
-    '10xD',
-]
-CERTS = [SongCert.from_symbol(i) for i in RAW_CERTS]
-ALBUM_TOP = [None, 15, 10, 5, 3, 1]
-SONG_TOP = [None, 30, 20, 10, 5, 3, 1]
-
-if __name__ == '__main__':
-    uow = SongUOW()
-
-    for milestone in MILESTONES[::-1]:
-        top_shortest_time_plays_milestones(uow, milestone)
-    
-    for cert in CERTS[::-1]:
-        top_albums_cert_count(uow, cert)
-
-    for top in ALBUM_TOP:
-        top_albums_consecutive_weeks(uow, top)
-
-    for top in SONG_TOP:
-        top_albums_song_weeks(uow, top)
-
-    quit()
-
-=======
-def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
-    units: list[Album, int] = [
-        (album, album.get_conweeks(top)) for album in uow.albums
-    ]
-
-    units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] >= units[19][1] and i[1] > 1]
-    print(
-        f"Albums with most consecutive weeks {f'in the top {top}' if top else 'on chart'}:"
-    )
-    for (album, weeks) in units:
-        place = len([unit for unit in units if unit[1] > weeks]) + 1
-        print(
-            f"{place:>2} | {f'{album.title} by {album.str_artists}':<55} | {weeks:>2} wks"
-        )
-
-    print('')
-
-
-def top_albums_weeks(uow: SongUOW, top: Optional[int]):
-    units = [(album, album.get_weeks(top)) for album in uow.albums]
-    units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] > units[19][1]]
->>>>>>> Stashed changes
-
 
 
 def top_album_hits(uow: SongUOW, top: Optional[int]):
@@ -212,6 +144,20 @@ def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
     for album, songs in units:
         place = len([i for i in units if i[1] > songs]) + 1
         print(f'{place:>3} | {str(album):<50} | {songs:<2} songs')
+    print('')
+
+
+def top_albums_weeks(uow: SongUOW, top: Optional[int]):
+    units = [(album, album.get_weeks(top)) for album in uow.albums]
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] > units[19][1]]
+
+    print(
+        f"Albums with most song weeks {f'in the top {top}' if weeks else ''}:"
+    )
+    for album, weeks in units:
+        place = len([i for i in units if i[1] > weeks]) + 1
+        print(f'{place:>3} | {str(album):<50} | {weeks:<2} weeks')
     print('')
 
 

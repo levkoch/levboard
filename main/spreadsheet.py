@@ -2,8 +2,8 @@ from googleapiclient import discovery
 from google.oauth2 import service_account
 
 SERVICE_ACCOUNT_FILE = (
-    r'C:\Users\vasil\Documents\GitHub\levboard\data\google_token.json' # on desktop
-    # 'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json' # on laptop
+    # r'C:\Users\vasil\Documents\GitHub\levboard\data\google_token.json' # on desktop
+    'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'  # on laptop
 )
 
 

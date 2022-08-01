@@ -335,15 +335,12 @@
                 "end": "2022-07-14",
                 "place": 3,
                 "units": 265
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 2,
                 "units": 365
->>>>>>> Stashed changes
             }
         ]
     },
@@ -497,15 +494,12 @@
                 "end": "2022-06-30",
                 "place": 5,
                 "units": 122
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 4,
                 "units": 144
->>>>>>> Stashed changes
             }
         ]
     },
@@ -591,11 +585,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -724,7 +714,6 @@
         "songs": [
             "11896960",
             "1006064",
-<<<<<<< Updated upstream
             "18648096",
             "18648099",
             "2752464",
@@ -733,9 +722,6 @@
             "1006061",
             "29343712",
             "18648098"
-=======
-            "1006061"
->>>>>>> Stashed changes
         ],
         "entries": [
             {
@@ -773,15 +759,12 @@
                 "end": "2022-04-14",
                 "place": 13,
                 "units": 91
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 17,
-                "units": 36
->>>>>>> Stashed changes
+                "units": 43
             }
         ]
     },
@@ -852,6 +835,35 @@
                 "end": "2022-06-09",
                 "place": 13,
                 "units": 68
+            }
+        ]
+    },
+    "B'Day": {
+        "title": "B'Day",
+        "artists": "Beyonc\u00e9",
+        "songs": [
+            "4375335",
+            "594041",
+            "594128"
+        ],
+        "entries": [
+            {
+                "start": "2022-06-02",
+                "end": "2022-06-09",
+                "place": 13,
+                "units": 68
+            },
+            {
+                "start": "2022-06-23",
+                "end": "2022-06-30",
+                "place": 13,
+                "units": 71
+            },
+            {
+                "start": "2022-07-07",
+                "end": "2022-07-14",
+                "place": 19,
+                "units": 51
             }
         ]
     },
@@ -1110,15 +1122,12 @@
                 "end": "2022-07-14",
                 "place": 13,
                 "units": 69
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 6,
                 "units": 110
->>>>>>> Stashed changes
             }
         ]
     },
@@ -1269,6 +1278,14 @@
             }
         ]
     },
+    "Bloom": {
+        "title": "Bloom",
+        "artists": "Troye Sivan",
+        "songs": [
+            "1342544"
+        ],
+        "entries": []
+    },
     "Breakaway": {
         "title": "Breakaway",
         "artists": "Kelly Clarkson",
@@ -1286,6 +1303,36 @@
                 "units": 46
             }
         ]
+    },
+    "Camila": {
+        "title": "Camila",
+        "artists": "Camila Cabello",
+        "songs": [
+            "1691859",
+            "3167787"
+        ],
+        "entries": []
+    },
+    "Celebration": {
+        "title": "Celebration",
+        "artists": "Madonna",
+        "songs": [
+            "529748",
+            "103869",
+            "529751",
+            "529766",
+            "529767",
+            "529768"
+        ],
+        "entries": []
+    },
+    "Changes": {
+        "title": "Changes",
+        "artists": "Justin Bieber",
+        "songs": [
+            "9163"
+        ],
+        "entries": []
     },
     "Charli": {
         "title": "Charli",
@@ -1366,11 +1413,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 16,
-=======
                 "place": 15,
->>>>>>> Stashed changes
                 "units": 60
             },
             {
@@ -1413,11 +1456,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -1459,15 +1498,12 @@
                 "end": "2022-06-30",
                 "place": 15,
                 "units": 70
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 17,
+                "place": 19,
                 "units": 36
->>>>>>> Stashed changes
             }
         ]
     },
@@ -1527,12 +1563,6 @@
         ],
         "entries": [
             {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
-            },
-            {
                 "start": "2021-07-08",
                 "end": "2021-07-15",
                 "place": 19,
@@ -1575,6 +1605,21 @@
             }
         ]
     },
+    "Culture II": {
+        "title": "Culture II",
+        "artists": "Migos",
+        "songs": [
+            "369912"
+        ],
+        "entries": [
+            {
+                "start": "2021-07-22",
+                "end": "2021-07-29",
+                "place": 13,
+                "units": 58
+            }
+        ]
+    },
     "Cuz I Love You": {
         "title": "Cuz I Love You",
         "artists": "Lizzo",
@@ -1593,18 +1638,8 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
-            },
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
             }
         ]
     },
@@ -1949,15 +1984,12 @@
                 "end": "2022-07-14",
                 "place": 4,
                 "units": 228
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 5,
                 "units": 115
->>>>>>> Stashed changes
             }
         ]
     },
@@ -1973,18 +2005,31 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
                 "start": "2021-06-17",
                 "end": "2021-06-24",
-                "place": 20,
-                "units": 43
+                "place": 19,
+                "units": 50
+            }
+        ]
+    },
+    "Dawn FM": {
+        "title": "Dawn FM",
+        "artists": "The Weeknd",
+        "songs": [
+            "25656584",
+            "1005952",
+            "25656590"
+        ],
+        "entries": [
+            {
+                "start": "2022-01-06",
+                "end": "2022-01-13",
+                "place": 8,
+                "units": 94
             }
         ]
     },
@@ -2018,11 +2063,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 16,
-=======
                 "place": 15,
->>>>>>> Stashed changes
                 "units": 60
             },
             {
@@ -2043,11 +2084,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -2423,17 +2460,23 @@
                 "end": "2022-07-07",
                 "place": 4,
                 "units": 227
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 13,
+                "place": 14,
                 "units": 56
->>>>>>> Stashed changes
             }
         ]
+    },
+    "DUMMY BOY": {
+        "title": "DUMMY BOY",
+        "artists": "6ix9ine",
+        "songs": [
+            "1365007",
+            "1365013"
+        ],
+        "entries": []
     },
     "El Dorado": {
         "title": "El Dorado",
@@ -2537,7 +2580,7 @@
         "title": "Father of Asahd",
         "artists": "DJ Khaled",
         "songs": [
-            "8191852"
+            "5207830"
         ],
         "entries": [
             {
@@ -2545,6 +2588,22 @@
                 "end": "2022-01-06",
                 "place": 17,
                 "units": 46
+            }
+        ]
+    },
+    "Fearless": {
+        "title": "Fearless",
+        "artists": "Taylor Swift",
+        "songs": [
+            "274234",
+            "274240"
+        ],
+        "entries": [
+            {
+                "start": "2021-07-08",
+                "end": "2021-07-15",
+                "place": 19,
+                "units": 32
             }
         ]
     },
@@ -2672,15 +2731,33 @@
                 "end": "2022-07-14",
                 "place": 14,
                 "units": 66
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 17,
+                "place": 19,
                 "units": 36
->>>>>>> Stashed changes
+            }
+        ]
+    },
+    "Funk Wav Bounces Vol 2": {
+        "title": "Funk Wav Bounces Vol 2",
+        "artists": "Calvin Harris, Funk Wav",
+        "songs": [
+            "38832762"
+        ],
+        "entries": [
+            {
+                "start": "2022-05-26",
+                "end": "2022-06-02",
+                "place": 10,
+                "units": 96
+            },
+            {
+                "start": "2022-06-02",
+                "end": "2022-06-09",
+                "place": 19,
+                "units": 53
             }
         ]
     },
@@ -2700,11 +2777,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 16,
-=======
                 "place": 15,
->>>>>>> Stashed changes
                 "units": 60
             },
             {
@@ -2833,11 +2906,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 20,
-=======
                 "place": 19,
->>>>>>> Stashed changes
                 "units": 54
             },
             {
@@ -2959,36 +3028,12 @@
                 "end": "2022-07-14",
                 "place": 1,
                 "units": 476
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 3,
                 "units": 189
->>>>>>> Stashed changes
-            }
-        ]
-    },
-    "Funk Wav Bounces Vol 2": {
-        "title": "Funk Wav Bounces Vol 2",
-        "artists": "Calvin Harris, Funk Wav",
-        "songs": [
-            "38832762"
-        ],
-        "entries": [
-            {
-                "start": "2022-05-26",
-                "end": "2022-06-02",
-                "place": 10,
-                "units": 96
-            },
-            {
-                "start": "2022-06-02",
-                "end": "2022-06-09",
-                "place": 19,
-                "units": 53
             }
         ]
     },
@@ -3025,6 +3070,28 @@
                 "end": "2021-08-19",
                 "place": 18,
                 "units": 41
+            }
+        ]
+    },
+    "Globalization": {
+        "title": "Globalization",
+        "artists": "Pitbull",
+        "songs": [
+            "300468",
+            "300458"
+        ],
+        "entries": [
+            {
+                "start": "2022-02-10",
+                "end": "2022-02-17",
+                "place": 20,
+                "units": 36
+            },
+            {
+                "start": "2022-06-23",
+                "end": "2022-06-30",
+                "place": 8,
+                "units": 81
             }
         ]
     },
@@ -3081,18 +3148,8 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
-            },
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
             },
             {
                 "start": "2021-06-24",
@@ -3249,11 +3306,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             }
         ]
@@ -3299,15 +3352,12 @@
         ],
         "entries": [
             {
-<<<<<<< Updated upstream
-=======
                 "start": "2021-10-21",
                 "end": "2021-10-28",
                 "place": 20,
                 "units": 50
             },
             {
->>>>>>> Stashed changes
                 "start": "2021-10-28",
                 "end": "2021-11-04",
                 "place": 17,
@@ -3334,11 +3384,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 12,
-=======
                 "place": 11,
->>>>>>> Stashed changes
                 "units": 64
             },
             {
@@ -3352,6 +3398,27 @@
                 "end": "2021-11-11",
                 "place": 19,
                 "units": 44
+            }
+        ]
+    },
+    "hopeless fountain kingdom": {
+        "title": "hopeless fountain kingdom",
+        "artists": "Halsey",
+        "songs": [
+            "283804"
+        ],
+        "entries": [
+            {
+                "start": "2021-12-23",
+                "end": "2021-12-30",
+                "place": 12,
+                "units": 33
+            },
+            {
+                "start": "2022-07-14",
+                "end": "2022-07-21",
+                "place": 15,
+                "units": 54
             }
         ]
     },
@@ -3390,11 +3457,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 14,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 64
             },
             {
@@ -3534,15 +3597,33 @@
                 "end": "2022-06-23",
                 "place": 14,
                 "units": 55
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 11,
+                "place": 12,
                 "units": 61
->>>>>>> Stashed changes
+            }
+        ]
+    },
+    "Hyperion": {
+        "title": "Hyperion",
+        "artists": "Gesaffelstein",
+        "songs": [
+            "3464151"
+        ],
+        "entries": [
+            {
+                "start": "2022-04-07",
+                "end": "2022-04-14",
+                "place": 17,
+                "units": 66
+            },
+            {
+                "start": "2022-06-23",
+                "end": "2022-06-30",
+                "place": 20,
+                "units": 52
             }
         ]
     },
@@ -3556,12 +3637,6 @@
             "174188"
         ],
         "entries": [
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
-            },
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
@@ -3631,6 +3706,38 @@
                 "end": "2022-01-06",
                 "place": 10,
                 "units": 62
+            }
+        ]
+    },
+    "In My Defense": {
+        "title": "In My Defense",
+        "artists": "Iggy Azalea",
+        "songs": [
+            "1223433"
+        ],
+        "entries": [
+            {
+                "start": "2022-03-24",
+                "end": "2022-03-31",
+                "place": 11,
+                "units": 64
+            }
+        ]
+    },
+    "In The Lonely Hour": {
+        "title": "In The Lonely Hour",
+        "artists": "Sam Smith",
+        "songs": [
+            "242470",
+            "1034965",
+            "756514"
+        ],
+        "entries": [
+            {
+                "start": "2021-09-30",
+                "end": "2021-10-07",
+                "place": 17,
+                "units": 31
             }
         ]
     },
@@ -3754,18 +3861,8 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
-            },
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
             },
             {
                 "start": "2021-07-08",
@@ -3886,21 +3983,18 @@
                 "end": "2022-07-07",
                 "place": 17,
                 "units": 57
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 10,
+                "place": 11,
                 "units": 67
->>>>>>> Stashed changes
             }
         ]
     },
     "Justice": {
         "title": "Justice",
-        "artists": "Maroon 5",
+        "artists": "Justin Bieber",
         "songs": [
             "164410",
             "164476",
@@ -4001,15 +4095,12 @@
                 "units": 48
             },
             {
-<<<<<<< Updated upstream
-=======
                 "start": "2021-10-21",
                 "end": "2021-10-28",
                 "place": 20,
                 "units": 50
             },
             {
->>>>>>> Stashed changes
                 "start": "2021-11-04",
                 "end": "2021-11-11",
                 "place": 9,
@@ -4134,15 +4225,34 @@
                 "end": "2022-06-16",
                 "place": 13,
                 "units": 58
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 17,
+                "place": 19,
                 "units": 36
->>>>>>> Stashed changes
+            }
+        ]
+    },
+    "Kid Krow": {
+        "title": "Kid Krow",
+        "artists": "Conan Gray",
+        "songs": [
+            "209425",
+            "1239601"
+        ],
+        "entries": [
+            {
+                "start": "2022-06-09",
+                "end": "2022-06-16",
+                "place": 14,
+                "units": 49
+            },
+            {
+                "start": "2022-06-16",
+                "end": "2022-06-23",
+                "place": 14,
+                "units": 55
             }
         ]
     },
@@ -4223,15 +4333,12 @@
                 "end": "2022-06-23",
                 "place": 4,
                 "units": 117
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 14,
+                "place": 15,
                 "units": 54
->>>>>>> Stashed changes
             }
         ]
     },
@@ -4279,11 +4386,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -4324,6 +4427,16 @@
             }
         ]
     },
+    "Light of Mine": {
+        "title": "Light of Mine",
+        "artists": "KYLE",
+        "songs": [
+            "13509558",
+            "2715831",
+            "13435721"
+        ],
+        "entries": []
+    },
     "Listen": {
         "title": "Listen",
         "artists": "David Guetta",
@@ -4344,11 +4457,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -4384,11 +4493,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 14,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 64
             },
             {
@@ -4737,11 +4842,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 13,
-=======
                 "place": 12,
->>>>>>> Stashed changes
                 "units": 69
             },
             {
@@ -4764,21 +4865,6 @@
             }
         ]
     },
-    "Michael": {
-        "title": "Michael",
-        "artists": "Mike-Will Made It",
-        "songs": [
-            "962912"
-        ],
-        "entries": [
-            {
-                "start": "2022-04-07",
-                "end": "2022-04-14",
-                "place": 17,
-                "units": 66
-            }
-        ]
-    },
     "Memoirs of an imperfect Angel": {
         "title": "Memoirs of an imperfect Angel",
         "artists": "Mariah Carey",
@@ -4790,6 +4876,21 @@
                 "start": "2021-06-24",
                 "end": "2021-07-08",
                 "place": 16,
+                "units": 66
+            }
+        ]
+    },
+    "Michael": {
+        "title": "Michael",
+        "artists": "Mike-Will Made It",
+        "songs": [
+            "962912"
+        ],
+        "entries": [
+            {
+                "start": "2022-04-07",
+                "end": "2022-04-14",
+                "place": 17,
                 "units": 66
             }
         ]
@@ -5314,15 +5415,12 @@
                 "end": "2022-07-14",
                 "place": 7,
                 "units": 146
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 7,
                 "units": 81
->>>>>>> Stashed changes
             }
         ]
     },
@@ -5434,11 +5532,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -5597,18 +5691,8 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
-            },
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
             },
             {
                 "start": "2021-08-05",
@@ -5731,15 +5815,12 @@
                 "end": "2021-12-30",
                 "place": 12,
                 "units": 33
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 17,
+                "place": 19,
                 "units": 36
->>>>>>> Stashed changes
             }
         ]
     },
@@ -5802,11 +5883,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 12,
-=======
                 "place": 11,
->>>>>>> Stashed changes
                 "units": 70
             },
             {
@@ -5875,11 +5952,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -6163,15 +6236,12 @@
                 "end": "2022-06-16",
                 "place": 3,
                 "units": 333
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 1,
                 "units": 865
->>>>>>> Stashed changes
             }
         ]
     },
@@ -6213,11 +6283,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -6513,6 +6579,14 @@
             }
         ]
     },
+    "Rainbow": {
+        "title": "Rainbow",
+        "artists": "Kesha",
+        "songs": [
+            "3153329"
+        ],
+        "entries": []
+    },
     "Red": {
         "title": "Red",
         "artists": "Taylor Swift",
@@ -6536,11 +6610,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -6801,6 +6871,23 @@
             }
         ]
     },
+    "Revival": {
+        "title": "Revival",
+        "artists": "Selena Gomez",
+        "songs": [
+            "242473",
+            "171345",
+            "167423"
+        ],
+        "entries": [
+            {
+                "start": "2022-02-03",
+                "end": "2022-02-10",
+                "place": 16,
+                "units": 52
+            }
+        ]
+    },
     "Roman Reloaded": {
         "title": "Roman Reloaded",
         "artists": "Nicki Minaj",
@@ -6849,17 +6936,13 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
                 "start": "2021-06-17",
                 "end": "2021-06-24",
-                "place": 19,
+                "place": 20,
                 "units": 44
             },
             {
@@ -6992,15 +7075,11 @@
             "3755420",
             "4948",
             "3755391",
-<<<<<<< Updated upstream
             "3755393",
             "3755394",
             "3755395",
             "3755396",
             "3755398"
-=======
-            "3755396"
->>>>>>> Stashed changes
         ],
         "entries": [
             {
@@ -7038,15 +7117,12 @@
                 "end": "2022-04-07",
                 "place": 16,
                 "units": 61
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 9,
-                "units": 74
->>>>>>> Stashed changes
+                "place": 7,
+                "units": 81
             }
         ]
     },
@@ -7095,6 +7171,14 @@
             }
         ]
     },
+    "Singular Act I": {
+        "title": "Singular Act I",
+        "artists": "Sabrina Carpenter",
+        "songs": [
+            "587807"
+        ],
+        "entries": []
+    },
     "Smile": {
         "title": "Smile",
         "artists": "Katy Perry",
@@ -7142,12 +7226,6 @@
                 "end": "2021-06-10",
                 "place": 15,
                 "units": 68
-            },
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
             },
             {
                 "start": "2021-07-08",
@@ -7231,18 +7309,47 @@
         ],
         "entries": [
             {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
-            },
-            {
                 "start": "2021-07-08",
                 "end": "2021-07-15",
                 "place": 15,
                 "units": 56
             }
         ]
+    },
+    "Special": {
+        "title": "Special",
+        "artists": "Lizzo",
+        "songs": [
+            "44259839",
+            "34506438",
+            "40537509",
+            "44259840",
+            "44259841",
+            "44259842",
+            "44259843",
+            "44259845",
+            "44259844",
+            "44259847",
+            "44259846",
+            "44259849"
+        ],
+        "entries": [
+            {
+                "start": "2022-07-14",
+                "end": "2022-07-21",
+                "place": 10,
+                "units": 74
+            }
+        ]
+    },
+    "Starboy": {
+        "title": "Starboy",
+        "artists": "The Weeknd",
+        "songs": [
+            "555740",
+            "116371"
+        ],
+        "entries": []
     },
     "STAY DANGEROUS": {
         "title": "STAY DANGEROUS",
@@ -7357,11 +7464,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -7452,15 +7555,12 @@
                 "units": 54
             },
             {
-<<<<<<< Updated upstream
-=======
                 "start": "2021-10-21",
                 "end": "2021-10-28",
                 "place": 20,
                 "units": 50
             },
             {
->>>>>>> Stashed changes
                 "start": "2021-10-28",
                 "end": "2021-11-04",
                 "place": 11,
@@ -7546,11 +7646,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -7816,15 +7912,12 @@
                 "end": "2022-07-14",
                 "place": 14,
                 "units": 66
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 12,
+                "place": 13,
                 "units": 57
->>>>>>> Stashed changes
             }
         ]
     },
@@ -7898,6 +7991,16 @@
             }
         ]
     },
+    "Taylor Swift": {
+        "title": "Taylor Swift",
+        "artists": "Taylor Swift",
+        "songs": [
+            "706754",
+            "706747",
+            "293276"
+        ],
+        "entries": []
+    },
     "Teenage Dream": {
         "title": "Teenage Dream",
         "artists": "Katy Perry",
@@ -7955,11 +8058,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -8399,6 +8498,19 @@
             }
         ]
     },
+    "The Bodyguard": {
+        "title": "The Bodyguard",
+        "artists": "Whitney Houston",
+        "songs": [
+            "284558",
+            "284553",
+            "284559",
+            "284560",
+            "284561",
+            "284562"
+        ],
+        "entries": []
+    },
     "The Emancipation Of Mimi": {
         "title": "The Emancipation Of Mimi",
         "artists": "Mariah Carey",
@@ -8419,6 +8531,22 @@
                 "end": "2022-04-07",
                 "place": 10,
                 "units": 99
+            }
+        ]
+    },
+    "The Heist": {
+        "title": "The Heist",
+        "artists": "Macklemore, Ryan Lewis",
+        "songs": [
+            "1117243",
+            "1117215"
+        ],
+        "entries": [
+            {
+                "start": "2022-01-06",
+                "end": "2022-01-13",
+                "place": 13,
+                "units": 64
             }
         ]
     },
@@ -8553,11 +8681,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 12,
-=======
                 "place": 11,
->>>>>>> Stashed changes
                 "units": 64
             },
             {
@@ -8637,15 +8761,12 @@
                 "end": "2022-07-14",
                 "place": 16,
                 "units": 61
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
-                "place": 16,
+                "place": 17,
                 "units": 43
->>>>>>> Stashed changes
             }
         ]
     },
@@ -8687,11 +8808,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -8751,11 +8868,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-<<<<<<< Updated upstream
-                "place": 19,
-=======
                 "place": 18,
->>>>>>> Stashed changes
                 "units": 58
             },
             {
@@ -8964,6 +9077,21 @@
             }
         ]
     },
+    "The Thrill Of It All": {
+        "title": "The Thrill Of It All",
+        "artists": "Sam Smith",
+        "songs": [
+            "417427"
+        ],
+        "entries": [
+            {
+                "start": "2021-09-30",
+                "end": "2021-10-07",
+                "place": 15,
+                "units": 48
+            }
+        ]
+    },
     "The Writing's On The Wall": {
         "title": "The Writing's On The Wall",
         "artists": "Destiny's Child",
@@ -8978,6 +9106,16 @@
                 "units": 76
             }
         ]
+    },
+    "This Is Acting": {
+        "title": "This Is Acting",
+        "artists": "Sia",
+        "songs": [
+            "889914",
+            "889917",
+            "1122112"
+        ],
+        "entries": []
     },
     "Thriller": {
         "title": "Thriller",
@@ -9075,11 +9213,7 @@
             {
                 "start": "2021-06-10",
                 "end": "2021-06-17",
-<<<<<<< Updated upstream
-                "place": 15,
-=======
                 "place": 13,
->>>>>>> Stashed changes
                 "units": 51
             },
             {
@@ -9180,6 +9314,37 @@
                 "end": "2022-07-14",
                 "place": 11,
                 "units": 82
+            }
+        ]
+    },
+    "Unapologetic": {
+        "title": "Unapologetic",
+        "artists": "Rihanna",
+        "songs": [
+            "365127",
+            "266573"
+        ],
+        "entries": [
+            {
+                "start": "2021-10-28",
+                "end": "2021-11-04",
+                "place": 17,
+                "units": 30
+            }
+        ]
+    },
+    "Unbroken": {
+        "title": "Unbroken",
+        "artists": "Demi Lovato",
+        "songs": [
+            "171357"
+        ],
+        "entries": [
+            {
+                "start": "2021-10-28",
+                "end": "2021-11-04",
+                "place": 17,
+                "units": 30
             }
         ]
     },
@@ -9525,6 +9690,14 @@
             }
         ]
     },
+    "What Is Love?": {
+        "title": "What Is Love?",
+        "artists": "Clean Bandit",
+        "songs": [
+            "284698"
+        ],
+        "entries": []
+    },
     "When We All Fall Asleep": {
         "title": "When We All Fall Asleep",
         "artists": "Billie Eilish",
@@ -9549,6 +9722,30 @@
                 "end": "2022-03-17",
                 "place": 8,
                 "units": 120
+            }
+        ]
+    },
+    "Whitney Houston": {
+        "title": "Whitney Houston",
+        "artists": "Whitney Houston",
+        "songs": [
+            "842093",
+            "12276090",
+            "12276088",
+            "842094",
+            "14340333",
+            "187981",
+            "842095",
+            "86135",
+            "545959",
+            "14340334"
+        ],
+        "entries": [
+            {
+                "start": "2022-06-16",
+                "end": "2022-06-23",
+                "place": 6,
+                "units": 111
             }
         ]
     },
@@ -9763,15 +9960,12 @@
                 "end": "2022-07-14",
                 "place": 19,
                 "units": 51
-<<<<<<< Updated upstream
-=======
             },
             {
                 "start": "2022-07-14",
                 "end": "2022-07-21",
                 "place": 7,
                 "units": 81
->>>>>>> Stashed changes
             }
         ]
     },
@@ -9927,496 +10121,6 @@
                 "end": "2022-07-07",
                 "place": 19,
                 "units": 54
-            }
-        ]
-    },
-    "Whitney Houston": {
-        "title": "Whitney Houston",
-        "artists": "Whitney Houston",
-        "songs": [
-            "842093",
-            "12276090",
-            "12276088",
-            "842094",
-            "14340333",
-            "187981",
-            "842095",
-            "86135",
-            "545959",
-            "14340334"
-        ],
-        "entries": [
-            {
-                "start": "2022-06-16",
-                "end": "2022-06-23",
-                "place": 6,
-                "units": 111
-            }
-        ]
-    },
-    "B'Day": {
-        "title": "B'Day",
-        "artists": "Beyonc\u00e9",
-        "songs": [
-            "4375335",
-            "594041",
-            "594128"
-        ],
-        "entries": [
-            {
-                "start": "2022-06-02",
-                "end": "2022-06-09",
-                "place": 13,
-                "units": 68
-            },
-            {
-                "start": "2022-06-23",
-                "end": "2022-06-30",
-                "place": 13,
-                "units": 71
-            },
-            {
-                "start": "2022-07-07",
-                "end": "2022-07-14",
-                "place": 19,
-                "units": 51
-            }
-        ]
-    },
-    "Bloom": {
-        "title": "Bloom",
-        "artists": "Troye Sivan",
-        "songs": [
-            "1342544"
-        ],
-        "entries": [
-            {
-                "start": "2021-06-17",
-                "end": "2021-06-24",
-                "place": 20,
-                "units": 43
-            }
-        ]
-    },
-    "Camila": {
-        "title": "Camila",
-        "artists": "Camila Cabello",
-        "songs": [
-            "1691859",
-            "3167787"
-        ],
-        "entries": []
-    },
-    "Celebration": {
-        "title": "Celebration",
-        "artists": "Madonna",
-        "songs": [
-            "529748",
-            "103869",
-            "529751",
-            "529766",
-            "529767",
-            "529768"
-        ],
-        "entries": []
-    },
-    "Changes": {
-        "title": "Changes",
-        "artists": "Justin Bieber",
-        "songs": [
-            "9163"
-        ],
-        "entries": []
-    },
-    "Culture II": {
-        "title": "Culture II",
-        "artists": "Migos",
-        "songs": [
-            "369912"
-        ],
-        "entries": [
-            {
-                "start": "2021-07-22",
-                "end": "2021-07-29",
-                "place": 13,
-                "units": 58
-            }
-        ]
-    },
-    "Dawn FM": {
-        "title": "Dawn FM",
-        "artists": "The Weeknd",
-        "songs": [
-            "25656584",
-            "1005952",
-            "25656590"
-        ],
-        "entries": [
-            {
-                "start": "2022-01-06",
-                "end": "2022-01-13",
-                "place": 8,
-                "units": 94
-            }
-        ]
-    },
-    "DUMMY BOY": {
-        "title": "DUMMY BOY",
-        "artists": "6ix9ine",
-        "songs": [
-            "1365007",
-            "1365013"
-        ],
-        "entries": []
-    },
-    "Globalization": {
-        "title": "Globalization",
-        "artists": "Pitbull",
-        "songs": [
-            "300468",
-            "300458"
-        ],
-        "entries": [
-            {
-                "start": "2022-02-10",
-                "end": "2022-02-17",
-                "place": 20,
-                "units": 36
-            },
-            {
-                "start": "2022-06-23",
-                "end": "2022-06-30",
-                "place": 8,
-                "units": 81
-            }
-        ]
-    },
-    "hopeless fountain kingdom": {
-        "title": "hopeless fountain kingdom",
-        "artists": "Halsey",
-        "songs": [
-            "283804"
-        ],
-        "entries": [
-            {
-                "start": "2021-12-23",
-                "end": "2021-12-30",
-                "place": 12,
-                "units": 33
-<<<<<<< Updated upstream
-=======
-            },
-            {
-                "start": "2022-07-14",
-                "end": "2022-07-21",
-                "place": 14,
-                "units": 54
->>>>>>> Stashed changes
-            }
-        ]
-    },
-    "Hyperion": {
-        "title": "Hyperion",
-        "artists": "Gesaffelstein",
-        "songs": [
-            "3464151"
-        ],
-        "entries": [
-            {
-                "start": "2022-04-07",
-                "end": "2022-04-14",
-                "place": 17,
-                "units": 66
-            },
-            {
-                "start": "2022-06-23",
-                "end": "2022-06-30",
-                "place": 20,
-                "units": 52
-            }
-        ]
-    },
-    "In My Defense": {
-        "title": "In My Defense",
-        "artists": "Iggy Azalea",
-        "songs": [
-            "1223433"
-        ],
-        "entries": [
-            {
-                "start": "2022-03-24",
-                "end": "2022-03-31",
-                "place": 11,
-                "units": 64
-            }
-        ]
-    },
-    "In The Lonely Hour": {
-        "title": "In The Lonely Hour",
-        "artists": "Sam Smith",
-        "songs": [
-            "242470",
-            "1034965",
-            "756514"
-        ],
-        "entries": [
-            {
-                "start": "2021-09-30",
-                "end": "2021-10-07",
-                "place": 17,
-                "units": 31
-            }
-        ]
-    },
-    "Kid Krow": {
-        "title": "Kid Krow",
-        "artists": "Conan Gray",
-        "songs": [
-            "209425",
-            "1239601"
-        ],
-        "entries": [
-            {
-                "start": "2022-06-09",
-                "end": "2022-06-16",
-                "place": 14,
-                "units": 49
-            },
-            {
-                "start": "2022-06-16",
-                "end": "2022-06-23",
-                "place": 14,
-                "units": 55
-            }
-        ]
-    },
-    "Rainbow": {
-        "title": "Rainbow",
-        "artists": "Kesha",
-        "songs": [
-            "3153329"
-        ],
-        "entries": []
-    },
-    "Singular Act I": {
-        "title": "Singular Act I",
-        "artists": "Sabrina Carpenter",
-        "songs": [
-            "587807"
-        ],
-        "entries": []
-    },
-    "Taylor Swift": {
-        "title": "Taylor Swift",
-        "artists": "Taylor Swift",
-        "songs": [
-            "706754",
-            "706747",
-            "293276"
-        ],
-        "entries": []
-    },
-    "The Heist": {
-        "title": "The Heist",
-        "artists": "Macklemore, Ryan Lewis",
-        "songs": [
-            "1117243",
-            "1117215"
-        ],
-        "entries": [
-            {
-                "start": "2022-01-06",
-                "end": "2022-01-13",
-                "place": 13,
-                "units": 64
-            }
-        ]
-    },
-    "The Thrill Of It All": {
-        "title": "The Thrill Of It All",
-        "artists": "Sam Smith",
-        "songs": [
-            "417427"
-        ],
-        "entries": [
-            {
-                "start": "2021-09-30",
-                "end": "2021-10-07",
-                "place": 15,
-                "units": 48
-            }
-        ]
-    },
-    "This Is Acting": {
-        "title": "This Is Acting",
-        "artists": "Sia",
-        "songs": [
-            "889914",
-            "889917",
-            "1122112"
-        ],
-        "entries": []
-    },
-    "Unbroken": {
-        "title": "Unbroken",
-        "artists": "Demi Lovato",
-        "songs": [
-            "171357"
-        ],
-        "entries": [
-            {
-                "start": "2021-10-28",
-                "end": "2021-11-04",
-                "place": 17,
-                "units": 30
-            }
-        ]
-    },
-    "What Is Love?": {
-        "title": "What Is Love?",
-        "artists": "Clean Bandit",
-        "songs": [
-            "284698"
-        ],
-        "entries": []
-    },
-    "Doo-Wops, Hooligans": {
-        "title": "Doo-Wops, Hooligans",
-        "artists": "Bruno Mars",
-        "songs": [
-            "250107",
-            "17064",
-            "282964",
-            "282950",
-            "282963",
-            "282965",
-            "282966",
-            "282978",
-            "282951",
-            "282986"
-        ],
-        "entries": [
-            {
-                "start": "2021-06-10",
-                "end": "2021-06-17",
-                "place": 7,
-                "units": 102
-            },
-            {
-                "start": "2021-07-08",
-                "end": "2021-07-15",
-                "place": 19,
-                "units": 32
-            }
-        ]
-    },
-    "Heaven, Hell": {
-        "title": "Heaven, Hell",
-        "artists": "Ava Max",
-        "songs": [
-            "17117",
-            "588159",
-            "586589",
-            "588098"
-        ],
-        "entries": [
-            {
-                "start": "2021-05-13",
-                "end": "2021-05-27",
-                "place": 16,
-                "units": 41
-            },
-            {
-                "start": "2021-06-10",
-                "end": "2021-06-17",
-                "place": 12,
-                "units": 64
-            },
-            {
-                "start": "2021-10-21",
-                "end": "2021-10-28",
-                "place": 10,
-                "units": 81
-            },
-            {
-                "start": "2021-11-04",
-                "end": "2021-11-11",
-                "place": 19,
-                "units": 44
-            }
-        ]
-    },
-    "Revival": {
-        "title": "Revival",
-        "artists": "Selena Gomez",
-        "songs": [
-            "242473",
-            "171345",
-            "167423"
-        ],
-        "entries": [
-            {
-                "start": "2022-02-03",
-                "end": "2022-02-10",
-                "place": 16,
-                "units": 52
-            }
-        ]
-    },
-    "Special": {
-        "title": "Special",
-        "artists": "Lizzo",
-        "songs": [
-            "44259839",
-            "34506438",
-            "40537509",
-            "44259840",
-            "44259841",
-            "44259842",
-            "44259843",
-            "44259845",
-            "44259844",
-            "44259847",
-            "44259846",
-            "44259849"
-        ],
-        "entries": []
-    },
-    "Starboy": {
-        "title": "Starboy",
-        "artists": "The Weeknd",
-        "songs": [
-            "555740",
-            "116371"
-        ],
-        "entries": []
-    },
-    "The Bodyguard": {
-        "title": "The Bodyguard",
-        "artists": "Whitney Houston",
-        "songs": [
-            "284558",
-            "284553",
-            "284559",
-            "284560",
-            "284561",
-            "284562"
-        ],
-        "entries": []
-    },
-    "Unapologetic": {
-        "title": "Unapologetic",
-        "artists": "Rihanna",
-        "songs": [
-            "365127",
-            "266573"
-        ],
-        "entries": [
-            {
-                "start": "2021-10-28",
-                "end": "2021-11-04",
-                "place": 17,
-                "units": 30
             }
         ]
     }

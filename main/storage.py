@@ -1,6 +1,6 @@
 import json
 
-from typing import Iterable, Iterator, Optional, Generator
+from typing import Iterator, Optional, Generator
 
 from model import Song, Album
 from config import SONG_FILE, ALBUM_FILE
@@ -89,10 +89,6 @@ class SongRepository:
         else:
             return match
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     def __iter__(self) -> Iterator[Song]:
         return iter(self._songs.values())
 

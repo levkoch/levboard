@@ -76,12 +76,12 @@ class AlbumEntry(_BaseEntry):
 
     Attributes / Arguments:
     * start (`datetime.date`): The date that the week's entry started.
-        (NOTE: `start` and `end` can be passed in as ISO date strings, 
+        (NOTE: `start` and `end` can be passed in as ISO date strings,
         they will be parsed as the correct type.)
     * end (`datetime.date`): The date that the week's entry ended.
-    * plays (`int`): The plays the song got that week. Will be greater 
+    * plays (`int`): The plays the song got that week. Will be greater
         than `1`.
-    * place (`int`): The chart position attained by that song. A 
+    * place (`int`): The chart position attained by that song. A
         positive integer.
 
     Methods:

@@ -347,7 +347,7 @@ def update_all_song_plays(uow: SongUOW) -> None:
 
         for count, future in enumerate(futures.as_completed(to_do), 1):
             song, plays = future.result()
-            print(f'({count}) updated {song:o} -> {plays} plays')
+            print(f'({count}) updated {song} -> {plays} plays')
 
 
 if __name__ == '__main__':
@@ -358,12 +358,7 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-<<<<<<< Updated upstream
-    # update_all_song_plays(uow)
-   
-=======
     update_all_song_plays(uow)
->>>>>>> Stashed changes
     clear_entries(uow)
 
     while True:
