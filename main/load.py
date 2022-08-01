@@ -35,4 +35,8 @@ for count, sheet_song in enumerate(songs):
                     new_song.add_alt(alt_id)
             uow.songs.add(new_song)
 
+<<<<<<< Updated upstream
 uow.commit()
+=======
+uow.commit()
+>>>>>>> Stashed changes

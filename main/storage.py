@@ -67,22 +67,32 @@ class SongRepository:
     def get_by_name(self, song_name: str) -> Optional[Song]:
         """
         Retrieves a song by the song name. Is NOT case sensitive. Will first
-        try to match the whole song name, and then will match the beginning 
-        of the song name from the query, and returns `None` if nothing 
+        try to match the whole song name, and then will match the beginning
+        of the song name from the query, and returns `None` if nothing
         fitting was found in either case.
         """
         try:
             match = next(
-            i for i in self._songs.values() if i.name.lower() == song_name.lower()
-        )
+                i
+                for i in self._songs.values()
+                if i.name.lower() == song_name.lower()
+            )
         except StopIteration:
             return next(
-                (i for i in self._songs.values() if i.name.lower().startswith(song_name.lower())), None
+                (
+                    i
+                    for i in self._songs.values()
+                    if i.name.lower().startswith(song_name.lower())
+                ),
+                None,
             )
         else:
             return match
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     def __iter__(self) -> Iterator[Song]:
         return iter(self._songs.values())
 

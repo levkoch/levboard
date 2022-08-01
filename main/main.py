@@ -358,8 +358,12 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
+<<<<<<< Updated upstream
     # update_all_song_plays(uow)
    
+=======
+    update_all_song_plays(uow)
+>>>>>>> Stashed changes
     clear_entries(uow)
 
     while True:
@@ -380,7 +384,7 @@ if __name__ == '__main__':
         song_rows = update_song_sheet(
             song_rows, uow, positions, start_date, end_date
         )
-        start_date = end_date   # shift pointer
+        start_date = end_date  # shift pointer
 
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
