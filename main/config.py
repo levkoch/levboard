@@ -30,7 +30,7 @@ data_dir = pathlib.Path().resolve().as_posix()
 
 # so if someone ran that program inside of levboard/main
 if data_dir.endswith('/main'):
-    data_dir = data_dir[:-5]   # remove "/main"
+    data_dir = data_dir[:-5]  # remove "/main"
 data_dir += '/data'
 
 ALBUM_FILE: Final[str] = f'{data_dir}/albums.json'

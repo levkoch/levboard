@@ -1,5 +1,8 @@
 """
+levboard/main/model/spotistats.py
+
 A Module with common Spotistats requests to make it easier to make them.
+I suggest importing the model and not the requests separately for readability.
 
 Requests:
 * `song_info`: Retrieves the info for a song.
@@ -129,8 +132,9 @@ def song_play_history(
 
     r = requests.get(address)
 
-    # datetime is like '2022-04-11T05:03:15.000Z'
-    # get rid of milliseconds because they're gonna be 000 anyway
+    # datetime is formatted like '2022-04-11T05:03:15.000Z'
+    # get rid of milliseconds with string slice
+    # because they're gonna be 000 anyway
 
     return [
         {

@@ -1,3 +1,9 @@
+"""
+levboard/main/model/album.py
+
+Where the Album model is held.
+"""
+
 from datetime import date
 from typing import Iterable, Union, Optional
 from copy import deepcopy
@@ -13,7 +19,7 @@ class Album:
 
         if isinstance(artists, str):
             self._artists: list[str] = artists.split(', ')
-        else:   # is an iterable of str
+        else:  # is an iterable of str
             self._artists: list[str] = list(artists)
 
         self.songs: list[Song] = []

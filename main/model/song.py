@@ -295,7 +295,7 @@ class Song:
         never charted in that region.
         """
 
-        entries = self.entries   # returns a copy, so we can pop
+        entries = self.entries  # returns a copy, so we can pop
         if top:
             entries = [i for i in entries if i.place <= top]
 
