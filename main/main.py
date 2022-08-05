@@ -1,12 +1,13 @@
 import csv
+import sys
+
 from datetime import date, datetime, timedelta
-from typing import Callable, Optional
-from concurrent import futures
+from typing import Optional
 
-from model import Album, AlbumEntry, AlbumCert, Song, Entry, spotistats, config
+from model import Song, Entry, spotistats, config
 from storage import SongUOW
-# from spreadsheet import Spreadsheet
 
+LAZY_NAME = True
 
 def load_week(start_day: date, end_day: date):
     songs = spotistats.songs_week(start_day, end_day)
@@ -30,6 +31,7 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     """
 
     tester = Song(song_id)
+    if LAZY_NAME: return tester
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
@@ -86,12 +88,8 @@ def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
 def clear_entries(uow: SongUOW) -> None:
     print('Clearing previous entries.')
     with uow:
-        for song_id in uow.songs.list():
-            song: Song = uow.songs.get(song_id)
+        for song in uow.songs:
             song._entries = []
-        for album_name in uow.albums.list():
-            album: Album = uow.albums.get(album_name)
-            album.entries = []
         uow.commit()
 
 
@@ -170,7 +168,7 @@ def update_song_sheet(
 
         new_rows.append(
             [
-                "'=" if movement == "=" else movement,
+                "'=" if movement == '=' else movement,
                 song.name,
                 ', '.join(song.artists),
                 pos['place'],
@@ -209,158 +207,10 @@ def get_peak(song: Song) -> str:
     return str(song.peak) + pweeks
 
 
-def get_album_week(
-    start_date: date, end_date: date
-) -> Callable[[Album, bool], int]:
-    plays = spotistats.songs_week(start_date, end_date)
-
-    def get_album_plays(album: Album, accurate: bool = False) -> int:
-        album_plays = 0
-
-        for song in album.songs:
-            song_plays = next(
-                (i['plays'] for i in plays if i['id'] == song.id), None
-            )
-
-            if song_plays is None:
-                # period plays accounts for alternate ids
-                if accurate:
-                    album_plays += song.period_plays(start_date, end_date)
-                # else add 0 becuase it didn't find anything
-
-            else:
-                album_plays += song_plays
-
-                for alt_id in song.alt_ids:
-                    song_plays = next(
-                        (i['plays'] for i in plays if i['id'] == alt_id), 0
-                    )
-                    album_plays += song_plays
-
-        return album_plays
-
-    return get_album_plays
-
-
-def make_album_chart(
-    uow: SongUOW,
-    start_date: date,
-    end_date: date,
-    week_count: int,
-    rows: list[list],
-) -> list[list]:
-
-    units: list[tuple[Album, int]] = []
-    album_plays = get_album_week(start_date, end_date)
-    for album_name in uow.albums.list():
-        album: Album = uow.albums.get(album_name)
-        album_units = album.get_points(end_date) + (2 * album_plays(album))
-        units.append([album, album_units])
-
-    units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] >= units[19][1] and i[1]]
-
-    actual_end = end_date - timedelta(days=1)
-    new_rows = [
-        [
-            f'{start_date.isoformat()} to {actual_end.isoformat()}',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-        ],
-        [
-            'MV',
-            'Title',
-            'CRT',
-            'Artists',
-            'TW',
-            'LW',
-            'OC',
-            'PK',
-            'UTS',
-            'PLS',
-            'PTS',
-        ],
-    ]
-
-    print(f'({week_count}) Albums chart for week of {end_date.isoformat()}.')
-    print('')
-    print(
-        f' MV | {"Title":<45} | CRT | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
-    )
-
-    all_time_plays = get_album_week(config.get_start_date(), end_date)
-
-    for (album, album_units) in units:
-        position = len([i for i in units if i[1] > album_units]) + 1
-        entry = AlbumEntry(
-            start=start_date, end=end_date, units=album_units, place=position
-        )
-        album.add_entry(entry)
-
-        album_cert = format(  # current certificaiton
-            AlbumCert.from_units((all_time_plays(album) * 2) + album.points),
-            's',
-        )
-
-        prev = album.get_entry(start_date)
-        movement = get_movement(end_date, start_date, album)
-        peak = get_peak(album)
-        plays = album_plays(album)
-        points = album.get_points(end_date)
-
-        print(
-            f'{movement:>3} | {album.title:<46} {album_cert:>4} | {album.str_artists:<45}'
-            f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<2}"
-            f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
-        )
-
-        new_rows.append(
-            [
-                "'=" if movement == "=" else movement,
-                album.title,
-                album_cert,
-                album.str_artists,
-                position,
-                prev.place if prev else '-',
-                album.weeks,
-                peak,
-                album_units,
-                plays,
-                points,
-            ]
-        )
-
-    new_rows.append(['', '', '', '', '', '', '', '', '', '', ''])
-    new_rows.extend(rows)
-    return new_rows
-
-
-def update_song_plays(song: Song) -> Song:
-    song.update_plays()
-    return (song, song.plays)
-
-
-def update_all_song_plays(uow: SongUOW) -> None:
-    with futures.ThreadPoolExecutor() as executor:
-        to_do: list[futures.Future] = []
-        for song in uow.songs:
-            future = executor.submit(update_song_plays, song)
-            to_do.append(future)
-
-        for count, future in enumerate(futures.as_completed(to_do), 1):
-            song, plays = future.result()
-            print(f'({count}) updated {song} -> {plays} plays')
-
-
 if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        config.update_settings(username = sys.argv[1])
+
     username = config.get_username()
     print(f'Finding song data for {username}.')
     uow = SongUOW()
@@ -368,9 +218,7 @@ if __name__ == '__main__':
     week_count = 0
     start_date = config.get_start_date()
     song_rows: list[list] = []
-    album_rows: list[list] = []
 
-    update_all_song_plays(uow)
     clear_entries(uow)
 
     while True:
@@ -387,59 +235,18 @@ if __name__ == '__main__':
         insert_entries(uow, positions, start_date, end_date)
         week_count += 1
         show_chart(uow, positions, start_date, end_date, week_count)
-        album_rows = make_album_chart(
-            uow, start_date, end_date, week_count, album_rows
-        )
 
         song_rows = update_song_sheet(
             song_rows, uow, positions, start_date, end_date
         )
         start_date = end_date  # shift pointer
 
-    start_song_rows = [
-        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
-    ]
-    # start_song_rows.extend(song_rows)
-    # song_rows = start_song_rows
-
-    start_album_rows = [
-        [
-            'MV',
-            'Title',
-            'CRT',
-            'Artists',
-            'TW',
-            'LW',
-            'OC',
-            'PK',
-            'UTS',
-            'PLS',
-            'PTS',
-        ],
-    ]
-    # start_album_rows.extend(album_rows)
-    # album_rows = start_album_rows
-
+    start_song_row = ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
+    
     with open('songs.csv', 'w', encoding='UTF-8', newline='') as f:
         songs_writer = csv.writer(f)
-        songs_writer.writerow(start_song_rows)
+        songs_writer.writerow(start_song_row)
         songs_writer.writerows(song_rows)
-
-    with open('albums.csv', 'w', encoding='UTF-8', newline='') as f:
-        album_writer = csv.writer(f)
-        album_writer.writerow(start_album_rows)
-        album_writer.writerows(album_rows)
-
-    '''
-    sheet = Spreadsheet(config.LEVBOARD_SHEET)
-
-    print('')
-    print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
-    sheet.update_range(f'BOT_SONGS!A1:H{len(song_rows) + 1}', song_rows)
-
-    print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
-    sheet.update_range(f'BOT_ALBUMS!A1:K{len(album_rows) + 1}', album_rows)
-    '''
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')

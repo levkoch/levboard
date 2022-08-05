@@ -15,16 +15,12 @@ Enums:
 * CertType: The different certification statuses a song/album could have.
 """
 
-from .album import Album
-from .cert import SongCert, AlbumCert, CertType
-from .entry import Entry, AlbumEntry
+from .cert import SongCert, CertType
+from .entry import Entry
 from .song import Song
 
 # in alphabetical order
 __all__ = [
-    'Album',
-    'AlbumCert',
-    'AlbumEntry',
     'CertType',
     'Entry',
     'Song',

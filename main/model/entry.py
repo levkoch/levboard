@@ -68,31 +68,3 @@ class Entry(_BaseEntry):
         info = super().to_dict()
         info['plays'] = self.plays
         return info
-
-
-class AlbumEntry(_BaseEntry):
-    """
-    A frozen dataclass representing a chart entry.
-
-    Attributes / Arguments:
-    * start (`datetime.date`): The date that the week's entry started.
-        (NOTE: `start` and `end` can be passed in as ISO date strings,
-        they will be parsed as the correct type.)
-    * end (`datetime.date`): The date that the week's entry ended.
-    * plays (`int`): The plays the song got that week. Will be greater
-        than `1`.
-    * place (`int`): The chart position attained by that song. A
-        positive integer.
-
-    Methods:
-    * to_dict (`dict` method): Collects the Entry into a dictionary.
-    """
-
-    units: conint(gt=1)
-
-    def to_dict(self) -> dict:
-        """Dictionary representation of entry for storage."""
-
-        info = super().to_dict()
-        info['units'] = self.units
-        return info

@@ -18,9 +18,8 @@ import time
 from datetime import date, datetime
 from typing import Union, Final
 
-from .config import get_username
+from . import config
 
-USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
 
@@ -49,7 +48,7 @@ def song_info(song_id: str) -> dict:
 def song_plays(
     song_id: str,
     *,
-    user: str = USER_NAME,
+    user: str = '',
     after: Union[int, date] = 0,
     before: Union[int, date] = 0,
 ) -> int:
@@ -59,6 +58,8 @@ def song_plays(
     either date objects or epoch timestamps.
     """
 
+    if not user:
+        user = config.get_username()
     after = _timestamp_check(after)
     before = _timestamp_check(before)
 
@@ -88,7 +89,7 @@ def songs_week(
     after: Union[int, date],
     before: Union[int, date],
     *,
-    user: str = USER_NAME,
+    user: str = '',
     min_plays: int = MIN_PLAYS,
 ) -> list[dict]:
     """
@@ -101,6 +102,8 @@ def songs_week(
     the number of plays, and `'id'` with the song id of the song they're for.
     """
 
+    if not user:
+        user = config.get_username()
     after = _timestamp_check(after)
     before = _timestamp_check(before)
 
@@ -121,11 +124,14 @@ def songs_week(
 def song_play_history(
     song_id: str,
     *,
-    user: str = USER_NAME,
+    user: str = '',
     max_entries: NonNegativeInt = MAX_ENTRIES,
 ) -> list[dict]:
 
     """Returns a list of song plays for the indicated song id."""
+
+    if not user:
+        user = config.get_username()
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/streams/'

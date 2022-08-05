@@ -2,7 +2,7 @@ import json
 
 from typing import Iterator, Optional, Generator
 
-from model import Song, Album, config
+from model import Song, config
 
 
 class SongRepository:
@@ -103,46 +103,6 @@ class SongRepository:
         return list(self._songs.keys())
 
 
-class AlbumRepository:
-    __slots__ = ['seen', '_albums', '_file']
-
-    def __init__(self, *, album_file: str = config.ALBUM_FILE):
-        self._albums: dict[str, Album] = []
-        self._file = album_file
-        self._load()
-        self.seen: set[Album] = set()
-
-    def _load(self) -> None:
-        with open(self._file, 'r') as f:
-            albums: dict[str, dict] = json.load(f)
-
-        self._albums = {}
-
-        for album_name, album_dict in albums.items():
-            self._albums[album_name] = Album.from_dict(album_dict)
-
-    def __iter__(self) -> Iterator[Album]:
-        return iter(self._albums.values())
-
-    def get(self, album_name: str) -> Optional[Album]:
-        """
-        Retrieves a `Album` by name, or `None` if that name isn't found found.
-        """
-        album = self._albums.get(album_name)
-        if album:
-            self.seen.add(album)
-        return album
-
-    def add(self, album: Album) -> None:
-        """Adds a `Album` into the repository."""
-        self._albums[album._title] = album
-        self.seen.add(album)
-
-    def list(self) -> list[str]:
-        """Returns all of the album names stored."""
-        return list(self._albums.keys())
-
-
 class SongUOW:
     """
     A unit of work infrastructure ease of access thingy.
@@ -160,20 +120,10 @@ class SongUOW:
         any of the objects avaliable.
     """
 
-    __slots__ = ['songs', 'albums']
+    __slots__ = ('songs',)
 
-    def __init__(
-        self, *, song_file: str = config.SONG_FILE, album_file: str = config.ALBUM_FILE
-    ):
+    def __init__(self, *, song_file: str = config.SONG_FILE):
         self.songs = SongRepository(song_file=song_file)
-        self.albums = AlbumRepository(album_file=album_file)
-        self._attach_songs()
-
-    def _attach_songs(self) -> None:
-        for album in self.albums._albums.values():
-            for stored_id in album.stored_ids:
-                album.add_song(self.songs.get(stored_id))
-            del album.stored_ids
 
     def __enter__(self) -> 'SongUOW':
         return self
@@ -192,10 +142,6 @@ class SongUOW:
         with open(self.songs._file, 'w') as f:
             json.dump(songs, f, indent=4)
 
-        albums = {k: v.to_dict() for k, v in self.albums._albums.items()}
-        with open(self.albums._file, 'w') as f:
-            json.dump(albums, f, indent=4)
-
     def collect_new_events(self) -> Generator:
         """Makes events avaliable for later usage"""
 
@@ -203,8 +149,3 @@ class SongUOW:
             while song.events:
                 yield song.events.pop(0)
         self.songs.seen.clear()
-
-        for album in self.albums.seen:
-            while album.events:
-                yield song.events.pop(0)
-        self.albums.seen.clear()

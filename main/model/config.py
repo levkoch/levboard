@@ -15,13 +15,6 @@ import json
 from datetime import date
 from typing import Any, Final
 
-## constants ##
-LEVBOARD_SHEET: Final[str] = '1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk'
-
-# the first date of my listening
-FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
-USER_NAME: Final[str] = 'lev'
-
 ## files ##
 
 # find path of where the __main__ program was run
@@ -70,12 +63,14 @@ def get_min_plays() -> int:
     """
     return int(_get_setting('min_plays', 2))
 
+
 def get_start_date() -> date:
     """
     Retrieves the configured first week from the config file.
     Defaults to May 13th, 2021 (Lev first date).
     """
     return date.fromisoformat(_get_setting('start_date', '2021-05-13'))
+
 
 def update_settings(**kwargs: dict[str, Any]) -> None:
     """
@@ -92,7 +87,11 @@ def update_settings(**kwargs: dict[str, Any]) -> None:
     min_plays = kwargs.pop('min_plays', get_min_plays())
     start_date = kwargs.pop('start_date', get_start_date())
 
-    settings = {'username': str(username), 'min_plays': int(min_plays), 'start_date': start_date.isoformat()}
+    settings = {
+        'username': str(username),
+        'min_plays': int(min_plays),
+        'start_date': start_date.isoformat(),
+    }
 
     with open(SETTINGS_FILE, 'w', encoding='UTF-8') as f:
         json.dump(settings, f, indent=4)
