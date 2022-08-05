@@ -2,8 +2,7 @@ import json
 
 from typing import Iterator, Optional, Generator
 
-from model import Song, Album
-from config import SONG_FILE, ALBUM_FILE
+from model import Song, Album, config
 
 
 class SongRepository:
@@ -29,7 +28,7 @@ class SongRepository:
 
     __slots__ = ['seen', '_songs', '_file']
 
-    def __init__(self, *, song_file: str = SONG_FILE):
+    def __init__(self, *, song_file: str = config.SONG_FILE):
         self._songs: dict[str, Song] = []
         self._file = song_file
         self._load()
@@ -107,7 +106,7 @@ class SongRepository:
 class AlbumRepository:
     __slots__ = ['seen', '_albums', '_file']
 
-    def __init__(self, *, album_file: str = ALBUM_FILE):
+    def __init__(self, *, album_file: str = config.ALBUM_FILE):
         self._albums: dict[str, Album] = []
         self._file = album_file
         self._load()
@@ -164,7 +163,7 @@ class SongUOW:
     __slots__ = ['songs', 'albums']
 
     def __init__(
-        self, *, song_file: str = SONG_FILE, album_file: str = ALBUM_FILE
+        self, *, song_file: str = config.SONG_FILE, album_file: str = config.ALBUM_FILE
     ):
         self.songs = SongRepository(song_file=song_file)
         self.albums = AlbumRepository(album_file=album_file)

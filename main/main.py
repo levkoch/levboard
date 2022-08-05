@@ -1,11 +1,11 @@
+import csv
 from datetime import date, datetime, timedelta
 from typing import Callable, Optional
 from concurrent import futures
 
-from model import Album, AlbumEntry, AlbumCert, Song, Entry, spotistats
+from model import Album, AlbumEntry, AlbumCert, Song, Entry, spotistats, config
 from storage import SongUOW
-from spreadsheet import Spreadsheet
-from config import FIRST_DATE, LEVBOARD_SHEET
+# from spreadsheet import Spreadsheet
 
 
 def load_week(start_day: date, end_day: date):
@@ -25,6 +25,10 @@ def load_week(start_day: date, end_day: date):
 
 
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
+    """
+    Song factory function to add songs into the database.
+    """
+
     tester = Song(song_id)
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
@@ -54,6 +58,10 @@ def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
         except ValueError:
             print('Not enough songs found in the time range.')
             end_date += timedelta(days=7)
+            if end_date > date.today():
+                raise ValueError(
+                    'Not enough songs found in this week.'
+                ) from None
         else:
             return positions, end_date
 
@@ -88,7 +96,9 @@ def clear_entries(uow: SongUOW) -> None:
 
 
 def get_movement(current: date, last: date, song: Song) -> str:
-    c_place: Optional[Entry] = song.get_entry(current)
+    # current place will always return an entry or else the program
+    # shouldn't be asking for the movement
+    c_place: Entry = song.get_entry(current)
     p_place: Optional[Entry] = song.get_entry(last)
     weeks = song.weeks
 
@@ -160,7 +170,7 @@ def update_song_sheet(
 
         new_rows.append(
             [
-                "'" + movement,
+                "'=" if movement == "=" else movement,
                 song.name,
                 ', '.join(song.artists),
                 pos['place'],
@@ -286,7 +296,7 @@ def make_album_chart(
         f' MV | {"Title":<45} | CRT | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
     )
 
-    all_time_plays = get_album_week(FIRST_DATE, end_date)
+    all_time_plays = get_album_week(config.get_start_date(), end_date)
 
     for (album, album_units) in units:
         position = len([i for i in units if i[1] > album_units]) + 1
@@ -314,7 +324,7 @@ def make_album_chart(
 
         new_rows.append(
             [
-                "'" + movement,
+                "'=" if movement == "=" else movement,
                 album.title,
                 album_cert,
                 album.str_artists,
@@ -351,10 +361,12 @@ def update_all_song_plays(uow: SongUOW) -> None:
 
 
 if __name__ == '__main__':
+    username = config.get_username()
+    print(f'Finding song data for {username}.')
     uow = SongUOW()
     start_time = datetime.now()
     week_count = 0
-    start_date = FIRST_DATE
+    start_date = config.get_start_date()
     song_rows: list[list] = []
     album_rows: list[list] = []
 
@@ -363,12 +375,15 @@ if __name__ == '__main__':
 
     while True:
         end_date = start_date + timedelta(days=7)
-        if end_date > date.today():
+
+        try:
+            positions, end_date = get_positions(start_date, end_date)
+        # thrown when not enough to fill a week so week is extended past today
+        except ValueError:
             print('')
             print('All weeks found. Ending Process.')
             break  # from the big loop
 
-        positions, end_date = get_positions(start_date, end_date)
         insert_entries(uow, positions, start_date, end_date)
         week_count += 1
         show_chart(uow, positions, start_date, end_date, week_count)
@@ -384,8 +399,8 @@ if __name__ == '__main__':
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
     ]
-    start_song_rows.extend(song_rows)
-    song_rows = start_song_rows
+    # start_song_rows.extend(song_rows)
+    # song_rows = start_song_rows
 
     start_album_rows = [
         [
@@ -402,10 +417,21 @@ if __name__ == '__main__':
             'PTS',
         ],
     ]
-    start_album_rows.extend(album_rows)
-    album_rows = start_album_rows
+    # start_album_rows.extend(album_rows)
+    # album_rows = start_album_rows
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    with open('songs.csv', 'w', encoding='UTF-8', newline='') as f:
+        songs_writer = csv.writer(f)
+        songs_writer.writerow(start_song_rows)
+        songs_writer.writerows(song_rows)
+
+    with open('albums.csv', 'w', encoding='UTF-8', newline='') as f:
+        album_writer = csv.writer(f)
+        album_writer.writerow(start_album_rows)
+        album_writer.writerows(album_rows)
+
+    '''
+    sheet = Spreadsheet(config.LEVBOARD_SHEET)
 
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
@@ -413,6 +439,7 @@ if __name__ == '__main__':
 
     print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
     sheet.update_range(f'BOT_ALBUMS!A1:K{len(album_rows) + 1}', album_rows)
+    '''
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')

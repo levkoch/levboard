@@ -1,10 +1,9 @@
 from spreadsheet import Spreadsheet
-from model import Album
+from model import Album, config
 from storage import SongUOW
-from config import LEVBOARD_SHEET
 
 uow = SongUOW()
-sheet = Spreadsheet(LEVBOARD_SHEET)
+sheet = Spreadsheet(config.LEVBOARD_SHEET)
 request = sheet.get_range('Albums!A1:G1788')
 info: list[list] = request.get('values')
 

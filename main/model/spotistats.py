@@ -18,6 +18,8 @@ import time
 from datetime import date, datetime
 from typing import Union, Final
 
+from .config import get_username
+
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000

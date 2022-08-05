@@ -6,7 +6,7 @@ from concurrent import futures
 from typing import Optional, Iterator
 
 from storage import SongUOW
-from model import SongCert, Song, spotistats, Album
+from model import SongCert, Song, spotistats
 
 
 uow = SongUOW()
@@ -152,9 +152,7 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
-    print(
-        f"Albums with most song weeks {f'in the top {top}' if weeks else ''}:"
-    )
+    print(f"Albums with most song weeks {f'in the top {top}' if top else ''}:")
     for album, weeks in units:
         place = len([i for i in units if i[1] > weeks]) + 1
         print(f'{place:>3} | {str(album):<50} | {weeks:<2} weeks')
