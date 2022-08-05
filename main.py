@@ -1,13 +1,16 @@
 import csv
 import sys
+import itertools
 
-from datetime import date, datetime, timedelta
 from typing import Optional
+from concurrent import futures
+from datetime import date, datetime, timedelta
 
-from model import Song, Entry, spotistats, config
-from storage import SongUOW
+from main.model import Song, Entry, spotistats, config
+from main.storage import SongUOW
 
-LAZY_NAME = True
+LAZY_NAME = True   # on this branch
+
 
 def load_week(start_day: date, end_day: date):
     songs = spotistats.songs_week(start_day, end_day)
@@ -31,7 +34,8 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     """
 
     tester = Song(song_id)
-    if LAZY_NAME: return tester
+    if config.get_lazy_name():
+        return tester
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
@@ -68,21 +72,33 @@ def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
             return positions, end_date
 
 
+def insert_entry(song_id: str, uow: SongUOW, entry: Entry) -> None:
+    song: Optional[Song] = uow.songs.get(song_id)
+    if not song:
+        song = ask_new_song(uow, song_id)
+        uow.songs.add(song)
+    song.add_entry(entry)
+
+
 def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
-    with uow:
-        for position in positions:
-            song: Optional[Song] = uow.songs.get(position['id'])
-            if not song:
-                song = ask_new_song(uow, position['id'])
-                uow.songs.add(song)
-            entry = Entry(
-                end=end_date,
-                start=start_date,
-                plays=position['plays'],
-                place=position['place'],
-            )
-            song.add_entry(entry)
-        uow.commit()
+    song_ids = (position['id'] for position in positions)
+    uows = itertools.repeat(uow)
+    entries = (
+        Entry(
+            end=end_date,
+            start=start_date,
+            plays=position['plays'],
+            place=position['place'],
+        )
+        for position in positions
+    )
+    if config.get_lazy_name():
+        with futures.ThreadPoolExecutor() as executor:
+            executor.map(insert_entry, song_ids, uows, entries)
+    else:
+        for song_id in song_ids:
+            insert_entry(song_id, uow, next(entries))
+    uow.commit()
 
 
 def clear_entries(uow: SongUOW) -> None:
@@ -207,9 +223,21 @@ def get_peak(song: Song) -> str:
     return str(song.peak) + pweeks
 
 
+def update_start_date() -> None:
+    username = config.get_username()
+    [info] = spotistats.user_play_history(username, max_entries=1, order='asc')
+    first_stream: datetime = info['finished_playing']
+    config.update_settings(start_date=first_stream.date())
+
+
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        config.update_settings(username = sys.argv[1])
+    if len(sys.argv) >= 2:
+        config.update_settings(username=sys.argv[1])
+        update_start_date()
+        if len(sys.argv) == 3:
+            config.update_settings(
+                lazy_name=(False if sys.argv[2].startswith('f') else True)
+            )
 
     username = config.get_username()
     print(f'Finding song data for {username}.')
@@ -241,8 +269,10 @@ if __name__ == '__main__':
         )
         start_date = end_date  # shift pointer
 
-    start_song_row = ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
-    
+    start_song_row = (
+        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
+    )
+
     with open('songs.csv', 'w', encoding='UTF-8', newline='') as f:
         songs_writer = csv.writer(f)
         songs_writer.writerow(start_song_row)

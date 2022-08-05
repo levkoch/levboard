@@ -16,7 +16,7 @@ import requests
 import time
 
 from datetime import date, datetime
-from typing import Union, Final
+from typing import Literal, Union, Final
 
 from . import config
 
@@ -152,4 +152,43 @@ def song_play_history(
             ),
         }
         for i in r.json()['items']
+    ]
+
+
+def user_play_history(
+    user: str,
+    *,
+    after: Union[int, date] = 0,
+    before: Union[int, date] = 0,
+    max_entries: NonNegativeInt = MAX_ENTRIES,
+    order: Literal['asc', 'desc'] = 'desc',
+) -> list[dict]:
+    """Returns a list of dicts of the user's streams."""
+
+    after = _timestamp_check(after)
+    before = _timestamp_check(before)
+
+    args = [f'limit={max_entries}', f'order={order}']
+    if after:
+        args.append(f'after={after}')
+    if before:
+        args.append(f'before={before}')
+
+    address = f'https://beta-api.stats.fm/api/v1/users/{user}/streams/'
+
+    if args:
+        address += '?' + '&'.join(args)
+
+    r = requests.get(address)
+
+    return [
+        {
+            'song_id': info['trackId'],
+            'song_name': info['trackName'],
+            'artists': info['artistIds'],
+            'finished_playing': datetime.strptime(
+                info['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
+            ),
+        }
+        for info in r.json()['items']
     ]

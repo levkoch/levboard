@@ -72,6 +72,14 @@ def get_start_date() -> date:
     return date.fromisoformat(_get_setting('start_date', '2021-05-13'))
 
 
+def get_lazy_name() -> bool:
+    """
+    Retreieves the configured lazy naming for songs. Defaults to True,
+    so users won't be asked to name their tracks.
+    """
+    return bool(_get_setting('lazy_name', True))
+
+
 def update_settings(**kwargs: dict[str, Any]) -> None:
     """
     Update the settings of the system.
@@ -79,6 +87,7 @@ def update_settings(**kwargs: dict[str, Any]) -> None:
     Settings:
     * `username (str)`: The username of the account to find data for.
     * `min_plays (int)`: The minimum plays a song needs to get to chart.
+    * `start_date (date)`: The date to start finding data from.
 
     All settings default to the ones that are already in config.
     """
@@ -86,11 +95,13 @@ def update_settings(**kwargs: dict[str, Any]) -> None:
     username = kwargs.pop('username', get_username())
     min_plays = kwargs.pop('min_plays', get_min_plays())
     start_date = kwargs.pop('start_date', get_start_date())
+    lazy_name = kwargs.pop('lazy_name', get_lazy_name())
 
     settings = {
         'username': str(username),
         'min_plays': int(min_plays),
         'start_date': start_date.isoformat(),
+        'lazy_name': bool(lazy_name),
     }
 
     with open(SETTINGS_FILE, 'w', encoding='UTF-8') as f:

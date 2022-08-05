@@ -2,7 +2,7 @@ import json
 
 from typing import Iterator, Optional, Generator
 
-from model import Song, config
+from .model import Song, config
 
 
 class SongRepository:

@@ -129,8 +129,6 @@ dmypy.json
 .pyre/
 
 # other things
-info.txt
+.vscode/
 .data/
-data/albums.json
-data/songs.json
-data/albums.json
+
