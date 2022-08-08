@@ -1,9 +1,9 @@
 # levboard
-A [Spotstats](stats.fm) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with albums. __Please Note__: Only accounts with Spotistats Plus __AND__ their files imported work, as other accounts don't display stream counts, and the system needs those.
+A [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with albums. __Please Note__: Only accounts with Spotistats Plus __AND__ their files imported work, as other accounts don't display stream counts, and the system needs those.
 
 ## How To Use (For Anyone)
 
-_(This is the explaining to anyone how-to guide, so if you know how to run a program, skip to the other How to Use section.)_
+_(This is the explaining to anyone how-to guide, so if you know how to run a program, skip to the other [How to Use section.](#how-to-use-for-programmers)_
 
 1. This is code that runs on your computer, so to run it, you have to download it first. Click on the green button in the top right corner, and then select "Download ZIP", which will download a compressed copy of the script onto your computer. Find the zipped folder in your file discovery system on your computer and move the inner folder (which should be named "levboard-main") out of the zipped folder.
 
@@ -49,7 +49,7 @@ NEW | Neon Lights                                   | Demi Lovato               
 ```
 Don't close the command line terminal, it should take around a minute or two to comb through all your weeks. Once it's done, it will create a `songs.csv` file in the same location as you had just ran the file. You can then use the "Import Data" feature in Excel to import the data from that file into Excel. Alternatively, copy the entire contents of the file and paste them into Google Sheets. Then select "Split Text to Columns" and you now have your data in your favorite spreadsheet program.
 
-8. Once you have ran the `main.py` program, you can also run the `stats.py` program located in the same directory, and it will display various stats about your songs, including your top songs all time (do this by running the first command.) I suggest sending the output to a text file so you can read it later (by running the second command in the same directory.)
+8. Once you have ran the `main.py` program, you can also run the `stats.py` program located in the same directory, and it will display various stats about your songs, including your top songs all time (do this by running the first command.) I suggest sending the output to a text file so you can read it later (by running the second command in the same directory).
 ```console
 python stats.py
 python stats.py > info.txt
