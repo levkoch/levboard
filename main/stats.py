@@ -1,13 +1,13 @@
 import functools
 import itertools
 
-from datetime import timedelta, datetime
+from datetime import date, timedelta, datetime
 from concurrent import futures
 from typing import Optional, Iterator
 
 from storage import SongUOW
 from model import SongCert, Song, spotistats, Album
-
+from config import FIRST_DATE
 
 uow = SongUOW()
 
@@ -161,6 +161,28 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     print('')
 
 
+def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
+    return album, album.period_units(start, end)
+
+def top_albums_month(uow: SongUOW, start: date, end: date):
+    with futures.ThreadPoolExecutor() as executor:
+        units = executor.map(
+            functools.partial(get_album_units, start=start, end=end),
+            uow.albums,
+        )
+    units = list(units)
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] > units[19][1]]
+
+    print(
+        f'Bestselling albums between {start.isoformat()} and {end.isoformat()}.'
+    )
+    for album, data in units:
+        place = len([i for i in units if i[1] > data]) + 1
+        print(f'{place:>3} | {str(album):<50} | {data:<2} units')
+    print('')
+
+
 def display_all_songs(uow: SongUOW):
     all_songs = [song for song in uow.songs if song.units]
     all_songs.sort(key=lambda i: i.units, reverse=True)
@@ -194,6 +216,7 @@ CERTS = [SongCert.from_symbol(i) for i in RAW_CERTS]
 if __name__ == '__main__':
     uow = SongUOW()
 
+    """
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
 
@@ -209,5 +232,21 @@ if __name__ == '__main__':
 
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
+    """
+
+    start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
+    end_day = date(start_day.year, start_day.month + 1, 1)
+
+    while start_day <= date.today():
+        top_albums_month(uow, start_day, end_day)
+        
+        start_day: date = end_day
+        next_month: int = end_day.month + 1
+        next_year: int = end_day.year
+        if next_month == 13:
+            next_month = 1
+            next_year += 1
+
+        end_day = date(next_year, next_month, 1)
 
     # display_all_songs(uow)

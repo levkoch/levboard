@@ -13,7 +13,7 @@ def load_week(start_day: date, end_day: date):
 
     if len(songs) < 60:
         print(f'Only {len(songs)} songs got over 1 stream that week.')
-        raise ValueError('not enough songs')
+        raise ValueError('not enough songs', len(songs))
 
     cutoff: int = songs[59]['plays']
     print(f'Song cutoff this week is {cutoff} plays.')
@@ -51,8 +51,9 @@ def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
         )
         try:
             positions = load_week(start_date, end_date)
-        except ValueError:
+        except ValueError as exc:
             print('Not enough songs found in the time range.')
+            print(f'only {exc.args[1]} got enough plays.')
             end_date += timedelta(days=7)
         else:
             return positions, end_date

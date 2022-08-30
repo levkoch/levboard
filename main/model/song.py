@@ -4,6 +4,7 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
+from collections import Counter
 from copy import deepcopy
 from typing import Iterable, Optional
 from datetime import date
@@ -12,6 +13,8 @@ from pydantic import ValidationError
 from .cert import SongCert
 from .entry import Entry
 from . import spotistats
+
+MAX_ADJUSTED = 25
 
 
 class Song:
@@ -221,6 +224,19 @@ class Song:
 
         return plays
 
+    def period_units(self, start: date, end: date) -> int:
+        """
+        Returns the song's units gained for some period.
+        """
+
+        points = sum(
+            (61 - i.place)
+            for i in self.entries
+            if i.end >= start and i.end <= end
+        )
+
+        return self.period_plays(start, end) * 2 + points
+
     def add_entry(self, entry: Entry) -> None:
         """
         Adds an entry, as an `Entry` object into the song data.
@@ -256,15 +272,40 @@ class Song:
 
         return next((i for i in self._entries if i.end == end_date), None)
 
-    def update_plays(self) -> None:
+    def update_plays(self, adjusted=False) -> None:
         """
         Updates the lifetime plays for the song.
+        The `adjusted` flag marks if play data will be filtered or not.
         """
+
+        if adjusted:
+            self.plays = self.adjusted_plays()
+            return
 
         self.plays = spotistats.song_plays(self.id)
 
         for alt_id in self.alt_ids:
             self.plays += spotistats.song_plays(alt_id)
+
+    def adjusted_plays(self) -> int:
+        """
+        Returns the adjusted plays for a song. Adjusted plays count all
+        streams, unless a song got over a benchmark within a day, so it
+        will count up to that mark and no more.
+        """
+
+        plays: list[dict] = spotistats.song_play_history(self.id)
+        play_dates: Iterable[date] = (
+            i['finished_playing'].date() for i in plays
+        )
+        date_counter = Counter(play_dates)
+
+        total = 0
+
+        for count in date_counter.values():
+            total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
+
+        return total
 
     def add_alt(self, alt_id: str) -> None:
         """

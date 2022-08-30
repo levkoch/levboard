@@ -4,7 +4,9 @@ levboard/main/model/album.py
 Where the Album model is held.
 """
 
+from concurrent import futures
 from datetime import date
+from operator import methodcaller
 from typing import Iterable, Union, Optional
 from copy import deepcopy
 
@@ -237,11 +239,16 @@ class Album:
         """
         Returns the plays for a period of time.
         """
+        with futures.ThreadPoolExecutor() as executor:
+            return sum(executor.map(
+                methodcaller('period_plays', start=start, end=end), self.songs
+            ))
 
-        plays = 0
-        for song in self.songs:
-            plays += song.period_plays(start, end)
-        return plays
+    def period_units(self, start: date, end: date) -> int:
+        with futures.ThreadPoolExecutor() as executor:
+            return sum(executor.map(
+                methodcaller('period_units', start=start, end=end), self.songs
+            ))
 
     def get_points(self, end_date: date) -> int:
         """
