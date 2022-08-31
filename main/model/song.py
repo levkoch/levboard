@@ -6,6 +6,7 @@ Contains the central Song model.
 
 from collections import Counter
 from copy import deepcopy
+import itertools
 from typing import Iterable, Optional
 from datetime import date
 from pydantic import ValidationError
@@ -294,7 +295,10 @@ class Song:
         will count up to that mark and no more.
         """
 
-        plays: list[dict] = spotistats.song_play_history(self.id)
+        plays: list[dict] = itertools.chain(
+            spotistats.song_play_history(i) 
+            for i in ([self.id] + self.alt_ids)
+        )
         play_dates: Iterable[date] = (
             i['finished_playing'].date() for i in plays
         )
