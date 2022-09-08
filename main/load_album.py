@@ -5,7 +5,7 @@ from config import LEVBOARD_SHEET
 
 uow = SongUOW()
 sheet = Spreadsheet(LEVBOARD_SHEET)
-request = sheet.get_range('Albums!A1:G1815')
+request = sheet.get_range('Albums!A1:G2000')
 info: list[list] = request.get('values')
 
 print(f'{len(info)} rows found.')

@@ -49,7 +49,7 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
 
     units = [i for i in mapped if i[1].days > 1]
     units.sort(key=lambda i: i[1])
-    if len(units) > 16:
+    if len(units) > 19:
         units = [i for i in units if i[1] <= units[19][1]]
     print(f'Fastest songs to reach {plays} plays:')
     for (song, time) in units:
@@ -216,10 +216,11 @@ CERTS = [SongCert.from_symbol(i) for i in RAW_CERTS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    """
+    
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
 
+    '''
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
@@ -232,8 +233,9 @@ if __name__ == '__main__':
 
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-    """
+    '''
 
+    '''
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -248,5 +250,6 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
+    '''
 
     # display_all_songs(uow)

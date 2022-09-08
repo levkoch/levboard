@@ -3,19 +3,16 @@ import itertools
 
 from spreadsheet import Spreadsheet
 from model import Song
-from storage import SongUOW
 from config import LEVBOARD_SHEET
 
 
 sheet = Spreadsheet(LEVBOARD_SHEET)
-uow = SongUOW()
 request = sheet.get_range('Song Info!A2:D2000')
 songs: list[list] = request.get('values')
 songs = [i for i in songs if i[0]]
 print(f'{len(songs)} items found.')
 
 final_songs: list[list] = []
-
 
 def create_song(song_id: str, song_name: str) -> tuple[Song, int]:
     if ',' in song_id:

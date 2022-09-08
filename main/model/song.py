@@ -295,8 +295,8 @@ class Song:
         will count up to that mark and no more.
         """
 
-        plays: list[dict] = itertools.chain(
-            spotistats.song_play_history(i) 
+        plays: Iterable[dict] = itertools.chain.from_iterable(
+            spotistats.song_play_history(i)
             for i in ([self.id] + self.alt_ids)
         )
         play_dates: Iterable[date] = (

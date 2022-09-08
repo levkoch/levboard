@@ -15,7 +15,7 @@ import requests
 import time
 
 from datetime import date, datetime
-from typing import Union, Final
+from typing import TypedDict, Union, Final
 from pydantic import NonNegativeInt
 
 USER_NAME: Final[str] = 'lev'
@@ -135,7 +135,7 @@ def song_play_history(
     # datetime is formatted like '2022-04-11T05:03:15.000Z'
     # get rid of milliseconds with string slice
     # because they're gonna be 000 anyway
-
+    
     return [
         {
             'played_for': int(i['playedMs']),
