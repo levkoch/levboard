@@ -240,15 +240,21 @@ class Album:
         Returns the plays for a period of time.
         """
         with futures.ThreadPoolExecutor() as executor:
-            return sum(executor.map(
-                methodcaller('period_plays', start=start, end=end), self.songs
-            ))
+            return sum(
+                executor.map(
+                    methodcaller('period_plays', start=start, end=end),
+                    self.songs,
+                )
+            )
 
     def period_units(self, start: date, end: date) -> int:
         with futures.ThreadPoolExecutor() as executor:
-            return sum(executor.map(
-                methodcaller('period_units', start=start, end=end), self.songs
-            ))
+            return sum(
+                executor.map(
+                    methodcaller('period_units', start=start, end=end),
+                    self.songs,
+                )
+            )
 
     def get_points(self, end_date: date) -> int:
         """

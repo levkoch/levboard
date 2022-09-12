@@ -335,7 +335,7 @@ def make_album_chart(
 
 
 def update_song_plays(song: Song) -> Song:
-    song.update_plays(adjusted = True)
+    song.update_plays(adjusted=True)
     return (song, song.plays)
 
 

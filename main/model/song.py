@@ -213,19 +213,37 @@ class Song:
 
         return SongCert.from_units(self.units)
 
-    def period_plays(self, start: date, end: date) -> int:
+    def period_plays(self, start: date, end: date, adjusted=False) -> int:
         """
         Returns the song's plays for some period.
         """
 
-        plays = spotistats.song_plays(self.id, after=start, before=end)
+        plays: Iterable[dict] = itertools.chain.from_iterable(
+            spotistats.song_play_history(i) for i in ([self.id] + self.alt_ids)
+        )
 
-        for alt_id in self.alt_ids:
-            plays += spotistats.song_plays(alt_id, after=start, before=end)
+        if not adjusted:
+            # we don't have to filter out any days that have
+            # too many streams, so simple route
+            return len(list(plays))
 
-        return plays
+        play_dates: Iterable[date] = (
+            i['finished_playing'].date() for i in plays
+        )
 
-    def period_units(self, start: date, end: date) -> int:
+        date_counter = Counter(play_dates)
+
+        total = 0
+
+        for count in date_counter.values():
+            if adjusted:
+                total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
+            else:
+                total += count
+
+        return total
+
+    def period_units(self, start: date, end: date, adjusted=False) -> int:
         """
         Returns the song's units gained for some period.
         """
@@ -236,7 +254,7 @@ class Song:
             if i.end >= start and i.end <= end
         )
 
-        return self.period_plays(start, end) * 2 + points
+        return self.period_plays(start, end, adjusted) * 2 + points
 
     def add_entry(self, entry: Entry) -> None:
         """
@@ -296,8 +314,7 @@ class Song:
         """
 
         plays: Iterable[dict] = itertools.chain.from_iterable(
-            spotistats.song_play_history(i)
-            for i in ([self.id] + self.alt_ids)
+            spotistats.song_play_history(i) for i in ([self.id] + self.alt_ids)
         )
         play_dates: Iterable[date] = (
             i['finished_playing'].date() for i in plays

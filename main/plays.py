@@ -14,6 +14,7 @@ print(f'{len(songs)} items found.')
 
 final_songs: list[list] = []
 
+
 def create_song(song_id: str, song_name: str) -> tuple[Song, int]:
     if ',' in song_id:
         song = Song(song_id.split(',')[0], song_name)

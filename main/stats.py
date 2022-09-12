@@ -1,16 +1,18 @@
+from copy import deepcopy
 import functools
 import itertools
 
 from datetime import date, timedelta, datetime
 from concurrent import futures
+from operator import itemgetter
 from typing import Optional, Iterator
+from collections import Counter, defaultdict
 
 from storage import SongUOW
 from model import SongCert, Song, spotistats, Album
-from config import FIRST_DATE
 
 uow = SongUOW()
-
+MAX_ADJUSTED = 25
 
 def get_song_play_history(song: Song) -> Iterator[dict]:
     with futures.ThreadPoolExecutor() as executor:
@@ -20,6 +22,75 @@ def get_song_play_history(song: Song) -> Iterator[dict]:
         )
 
     return list(itertools.chain(*mapped))
+
+
+def time_to_units(song: Song, units_mark: int) -> tuple[Song, timedelta]:
+    """finds the time it took for a song to reach some unit amount"""
+
+    if song.units < units_mark:
+        raise ValueError('not enough units for song')
+
+    play_record = get_song_play_history(song)
+    date_counter = Counter(i['finished_playing'].date() for i in play_record)
+
+    play_record.sort(key=lambda i: i['finished_playing'])
+    first_play: datetime = play_record[0]['finished_playing']
+
+    # int() returns 0 which is what we want the slots to start at
+    daily_units: dict[date, int] = defaultdict(int)
+
+    for day, plays in date_counter.items():
+        if plays > MAX_ADJUSTED:
+            # filter plays so they cap out at 25 per day
+            plays = MAX_ADJUSTED
+        daily_units[day] += (plays * 2)
+
+    for entry in song.entries:
+        daily_units[entry.end] += (61 - entry.place)
+
+    running_units = 0
+
+    for day, units in sorted(list(daily_units.items()), key = itemgetter(0)):
+        running_units += units
+        if running_units >= units_mark:
+            return (song, day, (day - first_play.date()).days)
+
+    raise ValueError('shouldnt reach here')
+
+def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
+    contenders = (song for song in uow.songs if song.units >= unit_milestone)
+
+    with futures.ThreadPoolExecutor() as executor:
+        units = executor.map(
+            functools.partial(time_to_units, units_mark=unit_milestone), contenders
+        )
+
+    units = list(units)
+    units.sort(key=itemgetter(1))
+    if len(units) > 19:
+        day_units = [i for i in units if i[1] <= units[19][1]]
+    else:
+        day_units = deepcopy(units)
+
+    print(f'First songs to reach {unit_milestone} units:')
+    for (song, day, time) in day_units:
+        place = len([unit for unit in day_units if unit[1] < day]) + 1
+        print(f'{place:<2} | {song:<60} | {day} ({time} days)')
+    print('')
+
+    units.sort(key=itemgetter(2))
+    if len(units) > 19:
+        time_units = [i for i in units if i[2] <= units[19][2]]
+    else:
+        time_units = deepcopy(units)
+
+    print(f'Fastest songs to reach {unit_milestone} units:')
+    for (song, day, time) in time_units:
+        place = len([unit for unit in time_units if unit[2] < time]) + 1
+        print(f'{place:<2} | {song:<60} | {time} days ({day})')
+    print('')
+
+    
 
 
 def time_to_plays(song: Song, plays: int) -> timedelta:
@@ -164,6 +235,7 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
 def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
     return album, album.period_units(start, end)
 
+
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
         units = executor.map(
@@ -195,32 +267,23 @@ def display_all_songs(uow: SongUOW):
 
 
 MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
+CERT_UNITS = [100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]
 ALBUM_TOP = [1, 3, 5, 10, 15, None]
 SONG_TOP = [1, 3, 5, 10, 20, 30, None]
 SONG_WEEKS = [30, 20, 15, 10, 5, None]
-RAW_CERTS = [
-    'G',
-    'P',
-    '2xP',
-    '3xP',
-    '4xP',
-    '5xP',
-    '6xP',
-    '7xP',
-    '8xP',
-    '9xP',
-    '10xD',
-]
-CERTS = [SongCert.from_symbol(i) for i in RAW_CERTS]
+CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 
 if __name__ == '__main__':
     uow = SongUOW()
 
-    
+    '''
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-
     '''
+    for milestone in CERT_UNITS[::-1]:
+        top_shortest_time_units_milestones(uow, milestone)
+
+    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
@@ -233,9 +296,9 @@ if __name__ == '__main__':
 
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-    '''
+    """
 
-    '''
+    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -250,6 +313,6 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    '''
+    """
 
     # display_all_songs(uow)

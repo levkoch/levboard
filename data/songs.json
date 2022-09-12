@@ -264,6 +264,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -562,6 +568,12 @@
                 "end": "2022-07-28",
                 "place": 16,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -700,6 +712,12 @@
                 "end": "2022-07-28",
                 "place": 16,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -825,6 +843,12 @@
                 "end": "2022-07-28",
                 "place": 38,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -1011,6 +1035,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -1137,6 +1167,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -1161,6 +1197,12 @@
                 "end": "2022-07-28",
                 "place": 38,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -1298,6 +1340,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -1376,6 +1424,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 7,
+                "plays": 8
             }
         ]
     },
@@ -1424,6 +1478,12 @@
                 "end": "2022-09-01",
                 "place": 2,
                 "plays": 10
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -1490,6 +1550,12 @@
                 "end": "2022-07-28",
                 "place": 5,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -1568,6 +1634,12 @@
                 "end": "2022-07-28",
                 "place": 16,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -1664,6 +1736,12 @@
                 "end": "2022-07-28",
                 "place": 16,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -1765,6 +1843,12 @@
                 "start": "2022-07-28",
                 "end": "2022-08-04",
                 "place": 42,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -2202,7 +2286,7 @@
             "Alessia Cara"
         ],
         "official_name": "How Far I'll Go - Alessia Cara Version",
-        "plays": 3,
+        "plays": 4,
         "entries": [
             {
                 "start": "2021-05-13",
@@ -3264,7 +3348,7 @@
             "Ariana Grande"
         ],
         "official_name": "34+35",
-        "plays": 150,
+        "plays": 151,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -3415,6 +3499,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -3565,6 +3655,12 @@
                 "end": "2022-08-18",
                 "place": 42,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -3792,7 +3888,7 @@
             "Ariana Grande"
         ],
         "official_name": "Be Alright",
-        "plays": 145,
+        "plays": 146,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -4249,6 +4345,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -4290,6 +4392,12 @@
                 "start": "2022-03-03",
                 "end": "2022-03-10",
                 "place": 29,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -4722,6 +4830,12 @@
                 "end": "2022-09-01",
                 "place": 2,
                 "plays": 10
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -5508,6 +5622,12 @@
                 "end": "2022-04-28",
                 "place": 27,
                 "plays": 6
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -5682,6 +5802,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -5844,6 +5970,12 @@
                 "end": "2022-07-28",
                 "place": 38,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -6022,7 +6154,7 @@
             "Ariana Grande"
         ],
         "official_name": "imagine",
-        "plays": 88,
+        "plays": 89,
         "entries": [
             {
                 "start": "2021-05-13",
@@ -6413,6 +6545,12 @@
                 "end": "2022-09-01",
                 "place": 19,
                 "plays": 6
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -7269,7 +7407,7 @@
             "Ariana Grande"
         ],
         "official_name": "my hair",
-        "plays": 232,
+        "plays": 233,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -7498,6 +7636,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -7858,6 +8002,12 @@
                 "end": "2022-09-01",
                 "place": 5,
                 "plays": 9
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -8206,6 +8356,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -9136,6 +9292,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -9370,6 +9532,12 @@
                 "end": "2022-09-01",
                 "place": 19,
                 "plays": 6
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -10558,6 +10726,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -12220,6 +12394,12 @@
                 "end": "2022-08-18",
                 "place": 42,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 10,
+                "plays": 7
             }
         ]
     },
@@ -12705,6 +12885,12 @@
                 "end": "2022-09-01",
                 "place": 2,
                 "plays": 10
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -12840,7 +13026,7 @@
             "Social House"
         ],
         "official_name": "boyfriend (with Social House)",
-        "plays": 139,
+        "plays": 140,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -12991,6 +13177,12 @@
                 "end": "2022-08-25",
                 "place": 44,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -14092,7 +14284,7 @@
             "Khalid"
         ],
         "official_name": "Eastside (with Halsey & Khalid)",
-        "plays": 18,
+        "plays": 19,
         "entries": [
             {
                 "start": "2021-11-11",
@@ -16881,13 +17073,19 @@
             "Funk Wav"
         ],
         "official_name": "Feels (feat. Pharrell Williams, Katy Perry & Big Sean)",
-        "plays": 25,
+        "plays": 26,
         "entries": [
             {
                 "start": "2022-08-04",
                 "end": "2022-08-11",
                 "place": 22,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 10,
+                "plays": 7
             }
         ]
     },
@@ -16910,7 +17108,7 @@
             "Camila Cabello"
         ],
         "official_name": "Liar",
-        "plays": 72,
+        "plays": 73,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -17073,6 +17271,12 @@
                 "start": "2022-08-04",
                 "end": "2022-08-11",
                 "place": 28,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -17389,6 +17593,12 @@
                 "end": "2022-08-25",
                 "place": 11,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -17698,7 +17908,7 @@
             "Troye Sivan"
         ],
         "official_name": "1999",
-        "plays": 36,
+        "plays": 37,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -19695,6 +19905,12 @@
                 "end": "2022-01-06",
                 "place": 27,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -21515,6 +21731,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -22234,6 +22456,12 @@
                 "end": "2022-08-25",
                 "place": 44,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -22696,6 +22924,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -22875,6 +23109,12 @@
                 "start": "2022-08-18",
                 "end": "2022-08-25",
                 "place": 23,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -23508,6 +23748,12 @@
                 "end": "2022-08-18",
                 "place": 24,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -23664,6 +23910,12 @@
                 "end": "2022-08-25",
                 "place": 44,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -24127,6 +24379,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 2,
+                "plays": 10
             }
         ]
     },
@@ -24255,6 +24513,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -24345,7 +24609,7 @@
             "Ed Sheeran"
         ],
         "official_name": "Bad Habits",
-        "plays": 51,
+        "plays": 52,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -25017,7 +25281,7 @@
             "Tyga"
         ],
         "official_name": "Like Mariah (feat. Tyga)",
-        "plays": 8,
+        "plays": 9,
         "entries": []
     },
     "317257": {
@@ -25189,7 +25453,7 @@
             "The Weeknd"
         ],
         "official_name": "Lost in the Fire (feat. The Weeknd)",
-        "plays": 37,
+        "plays": 38,
         "entries": [
             {
                 "start": "2022-04-07",
@@ -25467,13 +25731,19 @@
             "Zedd"
         ],
         "official_name": "Starving",
-        "plays": 27,
+        "plays": 28,
         "entries": [
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
                 "place": 25,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -25575,7 +25845,7 @@
             "Halsey"
         ],
         "official_name": "You should be sad",
-        "plays": 8,
+        "plays": 9,
         "entries": [
             {
                 "start": "2022-03-17",
@@ -26520,7 +26790,7 @@
             "2 Chainz"
         ],
         "official_name": "Talk Dirty (feat. 2 Chainz)",
-        "plays": 33,
+        "plays": 34,
         "entries": [
             {
                 "start": "2021-05-13",
@@ -28220,7 +28490,7 @@
             "Katy Perry"
         ],
         "official_name": "D\u00e9j\u00e0 Vu",
-        "plays": 58,
+        "plays": 59,
         "entries": [
             {
                 "start": "2022-04-28",
@@ -28257,6 +28527,12 @@
                 "end": "2022-08-25",
                 "place": 23,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -28333,6 +28609,12 @@
                 "end": "2022-09-01",
                 "place": 44,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 7,
+                "plays": 8
             }
         ]
     },
@@ -29408,7 +29690,7 @@
             "Migos"
         ],
         "official_name": "Bon App\u00e9tit",
-        "plays": 60,
+        "plays": 61,
         "entries": [
             {
                 "start": "2022-03-10",
@@ -29456,6 +29738,12 @@
                 "start": "2022-08-18",
                 "end": "2022-08-25",
                 "place": 23,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -30204,6 +30492,12 @@
                 "end": "2022-04-07",
                 "place": 41,
                 "plays": 3
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -32407,6 +32701,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -33507,6 +33807,12 @@
                 "end": "2022-09-01",
                 "place": 6,
                 "plays": 8
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 10,
+                "plays": 7
             }
         ]
     },
@@ -36995,7 +37301,7 @@
             "2 Chainz"
         ],
         "official_name": "Beez In The Trap",
-        "plays": 58,
+        "plays": 59,
         "entries": [
             {
                 "start": "2021-05-13",
@@ -37333,6 +37639,12 @@
                 "end": "2022-09-01",
                 "place": 1,
                 "plays": 13
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
             }
         ]
     },
@@ -37508,6 +37820,12 @@
                 "end": "2022-08-04",
                 "place": 42,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -38856,7 +39174,7 @@
             "LunchMoney Lewis"
         ],
         "official_name": "Trini Dem Girls",
-        "plays": 43,
+        "plays": 44,
         "entries": [
             {
                 "start": "2021-11-04",
@@ -41037,6 +41355,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -41283,6 +41607,12 @@
                 "end": "2022-08-25",
                 "place": 9,
                 "plays": 6
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -41434,6 +41764,12 @@
                 "start": "2022-08-25",
                 "end": "2022-09-01",
                 "place": 9,
+                "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 10,
                 "plays": 7
             }
         ]
@@ -42019,7 +42355,7 @@
             "Ariana Grande"
         ],
         "official_name": "Faith",
-        "plays": 17,
+        "plays": 18,
         "entries": [
             {
                 "start": "2022-06-30",
@@ -42438,7 +42774,7 @@
             "Taylor Swift"
         ],
         "official_name": "I Knew You Were Trouble.",
-        "plays": 27,
+        "plays": 28,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -42450,6 +42786,12 @@
                 "start": "2022-06-02",
                 "end": "2022-06-09",
                 "place": 55,
+                "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
                 "plays": 4
             }
         ]
@@ -43230,6 +43572,12 @@
                 "end": "2022-08-11",
                 "place": 8,
                 "plays": 8
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
             }
         ]
     },
@@ -43271,7 +43619,7 @@
             "The Weeknd"
         ],
         "official_name": "Can't Feel My Face",
-        "plays": 40,
+        "plays": 41,
         "entries": [
             {
                 "start": "2021-10-14",
@@ -43538,6 +43886,12 @@
                 "end": "2022-08-04",
                 "place": 42,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 7,
+                "plays": 8
             }
         ]
     },
@@ -43719,6 +44073,12 @@
                 "end": "2022-09-01",
                 "place": 9,
                 "plays": 7
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 3,
+                "plays": 9
             }
         ]
     },
@@ -44469,6 +44829,12 @@
                 "end": "2022-04-21",
                 "place": 36,
                 "plays": 4
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -44733,6 +45099,12 @@
                 "end": "2022-08-18",
                 "place": 42,
                 "plays": 2
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 3,
+                "plays": 9
             }
         ]
     },
@@ -45490,7 +45862,7 @@
             "Kehlani"
         ],
         "official_name": "Playinwitme (feat. Kehlani)",
-        "plays": 42,
+        "plays": 43,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -45534,7 +45906,7 @@
             "Lil Yachty"
         ],
         "official_name": "iSpy (feat. Lil Yachty)",
-        "plays": 10,
+        "plays": 11,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -45929,7 +46301,7 @@
             "Adele"
         ],
         "official_name": "Right As Rain",
-        "plays": 6,
+        "plays": 8,
         "entries": [
             {
                 "start": "2022-08-18",
@@ -45969,7 +46341,7 @@
             "Adele"
         ],
         "official_name": "Hometown Glory",
-        "plays": 8,
+        "plays": 10,
         "entries": [
             {
                 "start": "2022-08-04",
@@ -46079,6 +46451,12 @@
                 "end": "2022-09-01",
                 "place": 28,
                 "plays": 5
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
             }
         ]
     },
@@ -46181,8 +46559,15 @@
             "Ariana Grande"
         ],
         "official_name": "Adore",
-        "plays": 4,
-        "entries": []
+        "plays": 5,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
+            }
+        ]
     },
     "171246": {
         "name": "Love Myself",
@@ -46192,8 +46577,15 @@
             "Hailee Steinfeld"
         ],
         "official_name": "Love Myself",
-        "plays": 7,
-        "entries": []
+        "plays": 9,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 3,
+                "plays": 9
+            }
+        ]
     },
     "697181": {
         "name": "Blame It On Your Love",
@@ -46204,8 +46596,15 @@
             "Lizzo"
         ],
         "official_name": "Blame It on Your Love (feat. Lizzo)",
-        "plays": 5,
-        "entries": []
+        "plays": 6,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 27,
+                "plays": 5
+            }
+        ]
     },
     "3464207": {
         "name": "Love Lies",
@@ -46217,7 +46616,14 @@
         ],
         "official_name": "Love Lies (with Normani)",
         "plays": 11,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 3,
+                "plays": 9
+            }
+        ]
     },
     "865186": {
         "name": "Faith (George)",
@@ -46227,8 +46633,15 @@
             "George Michael"
         ],
         "official_name": "Faith - Remastered",
-        "plays": 3,
-        "entries": []
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
+            }
+        ]
     },
     "1531574": {
         "name": "Father Figure",
@@ -46238,8 +46651,15 @@
             "George Michael"
         ],
         "official_name": "Father Figure - Remastered",
-        "plays": 6,
-        "entries": []
+        "plays": 7,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 6
+            }
+        ]
     },
     "45759520": {
         "name": "Coast",
@@ -46250,8 +46670,45 @@
             "Anderson .Paak"
         ],
         "official_name": "Coast (feat. Anderson .Paak)",
-        "plays": 31,
+        "plays": 33,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 1,
+                "plays": 31
+            }
+        ]
+    },
+    "1580062": {
+        "name": "Haunt You",
+        "id": "1580062",
+        "alt_ids": [],
+        "artists": [
+            "Social House"
+        ],
+        "official_name": "Haunt You",
+        "plays": 1,
         "entries": []
+    },
+    "317246": {
+        "name": "Never Forget You",
+        "id": "317246",
+        "alt_ids": [],
+        "artists": [
+            "Zara Larsson",
+            "MNEK"
+        ],
+        "official_name": "Never Forget You",
+        "plays": 5,
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 45,
+                "plays": 4
+            }
+        ]
     },
     "8191852": {
         "merge": "5207830"

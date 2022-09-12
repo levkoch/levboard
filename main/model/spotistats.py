@@ -135,7 +135,7 @@ def song_play_history(
     # datetime is formatted like '2022-04-11T05:03:15.000Z'
     # get rid of milliseconds with string slice
     # because they're gonna be 000 anyway
-    
+
     return [
         {
             'played_for': int(i['playedMs']),
