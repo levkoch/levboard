@@ -224,7 +224,7 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     units = [i for i in units if i[1] > units[19][1]]
 
     print(
-        f"Albums with most song weeks {f'in the top {top}' if weeks else ''}:"
+        f"Albums with most song weeks {f'in the top {top}' if top else ''}:"
     )
     for album, weeks in units:
         place = len([i for i in units if i[1] > weeks]) + 1
@@ -280,23 +280,26 @@ if __name__ == '__main__':
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
     '''
+    '''
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-
-    """
+    '''
+    '''
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-
+    '''
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         top_albums_weeks(uow, top)
 
+    '''
     for top in SONG_TOP:
         top_album_hits(uow, top)
+    
 
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-    """
+    '''
 
     """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)

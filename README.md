@@ -1,6 +1,12 @@
-# `levboard`
-A Spotstats (stats.fm) integration for building customzable custom charts.
+# `levboard - personal`
+A Spotstats (stats.fm) integration for building customzable custom charts. 
+This version is adapted to all of the custom features that I'm 
+(lev-kochergin) am making for myself, which includes added filtering for 
+songs & albums, and so much more. If you see something interesting here, 
+message me, and i'll try to move it to the non-experimental version, 
+although I do need to sync some of the features between the two versions, 
+as this one has albums, and they won't work on the non-experimental version.
 
 # To Use
-/add your username to the system somehow in a nice way idk how i wanna do that yet/
-Run the `main.main.py` file using `python main/main.py` with no flags.
+Move over to the `main` branch, and it'll include all of the instructions on 
+how to use the non-experimental version.
