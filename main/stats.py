@@ -7,12 +7,15 @@ from concurrent import futures
 from operator import itemgetter
 from typing import Optional, Iterator
 from collections import Counter, defaultdict
+from config import FIRST_DATE
 
 from storage import SongUOW
 from model import SongCert, Song, spotistats, Album
 
+
 uow = SongUOW()
 MAX_ADJUSTED = 25
+
 
 def get_song_play_history(song: Song) -> Iterator[dict]:
     with futures.ThreadPoolExecutor() as executor:
@@ -43,26 +46,28 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, timedelta]:
         if plays > MAX_ADJUSTED:
             # filter plays so they cap out at 25 per day
             plays = MAX_ADJUSTED
-        daily_units[day] += (plays * 2)
+        daily_units[day] += plays * 2
 
     for entry in song.entries:
-        daily_units[entry.end] += (61 - entry.place)
+        daily_units[entry.end] += 61 - entry.place
 
     running_units = 0
 
-    for day, units in sorted(list(daily_units.items()), key = itemgetter(0)):
+    for day, units in sorted(list(daily_units.items()), key=itemgetter(0)):
         running_units += units
         if running_units >= units_mark:
             return (song, day, (day - first_play.date()).days)
 
     raise ValueError('shouldnt reach here')
 
+
 def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
 
     with futures.ThreadPoolExecutor() as executor:
         units = executor.map(
-            functools.partial(time_to_units, units_mark=unit_milestone), contenders
+            functools.partial(time_to_units, units_mark=unit_milestone),
+            contenders,
         )
 
     units = list(units)
@@ -89,8 +94,6 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
         place = len([unit for unit in time_units if unit[2] < time]) + 1
         print(f'{place:<2} | {song:<60} | {time} days ({day})')
     print('')
-
-    
 
 
 def time_to_plays(song: Song, plays: int) -> timedelta:
@@ -223,9 +226,7 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
-    print(
-        f"Albums with most song weeks {f'in the top {top}' if top else ''}:"
-    )
+    print(f"Albums with most song weeks {f'in the top {top}' if top else ''}:")
     for album, weeks in units:
         place = len([i for i in units if i[1] > weeks]) + 1
         print(f'{place:>3} | {str(album):<50} | {weeks:<2} weeks')
@@ -276,30 +277,31 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    '''
+    """
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-    '''
-    '''
+    """
+    """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    '''
-    '''
+    """
+    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-    '''
+    """
+    """
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         top_albums_weeks(uow, top)
+    """
 
-    '''
     for top in SONG_TOP:
         top_album_hits(uow, top)
-    
 
+    """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-    '''
+    """
 
     """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)

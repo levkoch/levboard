@@ -17,10 +17,13 @@ from typing import Final
 
 ## constants ##
 
+# the max plays a song can get in one day before getting adjusted
+MAX_ADJUSTED: Final[int] = 25
+# where my google sheet is located at
 LEVBOARD_SHEET: Final[str] = '1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk'
-
 # the first date of my listening
 FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
+# my user name
 USER_NAME: Final[str] = 'lev'
 
 ## files ##

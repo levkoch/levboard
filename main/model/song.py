@@ -219,7 +219,8 @@ class Song:
         """
 
         plays: Iterable[dict] = itertools.chain.from_iterable(
-            spotistats.song_play_history(i) for i in ([self.id] + self.alt_ids)
+            spotistats.song_play_history(i, after=start, before=end)
+            for i in ([self.id] + self.alt_ids)
         )
 
         if not adjusted:
@@ -233,15 +234,7 @@ class Song:
 
         date_counter = Counter(play_dates)
 
-        total = 0
-
-        for count in date_counter.values():
-            if adjusted:
-                total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
-            else:
-                total += count
-
-        return total
+        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
     def period_units(self, start: date, end: date, adjusted=False) -> int:
         """

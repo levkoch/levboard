@@ -30,7 +30,9 @@ class Album:
     def __str__(self) -> str:
         return f'{self.title} by {self.str_artists}'
 
-    __repr__ = __str__
+    def __repr__(self) -> str:
+        name = self.__class__.__name__
+        return f'{name}({self.title!r}, {self.artists!r})'
 
     def __hash__(self) -> int:
         return hash((self.__class__, self._title))
@@ -60,6 +62,9 @@ class Album:
 
     @property
     def str_artists(self) -> str:
+        """
+        (`str`): The album's artists, in a human-friendly form.
+        """
         if len(self.artists) == 1:
             return self.artists[0]
         if len(self.artists) == 2:
@@ -148,6 +153,16 @@ class Album:
         """
 
         return AlbumCert.from_units(self.units)
+
+    def charting(self, end_date: date) -> int:
+        """The number of songs that charted the week of"""
+        return len(
+            [
+                song
+                for song in self.songs
+                if song.get_entry(end_date) is not None
+            ]
+        )
 
     def get_conweeks(self, top: Optional[int] = None) -> int:
         """

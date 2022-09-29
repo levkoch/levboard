@@ -9,7 +9,7 @@ from config import FIRST_DATE, LEVBOARD_SHEET
 
 
 def load_week(start_day: date, end_day: date):
-    songs = spotistats.songs_week(start_day, end_day)
+    songs = spotistats.songs_week(start_day, end_day, adjusted = True)
 
     if len(songs) < 60:
         print(f'Only {len(songs)} songs got over 1 stream that week.')
@@ -21,7 +21,7 @@ def load_week(start_day: date, end_day: date):
     for i in songs:
         i['place'] = len([j for j in songs if j['plays'] > i['plays']]) + 1
 
-    return songs
+    return sorted(songs, reverse = True, key = lambda i: i['plays'])
 
 
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
@@ -203,7 +203,7 @@ def get_peak(song: Song) -> str:
 def get_album_week(
     start_date: date, end_date: date
 ) -> Callable[[Album, bool], int]:
-    plays = spotistats.songs_week(start_date, end_date)
+    plays = spotistats.songs_week(start_date, end_date, adjusted = True)
 
     def get_album_plays(album: Album, accurate: bool = False) -> int:
         album_plays = 0
@@ -245,11 +245,16 @@ def make_album_chart(
     album_plays = get_album_week(start_date, end_date)
     for album_name in uow.albums.list():
         album: Album = uow.albums.get(album_name)
+        if album.charting(end_date) < 2:
+            # skip album if less than two songs charted from it that week
+            continue
+
         album_units = album.get_points(end_date) + (2 * album_plays(album))
         units.append([album, album_units])
 
     units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] >= units[19][1] and i[1]]
+    if len(units) > 20:
+        units = [i for i in units if i[1] >= units[19][1]]
 
     actual_end = end_date - timedelta(days=1)
     new_rows = [
@@ -269,7 +274,6 @@ def make_album_chart(
         [
             'MV',
             'Title',
-            'CRT',
             'Artists',
             'TW',
             'LW',
@@ -284,10 +288,8 @@ def make_album_chart(
     print(f'({week_count}) Albums chart for week of {end_date.isoformat()}.')
     print('')
     print(
-        f' MV | {"Title":<45} | CRT | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
+        f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
     )
-
-    all_time_plays = get_album_week(FIRST_DATE, end_date)
 
     for (album, album_units) in units:
         position = len([i for i in units if i[1] > album_units]) + 1
@@ -296,11 +298,6 @@ def make_album_chart(
         )
         album.add_entry(entry)
 
-        album_cert = format(  # current certificaiton
-            AlbumCert.from_units((all_time_plays(album) * 2) + album.points),
-            's',
-        )
-
         prev = album.get_entry(start_date)
         movement = get_movement(end_date, start_date, album)
         peak = get_peak(album)
@@ -308,7 +305,7 @@ def make_album_chart(
         points = album.get_points(end_date)
 
         print(
-            f'{movement:>3} | {album.title:<46} {album_cert:>4} | {album.str_artists:<45}'
+            f'{movement:>3} | {album.title:<45} | {album.str_artists:<45}'
             f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<2}"
             f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
         )
@@ -316,8 +313,7 @@ def make_album_chart(
         new_rows.append(
             [
                 "'" + movement,
-                album.title,
-                album_cert,
+                "'" + album.title if album.title.isnumeric() else album.title,
                 album.str_artists,
                 position,
                 prev.place if prev else '-',
@@ -329,7 +325,7 @@ def make_album_chart(
             ]
         )
 
-    new_rows.append(['', '', '', '', '', '', '', '', '', '', ''])
+    new_rows.append(['', '', '', '', '', '', '', '', '', ''])
     new_rows.extend(rows)
     return new_rows
 
@@ -350,6 +346,8 @@ def update_all_song_plays(uow: SongUOW) -> None:
             song, plays = future.result()
             print(f'({count}) updated {song} -> {plays} plays')
 
+        uow.commit()
+
 
 if __name__ == '__main__':
     uow = SongUOW()
@@ -359,7 +357,7 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-    update_all_song_plays(uow)
+    # update_all_song_plays(uow)
     clear_entries(uow)
 
     while True:
@@ -392,7 +390,6 @@ if __name__ == '__main__':
         [
             'MV',
             'Title',
-            'CRT',
             'Artists',
             'TW',
             'LW',
@@ -413,7 +410,7 @@ if __name__ == '__main__':
     sheet.update_range(f'BOT_SONGS!A1:H{len(song_rows) + 1}', song_rows)
 
     print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
-    sheet.update_range(f'BOT_ALBUMS!A1:K{len(album_rows) + 1}', album_rows)
+    sheet.update_range(f'BOT_ALBUMS!A1:J{len(album_rows) + 1}', album_rows)
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
