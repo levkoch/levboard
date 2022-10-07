@@ -27,16 +27,18 @@ MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
 MAX_ADJUSTED: Final[int] = 25
 
-@tenacity.retry(stop = tenacity.stop_after_attempt(3))
+
+@tenacity.retry(stop=tenacity.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
-    '''
-    A retrying requests.get call that will try three times if it 
-    sends a bad gateway error like spotistats likes doing if it's 
+    """
+    A retrying requests.get call that will try three times if it
+    sends a bad gateway error like spotistats likes doing if it's
     servers are overloaded at the moment.
-    '''
+    """
     response = requests.get(address)
     response.raise_for_status()
     return response
+
 
 def date_to_timestamp(day: date) -> int:
     """
@@ -109,7 +111,7 @@ def _adjusted_song_plays(
     before: Union[date, int, None],
 ) -> int:
     """
-    Internal helper method to find the adjusted plays for a song between 
+    Internal helper method to find the adjusted plays for a song between
     a certain period.
     """
 
@@ -121,10 +123,11 @@ def _adjusted_song_plays(
     date_counter = Counter(play_dates)
     return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-# this gets called by `main` in two places with the same values, so we cache 
-# the last result here to not have to make the multiple API call operator 
+
+# this gets called by `main` in two places with the same values, so we cache
+# the last result here to not have to make the multiple API call operator
 # multiple times.
-@functools.lru_cache(maxsize = 1)
+@functools.lru_cache(maxsize=1)
 def songs_week(
     after: Union[int, date],
     before: Union[int, date],
@@ -164,21 +167,21 @@ def songs_week(
     if not adjusted:
         return info
 
-    # adjust the song plays if requested to do so, but we are doing 
+    # adjust the song plays if requested to do so, but we are doing
     # this threaded to make this take less time.
     with futures.ThreadPoolExecutor() as executor:
         values: Iterable[tuple[str, int]] = executor.map(
-            lambda i: (i, _adjusted_song_plays(i, user, after, before)), 
-            (i['id'] for i in info if i['plays'] > MAX_ADJUSTED)
+            lambda i: (i, _adjusted_song_plays(i, user, after, before)),
+            (i['id'] for i in info if i['plays'] > MAX_ADJUSTED),
         )
-        
+
         for song_id, song_plays in values:
             song_dict = next(i for i in info if i['id'] == song_id)
             song_dict['plays'] = song_plays
 
-    # when calling the API it comes pre-sorted, but because we might have 
+    # when calling the API it comes pre-sorted, but because we might have
     # replaced some values, it needs to be sorted again
-    return sorted(info, reverse = True, key = lambda i: i['plays'])
+    return sorted(info, reverse=True, key=lambda i: i['plays'])
 
 
 def song_play_history(

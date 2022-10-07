@@ -9,7 +9,7 @@ from config import FIRST_DATE, LEVBOARD_SHEET
 
 
 def load_week(start_day: date, end_day: date):
-    songs = spotistats.songs_week(start_day, end_day, adjusted = True)
+    songs = spotistats.songs_week(start_day, end_day, adjusted=True)
 
     if len(songs) < 60:
         print(f'Only {len(songs)} songs got over 1 stream that week.')
@@ -21,7 +21,7 @@ def load_week(start_day: date, end_day: date):
     for i in songs:
         i['place'] = len([j for j in songs if j['plays'] > i['plays']]) + 1
 
-    return sorted(songs, reverse = True, key = lambda i: i['plays'])
+    return sorted(songs, reverse=True, key=lambda i: i['plays'])
 
 
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
@@ -138,18 +138,7 @@ def update_song_sheet(
 
     new_rows = []
 
-    new_rows.append(
-        [
-            f'{start_date.isoformat()} to {actual_end.isoformat()}',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-        ]
-    )
+    new_rows.append([f'{start_date.isoformat()} to {actual_end.isoformat()}'])
     new_rows.append(['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'])
 
     for pos in positions:
@@ -172,7 +161,7 @@ def update_song_sheet(
             ]
         )
 
-    new_rows.append(['', '', '', '', '', '', '', ''])
+    new_rows.append([''])
     new_rows.extend(rows)
     return new_rows
 
@@ -203,7 +192,7 @@ def get_peak(song: Song) -> str:
 def get_album_week(
     start_date: date, end_date: date
 ) -> Callable[[Album, bool], int]:
-    plays = spotistats.songs_week(start_date, end_date, adjusted = True)
+    plays = spotistats.songs_week(start_date, end_date, adjusted=True)
 
     def get_album_plays(album: Album, accurate: bool = False) -> int:
         album_plays = 0
@@ -258,19 +247,7 @@ def make_album_chart(
 
     actual_end = end_date - timedelta(days=1)
     new_rows = [
-        [
-            f'{start_date.isoformat()} to {actual_end.isoformat()}',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-        ],
+        [f'{start_date.isoformat()} to {actual_end.isoformat()}'],
         [
             'MV',
             'Title',
@@ -325,7 +302,7 @@ def make_album_chart(
             ]
         )
 
-    new_rows.append(['', '', '', '', '', '', '', '', '', ''])
+    new_rows.append([''])
     new_rows.extend(rows)
     return new_rows
 

@@ -281,35 +281,37 @@ if __name__ == '__main__':
     for milestone in MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
     """
+
     """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
     """
-    """
+    
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-    """
+    
     """
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         top_albums_weeks(uow, top)
     """
 
+    """
     for top in SONG_TOP:
         top_album_hits(uow, top)
-
+    """
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
     """
 
-    """
+    '''
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
     while start_day <= date.today():
         top_albums_month(uow, start_day, end_day)
-        
+
         start_day: date = end_day
         next_month: int = end_day.month + 1
         next_year: int = end_day.year
@@ -318,6 +320,7 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
+    '''
     """
-
-    # display_all_songs(uow)
+    display_all_songs(uow)
+    """

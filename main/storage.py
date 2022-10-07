@@ -90,7 +90,16 @@ class SongRepository:
             return match
 
     def __iter__(self) -> Iterator[Song]:
-        return iter(self._songs.values())
+        # this is implemented this way, as using iter(self._songs.values())
+        # causes songs with multiple ids to be sent out multiple times,
+        # which is not what is intended
+
+        sent_ids: list[str] = []
+        for song in self._songs.values():
+            # check if has already sent a song with that id and send if hasn't
+            if song.id not in sent_ids:
+                sent_ids.append(song.id)
+                yield song
 
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
