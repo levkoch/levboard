@@ -290,6 +290,11 @@ if __name__ == '__main__':
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
     
+
+    '''
+    top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
+    '''
+
     """
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)

@@ -100,6 +100,16 @@ class Spreadsheet:
         return result
 
     def append_range(self, range: str, values: list[list]) -> dict:
+        """
+        Appends the values to the specified range in the sheet.
+
+        Arguments:
+        * range (`str`): The *FULL* range name, with the sheet name, to be found.
+        * values (`list[list]`): The values to insert in the specified range.
+
+        Returns:
+        * response (`dict`): The google API response dictionary.
+        """
 
         result = self.sheet.append(
             spreadsheetId=self._sheet_id,

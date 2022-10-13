@@ -384,10 +384,21 @@ if __name__ == '__main__':
 
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
-    sheet.update_range(f'BOT_SONGS!A1:H{len(song_rows) + 1}', song_rows)
+
+    song_range = f'BOT_SONGS!A1:H{len(song_rows) + 1}'
+    sheet.delete_range(song_range)
+    sheet.update_range(song_range, song_rows)
 
     print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
-    sheet.update_range(f'BOT_ALBUMS!A1:J{len(album_rows) + 1}', album_rows)
+
+    album_range = f'BOT_ALBUMS!A1:J{len(album_rows) + 1}'
+    sheet.delete_range(album_range)
+    sheet.update_range(album_range, album_rows)
+
+    # use delete range first for the above two processes, because the way 
+    # that sheets works, it doens't overwrite when an empty cell is given 
+    # to overwrite with for some reason, so we clear it first and then 
+    # add the new data.
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
