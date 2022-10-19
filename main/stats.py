@@ -17,7 +17,7 @@ uow = SongUOW()
 MAX_ADJUSTED = 25
 
 
-def get_song_play_history(song: Song) -> Iterator[dict]:
+def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
         mapped = executor.map(
@@ -27,14 +27,14 @@ def get_song_play_history(song: Song) -> Iterator[dict]:
     return list(itertools.chain(*mapped))
 
 
-def time_to_units(song: Song, units_mark: int) -> tuple[Song, timedelta]:
+def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     """finds the time it took for a song to reach some unit amount"""
 
     if song.units < units_mark:
         raise ValueError('not enough units for song')
 
     play_record = get_song_play_history(song)
-    date_counter = Counter(i['finished_playing'].date() for i in play_record)
+    date_counter = Counter(i.finished_playing.date() for i in play_record)
 
     play_record.sort(key=lambda i: i['finished_playing'])
     first_play: datetime = play_record[0]['finished_playing']
@@ -65,12 +65,11 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
 
     with futures.ThreadPoolExecutor() as executor:
-        units = executor.map(
+        units = list(executor.map(
             functools.partial(time_to_units, units_mark=unit_milestone),
             contenders,
-        )
+        ))
 
-    units = list(units)
     units.sort(key=itemgetter(1))
     if len(units) > 19:
         day_units = [i for i in units if i[1] <= units[19][1]]
@@ -96,15 +95,15 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     print('')
 
 
-def time_to_plays(song: Song, plays: int) -> timedelta:
+def time_to_plays(song: Song, plays: int) -> tuple[Song, timedelta]:
     play_record = get_song_play_history(song)
 
     if len(play_record) < plays:
         raise ValueError('not enough plays for song')
 
-    play_record.sort(key=lambda i: i['finished_playing'])
-    first_play: datetime = play_record[0]['finished_playing']
-    wanted_play: datetime = play_record[plays - 1]['finished_playing']
+    play_record.sort(key=lambda i: i.finished_playing)
+    first_play: datetime = play_record[0].finished_playing
+    wanted_play: datetime = play_record[plays - 1].finished_playing
 
     time = wanted_play - first_play
 
@@ -136,7 +135,7 @@ def top_albums_cert_count(uow: SongUOW, cert: SongCert):
     contenders = [(album, album.get_certs(cert)) for album in uow.albums]
     contenders.sort(key=lambda i: i[1], reverse=True)
     contenders = [
-        i for i in contenders if i[1] >= contenders[19][1] and i[1] > 1
+        i for i in contenders if i[1] >= contenders[19][1] and i[1]  # > 1
     ]
     print(f'Albums with most songs {cert:f} or higher:')
     for (album, songs) in contenders:
@@ -239,11 +238,10 @@ def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
 
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
-        units = executor.map(
+        units: list[tuple] = list(executor.map(
             functools.partial(get_album_units, start=start, end=end),
             uow.albums,
-        )
-    units = list(units)
+        ))
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
@@ -286,21 +284,19 @@ if __name__ == '__main__':
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
     """
-    
+
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-    
 
-    '''
+    """
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-    '''
+    """
 
     """
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         top_albums_weeks(uow, top)
     """
-
     """
     for top in SONG_TOP:
         top_album_hits(uow, top)
@@ -310,7 +306,7 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     """
 
-    '''
+    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -325,7 +321,7 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    '''
+    """
     """
     display_all_songs(uow)
     """

@@ -2,7 +2,7 @@ from datetime import date, datetime, timedelta
 from typing import Callable, Optional
 from concurrent import futures
 
-from model import Album, AlbumEntry, AlbumCert, Song, Entry, spotistats
+from model import Album, AlbumEntry, Song, Entry, spotistats
 from storage import SongUOW
 from spreadsheet import Spreadsheet
 from config import FIRST_DATE, LEVBOARD_SHEET
@@ -334,7 +334,7 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-    # update_all_song_plays(uow)
+    update_all_song_plays(uow)
     clear_entries(uow)
 
     while True:
@@ -395,9 +395,9 @@ if __name__ == '__main__':
     sheet.delete_range(album_range)
     sheet.update_range(album_range, album_rows)
 
-    # use delete range first for the above two processes, because the way 
-    # that sheets works, it doens't overwrite when an empty cell is given 
-    # to overwrite with for some reason, so we clear it first and then 
+    # use delete range first for the above two processes, because the way
+    # that sheets works, it doens't overwrite when an empty cell is given
+    # to overwrite with for some reason, so we clear it first and then
     # add the new data.
 
     print('')

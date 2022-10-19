@@ -18,7 +18,7 @@ import tenacity
 
 from datetime import date, datetime
 from typing import Iterable, Union, Final
-from pydantic import NonNegativeInt
+from pydantic import NonNegativeInt, BaseModel
 from collections import Counter
 from concurrent import futures
 
@@ -72,8 +72,9 @@ def song_plays(
     """
     Finds the plays for a song with the specified song id, between `after`
     and `before`, if specified. The `after` and `before` parameters can be
-    either date objects or epoch timestamps. If `adjusted` is true, then
-    the song plays will also be filtered.
+    either date objects or epoch timestamps (if they are `0` then the plays
+    will not be filtered by time). If `adjusted` is true, then the song
+    plays will also be filtered.
     """
 
     if adjusted:
@@ -123,6 +124,20 @@ def _adjusted_song_plays(
     date_counter = Counter(play_dates)
     return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
+class Position(BaseModel):
+    '''
+    A single song's entry on a basic spotistats chart.
+
+    Attributes:
+    * id (`str`): The song id which got the streams.
+    * plays (`int`): The number of plays the song got.
+    * place (`int`): The place that song got.
+    '''
+
+    id: str
+    plays: int
+    place: int
+    
 
 # this gets called by `main` in two places with the same values, so we cache
 # the last result here to not have to make the multiple API call operator
@@ -133,9 +148,8 @@ def songs_week(
     before: Union[int, date],
     *,
     user: str = USER_NAME,
-    min_plays: int = MIN_PLAYS,
-    adjusted: bool = False,
-) -> list[dict]:
+    adjusted: bool = False
+) -> list[Position]:
     """
     Returns the "week" between `after` and `before` (it doesn't have to
     be a week, at all.) Optional parameters can specify a username, aside
@@ -159,12 +173,13 @@ def songs_week(
     r = _get_address(address)
 
     info = [
-        {'plays': int(i['streams']), 'id': str(i['track']['id'])}
+        Position(id = i['track']['id'], plays = i['streams'], place = i['position'])
         for i in r.json()['items']
-        if i['streams'] > min_plays
     ]
 
     if not adjusted:
+        for pos in info:
+            pos.place = len([i for i in info if i.plays > pos.plays]) + 1
         return info
 
     # adjust the song plays if requested to do so, but we are doing
@@ -172,16 +187,31 @@ def songs_week(
     with futures.ThreadPoolExecutor() as executor:
         values: Iterable[tuple[str, int]] = executor.map(
             lambda i: (i, _adjusted_song_plays(i, user, after, before)),
-            (i['id'] for i in info if i['plays'] > MAX_ADJUSTED),
+            (i.id for i in info if i.plays > MAX_ADJUSTED),
         )
 
         for song_id, song_plays in values:
-            song_dict = next(i for i in info if i['id'] == song_id)
-            song_dict['plays'] = song_plays
+            song_dict = next(i for i in info if i.id == song_id)
+            song_dict.plays = song_plays
 
     # when calling the API it comes pre-sorted, but because we might have
     # replaced some values, it needs to be sorted again
-    return sorted(info, reverse=True, key=lambda i: i['plays'])
+    for pos in info:
+        pos.place = len([i for i in info if i.plays > pos.place]) + 1
+    return sorted(info, reverse=True, key=lambda i: i.plays)
+
+
+class Listen(BaseModel):
+    """
+    A song listen.
+
+    * played_for (`int`): The number of milliseconds the song was played for.
+    * finished_playing (`datetime`): The time the song was finished being
+        listened to.
+    """
+
+    played_for: int
+    finished_playing: datetime
 
 
 def song_play_history(
@@ -191,9 +221,9 @@ def song_play_history(
     after: Union[date, int, None] = None,
     before: Union[date, int, None] = None,
     max_entries: NonNegativeInt = MAX_ENTRIES,
-) -> list[dict]:
+) -> list[Listen]:
 
-    """Returns a list of song plays for the indicated song id."""
+    """Returns a list of song listens for the indicated song id."""
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/streams/'
@@ -213,11 +243,11 @@ def song_play_history(
     # because they're gonna be 000 anyway
 
     return [
-        {
-            'played_for': int(i['playedMs']),
-            'finished_playing': datetime.strptime(
+        Listen(
+            played_for=int(i['playedMs']),
+            finished_playing=datetime.strptime(
                 i['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
             ),
-        }
+        )
         for i in r.json()['items']
     ]

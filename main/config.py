@@ -10,7 +10,6 @@ Constats:
 """
 
 import pathlib
-import time
 
 from datetime import date
 from typing import Final
@@ -38,11 +37,3 @@ data_dir += '/data'
 
 ALBUM_FILE: Final[str] = f'{data_dir}/albums.json'
 SONG_FILE: Final[str] = f'{data_dir}/songs.json'
-
-## utility functions ##
-def date_to_timestamp(day: date) -> int:
-    """
-    Converts a `datetime.date` to a epoch timestamp, as an `int`,
-    so that Spotistats registers the day correctly.
-    """
-    return int(time.mktime(day.timetuple()) * 1000)

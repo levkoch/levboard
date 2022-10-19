@@ -218,7 +218,7 @@ class Song:
         Returns the song's plays for some period.
         """
 
-        plays: Iterable[dict] = itertools.chain.from_iterable(
+        listens: Iterable[spotistats.Listen] = itertools.chain.from_iterable(
             spotistats.song_play_history(i, after=start, before=end)
             for i in ([self.id] + self.alt_ids)
         )
@@ -226,10 +226,10 @@ class Song:
         if not adjusted:
             # we don't have to filter out any days that have
             # too many streams, so simple route
-            return len(list(plays))
+            return len(list(listens))
 
         play_dates: Iterable[date] = (
-            i['finished_playing'].date() for i in plays
+            listen.finished_playing.date() for listen in listens
         )
 
         date_counter = Counter(play_dates)
@@ -306,11 +306,11 @@ class Song:
         will count up to that mark and no more.
         """
 
-        plays: Iterable[dict] = itertools.chain.from_iterable(
+        listens: Iterable[spotistats.Listen] = itertools.chain.from_iterable(
             spotistats.song_play_history(i) for i in ([self.id] + self.alt_ids)
         )
         play_dates: Iterable[date] = (
-            i['finished_playing'].date() for i in plays
+            listen.finished_playing.date() for listen in listens
         )
         date_counter = Counter(play_dates)
 
