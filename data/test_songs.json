@@ -53,7 +53,15 @@
         ],
         "official_name": "Chasing Pavements",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 48,
+                "plays": 9,
+                "points": 38
+            }
+        ]
     },
     "607743": {
         "name": "Mood",
@@ -93,6 +101,13 @@
                 "place": 49,
                 "plays": 5,
                 "points": 24
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 53,
+                "plays": 9,
+                "points": 40
             }
         ]
     },
@@ -144,6 +159,20 @@
                 "place": 53,
                 "plays": 4,
                 "points": 24
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 57,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 33,
+                "plays": 8,
+                "points": 48
             }
         ]
     },
@@ -182,7 +211,22 @@
         ],
         "official_name": "Best For Last",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 4,
+                "points": 20
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 34,
+                "plays": 10,
+                "points": 44
+            }
+        ]
     },
     "20253706": {
         "name": "All Night Parking",
@@ -193,7 +237,36 @@
         ],
         "official_name": "All Night Parking (with Erroll Garner) Interlude",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 48,
+                "plays": 6,
+                "points": 31
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 38,
+                "plays": 9,
+                "points": 42
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 37,
+                "plays": 7,
+                "points": 49
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 22,
+                "plays": 8,
+                "points": 55
+            }
+        ]
     },
     "283778": {
         "name": "I Miss You",
@@ -247,7 +320,22 @@
         ],
         "official_name": "Hold On",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 4,
+                "points": 20
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 46,
+                "plays": 7,
+                "points": 42
+            }
+        ]
     },
     "283848": {
         "name": "Cold Shoulder",
@@ -258,7 +346,15 @@
         ],
         "official_name": "Cold Shoulder",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 58,
+                "plays": 7,
+                "points": 33
+            }
+        ]
     },
     "282945": {
         "name": "Easy On Me",
@@ -290,6 +386,20 @@
                 "place": 51,
                 "plays": 0,
                 "points": 18
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 50,
+                "plays": 6,
+                "points": 38
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 28,
+                "plays": 8,
+                "points": 50
             }
         ]
     },
@@ -313,7 +423,22 @@
         ],
         "official_name": "Cry Your Heart Out",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 57,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 18,
+                "plays": 11,
+                "points": 60
+            }
+        ]
     },
     "283828": {
         "name": "Melt My Heart To Stone",
@@ -324,7 +449,15 @@
         ],
         "official_name": "Melt My Heart to Stone",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 35,
+                "plays": 10,
+                "points": 46
+            }
+        ]
     },
     "283831": {
         "name": "Make You Feel My Love",
@@ -380,6 +513,13 @@
                 "place": 44,
                 "plays": 1,
                 "points": 31
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 26,
+                "plays": 7,
+                "points": 37
             }
         ]
     },
@@ -421,6 +561,20 @@
                 "place": 59,
                 "plays": 5,
                 "points": 20
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 48,
+                "plays": 3,
+                "points": 22
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 52,
+                "plays": 6,
+                "points": 39
             }
         ]
     },
@@ -496,6 +650,55 @@
                 "place": 11,
                 "plays": 4,
                 "points": 30
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 44,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 13,
+                "plays": 13,
+                "points": 68
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 18,
+                "plays": 11,
+                "points": 76
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 34,
+                "plays": 4,
+                "points": 51
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 42,
+                "plays": 6,
+                "points": 43
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 26,
+                "plays": 8,
+                "points": 48
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 30,
+                "plays": 7,
+                "points": 50
             }
         ]
     },
@@ -536,6 +739,69 @@
                 "place": 27,
                 "plays": 5,
                 "points": 32
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 22,
+                "plays": 7,
+                "points": 42
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 22,
+                "plays": 4,
+                "points": 35
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 6,
+                "plays": 13,
+                "points": 67
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 10,
+                "plays": 5,
+                "points": 50
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 22,
+                "plays": 8,
+                "points": 55
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 11,
+                "plays": 19,
+                "points": 97
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 10,
+                "plays": 14,
+                "points": 102
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 8,
+                "plays": 11,
+                "points": 91
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 34,
+                "plays": 2,
+                "points": 44
             }
         ]
     },
@@ -597,6 +863,48 @@
                 "place": 36,
                 "plays": 4,
                 "points": 26
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 13,
+                "plays": 14,
+                "points": 68
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 18,
+                "plays": 11,
+                "points": 76
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 31,
+                "plays": 4,
+                "points": 52
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 42,
+                "plays": 6,
+                "points": 43
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 40,
+                "plays": 6,
+                "points": 40
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 26,
+                "plays": 9,
+                "points": 54
             }
         ]
     },
@@ -609,7 +917,15 @@
         ],
         "official_name": "I Drink Wine",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 39,
+                "plays": 8,
+                "points": 45
+            }
+        ]
     },
     "283789": {
         "name": "Million Years Ago",
@@ -666,6 +982,55 @@
                 "place": 60,
                 "plays": 3,
                 "points": 21
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 9,
+                "plays": 14,
+                "points": 74
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 16,
+                "plays": 11,
+                "points": 78
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 22,
+                "plays": 8,
+                "points": 68
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 35,
+                "plays": 5,
+                "points": 47
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 29,
+                "plays": 7,
+                "points": 46
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 44,
+                "plays": 6,
+                "points": 43
             }
         ]
     },
@@ -805,6 +1170,55 @@
                 "place": 58,
                 "plays": 2,
                 "points": 21
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 44,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 3,
+                "plays": 19,
+                "points": 92
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 4,
+                "plays": 19,
+                "points": 119
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 11,
+                "plays": 9,
+                "points": 93
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 12,
+                "plays": 10,
+                "points": 77
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 13,
+                "plays": 9,
+                "points": 65
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 28,
+                "plays": 6,
+                "points": 52
             }
         ]
     },
@@ -920,6 +1334,55 @@
                 "place": 54,
                 "plays": 2,
                 "points": 23
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 1,
+                "plays": 22,
+                "points": 106
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 2,
+                "plays": 20,
+                "points": 130
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 15,
+                "plays": 5,
+                "points": 82
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 23,
+                "plays": 6,
+                "points": 54
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 23,
+                "plays": 8,
+                "points": 49
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 35,
+                "plays": 6,
+                "points": 46
             }
         ]
     },
@@ -964,6 +1427,41 @@
                 "place": 20,
                 "plays": 2,
                 "points": 23
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 13,
+                "plays": 14,
+                "points": 68
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 20,
+                "plays": 10,
+                "points": 72
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 45,
+                "plays": 2,
+                "points": 42
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 60,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 52,
+                "plays": 6,
+                "points": 39
             }
         ]
     },
@@ -1085,6 +1583,48 @@
                 "place": 55,
                 "plays": 3,
                 "points": 22
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 7,
+                "plays": 16,
+                "points": 78
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 7,
+                "plays": 18,
+                "points": 109
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 16,
+                "plays": 6,
+                "points": 76
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 36,
+                "plays": 4,
+                "points": 46
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 29,
+                "plays": 8,
+                "points": 46
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 32,
+                "plays": 7,
+                "points": 48
             }
         ]
     },
@@ -1097,7 +1637,22 @@
         ],
         "official_name": "Right As Rain",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 48,
+                "plays": 7,
+                "points": 38
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 45,
+                "plays": 6,
+                "points": 42
+            }
+        ]
     },
     "20253698": {
         "name": "My Little Love",
@@ -1108,7 +1663,15 @@
         ],
         "official_name": "My Little Love",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 40,
+                "plays": 8,
+                "points": 44
+            }
+        ]
     },
     "283784": {
         "name": "Sweetest Devotion",
@@ -1174,6 +1737,41 @@
                 "place": 45,
                 "plays": 3,
                 "points": 18
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 25,
+                "plays": 8,
+                "points": 42
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 31,
+                "plays": 10,
+                "points": 46
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 28,
+                "plays": 8,
+                "points": 55
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 28,
+                "plays": 6,
+                "points": 50
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 53,
+                "plays": 4,
+                "points": 36
             }
         ]
     },
@@ -1312,6 +1910,48 @@
                 "place": 30,
                 "plays": 3,
                 "points": 21
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 9,
+                "plays": 15,
+                "points": 74
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 9,
+                "plays": 17,
+                "points": 103
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 19,
+                "plays": 5,
+                "points": 69
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 27,
+                "plays": 6,
+                "points": 51
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 23,
+                "plays": 8,
+                "points": 49
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 16,
+                "plays": 10,
+                "points": 62
             }
         ]
     },
@@ -1395,6 +2035,48 @@
                 "place": 11,
                 "plays": 4,
                 "points": 30
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 11,
+                "plays": 14,
+                "points": 70
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 17,
+                "plays": 11,
+                "points": 77
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 26,
+                "plays": 5,
+                "points": 56
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 32,
+                "plays": 7,
+                "points": 49
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 37,
+                "plays": 6,
+                "points": 43
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 33,
+                "plays": 7,
+                "points": 47
             }
         ]
     },
@@ -1456,6 +2138,27 @@
                 "place": 53,
                 "plays": 4,
                 "points": 22
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 30,
+                "plays": 8,
+                "points": 39
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 36,
+                "plays": 4,
+                "points": 35
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 56,
+                "plays": 6,
+                "points": 34
             }
         ]
     },
@@ -1560,6 +2263,48 @@
                 "place": 59,
                 "plays": 3,
                 "points": 20
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 44,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 5,
+                "plays": 18,
+                "points": 88
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 14,
+                "plays": 10,
+                "points": 81
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 40,
+                "plays": 2,
+                "points": 46
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 21,
+                "plays": 11,
+                "points": 54
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 26,
+                "plays": 7,
+                "points": 54
             }
         ]
     },
@@ -1719,6 +2464,48 @@
                 "place": 19,
                 "plays": 3,
                 "points": 24
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 11,
+                "plays": 14,
+                "points": 70
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 10,
+                "plays": 17,
+                "points": 101
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 18,
+                "plays": 6,
+                "points": 72
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 24,
+                "plays": 6,
+                "points": 53
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 39,
+                "plays": 6,
+                "points": 42
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 35,
+                "plays": 7,
+                "points": 46
             }
         ]
     },
@@ -1981,6 +2768,76 @@
                 "place": 12,
                 "plays": 6,
                 "points": 49
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 9,
+                "plays": 10,
+                "points": 64
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 12,
+                "plays": 5,
+                "points": 46
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 10,
+                "plays": 10,
+                "points": 60
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 14,
+                "plays": 5,
+                "points": 45
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 25,
+                "plays": 7,
+                "points": 48
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 12,
+                "plays": 17,
+                "points": 87
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 1,
+                "plays": 35,
+                "points": 181
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 3,
+                "plays": 22,
+                "points": 175
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 4,
+                "plays": 14,
+                "points": 135
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 11,
+                "plays": 7,
+                "points": 78
             }
         ]
     },
@@ -2701,6 +3558,34 @@
                 "place": 50,
                 "plays": 2,
                 "points": 17
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 5,
+                "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 24,
+                "plays": 8,
+                "points": 43
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 60,
+                "plays": 4,
+                "points": 32
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 19,
+                "plays": 11,
+                "points": 59
             }
         ]
     },
@@ -2807,6 +3692,13 @@
                 "place": 54,
                 "plays": 4,
                 "points": 25
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 32,
+                "plays": 6,
+                "points": 31
             }
         ]
     },
@@ -3064,6 +3956,20 @@
                 "place": 24,
                 "plays": 4,
                 "points": 22
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 6,
+                "points": 28
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 4,
+                "points": 30
             }
         ]
     },
@@ -3493,6 +4399,13 @@
                 "place": 46,
                 "plays": 4,
                 "points": 25
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 54,
+                "plays": 7,
+                "points": 35
             }
         ]
     },
@@ -3512,6 +4425,13 @@
                 "place": 49,
                 "plays": 4,
                 "points": 16
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 45,
+                "plays": 7,
+                "points": 42
             }
         ]
     },
@@ -4077,6 +4997,62 @@
                 "place": 5,
                 "plays": 11,
                 "points": 70
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 6,
+                "plays": 8,
+                "points": 66
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 8,
+                "plays": 7,
+                "points": 55
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 2,
+                "plays": 13,
+                "points": 74
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 8,
+                "plays": 5,
+                "points": 53
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 48,
+                "plays": 8,
+                "points": 37
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 57,
+                "plays": 4,
+                "points": 32
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 40,
+                "plays": 7,
+                "points": 40
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 5,
+                "points": 38
             }
         ]
     },
@@ -4306,6 +5282,41 @@
                 "place": 55,
                 "plays": 4,
                 "points": 16
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 6,
+                "points": 30
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 54,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 48,
+                "plays": 6,
+                "points": 37
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 53,
+                "plays": 8,
+                "points": 40
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 23,
+                "plays": 11,
+                "points": 56
             }
         ]
     },
@@ -4395,6 +5406,13 @@
                 "place": 57,
                 "plays": 3,
                 "points": 14
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 46,
+                "plays": 6,
+                "points": 33
             }
         ]
     },
@@ -4629,6 +5647,34 @@
                 "place": 42,
                 "plays": 3,
                 "points": 27
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 36,
+                "plays": 6,
+                "points": 35
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 5,
+                "points": 36
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 29,
+                "plays": 8,
+                "points": 48
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 55,
+                "plays": 3,
+                "points": 33
             }
         ]
     },
@@ -5384,6 +6430,62 @@
                 "place": 25,
                 "plays": 5,
                 "points": 33
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 20,
+                "plays": 7,
+                "points": 44
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 17,
+                "plays": 5,
+                "points": 39
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 15,
+                "plays": 9,
+                "points": 53
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 12,
+                "plays": 6,
+                "points": 47
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 52,
+                "plays": 3,
+                "points": 33
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 21,
+                "plays": 13,
+                "points": 64
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 51,
+                "plays": 7,
+                "points": 41
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 60,
+                "plays": 6,
+                "points": 37
             }
         ]
     },
@@ -5718,6 +6820,62 @@
                 "place": 40,
                 "plays": 2,
                 "points": 26
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 11,
+                "plays": 12,
+                "points": 59
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 5,
+                "plays": 8,
+                "points": 58
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 18,
+                "plays": 6,
+                "points": 52
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 19,
+                "plays": 5,
+                "points": 40
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 54,
+                "plays": 6,
+                "points": 35
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 33,
+                "plays": 9,
+                "points": 48
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 23,
+                "plays": 7,
+                "points": 49
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 33,
+                "plays": 6,
+                "points": 47
             }
         ]
     },
@@ -6193,6 +7351,13 @@
                 "place": 46,
                 "plays": 3,
                 "points": 26
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 56,
+                "plays": 7,
+                "points": 34
             }
         ]
     },
@@ -6329,6 +7494,20 @@
                 "place": 42,
                 "plays": 4,
                 "points": 26
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 44,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 39,
+                "plays": 9,
+                "points": 41
             }
         ]
     },
@@ -6551,6 +7730,27 @@
                 "place": 14,
                 "plays": 3,
                 "points": 28
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 19,
+                "plays": 8,
+                "points": 36
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 25,
+                "plays": 6,
+                "points": 42
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 4,
+                "points": 36
             }
         ]
     },
@@ -6668,6 +7868,41 @@
                 "place": 35,
                 "plays": 3,
                 "points": 28
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 38,
+                "plays": 3,
+                "points": 25
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 22,
+                "plays": 14,
+                "points": 62
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 28,
+                "plays": 6,
+                "points": 55
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 19,
+                "plays": 8,
+                "points": 58
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 39,
+                "plays": 8,
+                "points": 44
             }
         ]
     },
@@ -7058,6 +8293,41 @@
                 "place": 35,
                 "plays": 4,
                 "points": 28
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 10,
+                "plays": 12,
+                "points": 61
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 10,
+                "plays": 6,
+                "points": 52
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 56,
+                "plays": 6,
+                "points": 34
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 55,
+                "plays": 7,
+                "points": 35
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 20,
+                "plays": 10,
+                "points": 57
             }
         ]
     },
@@ -7595,6 +8865,13 @@
                 "place": 39,
                 "plays": 4,
                 "points": 21
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 39,
+                "plays": 8,
+                "points": 44
             }
         ]
     },
@@ -7859,6 +9136,20 @@
                 "place": 33,
                 "plays": 2,
                 "points": 20
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 6,
+                "points": 30
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 4,
+                "points": 31
             }
         ]
     },
@@ -8137,6 +9428,48 @@
                 "place": 19,
                 "plays": 8,
                 "points": 38
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 25,
+                "plays": 4,
+                "points": 34
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 43,
+                "plays": 7,
+                "points": 34
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 4,
+                "points": 31
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 23,
+                "plays": 11,
+                "points": 54
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 55,
+                "plays": 2,
+                "points": 33
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 49,
+                "plays": 9,
+                "points": 40
             }
         ]
     },
@@ -8349,6 +9682,48 @@
                 "place": 33,
                 "plays": 2,
                 "points": 20
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 35,
+                "plays": 7,
+                "points": 37
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 16,
+                "plays": 6,
+                "points": 42
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 58,
+                "plays": 3,
+                "points": 31
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 36,
+                "plays": 8,
+                "points": 44
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 48,
+                "plays": 5,
+                "points": 39
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 57,
+                "plays": 5,
+                "points": 38
             }
         ]
     },
@@ -8671,6 +10046,13 @@
                 "place": 33,
                 "plays": 3,
                 "points": 20
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 35,
+                "plays": 7,
+                "points": 37
             }
         ]
     },
@@ -8683,7 +10065,15 @@
         ],
         "official_name": "Just A Little Bit Of Your Heart",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 7,
+                "points": 38
+            }
+        ]
     },
     "1193370": {
         "name": "worst behavior",
@@ -8798,7 +10188,15 @@
         ],
         "official_name": "Break Your Heart Right Back",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 18,
+                "plays": 12,
+                "points": 60
+            }
+        ]
     },
     "78713": {
         "name": "successful",
@@ -9212,6 +10610,20 @@
                 "place": 31,
                 "plays": 4,
                 "points": 30
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 44,
+                "plays": 2,
+                "points": 23
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 59,
+                "plays": 5,
+                "points": 28
             }
         ]
     },
@@ -9509,6 +10921,20 @@
                 "place": 50,
                 "plays": 3,
                 "points": 23
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 36,
+                "plays": 8,
+                "points": 44
             }
         ]
     },
@@ -9564,6 +10990,13 @@
                 "place": 60,
                 "plays": 1,
                 "points": 8
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 49,
+                "plays": 7,
+                "points": 40
             }
         ]
     },
@@ -9744,6 +11177,20 @@
                 "place": 35,
                 "plays": 6,
                 "points": 28
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 26,
+                "plays": 6,
+                "points": 37
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 46,
+                "plays": 8,
+                "points": 38
             }
         ]
     },
@@ -9922,6 +11369,27 @@
                 "place": 52,
                 "plays": 7,
                 "points": 28
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 5,
+                "points": 30
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 36,
+                "plays": 7,
+                "points": 39
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 39,
+                "plays": 8,
+                "points": 44
             }
         ]
     },
@@ -10339,6 +11807,48 @@
                 "place": 24,
                 "plays": 3,
                 "points": 30
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 32,
+                "plays": 7,
+                "points": 31
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 12,
+                "plays": 10,
+                "points": 55
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 23,
+                "plays": 3,
+                "points": 39
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 54,
+                "plays": 4,
+                "points": 32
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 44,
+                "plays": 7,
+                "points": 39
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 60,
+                "plays": 7,
+                "points": 37
             }
         ]
     },
@@ -10492,6 +12002,13 @@
                 "place": 60,
                 "plays": 4,
                 "points": 16
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 20,
+                "plays": 11,
+                "points": 57
             }
         ]
     },
@@ -10940,6 +12457,48 @@
                 "place": 53,
                 "plays": 3,
                 "points": 22
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 25,
+                "plays": 6,
+                "points": 34
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 50,
+                "plays": 7,
+                "points": 36
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 12,
+                "plays": 17,
+                "points": 86
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 13,
+                "plays": 8,
+                "points": 73
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 5,
+                "plays": 23,
+                "points": 125
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 2,
+                "plays": 29,
+                "points": 170
             }
         ]
     },
@@ -10994,6 +12553,13 @@
                 "place": 40,
                 "plays": 4,
                 "points": 28
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 41,
+                "plays": 9,
+                "points": 44
             }
         ]
     },
@@ -11397,6 +12963,55 @@
                 "place": 20,
                 "plays": 5,
                 "points": 37
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 33,
+                "plays": 3,
+                "points": 30
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 48,
+                "plays": 4,
+                "points": 27
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 40,
+                "plays": 6,
+                "points": 34
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 48,
+                "plays": 5,
+                "points": 35
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 41,
+                "plays": 6,
+                "points": 40
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 44,
+                "plays": 8,
+                "points": 39
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 45,
+                "plays": 6,
+                "points": 42
             }
         ]
     },
@@ -11725,6 +13340,34 @@
                 "place": 59,
                 "plays": 2,
                 "points": 20
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 7,
+                "points": 36
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 44,
+                "plays": 8,
+                "points": 39
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 60,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 15,
+                "plays": 13,
+                "points": 68
             }
         ]
     },
@@ -12217,6 +13860,13 @@
                 "place": 46,
                 "plays": 3,
                 "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 7,
+                "points": 30
             }
         ]
     },
@@ -12635,6 +14285,13 @@
                 "place": 35,
                 "plays": 7,
                 "points": 28
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 36,
+                "plays": 3,
+                "points": 26
             }
         ]
     },
@@ -13049,6 +14706,55 @@
                 "place": 7,
                 "plays": 8,
                 "points": 60
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 28,
+                "plays": 1,
+                "points": 32
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 15,
+                "plays": 12,
+                "points": 53
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 13,
+                "plays": 5,
+                "points": 46
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 24,
+                "plays": 7,
+                "points": 50
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 15,
+                "plays": 15,
+                "points": 79
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 37,
+                "plays": 3,
+                "points": 49
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 7,
+                "plays": 26,
+                "points": 107
             }
         ]
     },
@@ -13371,6 +15077,20 @@
                 "place": 43,
                 "plays": 3,
                 "points": 19
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 4,
+                "points": 20
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 20,
+                "plays": 11,
+                "points": 57
             }
         ]
     },
@@ -13788,6 +15508,41 @@
                 "place": 40,
                 "plays": 3,
                 "points": 26
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 17,
+                "plays": 10,
+                "points": 52
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 32,
+                "plays": 2,
+                "points": 31
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 23,
+                "plays": 11,
+                "points": 54
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 55,
+                "plays": 7,
+                "points": 35
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 6,
+                "plays": 23,
+                "points": 109
             }
         ]
     },
@@ -13857,6 +15612,13 @@
                 "place": 59,
                 "plays": 2,
                 "points": 18
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 7,
+                "points": 38
             }
         ]
     },
@@ -14281,6 +16043,76 @@
                 "place": 20,
                 "plays": 8,
                 "points": 37
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 36,
+                "plays": 2,
+                "points": 26
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 7,
+                "plays": 11,
+                "points": 56
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 5,
+                "plays": 11,
+                "points": 68
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 7,
+                "plays": 6,
+                "points": 57
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 58,
+                "plays": 2,
+                "points": 31
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 27,
+                "plays": 10,
+                "points": 50
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 50,
+                "plays": 4,
+                "points": 38
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 15,
+                "plays": 12,
+                "points": 66
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 40,
+                "plays": 3,
+                "points": 40
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 11,
+                "plays": 15,
+                "points": 78
             }
         ]
     },
@@ -14818,6 +16650,27 @@
                 "place": 39,
                 "plays": 4,
                 "points": 27
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 31,
+                "plays": 12,
+                "points": 52
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 21,
+                "plays": 8,
+                "points": 56
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 34,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -14866,6 +16719,27 @@
                 "place": 17,
                 "plays": 8,
                 "points": 43
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 52,
+                "plays": 0,
+                "points": 21
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 26,
+                "plays": 13,
+                "points": 56
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 46,
+                "plays": 4,
+                "points": 42
             }
         ]
     },
@@ -15037,6 +16911,13 @@
                 "place": 57,
                 "plays": 3,
                 "points": 16
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 44,
+                "plays": 6,
+                "points": 39
             }
         ]
     },
@@ -15082,6 +16963,41 @@
                 "place": 13,
                 "plays": 9,
                 "points": 48
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 32,
+                "plays": 2,
+                "points": 31
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 39,
+                "plays": 4,
+                "points": 29
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 25,
+                "plays": 13,
+                "points": 57
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 28,
+                "plays": 6,
+                "points": 50
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 58,
+                "plays": 2,
+                "points": 33
             }
         ]
     },
@@ -15120,6 +17036,48 @@
                 "place": 14,
                 "plays": 9,
                 "points": 47
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 44,
+                "plays": 0,
+                "points": 23
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 54,
+                "plays": 4,
+                "points": 25
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 39,
+                "plays": 11,
+                "points": 47
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 17,
+                "plays": 10,
+                "points": 62
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 28,
+                "plays": 4,
+                "points": 47
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 5,
+                "points": 38
             }
         ]
     },
@@ -15132,7 +17090,36 @@
         ],
         "official_name": "bitches broken hearts",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 3,
+                "plays": 44,
+                "points": 178
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 4,
+                "plays": 20,
+                "points": 168
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 1,
+                "plays": 23,
+                "points": 176
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 3,
+                "plays": 23,
+                "points": 158
+            }
+        ]
     },
     "1008250": {
         "name": "Flawless Remix",
@@ -15310,6 +17297,62 @@
                 "place": 16,
                 "plays": 9,
                 "points": 46
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 48,
+                "plays": 0,
+                "points": 22
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 54,
+                "plays": 4,
+                "points": 25
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 38,
+                "plays": 7,
+                "points": 36
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 55,
+                "plays": 3,
+                "points": 30
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 23,
+                "plays": 15,
+                "points": 64
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 11,
+                "plays": 12,
+                "points": 78
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 20,
+                "plays": 4,
+                "points": 55
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 39,
+                "plays": 6,
+                "points": 44
             }
         ]
     },
@@ -15334,7 +17377,15 @@
         ],
         "official_name": "lovely (with Khalid)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 48,
+                "plays": 9,
+                "points": 39
+            }
+        ]
     },
     "169224": {
         "name": "ocean eyes",
@@ -15464,6 +17515,76 @@
                 "place": 6,
                 "plays": 14,
                 "points": 68
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 23,
+                "plays": 2,
+                "points": 40
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 35,
+                "plays": 3,
+                "points": 30
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 28,
+                "plays": 8,
+                "points": 40
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 3,
+                "points": 31
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 20,
+                "plays": 11,
+                "points": 58
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 39,
+                "plays": 4,
+                "points": 41
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 2,
+                "plays": 40,
+                "points": 179
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 1,
+                "plays": 27,
+                "points": 192
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 2,
+                "plays": 15,
+                "points": 154
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 1,
+                "plays": 29,
+                "points": 173
             }
         ]
     },
@@ -15512,6 +17633,76 @@
                 "place": 1,
                 "plays": 22,
                 "points": 119
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 3,
+                "plays": 8,
+                "points": 91
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 5,
+                "plays": 5,
+                "points": 58
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 13,
+                "plays": 9,
+                "points": 54
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 36,
+                "plays": 3,
+                "points": 35
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 17,
+                "plays": 13,
+                "points": 67
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 28,
+                "plays": 5,
+                "points": 49
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 14,
+                "plays": 15,
+                "points": 83
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 10,
+                "plays": 11,
+                "points": 79
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 16,
+                "plays": 5,
+                "points": 57
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 14,
+                "plays": 12,
+                "points": 69
             }
         ]
     },
@@ -15627,6 +17818,48 @@
                 "place": 8,
                 "plays": 11,
                 "points": 59
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 34,
+                "plays": 0,
+                "points": 29
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 48,
+                "plays": 4,
+                "points": 27
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 24,
+                "plays": 14,
+                "points": 60
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 14,
+                "plays": 10,
+                "points": 68
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 29,
+                "plays": 3,
+                "points": 46
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 49,
+                "plays": 6,
+                "points": 40
             }
         ]
     },
@@ -15684,6 +17917,27 @@
                 "place": 56,
                 "plays": 4,
                 "points": 18
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 36,
+                "plays": 11,
+                "points": 50
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 25,
+                "plays": 7,
+                "points": 52
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 16,
+                "plays": 8,
+                "points": 57
             }
         ]
     },
@@ -15766,6 +18020,34 @@
                 "place": 14,
                 "plays": 9,
                 "points": 47
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 44,
+                "plays": 0,
+                "points": 23
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 54,
+                "plays": 4,
+                "points": 25
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 31,
+                "plays": 12,
+                "points": 52
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 53,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -15805,7 +18087,29 @@
         ],
         "official_name": "xanny",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 46,
+                "plays": 8,
+                "points": 42
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 13,
+                "plays": 11,
+                "points": 65
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 2,
+                "points": 38
+            }
+        ]
     },
     "300035": {
         "name": "Money Make Her Smile",
@@ -16081,6 +18385,27 @@
                 "place": 36,
                 "plays": 5,
                 "points": 26
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 18,
+                "plays": 10,
+                "points": 49
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 35,
+                "plays": 2,
+                "points": 30
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 29,
+                "plays": 7,
+                "points": 46
             }
         ]
     },
@@ -16320,7 +18645,36 @@
         ],
         "official_name": "wish you were gay",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 20,
+                "plays": 11,
+                "points": 44
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 35,
+                "plays": 2,
+                "points": 30
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 19,
+                "plays": 11,
+                "points": 58
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 16,
+                "plays": 7,
+                "points": 57
+            }
+        ]
     },
     "2752464": {
         "name": "Smokin Out The Window",
@@ -16704,6 +19058,27 @@
                 "place": 46,
                 "plays": 6,
                 "points": 24
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 2,
+                "points": 20
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 43,
+                "plays": 7,
+                "points": 34
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 19,
+                "plays": 6,
+                "points": 40
             }
         ]
     },
@@ -17269,6 +19644,34 @@
                 "place": 24,
                 "plays": 5,
                 "points": 34
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 22,
+                "plays": 7,
+                "points": 35
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 6,
+                "points": 31
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 31,
+                "plays": 7,
+                "points": 46
             }
         ]
     },
@@ -17326,7 +19729,22 @@
         ],
         "official_name": "Focus",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 25,
+                "plays": 12,
+                "points": 48
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 41,
+                "plays": 4,
+                "points": 40
+            }
+        ]
     },
     "402191": {
         "name": "Empty Cups",
@@ -17406,7 +19824,22 @@
         ],
         "official_name": "Real Friends",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 25,
+                "plays": 12,
+                "points": 48
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 50,
+                "plays": 3,
+                "points": 36
+            }
+        ]
     },
     "6457851": {
         "name": "Does It Feel",
@@ -17621,7 +20054,36 @@
         ],
         "official_name": "Unlock it (Lock It) - feat. Kim Petras and Jay Park",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 21,
+                "plays": 13,
+                "points": 56
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 26,
+                "plays": 6,
+                "points": 52
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 19,
+                "plays": 11,
+                "points": 69
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 53,
+                "plays": 3,
+                "points": 40
+            }
+        ]
     },
     "27451853": {
         "name": "Beg For You",
@@ -18148,7 +20610,22 @@
         ],
         "official_name": "No Angel",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 30,
+                "plays": 11,
+                "points": 44
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 31,
+                "plays": 6,
+                "points": 46
+            }
+        ]
     },
     "3751833": {
         "name": "Losing My Mind",
@@ -18309,7 +20786,15 @@
         ],
         "official_name": "Promises (with Sam Smith)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 6,
+                "points": 30
+            }
+        ]
     },
     "31652761": {
         "name": "Blick Blick",
@@ -20172,6 +22657,20 @@
                 "place": 38,
                 "plays": 4,
                 "points": 18
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 28,
+                "plays": 7,
+                "points": 32
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 2,
+                "points": 24
             }
         ]
     },
@@ -20789,6 +23288,69 @@
                 "place": 23,
                 "plays": 8,
                 "points": 35
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 34,
+                "plays": 3,
+                "points": 29
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 35,
+                "plays": 4,
+                "points": 30
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 41,
+                "plays": 6,
+                "points": 35
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 5,
+                "points": 36
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 35,
+                "plays": 6,
+                "points": 40
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 34,
+                "plays": 7,
+                "points": 45
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 46,
+                "plays": 5,
+                "points": 40
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 51,
+                "plays": 6,
+                "points": 41
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 52,
+                "plays": 5,
+                "points": 37
             }
         ]
     },
@@ -20858,6 +23420,41 @@
                 "place": 9,
                 "plays": 5,
                 "points": 53
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 11,
+                "plays": 9,
+                "points": 59
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 14,
+                "plays": 5,
+                "points": 43
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 19,
+                "plays": 8,
+                "points": 51
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 26,
+                "plays": 4,
+                "points": 37
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 30,
+                "plays": 7,
+                "points": 44
             }
         ]
     },
@@ -21059,6 +23656,20 @@
                 "place": 42,
                 "plays": 5,
                 "points": 27
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 41,
+                "plays": 9,
+                "points": 44
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 46,
+                "plays": 5,
+                "points": 42
             }
         ]
     },
@@ -21280,6 +23891,13 @@
                 "place": 52,
                 "plays": 7,
                 "points": 30
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 8,
+                "points": 36
             }
         ]
     },
@@ -21350,6 +23968,20 @@
                 "place": 43,
                 "plays": 3,
                 "points": 29
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 41,
+                "plays": 11,
+                "points": 44
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 36,
+                "plays": 6,
+                "points": 46
             }
         ]
     },
@@ -21466,7 +24098,15 @@
         ],
         "official_name": "One Dance",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 54,
+                "plays": 8,
+                "points": 32
+            }
+        ]
     },
     "299959": {
         "name": "Future Nostalgia",
@@ -21977,6 +24617,62 @@
                 "place": 55,
                 "plays": 0,
                 "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 28,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 32,
+                "plays": 6,
+                "points": 38
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 40,
+                "plays": 4,
+                "points": 34
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 37,
+                "plays": 6,
+                "points": 38
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 50,
+                "plays": 5,
+                "points": 36
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 57,
+                "plays": 4,
+                "points": 32
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 15,
+                "plays": 12,
+                "points": 62
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 60,
+                "plays": 2,
+                "points": 37
             }
         ]
     },
@@ -22132,6 +24828,34 @@
                 "place": 9,
                 "plays": 1,
                 "points": 19
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 6,
+                "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 38,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 16,
+                "plays": 6,
+                "points": 42
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 37,
+                "plays": 5,
+                "points": 38
             }
         ]
     },
@@ -22256,6 +24980,13 @@
                 "place": 20,
                 "plays": 10,
                 "points": 43
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 5,
+                "points": 28
             }
         ]
     },
@@ -22401,6 +25132,27 @@
                 "place": 46,
                 "plays": 3,
                 "points": 26
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 39,
+                "plays": 4,
+                "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 22,
+                "plays": 6,
+                "points": 35
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 59,
+                "plays": 5,
+                "points": 33
             }
         ]
     },
@@ -22559,6 +25311,34 @@
                 "place": 49,
                 "plays": 5,
                 "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 5,
+                "points": 28
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 49,
+                "plays": 6,
+                "points": 34
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 59,
+                "plays": 4,
+                "points": 33
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 53,
+                "plays": 5,
+                "points": 34
             }
         ]
     },
@@ -22737,6 +25517,27 @@
                 "place": 30,
                 "plays": 7,
                 "points": 35
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 59,
+                "plays": 5,
+                "points": 33
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 53,
+                "plays": 5,
+                "points": 34
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 42,
+                "plays": 7,
+                "points": 43
             }
         ]
     },
@@ -23240,6 +26041,48 @@
                 "place": 31,
                 "plays": 7,
                 "points": 30
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 48,
+                "plays": 2,
+                "points": 22
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 48,
+                "plays": 4,
+                "points": 27
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 50,
+                "plays": 5,
+                "points": 36
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 52,
+                "plays": 5,
+                "points": 36
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 42,
+                "plays": 7,
+                "points": 43
             }
         ]
     },
@@ -23670,6 +26513,76 @@
                 "place": 22,
                 "plays": 8,
                 "points": 36
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 19,
+                "plays": 7,
+                "points": 46
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 4,
+                "plays": 13,
+                "points": 74
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 4,
+                "plays": 9,
+                "points": 69
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 2,
+                "plays": 11,
+                "points": 75
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 4,
+                "plays": 15,
+                "points": 91
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 3,
+                "plays": 20,
+                "points": 121
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 5,
+                "plays": 22,
+                "points": 143
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 2,
+                "plays": 30,
+                "points": 184
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 6,
+                "plays": 8,
+                "points": 114
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 10,
+                "plays": 9,
+                "points": 82
             }
         ]
     },
@@ -23738,7 +26651,15 @@
         ],
         "official_name": "That Kind Of Woman",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 7,
+                "points": 36
+            }
+        ]
     },
     "184568": {
         "name": "Down",
@@ -23896,6 +26817,13 @@
                 "place": 45,
                 "plays": 6,
                 "points": 36
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 5,
+                "points": 24
             }
         ]
     },
@@ -24202,6 +27130,13 @@
                 "place": 53,
                 "plays": 6,
                 "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 48,
+                "plays": 6,
+                "points": 31
             }
         ]
     },
@@ -24577,6 +27512,13 @@
                 "place": 40,
                 "plays": 4,
                 "points": 26
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 35,
+                "plays": 7,
+                "points": 37
             }
         ]
     },
@@ -24737,6 +27679,13 @@
                 "place": 35,
                 "plays": 7,
                 "points": 32
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 52,
+                "plays": 4,
+                "points": 21
             }
         ]
     },
@@ -24781,7 +27730,50 @@
         ],
         "official_name": "Coast (feat. Anderson .Paak)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 1,
+                "plays": 35,
+                "points": 140
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 1,
+                "plays": 9,
+                "points": 106
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 5,
+                "plays": 16,
+                "points": 117
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 19,
+                "plays": 7,
+                "points": 69
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 36,
+                "plays": 4,
+                "points": 46
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 44,
+                "plays": 6,
+                "points": 39
+            }
+        ]
     },
     "709898": {
         "name": "Let It Go",
@@ -25150,6 +28142,20 @@
                 "place": 40,
                 "plays": 3,
                 "points": 26
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 7,
+                "plays": 13,
+                "points": 65
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 15,
+                "plays": 3,
+                "points": 41
             }
         ]
     },
@@ -25228,7 +28234,29 @@
         ],
         "official_name": "Love Myself",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 29,
+                "plays": 9,
+                "points": 36
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 19,
+                "plays": 12,
+                "points": 66
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 34,
+                "plays": 3,
+                "points": 45
+            }
+        ]
     },
     "447734": {
         "name": "Ridin' Solo",
@@ -26461,6 +29489,27 @@
                 "place": 60,
                 "plays": 3,
                 "points": 21
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 39,
+                "plays": 5,
+                "points": 24
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 53,
+                "plays": 6,
+                "points": 36
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 4,
+                "plays": 26,
+                "points": 121
             }
         ]
     },
@@ -26920,6 +29969,34 @@
                 "place": 18,
                 "plays": 8,
                 "points": 42
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 24,
+                "plays": 4,
+                "points": 37
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 3,
+                "points": 28
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 32,
+                "plays": 7,
+                "points": 38
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 58,
+                "plays": 3,
+                "points": 29
             }
         ]
     },
@@ -27037,6 +30114,13 @@
                 "place": 49,
                 "plays": 5,
                 "points": 35
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 49,
+                "plays": 7,
+                "points": 34
             }
         ]
     },
@@ -27132,6 +30216,13 @@
                 "place": 46,
                 "plays": 6,
                 "points": 24
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 55,
+                "plays": 5,
+                "points": 30
             }
         ]
     },
@@ -27275,6 +30366,20 @@
                 "place": 55,
                 "plays": 2,
                 "points": 32
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 19,
+                "plays": 9,
+                "points": 40
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 29,
+                "plays": 7,
+                "points": 46
             }
         ]
     },
@@ -27331,6 +30436,55 @@
                 "place": 55,
                 "plays": 2,
                 "points": 16
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 28,
+                "plays": 8,
+                "points": 32
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 3,
+                "points": 28
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 32,
+                "plays": 6,
+                "points": 38
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 9,
+                "plays": 9,
+                "points": 51
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 13,
+                "plays": 11,
+                "points": 68
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 12,
+                "plays": 14,
+                "points": 87
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 28,
+                "plays": 4,
+                "points": 55
             }
         ]
     },
@@ -27344,7 +30498,22 @@
         ],
         "official_name": "Love Lies (with Normani)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 19,
+                "plays": 10,
+                "points": 40
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 25,
+                "plays": 7,
+                "points": 48
+            }
+        ]
     },
     "263183": {
         "name": "Because of You",
@@ -27611,6 +30780,41 @@
                 "place": 10,
                 "plays": 5,
                 "points": 50
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 16,
+                "plays": 7,
+                "points": 53
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 22,
+                "plays": 4,
+                "points": 35
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 41,
+                "plays": 5,
+                "points": 35
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 40,
+                "plays": 5,
+                "points": 34
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 38,
+                "plays": 8,
+                "points": 45
             }
         ]
     },
@@ -27755,6 +30959,13 @@
                 "place": 27,
                 "plays": 4,
                 "points": 32
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 1,
+                "points": 20
             }
         ]
     },
@@ -27886,6 +31097,20 @@
                 "place": 3,
                 "plays": 5,
                 "points": 82
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 5,
+                "plays": 8,
+                "points": 73
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 39,
+                "plays": 2,
+                "points": 29
             }
         ]
     },
@@ -28578,6 +31803,34 @@
                 "place": 59,
                 "plays": 2,
                 "points": 20
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 15,
+                "plays": 11,
+                "points": 54
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 28,
+                "plays": 2,
+                "points": 32
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 30,
+                "plays": 6,
+                "points": 39
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 37,
+                "plays": 7,
+                "points": 38
             }
         ]
     },
@@ -29952,6 +33205,13 @@
                 "place": 45,
                 "plays": 4,
                 "points": 22
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 58,
+                "plays": 5,
+                "points": 31
             }
         ]
     },
@@ -30371,6 +33631,20 @@
                 "place": 33,
                 "plays": 2,
                 "points": 27
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 29,
+                "plays": 12,
+                "points": 48
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 46,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -30658,6 +33932,13 @@
                 "place": 55,
                 "plays": 4,
                 "points": 22
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 54,
+                "plays": 9,
+                "points": 38
             }
         ]
     },
@@ -30678,6 +33959,13 @@
                 "place": 57,
                 "plays": 3,
                 "points": 14
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 32,
+                "plays": 9,
+                "points": 42
             }
         ]
     },
@@ -30887,6 +34175,13 @@
                 "place": 28,
                 "plays": 6,
                 "points": 27
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 41,
+                "plays": 7,
+                "points": 40
             }
         ]
     },
@@ -32000,6 +35295,34 @@
                 "place": 30,
                 "plays": 7,
                 "points": 28
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 7,
+                "plays": 14,
+                "points": 65
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 9,
+                "plays": 6,
+                "points": 53
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 13,
+                "plays": 7,
+                "points": 54
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 15,
+                "plays": 6,
+                "points": 44
             }
         ]
     },
@@ -32733,6 +36056,76 @@
                 "place": 2,
                 "plays": 20,
                 "points": 108
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 1,
+                "plays": 19,
+                "points": 128
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 3,
+                "plays": 5,
+                "points": 78
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 3,
+                "plays": 11,
+                "points": 73
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 5,
+                "plays": 8,
+                "points": 59
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 17,
+                "plays": 10,
+                "points": 67
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 1,
+                "plays": 29,
+                "points": 144
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 7,
+                "plays": 11,
+                "points": 112
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 9,
+                "plays": 8,
+                "points": 83
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 22,
+                "plays": 6,
+                "points": 51
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 23,
+                "plays": 9,
+                "points": 56
             }
         ]
     },
@@ -32949,6 +36342,13 @@
                 "place": 43,
                 "plays": 0,
                 "points": 8
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 5,
+                "points": 20
             }
         ]
     },
@@ -33538,6 +36938,41 @@
                 "place": 45,
                 "plays": 6,
                 "points": 25
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 39,
+                "plays": 3,
+                "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 28,
+                "plays": 5,
+                "points": 32
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 46,
+                "plays": 5,
+                "points": 33
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 4,
+                "points": 31
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 40,
+                "plays": 6,
+                "points": 37
             }
         ]
     },
@@ -34993,7 +38428,36 @@
         ],
         "official_name": "Super Freaky Girl",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 2,
+                "plays": 26,
+                "points": 104
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 2,
+                "plays": 7,
+                "points": 80
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 8,
+                "plays": 6,
+                "points": 64
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 36,
+                "plays": 4,
+                "points": 35
+            }
+        ]
     },
     "513486": {
         "name": "Favorite",
@@ -35484,6 +38948,13 @@
                 "place": 60,
                 "plays": 3,
                 "points": 21
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 52,
+                "plays": 5,
+                "points": 26
             }
         ]
     },
@@ -35636,6 +39107,13 @@
                 "place": 53,
                 "plays": 2,
                 "points": 22
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 44,
+                "plays": 3,
+                "points": 23
             }
         ]
     },
@@ -35920,6 +39398,27 @@
                 "place": 46,
                 "plays": 4,
                 "points": 24
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 55,
+                "plays": 6,
+                "points": 30
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 46,
+                "plays": 7,
+                "points": 38
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 60,
+                "plays": 8,
+                "points": 37
             }
         ]
     },
@@ -36563,6 +40062,20 @@
                 "place": 55,
                 "plays": 4,
                 "points": 26
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 26,
+                "plays": 12,
+                "points": 48
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 9,
+                "plays": 16,
+                "points": 88
             }
         ]
     },
@@ -37354,6 +40867,69 @@
                 "place": 10,
                 "plays": 6,
                 "points": 50
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 11,
+                "plays": 9,
+                "points": 59
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 13,
+                "plays": 5,
+                "points": 44
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 1,
+                "plays": 17,
+                "points": 87
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 2,
+                "plays": 9,
+                "points": 75
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 8,
+                "plays": 10,
+                "points": 75
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 7,
+                "plays": 20,
+                "points": 109
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 17,
+                "plays": 6,
+                "points": 74
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 25,
+                "plays": 5,
+                "points": 52
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 60,
+                "plays": 7,
+                "points": 37
             }
         ]
     },
@@ -37948,6 +41524,13 @@
                 "place": 27,
                 "plays": 8,
                 "points": 32
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 39,
+                "plays": 2,
+                "points": 24
             }
         ]
     },
@@ -38147,7 +41730,15 @@
         ],
         "official_name": "Rich & Sad",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 42,
+                "plays": 7,
+                "points": 36
+            }
+        ]
     },
     "11065621": {
         "name": "Post to Be",
@@ -38208,6 +41799,27 @@
                 "end": "2022-08-11",
                 "place": 31,
                 "plays": 5,
+                "points": 30
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 14,
+                "plays": 10,
+                "points": 55
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 15,
+                "plays": 4,
+                "points": 41
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 3,
                 "points": 30
             }
         ]
@@ -38484,6 +42096,34 @@
                 "place": 29,
                 "plays": 6,
                 "points": 29
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 8,
+                "plays": 27,
+                "points": 108
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 6,
+                "plays": 10,
+                "points": 94
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 10,
+                "plays": 9,
+                "points": 83
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 23,
+                "plays": 7,
+                "points": 56
             }
         ]
     },
@@ -38790,6 +42430,20 @@
                 "place": 32,
                 "plays": 3,
                 "points": 30
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 43,
+                "plays": 7,
+                "points": 34
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 52,
+                "plays": 5,
+                "points": 33
             }
         ]
     },
@@ -38865,7 +42519,22 @@
         ],
         "official_name": "Skin",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 7,
+                "plays": 25,
+                "points": 100
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 5,
+                "plays": 17,
+                "points": 118
+            }
+        ]
     },
     "365127": {
         "name": "Stay (Rihanna)",
@@ -39449,6 +43118,27 @@
                 "place": 42,
                 "plays": 5,
                 "points": 25
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 27,
+                "plays": 7,
+                "points": 33
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 27,
+                "plays": 5,
+                "points": 34
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 15,
+                "plays": 9,
+                "points": 53
             }
         ]
     },
@@ -39461,7 +43151,43 @@
         ],
         "official_name": "Needed Me",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 6,
+                "plays": 20,
+                "points": 82
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 6,
+                "plays": 18,
+                "points": 112
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 9,
+                "plays": 12,
+                "points": 104
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 15,
+                "plays": 6,
+                "points": 66
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 11,
+                "plays": 11,
+                "points": 68
+            }
+        ]
     },
     "175482": {
         "name": "Sex With Me",
@@ -39603,7 +43329,29 @@
         ],
         "official_name": "My Oasis (feat. Burna Boy)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 6,
+                "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 28,
+                "plays": 7,
+                "points": 40
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 44,
+                "plays": 3,
+                "points": 32
+            }
+        ]
     },
     "127401": {
         "name": "Shut Up And Drive",
@@ -39640,7 +43388,29 @@
         ],
         "official_name": "Another One",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 7,
+                "points": 28
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 21,
+                "plays": 8,
+                "points": 46
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 23,
+                "plays": 4,
+                "points": 39
+            }
+        ]
     },
     "113384": {
         "name": "Pon de Replay",
@@ -39688,6 +43458,13 @@
                 "place": 53,
                 "plays": 5,
                 "points": 20
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 5,
+                "points": 30
             }
         ]
     },
@@ -39733,7 +43510,15 @@
         ],
         "official_name": "S&M",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 39,
+                "plays": 8,
+                "points": 44
+            }
+        ]
     },
     "171345": {
         "name": "Kill Em With Kindness",
@@ -39788,7 +43573,22 @@
         ],
         "official_name": "So Serious",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 19,
+                "plays": 7,
+                "points": 36
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 50,
+                "plays": 3,
+                "points": 30
+            }
+        ]
     },
     "29065002": {
         "name": "Closer (Saweetie)",
@@ -39851,6 +43651,34 @@
                 "place": 30,
                 "plays": 4,
                 "points": 33
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 57,
+                "plays": 6,
+                "points": 24
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 10,
+                "plays": 12,
+                "points": 60
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 16,
+                "plays": 3,
+                "points": 42
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 32,
+                "plays": 6,
+                "points": 42
             }
         ]
     },
@@ -40068,6 +43896,27 @@
                 "place": 58,
                 "plays": 2,
                 "points": 22
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 4,
+                "points": 20
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 18,
+                "plays": 7,
+                "points": 38
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 25,
+                "plays": 6,
+                "points": 42
             }
         ]
     },
@@ -40126,7 +43975,22 @@
         ],
         "official_name": "Dance (\u2018Til You Love Someone Else)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 28,
+                "plays": 8,
+                "points": 32
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 59,
+                "plays": 3,
+                "points": 28
+            }
+        ]
     },
     "4843": {
         "name": "Treat You Better",
@@ -40242,6 +44106,27 @@
                 "place": 22,
                 "plays": 4,
                 "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 11,
+                "plays": 10,
+                "points": 49
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 20,
+                "plays": 6,
+                "points": 47
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 40,
+                "plays": 3,
+                "points": 34
             }
         ]
     },
@@ -40395,7 +44280,36 @@
         ],
         "official_name": "Young",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 19,
+                "plays": 9,
+                "points": 36
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 9,
+                "plays": 11,
+                "points": 62
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 5,
+                "plays": 7,
+                "points": 59
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 40,
+                "plays": 3,
+                "points": 37
+            }
+        ]
     },
     "540109": {
         "name": "Dancing With Our Hands Tied",
@@ -40703,7 +44617,22 @@
         ],
         "official_name": "How Do You Sleep?",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 41,
+                "plays": 7,
+                "points": 28
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 58,
+                "plays": 4,
+                "points": 29
+            }
+        ]
     },
     "587347": {
         "name": "This Love (Taylor)",
@@ -41437,6 +45366,13 @@
                 "place": 39,
                 "plays": 5,
                 "points": 28
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 54,
+                "plays": 5,
+                "points": 20
             }
         ]
     },
@@ -41734,6 +45670,13 @@
                 "place": 27,
                 "plays": 8,
                 "points": 32
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 46,
+                "plays": 10,
+                "points": 42
             }
         ]
     },
@@ -42111,6 +46054,20 @@
                 "place": 50,
                 "plays": 2,
                 "points": 23
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 39,
+                "plays": 4,
+                "points": 24
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 52,
+                "plays": 4,
+                "points": 26
             }
         ]
     },
@@ -42348,7 +46305,22 @@
         ],
         "official_name": "STAR WALKIN' (League of Legends Worlds Anthem)",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 13,
+                "plays": 21,
+                "points": 84
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 28,
+                "plays": 2,
+                "points": 50
+            }
+        ]
     },
     "1032619": {
         "name": "Masquerade",
@@ -42413,7 +46385,29 @@
         ],
         "official_name": "X",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 4,
+                "plays": 36,
+                "points": 144
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 7,
+                "plays": 5,
+                "points": 92
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 29,
+                "plays": 0,
+                "points": 46
+            }
+        ]
     },
     "552651": {
         "name": "Lush Life",
@@ -42486,7 +46480,15 @@
         ],
         "official_name": "Billie Bossa Nova",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 44,
+                "plays": 7,
+                "points": 39
+            }
+        ]
     },
     "2724810": {
         "name": "Dusk Till Dawn",
@@ -42595,6 +46597,20 @@
                 "place": 50,
                 "plays": 6,
                 "points": 26
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 41,
+                "plays": 11,
+                "points": 44
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 57,
+                "plays": 4,
+                "points": 38
             }
         ]
     },
@@ -42618,7 +46634,22 @@
         ],
         "official_name": "Halley's Comet",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 11,
+                "plays": 16,
+                "points": 68
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 16,
+                "plays": 7,
+                "points": 62
+            }
+        ]
     },
     "29888659": {
         "name": "Freaky Deaky",
@@ -42798,6 +46829,76 @@
                 "place": 3,
                 "plays": 13,
                 "points": 82
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 4,
+                "plays": 9,
+                "points": 76
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 1,
+                "plays": 13,
+                "points": 83
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 6,
+                "plays": 8,
+                "points": 67
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 4,
+                "plays": 8,
+                "points": 61
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 23,
+                "plays": 7,
+                "points": 52
+            },
+            {
+                "start": "2022-09-15",
+                "end": "2022-09-22",
+                "place": 23,
+                "plays": 8,
+                "points": 54
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 34,
+                "plays": 7,
+                "points": 51
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 57,
+                "plays": 4,
+                "points": 38
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 37,
+                "plays": 7,
+                "points": 43
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 30,
+                "plays": 8,
+                "points": 50
             }
         ]
     },
@@ -42810,7 +46911,15 @@
         ],
         "official_name": "GOLDWING",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 48,
+                "plays": 9,
+                "points": 38
+            }
+        ]
     },
     "285189": {
         "name": "my future",
@@ -42821,7 +46930,22 @@
         ],
         "official_name": "my future",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 19,
+                "plays": 13,
+                "points": 56
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 28,
+                "plays": 6,
+                "points": 52
+            }
+        ]
     },
     "2754443": {
         "name": "Normal Girl",
@@ -42994,7 +47118,15 @@
         ],
         "official_name": "Male Fantasy",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 57,
+                "plays": 7,
+                "points": 34
+            }
+        ]
     },
     "285159": {
         "name": "Oxytocin",
@@ -43005,7 +47137,15 @@
         ],
         "official_name": "Oxytocin",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 60,
+                "plays": 7,
+                "points": 32
+            }
+        ]
     },
     "588154": {
         "name": "Salt",
@@ -43016,7 +47156,15 @@
         ],
         "official_name": "Salt",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 38,
+                "plays": 8,
+                "points": 36
+            }
+        ]
     },
     "50174090": {
         "name": "Super Freaky Girl Queen Mix",
@@ -43097,6 +47245,20 @@
                 "place": 24,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 23,
+                "plays": 7,
+                "points": 39
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 49,
+                "plays": 4,
+                "points": 34
             }
         ]
     },
@@ -43222,6 +47384,62 @@
                 "place": 59,
                 "plays": 1,
                 "points": 20
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 48,
+                "plays": 3,
+                "points": 22
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 22,
+                "plays": 7,
+                "points": 35
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 22,
+                "plays": 7,
+                "points": 45
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 58,
+                "plays": 2,
+                "points": 29
+            },
+            {
+                "start": "2022-09-22",
+                "end": "2022-09-29",
+                "place": 6,
+                "plays": 29,
+                "points": 122
+            },
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 5,
+                "plays": 18,
+                "points": 132
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 9,
+                "plays": 6,
+                "points": 89
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 45,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -43278,6 +47496,13 @@
                 "place": 13,
                 "plays": 4,
                 "points": 16
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 11,
+                "plays": 11,
+                "points": 48
             }
         ]
     },
@@ -43290,7 +47515,22 @@
         ],
         "official_name": "Six Feet Under",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-29",
+                "end": "2022-10-06",
+                "place": 40,
+                "plays": 11,
+                "points": 44
+            },
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 48,
+                "plays": 4,
+                "points": 38
+            }
+        ]
     },
     "448659": {
         "name": "Stereo Hearts",
@@ -43369,7 +47609,22 @@
         ],
         "official_name": "Marks On My Neck",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 8,
+                "plays": 24,
+                "points": 96
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 13,
+                "plays": 6,
+                "points": 72
+            }
+        ]
     },
     "31959": {
         "name": "hate u love u",
@@ -43380,7 +47635,15 @@
         ],
         "official_name": "hate u love u",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 54,
+                "plays": 8,
+                "points": 32
+            }
+        ]
     },
     "13044685": {
         "name": "Cpr",
@@ -43518,7 +47781,22 @@
         ],
         "official_name": "Tears On My Piano",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 3,
+                "plays": 37,
+                "points": 148
+            },
+            {
+                "start": "2022-10-13",
+                "end": "2022-10-20",
+                "place": 8,
+                "plays": 6,
+                "points": 98
+            }
+        ]
     },
     "52885145": {
         "name": "Loser",
@@ -43551,7 +47829,15 @@
         ],
         "official_name": "That's Hilarious",
         "plays": 0,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-10-06",
+                "end": "2022-10-13",
+                "place": 40,
+                "plays": 10,
+                "points": 40
+            }
+        ]
     },
     "5748569": {
         "name": "Dip",
@@ -43649,6 +47935,41 @@
                 "place": 60,
                 "plays": 4,
                 "points": 18
+            },
+            {
+                "start": "2022-08-11",
+                "end": "2022-08-18",
+                "place": 28,
+                "plays": 6,
+                "points": 32
+            },
+            {
+                "start": "2022-08-18",
+                "end": "2022-08-25",
+                "place": 48,
+                "plays": 3,
+                "points": 27
+            },
+            {
+                "start": "2022-08-25",
+                "end": "2022-09-01",
+                "place": 23,
+                "plays": 8,
+                "points": 44
+            },
+            {
+                "start": "2022-09-01",
+                "end": "2022-09-08",
+                "place": 49,
+                "plays": 3,
+                "points": 31
+            },
+            {
+                "start": "2022-09-08",
+                "end": "2022-09-15",
+                "place": 32,
+                "plays": 7,
+                "points": 42
             }
         ]
     },

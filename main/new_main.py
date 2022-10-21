@@ -1,4 +1,5 @@
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
+from operator import itemgetter
 from pydantic import BaseModel
 from concurrent import futures
 from typing import Iterator, Optional
@@ -6,7 +7,7 @@ from itertools import count
 
 from storage import SongUOW
 from spreadsheet import Spreadsheet
-from model import spotistats, Song, Album, Entry, NewEntry
+from model import spotistats, Song, Album, Entry, AlbumEntry
 from config import FIRST_DATE, TEST_SONG_FILE, LEVBOARD_SHEET
 
 
@@ -108,7 +109,7 @@ def get_peak(song: Song) -> str:
 
 def create_song_chart(
     weeks: Iterator[Week],
-) -> Iterator[tuple[dict, date, date]]:
+) -> Iterator[tuple[list[dict], date, date]]:
 
     two_wa = next(weeks)
     one_wa = next(weeks)
@@ -149,7 +150,7 @@ def create_song_chart(
                 len([i for i in song_info if i['points'] > info['points']]) + 1
             )
 
-        song_info = [info for info in song_info if info['place'] <= 60]
+        # song_info = [info for info in song_info if info['place'] <= 60]
         song_info.sort(key=lambda i: i['points'], reverse=True)
 
         yield (song_info, this_wk.start_day, this_wk.end_day)
@@ -203,7 +204,7 @@ def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
             if not song:
                 song = ask_new_song(uow, position['id'])
                 uow.songs.add(song)
-            entry = NewEntry(
+            entry = Entry(
                 end=end_date,
                 start=start_date,
                 plays=position['plays'],
@@ -278,21 +279,123 @@ def update_song_sheet(
     return new_rows
 
 
-if __name__ == '__main__':
-    # load_songs(file = TEST_SONG_FILE, verbose = True)
+def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
+    album_plays = {}
 
-    uow = SongUOW(song_file=TEST_SONG_FILE)
+    for album in uow.albums:
+        plays = 0
+        for song in album:
+            plays += next(
+                (pos['plays'] for pos in positions if pos['id'] == song.id), 0
+            )
+
+        album_plays[album] = plays
+
+    return album_plays
+
+
+def create_album_chart(
+    uow: SongUOW,
+    positions: list[dict],
+    start_day: date,
+    end_day: date,
+    week_count: int,
+    album_rows: list[list],
+) -> list[list]:
+    
+    album_plays: dict[Album, int] = get_album_plays(uow, positions)
+
+    units: list[tuple[Album, int]] = [
+        (album, album.get_points(end_day) + (2 * album_plays[album])) for album in uow.albums
+    ]
+
+    units.sort(key=itemgetter(1), reverse=True)
+
+    if len(units) > 20:
+        units = [i for i in units if i[1] >= units[19][1]]
+
+    actual_end = end_day - timedelta(days=1)
+    new_rows = [
+        [f'{start_day.isoformat()} to {actual_end.isoformat()}'],
+        [
+            'MV',
+            'Title',
+            'Artists',
+            'TW',
+            'LW',
+            'OC',
+            'PK',
+            'UTS',
+            'PLS',
+            'PTS',
+        ],
+    ]
+
+    print(f'({week_count}) Albums chart for week of {end_day.isoformat()}.')
+    print('')
+    print(
+        f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
+    )
+
+    for (album, album_units) in units:
+        position = len([i for i in units if i[1] > album_units]) + 1
+        entry = AlbumEntry(
+            start=start_day, end=end_day, units=album_units, place=position
+        )
+        album.add_entry(entry)
+
+        prev = album.get_entry(start_day)
+        movement = get_movement(end_day, start_day, album)
+        peak = get_peak(album)
+        plays = album_plays[album]
+        points = album.get_points(end_day)
+
+        print(
+            f'{movement:>3} | {album.title:<45} | {album.str_artists:<45}'
+            f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<2}"
+            f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
+        )
+
+        new_rows.append(
+            [
+                "'" + movement,
+                "'" + album.title if album.title.isnumeric() else album.title,
+                album.str_artists,
+                position,
+                prev.place if prev else '-',
+                album.weeks,
+                peak,
+                album_units,
+                plays,
+                points,
+            ]
+        )
+
+    new_rows.extend([''] + album_rows)
+    return new_rows
+
+
+if __name__ == '__main__':
+    uow = SongUOW()
     clear_entries(uow)
+    start_time = datetime.now()
 
     week_counter = count(start=1)
     song_rows: list[list] = []
+    album_rows: list[list] = []
     weeks = load_all_weeks(FIRST_DATE)
 
     for positions, start_day, end_day in create_song_chart(iter(weeks)):
-        insert_entries(uow, positions, start_day, end_day)
-        show_chart(uow, positions, start_day, end_day, next(week_counter))
+        week_count = next(week_counter)
+        song_positions = [pos for pos in positions if pos['place'] <= 60]
+        insert_entries(uow, song_positions, start_day, end_day)
+        show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
-            song_rows, uow, positions, start_day, end_day
+            song_rows, uow, song_positions, start_day, end_day
+        )
+
+        album_rows = create_album_chart(
+            uow, positions, start_day, end_day, week_count, album_rows
         )
 
     start_song_rows = [
@@ -300,9 +403,43 @@ if __name__ == '__main__':
         [''],
     ]
 
+    start_album_rows = [
+        [
+            'MV',
+            'Title',
+            'Artists',
+            'TW',
+            'LW',
+            'OC',
+            'PK',
+            'UTS',
+            'PLS',
+            'PTS',
+        ],
+    ]
+
     song_rows = start_song_rows + song_rows
+    album_rows = start_album_rows + album_rows
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
-    song_range = f'NEW_SONGS!A1:I{len(song_rows) + 1}'
+
+    print('')
+    print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
+
+    song_range = f'BOT_SONGS!A1:I{len(song_rows) + 1}'
     sheet.delete_range(song_range)
     sheet.update_range(song_range, song_rows)
+
+    print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
+
+    album_range = f'BOT_ALBUMS!A1:J{len(album_rows) + 1}'
+    sheet.delete_range(album_range)
+    sheet.update_range(album_range, album_rows)
+
+    # use delete range first for the above two processes, because the way
+    # that sheets works, it doens't overwrite when an empty cell is given
+    # to overwrite with for some reason, so we clear it first and then
+    # add the new data.
+
+    print('')
+    print(f'Process Completed in {datetime.now() - start_time}')
