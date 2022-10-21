@@ -36,8 +36,8 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     play_record = get_song_play_history(song)
     date_counter = Counter(i.finished_playing.date() for i in play_record)
 
-    play_record.sort(key=lambda i: i['finished_playing'])
-    first_play: datetime = play_record[0]['finished_playing']
+    play_record.sort(key=lambda i: i.finished_playing)
+    first_play: datetime = play_record[0].finished_playing
 
     # int() returns 0 which is what we want the slots to start at
     daily_units: dict[date, int] = defaultdict(int)
@@ -284,15 +284,15 @@ if __name__ == '__main__':
         top_shortest_time_plays_milestones(uow, milestone)
     """
 
-    """
+    
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    """
+    
 
     """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-"""
+    """
     """
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
     """
@@ -303,9 +303,10 @@ if __name__ == '__main__':
         top_albums_weeks(uow, top)
     """
 
+    '''
     for top in SONG_TOP:
         top_album_hits(uow, top)
-
+    '''
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)

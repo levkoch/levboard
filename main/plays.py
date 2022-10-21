@@ -90,7 +90,7 @@ def update_spreadsheet_plays(verbose=False):
     sheet.update_range(f'Song Info!A2:D{len(final_songs) + 1}', final_songs)
 
     if verbose:
-        print(f'Updated {song_amt} song plays.')
+        print(f'Updated {song_amt} spreadsheet song plays.')
 
 
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
@@ -126,11 +126,12 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
             uow.commit()
 
     if verbose:
-        print(f'Updated {song_amt} song plays.')
+        print(f'Updated {song_amt} local song plays.')
 
 
 if __name__ == '__main__':
     update_spreadsheet_plays(verbose=True)
 
+    print('')
     uow = SongUOW()
     update_local_plays(uow, verbose=True)
