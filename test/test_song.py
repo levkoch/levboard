@@ -4,19 +4,24 @@ from ..main.model import Song, Album
 from ..main.storage import SongUOW
 
 TEST_UOW_PATH = r'C:\Users\levpo\Documents\GitHub\levboard\test\test.json'
-TEST_ALBUM_PATH = r'C:\Users\levpo\Documents\GitHub\levboard\test\testalbum.json'
+TEST_ALBUM_PATH = (
+    r'C:\Users\levpo\Documents\GitHub\levboard\test\testalbum.json'
+)
 NO_BRAINER = '8191852'
 NO_TEARS_LEFT_TO_CRY = '78715'
 BREATHIN = '78710'
 MERGE = '5207830'
 
+
 @pytest.fixture()
 def uow() -> SongUOW:
-    return SongUOW(song_file = TEST_UOW_PATH, album_file = TEST_ALBUM_PATH)
+    return SongUOW(song_file=TEST_UOW_PATH, album_file=TEST_ALBUM_PATH)
+
 
 @pytest.fixture()
 def ntltc(uow: SongUOW) -> Song:
     return uow.songs.get(NO_TEARS_LEFT_TO_CRY)
+
 
 def test_merge(uow: SongUOW):
     NO_BRAINER = '8191852'

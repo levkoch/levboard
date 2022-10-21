@@ -17,7 +17,7 @@ Enums:
 
 from .album import Album
 from .cert import SongCert, AlbumCert, CertType
-from .entry import Entry, AlbumEntry
+from .entry import Entry, AlbumEntry, NewEntry
 from .song import Song
 
 # in alphabetical order
@@ -27,6 +27,7 @@ __all__ = [
     'AlbumEntry',
     'CertType',
     'Entry',
+    'NewEntry',
     'Song',
     'SongCert',
 ]

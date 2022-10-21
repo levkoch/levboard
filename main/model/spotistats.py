@@ -116,28 +116,29 @@ def _adjusted_song_plays(
     a certain period.
     """
 
-    plays: list[dict] = song_play_history(
+    plays: list[Listen] = song_play_history(
         song_id, user=user, after=after, before=before
     )
 
-    play_dates: Iterable[date] = (i['finished_playing'].date() for i in plays)
+    play_dates: Iterable[date] = (i.finished_playing.date() for i in plays)
     date_counter = Counter(play_dates)
     return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
+
 class Position(BaseModel):
-    '''
+    """
     A single song's entry on a basic spotistats chart.
 
     Attributes:
     * id (`str`): The song id which got the streams.
     * plays (`int`): The number of plays the song got.
     * place (`int`): The place that song got.
-    '''
+    """
 
     id: str
     plays: int
     place: int
-    
+
 
 # this gets called by `main` in two places with the same values, so we cache
 # the last result here to not have to make the multiple API call operator
@@ -148,7 +149,7 @@ def songs_week(
     before: Union[int, date],
     *,
     user: str = USER_NAME,
-    adjusted: bool = False
+    adjusted: bool = False,
 ) -> list[Position]:
     """
     Returns the "week" between `after` and `before` (it doesn't have to
@@ -173,7 +174,7 @@ def songs_week(
     r = _get_address(address)
 
     info = [
-        Position(id = i['track']['id'], plays = i['streams'], place = i['position'])
+        Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
         for i in r.json()['items']
     ]
 

@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 from typing import Callable, Optional
 from concurrent import futures
+from plays import update_local_plays
 
 from model import Album, AlbumEntry, Song, Entry, spotistats
 from storage import SongUOW
@@ -8,7 +9,7 @@ from spreadsheet import Spreadsheet
 from config import FIRST_DATE, LEVBOARD_SHEET
 
 
-def load_week(start_day: date, end_day: date):
+def load_week(start_day: date, end_day: date) -> list[spotistats.Position]:
     songs = spotistats.songs_week(start_day, end_day, adjusted=True)
 
     if len(songs) < 60:
@@ -44,7 +45,9 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     return Song(song_id, name)
 
 
-def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
+def get_positions(
+    start_date: date, end_date: date
+) -> tuple[list[spotistats.Position], date]:
     while True:
         print(
             f'\nChecking songs from {start_date.isoformat()} to {end_date.isoformat()}.'
@@ -59,18 +62,20 @@ def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
             return positions, end_date
 
 
-def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
+def insert_entries(
+    uow: SongUOW, positions: list[spotistats.Position], start_date, end_date
+):
     with uow:
         for position in positions:
-            song: Optional[Song] = uow.songs.get(position['id'])
+            song: Optional[Song] = uow.songs.get(position.id)
             if not song:
-                song = ask_new_song(uow, position['id'])
+                song = ask_new_song(uow, position.id)
                 uow.songs.add(song)
             entry = Entry(
                 end=end_date,
                 start=start_date,
-                plays=position['plays'],
-                place=position['place'],
+                plays=position.plays,
+                place=position.place,
             )
             song.add_entry(entry)
         uow.commit()
@@ -307,25 +312,6 @@ def make_album_chart(
     return new_rows
 
 
-def update_song_plays(song: Song) -> Song:
-    song.update_plays(adjusted=True)
-    return (song, song.plays)
-
-
-def update_all_song_plays(uow: SongUOW) -> None:
-    with futures.ThreadPoolExecutor() as executor:
-        to_do: list[futures.Future] = []
-        for song in uow.songs:
-            future = executor.submit(update_song_plays, song)
-            to_do.append(future)
-
-        for count, future in enumerate(futures.as_completed(to_do), 1):
-            song, plays = future.result()
-            print(f'({count}) updated {song} -> {plays} plays')
-
-        uow.commit()
-
-
 if __name__ == '__main__':
     uow = SongUOW()
     start_time = datetime.now()
@@ -334,7 +320,7 @@ if __name__ == '__main__':
     song_rows: list[list] = []
     album_rows: list[list] = []
 
-    update_all_song_plays(uow)
+    update_local_plays(uow, verbose=True)
     clear_entries(uow)
 
     while True:

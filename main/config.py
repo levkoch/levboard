@@ -35,5 +35,6 @@ if data_dir.endswith('/main'):
     data_dir = data_dir[:-5]  # remove "/main"
 data_dir += '/data'
 
-ALBUM_FILE: Final[str] = f'{data_dir}/albums.json'
-SONG_FILE: Final[str] = f'{data_dir}/songs.json'
+ALBUM_FILE: Final[str] = data_dir + '/albums.json'
+SONG_FILE: Final[str] = data_dir + '/songs.json'
+TEST_SONG_FILE: Final[str] = data_dir + '/test_songs.json'

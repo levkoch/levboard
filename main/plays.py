@@ -1,11 +1,14 @@
 """
 main/plays.py
 
-A script to update the plays in the spreadsheet.
-Does not update plays stored in the local database.
+A script to update the plays in the spreadsheet and the ones
+stored in the local database.
 
 Functions:
-* `update_spreadsheet_plays()`: Update the song plays in the spreadsheet.
+* `update_spreadsheet_plays()`: Update the song plays in the
+    spreadsheet.
+* `update_local_plays()`: Update the song plays stored in the
+    local storage.
 """
 
 import itertools
@@ -14,6 +17,7 @@ from concurrent import futures
 from spreadsheet import Spreadsheet
 from model import Song
 from config import LEVBOARD_SHEET
+from storage import SongUOW
 
 
 def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
@@ -36,6 +40,10 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
 def update_spreadsheet_plays(verbose=False):
     """
     Updates the song plays for the songs in the spreadsheet.
+
+    Arguments:
+    * verbose (`bool`): Whether to produce console output or not.
+        Defaults to `False`.
     """
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
@@ -85,5 +93,44 @@ def update_spreadsheet_plays(verbose=False):
         print(f'Updated {song_amt} song plays.')
 
 
+def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
+    """
+    Updates the song plays for the songs in the local storage.
+
+    Arguments:
+    * uow (`SongUOW`): Where to read songs from.
+    * verbose (`bool`): Whether to produce console output or not.
+        Defaults to `False`.
+    """
+
+    song_amt = len(list(uow.songs))
+
+    if verbose:
+        print(f'{song_amt} items found.')
+
+    with futures.ThreadPoolExecutor() as executor:
+        with uow:
+            to_do: list[futures.Future] = []
+            for song in uow.songs:
+                future = executor.submit(_update_song_plays, song)
+                to_do.append(future)
+
+            for count, future in enumerate(futures.as_completed(to_do), 1):
+                song, plays = future.result()
+                if verbose:
+                    print(
+                        f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
+                        f'updated {song} -> {plays} plays'
+                    )
+
+            uow.commit()
+
+    if verbose:
+        print(f'Updated {song_amt} song plays.')
+
+
 if __name__ == '__main__':
     update_spreadsheet_plays(verbose=True)
+
+    uow = SongUOW()
+    update_local_plays(uow, verbose=True)

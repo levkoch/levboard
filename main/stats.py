@@ -65,10 +65,12 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
 
     with futures.ThreadPoolExecutor() as executor:
-        units = list(executor.map(
-            functools.partial(time_to_units, units_mark=unit_milestone),
-            contenders,
-        ))
+        units = list(
+            executor.map(
+                functools.partial(time_to_units, units_mark=unit_milestone),
+                contenders,
+            )
+        )
 
     units.sort(key=itemgetter(1))
     if len(units) > 19:
@@ -238,10 +240,12 @@ def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
 
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
-        units: list[tuple] = list(executor.map(
-            functools.partial(get_album_units, start=start, end=end),
-            uow.albums,
-        ))
+        units: list[tuple] = list(
+            executor.map(
+                functools.partial(get_album_units, start=start, end=end),
+                uow.albums,
+            )
+        )
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
@@ -285,9 +289,10 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone)
     """
 
+    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-
+"""
     """
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
     """
@@ -297,10 +302,10 @@ if __name__ == '__main__':
         top_albums_consecutive_weeks(uow, top)
         top_albums_weeks(uow, top)
     """
-    """
+
     for top in SONG_TOP:
         top_album_hits(uow, top)
-    """
+
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
