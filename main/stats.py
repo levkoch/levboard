@@ -284,10 +284,11 @@ if __name__ == '__main__':
         top_shortest_time_plays_milestones(uow, milestone)
     """
 
-    
+    '''
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    
+    '''
+    top_shortest_time_units_milestones(uow, 2000)
 
     """
     for cert in CERTS[::-1]:
@@ -303,10 +304,10 @@ if __name__ == '__main__':
         top_albums_weeks(uow, top)
     """
 
-    '''
+    """
     for top in SONG_TOP:
         top_album_hits(uow, top)
-    '''
+    """
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)

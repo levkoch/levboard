@@ -138,9 +138,9 @@ def create_song_chart(
             song_info.append(
                 {
                     'id': song_id,
-                    'points': two_wa_plays
-                    + 2 * one_wa_plays
-                    + 4 * this_wk_plays,
+                    'points': (
+                        two_wa_plays + one_wa_plays + 4 * this_wk_plays
+                    ),
                     'plays': this_wk_plays,
                 }
             )

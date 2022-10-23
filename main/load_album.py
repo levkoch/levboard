@@ -21,7 +21,7 @@ while info:
     if not row[0]:
         # if album has bonus row for weeks and peak
         row = info.pop(0)
-       
+
     album_artists: str = row[0]  # will be parsed later if multiple artists
     row = info.pop(0)  # this is the headers row in the spreadsheet
 
