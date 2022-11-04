@@ -7,7 +7,7 @@ Where the Album model is held.
 from concurrent import futures
 from datetime import date
 from operator import methodcaller
-from typing import Iterable, Union, Optional
+from typing import Iterable, Iterator, Union, Optional
 from copy import deepcopy
 
 from .song import Song
@@ -43,7 +43,7 @@ class Album:
     def __len__(self) -> int:
         return len(self.songs)
 
-    def __iter__(self) -> Iterable[Song]:
+    def __iter__(self) -> Iterator[Song]:
         return iter(self.songs)
 
     @property

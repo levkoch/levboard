@@ -148,6 +148,24 @@ def top_albums_cert_count(uow: SongUOW, cert: SongCert):
     print('')
 
 
+def top_albums_play_count(uow: SongUOW, plays: int):
+    contenders = [
+        (album, len([i for i in album if i.plays >= plays]))
+        for album in uow.albums
+    ]
+    contenders.sort(key=lambda i: i[1], reverse=True)
+    contenders = [
+        i for i in contenders if i[1] >= contenders[19][1] and i[1]  # > 1
+    ]
+    print(f'Albums with most songs with {plays} plays or higher:')
+    for (album, songs) in contenders:
+        place = len([unit for unit in contenders if unit[1] > songs]) + 1
+        print(
+            f"{place:>2} | {f'{album.title} by {album.str_artists}':<60} | {songs}/{len(album)} songs"
+        )
+    print('')
+
+
 def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     units = [(album, album.get_conweeks(top)) for album in uow.albums]
 
@@ -284,10 +302,14 @@ if __name__ == '__main__':
         top_shortest_time_plays_milestones(uow, milestone)
     """
 
-    '''
+    """
+    for milestone in MILESTONES[::-1]:
+        top_albums_play_count(uow, milestone)"""
+
+    """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    '''
+    """
     top_shortest_time_units_milestones(uow, 2000)
 
     """

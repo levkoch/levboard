@@ -236,7 +236,7 @@ class Song:
 
         return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-    def period_units(self, start: date, end: date, adjusted=False) -> int:
+    def period_units(self, start: date, end: date, adjusted=True) -> int:
         """
         Returns the song's units gained for some period.
         """

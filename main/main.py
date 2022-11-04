@@ -150,7 +150,8 @@ def create_song_chart(
                 len([i for i in song_info if i['points'] > info['points']]) + 1
             )
 
-        # song_info = [info for info in song_info if info['place'] <= 60]
+        # song infos that didn't chart are filtered later on because we
+        # need the entire thing for albums
         song_info.sort(key=lambda i: i['points'], reverse=True)
 
         yield (song_info, this_wk.start_day, this_wk.end_day)
@@ -231,8 +232,10 @@ def show_chart(
             song: Song = uow.songs.get(pos['id'])
         prev = song.get_entry(start)
         print(
-            f"{get_movement(end, start, song):>3} | {song.name:<45} | {', '.join(song.artists):<45} | {pos['place']:<2}"
-            f" | {(prev.place if prev else '-'):<2} | {song.weeks:<2} | {pos['points']:<3} | {pos['plays']:<3} | {get_peak(song):<3}"
+            f'{get_movement(end, start, song):>3} | {song.name:<45} | '
+            f"{', '.join(song.artists):<45} | {pos['place']:<2} | "
+            f"{(prev.place if prev else '-'):<2} | {song.weeks:<2} | "
+            f"{pos['points']:<3} | {pos['plays']:<3} | {get_peak(song):<3}"
         )
     print('')
 
@@ -263,7 +266,7 @@ def update_song_sheet(
         new_rows.append(
             [
                 "'" + movement,
-                song.name,
+                "'" + song.name if song.name.isnumeric() else song.name,
                 ', '.join(song.artists),
                 pos['place'],
                 prev.place if prev is not None else '-',
