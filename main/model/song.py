@@ -236,18 +236,22 @@ class Song:
 
         return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-    def period_units(self, start: date, end: date, adjusted=True) -> int:
-        """
-        Returns the song's units gained for some period.
-        """
 
-        points = sum(
+    def period_points(self, start: date, end: date) -> int:
+        '''Returns the song's points gained for some period.'''
+        
+        return sum(
             (61 - i.place)
             for i in self.entries
             if i.end >= start and i.end <= end
         )
 
-        return self.period_plays(start, end, adjusted) * 2 + points
+    def period_units(self, start: date, end: date, adjusted=True) -> int:
+        """
+        Returns the song's units gained for some period.
+        """
+        
+        return self.period_plays(start, end, adjusted) * 2 + self.period_points(start, end)
 
     def add_entry(self, entry: Entry) -> None:
         """
