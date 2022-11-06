@@ -17,7 +17,7 @@ import time
 import tenacity
 
 from datetime import date, datetime
-from typing import Iterable, Union, Final
+from typing import Iterable, Optional, Union, Final
 from pydantic import NonNegativeInt, BaseModel
 from collections import Counter
 from concurrent import futures
@@ -252,3 +252,18 @@ def song_play_history(
         )
         for i in r.json()['items']
     ]
+
+
+def track_top_listener(song_id: str, user: str = USER_NAME) -> Optional[int]:
+    '''
+    Returns the position `user` has in the world listening chart for the 
+    song corresponding to `song_id`. Will return `None` if they're not in 
+    the top 1000 users.
+    '''
+
+    address = f'https://api.stats.fm/api/v1/tracks/{song_id}/top/listeners'
+    r = _get_address(address)
+    return next(
+        (i['position'] for i in r.json()['items'] if i['customId'] == user),
+        None,
+    )

@@ -37,9 +37,7 @@ def get_song_sellings(
         'title': song.name,
         'artist': song.str_artists,
     }
-    with futures.ThreadPoolExecutor(
-        thread_name_prefix=song.name
-    ) as executor:
+    with futures.ThreadPoolExecutor(thread_name_prefix=song.name) as executor:
         data = executor.map(
             functools.partial(get_song_points, song=song), weeks
         )
@@ -58,7 +56,11 @@ def main():
     uow = SongUOW()
     weeks = list(get_all_weeks())
     str_weeks = list(i.isoformat() for i in weeks)
-    songs = (song for song in sorted(uow.songs, key=attrgetter('points')) if song.points >= 200)
+    songs = (
+        song
+        for song in sorted(uow.songs, key=attrgetter('points'))
+        if song.points >= 200
+    )
 
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
         data = executor.map(

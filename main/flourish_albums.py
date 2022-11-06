@@ -76,7 +76,9 @@ def main():
         # write to csv in case google sheets is annoying
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
-    sheet.append_range(f'BOT_FLOURISH!A1:CZ{len(sheet_rows)+1}', values = sheet_rows)
+    sheet.append_range(
+        f'BOT_FLOURISH!A1:CZ{len(sheet_rows)+1}', values=sheet_rows
+    )
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')

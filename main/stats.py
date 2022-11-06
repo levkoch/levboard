@@ -276,6 +276,30 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
     print('')
 
 
+def get_top_listener(song_id: str) -> tuple[str, Optional[int]]: 
+    try:
+        return song_id, spotistats.track_top_listener(song_id)
+    except Exception:
+        print('error fetching ' + song_id)
+
+def top_listeners_chart(uow: SongUOW):
+    all_song_ids = [song.id for song in uow.songs if song.plays >= 25]
+    with futures.ThreadPoolExecutor() as executor:
+        units: list[tuple[str, Optional[int]]] = list(
+            executor.map(
+                lambda i: (i, get_top_listener(i)), # spotistats.track_top_listener(i)),
+                all_song_ids
+            )
+        )
+    units = [unit for unit in units if unit[1] is not None and unit[1] <= 50]
+    units.sort(key=itemgetter(1))
+
+    print('Top worldwide positions for songs:')
+    for song_id, position in units:
+        song = uow.songs.get(song_id)
+        print(f'{position:02d} | {str(song)} | {song.plays} plays')
+
+
 def display_all_songs(uow: SongUOW):
     all_songs = [song for song in uow.songs if song.units]
     all_songs.sort(key=lambda i: i.units, reverse=True)
@@ -285,6 +309,8 @@ def display_all_songs(uow: SongUOW):
             f'{(("(" + str(song.peakweeks) + ")") if (song.peak < 11 and song.peakweeks > 1) else " "):<4} '
             f'| weeks: {song.weeks:<2} | plays: {song.plays:<3} | {song.cert}'
         )
+
+
 
 
 MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
@@ -310,7 +336,9 @@ if __name__ == '__main__':
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
     """
-    top_shortest_time_units_milestones(uow, 2000)
+    top_listeners_chart(uow)
+
+    # top_shortest_time_units_milestones(uow, 2000)
 
     """
     for cert in CERTS[::-1]:
