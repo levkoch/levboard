@@ -255,11 +255,11 @@ def song_play_history(
 
 
 def track_top_listener(song_id: str, user: str = USER_NAME) -> Optional[int]:
-    '''
-    Returns the position `user` has in the world listening chart for the 
-    song corresponding to `song_id`. Will return `None` if they're not in 
+    """
+    Returns the position `user` has in the world listening chart for the
+    song corresponding to `song_id`. Will return `None` if they're not in
     the top 1000 users.
-    '''
+    """
 
     address = f'https://api.stats.fm/api/v1/tracks/{song_id}/top/listeners'
     r = _get_address(address)

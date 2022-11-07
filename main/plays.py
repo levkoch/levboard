@@ -34,7 +34,7 @@ def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
 
 def _update_song_plays(song: Song) -> tuple[Song, int]:
     song.update_plays(adjusted=True)
-    return (song, song.plays)
+    return (song, song._plays)
 
 
 def update_spreadsheet_plays(verbose=False):

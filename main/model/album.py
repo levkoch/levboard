@@ -86,7 +86,7 @@ class Album:
         """
         (`int`): The total streams of the album.
         """
-        return sum(i.plays for i in self.songs)
+        return sum(i._plays for i in self.songs)
 
     @property
     def points(self) -> int:

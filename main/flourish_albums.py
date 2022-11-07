@@ -13,10 +13,10 @@ from spreadsheet import Spreadsheet
 
 
 def get_all_weeks() -> Iterator[date]:
-    day = FIRST_DATE + timedelta(days=14)
+    day = FIRST_DATE + timedelta(days=7)
     while day <= date.today():
         yield day
-        day += timedelta(days=14)
+        day += timedelta(days=7)
 
 
 def get_album_units(week: date, album: Album) -> tuple[date, int]:
@@ -31,7 +31,7 @@ def get_album_sellings(
     album: Album, weeks: list[date]
 ) -> dict[str, Union[str, int]]:
 
-    print(f'-> [{next(started_counter):2d}] collecting info for {album}')
+    print(f'[{next(started_counter):02d}] ->  collecting info for {album}')
     info = {
         'title': album.title,
         'artist': album.str_artists,
@@ -47,7 +47,7 @@ def get_album_sellings(
         info[date.isoformat()] = units
 
     print(
-        f'!! [{next(completed_counter):2d}] finished collecting info for {album}'
+        f' !! [{next(completed_counter):02d}] finished collecting info for {album}'
     )
     return info
 
@@ -57,7 +57,7 @@ def main():
     uow = SongUOW()
     weeks = list(get_all_weeks())
     str_weeks = list(i.isoformat() for i in weeks)
-    albums = (album for album in uow.albums if album.units >= 2000)
+    albums = (album for album in uow.albums if album.units >= 1000)
 
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
         data = executor.map(

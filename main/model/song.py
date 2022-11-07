@@ -7,7 +7,7 @@ Contains the central Song model.
 from collections import Counter
 from copy import deepcopy
 import itertools
-from typing import Iterable, Optional
+from typing import Iterable, Iterator, Optional
 from datetime import date
 from pydantic import ValidationError
 
@@ -68,8 +68,9 @@ class Song:
         self.id: str = song_id
         self.name: str = song_name
         self.alt_ids: list[str] = []
-        self.plays: int = 0
+        self._plays: int = 0
         self._entries: list[Entry] = []
+        self.__listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
         # declared here for cpython reasons
@@ -118,8 +119,8 @@ class Song:
             return str(self)
 
         if fmt[-1] not in ('o', 's'):
-            # format flag not passed in (hopefully)
-            # so probably was like some sort of str formatting
+            # format flag not passed in so probably was some sort of str
+            # formatting. will throw an error if it doens't work for it
             return format(str(self), fmt)
 
         if len(fmt) != 1:
@@ -144,6 +145,12 @@ class Song:
         if len(artists) == 2:
             return ' & '.join(artists)
         return f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
+
+    @property
+    def plays(self) -> int:
+        if self.__listens is None:
+            return self._plays
+        return len(self.__listens)
 
     @property
     def str_artists(self) -> str:
@@ -194,7 +201,7 @@ class Song:
         (`int`): The total number of units for the song across all time.
         """
 
-        return (2 * self.plays) + self.points
+        return (2 * self._plays) + self.points
 
     @property
     def entries(self) -> list[Entry]:
@@ -213,14 +220,31 @@ class Song:
 
         return SongCert.from_units(self.units)
 
-    def period_plays(self, start: date, end: date, adjusted=False) -> int:
+    def _populate_listens(self) -> None:
+        """Adds listens to the song."""
+
+        self.__listens: list[spotistats.Listen] = list(
+            itertools.chain.from_iterable(
+                spotistats.song_play_history(i)
+                for i in ([self.id] + self.alt_ids)
+            )
+        )
+
+    def period_plays(self, start: date, end: date, adjusted=True) -> int:
         """
         Returns the song's plays for some period.
         """
 
-        listens: Iterable[spotistats.Listen] = itertools.chain.from_iterable(
-            spotistats.song_play_history(i, after=start, before=end)
-            for i in ([self.id] + self.alt_ids)
+        listens: Optional[list[spotistats.Listen]] = self.__listens
+
+        if listens is None:
+            self._populate_listens()
+
+        listens: Iterator[spotistats.Listen] = (
+            listen
+            for listen in self.__listens
+            if listen.finished_playing.date() >= start
+            and listen.finished_playing.date() <= end
         )
 
         if not adjusted:
@@ -228,7 +252,7 @@ class Song:
             # too many streams, so simple route
             return len(list(listens))
 
-        play_dates: Iterable[date] = (
+        play_dates: Iterator[date] = (
             listen.finished_playing.date() for listen in listens
         )
 
@@ -289,20 +313,20 @@ class Song:
 
         return next((i for i in self._entries if i.end == end_date), None)
 
-    def update_plays(self, adjusted=False) -> None:
+    def update_plays(self, adjusted=True) -> None:
         """
         Updates the lifetime plays for the song.
         The `adjusted` flag marks if play data will be filtered or not.
         """
 
         if adjusted:
-            self.plays = self.adjusted_plays()
+            self._plays = self.adjusted_plays()
             return
 
-        self.plays = spotistats.song_plays(self.id)
+        if self.__listens is None:
+            self._populate_listens()
 
-        for alt_id in self.alt_ids:
-            self.plays += spotistats.song_plays(alt_id)
+        return len(list(self.__listens))
 
     def adjusted_plays(self) -> int:
         """
@@ -311,11 +335,11 @@ class Song:
         will count up to that mark and no more.
         """
 
-        listens: Iterable[spotistats.Listen] = itertools.chain.from_iterable(
-            spotistats.song_play_history(i) for i in ([self.id] + self.alt_ids)
-        )
+        if self.__listens is None:
+            self._populate_listens()
+
         play_dates: Iterable[date] = (
-            listen.finished_playing.date() for listen in listens
+            listen.finished_playing.date() for listen in self.__listens
         )
         date_counter = Counter(play_dates)
 
@@ -396,7 +420,7 @@ class Song:
             'alt_ids': self.alt_ids,
             'artists': self.artists,
             'official_name': self.official_name,
-            'plays': self.plays,
+            'plays': self._plays,
             'entries': [i.to_dict() for i in self._entries],
         }
 
@@ -423,7 +447,7 @@ class Song:
 
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
-            new.plays = int(info['plays'])
+            new._plays = int(info['plays'])
             new._entries = [Entry(**i) for i in info['entries']]
             new._entries.sort(key=lambda i: i.end)  # from earliest to latest
 

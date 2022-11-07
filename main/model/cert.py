@@ -71,7 +71,7 @@ class AbstractCert(ABC):
     Base certification. Do NOT construct.
 
     Abstract Methods:
-    * _load: Must set internal state of certification with any requirements.
+    * from_units: an alternate constructor that makes a cert from a unit amount.
     """
 
     __slots__ = ('_cert', '_mult')
@@ -290,6 +290,17 @@ class SongCert(AbstractCert):
 
         return cls(mult, cert)
 
+    def to_units(self) -> int:
+        """Returns the certification as the units it represents."""
+
+        if self.cert in (CertType.PLATINUM, CertType.DIAMOND):
+            return self._mult * 200
+
+        if self.cert is CertType.GOLD:
+            return 100
+
+        return 0
+
 
 class AlbumCert(AbstractCert):
     """
@@ -337,7 +348,7 @@ class AlbumCert(AbstractCert):
             cert = CertType.NONE
         elif units < 1000:
             cert = CertType.GOLD
-        elif units < 10000:
+        elif units < 10_000:
             if units >= 2000:
                 mult = units // 1000
             cert = CertType.PLATINUM
@@ -346,3 +357,14 @@ class AlbumCert(AbstractCert):
             cert = CertType.DIAMOND
 
         return cls(mult, cert)
+
+    def to_units(self) -> int:
+        """Returns the certification as the units it represents."""
+
+        if self.cert in (CertType.PLATINUM, CertType.DIAMOND):
+            return self._mult * 1000
+
+        if self.cert is CertType.GOLD:
+            return 500
+
+        return 0

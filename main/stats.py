@@ -58,7 +58,7 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
         if running_units >= units_mark:
             return (song, day, (day - first_play.date()).days)
 
-    raise ValueError('shouldnt reach here')
+    raise ValueError(f'{song} hasnt reached {units_mark} units yet')
 
 
 def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
@@ -97,7 +97,7 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     print('')
 
 
-def time_to_plays(song: Song, plays: int) -> tuple[Song, timedelta]:
+def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
     play_record = get_song_play_history(song)
 
     if len(play_record) < plays:
@@ -111,11 +111,11 @@ def time_to_plays(song: Song, plays: int) -> tuple[Song, timedelta]:
 
     # print(f'{song.name} took {time.days} days to reach {plays} plays')
 
-    return (song, time)
+    return (song, wanted_play.date(), time.days)
 
 
 def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
-    contenders = (song for song in uow.songs if song.plays >= plays)
+    contenders = (song for song in uow.songs if song._plays >= plays)
 
     with futures.ThreadPoolExecutor() as executor:
         mapped = executor.map(
@@ -150,7 +150,7 @@ def top_albums_cert_count(uow: SongUOW, cert: SongCert):
 
 def top_albums_play_count(uow: SongUOW, plays: int):
     contenders = [
-        (album, len([i for i in album if i.plays >= plays]))
+        (album, len([i for i in album if i._plays >= plays]))
         for album in uow.albums
     ]
     contenders.sort(key=lambda i: i[1], reverse=True)
@@ -276,19 +276,30 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
     print('')
 
 
-def get_top_listener(song_id: str) -> tuple[str, Optional[int]]: 
+def get_top_listener(song_id: str) -> tuple[str, Optional[int]]:
     try:
         return song_id, spotistats.track_top_listener(song_id)
     except Exception:
         print('error fetching ' + song_id)
 
+
 def top_listeners_chart(uow: SongUOW):
-    all_song_ids = [song.id for song in uow.songs if song.plays >= 25]
+    """
+    NOTE: this currently doesn't work as stats.fm doesn't like third party
+    people accessing leaderboards. I'll see if i can ask for a different
+    endpoint so that this still works, because we only care about one
+    person, anyway.
+    """
+
+    all_song_ids = [song.id for song in uow.songs if song._plays >= 25]
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple[str, Optional[int]]] = list(
             executor.map(
-                lambda i: (i, get_top_listener(i)), # spotistats.track_top_listener(i)),
-                all_song_ids
+                lambda i: (
+                    i,
+                    get_top_listener(i),
+                ),  # spotistats.track_top_listener(i)),
+                all_song_ids,
             )
         )
     units = [unit for unit in units if unit[1] is not None and unit[1] <= 50]
@@ -297,7 +308,7 @@ def top_listeners_chart(uow: SongUOW):
     print('Top worldwide positions for songs:')
     for song_id, position in units:
         song = uow.songs.get(song_id)
-        print(f'{position:02d} | {str(song)} | {song.plays} plays')
+        print(f'{position:02d} | {str(song)} | {song._plays} plays')
 
 
 def display_all_songs(uow: SongUOW):
@@ -307,14 +318,12 @@ def display_all_songs(uow: SongUOW):
         print(
             f'{count + 1:>4} | {song.name:<45} | {song.str_artists:<45} | peak: {song.peak:<2} '
             f'{(("(" + str(song.peakweeks) + ")") if (song.peak < 11 and song.peakweeks > 1) else " "):<4} '
-            f'| weeks: {song.weeks:<2} | plays: {song.plays:<3} | {song.cert}'
+            f'| weeks: {song.weeks:<2} | plays: {song._plays:<3} | {song.cert}'
         )
 
 
-
-
-MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
-CERT_UNITS = [100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]
+PLAYS_MILESTONES = [25, 50, 75, 100] + list(range(150, 1000, 50))
+CERT_UNITS = [100] + list(range(200, 4000, 200))
 ALBUM_TOP = [1, 3, 5, 10, 15, None]
 SONG_TOP = [1, 3, 5, 10, 20, 30, None]
 SONG_WEEKS = [30, 20, 15, 10, 5, None]
@@ -336,7 +345,7 @@ if __name__ == '__main__':
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
     """
-    top_listeners_chart(uow)
+    # top_listeners_chart(uow)
 
     # top_shortest_time_units_milestones(uow, 2000)
 
