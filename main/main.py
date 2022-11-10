@@ -2,7 +2,7 @@ from datetime import date, timedelta, datetime
 from operator import itemgetter
 from pydantic import BaseModel
 from concurrent import futures
-from typing import Iterator, Optional
+from typing import Iterator, Optional, cast
 from itertools import count
 
 from storage import SongUOW
@@ -68,7 +68,7 @@ def clear_entries(uow: SongUOW) -> None:
 
 
 def get_movement(current: date, last: date, song: Song) -> str:
-    c_place: Optional[Entry] = song.get_entry(current)
+    c_place = song.get_entry(current) # type: Entry
     p_place: Optional[Entry] = song.get_entry(last)
     weeks = song.weeks
 

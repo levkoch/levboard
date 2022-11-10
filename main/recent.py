@@ -1,8 +1,16 @@
+'''
+levboard/main/recent.py
+
+Displays recent events, such as new certifications & plays milestones, 
+along with all time plays changes.
+'''
+
 import functools
 
 from datetime import date, timedelta
 from concurrent import futures
 from operator import attrgetter, itemgetter, methodcaller
+from typing import Iterator
 
 from model import SongCert
 from storage import SongUOW, Song
@@ -58,22 +66,27 @@ def get_all_new_plays(uow: SongUOW):
 
 def get_all_time_plays_changes(uow: SongUOW):
     contenders = sorted(uow.songs, key=attrgetter('plays'), reverse=True)[:150]
-    # get top 150 just in case there's a lot of moving around, but we will look at top 100
+    # get top 150 just in case there's a lot of moving around,
+    # but we will look at top 100
 
     with futures.ThreadPoolExecutor() as executor:
+        # this part is threaded so that it takes less time, or else the rest
+        # of the program will have to do those same requests sequentially
+        # when it calls for song.period_plays
         executor.map(methodcaller('_populate_listens'), contenders)
-    
+
     current_top = sorted(
-        ((song, song._plays) for song in contenders),
+        ((song, song.period_plays(FIRST_DATE, TODAY)) for song in contenders),
         key=itemgetter(1),
         reverse=True,
     )[:100]
 
-    current_pos: list[tuple[Song, int, int]] = (
+    current_pos: Iterator[tuple[Song, int, int]] = (
         (
             song,
             plays,
-            len([entry for entry in current_top if entry[1] > plays]) + 1, # position
+            len([entry for entry in current_top if entry[1] > plays])
+            + 1,  # position
         )
         for song, plays in current_top
     )
@@ -91,13 +104,16 @@ def get_all_time_plays_changes(uow: SongUOW):
         (
             song,
             plays,
-            len([entry for entry in last_top if entry[1] > plays]) + 1, # position
+            len([entry for entry in last_top if entry[1] > plays])
+            + 1,  # position
         )
         for song, plays in last_top
     ]
 
     for song, plays, pos in current_pos:
-        _, l_plays, l_pos = next(entry for entry in last_pos if entry[0] == song)
+        _, l_plays, l_pos = next(
+            entry for entry in last_pos if entry[0] == song
+        )
 
         movement = l_pos - pos
         if movement == 0:
@@ -109,7 +125,11 @@ def get_all_time_plays_changes(uow: SongUOW):
 
         plays_change = plays - l_plays
 
-        print(f'{pos:>3} {f"({change})":>5} | {song:<60} | {plays} (+{plays_change})')
+        print(
+            f'{pos:>3} {f"({change})":>5} | {song:<60} '
+            f'| {plays} (+{plays_change})'
+        )
+
 
 def main():
     uow = SongUOW()

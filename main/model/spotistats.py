@@ -28,7 +28,7 @@ MAX_ENTRIES: Final[int] = 10000
 MAX_ADJUSTED: Final[int] = 25
 
 
-@tenacity.retry(stop=tenacity.stop_after_attempt(3))
+@tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
     """
     A retrying requests.get call that will try three times if it
