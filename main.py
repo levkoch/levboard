@@ -1,4 +1,5 @@
 import csv
+from operator import itemgetter
 import sys
 import itertools
 
@@ -25,7 +26,7 @@ def load_week(start_day: date, end_day: date):
     for i in songs:
         i['place'] = len([j for j in songs if j['plays'] > i['plays']]) + 1
 
-    return songs
+    return sorted(songs, key=itemgetter("plays"), reverse=True)
 
 
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
