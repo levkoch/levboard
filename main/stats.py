@@ -109,28 +109,27 @@ def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
 
     time = wanted_play - first_play
 
-    # print(f'{song.name} took {time.days} days to reach {plays} plays')
-
     return (song, wanted_play.date(), time.days)
 
 
 def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
-    contenders = (song for song in uow.songs if song._plays >= plays)
+    contenders = (song for song in uow.songs if song.plays >= plays)
 
     with futures.ThreadPoolExecutor() as executor:
         mapped = executor.map(
             functools.partial(time_to_plays, plays=plays), contenders
         )
-
-    units = [i for i in mapped if i[1].days > 1]
-    units.sort(key=lambda i: i[1])
+    units = list(mapped)
+    units.sort(key=itemgetter(2))
     if len(units) > 19:
-        units = [i for i in units if i[1] <= units[19][1]]
-    print(f'Fastest songs to reach {plays} plays:')
-    for (song, time) in units:
-        place = len([unit for unit in units if unit[1].days < time.days]) + 1
-        print(f'{place:<2} | {song:<60} | {time.days} days')
-    print('')
+        units = [i for i in units if i[2] <= units[19][2]]
+    if units: 
+        print(f'Fastest songs to reach {plays} plays:')
+    for (song, _, time) in units:
+        place = len([unit for unit in units if unit[2]< time]) + 1
+        print(f'{place:<2} | {song:<60} | {time} days')
+    if units:
+        print('')
 
 
 def top_albums_cert_count(uow: SongUOW, cert: SongCert):
@@ -332,10 +331,10 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    """
-    for milestone in MILESTONES[::-1]:
+    '''
+    for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-    """
+    '''
 
     """
     for milestone in MILESTONES[::-1]:
@@ -353,9 +352,10 @@ if __name__ == '__main__':
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
     """
-    """
+   
+    top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-    """
+   
 
     """
     for top in ALBUM_TOP:
