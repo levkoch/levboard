@@ -208,7 +208,7 @@ def top_album_hits(uow: SongUOW, top: Optional[int]):
     print('')
 
 
-def top_song_consecutive_weeks(uow, top):
+def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     units: list[tuple[Song, int]] = [
         (song, song.get_conweeks(top)) for song in uow.songs
     ]
@@ -223,6 +223,7 @@ def top_song_consecutive_weeks(uow, top):
         print(
             f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {weeks:>2} wks"
         )
+    print('')
 
 
 def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
@@ -240,11 +241,12 @@ def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
 
 
 def top_albums_weeks(uow: SongUOW, top: Optional[int]):
-    units = [(album, album.get_weeks(top)) for album in uow.albums]
+    top = 20 if top is None else top
+    units = [(album, len([entry for entry in album.entries if entry.place <= top])) for album in uow.albums]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
-    print(f"Albums with most song weeks {f'in the top {top}' if top else ''}:")
+    print(f"Albums with most weeks {f'in the top {top}' if top else 'on chart'}:")
     for album, weeks in units:
         place = len([i for i in units if i[1] > weeks]) + 1
         print(f'{place:>3} | {str(album):<50} | {weeks:<2} weeks')
@@ -353,20 +355,22 @@ if __name__ == '__main__':
         top_albums_cert_count(uow, cert)
     """
    
+    '''
     top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-   
-
-    """
+    '''
+    
+    
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
-        top_albums_weeks(uow, top)
-    """
+        # top_albums_weeks(uow, top)
+    
 
-    """
+  
     for top in SONG_TOP:
-        top_album_hits(uow, top)
-    """
+        # top_album_hits(uow, top)
+        top_song_consecutive_weeks(uow, top)
+
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)

@@ -171,14 +171,13 @@ class Album:
         never charted in that region.
         """
 
-        entries = deepcopy(self.entries)
         if top:
-            entries = [i for i in entries if i.place <= top]
+            entries = [i for i in self.entries if i.place <= top]
+        else:
+            entries = list(self.entries)
 
-        if len(entries) == 0:
-            return 0
-        if len(entries) == 1:
-            return 1
+        if len(entries) in {0, 1}:
+            return len(entries)
 
         longest = 0
         current = entries.pop(0)

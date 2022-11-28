@@ -139,7 +139,7 @@ def create_song_chart(
                 {
                     'id': song_id,
                     'points': (
-                        two_wa_plays + one_wa_plays + 4 * this_wk_plays
+                        (two_wa_plays + one_wa_plays) * 2 + (10 * this_wk_plays)
                     ),
                     'plays': this_wk_plays,
                 }
@@ -401,6 +401,8 @@ if __name__ == '__main__':
             uow, positions, start_day, end_day, week_count, album_rows
         )
 
+    uow.commit() 
+    
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK'],
         [''],

@@ -160,9 +160,12 @@ class SongUOW:
     Arguments:
     * song_file (optional keyword-only `str`): The full path to the song file the
     UOW will read data to and from.
+    * album_file (optional keyword-only `str`): The full path to the album file 
+    to read data to and from.
 
     Attributes:
     * songs (`SongRepository`): The songs stored in the song file.
+    * albums (`AlbumRepository`): The albums stored in the album file.
 
     Methods:
     * commit (method): Saves any changes made while using objects from the UOW.
