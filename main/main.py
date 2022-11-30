@@ -2,7 +2,7 @@ from datetime import date, timedelta, datetime
 from operator import itemgetter
 from pydantic import BaseModel
 from concurrent import futures
-from typing import Iterator, Optional, cast
+from typing import Iterator, Optional
 from itertools import count
 
 from storage import SongUOW

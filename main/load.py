@@ -1,12 +1,14 @@
+import itertools
+
 from concurrent import futures
 
 from spreadsheet import Spreadsheet
-from model import Song
+from model import Song, Album
 from storage import SongUOW
 from config import LEVBOARD_SHEET, SONG_FILE
 
 
-def create_new_song(ids: list[str], name: str) -> Song:
+def _create_new_song(ids: list[str], name: str) -> Song:
     new_song = Song(song_id=ids[0], song_name=name)
     if len(ids) > 1:
         for alt_id in ids[1:]:
@@ -14,24 +16,23 @@ def create_new_song(ids: list[str], name: str) -> Song:
     return new_song
 
 
-def add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
+def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
     if ', ' in str_ids:
         ids = str_ids.split(', ')
     else:
         ids = [str_ids]
 
     if ids[0] not in uow.songs.list():
-        return create_new_song(ids, song_name)
+        return _create_new_song(ids, song_name)
     return uow.songs.get(ids[0])
 
 
-def load_songs(file=SONG_FILE, verbose=False):
+def load_songs(uow: SongUOW, verbose=False):
     """
     Loads the songs in the spreadsheet to the file
 
     """
 
-    uow = SongUOW(song_file=file)
     sheet = Spreadsheet(LEVBOARD_SHEET)
 
     request = sheet.get_range('Song Info!A2:B2000')
@@ -44,7 +45,7 @@ def load_songs(file=SONG_FILE, verbose=False):
         to_do: list[futures.Future] = []
 
         for song_name, str_ids in songs:
-            future = executor.submit(add_song, song_name, str_ids, uow)
+            future = executor.submit(_add_song, song_name, str_ids, uow)
             to_do.append(future)
 
         for count, future in enumerate(futures.as_completed(to_do), 1):
@@ -61,5 +62,59 @@ def load_songs(file=SONG_FILE, verbose=False):
     uow.commit()
 
 
+def load_albums(uow: SongUOW, verbose = bool):
+    """loads albums from the spreadsheet into the songuow provided."""
+    
+    sheet = Spreadsheet(LEVBOARD_SHEET)
+    request = sheet.get_range('Albums!A1:G2000')
+    info: list[list] = request.get('values')
+
+    print(f'{len(info)} rows found.')
+
+    row: list[str] = info.pop(0)
+    album_count = itertools.count()
+
+    while info:
+        album_name: str = row[0]
+        row = info.pop(0)
+
+        if not row[0]:
+            # if album has bonus row for weeks and peak
+            row = info.pop(0)
+
+        album_artists: str = row[0]  # will be parsed later if multiple artists
+        row = info.pop(0)  # this is the headers row in the spreadsheet
+
+        album = Album(album_name.strip(), album_artists.strip())
+        uow.albums.add(album)
+        if verbose:
+            print(f'\r{len(info)} rows left to process.', flush = True)
+            print(f'\r({next(album_count)}) Processing {album}', flush = True)
+
+        row = info.pop(0)
+        try:
+            while row:
+                song_id = row[6]
+                if ', ' in song_id:
+                    song_id = song_id.split(', ')[0]
+
+                song = uow.songs.get(song_id)
+                if song is None:
+                    raise ValueError('song not found')
+                album.add_song(song)
+                row = info.pop(0)
+                # will get new song row or the blank row
+                # at the end, causing the while loop to end
+
+        except IndexError:
+            break  # from while info loop
+
+        # get next album title row
+        row = info.pop(0)
+
+    uow.commit()    
+
 if __name__ == '__main__':
-    load_songs(verbose=True)
+    uow = SongUOW()
+    load_songs(uow, verbose=True)
+    load_albums(uow, verbose=True)
