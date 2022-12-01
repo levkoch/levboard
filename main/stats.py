@@ -123,10 +123,10 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
     units.sort(key=itemgetter(2))
     if len(units) > 19:
         units = [i for i in units if i[2] <= units[19][2]]
-    if units: 
+    if units:
         print(f'Fastest songs to reach {plays} plays:')
     for (song, _, time) in units:
-        place = len([unit for unit in units if unit[2]< time]) + 1
+        place = len([unit for unit in units if unit[2] < time]) + 1
         print(f'{place:<2} | {song:<60} | {time} days')
     if units:
         print('')
@@ -242,11 +242,16 @@ def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
 
 def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     top = 20 if top is None else top
-    units = [(album, len([entry for entry in album.entries if entry.place <= top])) for album in uow.albums]
+    units = [
+        (album, len([entry for entry in album.entries if entry.place <= top]))
+        for album in uow.albums
+    ]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[19][1]]
 
-    print(f"Albums with most weeks {f'in the top {top}' if top else 'on chart'}:")
+    print(
+        f"Albums with most weeks {f'in the top {top}' if top else 'on chart'}:"
+    )
     for album, weeks in units:
         place = len([i for i in units if i[1] > weeks]) + 1
         print(f'{place:>3} | {str(album):<50} | {weeks:<2} weeks')
@@ -333,10 +338,10 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    '''
+    """
     for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-    '''
+    """
 
     """
     for milestone in MILESTONES[::-1]:
@@ -354,19 +359,16 @@ if __name__ == '__main__':
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
     """
-   
-    '''
+
+    """
     top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-    '''
-    
-    
+    """
+
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         # top_albums_weeks(uow, top)
-    
 
-  
     for top in SONG_TOP:
         # top_album_hits(uow, top)
         top_song_consecutive_weeks(uow, top)

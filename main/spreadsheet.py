@@ -1,3 +1,4 @@
+from typing import Any
 from googleapiclient import discovery
 from google.oauth2 import service_account
 
@@ -24,7 +25,7 @@ class Spreadsheet:
         self._get_credentials(cred_file)
         self._attach_sheet()
 
-    def _get_credentials(self, cred_file: str):
+    def _get_credentials(self, cred_file: str) -> None:
         """Internal method to bind google sheets credentials to the instance from the file."""
 
         self._credentials = (
@@ -34,7 +35,7 @@ class Spreadsheet:
             )
         )
 
-    def _attach_sheet(self):
+    def _attach_sheet(self) -> None:
         """Internal method to grant the instance access to the google sheets resource."""
 
         service = discovery.build(
@@ -42,7 +43,7 @@ class Spreadsheet:
         )
         self.sheet = service.spreadsheets().values()
 
-    def delete_range(self, range: str) -> dict:
+    def delete_range(self, range: str) -> dict[str, Any]:
         """
         Clears the specified range in the sheet.
 
@@ -59,7 +60,7 @@ class Spreadsheet:
 
         return response
 
-    def get_range(self, range: str) -> dict:
+    def get_range(self, range: str) -> dict[str, Any]:
         """
         Finds the specified range in the sheet.
 
@@ -78,7 +79,7 @@ class Spreadsheet:
 
         return result
 
-    def update_range(self, range: str, values: list[list]) -> dict:
+    def update_range(self, range: str, values: list[list]) -> dict[str, Any]:
         """
         Updates the specified range in the sheet.
 
@@ -99,7 +100,7 @@ class Spreadsheet:
 
         return result
 
-    def append_range(self, range: str, values: list[list]) -> dict:
+    def append_range(self, range: str, values: list[list]) -> dict[str, Any]:
         """
         Appends the values to the specified range in the sheet.
 

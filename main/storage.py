@@ -160,7 +160,7 @@ class SongUOW:
     Arguments:
     * song_file (optional keyword-only `str`): The full path to the song file the
     UOW will read data to and from.
-    * album_file (optional keyword-only `str`): The full path to the album file 
+    * album_file (optional keyword-only `str`): The full path to the album file
     to read data to and from.
 
     Attributes:

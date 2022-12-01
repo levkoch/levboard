@@ -1,9 +1,9 @@
-'''
+"""
 levboard/main/recent.py
 
-Displays recent events, such as new certifications & plays milestones, 
+Displays recent events, such as new certifications & plays milestones,
 along with all time plays changes.
-'''
+"""
 
 import functools
 

@@ -2,7 +2,7 @@ from datetime import date, timedelta, datetime
 from operator import itemgetter
 from pydantic import BaseModel
 from concurrent import futures
-from typing import Iterator, Optional
+from typing import Iterator, Optional, Union
 from itertools import count
 
 from storage import SongUOW
@@ -55,20 +55,10 @@ def load_all_weeks(start_day: date) -> list[Week]:
         return sorted(weeks)
 
 
-def clear_entries(uow: SongUOW) -> None:
-    print('Clearing previous entries.')
-    with uow:
-        for song_id in uow.songs.list():
-            song: Song = uow.songs.get(song_id)
-            song._entries = []
-        for album_name in uow.albums.list():
-            album: Album = uow.albums.get(album_name)
-            album.entries = []
-        uow.commit()
-
-
 def get_movement(current: date, last: date, song: Song) -> str:
-    c_place = song.get_entry(current) # type: Entry
+    c_place: Optional[Entry] = song.get_entry(current)
+    if c_place is None:
+        raise ValueError('cant get the movement for a song not charting')
     p_place: Optional[Entry] = song.get_entry(last)
     weeks = song.weeks
 
@@ -86,7 +76,7 @@ def get_movement(current: date, last: date, song: Song) -> str:
     return '▲' + str(movement)
 
 
-def get_peak(song: Song) -> str:
+def get_peak(listenable: Union[Song, Album]) -> str:
     num_to_exp: dict = {
         '0': '⁰',
         '1': '¹',
@@ -99,12 +89,12 @@ def get_peak(song: Song) -> str:
         '8': '⁸',
         '9': '⁹',
     }
-    if song.peak > 10 or song.peakweeks == 1:
-        return str(song.peak)
-    pweeks = str(song.peakweeks)
+    if listenable.peak > 10 or listenable.peakweeks == 1:
+        return str(listenable.peak)
+    pweeks = str(listenable.peakweeks)
     for (k, v) in num_to_exp.items():
         pweeks = pweeks.replace(k, v)
-    return str(song.peak) + pweeks
+    return str(listenable.peak) + pweeks
 
 
 def create_song_chart(
@@ -139,7 +129,8 @@ def create_song_chart(
                 {
                     'id': song_id,
                     'points': (
-                        (two_wa_plays + one_wa_plays) * 2 + (10 * this_wk_plays)
+                        (two_wa_plays + one_wa_plays) * 2
+                        + (10 * this_wk_plays)
                     ),
                     'plays': this_wk_plays,
                 }
@@ -179,6 +170,12 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     if name.lower() == 'merge':
         merge: str = input('Id of the song to merge with: ')
         merge_into = uow.songs.get(merge)
+        if merge_into is None:
+            raise ValueError(
+                f'a song with the id {merge} does '
+                'not exist in the local database'
+            )
+
         merge_into.add_alt(song_id)
         print(f'Sucessfully merged {tester.name} into {merge_into.name}')
         return merge_into
@@ -401,8 +398,8 @@ if __name__ == '__main__':
             uow, positions, start_day, end_day, week_count, album_rows
         )
 
-    uow.commit() 
-    
+    uow.commit()
+
     start_song_rows = [
         ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK'],
         [''],

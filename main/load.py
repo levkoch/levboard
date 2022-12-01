@@ -5,7 +5,7 @@ from concurrent import futures
 from spreadsheet import Spreadsheet
 from model import Song, Album
 from storage import SongUOW
-from config import LEVBOARD_SHEET, SONG_FILE
+from config import LEVBOARD_SHEET
 
 
 def _create_new_song(ids: list[str], name: str) -> Song:
@@ -17,17 +17,18 @@ def _create_new_song(ids: list[str], name: str) -> Song:
 
 
 def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
-    if ', ' in str_ids:
-        ids = str_ids.split(', ')
-    else:
-        ids = [str_ids]
+    """adds a song into the uow."""
+    # split by comma. not all songs will have multiple ids but we
+    # don't care, because it will return a list regardless.
+    ids = str_ids.split(', ')
 
-    if ids[0] not in uow.songs.list():
+    song = uow.songs.get(ids[0])
+    if song is None:
         return _create_new_song(ids, song_name)
-    return uow.songs.get(ids[0])
+    return song
 
 
-def load_songs(uow: SongUOW, verbose=False):
+def load_songs(uow: SongUOW, verbose: bool = False):
     """
     Loads the songs in the spreadsheet to the file
 
@@ -62,9 +63,9 @@ def load_songs(uow: SongUOW, verbose=False):
     uow.commit()
 
 
-def load_albums(uow: SongUOW, verbose = bool):
+def load_albums(uow: SongUOW, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
-    
+
     sheet = Spreadsheet(LEVBOARD_SHEET)
     request = sheet.get_range('Albums!A1:G2000')
     info: list[list] = request.get('values')
@@ -88,8 +89,8 @@ def load_albums(uow: SongUOW, verbose = bool):
         album = Album(album_name.strip(), album_artists.strip())
         uow.albums.add(album)
         if verbose:
-            print(f'\r{len(info)} rows left to process.', flush = True)
-            print(f'\r({next(album_count)}) Processing {album}', flush = True)
+            print(f'\r{len(info)} rows left to process.', flush=True)
+            print(f'\r({next(album_count)}) Processing {album}', flush=True)
 
         row = info.pop(0)
         try:
@@ -112,7 +113,8 @@ def load_albums(uow: SongUOW, verbose = bool):
         # get next album title row
         row = info.pop(0)
 
-    uow.commit()    
+    uow.commit()
+
 
 if __name__ == '__main__':
     uow = SongUOW()
