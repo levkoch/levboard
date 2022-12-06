@@ -18,11 +18,12 @@ from .entry import AlbumEntry
 class Album:
     def __init__(self, title: str, artists: Union[Iterable[str], str]):
         self._title: str = title
+        self._artists: list[str]
 
         if isinstance(artists, str):
-            self._artists: list[str] = artists.split(', ')
+            self._artists = artists.split(', ')
         else:  # is an iterable of str
-            self._artists: list[str] = list(artists)
+            self._artists = list(artists)
 
         self.songs: list[Song] = []
         self.entries: list[AlbumEntry] = []
@@ -33,6 +34,11 @@ class Album:
     def __repr__(self) -> str:
         name = self.__class__.__name__
         return f'{name}({self.title!r}, {self.artists!r})'
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, self.__class__):
+            return self.title == other.title
+        return NotImplemented
 
     def __hash__(self) -> int:
         return hash((self.__class__, self._title))

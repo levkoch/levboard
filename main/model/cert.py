@@ -91,14 +91,14 @@ class AbstractCert(ABC):
 
     @classmethod
     @abstractmethod
-    def from_units(cls, units: NonNegativeInt) -> None:
+    def from_units(cls, units: NonNegativeInt) -> 'AbstractCert':
         """
         Abstract Method - Loads the multiplier and cert type of the cert
         based on the units.
         """
 
         raise NotImplementedError(
-            'Cannot instantiate an instance of `BaseCert`. '
+            'Cannot instantiate an instance of `AbstractCert`. '
             'Use a subclass instead.'
         )
 
@@ -114,7 +114,7 @@ class AbstractCert(ABC):
 
         elif len(items) == 1:
             if items[0].isnumeric():
-                mult, cert_letter = items[0], 'N'
+                mult, cert_letter = int(items[0]), 'N'
             else:
                 mult, cert_letter = 0, items[0]
 
@@ -338,7 +338,7 @@ class AlbumCert(AbstractCert):
     __slots__ = ()
 
     @classmethod
-    def from_units(cls, units: NonNegativeInt) -> None:
+    def from_units(cls, units: NonNegativeInt) -> 'AlbumCert':
         """
         Returns a new AlbumCert object from the units specified.
         """

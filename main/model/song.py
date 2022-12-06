@@ -138,6 +138,15 @@ class Song:
             ]
             return f'{self.official_name} by {self._combine_artists(artists)}'
 
+        # something didn't work correctly
+        raise ValueError(
+            'Improper Song formatting. Only the `"o"` and `"s"` flags are '
+            'allowed, at the END of any string formatting you want to do '
+            'with the string afterwards. (Such as "12<o" will find the '
+            'official song name and then left align it in 12 characters '
+            'of space.)'
+        )
+
     def _combine_artists(self, iter: Iterable[str]) -> str:
         artists = list(iter)
         if len(artists) == 1:
@@ -223,7 +232,7 @@ class Song:
     def _populate_listens(self) -> None:
         """Adds listens to the song."""
 
-        self.__listens: list[spotistats.Listen] = list(
+        self.__listens = list(
             itertools.chain.from_iterable(
                 spotistats.song_play_history(i)
                 for i in ([self.id] + self.alt_ids)
@@ -235,12 +244,10 @@ class Song:
         Returns the song's plays for some period.
         """
 
-        listens: Optional[list[spotistats.Listen]] = self.__listens
-
-        if listens is None:
+        if self.__listens is None:
             self._populate_listens()
 
-        listens: Iterator[spotistats.Listen] = (
+        listens = (
             listen
             for listen in self.__listens
             if listen.finished_playing.date() >= start
@@ -326,7 +333,7 @@ class Song:
         if self.__listens is None:
             self._populate_listens()
 
-        return len(list(self.__listens))
+        self._plays = len(self.__listens)
 
     def adjusted_plays(self) -> int:
         """

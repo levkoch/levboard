@@ -244,7 +244,7 @@
             "Adele"
         ],
         "official_name": "All Night Parking (with Erroll Garner) Interlude",
-        "plays": 74,
+        "plays": 75,
         "entries": [
             {
                 "start": "2022-08-25",
@@ -393,7 +393,7 @@
             "Adele"
         ],
         "official_name": "Easy On Me",
-        "plays": 77,
+        "plays": 78,
         "entries": [
             {
                 "start": "2021-10-14",
@@ -484,7 +484,7 @@
             "Adele"
         ],
         "official_name": "Melt My Heart to Stone",
-        "plays": 37,
+        "plays": 39,
         "entries": [
             {
                 "start": "2022-10-13",
@@ -809,7 +809,7 @@
             "Adele"
         ],
         "official_name": "Strangers By Nature",
-        "plays": 130,
+        "plays": 131,
         "entries": [
             {
                 "start": "2022-07-14",
@@ -1423,6 +1423,13 @@
                 "place": 14,
                 "plays": 8,
                 "points": 112
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 29,
+                "plays": 2,
+                "points": 46
             }
         ]
     },
@@ -1623,6 +1630,13 @@
                 "place": 12,
                 "plays": 9,
                 "points": 116
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 1,
+                "points": 36
             }
         ]
     },
@@ -1935,6 +1949,13 @@
                 "place": 19,
                 "plays": 7,
                 "points": 104
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 38,
+                "plays": 2,
+                "points": 42
             }
         ]
     },
@@ -2034,7 +2055,7 @@
             "Alessia Cara"
         ],
         "official_name": "Drama Queen",
-        "plays": 20,
+        "plays": 21,
         "entries": [
             {
                 "start": "2022-03-31",
@@ -2053,7 +2074,7 @@
             "Adele"
         ],
         "official_name": "To Be Loved",
-        "plays": 82,
+        "plays": 83,
         "entries": [
             {
                 "start": "2022-07-21",
@@ -2330,7 +2351,7 @@
             "Adele"
         ],
         "official_name": "Take It All",
-        "plays": 149,
+        "plays": 150,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -2482,7 +2503,7 @@
             "Adele"
         ],
         "official_name": "Hello",
-        "plays": 117,
+        "plays": 120,
         "entries": [
             {
                 "start": "2021-11-04",
@@ -2748,6 +2769,13 @@
                 "place": 16,
                 "plays": 8,
                 "points": 106
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 29,
+                "plays": 2,
+                "points": 46
             }
         ]
     },
@@ -3084,7 +3112,7 @@
             "Adele"
         ],
         "official_name": "Oh My God",
-        "plays": 394,
+        "plays": 396,
         "entries": [
             {
                 "start": "2021-12-16",
@@ -3351,6 +3379,13 @@
                 "place": 7,
                 "plays": 8,
                 "points": 144
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 4,
+                "plays": 15,
+                "points": 182
             }
         ]
     },
@@ -3709,7 +3744,7 @@
             "Alessia Cara"
         ],
         "official_name": "Here",
-        "plays": 40,
+        "plays": 41,
         "entries": []
     },
     "251132": {
@@ -3868,7 +3903,7 @@
             "Ariana Grande"
         ],
         "official_name": "7 rings",
-        "plays": 233,
+        "plays": 234,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -4100,6 +4135,13 @@
                 "place": 34,
                 "plays": 5,
                 "points": 88
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 0,
+                "points": 36
             }
         ]
     },
@@ -4364,7 +4406,7 @@
             "Ariana Grande"
         ],
         "official_name": "Jason's Song (Gave It Away)",
-        "plays": 42,
+        "plays": 43,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -4434,7 +4476,7 @@
             "Ariana Grande"
         ],
         "official_name": "fake smile",
-        "plays": 140,
+        "plays": 142,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -4724,7 +4766,7 @@
             "Ariana Grande"
         ],
         "official_name": "I Don't Care",
-        "plays": 86,
+        "plays": 87,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -4828,7 +4870,7 @@
             "Ariana Grande"
         ],
         "official_name": "Be Alright",
-        "plays": 168,
+        "plays": 170,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -4966,7 +5008,7 @@
             "Ariana Grande"
         ],
         "official_name": "Intro",
-        "plays": 78,
+        "plays": 80,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -5132,7 +5174,7 @@
             "Ariana Grande"
         ],
         "official_name": "Greedy",
-        "plays": 142,
+        "plays": 144,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -5350,7 +5392,7 @@
             "Ariana Grande"
         ],
         "official_name": "break up with your girlfriend, i'm bored",
-        "plays": 292,
+        "plays": 293,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -5617,6 +5659,13 @@
                 "place": 16,
                 "plays": 6,
                 "points": 106
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 26,
+                "plays": 0,
+                "points": 48
             }
         ]
     },
@@ -6002,7 +6051,7 @@
             "Ariana Grande"
         ],
         "official_name": "make up",
-        "plays": 103,
+        "plays": 104,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -6656,7 +6705,15 @@
         ],
         "official_name": "How I Look On You",
         "plays": 23,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 12,
+                "plays": 7,
+                "points": 74
+            }
+        ]
     },
     "284573": {
         "name": "Knew Better / Forever Boy",
@@ -6666,7 +6723,7 @@
             "Ariana Grande"
         ],
         "official_name": "Knew Better / Forever Boy",
-        "plays": 63,
+        "plays": 64,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -6699,7 +6756,7 @@
             "Ariana Grande"
         ],
         "official_name": "Into You",
-        "plays": 375,
+        "plays": 377,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -7099,6 +7156,13 @@
                 "place": 6,
                 "plays": 15,
                 "points": 166
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 26,
+                "plays": 1,
+                "points": 48
             }
         ]
     },
@@ -7110,7 +7174,7 @@
             "Ariana Grande"
         ],
         "official_name": "bloodline",
-        "plays": 418,
+        "plays": 422,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -7517,6 +7581,13 @@
                 "place": 10,
                 "plays": 7,
                 "points": 124
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 8,
+                "plays": 4,
+                "points": 86
             }
         ]
     },
@@ -7528,7 +7599,7 @@
             "Ariana Grande"
         ],
         "official_name": "love language",
-        "plays": 153,
+        "plays": 154,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -7687,7 +7758,7 @@
             "Ariana Grande"
         ],
         "official_name": "Sometimes",
-        "plays": 103,
+        "plays": 105,
         "entries": [
             {
                 "start": "2021-09-16",
@@ -7748,7 +7819,7 @@
             "Ariana Grande"
         ],
         "official_name": "Moonlight",
-        "plays": 94,
+        "plays": 96,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -7795,7 +7866,7 @@
             "Ariana Grande"
         ],
         "official_name": "Dangerous Woman",
-        "plays": 172,
+        "plays": 174,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -8008,7 +8079,7 @@
             "Ariana Grande"
         ],
         "official_name": "Bad Decisions",
-        "plays": 165,
+        "plays": 166,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -8153,7 +8224,7 @@
             "Ariana Grande"
         ],
         "official_name": "bad idea",
-        "plays": 241,
+        "plays": 242,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -8392,6 +8463,13 @@
                 "place": 23,
                 "plays": 6,
                 "points": 94
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 0,
+                "points": 36
             }
         ]
     },
@@ -8403,7 +8481,7 @@
             "Ariana Grande"
         ],
         "official_name": "Focus",
-        "plays": 194,
+        "plays": 197,
         "entries": [
             {
                 "start": "2022-01-06",
@@ -8765,7 +8843,7 @@
             "Ariana Grande"
         ],
         "official_name": "One Last Time",
-        "plays": 208,
+        "plays": 210,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -9026,7 +9104,7 @@
             "Ariana Grande"
         ],
         "official_name": "Santa Tell Me",
-        "plays": 129,
+        "plays": 130,
         "entries": [
             {
                 "start": "2021-08-26",
@@ -9463,7 +9541,7 @@
             "Ariana Grande"
         ],
         "official_name": "Why Try",
-        "plays": 108,
+        "plays": 110,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -9879,7 +9957,7 @@
             "Ariana Grande"
         ],
         "official_name": "my hair",
-        "plays": 292,
+        "plays": 293,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -10217,7 +10295,7 @@
             "Ariana Grande"
         ],
         "official_name": "ghostin",
-        "plays": 210,
+        "plays": 211,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -10456,6 +10534,13 @@
                 "place": 23,
                 "plays": 6,
                 "points": 94
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 0,
+                "points": 36
             }
         ]
     },
@@ -10920,7 +11005,7 @@
             "Childish Gambino"
         ],
         "official_name": "Break Your Heart Right Back",
-        "plays": 49,
+        "plays": 51,
         "entries": [
             {
                 "start": "2022-10-13",
@@ -11195,7 +11280,7 @@
             "Justin Bieber"
         ],
         "official_name": "Stuck with U (with Justin Bieber)",
-        "plays": 141,
+        "plays": 143,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -11354,7 +11439,7 @@
             "Ariana Grande"
         ],
         "official_name": "Touch It",
-        "plays": 116,
+        "plays": 117,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -11425,6 +11510,13 @@
                 "place": 29,
                 "plays": 6,
                 "points": 78
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 26,
+                "plays": 4,
+                "points": 48
             }
         ]
     },
@@ -11666,7 +11758,7 @@
             "Big Sean"
         ],
         "official_name": "Best Mistake",
-        "plays": 76,
+        "plays": 77,
         "entries": [
             {
                 "start": "2021-07-15",
@@ -11907,7 +11999,7 @@
             "Ariana Grande"
         ],
         "official_name": "Thinking Bout You",
-        "plays": 87,
+        "plays": 88,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -12585,7 +12677,7 @@
             "Ariana Grande"
         ],
         "official_name": "Step On Up",
-        "plays": 36,
+        "plays": 37,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -12889,7 +12981,7 @@
             "Iggy Azalea"
         ],
         "official_name": "Problem",
-        "plays": 332,
+        "plays": 334,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -13299,7 +13391,7 @@
             "Macy Gray"
         ],
         "official_name": "Leave Me Lonely",
-        "plays": 53,
+        "plays": 55,
         "entries": []
     },
     "1006142": {
@@ -13752,7 +13844,7 @@
             "Lil Wayne"
         ],
         "official_name": "Let Me Love You",
-        "plays": 266,
+        "plays": 268,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -14343,7 +14435,7 @@
             "Ariana Grande"
         ],
         "official_name": "pov",
-        "plays": 238,
+        "plays": 239,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -14631,6 +14723,13 @@
                 "place": 52,
                 "plays": 6,
                 "points": 66
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 38,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -14855,7 +14954,7 @@
             "Future"
         ],
         "official_name": "Everyday",
-        "plays": 99,
+        "plays": 101,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -15049,6 +15148,13 @@
                 "place": 13,
                 "plays": 12,
                 "points": 124
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 22,
+                "plays": 4,
+                "points": 50
             }
         ]
     },
@@ -15533,6 +15639,13 @@
                 "place": 1,
                 "plays": 51,
                 "points": 528
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 5,
+                "plays": 2,
+                "points": 140
             }
         ]
     },
@@ -15603,7 +15716,7 @@
             "The Weeknd"
         ],
         "official_name": "off the table (with The Weeknd)",
-        "plays": 150,
+        "plays": 151,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -15742,7 +15855,7 @@
             "The Weeknd"
         ],
         "official_name": "Love Me Harder",
-        "plays": 145,
+        "plays": 146,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -16056,7 +16169,7 @@
             "Zedd"
         ],
         "official_name": "Break Free",
-        "plays": 372,
+        "plays": 374,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -16365,6 +16478,13 @@
                 "place": 20,
                 "plays": 5,
                 "points": 96
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 2,
+                "points": 36
             }
         ]
     },
@@ -16458,7 +16578,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Side To Side",
-        "plays": 642,
+        "plays": 644,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -16935,6 +17055,13 @@
                 "place": 29,
                 "plays": 7,
                 "points": 92
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 2,
+                "points": 44
             }
         ]
     },
@@ -17478,7 +17605,7 @@
             "Billie Eilish"
         ],
         "official_name": "bellyache",
-        "plays": 88,
+        "plays": 90,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -17815,7 +17942,7 @@
             "Billie Eilish"
         ],
         "official_name": "everything i wanted",
-        "plays": 48,
+        "plays": 50,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -17914,7 +18041,7 @@
             "Billie Eilish"
         ],
         "official_name": "my boy",
-        "plays": 86,
+        "plays": 87,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -17989,7 +18116,7 @@
             "Billie Eilish"
         ],
         "official_name": "bitches broken hearts",
-        "plays": 239,
+        "plays": 243,
         "entries": [
             {
                 "start": "2022-09-22",
@@ -18053,6 +18180,13 @@
                 "place": 2,
                 "plays": 24,
                 "points": 348
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 1,
+                "plays": 15,
+                "points": 258
             }
         ]
     },
@@ -18154,7 +18288,7 @@
             "Billie Eilish"
         ],
         "official_name": "idontwannabeyouanymore",
-        "plays": 174,
+        "plays": 176,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -18281,6 +18415,13 @@
                 "place": 42,
                 "plays": 5,
                 "points": 76
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 1,
+                "points": 36
             }
         ]
     },
@@ -18338,7 +18479,7 @@
             "Billie Eilish"
         ],
         "official_name": "ocean eyes",
-        "plays": 354,
+        "plays": 363,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -18563,6 +18704,13 @@
                 "place": 8,
                 "plays": 6,
                 "points": 138
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 9,
+                "plays": 4,
+                "points": 84
             }
         ]
     },
@@ -18574,7 +18722,7 @@
             "Billie Eilish"
         ],
         "official_name": "i love you",
-        "plays": 25,
+        "plays": 27,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -18582,6 +18730,13 @@
                 "place": 54,
                 "plays": 7,
                 "points": 78
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 47,
+                "plays": 3,
+                "points": 38
             }
         ]
     },
@@ -18604,7 +18759,7 @@
             "Billie Eilish"
         ],
         "official_name": "watch",
-        "plays": 187,
+        "plays": 191,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -18817,7 +18972,7 @@
             "Billie Eilish"
         ],
         "official_name": "COPYCAT",
-        "plays": 118,
+        "plays": 119,
         "entries": [
             {
                 "start": "2022-06-30",
@@ -18916,6 +19071,13 @@
                 "place": 23,
                 "plays": 7,
                 "points": 94
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 47,
+                "plays": 1,
+                "points": 38
             }
         ]
     },
@@ -18958,7 +19120,7 @@
             "Billie Eilish"
         ],
         "official_name": "when the party's over",
-        "plays": 98,
+        "plays": 100,
         "entries": [
             {
                 "start": "2022-03-10",
@@ -19008,6 +19170,13 @@
                 "place": 52,
                 "plays": 6,
                 "points": 66
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 38,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -19164,7 +19333,7 @@
             "Billie Eilish"
         ],
         "official_name": "xanny",
-        "plays": 50,
+        "plays": 52,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -19179,6 +19348,13 @@
                 "place": 14,
                 "plays": 11,
                 "points": 140
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 47,
+                "plays": 3,
+                "points": 38
             }
         ]
     },
@@ -19223,7 +19399,7 @@
             "BLACKPINK"
         ],
         "official_name": "BOOMBAYAH",
-        "plays": 22,
+        "plays": 23,
         "entries": []
     },
     "300002": {
@@ -19441,7 +19617,7 @@
             "Billie Eilish"
         ],
         "official_name": "my strange addiction",
-        "plays": 71,
+        "plays": 72,
         "entries": [
             {
                 "start": "2022-07-14",
@@ -19484,6 +19660,13 @@
                 "place": 33,
                 "plays": 7,
                 "points": 98
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -19765,7 +19948,7 @@
             "Billie Eilish"
         ],
         "official_name": "wish you were gay",
-        "plays": 65,
+        "plays": 66,
         "entries": [
             {
                 "start": "2022-08-11",
@@ -19801,6 +19984,13 @@
                 "place": 32,
                 "plays": 7,
                 "points": 78
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 3,
+                "points": 44
             }
         ]
     },
@@ -19919,7 +20109,7 @@
             "Nicki Minaj"
         ],
         "official_name": "IDOL",
-        "plays": 49,
+        "plays": 50,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -20059,7 +20249,7 @@
             "Dua Lipa"
         ],
         "official_name": "One Kiss (with Dua Lipa)",
-        "plays": 94,
+        "plays": 96,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -20557,6 +20747,13 @@
                 "place": 37,
                 "plays": 8,
                 "points": 80
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 14,
+                "plays": 5,
+                "points": 66
             }
         ]
     },
@@ -20590,7 +20787,7 @@
             "Ariana Grande"
         ],
         "official_name": "Quit (feat. Ariana Grande)",
-        "plays": 207,
+        "plays": 212,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -20974,7 +21171,7 @@
             "Camila Cabello"
         ],
         "official_name": "Real Friends",
-        "plays": 25,
+        "plays": 26,
         "entries": [
             {
                 "start": "2022-09-08",
@@ -21108,7 +21305,7 @@
             "Charli XCX"
         ],
         "official_name": "Vroom Vroom",
-        "plays": 87,
+        "plays": 88,
         "entries": [
             {
                 "start": "2021-11-04",
@@ -21197,7 +21394,7 @@
             "Jay Park"
         ],
         "official_name": "Unlock it (Lock It) - feat. Kim Petras and Jay Park",
-        "plays": 72,
+        "plays": 73,
         "entries": [
             {
                 "start": "2022-09-08",
@@ -21240,6 +21437,13 @@
                 "place": 37,
                 "plays": 7,
                 "points": 80
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 19,
+                "plays": 4,
+                "points": 54
             }
         ]
     },
@@ -21303,7 +21507,7 @@
             "Charli XCX"
         ],
         "official_name": "Boys",
-        "plays": 20,
+        "plays": 21,
         "entries": []
     },
     "402117": {
@@ -22304,7 +22508,7 @@
             "Lizzo"
         ],
         "official_name": "Blame It on Your Love (feat. Lizzo)",
-        "plays": 10,
+        "plays": 11,
         "entries": [
             {
                 "start": "2022-09-01",
@@ -22639,7 +22843,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Love More (feat. Nicki Minaj)",
-        "plays": 189,
+        "plays": 191,
         "entries": [
             {
                 "start": "2021-07-01",
@@ -23446,7 +23650,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Turn Me On (feat. Nicki Minaj)",
-        "plays": 95,
+        "plays": 96,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -23684,7 +23888,7 @@
             "Demi Lovato"
         ],
         "official_name": "Give Your Heart A Break",
-        "plays": 31,
+        "plays": 32,
         "entries": []
     },
     "533068": {
@@ -23975,7 +24179,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Say So (feat. Nicki Minaj) - Original Version",
-        "plays": 17,
+        "plays": 18,
         "entries": [
             {
                 "start": "2022-03-10",
@@ -24273,7 +24477,7 @@
             "Dua Lipa"
         ],
         "official_name": "Blow Your Mind (Mwah)",
-        "plays": 105,
+        "plays": 106,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -24341,7 +24545,7 @@
             "Dua Lipa"
         ],
         "official_name": "Be the One",
-        "plays": 75,
+        "plays": 79,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -24381,7 +24585,7 @@
             "Dua Lipa"
         ],
         "official_name": "Hallucinate",
-        "plays": 207,
+        "plays": 211,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -24585,6 +24789,13 @@
                 "place": 54,
                 "plays": 5,
                 "points": 54
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -25005,7 +25216,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Say So (feat. Nicki Minaj)",
-        "plays": 130,
+        "plays": 131,
         "entries": [
             {
                 "start": "2021-07-01",
@@ -25108,7 +25319,7 @@
             "Dua Lipa"
         ],
         "official_name": "Dreams",
-        "plays": 42,
+        "plays": 44,
         "entries": [
             {
                 "start": "2021-10-14",
@@ -25139,7 +25350,7 @@
             "Doja Cat"
         ],
         "official_name": "Juicy",
-        "plays": 74,
+        "plays": 75,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -25208,7 +25419,7 @@
             "Gucci Mane"
         ],
         "official_name": "Like That (feat. Gucci Mane)",
-        "plays": 74,
+        "plays": 75,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -25297,7 +25508,7 @@
             "Kyla"
         ],
         "official_name": "One Dance",
-        "plays": 23,
+        "plays": 24,
         "entries": [
             {
                 "start": "2022-09-08",
@@ -25316,7 +25527,7 @@
             "Dua Lipa"
         ],
         "official_name": "Future Nostalgia",
-        "plays": 85,
+        "plays": 87,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -25386,7 +25597,7 @@
             "Dua Lipa"
         ],
         "official_name": "IDGAF",
-        "plays": 82,
+        "plays": 83,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -25434,7 +25645,7 @@
             "JID"
         ],
         "official_name": "Not My Problem (feat. JID)",
-        "plays": 10,
+        "plays": 12,
         "entries": []
     },
     "533662": {
@@ -25482,7 +25693,7 @@
             "Dua Lipa"
         ],
         "official_name": "Cool",
-        "plays": 126,
+        "plays": 128,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -25606,7 +25817,7 @@
             "Dua Lipa"
         ],
         "official_name": "Break My Heart",
-        "plays": 229,
+        "plays": 233,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -25852,6 +26063,13 @@
                 "place": 12,
                 "plays": 13,
                 "points": 152
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -25897,7 +26115,7 @@
             "Dua Lipa"
         ],
         "official_name": "Bad Together",
-        "plays": 41,
+        "plays": 42,
         "entries": []
     },
     "533659": {
@@ -25943,7 +26161,7 @@
             "DaBaby"
         ],
         "official_name": "Levitating (feat. DaBaby)",
-        "plays": 84,
+        "plays": 87,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -26035,6 +26253,13 @@
                 "place": 47,
                 "plays": 5,
                 "points": 74
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 22,
+                "plays": 5,
+                "points": 50
             }
         ]
     },
@@ -26130,7 +26355,7 @@
             "Dua Lipa"
         ],
         "official_name": "We're Good",
-        "plays": 118,
+        "plays": 121,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -26180,6 +26405,13 @@
                 "place": 35,
                 "plays": 5,
                 "points": 62
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 15,
+                "plays": 6,
+                "points": 60
             }
         ]
     },
@@ -26191,7 +26423,7 @@
             "Dua Lipa"
         ],
         "official_name": "Levitating",
-        "plays": 167,
+        "plays": 169,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -26339,6 +26571,13 @@
                 "place": 21,
                 "plays": 6,
                 "points": 74
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -26447,7 +26686,7 @@
             "Dua Lipa"
         ],
         "official_name": "If It Ain\u2019t Me",
-        "plays": 133,
+        "plays": 136,
         "entries": [
             {
                 "start": "2022-03-17",
@@ -26539,6 +26778,13 @@
                 "place": 54,
                 "plays": 5,
                 "points": 70
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -26550,7 +26796,7 @@
             "Dua Lipa"
         ],
         "official_name": "Boys Will Be Boys",
-        "plays": 84,
+        "plays": 86,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -26586,6 +26832,13 @@
                 "place": 49,
                 "plays": 5,
                 "points": 56
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -26597,7 +26850,7 @@
             "Dua Lipa"
         ],
         "official_name": "Don't Start Now",
-        "plays": 172,
+        "plays": 175,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -26775,7 +27028,7 @@
             "Miguel"
         ],
         "official_name": "Lost In Your Light (feat. Miguel)",
-        "plays": 58,
+        "plays": 59,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -26805,7 +27058,7 @@
             "Dua Lipa"
         ],
         "official_name": "Want To",
-        "plays": 42,
+        "plays": 43,
         "entries": []
     },
     "300004": {
@@ -26816,7 +27069,7 @@
             "Dua Lipa"
         ],
         "official_name": "Physical",
-        "plays": 139,
+        "plays": 142,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -26957,6 +27210,13 @@
                 "place": 49,
                 "plays": 5,
                 "points": 62
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 22,
+                "plays": 5,
+                "points": 50
             }
         ]
     },
@@ -26979,7 +27239,7 @@
             "Dua Lipa"
         ],
         "official_name": "Hotter Than Hell",
-        "plays": 83,
+        "plays": 84,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -27079,7 +27339,7 @@
             "Dua Lipa"
         ],
         "official_name": "Love Again",
-        "plays": 195,
+        "plays": 197,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -27269,6 +27529,13 @@
                 "place": 45,
                 "plays": 7,
                 "points": 90
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -27498,7 +27765,7 @@
             "BLACKPINK"
         ],
         "official_name": "Kiss and Make Up",
-        "plays": 84,
+        "plays": 87,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -27600,7 +27867,7 @@
             "Ang\u00e8le"
         ],
         "official_name": "Fever",
-        "plays": 325,
+        "plays": 332,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -27797,6 +28064,13 @@
                 "place": 47,
                 "plays": 4,
                 "points": 68
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 2,
+                "plays": 23,
+                "points": 238
             }
         ]
     },
@@ -27857,7 +28131,7 @@
             "Dua Lipa"
         ],
         "official_name": "That Kind Of Woman",
-        "plays": 91,
+        "plays": 94,
         "entries": [
             {
                 "start": "2022-06-16",
@@ -27879,6 +28153,13 @@
                 "place": 54,
                 "plays": 5,
                 "points": 54
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 15,
+                "plays": 6,
+                "points": 60
             }
         ]
     },
@@ -28003,7 +28284,7 @@
             "Dua Lipa"
         ],
         "official_name": "Good in Bed",
-        "plays": 103,
+        "plays": 105,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -28074,6 +28355,13 @@
                 "place": 56,
                 "plays": 6,
                 "points": 66
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -28097,7 +28385,7 @@
             "Dua Lipa"
         ],
         "official_name": "Genesis",
-        "plays": 70,
+        "plays": 71,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -28242,7 +28530,7 @@
             "Dua Lipa"
         ],
         "official_name": "Pretty Please",
-        "plays": 133,
+        "plays": 134,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -28358,7 +28646,7 @@
             "The Weeknd"
         ],
         "official_name": "Lost in the Fire (feat. The Weeknd)",
-        "plays": 60,
+        "plays": 61,
         "entries": [
             {
                 "start": "2022-04-07",
@@ -28564,7 +28852,7 @@
             "Halsey"
         ],
         "official_name": "Without Me",
-        "plays": 91,
+        "plays": 97,
         "entries": [
             {
                 "start": "2021-10-14",
@@ -28895,7 +29183,7 @@
             "Charli XCX"
         ],
         "official_name": "Fancy",
-        "plays": 88,
+        "plays": 90,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -29023,7 +29311,7 @@
             "Anderson .Paak"
         ],
         "official_name": "Coast (feat. Anderson .Paak)",
-        "plays": 107,
+        "plays": 108,
         "entries": [
             {
                 "start": "2022-09-01",
@@ -29166,7 +29454,7 @@
             "Tyga"
         ],
         "official_name": "Kream (feat. Tyga)",
-        "plays": 47,
+        "plays": 48,
         "entries": [
             {
                 "start": "2022-03-10",
@@ -29320,7 +29608,7 @@
             "Tainy"
         ],
         "official_name": "Un D\u00eda (One Day)",
-        "plays": 73,
+        "plays": 75,
         "entries": [
             {
                 "start": "2022-06-16",
@@ -30541,7 +30829,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Bang Bang",
-        "plays": 342,
+        "plays": 343,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -30930,7 +31218,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Tusa",
-        "plays": 408,
+        "plays": 410,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -31485,7 +31773,7 @@
             "Migos"
         ],
         "official_name": "Bon App\u00e9tit",
-        "plays": 67,
+        "plays": 68,
         "entries": [
             {
                 "start": "2022-04-07",
@@ -31642,7 +31930,7 @@
             "Katy Perry"
         ],
         "official_name": "D\u00e9j\u00e0 Vu",
-        "plays": 84,
+        "plays": 85,
         "entries": [
             {
                 "start": "2022-04-28",
@@ -31719,7 +32007,7 @@
             "Katy Perry"
         ],
         "official_name": "Harleys In Hawaii",
-        "plays": 111,
+        "plays": 112,
         "entries": [
             {
                 "start": "2022-01-06",
@@ -31802,7 +32090,7 @@
             "Normani"
         ],
         "official_name": "Love Lies (with Normani)",
-        "plays": 31,
+        "plays": 33,
         "entries": [
             {
                 "start": "2022-09-01",
@@ -31874,7 +32162,7 @@
             "Dua Lipa"
         ],
         "official_name": "New Rules",
-        "plays": 232,
+        "plays": 234,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -32243,7 +32531,7 @@
             "Snoop Dogg"
         ],
         "official_name": "California Gurls",
-        "plays": 47,
+        "plays": 48,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -32257,6 +32545,13 @@
                 "end": "2022-08-11",
                 "place": 40,
                 "plays": 4,
+                "points": 54
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 19,
+                "plays": 5,
                 "points": 54
             }
         ]
@@ -32751,7 +33046,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Swish Swish",
-        "plays": 341,
+        "plays": 350,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -33137,6 +33432,13 @@
                 "place": 60,
                 "plays": 2,
                 "points": 54
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 29,
+                "plays": 2,
+                "points": 46
             }
         ]
     },
@@ -33159,7 +33461,7 @@
             "Lil Nas X"
         ],
         "official_name": "DONT WANT IT",
-        "plays": 93,
+        "plays": 94,
         "entries": [
             {
                 "start": "2021-09-16",
@@ -33691,7 +33993,7 @@
             "Chris Brown"
         ],
         "official_name": "Freaky Friday (feat. Chris Brown)",
-        "plays": 99,
+        "plays": 101,
         "entries": [
             {
                 "start": "2021-09-30",
@@ -34276,7 +34578,7 @@
             "Lil Nas X"
         ],
         "official_name": "MONTERO (Call Me By Your Name)",
-        "plays": 140,
+        "plays": 141,
         "entries": [
             {
                 "start": "2021-07-22",
@@ -34561,7 +34863,7 @@
             "Quavo"
         ],
         "official_name": "Intentions",
-        "plays": 51,
+        "plays": 52,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -35085,7 +35387,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Woman Like Me (feat. Nicki Minaj)",
-        "plays": 160,
+        "plays": 161,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -35862,7 +36164,7 @@
             "Maroon 5"
         ],
         "official_name": "Lips On You",
-        "plays": 116,
+        "plays": 117,
         "entries": [
             {
                 "start": "2021-12-02",
@@ -36136,7 +36438,7 @@
             "Madonna"
         ],
         "official_name": "Material Girl",
-        "plays": 7,
+        "plays": 8,
         "entries": []
     },
     "6300281": {
@@ -36481,7 +36783,7 @@
             "Maroon 5"
         ],
         "official_name": "Lost",
-        "plays": 76,
+        "plays": 77,
         "entries": [
             {
                 "start": "2021-12-02",
@@ -36926,7 +37228,7 @@
             "Maroon 5"
         ],
         "official_name": "Sugar",
-        "plays": 34,
+        "plays": 35,
         "entries": []
     },
     "3437933": {
@@ -37183,7 +37485,7 @@
             "Megan Thee Stallion"
         ],
         "official_name": "Beautiful Mistakes (feat. Megan Thee Stallion)",
-        "plays": 428,
+        "plays": 430,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -37548,6 +37850,13 @@
                 "place": 37,
                 "plays": 4,
                 "points": 80
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 2,
+                "points": 36
             }
         ]
     },
@@ -37698,7 +38007,7 @@
             "Megan Thee Stallion"
         ],
         "official_name": "Girls In the Hood",
-        "plays": 43,
+        "plays": 44,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -38094,7 +38403,7 @@
             "Megan Thee Stallion"
         ],
         "official_name": "Thot Shit",
-        "plays": 100,
+        "plays": 102,
         "entries": [
             {
                 "start": "2021-07-22",
@@ -38341,7 +38650,7 @@
             "Dua Lipa"
         ],
         "official_name": "Prisoner (feat. Dua Lipa)",
-        "plays": 127,
+        "plays": 130,
         "entries": [
             {
                 "start": "2021-08-05",
@@ -38454,6 +38763,13 @@
                 "place": 54,
                 "plays": 5,
                 "points": 70
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 22,
+                "plays": 5,
+                "points": 50
             }
         ]
     },
@@ -38510,7 +38826,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Nice to Meet Ya (feat. Nicki Minaj)",
-        "plays": 90,
+        "plays": 91,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -38836,7 +39152,7 @@
             "Michael Jackson"
         ],
         "official_name": "Human Nature",
-        "plays": 66,
+        "plays": 67,
         "entries": [
             {
                 "start": "2022-03-31",
@@ -39889,7 +40205,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Super Bass",
-        "plays": 66,
+        "plays": 67,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -39976,7 +40292,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Super Freaky Girl",
-        "plays": 52,
+        "plays": 53,
         "entries": [
             {
                 "start": "2022-08-11",
@@ -40051,7 +40367,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Roman Holiday",
-        "plays": 58,
+        "plays": 59,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -40310,7 +40626,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Yikes",
-        "plays": 232,
+        "plays": 235,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -40535,6 +40851,13 @@
                 "place": 49,
                 "plays": 5,
                 "points": 56
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 7,
+                "plays": 9,
+                "points": 92
             }
         ]
     },
@@ -40574,7 +40897,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Regret In Your Tears",
-        "plays": 154,
+        "plays": 155,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -40701,6 +41024,13 @@
                 "place": 29,
                 "plays": 6,
                 "points": 92
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 41,
+                "plays": 2,
+                "points": 40
             }
         ]
     },
@@ -40795,7 +41125,7 @@
             "Ariana Grande"
         ],
         "official_name": "Get On Your Knees",
-        "plays": 247,
+        "plays": 248,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -41017,7 +41347,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Starships",
-        "plays": 171,
+        "plays": 172,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -41943,7 +42273,7 @@
             "2 Chainz"
         ],
         "official_name": "Beez In The Trap",
-        "plays": 69,
+        "plays": 70,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -42598,6 +42928,13 @@
                 "place": 20,
                 "plays": 6,
                 "points": 92
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 47,
+                "plays": 2,
+                "points": 38
             }
         ]
     },
@@ -42769,7 +43106,7 @@
             "Swae Lee"
         ],
         "official_name": "Chun Swae (feat. Swae Lee)",
-        "plays": 27,
+        "plays": 28,
         "entries": []
     },
     "533169": {
@@ -43265,7 +43602,7 @@
             "Michael Jackson"
         ],
         "official_name": "Bad - 2012 Remaster",
-        "plays": 29,
+        "plays": 30,
         "entries": [
             {
                 "start": "2021-12-16",
@@ -43338,7 +43675,7 @@
             "Tyga"
         ],
         "official_name": "Do It Again",
-        "plays": 88,
+        "plays": 89,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -44128,7 +44465,7 @@
             "Ty Dolla $ign"
         ],
         "official_name": "Psycho (feat. Ty Dolla $ign)",
-        "plays": 114,
+        "plays": 115,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -44273,7 +44610,7 @@
             "Rihanna"
         ],
         "official_name": "Skin",
-        "plays": 83,
+        "plays": 85,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -45025,6 +45362,13 @@
                 "place": 29,
                 "plays": 8,
                 "points": 80
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 17,
+                "plays": 4,
+                "points": 58
             }
         ]
     },
@@ -45303,7 +45647,7 @@
             "Sam Smith"
         ],
         "official_name": "Breaking Hearts",
-        "plays": 68,
+        "plays": 69,
         "entries": [
             {
                 "start": "2021-11-04",
@@ -45432,7 +45776,7 @@
             "Sam Smith"
         ],
         "official_name": "Like I Can",
-        "plays": 29,
+        "plays": 33,
         "entries": [
             {
                 "start": "2022-11-10",
@@ -45447,6 +45791,13 @@
                 "place": 56,
                 "plays": 4,
                 "points": 56
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 2,
+                "points": 44
             }
         ]
     },
@@ -45534,7 +45885,7 @@
             "Sam Smith"
         ],
         "official_name": "Fire On Fire",
-        "plays": 73,
+        "plays": 75,
         "entries": [
             {
                 "start": "2022-06-02",
@@ -45649,7 +46000,7 @@
             "Sam Smith"
         ],
         "official_name": "For The Lover That I Lost",
-        "plays": 12,
+        "plays": 13,
         "entries": [
             {
                 "start": "2022-08-18",
@@ -45857,7 +46208,7 @@
             "Rihanna"
         ],
         "official_name": "Can't Remember to Forget You (feat. Rihanna)",
-        "plays": 33,
+        "plays": 35,
         "entries": []
     },
     "10048955": {
@@ -46772,7 +47123,7 @@
             "Dua Lipa"
         ],
         "official_name": "No Lie",
-        "plays": 120,
+        "plays": 121,
         "entries": [
             {
                 "start": "2022-03-03",
@@ -47905,7 +48256,7 @@
             "Ariana Grande"
         ],
         "official_name": "Save Your Tears (with Ariana Grande) (Remix)",
-        "plays": 50,
+        "plays": 51,
         "entries": [
             {
                 "start": "2021-07-22",
@@ -48146,7 +48497,7 @@
             "Dua Lipa"
         ],
         "official_name": "My Love (feat. Major Lazer, WizKid, Dua Lipa)",
-        "plays": 15,
+        "plays": 19,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -48154,6 +48505,13 @@
                 "place": 53,
                 "plays": 3,
                 "points": 30
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 6,
+                "plays": 11,
+                "points": 110
             }
         ]
     },
@@ -48511,7 +48869,7 @@
             "Billie Eilish"
         ],
         "official_name": "Billie Bossa Nova",
-        "plays": 36,
+        "plays": 38,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -48693,7 +49051,7 @@
             "Billie Eilish"
         ],
         "official_name": "Halley's Comet",
-        "plays": 46,
+        "plays": 50,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -48734,7 +49092,7 @@
             "Doja Cat"
         ],
         "official_name": "Freaky Deaky",
-        "plays": 289,
+        "plays": 291,
         "entries": [
             {
                 "start": "2022-02-24",
@@ -48991,7 +49349,7 @@
             "Billie Eilish"
         ],
         "official_name": "GOLDWING",
-        "plays": 23,
+        "plays": 24,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -49017,7 +49375,7 @@
             "Billie Eilish"
         ],
         "official_name": "my future",
-        "plays": 41,
+        "plays": 44,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -49108,7 +49466,7 @@
             "Nicki Minaj"
         ],
         "official_name": "BIG BANK (feat. 2 Chainz, Big Sean, Nicki Minaj)",
-        "plays": 96,
+        "plays": 97,
         "entries": [
             {
                 "start": "2022-01-20",
@@ -49226,7 +49584,7 @@
             "Billie Eilish"
         ],
         "official_name": "Male Fantasy",
-        "plays": 34,
+        "plays": 36,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -49394,7 +49752,7 @@
             "Alessia Cara"
         ],
         "official_name": "Stay",
-        "plays": 297,
+        "plays": 302,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -49591,6 +49949,13 @@
                 "place": 4,
                 "plays": 11,
                 "points": 216
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 10,
+                "plays": 2,
+                "points": 80
             }
         ]
     },
@@ -49665,7 +50030,7 @@
             "Billie Eilish"
         ],
         "official_name": "Six Feet Under",
-        "plays": 30,
+        "plays": 32,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -49776,7 +50141,7 @@
             "Charlie Puth"
         ],
         "official_name": "Marks On My Neck",
-        "plays": 69,
+        "plays": 71,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -49957,7 +50322,7 @@
             "Charlie Puth"
         ],
         "official_name": "Smells Like Me",
-        "plays": 12,
+        "plays": 13,
         "entries": []
     },
     "49448651": {
@@ -49991,7 +50356,7 @@
             "Charlie Puth"
         ],
         "official_name": "Tears On My Piano",
-        "plays": 139,
+        "plays": 142,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -50041,6 +50406,13 @@
                 "place": 5,
                 "plays": 12,
                 "points": 196
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 10,
+                "plays": 4,
+                "points": 80
             }
         ]
     },
@@ -50096,7 +50468,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Dip (feat. Nicki Minaj)",
-        "plays": 105,
+        "plays": 108,
         "entries": [
             {
                 "start": "2022-02-24",
@@ -50173,7 +50545,7 @@
             "Taylor Swift"
         ],
         "official_name": "Wildest Dreams",
-        "plays": 126,
+        "plays": 128,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -50438,7 +50810,7 @@
             "Ariana Grande"
         ],
         "official_name": "They Don't Know",
-        "plays": 29,
+        "plays": 30,
         "entries": [
             {
                 "start": "2022-10-27",
@@ -50472,7 +50844,7 @@
             "Drake"
         ],
         "official_name": "LOYAL (feat. Drake)",
-        "plays": 77,
+        "plays": 80,
         "entries": [
             {
                 "start": "2022-11-03",
@@ -50494,6 +50866,13 @@
                 "place": 3,
                 "plays": 15,
                 "points": 272
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 21,
+                "plays": 1,
+                "points": 52
             }
         ]
     },
@@ -50505,7 +50884,7 @@
             "PARTYNEXTDOOR"
         ],
         "official_name": "EYE ON IT",
-        "plays": 34,
+        "plays": 36,
         "entries": [
             {
                 "start": "2022-11-03",
@@ -50527,6 +50906,13 @@
                 "place": 43,
                 "plays": 2,
                 "points": 74
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 17,
+                "plays": 5,
+                "points": 58
             }
         ]
     },
@@ -50538,7 +50924,7 @@
             "Charli XCX"
         ],
         "official_name": "Constant Repeat",
-        "plays": 19,
+        "plays": 20,
         "entries": [
             {
                 "start": "2022-11-03",
@@ -50557,7 +50943,7 @@
             "Kiiara"
         ],
         "official_name": "Gold",
-        "plays": 23,
+        "plays": 24,
         "entries": [
             {
                 "start": "2022-11-03",
@@ -50679,7 +51065,7 @@
             "PARTYNEXTDOOR"
         ],
         "official_name": "TRAUMA",
-        "plays": 3,
+        "plays": 4,
         "entries": []
     },
     "4091498": {
@@ -50760,7 +51146,7 @@
             "ScHoolboy Q"
         ],
         "official_name": "2 On (feat. ScHoolboy Q)",
-        "plays": 4,
+        "plays": 5,
         "entries": []
     },
     "3055346": {
@@ -50816,7 +51202,7 @@
             "Tinashe"
         ],
         "official_name": "All Hands On Deck",
-        "plays": 5,
+        "plays": 8,
         "entries": []
     },
     "3502707": {
@@ -50895,7 +51281,7 @@
             "Tinashe"
         ],
         "official_name": "Wildfire",
-        "plays": 15,
+        "plays": 18,
         "entries": [
             {
                 "start": "2022-11-17",
@@ -50903,6 +51289,13 @@
                 "place": 9,
                 "plays": 13,
                 "points": 130
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 1,
+                "points": 36
             }
         ]
     },
@@ -50983,7 +51376,7 @@
             "M\u00d8"
         ],
         "official_name": "Porsche (feat. M\u00d8)",
-        "plays": 29,
+        "plays": 34,
         "entries": [
             {
                 "start": "2022-11-17",
@@ -50991,6 +51384,13 @@
                 "place": 11,
                 "plays": 12,
                 "points": 120
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 3,
+                "plays": 17,
+                "points": 194
             }
         ]
     },
@@ -51012,6 +51412,13 @@
                 "place": 15,
                 "plays": 11,
                 "points": 110
+            },
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 13,
+                "plays": 5,
+                "points": 72
             }
         ]
     },
@@ -51059,7 +51466,15 @@
         ],
         "official_name": "I Got It (feat. Brooke Candy, CupcakKe and Pabllo Vittar)",
         "plays": 7,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 51,
+                "plays": 3,
+                "points": 36
+            }
+        ]
     },
     "2063780": {
         "name": "Tears",
@@ -51081,8 +51496,16 @@
             "Charli XCX"
         ],
         "official_name": "Track 10",
-        "plays": 6,
-        "entries": []
+        "plays": 7,
+        "entries": [
+            {
+                "start": "2022-11-24",
+                "end": "2022-12-01",
+                "place": 32,
+                "plays": 4,
+                "points": 44
+            }
+        ]
     },
     "2063755": {
         "name": "Backseat",
@@ -51093,7 +51516,7 @@
             "Carly Rae Jepsen"
         ],
         "official_name": "Backseat (feat. Carly Rae Jepsen)",
-        "plays": 6,
+        "plays": 7,
         "entries": []
     },
     "2063774": {
@@ -51136,7 +51559,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Touchin, Lovin (feat. Nicki Minaj)",
-        "plays": 11,
+        "plays": 12,
         "entries": [
             {
                 "start": "2022-10-20",
@@ -51165,6 +51588,516 @@
                 "points": 54
             }
         ]
+    },
+    "2772948": {
+        "name": "Beam Me Up Scotty",
+        "id": "2772948",
+        "alt_ids": [],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Beam Me Up Scotty",
+        "plays": 1,
+        "entries": []
+    },
+    "31618373": {
+        "name": "Crash",
+        "id": "31618373",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Crash",
+        "plays": 3,
+        "entries": []
+    },
+    "533641": {
+        "name": "PLAYING WITH FIRE",
+        "id": "533641",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "PLAYING WITH FIRE",
+        "plays": 2,
+        "entries": []
+    },
+    "533138": {
+        "name": "DDU-DU DDU-DU",
+        "id": "533138",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "DDU-DU DDU-DU",
+        "plays": 10,
+        "entries": []
+    },
+    "533141": {
+        "name": "REALLY",
+        "id": "533141",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "Really",
+        "plays": 1,
+        "entries": []
+    },
+    "533734": {
+        "name": "WHISTLE (BP)",
+        "id": "533734",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "WHISTLE",
+        "plays": 1,
+        "entries": []
+    },
+    "533620": {
+        "name": "STAY (BP)",
+        "id": "533620",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "STAY",
+        "plays": 0,
+        "entries": []
+    },
+    "533140": {
+        "name": "FOREVER YOUNG",
+        "id": "533140",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "Forever Young",
+        "plays": 1,
+        "entries": []
+    },
+    "11219180": {
+        "name": "AS IF IT'S YOUR LAST",
+        "id": "11219180",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "AS IF IT\u2019S YOUR LAST",
+        "plays": 0,
+        "entries": []
+    },
+    "588043": {
+        "name": "3am",
+        "id": "588043",
+        "alt_ids": [],
+        "artists": [
+            "Halsey"
+        ],
+        "official_name": "3am",
+        "plays": 6,
+        "entries": []
+    },
+    "533142": {
+        "name": "SEE U LATER",
+        "id": "533142",
+        "alt_ids": [],
+        "artists": [
+            "BLACKPINK"
+        ],
+        "official_name": "See U Later",
+        "plays": 1,
+        "entries": []
+    },
+    "41480": {
+        "name": "Latch",
+        "id": "41480",
+        "alt_ids": [],
+        "artists": [
+            "Disclosure",
+            "Sam Smith"
+        ],
+        "official_name": "Latch",
+        "plays": 11,
+        "entries": []
+    },
+    "17709834": {
+        "name": "New Shapes",
+        "id": "17709834",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX",
+            "Christine and the Queens",
+            "Caroline Polachek"
+        ],
+        "official_name": "New Shapes (feat. Christine and the Queens and Caroline Polachek)",
+        "plays": 3,
+        "entries": []
+    },
+    "31618377": {
+        "name": "Move Me",
+        "id": "31618377",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Move Me",
+        "plays": 3,
+        "entries": []
+    },
+    "30103560": {
+        "name": "Baby (Charli)",
+        "id": "30103560",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Baby",
+        "plays": 3,
+        "entries": []
+    },
+    "31618379": {
+        "name": "Lightning",
+        "id": "31618379",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Lightning",
+        "plays": 3,
+        "entries": []
+    },
+    "31618375": {
+        "name": "Twice",
+        "id": "31618375",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Twice",
+        "plays": 3,
+        "entries": []
+    },
+    "31440009": {
+        "name": "Every Rule",
+        "id": "31440009",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Every Rule",
+        "plays": 3,
+        "entries": []
+    },
+    "31618376": {
+        "name": "Yuck",
+        "id": "31618376",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Yuck",
+        "plays": 3,
+        "entries": []
+    },
+    "32537383": {
+        "name": "Selfish Girl",
+        "id": "32537383",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Selfish Girl",
+        "plays": 1,
+        "entries": []
+    },
+    "32537385": {
+        "name": "Sorry if I Hurt You",
+        "id": "32537385",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Sorry if I Hurt You",
+        "plays": 1,
+        "entries": []
+    },
+    "32537384": {
+        "name": "How Can I Not Know What I Need Right Now",
+        "id": "32537384",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "How Can I Not Know What I Need Right Now",
+        "plays": 1,
+        "entries": []
+    },
+    "839621": {
+        "name": "Aquarius",
+        "id": "839621",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe"
+        ],
+        "official_name": "Aquarius",
+        "plays": 1,
+        "entries": []
+    },
+    "3055345": {
+        "name": "How Many Times",
+        "id": "3055345",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe",
+            "Future"
+        ],
+        "official_name": "How Many Times (feat. Future)",
+        "plays": 1,
+        "entries": []
+    },
+    "3055343": {
+        "name": "Bet",
+        "id": "3055343",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe",
+            "Devont\u00e9 Hynes"
+        ],
+        "official_name": "Bet (feat. Devont\u00e9 Hynes)",
+        "plays": 1,
+        "entries": []
+    },
+    "3055327": {
+        "name": "Cold Sweat",
+        "id": "3055327",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe"
+        ],
+        "official_name": "Cold Sweat",
+        "plays": 1,
+        "entries": []
+    },
+    "900210": {
+        "name": "Drugs & The Internet",
+        "id": "900210",
+        "alt_ids": [],
+        "artists": [
+            "Lauv"
+        ],
+        "official_name": "Drugs & The Internet",
+        "plays": 2,
+        "entries": []
+    },
+    "3055336": {
+        "name": "Thug Cry",
+        "id": "3055336",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe"
+        ],
+        "official_name": "Thug Cry",
+        "plays": 1,
+        "entries": []
+    },
+    "3055325": {
+        "name": "Far Side Of The Moon",
+        "id": "3055325",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe"
+        ],
+        "official_name": "Far Side Of The Moon",
+        "plays": 1,
+        "entries": []
+    },
+    "900211": {
+        "name": "fuck, i'm lonely",
+        "id": "900211",
+        "alt_ids": [
+            "8624825"
+        ],
+        "artists": [
+            "Lauv",
+            "Anne-Marie"
+        ],
+        "official_name": "fuck, i'm lonely (with Anne-Marie)",
+        "plays": 6,
+        "entries": []
+    },
+    "3055337": {
+        "name": "Feels Like Vegas",
+        "id": "3055337",
+        "alt_ids": [],
+        "artists": [
+            "Tinashe"
+        ],
+        "official_name": "Feels Like Vegas",
+        "plays": 1,
+        "entries": []
+    },
+    "587050": {
+        "name": "Canada",
+        "id": "587050",
+        "alt_ids": [
+            "33723295"
+        ],
+        "artists": [
+            "Lauv",
+            "Alessia Cara"
+        ],
+        "official_name": "Canada (feat. Alessia Cara)",
+        "plays": 2,
+        "entries": []
+    },
+    "900190": {
+        "name": "Sims",
+        "id": "900190",
+        "alt_ids": [],
+        "artists": [
+            "Lauv"
+        ],
+        "official_name": "Sims",
+        "plays": 1,
+        "entries": []
+    },
+    "113756": {
+        "name": "Money on My Mind",
+        "id": "113756",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Money on My Mind",
+        "plays": 0,
+        "entries": []
+    },
+    "1034988": {
+        "name": "Lay Me Down",
+        "id": "1034988",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Lay Me Down",
+        "plays": 1,
+        "entries": []
+    },
+    "1034964": {
+        "name": "Leave Your Lover",
+        "id": "1034964",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Leave Your Lover",
+        "plays": 1,
+        "entries": []
+    },
+    "1034987": {
+        "name": "Not In That Way",
+        "id": "1034987",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Not In That Way",
+        "plays": 2,
+        "entries": []
+    },
+    "1034966": {
+        "name": "I've Told You Now",
+        "id": "1034966",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "I've Told You Now",
+        "plays": 2,
+        "entries": []
+    },
+    "4201716": {
+        "name": "Bitches N Marijuana",
+        "id": "4201716",
+        "alt_ids": [],
+        "artists": [
+            "Chris Brown",
+            "Tyga",
+            "ScHoolboy Q"
+        ],
+        "official_name": "Bitches N Marijuana (feat. ScHoolboy Q)",
+        "plays": 1,
+        "entries": []
+    },
+    "32537386": {
+        "name": "What You Think About Me",
+        "id": "32537386",
+        "alt_ids": [],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "What You Think About Me",
+        "plays": 1,
+        "entries": []
+    },
+    "1034967": {
+        "name": "Life Support",
+        "id": "1034967",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Life Support",
+        "plays": 2,
+        "entries": []
+    },
+    "4201670": {
+        "name": "Ayo",
+        "id": "4201670",
+        "alt_ids": [],
+        "artists": [
+            "Chris Brown",
+            "Tyga"
+        ],
+        "official_name": "Ayo",
+        "plays": 14,
+        "entries": []
+    },
+    "35753034": {
+        "name": "Love Me More",
+        "id": "35753034",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Love Me More",
+        "plays": 12,
+        "entries": []
+    },
+    "10104753": {
+        "name": "SAME HANDS",
+        "id": "10104753",
+        "alt_ids": [],
+        "artists": [
+            "BIA",
+            "Lil Durk"
+        ],
+        "official_name": "SAME HANDS (feat. Lil Durk)",
+        "plays": 9,
+        "entries": []
+    },
+    "1034963": {
+        "name": "Good Thing",
+        "id": "1034963",
+        "alt_ids": [],
+        "artists": [
+            "Sam Smith"
+        ],
+        "official_name": "Good Thing",
+        "plays": 1,
+        "entries": []
     },
     "13410915": {
         "merge": "2442045"
@@ -51216,5 +52149,11 @@
     },
     "706709": {
         "merge": "274240"
+    },
+    "8624825": {
+        "merge": "900211"
+    },
+    "33723295": {
+        "merge": "587050"
     }
 }

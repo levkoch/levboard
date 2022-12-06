@@ -2,10 +2,10 @@ from copy import deepcopy
 import functools
 import itertools
 
-from datetime import date, timedelta, datetime
+from datetime import date, datetime
 from concurrent import futures
 from operator import itemgetter
-from typing import Optional, Iterator
+from typing import Optional
 from collections import Counter, defaultdict
 from config import FIRST_DATE
 
@@ -365,9 +365,11 @@ if __name__ == '__main__':
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
     """
 
+    '''
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         # top_albums_weeks(uow, top)
+    '''
 
     for top in SONG_TOP:
         # top_album_hits(uow, top)

@@ -36,7 +36,7 @@ def load_songs(uow: SongUOW, verbose: bool = False):
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
 
-    request = sheet.get_range('Song Info!A2:B2000')
+    request = sheet.get_range('Song Info!A2:B')
     songs: list[list] = [i for i in request.get('values') if i[0]]
 
     if verbose:
@@ -67,7 +67,7 @@ def load_albums(uow: SongUOW, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
-    request = sheet.get_range('Albums!A1:G2000')
+    request = sheet.get_range('Albums!A1:G')
     info: list[list] = request.get('values')
 
     print(f'{len(info)} rows found.')

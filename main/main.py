@@ -263,7 +263,7 @@ def update_song_sheet(
         new_rows.append(
             [
                 "'" + movement,
-                "'" + song.name if song.name.isnumeric() else song.name,
+                "'" + song.name if song.name[0].isnumeric() else song.name,
                 ', '.join(song.artists),
                 pos['place'],
                 prev.place if prev is not None else '-',
@@ -359,7 +359,7 @@ def create_album_chart(
         new_rows.append(
             [
                 "'" + movement,
-                "'" + album.title if album.title.isnumeric() else album.title,
+                "'" + album.title if album.title[0].isnumeric() else album.title,
                 album.str_artists,
                 position,
                 prev.place if prev else '-',
