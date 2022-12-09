@@ -359,7 +359,9 @@ def create_album_chart(
         new_rows.append(
             [
                 "'" + movement,
-                "'" + album.title if album.title[0].isnumeric() else album.title,
+                "'" + album.title
+                if album.title[0].isnumeric()
+                else album.title,
                 album.str_artists,
                 position,
                 prev.place if prev else '-',

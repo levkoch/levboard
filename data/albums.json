@@ -930,7 +930,74 @@
             "941386",
             "498136"
         ],
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-01-13",
+                "end": "2022-01-20",
+                "place": 10,
+                "units": 96
+            },
+            {
+                "start": "2022-01-27",
+                "end": "2022-02-03",
+                "place": 20,
+                "units": 48
+            },
+            {
+                "start": "2022-02-03",
+                "end": "2022-02-10",
+                "place": 18,
+                "units": 48
+            },
+            {
+                "start": "2022-02-10",
+                "end": "2022-02-17",
+                "place": 20,
+                "units": 39
+            },
+            {
+                "start": "2022-03-10",
+                "end": "2022-03-17",
+                "place": 19,
+                "units": 42
+            },
+            {
+                "start": "2022-03-17",
+                "end": "2022-03-24",
+                "place": 17,
+                "units": 54
+            },
+            {
+                "start": "2022-03-24",
+                "end": "2022-03-31",
+                "place": 16,
+                "units": 45
+            },
+            {
+                "start": "2022-06-23",
+                "end": "2022-06-30",
+                "place": 11,
+                "units": 72
+            },
+            {
+                "start": "2022-06-30",
+                "end": "2022-07-07",
+                "place": 18,
+                "units": 53
+            },
+            {
+                "start": "2022-07-07",
+                "end": "2022-07-14",
+                "place": 11,
+                "units": 64
+            },
+            {
+                "start": "2022-07-14",
+                "end": "2022-07-21",
+                "place": 17,
+                "units": 54
+            }
+        ]
     },
     "Funk Wav Bounces Vol 1": {
         "title": "Funk Wav Bounces Vol 1",
@@ -1331,6 +1398,7 @@
         "title": "Legendary",
         "artists": "Tyga",
         "songs": [
+            "2380245",
             "5748569"
         ],
         "entries": []
@@ -2691,6 +2759,24 @@
         "artists": "Disclosure",
         "songs": [
             "41480"
+        ],
+        "entries": []
+    },
+    "7 (David)": {
+        "title": "7 (David)",
+        "artists": "David Guetta",
+        "songs": [
+            "606863",
+            "11767278"
+        ],
+        "entries": []
+    },
+    "F*CK LOVE": {
+        "title": "F*CK LOVE",
+        "artists": "The Kid LAROI",
+        "songs": [
+            "941386",
+            "498136"
         ],
         "entries": []
     }

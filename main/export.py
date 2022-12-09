@@ -12,7 +12,9 @@ song_ids: list[list] = [i[1] for i in request.get('values') if i[0]]
 
 print(len(song_ids), 'items found')
 
-all_ids: list[str] = (','.join(itertools.chain.from_iterable(song_ids))).split(',')
+all_ids: list[str] = (','.join(itertools.chain.from_iterable(song_ids))).split(
+    ','
+)
 
 missing_songs = [['Name', 'Ids', 'Artists']]
 
