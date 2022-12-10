@@ -1,11 +1,10 @@
 import itertools
-
 from concurrent import futures
 
-from spreadsheet import Spreadsheet
-from model import Song, Album
-from storage import SongUOW
 from config import LEVBOARD_SHEET
+from model import Album, Song
+from spreadsheet import Spreadsheet
+from storage import SongUOW
 
 
 def _create_new_song(ids: list[str], name: str) -> Song:

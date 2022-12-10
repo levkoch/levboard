@@ -5,14 +5,14 @@ Where the Album model is held.
 """
 
 from concurrent import futures
+from copy import deepcopy
 from datetime import date
 from operator import methodcaller
-from typing import Iterable, Iterator, Union, Optional
-from copy import deepcopy
+from typing import Iterable, Iterator, Optional, Union
 
-from .song import Song
 from .cert import AlbumCert, SongCert
 from .entry import AlbumEntry
+from .song import Song
 
 
 class Album:

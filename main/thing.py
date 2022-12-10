@@ -1,7 +1,8 @@
 from datetime import date
+
 from config import LEVBOARD_SHEET
-from storage import SongUOW
 from spreadsheet import Spreadsheet
+from storage import SongUOW
 
 sheet = Spreadsheet(LEVBOARD_SHEET)
 r = "'Year-End'!B106:B135"

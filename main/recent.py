@@ -6,16 +6,15 @@ along with all time plays changes.
 """
 
 import functools
-
-from datetime import date, timedelta
 from concurrent import futures
+from datetime import date, timedelta
 from operator import attrgetter, itemgetter, methodcaller
 from typing import Iterator
 
-from model import SongCert
-from storage import SongUOW, Song
-from stats import time_to_plays, time_to_units, PLAYS_MILESTONES, CERTS
 from config import FIRST_DATE
+from model import SongCert
+from stats import CERTS, PLAYS_MILESTONES, time_to_plays, time_to_units
+from storage import Song, SongUOW
 
 TODAY = date.today()
 LAST_WK = TODAY - timedelta(days=7)

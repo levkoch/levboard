@@ -1,4 +1,15 @@
 {
+    "~how i'm feeling~": {
+        "title": "~how i'm feeling~",
+        "artists": "Lauv",
+        "songs": [
+            "900210",
+            "900211",
+            "900190",
+            "587050"
+        ],
+        "entries": []
+    },
     "13 Reasons Why": {
         "title": "13 Reasons Why",
         "artists": "Various Artists",
@@ -165,6 +176,15 @@
             "1126608",
             "1126610",
             "607787"
+        ],
+        "entries": []
+    },
+    "7 (David)": {
+        "title": "7 (David)",
+        "artists": "David Guetta",
+        "songs": [
+            "606863",
+            "11767278"
         ],
         "entries": []
     },
@@ -446,6 +466,22 @@
         "songs": [
             "3527427",
             "3527425"
+        ],
+        "entries": []
+    },
+    "BLACKPINK IN YOUR AREA": {
+        "title": "BLACKPINK IN YOUR AREA",
+        "artists": "BLACKPINK",
+        "songs": [
+            "533735",
+            "533734",
+            "533641",
+            "533620",
+            "11219180",
+            "533138",
+            "533140",
+            "533141",
+            "533142"
         ],
         "entries": []
     },
@@ -870,12 +906,30 @@
         ],
         "entries": []
     },
+    "F*CK LOVE": {
+        "title": "F*CK LOVE",
+        "artists": "The Kid LAROI",
+        "songs": [
+            "941386",
+            "498136"
+        ],
+        "entries": []
+    },
     "Faith": {
         "title": "Faith",
         "artists": "George Michael",
         "songs": [
             "865186",
             "1531574"
+        ],
+        "entries": []
+    },
+    "Fan of A Fan": {
+        "title": "Fan of A Fan",
+        "artists": "Chris Brown, Tyga",
+        "songs": [
+            "4201670",
+            "4201716"
         ],
         "entries": []
     },
@@ -922,82 +976,6 @@
             "3647693"
         ],
         "entries": []
-    },
-    "FUCK LOVE 3": {
-        "title": "FUCK LOVE 3",
-        "artists": "The Kid LAROI",
-        "songs": [
-            "941386",
-            "498136"
-        ],
-        "entries": [
-            {
-                "start": "2022-01-13",
-                "end": "2022-01-20",
-                "place": 10,
-                "units": 96
-            },
-            {
-                "start": "2022-01-27",
-                "end": "2022-02-03",
-                "place": 20,
-                "units": 48
-            },
-            {
-                "start": "2022-02-03",
-                "end": "2022-02-10",
-                "place": 18,
-                "units": 48
-            },
-            {
-                "start": "2022-02-10",
-                "end": "2022-02-17",
-                "place": 20,
-                "units": 39
-            },
-            {
-                "start": "2022-03-10",
-                "end": "2022-03-17",
-                "place": 19,
-                "units": 42
-            },
-            {
-                "start": "2022-03-17",
-                "end": "2022-03-24",
-                "place": 17,
-                "units": 54
-            },
-            {
-                "start": "2022-03-24",
-                "end": "2022-03-31",
-                "place": 16,
-                "units": 45
-            },
-            {
-                "start": "2022-06-23",
-                "end": "2022-06-30",
-                "place": 11,
-                "units": 72
-            },
-            {
-                "start": "2022-06-30",
-                "end": "2022-07-07",
-                "place": 18,
-                "units": 53
-            },
-            {
-                "start": "2022-07-07",
-                "end": "2022-07-14",
-                "place": 11,
-                "units": 64
-            },
-            {
-                "start": "2022-07-14",
-                "end": "2022-07-21",
-                "place": 17,
-                "units": 54
-            }
-        ]
     },
     "Funk Wav Bounces Vol 1": {
         "title": "Funk Wav Bounces Vol 1",
@@ -1067,6 +1045,15 @@
         "songs": [
             "300468",
             "300458"
+        ],
+        "entries": []
+    },
+    "GLORIA": {
+        "title": "GLORIA",
+        "artists": "Sam Smith",
+        "songs": [
+            "35753034",
+            "51580767"
         ],
         "entries": []
     },
@@ -2005,6 +1992,14 @@
         ],
         "entries": []
     },
+    "Settle": {
+        "title": "Settle",
+        "artists": "Disclosure",
+        "songs": [
+            "41480"
+        ],
+        "entries": []
+    },
     "Sex Playlist": {
         "title": "Sex Playlist",
         "artists": "Omarion",
@@ -2065,6 +2060,36 @@
             "3114898",
             "6737533",
             "6300281"
+        ],
+        "entries": []
+    },
+    "SOS": {
+        "title": "SOS",
+        "artists": "SZA",
+        "songs": [
+            "58406017",
+            "58406018",
+            "58406019",
+            "58406020",
+            "58406021",
+            "58406022",
+            "58406023",
+            "58406024",
+            "58406025",
+            "58406027",
+            "58406026",
+            "58406028",
+            "58406029",
+            "58406030",
+            "58406032",
+            "58406031",
+            "58406033",
+            "58406034",
+            "54320471",
+            "58406035",
+            "22696027",
+            "5462882",
+            "58406036"
         ],
         "entries": []
     },
@@ -2706,77 +2731,6 @@
             "1006142",
             "1006143",
             "1005945"
-        ],
-        "entries": []
-    },
-    "~how i'm feeling~": {
-        "title": "~how i'm feeling~",
-        "artists": "Lauv",
-        "songs": [
-            "900210",
-            "900211",
-            "900190",
-            "587050"
-        ],
-        "entries": []
-    },
-    "BLACKPINK IN YOUR AREA": {
-        "title": "BLACKPINK IN YOUR AREA",
-        "artists": "BLACKPINK",
-        "songs": [
-            "533735",
-            "533734",
-            "533641",
-            "533620",
-            "11219180",
-            "533138",
-            "533140",
-            "533141",
-            "533142"
-        ],
-        "entries": []
-    },
-    "Fan of A Fan": {
-        "title": "Fan of A Fan",
-        "artists": "Chris Brown, Tyga",
-        "songs": [
-            "4201670",
-            "4201716"
-        ],
-        "entries": []
-    },
-    "GLORIA": {
-        "title": "GLORIA",
-        "artists": "Sam Smith",
-        "songs": [
-            "35753034",
-            "51580767"
-        ],
-        "entries": []
-    },
-    "Settle": {
-        "title": "Settle",
-        "artists": "Disclosure",
-        "songs": [
-            "41480"
-        ],
-        "entries": []
-    },
-    "7 (David)": {
-        "title": "7 (David)",
-        "artists": "David Guetta",
-        "songs": [
-            "606863",
-            "11767278"
-        ],
-        "entries": []
-    },
-    "F*CK LOVE": {
-        "title": "F*CK LOVE",
-        "artists": "The Kid LAROI",
-        "songs": [
-            "941386",
-            "498136"
         ],
         "entries": []
     }

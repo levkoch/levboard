@@ -1,17 +1,15 @@
-from copy import deepcopy
 import functools
 import itertools
-
-from datetime import date, datetime
+from collections import Counter, defaultdict
 from concurrent import futures
+from copy import deepcopy
+from datetime import date, datetime
 from operator import itemgetter
 from typing import Optional
-from collections import Counter, defaultdict
+
 from config import FIRST_DATE
-
+from model import Album, Song, SongCert, spotistats
 from storage import SongUOW
-from model import SongCert, Song, spotistats, Album
-
 
 uow = SongUOW()
 MAX_ADJUSTED = 25

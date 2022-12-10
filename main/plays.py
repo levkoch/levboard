@@ -14,9 +14,9 @@ Functions:
 import itertools
 from concurrent import futures
 
-from spreadsheet import Spreadsheet
-from model import Song
 from config import LEVBOARD_SHEET
+from model import Song
+from spreadsheet import Spreadsheet
 from storage import SongUOW
 
 

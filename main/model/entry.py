@@ -11,9 +11,10 @@ Other Classes:
 * _BaseEntry: The base class for both entry types. Do NOT construct.
 """
 
-from typing import Union
 from datetime import date
-from pydantic import BaseModel, PositiveInt, conint, validator, NonNegativeInt
+from typing import Union
+
+from pydantic import BaseModel, NonNegativeInt, PositiveInt, conint, validator
 
 
 class _BaseEntry(BaseModel):

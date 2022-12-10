@@ -10,7 +10,6 @@ Constats:
 """
 
 import pathlib
-
 from datetime import date
 from typing import Final
 

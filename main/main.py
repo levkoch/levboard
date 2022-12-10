@@ -1,22 +1,30 @@
-from datetime import date, timedelta, datetime
-from operator import itemgetter
-from pydantic import BaseModel
-from concurrent import futures
-from typing import Iterator, Optional, Union
-from itertools import count
+"""
+levboard/main/main.py
+"""
 
-from storage import SongUOW
-from spreadsheet import Spreadsheet
-from model import spotistats, Song, Album, Entry, AlbumEntry
+from concurrent import futures
+from datetime import date, datetime, timedelta
+from itertools import count
+from operator import itemgetter
+from typing import Iterator, Optional, Union
+
 from config import FIRST_DATE, LEVBOARD_SHEET
+from model import Album, AlbumEntry, Entry, Song, spotistats
+from pydantic import BaseModel
+from spreadsheet import Spreadsheet
+from storage import SongUOW
 
 
 class Week(BaseModel):
     """
-    A dataclass for a loaded week of songs.
+    A dataclass for a loaded week of songs. Supports comparison & 
+    sorting (by week count.)
 
     Attributes:
-    * start_day (`date`): The date when
+    * start_day (`date`): The date when the week started.
+    * end_day (`date`): The date when the week ended.
+    * songs: (`list[spotistats.Position]`): The `spotistats.Positions` 
+    of all the songs that charted that week.
     """
 
     start_day: date

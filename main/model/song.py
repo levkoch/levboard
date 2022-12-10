@@ -4,16 +4,18 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
+import itertools
 from collections import Counter
 from copy import deepcopy
-import itertools
-from typing import Iterable, Iterator, Optional
 from datetime import date
+from operator import attrgetter
+from typing import Iterable, Iterator, Optional
+
 from pydantic import ValidationError
 
+from . import spotistats
 from .cert import SongCert
 from .entry import Entry
-from . import spotistats
 
 MAX_ADJUSTED = 25
 
@@ -69,7 +71,7 @@ class Song:
         self.name: str = song_name
         self.alt_ids: list[str] = []
         self._plays: int = 0
-        self._entries: list[Entry] = []
+        self._entries: dict[date, Entry] = {}
         self.__listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
@@ -219,7 +221,7 @@ class Song:
         song has charted.
         """
 
-        return deepcopy(self._entries)
+        return sorted(self._entries.values(), key=attrgetter('end'))
 
     @property
     def cert(self) -> SongCert:
@@ -293,18 +295,11 @@ class Song:
             entry (`Entry`): The entry to add to the song.
         """
 
-        if entry.end in [i.end for i in self._entries]:
-            if entry.plays > next(
-                (i.plays for i in self._entries if i.end == entry.end)
-            ):
-                self._entries = [
-                    i for i in self._entries if i.end != entry.end
-                ]
-                self._entries.append(entry)
+        if entry.end in self._entries:
+            if entry.plays > self.get_entry(entry.end).plays:
+                self._entries[entry.end] = entry
         else:
-            self._entries.append(entry)
-
-        self._entries.sort(key=lambda i: i.end)  # from earliest to latest
+            self._entries[entry.end] = entry
 
     def get_entry(self, end_date: date) -> Optional[Entry]:
         """
@@ -318,7 +313,7 @@ class Song:
             or `None` otherwise.
         """
 
-        return next((i for i in self._entries if i.end == end_date), None)
+        return self._entries.get(end_date)
 
     def update_plays(self, adjusted=True) -> None:
         """
@@ -428,7 +423,7 @@ class Song:
             'artists': self.artists,
             'official_name': self.official_name,
             'plays': self._plays,
-            'entries': [i.to_dict() for i in self._entries],
+            'entries': [i.to_dict() for i in self.entries],
         }
 
     @classmethod
@@ -455,8 +450,9 @@ class Song:
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
             new._plays = int(info['plays'])
-            new._entries = [Entry(**i) for i in info['entries']]
-            new._entries.sort(key=lambda i: i.end)  # from earliest to latest
+            new._entries = {
+                date.fromisoformat(i['end']): Entry(**i) for i in info['entries']
+            }
 
         except (KeyError, AttributeError, ValidationError) as exc:
             raise ValueError(

@@ -1,16 +1,15 @@
 import csv
 import functools
 import itertools
-
-from typing import Iterator, Union
-from datetime import date, timedelta, datetime
 from concurrent import futures
+from datetime import date, datetime, timedelta
 from operator import attrgetter
+from typing import Iterator, Union
 
-from model import Album, Song
 from config import FIRST_DATE, LEVBOARD_SHEET
-from storage import SongUOW
+from model import Album, Song
 from spreadsheet import Spreadsheet
+from storage import SongUOW
 
 
 def get_all_weeks() -> Iterator[date]:
@@ -102,9 +101,11 @@ def get_song_points(week: date, song: Song) -> tuple[date, int]:
     return week, song.period_points(FIRST_DATE, week)
 
 
-
 def get_song_sellings(
-    song: Song, weeks: list[date], started: itertools.count, completed: itertools.count
+    song: Song,
+    weeks: list[date],
+    started: itertools.count,
+    completed: itertools.count,
 ) -> dict[str, Union[str, int]]:
 
     print(f'-> [{next(started):03d}] collecting info for {song}')
@@ -120,9 +121,7 @@ def get_song_sellings(
     for date, units in data:
         info[date.isoformat()] = units
 
-    print(
-        f'!! [{next(completed):03d}] finished collecting info for {song}'
-    )
+    print(f'!! [{next(completed):03d}] finished collecting info for {song}')
     return info
 
 
@@ -139,11 +138,15 @@ def flourish_songs():
     started_counter = itertools.count(start=1)
     completed_counter = itertools.count(start=1)
 
-
-
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
         data = executor.map(
-            functools.partial(get_song_sellings, weeks=weeks, started = started_counter, completed = completed_counter), songs
+            functools.partial(
+                get_song_sellings,
+                weeks=weeks,
+                started=started_counter,
+                completed=completed_counter,
+            ),
+            songs,
         )
 
     sheet_rows = [['Title', 'Artist'] + str_weeks]
@@ -164,7 +167,6 @@ def flourish_songs():
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
-
 
 
 if __name__ == '__main__':

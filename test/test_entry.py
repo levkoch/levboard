@@ -1,6 +1,6 @@
-import pytest
-
 from datetime import date
+
+import pytest
 
 from ..main.model import Entry
 

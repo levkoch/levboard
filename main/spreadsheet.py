@@ -1,6 +1,7 @@
 from typing import Any
-from googleapiclient import discovery
+
 from google.oauth2 import service_account
+from googleapiclient import discovery
 
 SERVICE_ACCOUNT_FILE: str = (
     # r'C:\Users\vasil\Documents\GitHub\levboard\data\google_token.json' # on desktop

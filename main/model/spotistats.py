@@ -12,15 +12,15 @@ Requests:
 """
 
 import functools
-import requests
 import time
-import tenacity
-
-from datetime import date, datetime
-from typing import Iterable, Optional, Union, Final
-from pydantic import NonNegativeInt, BaseModel
 from collections import Counter
 from concurrent import futures
+from datetime import date, datetime
+from typing import Final, Iterable, Optional, Union
+
+import requests
+import tenacity
+from pydantic import BaseModel, NonNegativeInt
 
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1

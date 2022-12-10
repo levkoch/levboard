@@ -1,8 +1,8 @@
 import itertools
-from spreadsheet import Spreadsheet
 
-from storage import SongUOW
 from config import LEVBOARD_SHEET
+from spreadsheet import Spreadsheet
+from storage import SongUOW
 
 uow = SongUOW()
 sheet = Spreadsheet(LEVBOARD_SHEET)

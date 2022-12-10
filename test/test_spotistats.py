@@ -1,7 +1,6 @@
-from typing import Iterable
-import pytest
-
 from datetime import date
+
+import pytest
 
 from ..main.model import spotistats
 
