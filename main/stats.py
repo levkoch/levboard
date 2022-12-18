@@ -336,19 +336,16 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    """
     for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-    """
 
     """
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)"""
 
-    """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    """
+
     # top_listeners_chart(uow)
 
     # top_shortest_time_units_milestones(uow, 2000)
@@ -369,10 +366,11 @@ if __name__ == '__main__':
         # top_albums_weeks(uow, top)
     """
 
+    """
     for top in SONG_TOP:
-        # top_album_hits(uow, top)
+        top_album_hits(uow, top)
         top_song_consecutive_weeks(uow, top)
-
+    """
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)

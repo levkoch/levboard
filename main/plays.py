@@ -72,7 +72,7 @@ def update_spreadsheet_plays(verbose=False):
             plays: int
             song, plays = future.result()
 
-            song_ids = itertools.chain([song.id], song.alt_ids)
+            song_ids = itertools.chain((song.id,), song.alt_ids)
             final_songs.append(
                 [
                     "'" + song.name if song.name[0].isnumeric() else song.name,

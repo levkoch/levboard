@@ -17,13 +17,13 @@ from storage import SongUOW
 
 class Week(BaseModel):
     """
-    A dataclass for a loaded week of songs. Supports comparison & 
+    A dataclass for a loaded week of songs. Supports comparison &
     sorting (by week count.)
 
     Attributes:
     * start_day (`date`): The date when the week started.
     * end_day (`date`): The date when the week ended.
-    * songs: (`list[spotistats.Position]`): The `spotistats.Positions` 
+    * songs: (`list[spotistats.Position]`): The `spotistats.Positions`
     of all the songs that charted that week.
     """
 

@@ -451,7 +451,8 @@ class Song:
             new.official_name = str(info['official_name'])
             new._plays = int(info['plays'])
             new._entries = {
-                date.fromisoformat(i['end']): Entry(**i) for i in info['entries']
+                date.fromisoformat(i['end']): Entry(**i)
+                for i in info['entries']
             }
 
         except (KeyError, AttributeError, ValidationError) as exc:

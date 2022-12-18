@@ -1,3 +1,8 @@
+'''
+levboard/test/test_cert.py
+Checking that our certification objects work correctly.
+'''
+
 import pytest
 
 from ..main.model import AlbumCert, CertType, SongCert
@@ -11,7 +16,7 @@ from ..main.model.cert import AbstractCert
     [
         (600, 100, False),
         (100, 100, False),
-        (110, 100, False),  # true because both are Gold
+        (110, 100, False),  # false because both are Gold
         (100, 600, True),
         (0, 200, True),
         (600, 1200, True),
@@ -33,7 +38,9 @@ def test_cert_comparison(cert1: int, cert2: int, expected: bool):
     [(100, 100, True), (150, 100, True), (700, 600, True), (0, 200, False)],
 )
 def test_cert_equality(cert1: int, cert2: int, expected: bool):
-    assert expected == (SongCert(cert1) == SongCert(cert2))
+    assert expected == (
+        SongCert.from_units(cert1) == SongCert.from_units(cert2)
+    )
 
 
 @pytest.mark.parametrize(
@@ -47,7 +54,7 @@ def test_cert_equality(cert1: int, cert2: int, expected: bool):
     ],
 )
 def test_songcert_creation(units: int, cert: CertType, mult: int):
-    tester = SongCert(units)
+    tester = SongCert.from_units(units)
     assert (tester._cert, tester._mult) == (cert, mult)
 
 
@@ -55,7 +62,7 @@ def test_songcert_creation(units: int, cert: CertType, mult: int):
     ('cert_type', 'mult', 'cert'),
     [(SongCert, 3, CertType.PLATINUM), (SongCert, 12, CertType.DIAMOND)],
 )
-def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
+def test_make_from_parts(cert_type: type[AbstractCert], mult: int, cert: CertType):
     tester = cert_type(mult, cert)
     assert (tester.mult, tester.cert) == (mult, cert)
 
@@ -71,7 +78,7 @@ def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
     ],
 )
 def test_albumcert_creation(units: int, cert: CertType, mult: int):
-    tester = AlbumCert(units)
+    tester = AlbumCert.from_units(units)
     assert (tester._cert, tester._mult) == (cert, mult)
 
 
@@ -88,8 +95,8 @@ def test_albumcert_creation(units: int, cert: CertType, mult: int):
         (5000, AlbumCert, 'AlbumCert(5, CertType.PLATINUM)'),
     ],
 )
-def test_cert_repr(units: int, cert_type: type, text: str):
-    tester = cert_type(units)
+def test_cert_from_units_str(units: int, cert_type: type[AbstractCert], text: str):
+    tester = cert_type.from_units(units)
     assert text == repr(tester)
 
 
@@ -110,36 +117,36 @@ def test_cert_repr(units: int, cert_type: type, text: str):
         (18000, AlbumCert, '18x⬥'),
     ],
 )
-def test_cert_str(units: int, cert_type: type, text: str):
-    tester = cert_type(units)
+def test_cert_str(units: int, cert_type: type[AbstractCert], text: str):
+    tester = cert_type.from_units(units)
     assert text == str(tester)
 
 
 @pytest.mark.parametrize(
     ('cert', 'flag', 'text'),
     [
-        (SongCert(0), '', '-'),
-        (SongCert(0), 's', '-'),
-        (SongCert(0), 'f', 'Un-Certified'),
-        (SongCert(100), '', '●'),
-        (SongCert(100), 's', '●'),
-        (SongCert(100), 'f', 'Gold'),
-        (SongCert(200), '', '▲'),
-        (SongCert(200), 's', '▲'),
-        (SongCert(200), 'f', 'Platinum'),
-        (SongCert(600), '', '3x▲'),
-        (SongCert(600), 's', '3x▲'),
-        (SongCert(600), 'f', '3 times Platinum'),
-        (SongCert(2000), '', '10x⬥'),
-        (SongCert(2000), 's', '10x⬥'),
-        (SongCert(2000), 'S', '⬥'),
-        (SongCert(2000), 'f', '10 times Diamond'),
-        (SongCert(2000), 'F', 'Diamond'),
-        (SongCert(2600), '', '13x⬥'),
-        (SongCert(2600), 's', '13x⬥'),
-        (SongCert(2600), 'S', '⬥ 3x▲'),
-        (SongCert(2600), 'f', '13 times Diamond'),
-        (SongCert(2600), 'F', 'Diamond and 3 times Platinum'),
+        (SongCert(0, CertType.NONE), '', '-'),
+        (SongCert(0, CertType.NONE), 's', '-'),
+        (SongCert(0, CertType.NONE), 'f', 'Un-Certified'),
+        (SongCert(0, CertType.GOLD), '', '●'),
+        (SongCert(0, CertType.GOLD), 's', '●'),
+        (SongCert(0, CertType.GOLD), 'f', 'Gold'),
+        (SongCert.from_units(200), '', '▲'),
+        (SongCert.from_units(200), 's', '▲'),
+        (SongCert.from_units(200), 'f', 'Platinum'),
+        (SongCert.from_units(600), '', '3x▲'),
+        (SongCert.from_units(600), 's', '3x▲'),
+        (SongCert.from_units(600), 'f', '3 times Platinum'),
+        (SongCert.from_units(2000), '', '10x⬥'),
+        (SongCert.from_units(2000), 's', '10x⬥'),
+        (SongCert.from_units(2000), 'S', '⬥'),
+        (SongCert.from_units(2000), 'f', '10 times Diamond'),
+        (SongCert.from_units(2000), 'F', 'Diamond'),
+        (SongCert.from_units(2600), '', '13x⬥'),
+        (SongCert.from_units(2600), 's', '13x⬥'),
+        (SongCert.from_units(2600), 'S', '⬥ 3x▲'),
+        (SongCert.from_units(2600), 'f', '13 times Diamond'),
+        (SongCert.from_units(2600), 'F', 'Diamond and 3 times Platinum'),
     ],
 )
 def test_cert_format(cert, flag: str, text: str):
@@ -149,9 +156,9 @@ def test_cert_format(cert, flag: str, text: str):
 @pytest.mark.parametrize(
     ('cert', 'flag', 'text'),
     [
-        (SongCert(100), '>2', ' ●'),
-        (SongCert(100), '<2', '● '),
-        (SongCert(100), '^3', ' ● '),
+        (SongCert(0, CertType.GOLD), '>2', ' ●'),
+        (SongCert(0, CertType.GOLD), '<2', '● '),
+        (SongCert(0, CertType.GOLD), '^3', ' ● '),
     ],
 )
 def test_cert_align(cert, flag: str, text: str):
@@ -161,17 +168,17 @@ def test_cert_align(cert, flag: str, text: str):
 @pytest.mark.parametrize(
     ('cert', 'flag', 'text'),
     [
-        (SongCert(100), '>2s', ' ●'),
-        (SongCert(100), '<2s', '● '),
-        (SongCert(100), '^3s', ' ● '),
-        (SongCert(100), '<6f', 'Gold  '),
-        (SongCert(100), '>6f', '  Gold'),
-        (SongCert(100), '^6f', ' Gold '),
-        (SongCert(2200), '^5S', ' ⬥ ▲ '),
-        (SongCert(2400), '>7S', '  ⬥ 2x▲'),
+        (SongCert(0, CertType.GOLD), '>2s', ' ●'),
+        (SongCert(0, CertType.GOLD), '<2s', '● '),
+        (SongCert(0, CertType.GOLD), '^3s', ' ● '),
+        (SongCert(0, CertType.GOLD), '<6f', 'Gold  '),
+        (SongCert(0, CertType.GOLD), '>6f', '  Gold'),
+        (SongCert(0, CertType.GOLD), '^6f', ' Gold '),
+        (SongCert(11, CertType.DIAMOND), '^5S', ' ⬥ ▲ '),
+        (SongCert(12, CertType.DIAMOND), '>7S', '  ⬥ 2x▲'),
     ],
 )
-def test_cert_align_with_flags(cert, flag: str, text: str):
+def test_cert_align_with_flags(cert: SongCert, flag: str, text: str):
     assert format(cert, flag) == text
 
 
@@ -187,7 +194,22 @@ def test_cant_make_basecert():
         (SongCert),
     ],
 )
-def test_make_default_cert(cert_type: type):
+def test_make_default_cert(cert_type: type[AbstractCert]):
     default = cert_type()
 
     assert (default.cert, default.mult) == (CertType.NONE, 0)
+
+@pytest.mark.parametrize(
+    ('cert_type'),
+    [
+        (AlbumCert),
+        (SongCert),
+    ],
+)
+def test_cert_is_hashable(cert_type: type[AbstractCert]):
+    certs = {
+        cert_type(0, CertType.GOLD),
+        cert_type(2, CertType.PLATINUM),
+        cert_type(2, CertType.PLATINUM),
+    }
+    assert len(certs) == 2 # two of the same
