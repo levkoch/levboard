@@ -17,7 +17,8 @@ Abstract Classes:
 import operator
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Callable, Any
+from typing import Any, Callable
+
 from pydantic import NonNegativeInt
 
 
@@ -91,7 +92,7 @@ class AbstractCert(ABC):
 
     @classmethod
     @abstractmethod
-    def from_units(cls, units: NonNegativeInt) -> None:
+    def from_units(cls, units: NonNegativeInt) -> 'AbstractCert':
         """
         Abstract Method - Loads the multiplier and cert type of the cert
         based on the units.
@@ -114,7 +115,7 @@ class AbstractCert(ABC):
 
         elif len(items) == 1:
             if items[0].isnumeric():
-                mult, cert_letter = items[0], 'N'
+                mult, cert_letter = int(items[0]), 'N'
             else:
                 mult, cert_letter = 0, items[0]
 

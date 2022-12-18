@@ -11,12 +11,12 @@ Requests:
 * `song_play_history`: The history of the song's plays.
 """
 
-from pydantic import NonNegativeInt
-import requests
 import time
-
 from datetime import date, datetime
-from typing import Literal, Union, Final
+from typing import Final, Literal, Union
+
+import requests
+from pydantic import NonNegativeInt
 
 from . import config
 

@@ -1,6 +1,5 @@
 import json
-
-from typing import Iterator, Optional, Generator
+from typing import Iterator, Optional
 
 from .model import Song, config
 
@@ -29,16 +28,15 @@ class SongRepository:
     __slots__ = ['seen', '_songs', '_file']
 
     def __init__(self, *, song_file: str = config.SONG_FILE):
-        self._songs: dict[str, Song] = []
+        self._songs: dict[str, Song] = {}
         self._file = song_file
         self._load()
-        self.seen: set[Song] = set()
 
     def _load(self) -> None:
         with open(self._file, 'r') as f:
             songs: dict[str, dict] = json.load(f)
 
-        self._songs = {}
+        self._songs.clear()
         merged = {}
 
         for song_id, song_dict in songs.items():
@@ -58,10 +56,8 @@ class SongRepository:
         """
         Retrieves a `Song` by song id, or `None` if none with the specified id are found.
         """
-        song = self._songs.get(song_id)
-        if song:
-            self.seen.add(song)
-        return song
+
+        return self._songs.get(song_id)
 
     def get_by_name(self, song_name: str) -> Optional[Song]:
         """
@@ -70,13 +66,18 @@ class SongRepository:
         of the song name from the query, and returns `None` if nothing
         fitting was found in either case.
         """
-        try:
-            match = next(
+
+        # match entire complete song name (not case sensitive)
+        match = next(
+            (
                 i
                 for i in self._songs.values()
                 if i.name.lower() == song_name.lower()
-            )
-        except StopIteration:
+            ),
+            None,
+        )
+        # try matching from beginning
+        if match is None:
             return next(
                 (
                     i
@@ -85,8 +86,7 @@ class SongRepository:
                 ),
                 None,
             )
-        else:
-            return match
+        return match
 
     def __iter__(self) -> Iterator[Song]:
         return iter(self._songs.values())
@@ -94,7 +94,6 @@ class SongRepository:
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
         self._songs[song.id] = song
-        self.seen.add(song)
         for alt_id in song.alt_ids:
             self._songs[alt_id] = song
 
@@ -141,11 +140,3 @@ class SongUOW:
 
         with open(self.songs._file, 'w') as f:
             json.dump(songs, f, indent=4)
-
-    def collect_new_events(self) -> Generator:
-        """Makes events avaliable for later usage"""
-
-        for song in self.songs.seen:
-            while song.events:
-                yield song.events.pop(0)
-        self.songs.seen.clear()

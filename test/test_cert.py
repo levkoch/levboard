@@ -1,7 +1,8 @@
 import pytest
 
-from ..main.model import CertType, SongCert, AlbumCert
+from ..main.model import AlbumCert, CertType, SongCert
 from ..main.model.cert import AbstractCert
+
 
 # comparison mechanism is in `BaseCert` so we only need
 # to check one subtype and not both.

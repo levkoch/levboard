@@ -15,7 +15,7 @@ Enums:
 * CertType: The different certification statuses a song/album could have.
 """
 
-from .cert import SongCert, CertType
+from .cert import CertType, SongCert
 from .entry import Entry
 from .song import Song
 

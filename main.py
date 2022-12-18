@@ -1,16 +1,23 @@
-import csv
-from operator import itemgetter
-import sys
-import itertools
+"""
+levboard/main.py
 
-from typing import Optional
+The central file to run your charts creation program with.
+Invoke with just `python main.py` or specify your username
+with `python main.py lev` to set a new username (cached so
+you don't have to do this every time.)
+"""
+
+import csv
+import itertools
+import sys
+
 from concurrent import futures
 from datetime import date, datetime, timedelta
+from operator import itemgetter
+from typing import Optional
 
-from main.model import Song, Entry, spotistats, config
+from main.model import Entry, Song, config, spotistats
 from main.storage import SongUOW
-
-LAZY_NAME = True   # on this branch
 
 
 def load_week(start_day: date, end_day: date):
@@ -26,7 +33,7 @@ def load_week(start_day: date, end_day: date):
     for i in songs:
         i['place'] = len([j for j in songs if j['plays'] > i['plays']]) + 1
 
-    return sorted(songs, key=itemgetter("plays"), reverse=True)
+    return sorted(songs, key=itemgetter('plays'), reverse=True)
 
 
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
@@ -189,8 +196,8 @@ def update_song_sheet(
                 song.name,
                 ', '.join(song.artists),
                 pos['place'],
-                prev.place if prev else '-',
-                song.weeks,
+                str(prev.place) if prev else '-',
+                str(song.weeks),
                 pos['plays'],
                 peak,
             ]

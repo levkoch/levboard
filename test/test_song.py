@@ -1,6 +1,8 @@
 import json
+
 import pytest
-from main.model import Song, Album
+
+from main.model import Album, Song
 from main.storage import SongUOW
 
 TEST_UOW_PATH = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/test.json'

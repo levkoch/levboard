@@ -9,11 +9,10 @@ Constats:
 * SETTINGS_FILE: The file to read configuration json from.
 """
 
-import pathlib
 import json
-
+import pathlib
 from datetime import date
-from typing import Any, Final
+from typing import Any, Final, Union
 
 ## files ##
 
@@ -92,10 +91,10 @@ def update_settings(**kwargs: dict[str, Any]) -> None:
     All settings default to the ones that are already in config.
     """
 
-    username = kwargs.pop('username', get_username())
-    min_plays = kwargs.pop('min_plays', get_min_plays())
-    start_date = kwargs.pop('start_date', get_start_date())
-    lazy_name = kwargs.pop('lazy_name', get_lazy_name())
+    username: Union[Any, str] = kwargs.pop('username', get_username())
+    min_plays: Union[Any, int] = kwargs.pop('min_plays', get_min_plays())
+    start_date: Union[Any, date] = kwargs.pop('start_date', get_start_date())
+    lazy_name: Union[Any, bool] = kwargs.pop('lazy_name', get_lazy_name())
 
     settings = {
         'username': str(username),

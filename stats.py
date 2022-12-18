@@ -1,13 +1,11 @@
 import functools
 import itertools
-
-from datetime import timedelta, datetime
 from concurrent import futures
-from typing import Optional, Iterator
+from datetime import datetime, timedelta
+from typing import Iterator, Optional
 
+from main.model import Song, SongCert, spotistats
 from main.storage import SongUOW
-from main.model import SongCert, Song, spotistats
-
 
 uow = SongUOW()
 
@@ -55,6 +53,7 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
         print(f'{place:<2} | {song:<60} | {time.days} days')
     print('')
 
+
 def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     units: list[tuple[Song, int]] = [
         (song, song.get_conweeks(top)) for song in uow.songs
@@ -70,6 +69,7 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
         print(
             f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {weeks:>2} wks"
         )
+
 
 def display_all_songs(uow: SongUOW):
     all_songs = [song for song in uow.songs if song.units]

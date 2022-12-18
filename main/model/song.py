@@ -5,13 +5,14 @@ Contains the central Song model.
 """
 
 from copy import deepcopy
-from typing import Iterable, Optional
 from datetime import date
+from typing import Iterable, Optional
+
 from pydantic import ValidationError
 
+from . import spotistats
 from .cert import SongCert
 from .entry import Entry
-from . import spotistats
 
 
 class Song:
@@ -69,7 +70,7 @@ class Song:
 
         # configured by _load_info()
         # declared here for cpython reasons
-        self.artists = []
+        self.artists: list[str] = []
         self.official_name: str = ''
 
         if load:
@@ -132,6 +133,12 @@ class Song:
                 if artist not in self.official_name
             ]
             return f'{self.official_name} by {self._combine_artists(artists)}'
+
+        raise ValueError(
+            'Incompatible string formatting. Only "o" and "s" are valid '
+            'indicators, along with any string formatting present BEFORE '
+            'them (aka "5<o")'
+        )
 
     def _combine_artists(self, iter: Iterable[str]) -> str:
         artists = list(iter)
