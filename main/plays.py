@@ -130,8 +130,8 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
 
 
 if __name__ == '__main__':
-    update_spreadsheet_plays(verbose=True)
-
-    print('')
     uow = SongUOW()
     update_local_plays(uow, verbose=True)
+
+    print('')
+    update_spreadsheet_plays(verbose=True)

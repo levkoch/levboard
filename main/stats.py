@@ -274,7 +274,7 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
     print(
         f'Bestselling albums between {start.isoformat()} and {end.isoformat()}.'
     )
-    for album, data in units:
+    for album, data in units[:1]:
         place = len([i for i in units if i[1] > data]) + 1
         print(f'{place:>3} | {str(album):<50} | {data:<2} units')
     print('')
@@ -336,15 +336,19 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
+    """
     for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
 
     """
+    """
     for milestone in MILESTONES[::-1]:
-        top_albums_play_count(uow, milestone)"""
-
+        top_albums_play_count(uow, milestone)
+    """
+    """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
+    """
 
     # top_listeners_chart(uow)
 
@@ -368,7 +372,7 @@ if __name__ == '__main__':
 
     """
     for top in SONG_TOP:
-        top_album_hits(uow, top)
+        # top_album_hits(uow, top)
         top_song_consecutive_weeks(uow, top)
     """
     """
@@ -376,7 +380,7 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     """
 
-    """
+    
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -391,7 +395,7 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    """
+    
     """
     display_all_songs(uow)
     """
