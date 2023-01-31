@@ -21,7 +21,7 @@ def test_creating_entry_types(start, end, plays, place, points):
         (entry.end, date),
         (entry.plays, int),
         (entry.place, int),
-        (entry.points, int)
+        (entry.points, int),
     ]
 
     for items in type_tuples:
@@ -44,7 +44,7 @@ def test_creating_entry_values(start, end, plays, place, points):
         (entry.end, date(2000, 1, 7)),
         (entry.plays, 20),
         (entry.place, 13),
-        (entry.points, 80)
+        (entry.points, 80),
     ]
 
     for item, value in type_tuples:
@@ -54,8 +54,20 @@ def test_creating_entry_values(start, end, plays, place, points):
 @pytest.mark.parametrize(
     ('info'),
     [
-        {'start': '2000-01-01', 'end': '2000-01-07', 'plays': 30, 'place': 13, 'points': 80},
-        {'start': '2013-04-12', 'end': '2013-04-19', 'plays': 34, 'place': 5, 'points': 72},
+        {
+            'start': '2000-01-01',
+            'end': '2000-01-07',
+            'plays': 30,
+            'place': 13,
+            'points': 80,
+        },
+        {
+            'start': '2013-04-12',
+            'end': '2013-04-19',
+            'plays': 34,
+            'place': 5,
+            'points': 72,
+        },
     ],
 )
 def test_creating_dict(info: dict):

@@ -76,7 +76,7 @@ class Song:
 
         # configured by _load_info()
         # declared here for cpython reasons
-        self.artists = []
+        self.artists: list[str] = []
         self.official_name: str = ''
 
         if load:

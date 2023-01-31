@@ -1,7 +1,7 @@
-'''
+"""
 levboard/test/test_cert.py
 Checking that our certification objects work correctly.
-'''
+"""
 
 import pytest
 
@@ -62,7 +62,9 @@ def test_songcert_creation(units: int, cert: CertType, mult: int):
     ('cert_type', 'mult', 'cert'),
     [(SongCert, 3, CertType.PLATINUM), (SongCert, 12, CertType.DIAMOND)],
 )
-def test_make_from_parts(cert_type: type[AbstractCert], mult: int, cert: CertType):
+def test_make_from_parts(
+    cert_type: type[AbstractCert], mult: int, cert: CertType
+):
     tester = cert_type(mult, cert)
     assert (tester.mult, tester.cert) == (mult, cert)
 
@@ -95,7 +97,9 @@ def test_albumcert_creation(units: int, cert: CertType, mult: int):
         (5000, AlbumCert, 'AlbumCert(5, CertType.PLATINUM)'),
     ],
 )
-def test_cert_from_units_str(units: int, cert_type: type[AbstractCert], text: str):
+def test_cert_from_units_str(
+    units: int, cert_type: type[AbstractCert], text: str
+):
     tester = cert_type.from_units(units)
     assert text == repr(tester)
 
@@ -199,6 +203,7 @@ def test_make_default_cert(cert_type: type[AbstractCert]):
 
     assert (default.cert, default.mult) == (CertType.NONE, 0)
 
+
 @pytest.mark.parametrize(
     ('cert_type'),
     [
@@ -212,4 +217,4 @@ def test_cert_is_hashable(cert_type: type[AbstractCert]):
         cert_type(2, CertType.PLATINUM),
         cert_type(2, CertType.PLATINUM),
     }
-    assert len(certs) == 2 # two of the same
+    assert len(certs) == 2   # two of the same

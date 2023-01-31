@@ -14,7 +14,6 @@ class SongRepository:
     repository will read data to and from.
 
     Attributes:
-    * seen (`set[Song]`): All of the songs used by the repository already.
     * _songs (`dict[str, Song]`): The songs stored in the repository, mapping from
         song id to the song object.
     * _file (`str`): The file path to the song file.
@@ -26,13 +25,12 @@ class SongRepository:
     * list (`list[str]` method): Returns all of the song ids stored.
     """
 
-    __slots__ = ['seen', '_songs', '_file']
+    __slots__ = ['_songs', '_file']
 
     def __init__(self, *, song_file: str = SONG_FILE):
         self._songs: dict[str, Song] = []
         self._file = song_file
         self._load()
-        self.seen: set[Song] = set()
 
     def _load(self) -> None:
         with open(self._file, 'r') as f:
@@ -59,8 +57,6 @@ class SongRepository:
         Retrieves a `Song` by song id, or `None` if none with the specified id are found.
         """
         song = self._songs.get(song_id)
-        if song:
-            self.seen.add(song)
         return song
 
     def get_by_name(self, song_name: str) -> Optional[Song]:
@@ -103,7 +99,6 @@ class SongRepository:
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
         self._songs[song.id] = song
-        self.seen.add(song)
         for alt_id in song.alt_ids:
             self._songs[alt_id] = song
 
@@ -113,13 +108,12 @@ class SongRepository:
 
 
 class AlbumRepository:
-    __slots__ = ['seen', '_albums', '_file']
+    __slots__ = ['_albums', '_file']
 
     def __init__(self, *, album_file: str = ALBUM_FILE):
         self._albums: dict[str, Album] = []
         self._file = album_file
         self._load()
-        self.seen: set[Album] = set()
 
     def _load(self) -> None:
         with open(self._file, 'r') as f:
@@ -138,14 +132,11 @@ class AlbumRepository:
         Retrieves a `Album` by name, or `None` if that name isn't found found.
         """
         album = self._albums.get(album_name)
-        if album:
-            self.seen.add(album)
         return album
 
     def add(self, album: Album) -> None:
         """Adds a `Album` into the repository."""
         self._albums[album._title] = album
-        self.seen.add(album)
 
     def list(self) -> list[str]:
         """Returns all of the album names stored."""
@@ -207,16 +198,3 @@ class SongUOW:
         albums = {k: v.to_dict() for k, v in self.albums._albums.items()}
         with open(self.albums._file, 'w') as f:
             json.dump(albums, f, indent=4)
-
-    def collect_new_events(self) -> Generator:
-        """Makes events avaliable for later usage"""
-
-        for song in self.songs.seen:
-            while song.events:
-                yield song.events.pop(0)
-        self.songs.seen.clear()
-
-        for album in self.albums.seen:
-            while album.events:
-                yield song.events.pop(0)
-        self.albums.seen.clear()

@@ -130,7 +130,5 @@ dmypy.json
 
 # other things
 info.txt
+info.csv
 .data/
-data/albums.json
-data/songs.json
-data/albums.json

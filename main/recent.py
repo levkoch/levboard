@@ -44,7 +44,7 @@ def get_new_plays(uow: SongUOW, plays: int):
     contenders = (
         song
         for song in uow.songs
-        if song.plays >= plays and song.plays <= (plays + 50)
+        if song.plays >= plays and song.plays <= (plays + 25)
     )
     with futures.ThreadPoolExecutor() as executor:
         info = executor.map(
