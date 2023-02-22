@@ -98,6 +98,9 @@ class Song:
         if self.name is None:
             self.name = self.official_name
 
+        if self.__listens is None:
+            self._populate_listens()
+
     def __hash__(self) -> int:
         return hash((self.name, self.id))
 
@@ -212,7 +215,7 @@ class Song:
         (`int`): The total number of units for the song across all time.
         """
 
-        return (2 * self._plays) + self.points
+        return (2 * self.plays) + self.points
 
     @property
     def entries(self) -> list[Entry]:
@@ -422,7 +425,7 @@ class Song:
             'alt_ids': self.alt_ids,
             'artists': self.artists,
             'official_name': self.official_name,
-            'plays': self._plays,
+            'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
         }
 

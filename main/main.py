@@ -71,10 +71,7 @@ def get_movement(current: date, last: date, song: Song) -> str:
     weeks = song.weeks
 
     if p_place is None:
-        if weeks == 1:
-            return 'NEW'
-        else:
-            return 'RE'
+        return 'NEW' if weeks == 1 else 'RE'
 
     movement = p_place.place - c_place.place
     if movement == 0:

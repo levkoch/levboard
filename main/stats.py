@@ -60,6 +60,11 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
 
 
 def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
+    with futures.ThreadPoolExecutor() as executor:
+        executor.map(
+            lambda i: i._populate_listens(), (song for song in uow.songs if song.weeks)
+        )
+
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
 
     with futures.ThreadPoolExecutor() as executor:
@@ -274,7 +279,7 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
     print(
         f'Bestselling albums between {start.isoformat()} and {end.isoformat()}.'
     )
-    for album, data in units[:1]:
+    for album, data in units:
         place = len([i for i in units if i[1] > data]) + 1
         print(f'{place:>3} | {str(album):<50} | {data:<2} units')
     print('')
@@ -316,13 +321,14 @@ def top_listeners_chart(uow: SongUOW):
 
 
 def display_all_songs(uow: SongUOW):
-    all_songs = [song for song in uow.songs if song.units]
+    all_songs = [song for song in uow.songs if song.units] # >= 1000]
+    list(map(lambda i: i._populate_listens(), all_songs))
     all_songs.sort(key=lambda i: i.units, reverse=True)
     for (count, song) in enumerate(all_songs):
         print(
             f'{count + 1:>4} | {song.name:<45} | {song.str_artists:<45} | peak: {song.peak:<2} '
             f'{(("(" + str(song.peakweeks) + ")") if (song.peak < 11 and song.peakweeks > 1) else " "):<4} '
-            f'| weeks: {song.weeks:<2} | plays: {song._plays:<3} | {song.cert}'
+            f'| weeks: {song.weeks:<2} | plays: {song.plays:<3} | {song.cert}'
         )
 
 
@@ -345,10 +351,10 @@ if __name__ == '__main__':
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
     """
-    """
+
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-    """
+   
 
     # top_listeners_chart(uow)
 
@@ -359,10 +365,10 @@ if __name__ == '__main__':
         top_albums_cert_count(uow, cert)
     """
 
-    """
-    top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
-    top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-    """
+    
+    # top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
+    # top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
+    
 
     """
     for top in ALBUM_TOP:
@@ -380,6 +386,7 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     """
 
+    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -394,7 +401,8 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
+    """
 
-    """
-    display_all_songs(uow)
-    """
+    # display_all_songs(uow)
+    
+   

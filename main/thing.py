@@ -11,7 +11,9 @@ uow = SongUOW()
 """
 for [song_name] in songs:
     song = uow.songs.get_by_name(song_name)
-    print(song, song.period_plays(date(2021, 1, 1), date(2022, 1, 1)))
+    print(song, song.period_plays(
+        date(2021, 1, 1), date(2022, 1, 1))
+    )
 """
 for album in uow.albums:
     if 'Charli XCX' in album.artists:
