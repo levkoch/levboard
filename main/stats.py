@@ -3,7 +3,7 @@ import itertools
 from collections import Counter, defaultdict
 from concurrent import futures
 from copy import deepcopy
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from operator import itemgetter
 from typing import Optional
 
@@ -35,7 +35,7 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     date_counter = Counter(i.finished_playing.date() for i in play_record)
 
     play_record.sort(key=lambda i: i.finished_playing)
-    first_play: datetime = play_record[0].finished_playing
+    first_play: date = play_record[0].finished_playing.date()
 
     # int() returns 0 which is what we want the slots to start at
     daily_units: dict[date, int] = defaultdict(int)
@@ -54,7 +54,7 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     for day, units in sorted(list(daily_units.items()), key=itemgetter(0)):
         running_units += units
         if running_units >= units_mark:
-            return (song, day, (day - first_play.date()).days)
+            return (song, day, (day - first_play).days)
 
     raise ValueError(f'{song} hasnt reached {units_mark} units yet')
 
@@ -98,6 +98,33 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
         place = len([unit for unit in time_units if unit[2] < time]) + 1
         print(f'{place:<2} | {song:<60} | {time} days ({day})')
     print('')
+
+
+def top_shortest_time_units_milestones_infograpic(uow: SongUOW, unit_milestone: int):
+    with futures.ThreadPoolExecutor() as executor:
+        executor.map(
+            lambda i: i._populate_listens(), (song for song in uow.songs if song.units >= (unit_milestone / 4))
+        )
+
+    contenders = (song for song in uow.songs if song.units >= unit_milestone)
+
+    with futures.ThreadPoolExecutor() as executor:
+        units = list(
+            executor.map(
+                functools.partial(time_to_units, units_mark=unit_milestone),
+                contenders,
+            )
+        )
+
+    units.sort(key=itemgetter(1))
+    BEGINNING: date = date(2021, 5, 1)
+    day_units = deepcopy(units)
+   
+    print(f'First songs to reach {unit_milestone} units:')
+    for (song, day, time) in day_units:
+        place = len([unit for unit in day_units if unit[1] < day]) + 1
+        start_day: date = day - timedelta(days = time)
+        print(f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to day {(day - BEGINNING).days} ({time} days)')
 
 
 def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
@@ -352,9 +379,13 @@ if __name__ == '__main__':
         top_albums_play_count(uow, milestone)
     """
 
+    top_shortest_time_units_milestones(uow, 2_000)
+    top_shortest_time_units_milestones(uow, 4_000)
+
+    """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)
-   
+    """
 
     # top_listeners_chart(uow)
 

@@ -410,6 +410,33 @@ class Song:
             current_entry = next_entry
 
         return longest
+    
+    def all_consecutive(self) -> list[tuple[date, int]]:
+        entries = self.entries
+
+        if len(entries) == 0:
+            return []
+
+        consecutive = []
+        current_entry = entries.pop(0)
+
+        while entries:
+            starting_entry = current_entry
+            streak = 1
+            next_entry = entries.pop(0)
+
+            while current_entry.end == next_entry.start:
+                streak += 1
+                current_entry = next_entry
+                try:
+                    next_entry = entries.pop(0)
+                except IndexError:
+                    break
+
+            consecutive.append((starting_entry.end, streak))
+            current_entry = next_entry
+
+        return consecutive
 
     def to_dict(self) -> dict:
         """
