@@ -1,5 +1,5 @@
 import json
-from typing import Generator, Iterator, Optional
+from typing import Iterator, Optional
 
 from config import ALBUM_FILE, SONG_FILE
 from model import Album, Song

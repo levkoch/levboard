@@ -5,7 +5,7 @@ from concurrent import futures
 from copy import deepcopy
 from datetime import date, datetime, timedelta
 from operator import itemgetter
-from typing import Optional
+from typing import Final, Iterable, Optional
 
 from config import FIRST_DATE
 from model import Album, Song, SongCert, spotistats
@@ -256,6 +256,32 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     print('')
 
 
+def top_song_consecutive_weeks_infographic(uow: SongUOW):
+    THRESHOLD: Final[int] = 16
+    contenders: Iterable[Song] = (
+        song for song in uow.songs if song.get_conweeks() >= THRESHOLD
+    )
+
+    units: list[tuple[Song, date, int]] = []
+    for contender in contenders:
+        units.extend((contender, start, weeks) for (start, weeks) in contender.all_consecutive() if weeks >= THRESHOLD)
+
+    print(f"{len(units)} songs found\n")
+
+    units.sort(key=lambda i: i[2], reverse = True)
+    
+    print(
+        "Songs with most consecutive weeks on chart"
+    )
+    for (song, start, weeks) in units:
+        place = len([unit for unit in units if unit[2] > weeks]) + 1
+        end = start + timedelta(days = weeks * 7)
+        print(
+            f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
+            f"| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 2}"
+        )
+    print('')
+
 def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
     units = [(album, album.get_charted(weeks)) for album in uow.albums]
     units.sort(key=lambda i: i[1], reverse=True)
@@ -379,9 +405,12 @@ if __name__ == '__main__':
         top_albums_play_count(uow, milestone)
     """
 
+    top_song_consecutive_weeks_infographic(uow)
+
+    """
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
-
+    """
     """
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone)

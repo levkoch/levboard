@@ -410,7 +410,7 @@ class Song:
             current_entry = next_entry
 
         return longest
-    
+
     def all_consecutive(self) -> list[tuple[date, int]]:
         entries = self.entries
 

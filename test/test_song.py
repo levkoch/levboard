@@ -25,6 +25,12 @@ def ntltc(uow: SongUOW) -> Song:
     return uow.songs.get(NO_TEARS_LEFT_TO_CRY)
 
 
+def test_con_weeks(ntltc: Song):
+    info = ntltc.all_consecutive()
+    largest = ntltc.get_conweeks()
+    assert max(i[1] for i in info) == largest
+
+
 def test_merge(uow: SongUOW):
     NO_BRAINER = '8191852'
     MERGE = '5207830'

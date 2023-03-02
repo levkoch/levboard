@@ -508,6 +508,13 @@
                 "place": 26,
                 "plays": 5,
                 "points": 64
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 31,
+                "plays": 5,
+                "points": 62
             }
         ]
     },
@@ -590,6 +597,13 @@
                 "place": 55,
                 "plays": 4,
                 "points": 52
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 20,
+                "plays": 7,
+                "points": 74
             }
         ]
     },
@@ -635,6 +649,13 @@
                 "place": 39,
                 "plays": 8,
                 "points": 96
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 6,
+                "points": 60
             }
         ]
     },
@@ -822,6 +843,13 @@
                 "place": 19,
                 "plays": 6,
                 "points": 78
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 46,
+                "plays": 3,
+                "points": 48
             }
         ]
     },
@@ -988,6 +1016,13 @@
                 "place": 24,
                 "plays": 4,
                 "points": 68
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 12,
+                "plays": 8,
+                "points": 102
             }
         ]
     },
@@ -1014,6 +1049,13 @@
                 "place": 16,
                 "plays": 12,
                 "points": 144
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1068,6 +1110,13 @@
                 "place": 33,
                 "plays": 8,
                 "points": 104
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1147,6 +1196,13 @@
                 "place": 21,
                 "plays": 10,
                 "points": 122
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 6,
+                "points": 60
             }
         ]
     },
@@ -1240,6 +1296,13 @@
                 "place": 59,
                 "plays": 4,
                 "points": 40
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 6,
+                "points": 60
             }
         ]
     },
@@ -1316,7 +1379,15 @@
         ],
         "official_name": "Love Is A Game",
         "plays": 39,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 4,
+                "points": 40
+            }
+        ]
     },
     "282937": {
         "name": "Lovesong",
@@ -1453,6 +1524,13 @@
                 "place": 30,
                 "plays": 5,
                 "points": 62
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 41,
+                "plays": 4,
+                "points": 52
             }
         ]
     },
@@ -1573,6 +1651,13 @@
                 "place": 39,
                 "plays": 8,
                 "points": 96
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1877,6 +1962,13 @@
                 "place": 14,
                 "plays": 7,
                 "points": 84
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 39,
+                "plays": 4,
+                "points": 56
             }
         ]
     },
@@ -2148,6 +2240,13 @@
                 "place": 11,
                 "plays": 7,
                 "points": 94
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 18,
+                "plays": 6,
+                "points": 82
             }
         ]
     },
@@ -2356,6 +2455,13 @@
                 "place": 30,
                 "plays": 5,
                 "points": 62
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 41,
+                "plays": 4,
+                "points": 52
             }
         ]
     },
@@ -2625,6 +2731,13 @@
                 "place": 17,
                 "plays": 6,
                 "points": 80
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 27,
+                "plays": 5,
+                "points": 68
             }
         ]
     },
@@ -2952,6 +3065,13 @@
                 "place": 40,
                 "plays": 4,
                 "points": 52
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 5,
+                "points": 60
             }
         ]
     },
@@ -3083,6 +3203,13 @@
                 "place": 45,
                 "plays": 3,
                 "points": 42
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 5,
+                "points": 60
             }
         ]
     },
@@ -3424,6 +3551,13 @@
                 "place": 58,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 2,
+                "plays": 13,
+                "points": 142
             }
         ]
     },
@@ -3667,6 +3801,13 @@
                 "place": 5,
                 "plays": 8,
                 "points": 104
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 4,
+                "plays": 11,
+                "points": 134
             }
         ]
     },
@@ -3929,6 +4070,13 @@
                 "place": 7,
                 "plays": 8,
                 "points": 98
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 7,
+                "plays": 9,
+                "points": 112
             }
         ]
     },
@@ -3994,6 +4142,13 @@
                 "place": 43,
                 "plays": 4,
                 "points": 46
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 44,
+                "plays": 5,
+                "points": 50
             }
         ]
     },
@@ -4195,6 +4350,13 @@
                 "place": 17,
                 "plays": 6,
                 "points": 80
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 28,
+                "plays": 5,
+                "points": 66
             }
         ]
     },
@@ -7102,6 +7264,13 @@
                 "place": 50,
                 "plays": 3,
                 "points": 50
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 57,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -8037,6 +8206,13 @@
                 "place": 31,
                 "plays": 0,
                 "points": 66
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 16,
+                "plays": 8,
+                "points": 90
             }
         ]
     },
@@ -10682,6 +10858,13 @@
                 "place": 35,
                 "plays": 5,
                 "points": 58
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 60,
+                "plays": 2,
+                "points": 34
             }
         ]
     },
@@ -11328,6 +11511,13 @@
                 "end": "2023-02-23",
                 "place": 8,
                 "plays": 8,
+                "points": 96
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 15,
+                "plays": 7,
                 "points": 96
             }
         ]
@@ -12077,6 +12267,13 @@
                 "place": 26,
                 "plays": 5,
                 "points": 64
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 60,
+                "plays": 1,
+                "points": 34
             }
         ]
     },
@@ -16453,6 +16650,13 @@
                 "place": 2,
                 "plays": 13,
                 "points": 142
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 10,
+                "plays": 7,
+                "points": 108
             }
         ]
     },
@@ -17290,6 +17494,13 @@
                 "place": 16,
                 "plays": 6,
                 "points": 76
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 47,
+                "plays": 3,
+                "points": 46
             }
         ]
     },
@@ -19074,6 +19285,13 @@
                 "place": 1,
                 "plays": 13,
                 "points": 146
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 7,
+                "plays": 7,
+                "points": 112
             }
         ]
     },
@@ -19613,6 +19831,13 @@
                 "place": 8,
                 "plays": 6,
                 "points": 96
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 23,
+                "plays": 5,
+                "points": 70
             }
         ]
     },
@@ -20448,6 +20673,13 @@
                 "place": 8,
                 "plays": 7,
                 "points": 96
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 40,
+                "plays": 4,
+                "points": 54
             }
         ]
     },
@@ -21306,6 +21538,13 @@
                 "place": 3,
                 "plays": 10,
                 "points": 136
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 1,
+                "plays": 28,
+                "points": 310
             }
         ]
     },
@@ -22768,6 +23007,13 @@
                 "place": 4,
                 "plays": 10,
                 "points": 120
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 14,
+                "plays": 7,
+                "points": 98
             }
         ]
     },
@@ -22980,6 +23226,13 @@
                 "place": 51,
                 "plays": 4,
                 "points": 48
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 31,
+                "plays": 5,
+                "points": 62
             }
         ]
     },
@@ -25269,6 +25522,13 @@
                 "place": 25,
                 "plays": 7,
                 "points": 78
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 23,
+                "plays": 6,
+                "points": 70
             }
         ]
     },
@@ -27098,6 +27358,13 @@
                 "place": 33,
                 "plays": 4,
                 "points": 60
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 20,
+                "plays": 6,
+                "points": 74
             }
         ]
     },
@@ -27283,6 +27550,13 @@
                 "place": 20,
                 "plays": 5,
                 "points": 74
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 23,
+                "plays": 6,
+                "points": 70
             }
         ]
     },
@@ -30103,6 +30377,13 @@
                 "place": 26,
                 "plays": 4,
                 "points": 64
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 22,
+                "plays": 5,
+                "points": 72
             }
         ]
     },
@@ -31009,6 +31290,13 @@
                 "place": 56,
                 "plays": 3,
                 "points": 38
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 48,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -31333,6 +31621,13 @@
                 "end": "2023-02-16",
                 "place": 24,
                 "plays": 6,
+                "points": 66
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 28,
+                "plays": 5,
                 "points": 66
             }
         ]
@@ -32238,6 +32533,13 @@
                 "place": 56,
                 "plays": 3,
                 "points": 38
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 57,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -32432,6 +32734,13 @@
                 "place": 51,
                 "plays": 4,
                 "points": 48
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 41,
+                "plays": 4,
+                "points": 52
             }
         ]
     },
@@ -33372,6 +33681,13 @@
                 "place": 19,
                 "plays": 7,
                 "points": 74
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 60,
+                "plays": 2,
+                "points": 34
             }
         ]
     },
@@ -33747,6 +34063,13 @@
                 "place": 58,
                 "plays": 2,
                 "points": 44
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 19,
+                "plays": 6,
+                "points": 78
             }
         ]
     },
@@ -36749,6 +37072,13 @@
                 "place": 12,
                 "plays": 2,
                 "points": 92
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 17,
+                "plays": 5,
+                "points": 84
             }
         ]
     },
@@ -38239,6 +38569,13 @@
                 "place": 40,
                 "plays": 3,
                 "points": 52
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 50,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -42462,7 +42799,15 @@
         ],
         "official_name": "Always Be My Baby",
         "plays": 25,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 44,
+                "plays": 5,
+                "points": 50
+            }
+        ]
     },
     "174485": {
         "name": "We Belong Together",
@@ -45767,6 +46112,13 @@
                 "place": 60,
                 "plays": 3,
                 "points": 36
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -51513,6 +51865,13 @@
                 "place": 6,
                 "plays": 6,
                 "points": 100
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 7,
+                "plays": 7,
+                "points": 112
             }
         ]
     },
@@ -52909,6 +53268,13 @@
                 "place": 30,
                 "plays": 4,
                 "points": 62
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 28,
+                "plays": 5,
+                "points": 66
             }
         ]
     },
@@ -52943,6 +53309,13 @@
                 "place": 47,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 57,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -53435,6 +53808,13 @@
                 "place": 28,
                 "plays": 6,
                 "points": 84
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 60,
+                "plays": 3,
+                "points": 34
             }
         ]
     },
@@ -53741,7 +54121,15 @@
         ],
         "official_name": "No God",
         "plays": 6,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 51,
+                "plays": 4,
+                "points": 40
+            }
+        ]
     },
     "416970": {
         "name": "Young",
@@ -53780,6 +54168,13 @@
                 "place": 56,
                 "plays": 3,
                 "points": 66
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 60,
+                "plays": 3,
+                "points": 34
             }
         ]
     },
@@ -53954,6 +54349,13 @@
                 "place": 36,
                 "plays": 3,
                 "points": 56
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 12,
+                "plays": 8,
+                "points": 102
             }
         ]
     },
@@ -54057,7 +54459,15 @@
         ],
         "official_name": "Perfect (feat. Jessie Reyez)",
         "plays": 6,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 33,
+                "plays": 6,
+                "points": 60
+            }
+        ]
     },
     "1328670": {
         "name": "Material Girl",
@@ -56003,6 +56413,13 @@
                 "place": 25,
                 "plays": 4,
                 "points": 66
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 11,
+                "plays": 8,
+                "points": 106
             }
         ]
     },
@@ -57147,6 +57564,13 @@
                 "place": 29,
                 "plays": 2,
                 "points": 48
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 48,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -58771,6 +59195,13 @@
                 "place": 14,
                 "plays": 8,
                 "points": 84
+            },
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 23,
+                "plays": 5,
+                "points": 70
             }
         ]
     },
@@ -58857,5 +59288,65 @@
     },
     "11338877": {
         "merge": "585523"
+    },
+    "63772418": {
+        "name": "Die For You Remix",
+        "id": "63772418",
+        "alt_ids": [],
+        "artists": [
+            "The Weeknd",
+            "Ariana Grande"
+        ],
+        "official_name": "Die For You - Remix",
+        "plays": 14,
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 3,
+                "plays": 14,
+                "points": 140
+            }
+        ]
+    },
+    "62300973": {
+        "name": "CUFF IT",
+        "id": "62300973",
+        "alt_ids": [],
+        "artists": [
+            "Beyonc\u00e9"
+        ],
+        "official_name": "CUFF IT - WETTER REMIX",
+        "plays": 19,
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 5,
+                "plays": 12,
+                "points": 128
+            }
+        ]
+    },
+    "9985574": {
+        "name": "Tick Tock",
+        "id": "9985574",
+        "alt_ids": [],
+        "artists": [
+            "Clean Bandit",
+            "Mabel",
+            "24kGoldn"
+        ],
+        "official_name": "Tick Tock (feat. 24kGoldn)",
+        "plays": 13,
+        "entries": [
+            {
+                "start": "2023-02-23",
+                "end": "2023-03-02",
+                "place": 6,
+                "plays": 11,
+                "points": 114
+            }
+        ]
     }
 }
