@@ -1,14 +1,14 @@
 # LevBoard
-This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with albums that I don't like. 
+This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with album versions. 
 
 __Please Note__: Only accounts with Spotistats Plus __AND__ their files imported work, as all other accounts don't display stream counts, which the system needs to work correctly.
 
 # How To Use (For Anyone)
 
-_(This is the explaining to anyone how-to guide, so if you know how to run a program, skip to the other [How to Use section.](#how-to-use-for-programmers)_
+_This is the explaining to anyone how-to guide, so if you know how to run a program, skip to the other [How to Use section.](#how-to-use-for-programmers)_
 
 ## Downloading the Program
-__(1)`__ This is code that runs on your computer, so to run it, you have to download it first. Click on the green button in the top right corner, and then select "Download ZIP", which will download a compressed copy of the script onto your computer. Find the zipped folder in your file discovery system on your computer and move the inner folder (which should be named "levboard-main") out of the zipped folder.
+__(1)__ This is code that runs on your computer, so to run it, you have to download it first. Click on the green button in the top right corner, and then select "Download ZIP", which will download a compressed copy of the script onto your computer. Find the zipped folder in your file discovery system on your computer and move the inner folder (which should be named "levboard-main") out of the zipped folder.
 
 ## Configuring Your Username
 __(2)__ Find / update your Spotistats username. They are automatically set to whatever Spotify auto-generates your username to be, but they are unwieldy. Navigate to the [Spotistats account page](https://stats.fm/account), sign into your account, and change your custom url to something nice. You'll need it soon to run the program.
@@ -96,7 +96,7 @@ python stats.py > info.txt
 
 # How To Use (For Programmers)
 
-_(This is for people who have done some surface-level programming and understand how running a program works.)_
+_This is for people who have done some surface-level programming and understand how running a program works._
 
 ## Downloading the Code
 __(1)__ Clone the repository onto your machine. (Click on "Clone" and then either "Open in Github Desktop" or "Download ZIP", whichever you like better.) If you downloaded the ZIP folder version, make sure to un-compress it, or else it won't work.
