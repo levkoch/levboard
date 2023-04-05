@@ -340,8 +340,7 @@ class Song:
         will count up to that mark and no more.
         """
 
-        if self.__listens is None:
-            self._populate_listens()
+        self._populate_listens()
 
         play_dates: Iterable[date] = (
             listen.finished_playing.date() for listen in self.__listens

@@ -159,8 +159,6 @@ class SongUOW:
 
     Methods:
     * commit (method): Saves any changes made while using objects from the UOW.
-    * collect_new_events (`Generator[Event]` method): Makes events created by
-        any of the objects avaliable.
     """
 
     __slots__ = ['songs', 'albums']

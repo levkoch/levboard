@@ -124,7 +124,8 @@ def top_shortest_time_units_milestones_infograpic(uow: SongUOW, unit_milestone: 
     for (song, day, time) in day_units:
         place = len([unit for unit in day_units if unit[1] < day]) + 1
         start_day: date = day - timedelta(days = time)
-        print(f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to day {(day - BEGINNING).days} ({time} days)')
+        print(f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to '
+              f'day {(day - BEGINNING).days} ({time} days / {day.isoformat()})')
 
 
 def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
@@ -398,16 +399,12 @@ if __name__ == '__main__':
     """
     for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
-
-    """
-    """
+ 
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
-    """
 
     top_song_consecutive_weeks_infographic(uow)
 
-    """
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     """
@@ -418,7 +415,8 @@ if __name__ == '__main__':
 
     # top_listeners_chart(uow)
 
-    # top_shortest_time_units_milestones(uow, 2000)
+    top_shortest_time_units_milestones_infograpic(uow, 2_000)
+    top_shortest_time_units_milestones_infograpic(uow, 4_000)
 
     """
     for cert in CERTS[::-1]:
