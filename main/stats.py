@@ -62,7 +62,8 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
 def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
-            lambda i: i._populate_listens(), (song for song in uow.songs if song.weeks)
+            lambda i: i._populate_listens(),
+            (song for song in uow.songs if song.weeks),
         )
 
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
@@ -100,10 +101,13 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
     print('')
 
 
-def top_shortest_time_units_milestones_infograpic(uow: SongUOW, unit_milestone: int):
+def top_shortest_time_units_milestones_infograpic(
+    uow: SongUOW, unit_milestone: int
+):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
-            lambda i: i._populate_listens(), (song for song in uow.songs if song.units >= (unit_milestone / 4))
+            lambda i: i._populate_listens(),
+            (song for song in uow.songs if song.units >= (unit_milestone / 4)),
         )
 
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
@@ -119,13 +123,15 @@ def top_shortest_time_units_milestones_infograpic(uow: SongUOW, unit_milestone: 
     units.sort(key=itemgetter(1))
     BEGINNING: date = date(2021, 5, 1)
     day_units = deepcopy(units)
-   
+
     print(f'First songs to reach {unit_milestone} units:')
     for (song, day, time) in day_units:
         place = len([unit for unit in day_units if unit[1] < day]) + 1
-        start_day: date = day - timedelta(days = time)
-        print(f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to '
-              f'day {(day - BEGINNING).days} ({time} days / {day.isoformat()})')
+        start_day: date = day - timedelta(days=time)
+        print(
+            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to '
+            f'day {(day - BEGINNING).days} ({time} days / {day.isoformat()})'
+        )
 
 
 def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
@@ -265,23 +271,26 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
 
     units: list[tuple[Song, date, int]] = []
     for contender in contenders:
-        units.extend((contender, start, weeks) for (start, weeks) in contender.all_consecutive() if weeks >= THRESHOLD)
+        units.extend(
+            (contender, start, weeks)
+            for (start, weeks) in contender.all_consecutive()
+            if weeks >= THRESHOLD
+        )
 
-    print(f"{len(units)} songs found\n")
+    print(f'{len(units)} songs found\n')
 
-    units.sort(key=lambda i: i[2], reverse = True)
-    
-    print(
-        "Songs with most consecutive weeks on chart"
-    )
+    units.sort(key=lambda i: i[2], reverse=True)
+
+    print('Songs with most consecutive weeks on chart')
     for (song, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
-        end = start + timedelta(days = weeks * 7)
+        end = start + timedelta(days=weeks * 7)
         print(
             f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
-            f"| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 2}"
+            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 2}'
         )
     print('')
+
 
 def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
     units = [(album, album.get_charted(weeks)) for album in uow.albums]
@@ -375,7 +384,7 @@ def top_listeners_chart(uow: SongUOW):
 
 
 def display_all_songs(uow: SongUOW):
-    all_songs = [song for song in uow.songs if song.units] # >= 1000]
+    all_songs = [song for song in uow.songs if song.units]   # >= 1000]
     list(map(lambda i: i._populate_listens(), all_songs))
     all_songs.sort(key=lambda i: i.units, reverse=True)
     for (count, song) in enumerate(all_songs):
@@ -423,10 +432,8 @@ if __name__ == '__main__':
         top_albums_cert_count(uow, cert)
     """
 
-    
     # top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
     # top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
-    
 
     """
     for top in ALBUM_TOP:
@@ -462,5 +469,3 @@ if __name__ == '__main__':
     """
 
     # display_all_songs(uow)
-    
-   

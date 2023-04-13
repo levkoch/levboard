@@ -139,6 +139,9 @@ class Position(BaseModel):
     plays: int
     place: int
 
+    def __hash__(self):
+        return hash((self.id, self.plays, self.place))
+
 
 # this gets called by `main` in two places with the same values, so we cache
 # the last result here to not have to make the multiple API call operator

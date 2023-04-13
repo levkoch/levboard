@@ -115,7 +115,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 44,
+                "place": 45,
                 "plays": 5,
                 "points": 54
             },
@@ -248,7 +248,7 @@
             "Adele"
         ],
         "official_name": "He Won't Go",
-        "plays": 289,
+        "plays": 290,
         "entries": [
             {
                 "start": "2021-12-23",
@@ -547,7 +547,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 28,
+                "place": 27,
                 "plays": 3,
                 "points": 44
             }
@@ -653,6 +653,13 @@
                 "place": 16,
                 "plays": 7,
                 "points": 88
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 26,
+                "plays": 5,
+                "points": 52
             }
         ]
     },
@@ -719,6 +726,13 @@
                 "place": 37,
                 "plays": 4,
                 "points": 56
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -756,7 +770,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 32,
+                "place": 33,
                 "plays": 6,
                 "points": 70
             },
@@ -903,7 +917,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 19,
+                "place": 20,
                 "plays": 6,
                 "points": 78
             },
@@ -924,7 +938,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 23,
+                "place": 22,
                 "plays": 4,
                 "points": 48
             }
@@ -1076,7 +1090,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 7,
+                "place": 8,
                 "plays": 7,
                 "points": 130
             },
@@ -1128,6 +1142,20 @@
                 "place": 2,
                 "plays": 5,
                 "points": 94
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 15,
+                "plays": 3,
+                "points": 60
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 12,
+                "plays": 7,
+                "points": 86
             }
         ]
     },
@@ -1236,6 +1264,13 @@
                 "place": 42,
                 "plays": 3,
                 "points": 38
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1329,6 +1364,13 @@
                 "place": 56,
                 "plays": 2,
                 "points": 32
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1450,6 +1492,13 @@
                 "place": 53,
                 "plays": 3,
                 "points": 44
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -1466,7 +1515,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 54,
+                "place": 55,
                 "plays": 5,
                 "points": 58
             }
@@ -1558,7 +1607,7 @@
             "Adele"
         ],
         "official_name": "Lovesong",
-        "plays": 168,
+        "plays": 169,
         "entries": [
             {
                 "start": "2022-07-14",
@@ -1877,7 +1926,7 @@
             "Adele"
         ],
         "official_name": "I'll Be Waiting",
-        "plays": 299,
+        "plays": 300,
         "entries": [
             {
                 "start": "2021-12-23",
@@ -2148,7 +2197,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 14,
+                "place": 15,
                 "plays": 7,
                 "points": 84
             },
@@ -2183,7 +2232,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 23,
+                "place": 22,
                 "plays": 3,
                 "points": 48
             }
@@ -2454,7 +2503,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 11,
+                "place": 12,
                 "plays": 7,
                 "points": 94
             },
@@ -2482,7 +2531,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 15,
+                "place": 14,
                 "plays": 4,
                 "points": 56
             }
@@ -2550,7 +2599,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 37,
+                "place": 38,
                 "plays": 6,
                 "points": 68
             },
@@ -2683,7 +2732,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 58,
+                "place": 57,
                 "plays": 5,
                 "points": 58
             },
@@ -2711,7 +2760,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 2,
                 "points": 34
             }
@@ -2751,7 +2800,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 20,
+                "place": 21,
                 "plays": 7,
                 "points": 80
             },
@@ -2786,9 +2835,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 30,
+                "place": 29,
                 "plays": 2,
                 "points": 42
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 2,
+                "points": 40
             }
         ]
     },
@@ -2994,7 +3050,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 17,
+                "place": 18,
                 "plays": 6,
                 "points": 80
             },
@@ -3029,7 +3085,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 20,
+                "place": 19,
                 "plays": 4,
                 "points": 54
             }
@@ -3083,7 +3139,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 44,
+                "place": 45,
                 "plays": 5,
                 "points": 54
             },
@@ -3142,7 +3198,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 3,
                 "points": 34
             }
@@ -3371,7 +3427,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 50,
+                "place": 49,
                 "plays": 5,
                 "points": 62
             },
@@ -3406,9 +3462,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 12,
+                "place": 11,
                 "plays": 3,
                 "points": 60
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 53,
+                "plays": 1,
+                "points": 34
             }
         ]
     },
@@ -3467,7 +3530,7 @@
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 3,
+                "place": 4,
                 "plays": 13,
                 "points": 152
             },
@@ -3530,7 +3593,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 48
             },
@@ -3572,9 +3635,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 30,
+                "place": 29,
                 "plays": 2,
                 "points": 42
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -3586,7 +3656,7 @@
             "Adele"
         ],
         "official_name": "Oh My God",
-        "plays": 484,
+        "plays": 485,
         "entries": [
             {
                 "start": "2021-12-16",
@@ -3647,7 +3717,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 26,
+                "place": 27,
                 "plays": 5,
                 "points": 62
             },
@@ -3773,7 +3843,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 80
             },
@@ -3944,6 +4014,13 @@
                 "place": 5,
                 "plays": 9,
                 "points": 106
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 2,
+                "plays": 14,
+                "points": 140
             }
         ]
     },
@@ -3955,7 +4032,7 @@
             "Adele"
         ],
         "official_name": "Rolling In The Deep",
-        "plays": 311,
+        "plays": 312,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -4030,7 +4107,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 29,
+                "place": 30,
                 "plays": 6,
                 "points": 72
             },
@@ -4184,7 +4261,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 5,
+                "place": 6,
                 "plays": 8,
                 "points": 104
             },
@@ -4222,6 +4299,20 @@
                 "place": 3,
                 "plays": 6,
                 "points": 86
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 26,
+                "plays": 2,
+                "points": 48
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 29,
+                "plays": 3,
+                "points": 46
             }
         ]
     },
@@ -4273,9 +4364,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 12,
+                "place": 11,
                 "plays": 3,
                 "points": 60
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 32,
+                "plays": 2,
+                "points": 42
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -4287,7 +4392,7 @@
             "Adele"
         ],
         "official_name": "Take It All",
-        "plays": 246,
+        "plays": 248,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -4509,7 +4614,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 7,
+                "place": 8,
                 "plays": 8,
                 "points": 98
             },
@@ -4547,6 +4652,13 @@
                 "place": 5,
                 "plays": 5,
                 "points": 74
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 28,
+                "plays": 3,
+                "points": 46
             }
         ]
     },
@@ -4630,7 +4742,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 2,
                 "points": 30
             }
@@ -4831,7 +4943,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 17,
+                "place": 18,
                 "plays": 6,
                 "points": 80
             },
@@ -4859,7 +4971,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 30,
+                "place": 29,
                 "plays": 3,
                 "points": 42
             }
@@ -4914,7 +5026,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 60
             },
@@ -4956,9 +5068,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 15,
+                "place": 14,
                 "plays": 3,
                 "points": 56
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 1,
+                "points": 32
             }
         ]
     },
@@ -5041,7 +5160,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 2,
                 "points": 30
             }
@@ -5177,7 +5296,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -5239,7 +5358,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 40,
+                "place": 41,
                 "plays": 5,
                 "points": 58
             },
@@ -5288,9 +5407,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 10,
+                "place": 9,
                 "plays": 4,
                 "points": 64
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 28,
+                "plays": 2,
+                "points": 46
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 18,
+                "plays": 5,
+                "points": 62
             }
         ]
     },
@@ -5340,7 +5473,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 46
             }
@@ -5357,7 +5490,15 @@
         ],
         "official_name": "Here",
         "plays": 52,
-        "entries": []
+        "entries": [
+            {
+                "start": "2021-06-03",
+                "end": "2021-06-10",
+                "place": 25,
+                "plays": 2,
+                "points": 32
+            }
+        ]
     },
     "10855907": {
         "name": "Growing Pains Reprise",
@@ -5696,7 +5837,7 @@
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 4,
                 "points": 52
             },
@@ -5811,7 +5952,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -5945,7 +6086,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -6139,7 +6280,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 46
             }
@@ -6192,7 +6333,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 37,
+                "place": 38,
                 "plays": 2,
                 "points": 28
             },
@@ -6259,7 +6400,7 @@
             "Ariana Grande"
         ],
         "official_name": "Bad Decisions",
-        "plays": 191,
+        "plays": 193,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -6341,7 +6482,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 32,
+                "place": 33,
                 "plays": 6,
                 "points": 70
             },
@@ -6589,7 +6730,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 26,
+                "place": 27,
                 "plays": 6,
                 "points": 74
             },
@@ -6606,6 +6747,13 @@
                 "place": 29,
                 "plays": 8,
                 "points": 102
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 18,
+                "plays": 6,
+                "points": 62
             }
         ]
     },
@@ -6647,7 +6795,7 @@
             "Ariana Grande"
         ],
         "official_name": "7 rings",
-        "plays": 271,
+        "plays": 272,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -6757,7 +6905,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 51,
+                "place": 52,
                 "plays": 2,
                 "points": 38
             },
@@ -6813,7 +6961,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 54,
+                "place": 53,
                 "plays": 2,
                 "points": 34
             },
@@ -6893,6 +7041,20 @@
                 "place": 50,
                 "plays": 2,
                 "points": 44
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 24,
+                "plays": 5,
+                "points": 50
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 20,
+                "plays": 5,
+                "points": 60
             }
         ]
     },
@@ -6962,7 +7124,7 @@
             "Ariana Grande"
         ],
         "official_name": "Be Alright",
-        "plays": 198,
+        "plays": 200,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -7016,14 +7178,14 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 22,
+                "place": 23,
                 "plays": 5,
                 "points": 58
             },
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 32
             },
@@ -7096,6 +7258,13 @@
                 "place": 45,
                 "plays": 4,
                 "points": 52
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 22,
+                "plays": 5,
+                "points": 54
             }
         ]
     },
@@ -7126,7 +7295,7 @@
             "Ariana Grande"
         ],
         "official_name": "Breathin",
-        "plays": 251,
+        "plays": 252,
         "entries": [
             {
                 "start": "2021-08-05",
@@ -7229,7 +7398,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 35,
+                "place": 36,
                 "plays": 3,
                 "points": 44
             },
@@ -7278,21 +7447,21 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 30
             },
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 24,
+                "place": 25,
                 "plays": 4,
                 "points": 48
             },
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 4,
                 "points": 50
             },
@@ -7390,9 +7559,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 26,
+                "place": 25,
                 "plays": 3,
                 "points": 46
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 26,
+                "plays": 4,
+                "points": 48
             }
         ]
     },
@@ -7404,7 +7580,7 @@
             "Ariana Grande"
         ],
         "official_name": "bloodline",
-        "plays": 496,
+        "plays": 497,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -7451,7 +7627,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 3,
                 "points": 40
             },
@@ -7486,7 +7662,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 27,
+                "place": 28,
                 "plays": 3,
                 "points": 52
             },
@@ -7563,7 +7739,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 12,
+                "place": 13,
                 "plays": 6,
                 "points": 84
             },
@@ -7598,7 +7774,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 27,
+                "place": 28,
                 "plays": 3,
                 "points": 54
             },
@@ -7745,7 +7921,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 22,
+                "place": 23,
                 "plays": 5,
                 "points": 78
             },
@@ -7850,7 +8026,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 43,
+                "place": 44,
                 "plays": 3,
                 "points": 56
             },
@@ -7899,9 +8075,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 1,
                 "points": 30
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 5,
+                "plays": 7,
+                "points": 84
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 6,
+                "plays": 9,
+                "points": 106
             }
         ]
     },
@@ -7913,7 +8103,7 @@
             "Ariana Grande"
         ],
         "official_name": "Dangerous Woman",
-        "plays": 197,
+        "plays": 198,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -8037,7 +8227,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 3,
                 "points": 50
             },
@@ -8058,7 +8248,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 32,
+                "place": 33,
                 "plays": 3,
                 "points": 48
             },
@@ -8451,7 +8641,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 37,
+                "place": 38,
                 "plays": 4,
                 "points": 68
             },
@@ -8510,6 +8700,20 @@
                 "place": 49,
                 "plays": 3,
                 "points": 40
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 18,
+                "plays": 5,
+                "points": 56
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -8521,7 +8725,7 @@
             "Ariana Grande"
         ],
         "official_name": "break up with your girlfriend, i'm bored",
-        "plays": 382,
+        "plays": 383,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -8617,7 +8821,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             },
@@ -8757,7 +8961,7 @@
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 2,
+                "place": 3,
                 "plays": 14,
                 "points": 170
             },
@@ -8851,6 +9055,20 @@
                 "place": 53,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 9,
+                "plays": 7,
+                "points": 78
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 4,
+                "plays": 10,
+                "points": 114
             }
         ]
     },
@@ -8888,7 +9106,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 3,
                 "points": 34
             }
@@ -8902,12 +9120,12 @@
             "Ariana Grande"
         ],
         "official_name": "Focus",
-        "plays": 240,
+        "plays": 241,
         "entries": [
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             },
@@ -8942,7 +9160,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 30
             },
@@ -9253,7 +9471,7 @@
             "Ariana Grande"
         ],
         "official_name": "Jason's Song (Gave It Away)",
-        "plays": 52,
+        "plays": 53,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -9443,13 +9661,6 @@
                 "points": 42
             },
             {
-                "start": "2022-04-07",
-                "end": "2022-04-14",
-                "place": 60,
-                "plays": 3,
-                "points": 36
-            },
-            {
                 "start": "2022-04-21",
                 "end": "2022-04-28",
                 "place": 32,
@@ -9466,7 +9677,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 34,
+                "place": 33,
                 "plays": 3,
                 "points": 40
             }
@@ -9480,7 +9691,7 @@
             "Ariana Grande"
         ],
         "official_name": "I Don't Care",
-        "plays": 102,
+        "plays": 103,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -9513,7 +9724,7 @@
             "Ariana Grande"
         ],
         "official_name": "Greedy",
-        "plays": 167,
+        "plays": 169,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -9553,7 +9764,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 38,
+                "place": 39,
                 "plays": 6,
                 "points": 64
             },
@@ -9782,14 +9993,14 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 50
             },
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 4,
                 "points": 50
             },
@@ -9817,7 +10028,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 29,
+                "place": 30,
                 "plays": 5,
                 "points": 72
             },
@@ -9890,6 +10101,13 @@
                 "place": 59,
                 "plays": 4,
                 "points": 46
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 49,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -9927,7 +10145,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 5,
                 "points": 50
             }
@@ -9986,7 +10204,7 @@
             "Ariana Grande"
         ],
         "official_name": "Into You",
-        "plays": 420,
+        "plays": 422,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -10173,14 +10391,14 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 1,
                 "points": 32
             },
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 15,
+                "place": 16,
                 "plays": 3,
                 "points": 52
             },
@@ -10201,7 +10419,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 48,
+                "place": 49,
                 "plays": 3,
                 "points": 42
             },
@@ -10421,6 +10639,13 @@
                 "place": 39,
                 "plays": 5,
                 "points": 54
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -10575,7 +10800,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 35,
+                "place": 36,
                 "plays": 3,
                 "points": 44
             },
@@ -10729,7 +10954,7 @@
             "Ariana Grande"
         ],
         "official_name": "Knew Better / Forever Boy",
-        "plays": 74,
+        "plays": 75,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -10958,7 +11183,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 13,
+                "place": 14,
                 "plays": 6,
                 "points": 80
             },
@@ -10968,6 +11193,13 @@
                 "place": 43,
                 "plays": 4,
                 "points": 40
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -10995,7 +11227,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             },
@@ -11140,7 +11372,7 @@
             "Ariana Grande"
         ],
         "official_name": "Moonlight",
-        "plays": 115,
+        "plays": 116,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -11194,7 +11426,7 @@
             "Ariana Grande"
         ],
         "official_name": "my hair",
-        "plays": 347,
+        "plays": 348,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -11311,7 +11543,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 3,
                 "points": 46
             },
@@ -11367,7 +11599,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 11,
+                "place": 12,
                 "plays": 4,
                 "points": 72
             },
@@ -11381,7 +11613,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 27,
+                "place": 28,
                 "plays": 4,
                 "points": 54
             },
@@ -11549,9 +11781,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 26,
+                "place": 25,
                 "plays": 2,
                 "points": 46
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 32,
+                "plays": 3,
+                "points": 42
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 8,
+                "plays": 9,
+                "points": 100
             }
         ]
     },
@@ -11916,7 +12162,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 9,
+                "place": 10,
                 "plays": 5,
                 "points": 92
             },
@@ -12056,7 +12302,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 22,
+                "place": 23,
                 "plays": 5,
                 "points": 78
             },
@@ -12196,7 +12442,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 8,
+                "place": 9,
                 "plays": 8,
                 "points": 96
             },
@@ -12231,9 +12477,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 14,
+                "place": 13,
                 "plays": 3,
                 "points": 58
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 1,
+                "plays": 26,
+                "points": 276
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 3,
+                "plays": 8,
+                "points": 138
             }
         ]
     },
@@ -12245,7 +12505,7 @@
             "Ariana Grande"
         ],
         "official_name": "obvious",
-        "plays": 217,
+        "plays": 218,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -12348,7 +12608,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 28,
+                "place": 29,
                 "plays": 3,
                 "points": 52
             },
@@ -12390,7 +12650,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 23,
+                "place": 24,
                 "plays": 3,
                 "points": 66
             },
@@ -12453,7 +12713,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 29,
+                "place": 30,
                 "plays": 6,
                 "points": 72
             },
@@ -12463,6 +12723,13 @@
                 "place": 31,
                 "plays": 8,
                 "points": 98
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 39,
+                "plays": 4,
+                "points": 42
             }
         ]
     },
@@ -12605,7 +12872,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 28,
+                "place": 29,
                 "plays": 4,
                 "points": 52
             },
@@ -12874,7 +13141,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 4,
                 "points": 50
             },
@@ -13054,14 +13321,14 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 48,
+                "place": 49,
                 "plays": 4,
                 "points": 42
             },
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 36,
+                "place": 37,
                 "plays": 6,
                 "points": 66
             }
@@ -13281,14 +13548,14 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 58
             },
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 60
             }
@@ -13433,7 +13700,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 16,
+                "place": 17,
                 "plays": 4,
                 "points": 74
             },
@@ -13448,6 +13715,13 @@
                 "start": "2022-03-24",
                 "end": "2022-03-31",
                 "place": 31,
+                "plays": 4,
+                "points": 44
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
                 "plays": 4,
                 "points": 44
             }
@@ -13466,7 +13740,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -13557,7 +13831,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 3,
                 "points": 40
             },
@@ -13655,7 +13929,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 20,
+                "place": 21,
                 "plays": 4,
                 "points": 68
             },
@@ -13676,7 +13950,7 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 20,
+                "place": 21,
                 "plays": 4,
                 "points": 50
             },
@@ -13767,7 +14041,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 48
             },
@@ -13795,9 +14069,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 15,
+                "place": 14,
                 "plays": 4,
                 "points": 56
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 16,
+                "plays": 6,
+                "points": 70
             }
         ]
     },
@@ -13867,7 +14148,7 @@
             "Ariana Grande"
         ],
         "official_name": "positions",
-        "plays": 262,
+        "plays": 263,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -14019,7 +14300,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 27,
+                "place": 28,
                 "plays": 3,
                 "points": 52
             },
@@ -14159,9 +14440,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 50,
+                "place": 49,
                 "plays": 2,
                 "points": 32
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 29,
+                "plays": 4,
+                "points": 46
             }
         ]
     },
@@ -14255,7 +14543,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 68
             },
@@ -14366,6 +14654,13 @@
                 "start": "2022-12-15",
                 "end": "2022-12-22",
                 "place": 59,
+                "plays": 4,
+                "points": 40
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
                 "plays": 4,
                 "points": 40
             }
@@ -14501,7 +14796,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 3,
                 "points": 34
             }
@@ -14515,7 +14810,7 @@
             "Ariana Grande"
         ],
         "official_name": "Step On Up",
-        "plays": 47,
+        "plays": 48,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -14630,7 +14925,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 34,
+                "place": 35,
                 "plays": 2,
                 "points": 46
             },
@@ -14651,7 +14946,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 15,
+                "place": 16,
                 "plays": 4,
                 "points": 78
             },
@@ -14693,7 +14988,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 25,
+                "place": 26,
                 "plays": 6,
                 "points": 76
             },
@@ -14710,6 +15005,13 @@
                 "place": 40,
                 "plays": 5,
                 "points": 50
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 24,
+                "plays": 5,
+                "points": 56
             }
         ]
     },
@@ -14721,7 +15023,7 @@
             "Ariana Grande"
         ],
         "official_name": "Sometimes",
-        "plays": 120,
+        "plays": 121,
         "entries": [
             {
                 "start": "2021-09-16",
@@ -14822,7 +15124,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 54,
+                "place": 53,
                 "plays": 3,
                 "points": 34
             }
@@ -14903,7 +15205,7 @@
             "Ariana Grande"
         ],
         "official_name": "No Tears Left to Cry",
-        "plays": 489,
+        "plays": 490,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -15125,7 +15427,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 32,
+                "place": 33,
                 "plays": 4,
                 "points": 58
             },
@@ -15364,8 +15666,22 @@
                 "start": "2023-03-23",
                 "end": "2023-03-30",
                 "place": 1,
+                "plays": 19,
+                "points": 220
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 4,
+                "plays": 5,
+                "points": 96
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 1,
                 "plays": 12,
-                "points": 150
+                "points": 168
             }
         ]
     },
@@ -15452,7 +15768,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 2,
                 "points": 40
             },
@@ -15487,16 +15803,23 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 16,
+                "place": 17,
                 "plays": 5,
                 "points": 74
             },
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 30
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 25,
+                "plays": 5,
+                "points": 54
             }
         ]
     },
@@ -15541,7 +15864,7 @@
             "Ariana Grande"
         ],
         "official_name": "Thinking Bout You",
-        "plays": 98,
+        "plays": 99,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -15600,7 +15923,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -15754,7 +16077,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 19,
+                "place": 20,
                 "plays": 4,
                 "points": 48
             },
@@ -15829,7 +16152,7 @@
             "Ariana Grande"
         ],
         "official_name": "Touch It",
-        "plays": 130,
+        "plays": 131,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -15862,7 +16185,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 32,
+                "place": 33,
                 "plays": 4,
                 "points": 48
             },
@@ -15993,14 +16316,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 20,
+                "place": 21,
                 "plays": 4,
                 "points": 68
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 52,
+                "place": 51,
                 "plays": 1,
                 "points": 36
             },
@@ -16010,6 +16333,13 @@
                 "place": 39,
                 "plays": 4,
                 "points": 42
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -16262,13 +16592,6 @@
                 "points": 30
             },
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
-            {
                 "start": "2021-12-23",
                 "end": "2021-12-30",
                 "place": 25,
@@ -16302,6 +16625,13 @@
                 "place": 60,
                 "plays": 5,
                 "points": 50
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -16318,7 +16648,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 57,
+                "place": 58,
                 "plays": 5,
                 "points": 54
             }
@@ -16761,7 +17091,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 3,
                 "points": 52
             },
@@ -16785,6 +17115,13 @@
                 "place": 59,
                 "plays": 5,
                 "points": 56
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -16928,7 +17265,7 @@
             "Future"
         ],
         "official_name": "Everyday",
-        "plays": 124,
+        "plays": 125,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -17023,7 +17360,7 @@
             "Iggy Azalea"
         ],
         "official_name": "Problem",
-        "plays": 415,
+        "plays": 416,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -17182,7 +17519,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 24,
+                "place": 25,
                 "plays": 5,
                 "points": 64
             },
@@ -17196,7 +17533,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 19,
+                "place": 20,
                 "plays": 2,
                 "points": 48
             },
@@ -17217,7 +17554,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 58,
+                "place": 59,
                 "plays": 2,
                 "points": 38
             },
@@ -17444,6 +17781,13 @@
                 "place": 53,
                 "plays": 3,
                 "points": 44
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 32,
+                "plays": 4,
+                "points": 44
             }
         ]
     },
@@ -17531,7 +17875,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 36,
+                "place": 37,
                 "plays": 3,
                 "points": 48
             },
@@ -17615,7 +17959,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 2,
                 "points": 30
             }
@@ -17635,7 +17979,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -17670,7 +18014,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 57,
+                "place": 58,
                 "plays": 5,
                 "points": 54
             }
@@ -17685,7 +18029,7 @@
             "Macy Gray"
         ],
         "official_name": "Leave Me Lonely",
-        "plays": 69,
+        "plays": 70,
         "entries": []
     },
     "3655912": {
@@ -17769,7 +18113,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Side To Side",
-        "plays": 701,
+        "plays": 703,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -18166,14 +18510,14 @@
             {
                 "start": "2022-08-18",
                 "end": "2022-08-25",
-                "place": 3,
+                "place": 4,
                 "plays": 11,
                 "points": 128
             },
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 5,
+                "place": 6,
                 "plays": 11,
                 "points": 136
             },
@@ -18264,7 +18608,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 48,
+                "place": 49,
                 "plays": 3,
                 "points": 52
             },
@@ -18285,7 +18629,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 58,
+                "place": 57,
                 "plays": 4,
                 "points": 58
             },
@@ -18313,9 +18657,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 38,
+                "place": 37,
                 "plays": 2,
                 "points": 38
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 28,
+                "plays": 3,
+                "points": 46
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -18328,7 +18686,7 @@
             "The Weeknd"
         ],
         "official_name": "off the table (with The Weeknd)",
-        "plays": 176,
+        "plays": 177,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -18368,7 +18726,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 21,
+                "place": 22,
                 "plays": 6,
                 "points": 60
             },
@@ -18417,7 +18775,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 10,
+                "place": 11,
                 "plays": 6,
                 "points": 88
             },
@@ -18459,7 +18817,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 2,
                 "points": 30
             }
@@ -18474,7 +18832,7 @@
             "The Weeknd"
         ],
         "official_name": "Love Me Harder",
-        "plays": 176,
+        "plays": 177,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -18500,7 +18858,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 36,
+                "place": 37,
                 "plays": 4,
                 "points": 48
             },
@@ -18521,7 +18879,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 22,
+                "place": 23,
                 "plays": 4,
                 "points": 58
             },
@@ -18683,7 +19041,7 @@
             "Ty Dolla $ign"
         ],
         "official_name": "safety net (feat. Ty Dolla $ign)",
-        "plays": 203,
+        "plays": 204,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -18737,7 +19095,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 55,
+                "place": 56,
                 "plays": 3,
                 "points": 36
             },
@@ -18751,7 +19109,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 27,
+                "place": 28,
                 "plays": 4,
                 "points": 52
             },
@@ -18828,14 +19186,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 13,
+                "place": 14,
                 "plays": 4,
                 "points": 80
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 13,
+                "place": 14,
                 "plays": 4,
                 "points": 68
             },
@@ -18897,7 +19255,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -19079,7 +19437,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 26,
+                "place": 27,
                 "plays": 6,
                 "points": 74
             },
@@ -19205,7 +19563,7 @@
             "Lil Wayne"
         ],
         "official_name": "Let Me Love You",
-        "plays": 293,
+        "plays": 294,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -19322,14 +19680,14 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 27,
+                "place": 28,
                 "plays": 4,
                 "points": 54
             },
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 32
             },
@@ -19371,7 +19729,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 28,
+                "place": 29,
                 "plays": 5,
                 "points": 60
             },
@@ -19385,14 +19743,14 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 18,
+                "place": 19,
                 "plays": 3,
                 "points": 50
             },
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 26,
+                "place": 27,
                 "plays": 3,
                 "points": 46
             },
@@ -19511,7 +19869,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 19,
+                "place": 20,
                 "plays": 7,
                 "points": 82
             },
@@ -19592,7 +19950,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             },
@@ -19681,7 +20039,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 48,
+                "place": 47,
                 "plays": 4,
                 "points": 68
             },
@@ -19719,7 +20077,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -20227,7 +20585,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             }
@@ -20433,7 +20791,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             },
@@ -20459,7 +20817,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             }
@@ -20479,7 +20837,7 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 50
             }
@@ -20643,7 +21001,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 3,
+                "place": 4,
                 "plays": 14,
                 "points": 164
             },
@@ -20657,7 +21015,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 8,
+                "place": 9,
                 "plays": 6,
                 "points": 96
             },
@@ -20681,6 +21039,13 @@
                 "place": 54,
                 "plays": 3,
                 "points": 46
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -20766,6 +21131,13 @@
                 "place": 44,
                 "plays": 3,
                 "points": 50
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -20956,7 +21328,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 14,
+                "place": 15,
                 "plays": 6,
                 "points": 84
             },
@@ -20966,6 +21338,13 @@
                 "place": 56,
                 "plays": 2,
                 "points": 32
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -21263,13 +21642,6 @@
                 "points": 40
             },
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
-            {
                 "start": "2021-11-25",
                 "end": "2021-12-02",
                 "place": 55,
@@ -21368,18 +21740,39 @@
         "plays": 57,
         "entries": [
             {
+                "start": "2022-12-29",
+                "end": "2023-01-05",
+                "place": 35,
+                "plays": 6,
+                "points": 60
+            },
+            {
+                "start": "2023-01-05",
+                "end": "2023-01-12",
+                "place": 47,
+                "plays": 5,
+                "points": 62
+            },
+            {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 11,
-                "plays": 12,
-                "points": 124
+                "place": 2,
+                "plays": 19,
+                "points": 194
             },
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 20,
+                "place": 5,
+                "plays": 8,
+                "points": 118
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 24,
                 "plays": 5,
-                "points": 74
+                "points": 50
             }
         ]
     },
@@ -21494,7 +21887,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 74
             }
@@ -21520,14 +21913,14 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 7,
+                "place": 8,
                 "plays": 13,
                 "points": 130
             },
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 8,
+                "place": 9,
                 "plays": 7,
                 "points": 96
             },
@@ -21544,6 +21937,13 @@
                 "place": 22,
                 "plays": 3,
                 "points": 52
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -21782,7 +22182,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             }
@@ -21886,7 +22286,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Flawless Remix (feat. Nicki Minaj)",
-        "plays": 106,
+        "plays": 107,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -21912,7 +22312,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 35,
+                "place": 36,
                 "plays": 2,
                 "points": 44
             },
@@ -22022,7 +22422,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 9,
+                "place": 10,
                 "plays": 12,
                 "points": 128
             },
@@ -22036,9 +22436,16 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 13,
+                "place": 14,
                 "plays": 6,
                 "points": 88
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -22125,7 +22532,7 @@
             "Billie Eilish"
         ],
         "official_name": "bellyache",
-        "plays": 122,
+        "plays": 124,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -22203,6 +22610,20 @@
                 "place": 51,
                 "plays": 5,
                 "points": 58
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 15,
+                "plays": 6,
+                "points": 60
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 39,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -22214,7 +22635,7 @@
             "Billie Eilish"
         ],
         "official_name": "Billie Bossa Nova",
-        "plays": 59,
+        "plays": 60,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -22243,6 +22664,20 @@
                 "place": 46,
                 "plays": 5,
                 "points": 50
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 15,
+                "plays": 5,
+                "points": 60
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -22254,7 +22689,7 @@
             "Billie Eilish"
         ],
         "official_name": "bitches broken hearts",
-        "plays": 424,
+        "plays": 425,
         "entries": [
             {
                 "start": "2022-09-22",
@@ -22392,7 +22827,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 4,
+                "place": 5,
                 "plays": 13,
                 "points": 156
             },
@@ -22444,6 +22879,20 @@
                 "place": 5,
                 "plays": 4,
                 "points": 74
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 7,
+                "plays": 6,
+                "points": 82
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 11,
+                "plays": 7,
+                "points": 90
             }
         ]
     },
@@ -22586,6 +23035,13 @@
                 "place": 53,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 46,
+                "plays": 3,
+                "points": 38
             }
         ]
     },
@@ -22597,8 +23053,16 @@
             "Billie Eilish"
         ],
         "official_name": "goodbye",
-        "plays": 28,
-        "entries": []
+        "plays": 29,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 53,
+                "plays": 3,
+                "points": 34
+            }
+        ]
     },
     "285182": {
         "name": "Everybody Dies",
@@ -22608,7 +23072,7 @@
             "Billie Eilish"
         ],
         "official_name": "Everybody Dies",
-        "plays": 5,
+        "plays": 6,
         "entries": []
     },
     "585322": {
@@ -22619,12 +23083,12 @@
             "Billie Eilish"
         ],
         "official_name": "all the good girls go to hell",
-        "plays": 73,
+        "plays": 75,
         "entries": [
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 55,
+                "place": 56,
                 "plays": 3,
                 "points": 36
             },
@@ -22634,6 +23098,13 @@
                 "place": 50,
                 "plays": 6,
                 "points": 80
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 53,
+                "plays": 3,
+                "points": 34
             }
         ]
     },
@@ -22645,8 +23116,23 @@
             "Billie Eilish"
         ],
         "official_name": "Getting Older",
-        "plays": 14,
-        "entries": []
+        "plays": 18,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 9,
+                "plays": 7,
+                "points": 78
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 10,
+                "plays": 8,
+                "points": 96
+            }
+        ]
     },
     "285160": {
         "name": "GOLDWING",
@@ -22656,7 +23142,7 @@
             "Billie Eilish"
         ],
         "official_name": "GOLDWING",
-        "plays": 47,
+        "plays": 49,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -22678,6 +23164,13 @@
                 "place": 60,
                 "plays": 5,
                 "points": 52
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 18,
+                "plays": 5,
+                "points": 56
             }
         ]
     },
@@ -22700,7 +23193,7 @@
             "Billie Eilish"
         ],
         "official_name": "Halley's Comet",
-        "plays": 95,
+        "plays": 97,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -22768,9 +23261,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 38,
+                "place": 37,
                 "plays": 2,
                 "points": 38
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 14,
+                "plays": 5,
+                "points": 62
             }
         ]
     },
@@ -22782,8 +23282,16 @@
             "Billie Eilish"
         ],
         "official_name": "I Didn't Change My Number",
-        "plays": 7,
-        "entries": []
+        "plays": 8,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 53,
+                "plays": 3,
+                "points": 34
+            }
+        ]
     },
     "585319": {
         "name": "i love you",
@@ -22793,7 +23301,7 @@
             "Billie Eilish"
         ],
         "official_name": "i love you",
-        "plays": 52,
+        "plays": 53,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -22801,6 +23309,13 @@
                 "place": 54,
                 "plays": 7,
                 "points": 78
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 53,
+                "plays": 3,
+                "points": 34
             }
         ]
     },
@@ -22812,8 +23327,16 @@
             "Billie Eilish"
         ],
         "official_name": "Happier Than Ever",
-        "plays": 13,
-        "entries": []
+        "plays": 14,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
+            }
+        ]
     },
     "586688": {
         "name": "everything i wanted",
@@ -22823,7 +23346,7 @@
             "Billie Eilish"
         ],
         "official_name": "everything i wanted",
-        "plays": 73,
+        "plays": 74,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -22835,9 +23358,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 41,
+                "place": 40,
                 "plays": 3,
                 "points": 36
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 32,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -22896,7 +23426,7 @@
             "Billie Eilish"
         ],
         "official_name": "idontwannabeyouanymore",
-        "plays": 219,
+        "plays": 221,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -23041,7 +23571,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 51,
+                "place": 52,
                 "plays": 5,
                 "points": 60
             },
@@ -23062,9 +23592,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 21,
+                "place": 20,
                 "plays": 4,
                 "points": 52
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 12,
+                "plays": 5,
+                "points": 66
             }
         ]
     },
@@ -23076,7 +23613,7 @@
             "Billie Eilish"
         ],
         "official_name": "OverHeated",
-        "plays": 9,
+        "plays": 10,
         "entries": []
     },
     "67686": {
@@ -23158,6 +23695,13 @@
                 "place": 35,
                 "plays": 6,
                 "points": 68
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
             }
         ]
     },
@@ -23169,7 +23713,7 @@
             "Billie Eilish"
         ],
         "official_name": "Male Fantasy",
-        "plays": 71,
+        "plays": 72,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -23195,9 +23739,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 30,
+                "place": 29,
                 "plays": 3,
                 "points": 42
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 7,
+                "plays": 7,
+                "points": 82
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 27,
+                "plays": 3,
+                "points": 50
             }
         ]
     },
@@ -23209,7 +23767,7 @@
             "Billie Eilish"
         ],
         "official_name": "my future",
-        "plays": 85,
+        "plays": 86,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -23284,9 +23842,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 34,
+                "place": 33,
                 "plays": 2,
                 "points": 40
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 18,
+                "plays": 4,
+                "points": 56
             }
         ]
     },
@@ -23298,7 +23863,7 @@
             "Billie Eilish"
         ],
         "official_name": "my strange addiction",
-        "plays": 109,
+        "plays": 110,
         "entries": [
             {
                 "start": "2022-07-14",
@@ -23352,7 +23917,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 44,
+                "place": 45,
                 "plays": 4,
                 "points": 54
             },
@@ -23362,6 +23927,13 @@
                 "place": 29,
                 "plays": 4,
                 "points": 48
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 46,
+                "plays": 3,
+                "points": 38
             }
         ]
     },
@@ -23373,7 +23945,7 @@
             "Billie Eilish"
         ],
         "official_name": "Not My Responsibility",
-        "plays": 6,
+        "plays": 7,
         "entries": []
     },
     "285159": {
@@ -23384,7 +23956,7 @@
             "Billie Eilish"
         ],
         "official_name": "Oxytocin",
-        "plays": 40,
+        "plays": 41,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -23392,6 +23964,20 @@
                 "place": 56,
                 "plays": 7,
                 "points": 76
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 18,
+                "plays": 5,
+                "points": 56
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 3,
+                "points": 40
             }
         ]
     },
@@ -23403,7 +23989,7 @@
             "Billie Eilish"
         ],
         "official_name": "NDA",
-        "plays": 12,
+        "plays": 13,
         "entries": []
     },
     "585331": {
@@ -23425,7 +24011,7 @@
             "Billie Eilish"
         ],
         "official_name": "Therefore I Am",
-        "plays": 10,
+        "plays": 11,
         "entries": []
     },
     "822537": {
@@ -23447,7 +24033,7 @@
             "Billie Eilish"
         ],
         "official_name": "Six Feet Under",
-        "plays": 54,
+        "plays": 56,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -23462,6 +24048,13 @@
                 "place": 37,
                 "plays": 6,
                 "points": 64
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -23473,7 +24066,7 @@
             "Billie Eilish"
         ],
         "official_name": "watch",
-        "plays": 254,
+        "plays": 256,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -23663,6 +24256,13 @@
                 "place": 58,
                 "plays": 3,
                 "points": 44
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 11,
+                "plays": 7,
+                "points": 76
             }
         ]
     },
@@ -23674,7 +24274,7 @@
             "Billie Eilish"
         ],
         "official_name": "ocean eyes",
-        "plays": 478,
+        "plays": 479,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -23749,7 +24349,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 43,
+                "place": 44,
                 "plays": 3,
                 "points": 50
             },
@@ -24022,9 +24622,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 10,
+                "place": 9,
                 "plays": 3,
                 "points": 64
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 5,
+                "plays": 6,
+                "points": 84
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 5,
+                "plays": 9,
+                "points": 108
             }
         ]
     },
@@ -24080,8 +24694,16 @@
             "Billie Eilish"
         ],
         "official_name": "Lost Cause",
-        "plays": 9,
-        "entries": []
+        "plays": 10,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
+            }
+        ]
     },
     "519777": {
         "name": "when the party's over",
@@ -24096,14 +24718,14 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 54,
+                "place": 53,
                 "plays": 3,
                 "points": 34
             },
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 43,
+                "place": 44,
                 "plays": 4,
                 "points": 44
             },
@@ -24159,7 +24781,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 50
             },
@@ -24187,9 +24809,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 50,
+                "place": 49,
                 "plays": 2,
                 "points": 32
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 32,
+                "plays": 3,
+                "points": 42
             }
         ]
     },
@@ -24201,7 +24830,7 @@
             "Billie Eilish"
         ],
         "official_name": "wish you were gay",
-        "plays": 103,
+        "plays": 104,
         "entries": [
             {
                 "start": "2022-08-11",
@@ -24258,6 +24887,13 @@
                 "place": 31,
                 "plays": 5,
                 "points": 62
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 49,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -24269,7 +24905,7 @@
             "Billie Eilish"
         ],
         "official_name": "Your Power",
-        "plays": 6,
+        "plays": 7,
         "entries": []
     },
     "585483": {
@@ -24799,7 +25435,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -24907,13 +25543,6 @@
                 "place": 30,
                 "plays": 7,
                 "points": 80
-            },
-            {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
             }
         ]
     },
@@ -25119,7 +25748,7 @@
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 5,
                 "points": 52
             }
@@ -25475,13 +26104,6 @@
         "plays": 57,
         "entries": [
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
-            {
                 "start": "2022-01-20",
                 "end": "2022-01-27",
                 "place": 21,
@@ -25511,7 +26133,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -25721,7 +26343,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 4,
                 "points": 40
             },
@@ -25980,7 +26602,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 22,
+                "place": 23,
                 "plays": 6,
                 "points": 78
             },
@@ -26032,7 +26654,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -26241,7 +26863,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -26269,7 +26891,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             }
@@ -26315,7 +26937,7 @@
             "Ariana Grande"
         ],
         "official_name": "Quit (feat. Ariana Grande)",
-        "plays": 251,
+        "plays": 252,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -26369,7 +26991,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 55,
+                "place": 56,
                 "plays": 2,
                 "points": 36
             },
@@ -26467,7 +27089,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 4,
                 "points": 50
             },
@@ -26530,7 +27152,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 26,
+                "place": 27,
                 "plays": 6,
                 "points": 74
             },
@@ -26586,7 +27208,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 50,
+                "place": 49,
                 "plays": 2,
                 "points": 32
             }
@@ -26605,7 +27227,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 5,
                 "points": 50
             }
@@ -26708,7 +27330,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 3,
                 "points": 46
             },
@@ -26898,7 +27520,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 58
             }
@@ -27004,7 +27626,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 20,
+                "place": 21,
                 "plays": 6,
                 "points": 62
             },
@@ -27395,7 +28017,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 44,
+                "place": 45,
                 "plays": 4,
                 "points": 54
             },
@@ -27476,7 +28098,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 22,
+                "place": 23,
                 "plays": 5,
                 "points": 58
             }
@@ -27495,7 +28117,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 33,
+                "place": 35,
                 "plays": 3,
                 "points": 30
             },
@@ -27605,7 +28227,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 4,
                 "points": 50
             },
@@ -27619,7 +28241,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 37,
+                "place": 38,
                 "plays": 4,
                 "points": 48
             },
@@ -27670,7 +28292,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -27791,7 +28413,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -27833,7 +28455,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 3,
                 "points": 40
             },
@@ -28298,7 +28920,7 @@
             "Charlie Puth"
         ],
         "official_name": "Tears On My Piano",
-        "plays": 213,
+        "plays": 214,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -28614,14 +29236,14 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 10,
+                "place": 11,
                 "plays": 12,
                 "points": 126
             },
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 20,
+                "place": 21,
                 "plays": 5,
                 "points": 74
             },
@@ -28643,7 +29265,7 @@
             "Kehlani"
         ],
         "official_name": "Done For Me (feat. Kehlani)",
-        "plays": 233,
+        "plays": 234,
         "entries": [
             {
                 "start": "2021-08-19",
@@ -28676,7 +29298,7 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 40
             },
@@ -28746,7 +29368,7 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 26,
+                "place": 27,
                 "plays": 4,
                 "points": 46
             },
@@ -28864,7 +29486,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             }
@@ -29118,7 +29740,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 43,
+                "place": 44,
                 "plays": 3,
                 "points": 44
             },
@@ -29542,7 +30164,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             },
@@ -29645,7 +30267,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             }
@@ -29689,7 +30311,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 43,
+                "place": 44,
                 "plays": 4,
                 "points": 44
             }
@@ -29987,7 +30609,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 3,
                 "points": 32
             }
@@ -30399,7 +31021,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             }
@@ -30604,9 +31226,9 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
-                "plays": 4,
-                "points": 40
+                "place": 22,
+                "plays": 6,
+                "points": 60
             },
             {
                 "start": "2022-07-28",
@@ -30668,13 +31290,6 @@
         "official_name": "Let Me Love You",
         "plays": 43,
         "entries": [
-            {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
             {
                 "start": "2021-12-02",
                 "end": "2021-12-09",
@@ -30808,7 +31423,7 @@
             "Doja Cat"
         ],
         "official_name": "Cyber Sex",
-        "plays": 233,
+        "plays": 234,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -31002,7 +31617,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 57,
+                "place": 58,
                 "plays": 5,
                 "points": 54
             },
@@ -31313,13 +31928,6 @@
         "plays": 202,
         "entries": [
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
-            {
                 "start": "2022-01-13",
                 "end": "2022-01-20",
                 "place": 16,
@@ -31413,7 +32021,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 54,
+                "place": 55,
                 "plays": 4,
                 "points": 58
             },
@@ -31546,7 +32154,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -31584,7 +32192,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Say So (feat. Nicki Minaj)",
-        "plays": 162,
+        "plays": 163,
         "entries": [
             {
                 "start": "2021-07-01",
@@ -31610,30 +32218,30 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 43,
-                "plays": 4,
-                "points": 50
+                "place": 10,
+                "plays": 8,
+                "points": 90
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 13,
-                "plays": 5,
-                "points": 68
+                "place": 7,
+                "plays": 8,
+                "points": 106
             },
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 19,
+                "place": 13,
                 "plays": 3,
-                "points": 48
+                "points": 62
             },
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 26,
+                "place": 20,
                 "plays": 3,
-                "points": 46
+                "points": 52
             },
             {
                 "start": "2022-03-31",
@@ -31905,7 +32513,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 3,
                 "points": 32
             },
@@ -31952,7 +32560,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 1,
                 "points": 24
             },
@@ -32111,7 +32719,7 @@
             "Dua Lipa"
         ],
         "official_name": "Break My Heart",
-        "plays": 283,
+        "plays": 284,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -32518,7 +33126,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 38,
+                "place": 39,
                 "plays": 3,
                 "points": 64
             },
@@ -32616,7 +33224,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 32,
+                "place": 33,
                 "plays": 5,
                 "points": 70
             },
@@ -32749,7 +33357,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 38,
+                "place": 37,
                 "plays": 2,
                 "points": 38
             }
@@ -32872,7 +33480,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -33013,7 +33621,7 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 24,
+                "place": 25,
                 "plays": 4,
                 "points": 48
             },
@@ -33034,7 +33642,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 38,
+                "place": 39,
                 "plays": 4,
                 "points": 64
             },
@@ -33275,21 +33883,21 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 5,
                 "points": 52
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 2,
                 "points": 32
             },
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 14,
+                "place": 15,
                 "plays": 4,
                 "points": 54
             },
@@ -33520,7 +34128,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 30
             },
@@ -33667,7 +34275,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 56,
+                "place": 57,
                 "plays": 4,
                 "points": 48
             },
@@ -33903,7 +34511,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 41,
+                "place": 40,
                 "plays": 2,
                 "points": 36
             }
@@ -34120,7 +34728,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -34213,7 +34821,7 @@
             "Dua Lipa"
         ],
         "official_name": "New Rules",
-        "plays": 299,
+        "plays": 300,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -34323,7 +34931,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 58,
+                "place": 59,
                 "plays": 3,
                 "points": 38
             },
@@ -34421,7 +35029,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 37,
+                "place": 38,
                 "plays": 5,
                 "points": 68
             },
@@ -34501,6 +35109,13 @@
                 "place": 45,
                 "plays": 3,
                 "points": 52
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 49,
+                "plays": 3,
+                "points": 36
             }
         ]
     },
@@ -34892,7 +35507,7 @@
             "Dua Lipa"
         ],
         "official_name": "We're Good",
-        "plays": 153,
+        "plays": 154,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -34994,7 +35609,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             },
@@ -35246,7 +35861,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 50,
+                "place": 49,
                 "plays": 5,
                 "points": 62
             },
@@ -35291,6 +35906,20 @@
                 "place": 4,
                 "plays": 0,
                 "points": 82
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 2,
+                "plays": 10,
+                "points": 134
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 8,
+                "plays": 8,
+                "points": 100
             }
         ]
     },
@@ -35390,7 +36019,7 @@
             "Ed Sheeran"
         ],
         "official_name": "Shape of You",
-        "plays": 59,
+        "plays": 62,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -35447,6 +36076,13 @@
                 "place": 12,
                 "plays": 10,
                 "points": 100
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
             }
         ]
     },
@@ -35578,7 +36214,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 28,
+                "place": 29,
                 "plays": 6,
                 "points": 60
             },
@@ -35665,7 +36301,7 @@
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 52
             },
@@ -35911,7 +36547,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 48,
+                "place": 49,
                 "plays": 3,
                 "points": 42
             },
@@ -35978,7 +36614,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 33,
+                "place": 35,
                 "plays": 3,
                 "points": 30
             },
@@ -36173,7 +36809,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 32,
+                "place": 33,
                 "plays": 7,
                 "points": 70
             }
@@ -36204,7 +36840,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 43,
+                "place": 44,
                 "plays": 5,
                 "points": 50
             }
@@ -36411,7 +37047,7 @@
             "Hailee Steinfeld"
         ],
         "official_name": "Love Myself",
-        "plays": 44,
+        "plays": 46,
         "entries": [
             {
                 "start": "2022-09-01",
@@ -36469,7 +37105,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 48,
+                "place": 49,
                 "plays": 4,
                 "points": 42
             }
@@ -36486,7 +37122,7 @@
             "WATT"
         ],
         "official_name": "Let Me Go (with Alesso, Florida Georgia Line & watt)",
-        "plays": 121,
+        "plays": 122,
         "entries": [
             {
                 "start": "2021-11-11",
@@ -36498,7 +37134,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 51,
+                "place": 52,
                 "plays": 3,
                 "points": 38
             },
@@ -36590,7 +37226,7 @@
             "Anderson .Paak"
         ],
         "official_name": "Coast (feat. Anderson .Paak)",
-        "plays": 140,
+        "plays": 142,
         "entries": [
             {
                 "start": "2022-09-01",
@@ -36658,9 +37294,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 2,
                 "points": 34
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 46,
+                "plays": 3,
+                "points": 38
             }
         ]
     },
@@ -36736,7 +37379,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -37316,14 +37959,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 26,
+                "place": 27,
                 "plays": 6,
                 "points": 62
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 54,
+                "place": 53,
                 "plays": 2,
                 "points": 34
             },
@@ -37670,13 +38313,6 @@
                 "place": 21,
                 "plays": 3,
                 "points": 30
-            },
-            {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
             }
         ]
     },
@@ -37696,14 +38332,14 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 42,
                 "plays": 4,
                 "points": 40
             },
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             },
@@ -37803,6 +38439,13 @@
                 "place": 41,
                 "plays": 1,
                 "points": 18
+            },
+            {
+                "start": "2022-03-03",
+                "end": "2022-03-10",
+                "place": 59,
+                "plays": 4,
+                "points": 42
             }
         ]
     },
@@ -37818,7 +38461,7 @@
             "Ty Dolla $ign"
         ],
         "official_name": "Swalla (feat. Nicki Minaj & Ty Dolla $ign)",
-        "plays": 235,
+        "plays": 236,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -37984,7 +38627,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 28,
+                "place": 29,
                 "plays": 4,
                 "points": 60
             },
@@ -38005,9 +38648,16 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 38,
-                "plays": 6,
-                "points": 64
+                "place": 31,
+                "plays": 7,
+                "points": 74
+            },
+            {
+                "start": "2022-06-23",
+                "end": "2022-06-30",
+                "place": 58,
+                "plays": 4,
+                "points": 48
             },
             {
                 "start": "2022-06-30",
@@ -38029,6 +38679,13 @@
                 "place": 46,
                 "plays": 4,
                 "points": 58
+            },
+            {
+                "start": "2022-07-21",
+                "end": "2022-07-28",
+                "place": 59,
+                "plays": 1,
+                "points": 28
             },
             {
                 "start": "2022-10-20",
@@ -38190,7 +38847,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             }
@@ -38217,7 +38874,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 3,
                 "points": 30
             }
@@ -38318,7 +38975,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 12,
+                "place": 13,
                 "plays": 2,
                 "points": 92
             },
@@ -38490,7 +39147,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -38693,7 +39350,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 2,
                 "points": 46
             },
@@ -38714,7 +39371,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 25,
+                "place": 26,
                 "plays": 3,
                 "points": 56
             },
@@ -38749,14 +39406,14 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 10,
+                "place": 11,
                 "plays": 7,
                 "points": 78
             },
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 26,
+                "place": 27,
                 "plays": 3,
                 "points": 46
             },
@@ -38770,7 +39427,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 37,
+                "place": 38,
                 "plays": 3,
                 "points": 48
             },
@@ -38836,6 +39493,13 @@
                 "place": 51,
                 "plays": 4,
                 "points": 48
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 39,
+                "plays": 4,
+                "points": 42
             }
         ]
     },
@@ -38880,7 +39544,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 32,
+                "place": 33,
                 "plays": 5,
                 "points": 58
             },
@@ -38950,7 +39614,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 2,
                 "points": 30
             }
@@ -38976,14 +39640,14 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 23,
+                "place": 24,
                 "plays": 4,
                 "points": 56
             },
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 39,
+                "place": 40,
                 "plays": 4,
                 "points": 42
             },
@@ -39128,7 +39792,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             }
@@ -39200,7 +39864,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 2,
+                "place": 3,
                 "plays": 17,
                 "points": 170
             },
@@ -39251,9 +39915,9 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
-                "plays": 4,
-                "points": 46
+                "place": 19,
+                "plays": 6,
+                "points": 66
             },
             {
                 "start": "2022-09-08",
@@ -39390,7 +40054,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Tusa",
-        "plays": 462,
+        "plays": 463,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -39808,7 +40472,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 50
             },
@@ -39954,7 +40618,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 2,
                 "points": 34
             }
@@ -40035,7 +40699,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 13,
+                "place": 14,
                 "plays": 5,
                 "points": 58
             },
@@ -40056,7 +40720,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 29,
+                "place": 30,
                 "plays": 4,
                 "points": 52
             },
@@ -40372,14 +41036,14 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 52,
+                "place": 51,
                 "plays": 3,
                 "points": 36
             },
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 29,
+                "place": 30,
                 "plays": 5,
                 "points": 52
             },
@@ -40597,7 +41261,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 23,
+                "place": 24,
                 "plays": 4,
                 "points": 56
             },
@@ -40611,14 +41275,14 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 25,
+                "place": 26,
                 "plays": 5,
                 "points": 56
             },
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 32
             },
@@ -40674,14 +41338,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 32,
+                "place": 33,
                 "plays": 4,
                 "points": 58
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 12,
+                "place": 13,
                 "plays": 5,
                 "points": 70
             },
@@ -40863,9 +41527,16 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 48,
+                "place": 49,
                 "plays": 4,
                 "points": 52
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -41077,7 +41748,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             }
@@ -41774,7 +42445,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 51,
+                "place": 52,
                 "plays": 2,
                 "points": 38
             }
@@ -41931,14 +42602,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 36,
+                "place": 37,
                 "plays": 5,
                 "points": 56
             },
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 53,
+                "place": 54,
                 "plays": 4,
                 "points": 40
             },
@@ -41952,7 +42623,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 34,
+                "place": 35,
                 "plays": 6,
                 "points": 68
             }
@@ -42050,7 +42721,7 @@
             "Lil Nas X"
         ],
         "official_name": "STAR WALKIN' (League Of Legends Worlds Anthem)",
-        "plays": 24,
+        "plays": 25,
         "entries": [
             {
                 "start": "2022-09-22",
@@ -42164,7 +42835,7 @@
             "Lil Nas X"
         ],
         "official_name": "Panini",
-        "plays": 81,
+        "plays": 82,
         "entries": [
             {
                 "start": "2022-01-06",
@@ -42197,7 +42868,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 2,
                 "points": 32
             },
@@ -42282,22 +42953,22 @@
                 "start": "2021-09-02",
                 "end": "2021-09-09",
                 "place": 12,
-                "plays": 9,
-                "points": 118
+                "plays": 10,
+                "points": 128
             },
             {
                 "start": "2021-09-09",
                 "end": "2021-09-16",
-                "place": 17,
+                "place": 16,
                 "plays": 5,
-                "points": 70
+                "points": 72
             },
             {
                 "start": "2021-09-16",
                 "end": "2021-09-23",
                 "place": 3,
                 "plays": 50,
-                "points": 528
+                "points": 530
             },
             {
                 "start": "2021-09-23",
@@ -42326,6 +42997,13 @@
                 "place": 48,
                 "plays": 2,
                 "points": 36
+            },
+            {
+                "start": "2021-11-18",
+                "end": "2021-11-25",
+                "place": 43,
+                "plays": 4,
+                "points": 40
             },
             {
                 "start": "2022-06-30",
@@ -42851,7 +43529,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -43067,7 +43745,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -43222,13 +43900,6 @@
                 "points": 66
             },
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 1,
-                "points": 34
-            },
-            {
                 "start": "2021-11-25",
                 "end": "2021-12-02",
                 "place": 7,
@@ -43245,7 +43916,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 23,
+                "place": 24,
                 "plays": 2,
                 "points": 56
             },
@@ -43266,7 +43937,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 31,
+                "place": 32,
                 "plays": 4,
                 "points": 50
             },
@@ -43301,14 +43972,14 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 8,
+                "place": 9,
                 "plays": 9,
                 "points": 94
             },
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 15,
+                "place": 16,
                 "plays": 3,
                 "points": 52
             },
@@ -43460,7 +44131,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -43772,6 +44443,13 @@
         "plays": 56,
         "entries": [
             {
+                "start": "2022-01-06",
+                "end": "2022-01-13",
+                "place": 53,
+                "plays": 3,
+                "points": 34
+            },
+            {
                 "start": "2022-07-28",
                 "end": "2022-08-04",
                 "place": 31,
@@ -43835,7 +44513,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             }
@@ -43932,7 +44610,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Run Up",
-        "plays": 132,
+        "plays": 133,
         "entries": [
             {
                 "start": "2022-01-20",
@@ -43986,7 +44664,7 @@
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 54,
+                "place": 53,
                 "plays": 2,
                 "points": 34
             },
@@ -44209,7 +44887,7 @@
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             },
@@ -44256,7 +44934,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 43,
+                "place": 44,
                 "plays": 4,
                 "points": 44
             }
@@ -44512,7 +45190,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 3,
                 "points": 46
             },
@@ -44533,7 +45211,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 32,
+                "place": 33,
                 "plays": 5,
                 "points": 58
             },
@@ -44589,7 +45267,7 @@
             "Maroon 5"
         ],
         "official_name": "Maps",
-        "plays": 178,
+        "plays": 179,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -45007,9 +45685,9 @@
             {
                 "start": "2021-10-21",
                 "end": "2021-10-28",
-                "place": 41,
+                "place": 39,
                 "plays": 4,
-                "points": 40
+                "points": 42
             }
         ]
     },
@@ -45198,7 +45876,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 43,
+                "place": 44,
                 "plays": 5,
                 "points": 50
             },
@@ -45354,7 +46032,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 34,
+                "place": 33,
                 "plays": 4,
                 "points": 40
             }
@@ -45455,7 +46133,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 5,
                 "points": 50
             },
@@ -45581,7 +46259,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 43,
+                "place": 44,
                 "plays": 4,
                 "points": 44
             }
@@ -45608,12 +46286,12 @@
             "Megan Thee Stallion"
         ],
         "official_name": "Beautiful Mistakes (feat. Megan Thee Stallion)",
-        "plays": 481,
+        "plays": 482,
         "entries": [
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -45753,7 +46431,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 5,
                 "points": 52
             },
@@ -45879,14 +46557,14 @@
             {
                 "start": "2022-08-18",
                 "end": "2022-08-25",
-                "place": 4,
+                "place": 5,
                 "plays": 5,
                 "points": 126
             },
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 4,
+                "place": 5,
                 "plays": 10,
                 "points": 148
             },
@@ -46005,7 +46683,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 48,
+                "place": 49,
                 "plays": 4,
                 "points": 52
             },
@@ -46033,9 +46711,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 28,
+                "place": 27,
                 "plays": 3,
                 "points": 44
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 20,
+                "plays": 5,
+                "points": 60
             }
         ]
     },
@@ -46159,7 +46844,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 35,
+                "place": 36,
                 "plays": 4,
                 "points": 44
             },
@@ -46337,7 +47022,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             },
@@ -46454,7 +47139,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 5,
                 "points": 50
             },
@@ -46561,7 +47246,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 48,
+                "place": 49,
                 "plays": 3,
                 "points": 42
             },
@@ -46643,7 +47328,7 @@
             {
                 "start": "2021-09-09",
                 "end": "2021-09-16",
-                "place": 17,
+                "place": 18,
                 "plays": 5,
                 "points": 70
             },
@@ -46671,7 +47356,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 51,
+                "place": 52,
                 "plays": 3,
                 "points": 38
             },
@@ -46685,7 +47370,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 3,
                 "points": 46
             },
@@ -46792,7 +47477,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 4,
                 "points": 46
             },
@@ -46894,7 +47579,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -46982,7 +47667,7 @@
             "Cardi B"
         ],
         "official_name": "MotorSport",
-        "plays": 34,
+        "plays": 37,
         "entries": [
             {
                 "start": "2021-07-22",
@@ -47020,7 +47705,7 @@
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 20,
+                "place": 21,
                 "plays": 3,
                 "points": 50
             },
@@ -47030,13 +47715,6 @@
                 "place": 12,
                 "plays": 5,
                 "points": 76
-            },
-            {
-                "start": "2022-04-07",
-                "end": "2022-04-14",
-                "place": 60,
-                "plays": 2,
-                "points": 36
             },
             {
                 "start": "2022-04-14",
@@ -47069,9 +47747,9 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 47,
                 "plays": 3,
-                "points": 30
+                "points": 32
             }
         ]
     },
@@ -47268,7 +47946,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 5,
+                "place": 6,
                 "plays": 7,
                 "points": 142
             },
@@ -47289,7 +47967,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 34,
+                "place": 33,
                 "plays": 4,
                 "points": 40
             }
@@ -47304,7 +47982,7 @@
             "Dua Lipa"
         ],
         "official_name": "Prisoner (feat. Dua Lipa)",
-        "plays": 165,
+        "plays": 166,
         "entries": [
             {
                 "start": "2021-08-05",
@@ -47501,7 +48179,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 43,
+                "place": 44,
                 "plays": 5,
                 "points": 50
             },
@@ -47529,14 +48207,14 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 40,
+                "place": 41,
                 "plays": 3,
                 "points": 46
             },
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 4,
                 "points": 52
             },
@@ -47653,7 +48331,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 22,
+                "place": 23,
                 "plays": 5,
                 "points": 58
             },
@@ -47667,7 +48345,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 37,
+                "place": 38,
                 "plays": 4,
                 "points": 48
             },
@@ -47769,9 +48447,9 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 33,
+                "place": 25,
                 "plays": 3,
-                "points": 30
+                "points": 32
             }
         ]
     },
@@ -47807,7 +48485,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -47966,7 +48644,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Barbie Tingz",
-        "plays": 123,
+        "plays": 125,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -47978,7 +48656,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 23,
+                "place": 24,
                 "plays": 5,
                 "points": 56
             },
@@ -48013,7 +48691,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 2,
                 "points": 52
             },
@@ -48027,7 +48705,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 32,
+                "place": 33,
                 "plays": 7,
                 "points": 70
             },
@@ -48044,6 +48722,13 @@
                 "place": 27,
                 "plays": 7,
                 "points": 74
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 29,
+                "plays": 4,
+                "points": 46
             }
         ]
     },
@@ -48078,7 +48763,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 37,
+                "place": 38,
                 "plays": 2,
                 "points": 28
             }
@@ -48285,7 +48970,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 3,
                 "points": 30
             }
@@ -48438,7 +49123,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 53,
+                "place": 54,
                 "plays": 4,
                 "points": 40
             },
@@ -48489,7 +49174,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 37,
+                "place": 38,
                 "plays": 2,
                 "points": 28
             },
@@ -48538,7 +49223,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Regret In Your Tears",
-        "plays": 196,
+        "plays": 197,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -48606,7 +49291,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 36,
+                "place": 37,
                 "plays": 3,
                 "points": 66
             },
@@ -48690,7 +49375,7 @@
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 57,
+                "place": 58,
                 "plays": 3,
                 "points": 54
             }
@@ -48938,7 +49623,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -48969,13 +49654,6 @@
                 "place": 13,
                 "plays": 6,
                 "points": 64
-            },
-            {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 2,
-                "points": 34
             },
             {
                 "start": "2021-11-25",
@@ -49090,7 +49768,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 41,
+                "place": 42,
                 "plays": 2,
                 "points": 26
             },
@@ -49188,7 +49866,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 2,
                 "points": 24
             },
@@ -49270,7 +49948,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Wamables",
-        "plays": 225,
+        "plays": 226,
         "entries": [
             {
                 "start": "2021-12-09",
@@ -49338,7 +50016,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 16,
+                "place": 17,
                 "plays": 4,
                 "points": 74
             },
@@ -49436,14 +50114,14 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 50
             },
             {
                 "start": "2023-01-05",
                 "end": "2023-01-12",
-                "place": 54,
+                "place": 55,
                 "plays": 4,
                 "points": 58
             },
@@ -49500,23 +50178,23 @@
             {
                 "start": "2022-08-18",
                 "end": "2022-08-25",
-                "place": 5,
-                "plays": 7,
-                "points": 122
+                "place": 3,
+                "plays": 11,
+                "points": 162
             },
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 5,
-                "plays": 7,
-                "points": 136
+                "place": 2,
+                "plays": 11,
+                "points": 184
             },
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 37,
+                "place": 16,
                 "plays": 4,
-                "points": 68
+                "points": 84
             }
         ]
     },
@@ -49670,7 +50348,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 16,
+                "place": 17,
                 "plays": 5,
                 "points": 74
             },
@@ -49698,7 +50376,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 53,
+                "place": 54,
                 "plays": 2,
                 "points": 40
             },
@@ -49849,7 +50527,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -49977,7 +50655,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             }
@@ -49992,7 +50670,7 @@
             "Ariana Grande"
         ],
         "official_name": "Get On Your Knees",
-        "plays": 275,
+        "plays": 276,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -50004,14 +50682,14 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 30,
+                "place": 31,
                 "plays": 4,
                 "points": 50
             },
             {
                 "start": "2022-01-06",
                 "end": "2022-01-13",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 32
             },
@@ -50179,7 +50857,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 37,
+                "place": 38,
                 "plays": 6,
                 "points": 68
             },
@@ -50273,25 +50951,11 @@
                 "points": 24
             },
             {
-                "start": "2021-11-18",
-                "end": "2021-11-25",
-                "place": 60,
-                "plays": 3,
-                "points": 34
-            },
-            {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 36,
+                "place": 37,
                 "plays": 4,
                 "points": 48
-            },
-            {
-                "start": "2022-04-07",
-                "end": "2022-04-14",
-                "place": 60,
-                "plays": 3,
-                "points": 36
             }
         ]
     },
@@ -50380,7 +51044,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             },
@@ -50854,8 +51518,16 @@
             "G Herbo"
         ],
         "official_name": "Chi-Raq (with G Herbo)",
-        "plays": 21,
-        "entries": []
+        "plays": 22,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
+            }
+        ]
     },
     "1767445": {
         "name": "Sir",
@@ -51037,7 +51709,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 28,
+                "place": 29,
                 "plays": 5,
                 "points": 60
             },
@@ -51051,7 +51723,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 0,
                 "points": 30
             },
@@ -51093,7 +51765,7 @@
             {
                 "start": "2022-04-28",
                 "end": "2022-05-05",
-                "place": 34,
+                "place": 35,
                 "plays": 3,
                 "points": 68
             },
@@ -51303,9 +51975,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 43,
+                "place": 42,
                 "plays": 2,
                 "points": 34
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 17,
+                "plays": 6,
+                "points": 68
             }
         ]
     },
@@ -51499,7 +52178,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 55,
+                "place": 56,
                 "plays": 2,
                 "points": 36
             },
@@ -51520,7 +52199,7 @@
             {
                 "start": "2021-12-09",
                 "end": "2021-12-16",
-                "place": 39,
+                "place": 40,
                 "plays": 3,
                 "points": 46
             }
@@ -51711,7 +52390,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 31,
+                "place": 32,
                 "plays": 5,
                 "points": 50
             }
@@ -51782,7 +52461,7 @@
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 2,
                 "points": 52
             }
@@ -51808,7 +52487,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 49,
+                "place": 50,
                 "plays": 1,
                 "points": 24
             },
@@ -51897,7 +52576,7 @@
             "Jhen\u00e9 Aiko"
         ],
         "official_name": "Post to Be (feat. Chris Brown & Jhene Aiko)",
-        "plays": 118,
+        "plays": 119,
         "entries": [
             {
                 "start": "2022-03-31",
@@ -52942,12 +53621,12 @@
             "RAYE"
         ],
         "official_name": "Black Mascara.",
-        "plays": 16,
+        "plays": 18,
         "entries": [
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             },
@@ -52961,7 +53640,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 3,
                 "points": 30
             }
@@ -52987,7 +53666,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Ball For Me (feat. Nicki Minaj)",
-        "plays": 399,
+        "plays": 400,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -53041,7 +53720,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 11,
+                "place": 12,
                 "plays": 5,
                 "points": 86
             },
@@ -53251,7 +53930,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 6,
+                "place": 7,
                 "plays": 6,
                 "points": 100
             },
@@ -53286,9 +53965,23 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 23,
+                "place": 22,
                 "plays": 2,
                 "points": 48
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 23,
+                "plays": 4,
+                "points": 52
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 7,
+                "plays": 9,
+                "points": 102
             }
         ]
     },
@@ -53301,7 +53994,7 @@
             "The Weeknd"
         ],
         "official_name": "One Right Now (with The Weeknd)",
-        "plays": 152,
+        "plays": 153,
         "entries": [
             {
                 "start": "2022-06-02",
@@ -53586,7 +54279,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 52,
+                "place": 51,
                 "plays": 6,
                 "points": 60
             },
@@ -53917,7 +54610,7 @@
             "Rihanna"
         ],
         "official_name": "Diamonds",
-        "plays": 52,
+        "plays": 53,
         "entries": [
             {
                 "start": "2021-10-28",
@@ -53925,6 +54618,13 @@
                 "place": 48,
                 "plays": 3,
                 "points": 38
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 39,
+                "plays": 4,
+                "points": 42
             }
         ]
     },
@@ -53985,7 +54685,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 3,
                 "points": 30
             }
@@ -54084,7 +54784,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -54158,7 +54858,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 28,
+                "place": 29,
                 "plays": 5,
                 "points": 52
             }
@@ -54261,7 +54961,7 @@
             "Rihanna"
         ],
         "official_name": "Needed Me",
-        "plays": 125,
+        "plays": 126,
         "entries": [
             {
                 "start": "2022-09-08",
@@ -54325,6 +55025,20 @@
                 "place": 7,
                 "plays": 9,
                 "points": 114
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 49,
+                "plays": 3,
+                "points": 36
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 12,
+                "plays": 8,
+                "points": 86
             }
         ]
     },
@@ -54476,7 +55190,7 @@
             {
                 "start": "2021-12-30",
                 "end": "2022-01-06",
-                "place": 40,
+                "place": 41,
                 "plays": 4,
                 "points": 40
             }
@@ -54675,7 +55389,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 56,
+                "place": 57,
                 "plays": 4,
                 "points": 48
             },
@@ -55083,7 +55797,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 32,
+                "place": 33,
                 "plays": 4,
                 "points": 70
             }
@@ -55161,7 +55875,15 @@
         ],
         "official_name": "Whole Lotta Choppas (Remix) [feat. Nicki Minaj]",
         "plays": 19,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
     },
     "2442008": {
         "name": "Breaking Hearts",
@@ -55353,7 +56075,7 @@
             "Sam Smith"
         ],
         "official_name": "Fire On Fire",
-        "plays": 95,
+        "plays": 96,
         "entries": [
             {
                 "start": "2022-06-02",
@@ -55958,7 +56680,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 15,
+                "place": 14,
                 "plays": 3,
                 "points": 56
             }
@@ -56079,7 +56801,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 53,
+                "place": 54,
                 "plays": 4,
                 "points": 40
             }
@@ -56173,7 +56895,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 58,
+                "place": 57,
                 "plays": 5,
                 "points": 58
             },
@@ -56187,7 +56909,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 50,
+                "place": 49,
                 "plays": 2,
                 "points": 32
             }
@@ -56272,7 +56994,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -56289,6 +57011,13 @@
                 "place": 57,
                 "plays": 2,
                 "points": 28
+            },
+            {
+                "start": "2022-04-07",
+                "end": "2022-04-14",
+                "place": 26,
+                "plays": 5,
+                "points": 56
             }
         ]
     },
@@ -56348,7 +57077,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 5,
                 "points": 52
             },
@@ -56598,6 +57327,13 @@
                 "place": 58,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 3,
+                "points": 32
             }
         ]
     },
@@ -56654,7 +57390,15 @@
         ],
         "official_name": "Faith",
         "plays": 23,
-        "entries": []
+        "entries": [
+            {
+                "start": "2022-05-12",
+                "end": "2022-05-19",
+                "place": 53,
+                "plays": 5,
+                "points": 54
+            }
+        ]
     },
     "58406018": {
         "name": "Kill Bill",
@@ -56849,6 +57593,13 @@
                 "place": 8,
                 "plays": 3,
                 "points": 72
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 12,
+                "plays": 8,
+                "points": 86
             }
         ]
     },
@@ -56923,7 +57674,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -56982,7 +57733,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 33,
+                "place": 35,
                 "plays": 2,
                 "points": 30
             },
@@ -57595,7 +58346,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 37,
+                "place": 38,
                 "plays": 2,
                 "points": 28
             },
@@ -57687,7 +58438,7 @@
             "Justin Bieber"
         ],
         "official_name": "STAY (with Justin Bieber)",
-        "plays": 129,
+        "plays": 131,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -57741,14 +58492,14 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 15,
+                "place": 16,
                 "plays": 4,
                 "points": 52
             },
             {
                 "start": "2022-03-24",
                 "end": "2022-03-31",
-                "place": 26,
+                "place": 27,
                 "plays": 3,
                 "points": 46
             },
@@ -57906,7 +58657,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 48
             },
@@ -57934,7 +58685,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 58,
+                "place": 57,
                 "plays": 4,
                 "points": 58
             },
@@ -58028,7 +58779,7 @@
             "Halsey"
         ],
         "official_name": "Closer",
-        "plays": 158,
+        "plays": 159,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -58096,7 +58847,7 @@
             {
                 "start": "2022-09-01",
                 "end": "2022-09-08",
-                "place": 32,
+                "place": 33,
                 "plays": 7,
                 "points": 70
             },
@@ -58397,7 +59148,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 51,
+                "place": 52,
                 "plays": 3,
                 "points": 50
             }
@@ -58842,7 +59593,7 @@
             "Doja Cat"
         ],
         "official_name": "Freaky Deaky",
-        "plays": 341,
+        "plays": 342,
         "entries": [
             {
                 "start": "2022-02-24",
@@ -59029,7 +59780,7 @@
             {
                 "start": "2022-08-25",
                 "end": "2022-09-01",
-                "place": 5,
+                "place": 6,
                 "plays": 9,
                 "points": 136
             },
@@ -59099,7 +59850,7 @@
             {
                 "start": "2022-12-29",
                 "end": "2023-01-05",
-                "place": 51,
+                "place": 52,
                 "plays": 4,
                 "points": 50
             },
@@ -59134,7 +59885,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 50,
+                "place": 49,
                 "plays": 2,
                 "points": 32
             }
@@ -59168,7 +59919,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -59265,7 +60016,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 49,
+                "place": 48,
                 "plays": 5,
                 "points": 66
             },
@@ -59315,7 +60066,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -59353,7 +60104,7 @@
             "Nicki Minaj"
         ],
         "official_name": "Dip (feat. Nicki Minaj)",
-        "plays": 123,
+        "plays": 125,
         "entries": [
             {
                 "start": "2022-02-24",
@@ -59714,7 +60465,7 @@
             {
                 "start": "2021-11-18",
                 "end": "2021-11-25",
-                "place": 55,
+                "place": 56,
                 "plays": 3,
                 "points": 36
             },
@@ -59763,14 +60514,14 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 37,
+                "place": 38,
                 "plays": 4,
                 "points": 52
             },
             {
                 "start": "2022-03-10",
                 "end": "2022-03-17",
-                "place": 59,
+                "place": 58,
                 "plays": 2,
                 "points": 32
             },
@@ -59914,7 +60665,7 @@
             {
                 "start": "2022-03-03",
                 "end": "2022-03-10",
-                "place": 24,
+                "place": 25,
                 "plays": 4,
                 "points": 64
             },
@@ -59942,7 +60693,7 @@
             {
                 "start": "2022-05-12",
                 "end": "2022-05-19",
-                "place": 56,
+                "place": 57,
                 "plays": 4,
                 "points": 52
             },
@@ -59952,6 +60703,13 @@
                 "place": 27,
                 "plays": 6,
                 "points": 64
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -60181,7 +60939,7 @@
             {
                 "start": "2022-03-17",
                 "end": "2022-03-24",
-                "place": 56,
+                "place": 57,
                 "plays": 3,
                 "points": 30
             }
@@ -60580,7 +61338,7 @@
             {
                 "start": "2023-02-02",
                 "end": "2023-02-09",
-                "place": 6,
+                "place": 7,
                 "plays": 13,
                 "points": 136
             },
@@ -60627,7 +61385,7 @@
             {
                 "start": "2021-06-03",
                 "end": "2021-06-10",
-                "place": 59,
+                "place": 60,
                 "plays": 2,
                 "points": 22
             },
@@ -60728,7 +61486,7 @@
             {
                 "start": "2022-04-07",
                 "end": "2022-04-14",
-                "place": 53,
+                "place": 54,
                 "plays": 4,
                 "points": 40
             }
@@ -60758,7 +61516,7 @@
             {
                 "start": "2023-02-16",
                 "end": "2023-02-23",
-                "place": 14,
+                "place": 15,
                 "plays": 8,
                 "points": 84
             },
@@ -60793,9 +61551,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 22,
+                "place": 21,
                 "plays": 3,
                 "points": 50
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 58,
+                "plays": 2,
+                "points": 32
             }
         ]
     },
@@ -60829,7 +61594,7 @@
             "24kGoldn"
         ],
         "official_name": "Tick Tock (feat. 24kGoldn)",
-        "plays": 34,
+        "plays": 35,
         "entries": [
             {
                 "start": "2023-02-23",
@@ -60862,9 +61627,16 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 15,
+                "place": 14,
                 "plays": 4,
                 "points": 56
+            },
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 31,
+                "plays": 3,
+                "points": 44
             }
         ]
     },
@@ -61333,7 +62105,7 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 1,
                 "points": 30
             }
@@ -61347,7 +62119,7 @@
             "Mabel"
         ],
         "official_name": "Don't Call Me Up",
-        "plays": 12,
+        "plays": 13,
         "entries": [
             {
                 "start": "2023-03-02",
@@ -61413,6 +62185,13 @@
                 "place": 5,
                 "plays": 5,
                 "points": 74
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 20,
+                "plays": 5,
+                "points": 60
             }
         ]
     },
@@ -61762,9 +62541,84 @@
             {
                 "start": "2023-03-23",
                 "end": "2023-03-30",
-                "place": 55,
+                "place": 54,
                 "plays": 3,
                 "points": 30
+            }
+        ]
+    },
+    "535008": {
+        "name": "No Flag",
+        "id": "535008",
+        "alt_ids": [],
+        "artists": [
+            "London On Da Track",
+            "Nicki Minaj",
+            "21 Savage",
+            "Offset"
+        ],
+        "official_name": "No Flag (feat. Nicki Minaj, 21 Savage & Offset)",
+        "plays": 17,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 3,
+                "plays": 13,
+                "points": 130
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 15,
+                "plays": 5,
+                "points": 76
+            }
+        ]
+    },
+    "374035": {
+        "name": "Boyfriend (Mabel)",
+        "id": "374035",
+        "alt_ids": [],
+        "artists": [
+            "Mabel"
+        ],
+        "official_name": "Boyfriend",
+        "plays": 11,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 13,
+                "plays": 6,
+                "points": 64
+            },
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 39,
+                "plays": 3,
+                "points": 42
+            }
+        ]
+    },
+    "14457530": {
+        "name": "IDGAF Remix",
+        "id": "14457530",
+        "alt_ids": [],
+        "artists": [
+            "Dua Lipa",
+            "Saweetie"
+        ],
+        "official_name": "IDGAF (feat. Saweetie)",
+        "plays": 5,
+        "entries": [
+            {
+                "start": "2023-03-30",
+                "end": "2023-04-06",
+                "place": 36,
+                "plays": 4,
+                "points": 40
             }
         ]
     },
@@ -61863,5 +62717,139 @@
     },
     "5443449": {
         "merge": "78715"
+    },
+    "66119344": {
+        "name": "Never Felt So Alone",
+        "id": "66119344",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Never Felt So Alone",
+        "plays": 6,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 20,
+                "plays": 6,
+                "points": 60
+            }
+        ]
+    },
+    "13192298": {
+        "name": "Imagination",
+        "id": "13192298",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Imagination",
+        "plays": 5,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 27,
+                "plays": 5,
+                "points": 50
+            }
+        ]
+    },
+    "13192284": {
+        "name": "Juju Woman",
+        "id": "13192284",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Juju Woman",
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
+    },
+    "13192365": {
+        "name": "All For Us",
+        "id": "13192365",
+        "alt_ids": [],
+        "artists": [
+            "Zendaya",
+            "Labrinth"
+        ],
+        "official_name": "All For Us",
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
+    },
+    "11283248": {
+        "name": "Miracle",
+        "id": "11283248",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Miracle",
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
+    },
+    "13192293": {
+        "name": "Misbehaving",
+        "id": "13192293",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Misbehaving - The Misfit Version",
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
+    },
+    "13192299": {
+        "name": "Dotted line / Juju Man",
+        "id": "13192299",
+        "alt_ids": [],
+        "artists": [
+            "Labrinth"
+        ],
+        "official_name": "Dotted line / Juju Man",
+        "plays": 4,
+        "entries": [
+            {
+                "start": "2023-04-06",
+                "end": "2023-04-13",
+                "place": 44,
+                "plays": 4,
+                "points": 40
+            }
+        ]
     }
 }

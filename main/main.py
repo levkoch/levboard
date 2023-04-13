@@ -65,7 +65,7 @@ def load_all_weeks(start_day: date) -> list[Week]:
 
 def get_movement(current: date, last: date, song: Song) -> str:
     c_place: Optional[Entry] = song.get_entry(current)
-    if c_place is None:
+    if c_place is None:   # shouldn't happen but always good to check
         raise ValueError('cant get the movement for a song not charting')
     p_place: Optional[Entry] = song.get_entry(last)
     weeks = song.weeks
@@ -103,6 +103,7 @@ def get_peak(listenable: Union[Song, Album]) -> str:
 
 
 def create_song_chart(
+    uow: SongUOW,
     weeks: Iterator[Week],
 ) -> Iterator[tuple[list[dict], date, date]]:
 
@@ -110,24 +111,45 @@ def create_song_chart(
     one_wa = next(weeks)
     this_wk = next(weeks)
 
+    registered_ids: set[str] = set(uow.songs.list())
+    print("registered ids", len(registered_ids))
+
     while True:
-        all_songs = (
-            {pos.id for pos in two_wa.songs}
-            | {pos.id for pos in one_wa.songs}
-            | {pos.id for pos in this_wk.songs}
-        )
+        all_song_ids: set[str] = {
+            pos.id
+            for pos in set(two_wa.songs)
+            | set(one_wa.songs)
+            | set(this_wk.songs)
+        }
+
+        print("all played ids", len(all_song_ids))
+
+        # all songs who are registered (and could be merged into another one)
+        # are checked and turned into the base id
+        filtered_ids: set[str] = {
+            uow.songs.get(song_id).id
+            for song_id in (all_song_ids & registered_ids)
+            # and then all songs that arent registered are added into the set normally
+        } | (all_song_ids - registered_ids)
+
+        print("filtered ids", len(filtered_ids))
 
         song_info: list[dict] = []
 
-        for song_id in all_songs:
-            two_wa_plays = next(
-                (pos.plays for pos in two_wa.songs if pos.id == song_id), 0
+        for song_id in filtered_ids:
+            if song_id in registered_ids:
+                song_ids = {song_id}.union(uow.songs.get(song_id).alt_ids)
+            else:
+                song_ids = {song_id}
+
+            two_wa_plays = sum(
+                pos.plays for pos in two_wa.songs if pos.id in song_ids
             )
-            one_wa_plays = next(
-                (pos.plays for pos in one_wa.songs if pos.id == song_id), 0
+            one_wa_plays = sum(
+                pos.plays for pos in one_wa.songs if pos.id in song_ids
             )
-            this_wk_plays = next(
-                (pos.plays for pos in this_wk.songs if pos.id == song_id), 0
+            this_wk_plays = sum(
+                pos.plays for pos in this_wk.songs if pos.id in song_ids
             )
 
             song_info.append(
@@ -392,7 +414,8 @@ if __name__ == '__main__':
     album_rows: list[list] = []
     weeks = load_all_weeks(FIRST_DATE)
 
-    for positions, start_day, end_day in create_song_chart(iter(weeks)):
+    for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
+        
         week_count = next(week_counter)
         song_positions = [pos for pos in positions if pos['place'] <= 60]
         insert_entries(uow, song_positions, start_day, end_day)
