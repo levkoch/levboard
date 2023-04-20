@@ -112,7 +112,6 @@ def create_song_chart(
     this_wk = next(weeks)
 
     registered_ids: set[str] = set(uow.songs.list())
-    print("registered ids", len(registered_ids))
 
     while True:
         all_song_ids: set[str] = {
@@ -122,8 +121,6 @@ def create_song_chart(
             | set(this_wk.songs)
         }
 
-        print("all played ids", len(all_song_ids))
-
         # all songs who are registered (and could be merged into another one)
         # are checked and turned into the base id
         filtered_ids: set[str] = {
@@ -131,8 +128,6 @@ def create_song_chart(
             for song_id in (all_song_ids & registered_ids)
             # and then all songs that arent registered are added into the set normally
         } | (all_song_ids - registered_ids)
-
-        print("filtered ids", len(filtered_ids))
 
         song_info: list[dict] = []
 

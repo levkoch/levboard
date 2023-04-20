@@ -1,5 +1,6 @@
 import itertools
 from concurrent import futures
+from typing import Optional
 
 from config import LEVBOARD_SHEET
 from model import Album, Song
@@ -35,8 +36,9 @@ def load_songs(uow: SongUOW, verbose: bool = False):
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
 
-    request = sheet.get_range('Song Info!A2:B')
-    songs: list[list] = [i for i in request.get('values') if i[0]]
+    values = sheet.get_range('Song Info!A2:B').get('values')
+    if values is None: raise IndexError("shouldn't happen but who knows")
+    songs: list[list] = [i for i in values if i[0]]
 
     if verbose:
         print(f'{len(songs)} items found.')
@@ -66,32 +68,32 @@ def load_albums(uow: SongUOW, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
-    request = sheet.get_range('Albums!A1:G')
-    info: list[list] = request.get('values')
+    values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
+    if values is None: raise IndexError("shouldn't happen but maybe range error")
 
-    print(f'{len(info)} rows found.')
+    print(f'{len(values)} rows found.')
 
-    row: list[str] = info.pop(0)
+    row: list[str] = values.pop(0)
     album_count = itertools.count()
 
-    while info:
+    while values:
         album_name: str = row[0]
-        row = info.pop(0)
+        row = values.pop(0)
 
         if not row[0]:
             # if album has bonus row for weeks and peak
-            row = info.pop(0)
+            row = values.pop(0)
 
         album_artists: str = row[0]  # will be parsed later if multiple artists
-        row = info.pop(0)  # this is the headers row in the spreadsheet
+        row = values.pop(0)  # this is the headers row in the spreadsheet
 
         album = Album(album_name.strip(), album_artists.strip())
         uow.albums.add(album)
         if verbose:
-            print(f'\r{len(info)} rows left to process.', flush=True)
+            print(f'\r{len(values)} rows left to process.', flush=True)
             print(f'\r({next(album_count)}) Processing {album}', flush=True)
 
-        row = info.pop(0)
+        row = values.pop(0)
         try:
             while row:
                 song_id = row[6]
@@ -102,15 +104,15 @@ def load_albums(uow: SongUOW, verbose: bool = False):
                 if song is None:
                     raise ValueError('song not found')
                 album.add_song(song)
-                row = info.pop(0)
+                row = values.pop(0)
                 # will get new song row or the blank row
                 # at the end, causing the while loop to end
 
         except IndexError:
-            break  # from while info loop
+            break  # from while values loop
 
         # get next album title row
-        row = info.pop(0)
+        row = values.pop(0)
 
     uow.commit()
 
