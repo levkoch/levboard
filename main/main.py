@@ -410,7 +410,7 @@ if __name__ == '__main__':
     weeks = load_all_weeks(FIRST_DATE)
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
-        
+
         week_count = next(week_counter)
         song_positions = [pos for pos in positions if pos['place'] <= 60]
         insert_entries(uow, song_positions, start_day, end_day)

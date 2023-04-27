@@ -170,7 +170,7 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
 
 
 def top_albums_cert_count(uow: SongUOW, cert: SongCert):
-    contenders = [(album, album.get_certs(cert)) for album in uow.albums]
+    contenders = [(album, album.song_cert_count(cert)) for album in uow.albums]
     contenders.sort(key=lambda i: i[1], reverse=True)
     contenders = [
         i for i in contenders if i[1] >= contenders[19][1] and i[1]  # > 1
@@ -203,7 +203,7 @@ def top_albums_play_count(uow: SongUOW, plays: int):
 
 
 def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
-    units = [(album, album.get_conweeks(top)) for album in uow.albums]
+    units = [(album, album.get_con_weeks(top)) for album in uow.albums]
 
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] >= units[16][1] and i[1] > 1]
@@ -218,7 +218,7 @@ def top_albums_consecutive_weeks(uow: SongUOW, top: Optional[int]):
 
 
 def top_albums_song_weeks(uow: SongUOW, top: Optional[int]):
-    units = [(album, album.get_weeks(top)) for album in uow.albums]
+    units = [(album, album.get_song_weeks(top)) for album in uow.albums]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[16][1]]
 
@@ -293,7 +293,7 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
 
 
 def top_album_song_weeks(uow: SongUOW, weeks: Optional[int]):
-    units = [(album, album.get_charted(weeks)) for album in uow.albums]
+    units = [(album, album.song_charted_count(weeks)) for album in uow.albums]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] > units[20][1]]
 

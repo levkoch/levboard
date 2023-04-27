@@ -100,21 +100,21 @@ class Album:
         return sum(i.points for i in self.songs)
 
     @property
-    def song_weeks(self) -> int:
+    def total_song_weeks(self) -> int:
         """
         (`int`): The total weeks charted by songs in the album.
         """
         return sum(song.weeks for song in self.songs)
 
     @property
-    def song_peak(self) -> int:
+    def top_song_peak(self) -> int:
         """
         (`int`): The highest peak among songs in the album.
         """
         return min(song.peak for song in self.songs)
 
     @property
-    def song_peakweeks(self) -> int:
+    def total_song_peak_weeks(self) -> int:
         """
         (`int`): The total number of weeks spent by songs in the album at the
         songs' peaks. (If two songs both are the highest peak among songs on
@@ -123,7 +123,7 @@ class Album:
         return sum(
             song.peakweeks
             for song in self.songs
-            if song.peak == self.song_peak
+            if song.peak == self.top_song_peak
         )
 
     @property
@@ -160,7 +160,7 @@ class Album:
 
         return AlbumCert.from_units(self.units)
 
-    def charting(self, end_date: date) -> int:
+    def charting_songs(self, end_date: date) -> int:
         """The number of songs that charted the week of"""
         return len(
             [
@@ -170,7 +170,7 @@ class Album:
             ]
         )
 
-    def get_conweeks(self, top: Optional[int] = None) -> int:
+    def get_con_weeks(self, top: Optional[int] = None) -> int:
         """
         The greatest number of consecutive weeks the album has spent in the top
         `top` of the chart. Will return 0 if the album has never charted or
@@ -205,7 +205,31 @@ class Album:
 
         return longest
 
-    def get_weeks(self, top: Optional[int] = None) -> int:
+    def get_weeks_top(
+        self, *, top: Optional[int] = None, before: Optional[date] = None
+    ) -> int:
+        """
+        the number of weeks the album spent in the top `top` before &
+        including the week ending `before`, both arguments are optional
+        and including just one works as well. Defaults to the number
+        of weeks the album has spent charting.
+        """
+
+        if top and before:   # filter by both
+            return len(
+                [
+                    1
+                    for entry in self.entries
+                    if entry.place <= top and entry.end <= before
+                ]
+            )
+        if top:   # filter only by top
+            return len([1 for entry in self.entries if entry.place <= top])
+        if before:   # filter only by weeks before
+            return len([1 for entry in self.entries if entry.end <= before])
+        return self.weeks   # dont filter whatsoever
+
+    def get_song_weeks(self, top: Optional[int] = None) -> int:
         """(`int`): The total weeks charted in the top `top` by songs from the album."""
         return sum(song.get_weeks(top) for song in self.songs)
 
@@ -222,13 +246,14 @@ class Album:
             ]
         )
 
-    def get_certs(self, cert: Optional[SongCert] = None):
+    def song_cert_count(self, cert: Optional[SongCert] = None):
+        """The number of songs on the album that have reached `cert` level or higher."""
         if cert is None:
             return len(self)
 
         return len([song for song in self.songs if song.cert >= cert])
 
-    def get_charted(self, weeks: Optional[int]) -> int:
+    def song_charted_count(self, weeks: Optional[int]) -> int:
         """The number of songs that charted for at least `weeks` weeks."""
         if weeks is None:
             return len([song for song in self.songs if song.weeks != 0])

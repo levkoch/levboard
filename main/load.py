@@ -37,7 +37,8 @@ def load_songs(uow: SongUOW, verbose: bool = False):
     sheet = Spreadsheet(LEVBOARD_SHEET)
 
     values = sheet.get_range('Song Info!A2:B').get('values')
-    if values is None: raise IndexError("shouldn't happen but who knows")
+    if values is None:
+        raise IndexError("shouldn't happen but who knows")
     songs: list[list] = [i for i in values if i[0]]
 
     if verbose:
@@ -69,7 +70,8 @@ def load_albums(uow: SongUOW, verbose: bool = False):
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
-    if values is None: raise IndexError("shouldn't happen but maybe range error")
+    if values is None:
+        raise IndexError("shouldn't happen but maybe range error")
 
     print(f'{len(values)} rows found.')
 

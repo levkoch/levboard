@@ -4,7 +4,7 @@ import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import attrgetter
-from typing import Iterator, Union
+from typing import Callable, Iterator, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
 from model import Album, Song
@@ -19,16 +19,53 @@ def get_all_weeks() -> Iterator[date]:
         day += timedelta(days=7)
 
 
+def get_album_num_one_weeks(week: date, album: Album) -> tuple[date, int]:
+    return week, album.get_weeks_top(top=1, before=week)
+
+
 def get_album_units(week: date, album: Album) -> tuple[date, int]:
     return week, album.period_units(FIRST_DATE, week)
 
 
+def album_data_generator(
+    filter: Callable[[date, Album], tuple[date, int]]
+) -> Callable[
+    [Album, list[date], itertools.count, itertools.count], dict[date, int]
+]:
+    def inner(
+        album: Album,
+        weeks: list[date],
+        started: itertools.count,
+        completed: itertools.count,
+    ):
+        print(f'[{next(started):02d}] ->  collecting info for {album}')
+        info = {
+            'title': album.title,
+            'artist': album.str_artists,
+        }
+        with futures.ThreadPoolExecutor(
+            thread_name_prefix=album.title
+        ) as executor:
+            data = executor.map(functools.partial(filter, album=album), weeks)
+
+        for date, units in data:
+            info[date] = units
+
+        print(
+            f' !! [{next(completed):02d}] finished collecting info for {album}'
+        )
+        return info
+
+    return inner
+
+
+"""
 def get_album_sellings(
     album: Album,
     weeks: list[date],
     started: itertools.count,
     completed: itertools.count,
-) -> dict[str, Union[str, int]]:
+) -> dict[date, int]:
 
     print(f'[{next(started):02d}] ->  collecting info for {album}')
     info = {
@@ -43,18 +80,19 @@ def get_album_sellings(
         )
 
     for date, units in data:
-        info[date.isoformat()] = units
+        info[date] = units
 
     print(f' !! [{next(completed):02d}] finished collecting info for {album}')
     return info
+"""
 
 
-def flourish_albums():
+def flourish_albums(filter: Callable[[Album, list[date], itertools.count, itertools.count], dict[date, int]], threshold: Callable[[Album], bool]):
     start_time = datetime.now()
     uow = SongUOW()
     weeks = list(get_all_weeks())
     str_weeks = list(i.isoformat() for i in weeks)
-    albums = (album for album in uow.albums if album.units >= 1000)
+    albums = (album for album in uow.albums if threshold(album))
 
     started_counter = itertools.count(start=1)
     completed_counter = itertools.count(start=1)
@@ -62,7 +100,7 @@ def flourish_albums():
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
         data = executor.map(
             functools.partial(
-                get_album_sellings,
+                filter,
                 weeks=weeks,
                 started=started_counter,
                 completed=completed_counter,
@@ -73,7 +111,7 @@ def flourish_albums():
     sheet_rows = [['Title', 'Artist'] + str_weeks]
     for info in data:
         entry = [info['title'], info['artist']]
-        for date in str_weeks:
+        for date in weeks:
             entry.append(info[date])
         sheet_rows.append(entry)
 
@@ -170,5 +208,8 @@ def flourish_songs():
 
 
 if __name__ == '__main__':
-    flourish_albums()
+    album_sellings = album_data_generator(get_album_units)
+    # flourish_albums(album_sellings, (lambda i: i.units >= 10000))
+    album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
+    flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     # flourish_songs()
