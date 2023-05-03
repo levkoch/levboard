@@ -21,9 +21,10 @@ from storage import SongUOW
 
 
 def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
-    if ',' in song_id:
-        song = Song(song_id.split(',')[0], song_name)
-        for alt in song_id.split(',')[1:]:
+    song_id = song_id.replace(',', ', ').replace('  ', " ")
+    if ', ' in song_id:
+        song = Song(song_id.split(', ')[0], song_name)
+        for alt in song_id.split(', ')[1:]:
             song.add_alt(alt)
 
     else:
@@ -50,7 +51,7 @@ def update_spreadsheet_plays(verbose=False):
 
     # check if first element isn't blank so that it gets rid of empty rows.
     songs: list[list] = [
-        i for i in sheet.get_range('Song Info!A2:D2000').get('values') if i[0]
+        i for i in sheet.get_range('Song Info!A2:D').get('values') if i[0]
     ]
 
     song_amt = len(songs)
@@ -72,11 +73,10 @@ def update_spreadsheet_plays(verbose=False):
             plays: int
             song, plays = future.result()
 
-            song_ids = itertools.chain((song.id,), song.alt_ids)
             final_songs.append(
                 [
                     "'" + song.name if song.name[0].isnumeric() else song.name,
-                    ','.join(song_ids),
+                    ', '.join(song.ids),
                     ', '.join(song.artists),
                     plays,
                 ]

@@ -124,7 +124,7 @@ def create_song_chart(
         # all songs who are registered (and could be merged into another one)
         # are checked and turned into the base id
         filtered_ids: set[str] = {
-            uow.songs.get(song_id).id
+            uow.songs.get(song_id).main_id
             for song_id in (all_song_ids & registered_ids)
             # and then all songs that arent registered are added into the set normally
         } | (all_song_ids - registered_ids)
@@ -133,7 +133,7 @@ def create_song_chart(
 
         for song_id in filtered_ids:
             if song_id in registered_ids:
-                song_ids = {song_id}.union(uow.songs.get(song_id).alt_ids)
+                song_ids = {song_id}.union(uow.songs.get(song_id).ids)
             else:
                 song_ids = {song_id}
 
@@ -307,7 +307,12 @@ def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
         plays = 0
         for song in album:
             plays += next(
-                (pos['plays'] for pos in positions if pos['id'] == song.id), 0
+                (
+                    pos['plays']
+                    for pos in positions
+                    if pos['id'] == song.main_id
+                ),
+                0,
             )
 
         album_plays[album] = plays

@@ -31,7 +31,6 @@ def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
 def load_songs(uow: SongUOW, verbose: bool = False):
     """
     Loads the songs in the spreadsheet to the file
-
     """
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
@@ -57,7 +56,7 @@ def load_songs(uow: SongUOW, verbose: bool = False):
             percentage = count / len(songs) * 100
             if verbose:
                 print(
-                    f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.id})'
+                    f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.main_id})'
                 )
 
     if verbose:

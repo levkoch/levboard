@@ -19,12 +19,24 @@ def get_all_weeks() -> Iterator[date]:
         day += timedelta(days=7)
 
 
+def get_album_consecutive_weeks(week: date, album: Album) -> tuple[date, int]:
+    return week, album.get_con_weeks(before=week)
+
+
 def get_album_num_one_weeks(week: date, album: Album) -> tuple[date, int]:
     return week, album.get_weeks_top(top=1, before=week)
 
 
 def get_album_units(week: date, album: Album) -> tuple[date, int]:
     return week, album.period_units(FIRST_DATE, week)
+
+
+def get_album_weeks(week: date, album: Album) -> tuple[date, int]:
+    return week, album.get_weeks_top(before=week)
+
+
+def get_album_top_five_weeks(week, album):
+    return week, album.get_weeks_top(top=5, before=week)
 
 
 def album_data_generator(
@@ -59,35 +71,12 @@ def album_data_generator(
     return inner
 
 
-"""
-def get_album_sellings(
-    album: Album,
-    weeks: list[date],
-    started: itertools.count,
-    completed: itertools.count,
-) -> dict[date, int]:
-
-    print(f'[{next(started):02d}] ->  collecting info for {album}')
-    info = {
-        'title': album.title,
-        'artist': album.str_artists,
-    }
-    with futures.ThreadPoolExecutor(
-        thread_name_prefix=album.title
-    ) as executor:
-        data = executor.map(
-            functools.partial(get_album_units, album=album), weeks
-        )
-
-    for date, units in data:
-        info[date] = units
-
-    print(f' !! [{next(completed):02d}] finished collecting info for {album}')
-    return info
-"""
-
-
-def flourish_albums(filter: Callable[[Album, list[date], itertools.count, itertools.count], dict[date, int]], threshold: Callable[[Album], bool]):
+def flourish_albums(
+    filter: Callable[
+        [Album, list[date], itertools.count, itertools.count], dict[date, int]
+    ],
+    threshold: Callable[[Album], bool],
+):
     start_time = datetime.now()
     uow = SongUOW()
     weeks = list(get_all_weeks())
@@ -211,5 +200,12 @@ if __name__ == '__main__':
     album_sellings = album_data_generator(get_album_units)
     # flourish_albums(album_sellings, (lambda i: i.units >= 10000))
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
-    flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
+    # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
+    album_con_weeks = album_data_generator(get_album_consecutive_weeks)
+    # flourish_albums(album_con_weeks, (lambda i: i.get_con_weeks() >= 10))
+    album_chart_weeks = album_data_generator(get_album_weeks)
+    # flourish_albums(album_chart_weeks, (lambda i: i.weeks > 10))
+
+    album_top_fives = album_data_generator(get_album_top_five_weeks)
+    flourish_albums(album_top_fives, lambda i: i.peak < 6)
     # flourish_songs()

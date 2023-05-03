@@ -212,10 +212,12 @@ class Listen(BaseModel):
     * played_for (`int`): The number of milliseconds the song was played for.
     * finished_playing (`datetime`): The time the song was finished being
         listened to.
+    * played_from (`int`): the song id we listened to the song from.
     """
 
     played_for: int
     finished_playing: datetime
+    played_from: str
 
 
 def song_play_history(
@@ -252,6 +254,7 @@ def song_play_history(
             finished_playing=datetime.strptime(
                 i['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
             ),
+            played_from=song_id,
         )
         for i in r.json()['items']
     ]

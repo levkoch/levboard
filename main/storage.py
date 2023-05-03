@@ -92,14 +92,15 @@ class SongRepository:
         sent_ids: list[str] = []
         for song in self._songs.values():
             # check if has already sent a song with that id and send if hasn't
-            if song.id not in sent_ids:
-                sent_ids.append(song.id)
+            if song.main_id not in sent_ids:
+                sent_ids.append(song.main_id)
                 yield song
 
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
-        self._songs[song.id] = song
-        for alt_id in song.alt_ids:
+        self._songs[song.main_id] = song
+        for alt_id in song.ids:
+            if alt_id == song.main_id: continue
             self._songs[alt_id] = song
 
     def list(self) -> list[str]:
@@ -187,8 +188,8 @@ class SongUOW:
         songs = {k: v.to_dict() for k, v in self.songs._songs.items()}
 
         for song_id, song in songs.items():
-            if song_id != song['id']:
-                songs[song_id] = {'merge': song['id']}
+            if song_id != song['main_id']:
+                songs[song_id] = {'merge': song['main_id']}
 
         with open(self.songs._file, 'w') as f:
             json.dump(songs, f, indent=4)

@@ -19,7 +19,7 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
         mapped = executor.map(
-            spotistats.song_play_history, ([song.id] + song.alt_ids)
+            spotistats.song_play_history, ([song.main_id] + song.ids)
         )
 
     return list(itertools.chain(*mapped))
@@ -337,7 +337,7 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
             )
         )
     units.sort(key=lambda i: i[1], reverse=True)
-    units = [i for i in units if i[1] > units[19][1]]
+    units = [units[0]]   # [i for i in units if i[1] > units[19][1]]
 
     print(
         f'Bestselling albums between {start.isoformat()} and {end.isoformat()}.'
@@ -363,7 +363,7 @@ def top_listeners_chart(uow: SongUOW):
     person, anyway.
     """
 
-    all_song_ids = [song.id for song in uow.songs if song._plays >= 25]
+    all_song_ids = [song.main_id for song in uow.songs if song._plays >= 25]
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple[str, Optional[int]]] = list(
             executor.map(
@@ -424,9 +424,10 @@ if __name__ == '__main__':
 
     # top_listeners_chart(uow)
 
+    """
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
-
+    """
     """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
@@ -451,7 +452,6 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     """
 
-    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -466,6 +466,5 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    """
 
     # display_all_songs(uow)

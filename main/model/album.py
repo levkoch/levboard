@@ -170,15 +170,23 @@ class Album:
             ]
         )
 
-    def get_con_weeks(self, top: Optional[int] = None) -> int:
+    def get_con_weeks(
+        self, top: Optional[int] = None, before: Optional[date] = None
+    ) -> int:
         """
         The greatest number of consecutive weeks the album has spent in the top
-        `top` of the chart. Will return 0 if the album has never charted or
-        never charted in that region.
+        `top` of the chart and before the `before` date, both if specified. Will
+        return 0 if the album has never charted or never charted in that region.
         """
 
-        if top:
+        if None not in (top, before):
+            entries = [
+                i for i in self.entries if i.place <= top and i.end <= before
+            ]
+        elif not top is None:
             entries = [i for i in self.entries if i.place <= top]
+        elif not before is None:
+            entries = [i for i in self.entries if i.end <= before]
         else:
             entries = list(self.entries)
 
@@ -317,7 +325,7 @@ class Album:
         return {
             'title': self._title,
             'artists': ', '.join(self._artists),
-            'songs': [song.id for song in self.songs],
+            'songs': [song.main_id for song in self.songs],
             'entries': [i.to_dict() for i in self.entries],
         }
 

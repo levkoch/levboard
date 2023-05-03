@@ -67,9 +67,11 @@ class Song:
         *,
         load: bool = True,
     ):
-        self.id: str = song_id
+        self.main_id: str = song_id
         self.name: str = song_name
-        self.alt_ids: list[str] = []
+        self.ids: set[str] = {
+            song_id,
+        }
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
         self.__listens: Optional[list[spotistats.Listen]] = None
@@ -89,7 +91,7 @@ class Song:
         current play count.
         """
 
-        info = spotistats.song_info(self.id)
+        info = spotistats.song_info(self.main_id)
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
@@ -102,18 +104,18 @@ class Song:
             self._populate_listens()
 
     def __hash__(self) -> int:
-        return hash((self.name, self.id))
+        return hash((self.name, self.ids))
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
-            return self.id == other.id
+            return self.ids == other.ids
         return NotImplemented
 
     def __str__(self) -> str:
         return f'{self.name} by {self.str_artists}'
 
     def __repr__(self) -> str:
-        return f'Song({self.id!r}, {self.name!r})'
+        return f'Song({self.main_id!r}, {self.name!r})'
 
     def __format__(self, fmt: str) -> str:
         # flags are "o" and "s"
@@ -239,11 +241,18 @@ class Song:
 
         self.__listens = list(
             itertools.chain.from_iterable(
-                spotistats.song_play_history(i)
-                for i in ([self.id] + self.alt_ids)
+                spotistats.song_play_history(i) for i in self.ids
             )
         )
 
+        if len(self.ids) > 1:
+            self._update_version()
+
+    def _update_version(self):
+        common = Counter(l.played_from for l in self.__listens)
+        self.main_id = common.most_common(1)[0][0]
+        self._load_info()
+        
     def period_plays(self, start: date, end: date, adjusted=True) -> int:
         """
         Returns the song's plays for some period.
@@ -361,8 +370,8 @@ class Song:
         Spotistats system, such as remastered versions.
         """
 
-        if alt_id not in self.alt_ids:
-            self.alt_ids.append(alt_id)
+        if alt_id not in self.ids:
+            self.ids.add(alt_id)
 
     def get_weeks(self, top: Optional[int] = None) -> int:
         """
@@ -447,8 +456,8 @@ class Song:
 
         return {
             'name': self.name,
-            'id': self.id,
-            'alt_ids': self.alt_ids,
+            'main_id': self.main_id,
+            'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
             'plays': self.plays,
@@ -471,10 +480,12 @@ class Song:
         """
 
         try:
-            new = cls(song_id=info['id'], song_name=info['name'], load=False)
+            new = cls(
+                song_id=info['main_id'], song_name=info['name'], load=False
+            )
 
-            alts = info.get('alt_ids')
-            new.alt_ids = alts if alts is not None else []
+            alts = info.get('ids')
+            new.ids = set(alts) if alts is not None else set()
 
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])

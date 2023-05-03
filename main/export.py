@@ -19,10 +19,10 @@ all_ids: list[str] = (','.join(itertools.chain.from_iterable(song_ids))).split(
 missing_songs = [['Name', 'Ids', 'Artists']]
 
 for song in uow.songs:
-    if song.id in all_ids:
+    if song.main_id in all_ids:
         continue
 
-    ids = itertools.chain([song.id], song.alt_ids)
+    ids = itertools.chain([song.main_id], song.ids)
 
     missing_songs.append([song.name, ', '.join(ids), ', '.join(song.artists)])
 
