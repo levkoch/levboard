@@ -18,9 +18,7 @@ MAX_ADJUSTED = 25
 def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
-        mapped = executor.map(
-            spotistats.song_play_history, ([song.main_id] + song.ids)
-        )
+        mapped = executor.map(spotistats.song_play_history, song.ids)
 
     return list(itertools.chain(*mapped))
 
@@ -411,9 +409,11 @@ if __name__ == '__main__':
  
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
+    """
 
     top_song_consecutive_weeks_infographic(uow)
 
+    """
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     """
@@ -451,7 +451,7 @@ if __name__ == '__main__':
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
     """
-
+    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -466,5 +466,5 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-
+    """
     # display_all_songs(uow)

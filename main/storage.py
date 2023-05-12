@@ -100,7 +100,8 @@ class SongRepository:
         """Adds a `Song` into the repository."""
         self._songs[song.main_id] = song
         for alt_id in song.ids:
-            if alt_id == song.main_id: continue
+            if alt_id == song.main_id:
+                continue
             self._songs[alt_id] = song
 
     def list(self) -> list[str]:

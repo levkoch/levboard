@@ -11,8 +11,10 @@ Functions:
     local storage.
 """
 
+import datetime
 import itertools
 from concurrent import futures
+from operator import itemgetter
 
 from config import LEVBOARD_SHEET
 from model import Song
@@ -21,7 +23,7 @@ from storage import SongUOW
 
 
 def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
-    song_id = song_id.replace(',', ', ').replace('  ', " ")
+    song_id = song_id.replace(',', ', ').replace('  ', ' ')
     if ', ' in song_id:
         song = Song(song_id.split(', ')[0], song_name)
         for alt in song_id.split(', ')[1:]:
@@ -129,9 +131,81 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
         print(f'Updated {song_amt} local song plays.')
 
 
+def load_year_end_songs(uow: SongUOW, verbose: bool = False):
+    """
+    Updates the spreadsheet with the correct year-end songs.
+    """
+
+    sheet = Spreadsheet(LEVBOARD_SHEET)
+    song_rows: list[list] = []
+
+    current_year = datetime.date.today().year
+    while current_year > 2020:
+        if verbose:
+            print(f'Collecting top songs of {current_year}')
+        year_start = datetime.date(current_year, 1, 1)
+        year_end = datetime.date(current_year + 1, 1, 1)
+        year = (year_start, year_end)
+
+        song_rows.extend(
+            [
+                [
+                    f'{current_year} Year-End Songs',
+                ],
+                ['POS', 'Title', 'Artists', 'WKS', 'UTS', 'PLS', 'PK', 'PKW'],
+            ]
+        )
+
+        eligible_songs = [
+            (song, song.period_units(*year))
+            for song in uow.songs
+            if song.period_weeks(*year)
+        ]
+
+        eligible_songs.sort(key=itemgetter(1), reverse=True)
+        eligible_songs = eligible_songs[:100]
+
+        for song, units in eligible_songs:
+            place = len([s for (s, u) in eligible_songs if u > units]) + 1
+            peak = min(
+                entry.place
+                for entry in song.entries
+                if entry.start >= year_start and entry.end <= year_end
+            )
+            peak_weeks = len(
+                [
+                    entry
+                    for entry in song.entries
+                    if entry.start >= year_start
+                    and entry.end <= year_end
+                    and entry.place == peak
+                ]
+            )
+            info = [
+                place,
+                song.name,
+                ', '.join(song.artists),
+                song.period_weeks(*year),
+                song.period_units(*year),
+                song.period_plays(*year),
+                peak,
+                peak_weeks if peak_weeks > 1 else '—',
+            ]
+            song_rows.append(info)
+            if verbose:
+                print(*info, sep='\t')
+
+        song_rows.append([''])
+        current_year -= 1
+
+    sheet.delete_range('Year-End!A:H')
+    sheet.append_range('Year-End!A1:H', song_rows)
+
+
 if __name__ == '__main__':
     uow = SongUOW()
     update_local_plays(uow, verbose=True)
 
     print('')
-    update_spreadsheet_plays(verbose=True)
+    # update_spreadsheet_plays(verbose=True)
+    load_year_end_songs(uow, verbose=True)

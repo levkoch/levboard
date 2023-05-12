@@ -252,7 +252,7 @@ class Song:
         common = Counter(l.played_from for l in self.__listens)
         self.main_id = common.most_common(1)[0][0]
         self._load_info()
-        
+
     def period_plays(self, start: date, end: date, adjusted=True) -> int:
         """
         Returns the song's plays for some period.
@@ -288,6 +288,11 @@ class Song:
             (61 - i.place)
             for i in self.entries
             if i.end >= start and i.end <= end
+        )
+
+    def period_weeks(self, start: date, end: date) -> int:
+        return len(
+            [w for w in self.entries if w.start >= start and w.end <= end]
         )
 
     def period_units(self, start: date, end: date, adjusted=True) -> int:
