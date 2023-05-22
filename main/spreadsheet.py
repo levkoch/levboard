@@ -1,13 +1,21 @@
+import platform
+import json
 from typing import Any
 
 from google.oauth2 import service_account
 from googleapiclient import discovery
 
 SERVICE_ACCOUNT_FILE: str = (
-    # r'C:\Users\vasil\Documents\GitHub\levboard\data\google_token.json' # on desktop
-    'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'  # on laptop
+    # on laptop
+    'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'
+    if platform.system() == 'Windows' else 
+    "../data/google_token.json"
 )
 
+print(SERVICE_ACCOUNT_FILE)
+with open(SERVICE_ACCOUNT_FILE, 'r') as f:
+    info = json.load(f)
+    print(info)
 
 class Spreadsheet:
     """
@@ -15,8 +23,8 @@ class Spreadsheet:
 
     Arguments:
     * sheet_id (`str`): The ID of the sheet the instance should manipulate.
-    * cred_file (optional `str`): Path to the google_token.json file. Defaults to the one
-        that it should be right now but who knows.
+    * cred_file (optional `str`): Path to the google_token.json file. Defaults
+        to the one that it should be right now but who knows.
     """
 
     __slots__ = ['sheet', '_sheet_id', '_credentials']
@@ -37,7 +45,10 @@ class Spreadsheet:
         )
 
     def _attach_sheet(self) -> None:
-        """Internal method to grant the instance access to the google sheets resource."""
+        """
+        Internal method to grant the instance access to the google sheets
+        resource.
+        """
 
         service = discovery.build(
             'sheets', 'v4', credentials=self._credentials
@@ -49,7 +60,8 @@ class Spreadsheet:
         Clears the specified range in the sheet.
 
         Argument:
-        * range (`str`): The *FULL* range name, with the sheet name, to be cleared.
+        * range (`str`): The *FULL* range name, with the sheet name, 
+            to be cleared.
 
         Returns:
         * response (`dict`): The google API response dictionary.

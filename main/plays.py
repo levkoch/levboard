@@ -208,8 +208,8 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    update_local_plays(uow, verbose=True)
+    #update_local_plays(uow, verbose=True)
 
     print('')
     update_spreadsheet_plays(verbose=True)
-    load_year_end_songs(uow, verbose=True)
+    #load_year_end_songs(uow, verbose=True)

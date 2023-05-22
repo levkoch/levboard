@@ -44,7 +44,6 @@
 '436594':
   artists:
   - Dua Lipa
-  include: Dua Lipa (Deluxe)
   title: Dua Lipa
   versions:
   - image: https://i.imgur.com/6XNXF5e.png
@@ -81,6 +80,7 @@
     - '4830283'
     - '533774'
     - '4961'
+    include: Dua Lipa (Deluxe)
 90128:
   artists:
   - Lauv

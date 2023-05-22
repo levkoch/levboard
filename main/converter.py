@@ -14,7 +14,7 @@ for info in data.json()['items']:
     position = info['position']
     name = info['album']['name']
     number = info['album']['id']
-    print(f"({position}) {name}: {number}")
+    # print(f"({position}) {name}: {number}")
 
     name_to_id[name] = number
 
