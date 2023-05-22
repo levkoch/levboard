@@ -16,7 +16,7 @@ import itertools
 from concurrent import futures
 from operator import itemgetter
 
-from config import LEVBOARD_SHEET
+from config import LEVBOARD_SHEET, FIRST_DATE
 from model import Song
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -134,13 +134,17 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
 def load_year_end_songs(uow: SongUOW, verbose: bool = False):
     """
     Updates the spreadsheet with the correct year-end songs.
+
+    MUST be ran AFTER update_local_plays so that all songs in memory have all
+    of their plays attached to them so that this takes 15 seconds to run and 
+    not 40 minutes as the program sequentially gets play data for 1,600+ songs.
     """
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     song_rows: list[list] = []
 
     current_year = datetime.date.today().year
-    while current_year > 2020:
+    while current_year > FIRST_DATE.year - 1:
         if verbose:
             print(f'Collecting top songs of {current_year}')
         year_start = datetime.date(current_year, 1, 1)
@@ -207,5 +211,5 @@ if __name__ == '__main__':
     update_local_plays(uow, verbose=True)
 
     print('')
-    # update_spreadsheet_plays(verbose=True)
+    update_spreadsheet_plays(verbose=True)
     load_year_end_songs(uow, verbose=True)

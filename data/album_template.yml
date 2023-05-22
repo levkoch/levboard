@@ -1,0 +1,85 @@
+---
+'25998':
+  title: Future Nostalgia
+  artists:
+  - Dua Lipa
+  versions:
+  - name: standard
+    image: https://i.imgur.com/FiofwvE.png
+    songs:
+    - '299959'
+    - '300003'
+    - '300009'
+    - '300004'
+    - '300006'
+    - '300007'
+    - '300005'
+    - '300008'
+    - '300010'
+    - '300011'
+    - '300012'
+  - name: Future Nostalgia (French Edition)
+    image: https://i.imgur.com/wBZQUvn.jpg
+    songs:
+    - '1586605'
+    - '498342'
+    include: standard
+  - name: Future Nostalgia (The Moonlit Edition)
+    image: https://i.imgur.com/W2AD1Sh.png
+    songs:
+    - '1586605'
+    - '1238793'
+    - '539989'
+    - '5874683'
+    - '1495157'
+    - '1495213'
+    - '498342'
+    - '5874722'
+    include: standard
+  - name: Club Future Nostalgia
+    image: https://i.imgur.com/ovYiYJn.png
+    songs:
+    - '9861822'
+    - '9861823'
+    include: none
+    
+'436594':
+  title: Dua Lipa
+  artists:
+  - Dua Lipa
+  versions:
+  - name: standard
+    image: https://i.imgur.com/6XNXF5e.png
+    songs:
+    - '533647'
+    - '533772'
+    - '533656'
+    - '103825'
+    - '533657'
+    - '331145'
+    - '533653'
+    - '533654'
+    - '533658'
+    - '355995'
+    - '533660'
+    - '533659'
+  - name: Dua Lipa (Deluxe)
+    image: https://i.imgur.com/sVXnV5h.png 
+    songs:
+    - '533661'
+    - '533662'
+    - '533663'
+    - '533664'
+    - '533665'
+    include: standard
+  - name: Dua Lipa (Complete Edition)
+    image: https://i.imgur.com/MRUxr03.png
+    songs:
+    - '533669'
+    - '533666'
+    - '389618'
+    - '4830275'
+    - '4830283'
+    - '533774'
+    - '4961'
+  include: Dua Lipa (Deluxe)

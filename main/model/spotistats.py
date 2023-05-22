@@ -35,7 +35,12 @@ def _get_address(address: str) -> requests.Response:
     sends a bad gateway error like spotistats likes doing if it's
     servers are overloaded at the moment.
     """
-    response = requests.get(address)
+    # this is for getting around bot identification for the cloud scraping
+    # so they think the request is coming from an ipad
+    HEADERS = {'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit'
+                             '/605.1.15 (KHTML, like Gecko) Mobile/15E148'}
+
+    response = requests.get(address, headers = HEADERS)
     response.raise_for_status()
     return response
 
