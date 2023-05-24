@@ -5,13 +5,9 @@ import requests
 from storage import SongUOW
 from spreadsheet import Spreadsheet
 from config import LEVBOARD_SHEET
-from model import Album
 
 from model.spotistats import _get_address, album_tracks
 
-data = album_tracks('4')
-
-print(data)
 data = _get_address(
     'http://api.stats.fm/api/v1/users/lev/top/albums?limit=1000'
 )
@@ -39,6 +35,9 @@ with open('data/albums.yml', 'r') as f:
 loaded_albums = [
     item['title'] for item in info.values() if item.get('complete') is not None
 ]
+
+print(sorted(loaded_albums))
+quit()
 
 uow = SongUOW()
 for count, album in enumerate(uow.albums, start = 1):

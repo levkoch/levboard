@@ -135,8 +135,9 @@
   artists:
   - Taylor Swift
   title: '1989'
+  complete: TRUE
   versions:
-  - image: https://i.imgur.com/wxxXQ6M.png
+  - image: https://i.imgur.com/UXJl1G6.png
     name: standard
     songs:
     - '587334'
@@ -152,6 +153,10 @@
     - '587347'
     - '587348'
     - '587337'
+  - name: 1989 (Deluxe)
+    image: https://i.imgur.com/Dk2bFTl.png
+    include: standard
+    songs:
     - '587363'
     - '587332'
     - '587349'
@@ -178,9 +183,10 @@
 475943:
   artists:
   - Bruno Mars
+  complete: TRUE
   title: 24K Magic
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/f3753ge.png
     name: standard
     songs:
     - '17083'
@@ -192,7 +198,10 @@
     - '3750567'
     - '3750568'
     - '3750575'
-    - '300033'
+  - name: 24K Magic (Japanese Deluxe)
+    include: standard
+    songs: 
+    - '173378'
 24541:
   artists:
   - Adele
@@ -257,14 +266,16 @@
     songs:
     - '283723'
     - '283709'
-57961:
+112319:
   artists:
   - Lil Nas X
   title: '7'
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/M3a5Mqy.png
     name: standard
     songs:
+    - '1127309'
     - '1126606'
     - '1127284'
     - '1126609'
@@ -309,6 +320,7 @@
   - Bruno Mars
   - Anderson .Paak
   title: An Evening With Silk Sonic
+  complete: TRUE
   versions:
   - image: https://i.imgur.com/qXTAeDl.png
     name: standard
@@ -321,12 +333,13 @@
     - '18648100'
     - '18648097'
     - '1006061'
-    - '29343712'
     - '18648098'
+    - '29343712'
 369867:
   artists:
   - Tinashe
   title: Aquarius
+  complete: TRUE
   versions:
   - image: https://i.imgur.com/U5EeGwn.png
     name: standard
@@ -447,8 +460,9 @@
   artists:
   - BLACKPINK
   title: BLACKPINK IN YOUR AREA
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/JUamTBM.png
     name: standard
     songs:
     - '533735'
@@ -485,8 +499,9 @@
   artists:
   - Camila Cabello
   title: Camila
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/7n94j85.png
     name: standard
     songs:
     - '1691859'
@@ -499,6 +514,7 @@
     - '3755404'
     - '3755405'
     - '3755406'
+    - '3755401'
 475941:
   artists:
   - Justin Bieber
@@ -543,8 +559,9 @@
   artists:
   - Lady Gaga
   title: Chromatica
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/gw8lbsa.png
     name: standard
     songs:
     - '2058036'
@@ -1607,7 +1624,7 @@
     - '285033'
 8312365:
   artists:
-  - Beyonce
+  - "Beyonc\xE9"
   title: RENAISSANCE
   versions:
   - image: MISSING
@@ -2500,10 +2517,10 @@
 24747:
   artists:
   - Rihanna
+  complete: true
   title: ANTI
-  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/a2VDrnC.png
     name: standard
     songs:
     - '286561'
@@ -2519,12 +2536,12 @@
     - '240059'
     - '286412'
     - '286414'
-  - name: ANTI (Deluxe)
+  - include: standard
+    name: ANTI (Deluxe)
     songs:
     - '286415'
     - '286410'
     - '175482'
-    include: standard
 2050905:
   artists:
   - Christina Aguilera
@@ -2581,9 +2598,10 @@
 100571:
   artists:
   - "Beyonc\xE9"
+  complete: true
   title: "BEYONC\xC9"
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/6bYWhcf.png
     name: standard
     songs:
     - '1008189'
@@ -2600,16 +2618,23 @@
     - '1008287'
     - '1008195'
     - '1008288'
+  - image: https://i.imgur.com/8zZ033f.png
+    include: standard
+    name: "BEYONC\xC9 (Platinum Edition)"
+    songs:
     - '1008180'
+    - '1008250'
+    - '1008255'
     - '1008181'
+    - '1008256'
     - '1008302'
 1810101:
   artists:
   - Ariana Grande
+  complete: true
   title: Christmas & Chill
-  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/rlktkLJ.png
     name: standard
     songs:
     - '2905269'
@@ -2617,13 +2642,29 @@
     - '7581543'
     - '7581544'
     - '426359'
+
+1474937:
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Christmas Kisses
+  versions:
+  - image: https://i.imgur.com/CrucziU.png
+    name: standard
+    songs:
+    - '1021234'
+    - '4155648'
+    - '7730814'
+    - '656612'
+    - '426258'
+
 329129:
   artists:
   - SZA
+  complete: true
   title: CTRL
-  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/qIWjCpP.png
     name: standard
     songs:
     - '2754424'
@@ -2640,7 +2681,9 @@
     - '2754443'
     - '2754548'
     - '2754444'
-  - name: CTRL (Deluxe)
+  - image: https://i.imgur.com/75A5Nec.png
+    include: standard
+    name: CTRL (Deluxe)
     songs:
     - '40531454'
     - '40531455'
@@ -2648,7 +2691,6 @@
     - '40531457'
     - '40531458'
     - '40531459'
-    include: standard
 24549:
   artists:
   - Demi Lovato
@@ -2776,13 +2818,16 @@
     - '282984'
 24453:
   artists:
-  - Usher
-  title: Hard II Love
+  - Little Mix
+  title: Glory Days
   versions:
   - image: MISSING
     name: standard
     songs:
-    - '10383303'
+    - '282990'
+    - '283064'
+    - '283065'
+    - '283066'
 24535:
   artists:
   - Halsey
@@ -2807,8 +2852,8 @@
 49330:
   artists:
   - Maroon 5
+  complete: true
   title: JORDI
-  complete: TRUE
   versions:
   - image: https://i.imgur.com/R5GAesm.png
     name: standard
@@ -2824,12 +2869,12 @@
     - '9164'
     - '533412'
     - '4839'
-  - name: JORDI (Deluxe)
-    include: standard
-    songs:
     - '533413'
+  - include: standard
+    name: JORDI (Deluxe)
+    songs:
     - '533415'
-    - '533414' 
+    - '533414'
 2688170:
   artists:
   - David Guetta
