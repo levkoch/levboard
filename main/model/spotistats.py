@@ -37,10 +37,12 @@ def _get_address(address: str) -> requests.Response:
     """
     # this is for getting around bot identification for the cloud scraping
     # so they think the request is coming from an ipad
-    HEADERS = {'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit'
-                             '/605.1.15 (KHTML, like Gecko) Mobile/15E148'}
+    HEADERS = {
+        'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit'
+        '/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+    }
 
-    response = requests.get(address, headers = HEADERS)
+    response = requests.get(address, headers=HEADERS)
     response.raise_for_status()
     return response
 
@@ -146,6 +148,13 @@ class Position(BaseModel):
 
     def __hash__(self):
         return hash((self.id, self.plays, self.place))
+
+
+def album_tracks(album_id: str):
+    address = f'http://api.stats.fm/api/v1/albums/{album_id}/tracks'
+    info = _get_address(address).json()
+
+    return [i['id'] for i in info['items']]
 
 
 # this gets called by `main` in two places with the same values, so we cache

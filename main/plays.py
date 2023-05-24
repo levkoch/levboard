@@ -136,7 +136,7 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
     Updates the spreadsheet with the correct year-end songs.
 
     MUST be ran AFTER update_local_plays so that all songs in memory have all
-    of their plays attached to them so that this takes 15 seconds to run and 
+    of their plays attached to them so that this takes 15 seconds to run and
     not 40 minutes as the program sequentially gets play data for 1,600+ songs.
     """
 
@@ -208,8 +208,8 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    #update_local_plays(uow, verbose=True)
+    update_local_plays(uow, verbose=True)
 
     print('')
-    update_spreadsheet_plays(verbose=True)
-    #load_year_end_songs(uow, verbose=True)
+    # update_spreadsheet_plays(verbose=True)
+    load_year_end_songs(uow, verbose=True)

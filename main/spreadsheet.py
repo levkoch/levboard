@@ -8,14 +8,9 @@ from googleapiclient import discovery
 SERVICE_ACCOUNT_FILE: str = (
     # on laptop
     'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'
-    if platform.system() == 'Windows' else 
-    "../data/google_token.json"
+    if platform.system() == 'Windows'
+    else '../data/google_token.json' # on ipad
 )
-
-print(SERVICE_ACCOUNT_FILE)
-with open(SERVICE_ACCOUNT_FILE, 'r') as f:
-    info = json.load(f)
-    print(info)
 
 class Spreadsheet:
     """
@@ -60,7 +55,7 @@ class Spreadsheet:
         Clears the specified range in the sheet.
 
         Argument:
-        * range (`str`): The *FULL* range name, with the sheet name, 
+        * range (`str`): The *FULL* range name, with the sheet name,
             to be cleared.
 
         Returns:
