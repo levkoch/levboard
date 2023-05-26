@@ -188,10 +188,11 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
 
     if name == '':
         return tester
-
+    if name == 'skip':
+        return
     if name.lower() == 'merge':
-        merge: str = input('Id of the song to merge with: ')
-        merge_into = uow.songs.get(merge)
+        merge: str = input('Name of the song to merge with: ')
+        merge_into = uow.songs.get_by_name(merge)
         if merge_into is None:
             raise ValueError(
                 f'a song with the id {merge} does '
@@ -280,13 +281,24 @@ def update_song_sheet(
             '',
             '',
             '',
-            '',/kill markk in batle
+            '',
             '',
             week_count,
         ]
     )
     new_rows.append(
-        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK', '(WK)']
+        [
+            'MV',
+            'Title',
+            'Artists',
+            'TW',
+            'LW',
+            'OC',
+            'PTS',
+            'PLS',
+            'PK',
+            '(WK)',
+        ]
     )
 
     for pos in positions:

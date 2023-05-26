@@ -29,7 +29,7 @@ def get_new_songs(uow: SongUOW):
     all_songs = uow.songs.list()
     upcoming_week = songs_week(after=LAST_WK, before=TODAY)
     for pos in upcoming_week:
-        if pos.id not in all_songs:
+        if pos.id not in all_songs and pos.plays > 1:
             song = Song(pos.id)
             print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
 

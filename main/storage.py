@@ -67,7 +67,7 @@ class SongRepository:
         fitting was found in either case.
         """
         try:
-            match = next(
+            return next(
                 i
                 for i in self._songs.values()
                 if i.name.lower() == song_name.lower()
@@ -81,8 +81,6 @@ class SongRepository:
                 ),
                 None,
             )
-        else:
-            return match
 
     def __iter__(self) -> Iterator[Song]:
         # this is implemented this way, as using iter(self._songs.values())

@@ -64,8 +64,15 @@ def _timestamp_check(day: Union[date, int]) -> int:
 
 def song_info(song_id: str) -> dict:
     """Returns the information about a song, from the song id."""
-    r = _get_address(f'https://api.stats.fm/api/v1/tracks/{song_id}')
+    r = _get_address(f'http://api.stats.fm/api/v1/tracks/{song_id}')
     return r.json()['item']
+
+
+def top_artists() -> list[tuple[str, str]]:
+    r = _get_address(
+        f'http://api.stats.fm/api/v1/users/{USER_NAME}/top/artists?limit=1000'
+    )
+    return [(artist['artist']['name'], artist['artist']['id']) for artist in r.json()['items']]
 
 
 def song_plays(
@@ -157,6 +164,14 @@ def album_tracks(album_id: str):
     return [i['id'] for i in info['items']]
 
 
+def artist_tracks(artist_id: str) -> list[str]:
+    address = f'http://api.stats.fm/api/v1/artists/{artist_id}/tracks?limit={MAX_ENTRIES}'
+    info = _get_address(address).json()
+
+    # filter out all songs shorter than 30000 milliseconds (30 seconds)
+    return [str(i['id']) for i in info['items'] if i['durationMs'] >= 30_000]
+
+
 # this gets called by `main` in two places with the same values, so we cache
 # the last result here to not have to make the multiple API call operator
 # multiple times.
@@ -186,6 +201,7 @@ def songs_week(
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
         f'?after={after}&before={before}'
+        '&limit=1000'  # max limit for this request is 1000 songs and not the 10,000 like others have
     )
 
     r = _get_address(address)

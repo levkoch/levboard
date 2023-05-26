@@ -1,3 +1,1261 @@
+'100334':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Yours Truly
+  versions:
+  - image: https://i.imgur.com/zolcpi1.png
+    name: standard
+    songs:
+    - '1005964'
+    - '1005965'
+    - '1006144'
+    - '1005954'
+    - '1005966'
+    - '1005944'
+    - '1005946'
+    - '1006117'
+    - '1005955'
+    - '1006142'
+    - '1006143'
+    - '1005945'
+  - include: standard
+    name: Yours Truly (LatAm Version)
+    songs:
+    - '743709'
+    - '7989940'
+'100571':
+  artists:
+  - "Beyonc\xE9"
+  complete: true
+  title: "BEYONC\xC9"
+  versions:
+  - image: https://i.imgur.com/6bYWhcf.png
+    name: standard
+    songs:
+    - '1008189'
+    - '1008148'
+    - '1008249'
+    - '1008172'
+    - '1008167'
+    - '1008178'
+    - '1008179'
+    - '1008174'
+    - '1008263'
+    - '1008190'
+    - '1008250'
+    - '1008287'
+    - '1008195'
+    - '1008288'
+  - image: https://i.imgur.com/8zZ033f.png
+    include: standard
+    name: "BEYONC\xC9 (Platinum Edition)"
+    songs:
+    - '1008180'
+    - '1008250'
+    - '1008255'
+    - '1008181'
+    - '1008256'
+    - '1008302'
+'101355':
+  artists:
+  - Destiny's Child
+  title: The Writing's On The Wall
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '125110'
+'101376':
+  artists:
+  - Rihanna
+  title: A Girl Like Me
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '248408'
+    - '134673'
+'1014148':
+  artists:
+  - Calvin Harris
+  - Funk Wav
+  title: Funk Wav Bounces Vol 1
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '7171578'
+    - '7171579'
+'1077159':
+  artists:
+  - Kesha
+  title: Rainbow
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '3153329'
+'11183304':
+  artists:
+  - SZA
+  complete: true
+  title: SOS
+  versions:
+  - image: https://i.imgur.com/dVmjfAA.png
+    name: standard
+    songs:
+    - '58406017'
+    - '58406018'
+    - '58406019'
+    - '58406020'
+    - '58406021'
+    - '58406022'
+    - '58406023'
+    - '58406024'
+    - '58406025'
+    - '58406027'
+    - '58406026'
+    - '58406028'
+    - '58406029'
+    - '58406030'
+    - '58406032'
+    - '58406031'
+    - '58406033'
+    - '58406034'
+    - '54320471'
+    - '58406035'
+    - '22696027'
+    - '5462882'
+    - '58406036'
+'112319':
+  artists:
+  - Lil Nas X
+  complete: true
+  title: '7'
+  versions:
+  - image: https://i.imgur.com/M3a5Mqy.png
+    name: standard
+    songs:
+    - '1127309'
+    - '1126606'
+    - '1127284'
+    - '1126609'
+    - '1127278'
+    - '1126608'
+    - '1126610'
+    - '607787'
+'1193382':
+  artists:
+  - Yo Gotti
+  title: I Still Am
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '8292177'
+'11958583':
+  artists:
+  - Ava Max
+  complete: true
+  title: Diamonds & Dancefloors
+  versions:
+  - image: https://i.imgur.com/SwBisiY.png
+    name: standard
+    songs:
+    - '49448651'
+    - '61824852'
+    - '35707910'
+    - '61824853'
+    - '61824848'
+    - '56134320'
+    - '61824849'
+    - '61824854'
+    - '61824850'
+    - '61053568'
+    - '61824851'
+    - '61768612'
+    - '61824855'
+    - '58801663'
+'11959436':
+  artists:
+  - Sam Smith
+  complete: true
+  title: Gloria
+  versions:
+  - image: https://i.imgur.com/Q6E3SCr.png
+    name: standard
+    songs:
+    - '35753034'
+    - '61827944'
+    - '61827943'
+    - '61827942'
+    - '51580767'
+    - '61827941'
+    - '61827946'
+    - '60999793'
+    - '61827948'
+    - '61553411'
+    - '61827949'
+'12025790':
+  artists:
+  - RAYE
+  title: My 21st Century Blues
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '62075762'
+    - '62075763'
+    - '53355516'
+    - '53355515'
+    - '53355514'
+    - '62075764'
+    - '53355512'
+    - '62075765'
+    - '62075766'
+    - '62075767'
+    - '62075761'
+    - '62075768'
+    - '62075769'
+    - '62075770'
+    - '62075771'
+'120914':
+  artists:
+  - Taylor Swift
+  title: Fearless
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '274234'
+    - '274240'
+'122130':
+  artists:
+  - Iggy Azalea
+  title: In My Defense
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1223431'
+    - '1223433'
+'124568':
+  artists:
+  - Doja Cat
+  title: Hot Pink
+  versions:
+  - image: https://i.imgur.com/Wp61pSo.png
+    name: standard
+    songs:
+    - '1249886'
+    - '1249901'
+    - '1249887'
+    - '1249888'
+    - '10948337'
+    - '883709'
+    - '1249890'
+    - '1249891'
+    - '1249892'
+    - '1249893'
+    - '1249894'
+    - '1985188'
+'130185':
+  artists:
+  - Lady Gaga
+  title: ARTPOP
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1390'
+    - '1356'
+'133774':
+  artists:
+  - Saucy Santana
+  title: Imma Celebrity
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1328670'
+'1364022':
+  artists:
+  - Taylor Swift
+  title: Red
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '285028'
+    - '285029'
+    - '285031'
+    - '285033'
+'1366054':
+  artists:
+  - Alessia Cara
+  title: Know-It-All
+  versions:
+  - image: https://i.imgur.com/L9zrk1r.png
+    name: standard
+    songs:
+    - '286489'
+    - '167366'
+    - '286490'
+    - '286487'
+    - '286491'
+    - '251132'
+    - '23550'
+    - '286492'
+    - '286486'
+    - '75658'
+    - '286493'
+'138147':
+  artists:
+  - 6ix9ine
+  title: DUMMY BOY
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1365007'
+    - '1365013'
+'143884':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: thank u, next
+  versions:
+  - image: https://i.imgur.com/6WNUfyT.png
+    name: standard
+    songs:
+    - '1412611'
+    - '1412630'
+    - '1412487'
+    - '1412631'
+    - '1412632'
+    - '1412613'
+    - '1412614'
+    - '1412615'
+    - '1412617'
+    - '727690'
+    - '727948'
+    - '1412616'
+  - include: standard
+    name: thank u, next (Japanese Deluxe)
+    songs:
+    - '11911811'
+    - '3657307'
+'1468831':
+  artists:
+  - Karol G
+  title: KG0516
+  versions:
+  - image: https://i.imgur.com/L33vIG6.png
+    name: standard
+    songs:
+    - '221984'
+'1474937':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Christmas Kisses
+  versions:
+  - image: https://i.imgur.com/CrucziU.png
+    name: standard
+    songs:
+    - '1021234'
+    - '4155648'
+    - '7730814'
+    - '656612'
+    - '426258'
+'1504868':
+  artists:
+  - Megan Thee Stallion
+  title: Tina Snow
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '10088857'
+'1515673':
+  artists:
+  - Tyga
+  title: Legendary
+  versions:
+  - image: https://i.imgur.com/DYdnlTt.png
+    name: standard
+    songs:
+    - '2380245'
+    - '5748569'
+'154244':
+  artists:
+  - Jason Derulo
+  title: Talk Dirty
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '589144'
+    - '103786'
+    - '187208'
+    - '1488758'
+    - '599605'
+    - '1488759'
+    - '183218'
+    - '599583'
+    - '599587'
+    - '599586'
+    - '179048'
+'154345':
+  artists:
+  - The Weeknd
+  title: Starboy
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '555740'
+    - '116371'
+    - '63772418'
+'157404':
+  artists:
+  - Maroon 5
+  title: V
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '398668'
+    - '209429'
+    - '203916'
+    - '398656'
+    - '1373'
+    - '398661'
+    - '398663'
+    - '398654'
+    - '398670'
+    - '398671'
+    - '398821'
+    - '398673'
+    - '398672'
+    - '398674'
+    - '398822'
+'1610611':
+  artists:
+  - 24kGoldn
+  title: El Dorado
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '607743'
+'1650961':
+  artists:
+  - Alessia Cara
+  complete: true
+  title: The Pains Of Growing
+  versions:
+  - image: https://i.imgur.com/pxiYhvz.png
+    name: standard
+    songs:
+    - '304118'
+    - '4842000'
+    - '10855909'
+    - '10855910'
+    - '4738951'
+    - '10855911'
+    - '10855912'
+    - '216227'
+    - '10855908'
+    - '222143'
+    - '191193'
+    - '10855915'
+    - '10855914'
+    - '10855913'
+    - '10855907'
+  - include: standard
+    name: The Pains of Growing (Japanese Deluxe)
+    songs:
+    - '4964'
+'1652898':
+  artists:
+  - BIA
+  title: FOR CERTAIN
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '10104753'
+    - '3647693'
+'169208':
+  artists:
+  - Julia Michaels
+  title: Nervous System
+  versions:
+  - image: https://i.imgur.com/TpgbWys.png
+    name: standard
+    songs:
+    - '1402'
+'1692492':
+  artists:
+  - Omarion
+  title: Sex Playlist
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '11065621'
+'1714269':
+  artists:
+  - Kygo
+  title: Golden Hour
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '11193115'
+    - '768117'
+'1718763':
+  artists:
+  - BLACKPINK
+  complete: true
+  title: BLACKPINK IN YOUR AREA
+  versions:
+  - image: https://i.imgur.com/JUamTBM.png
+    name: standard
+    songs:
+    - '533735'
+    - '533734'
+    - '533641'
+    - '533620'
+    - '11219180'
+    - '533138'
+    - '533140'
+    - '533141'
+    - '533142'
+'17447':
+  artists:
+  - Demi Lovato
+  title: Confident
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '171361'
+    - '167432'
+    - '191203'
+'176299':
+  artists:
+  - BTS
+  title: Love Yourself
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1666681'
+'1766085':
+  artists:
+  - Michael Jackson
+  title: Bad
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1016606'
+    - '1016605'
+    - '1016623'
+'1810101':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Christmas & Chill
+  versions:
+  - image: https://i.imgur.com/rlktkLJ.png
+    name: standard
+    songs:
+    - '2905269'
+    - '3502707'
+    - '7581543'
+    - '7581544'
+    - '426359'
+'1822892':
+  artists:
+  - Tinashe
+  title: '333'
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '11674967'
+    - '11674992'
+    - '11674965'
+    - '11674978'
+    - '11674979'
+'190009':
+  artists:
+  - Nicki Minaj
+  complete: true
+  title: Queen
+  versions:
+  - image: https://i.imgur.com/8Rezh5B.png
+    name: standard
+    songs:
+    - '1767518'
+    - '1767529'
+    - '1767519'
+    - '1767528'
+    - '1767520'
+    - '1767526'
+    - '1767527'
+    - '1767467'
+    - '1767525'
+    - '250137'
+    - '1767463'
+    - '1767464'
+    - '1767450'
+    - '1767465'
+    - '1767466'
+    - '1767445'
+    - '1767451'
+    - '1767524'
+    - '1767461'
+  - include: standard
+    name: Queen (Deluxe)
+    songs:
+    - '1365007'
+    - '8292145'
+    - '8412138'
+'2050905':
+  artists:
+  - Christina Aguilera
+  title: Back to Basics
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '440641'
+    - '357783'
+    - '12818323'
+    - '12818318'
+'21088':
+  artists:
+  - DNCE
+  title: DNCE
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1401'
+    - '116368'
+'2126897':
+  artists:
+  - Labrinth
+  title: Imagination & the Misfit Kid
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '13192298'
+    - '13192293'
+    - '11283248'
+    - '13192284'
+    - '13192299'
+    - '13192365'
+    - '13192310'
+    - '12081100'
+    - '13192300'
+    - '11397476'
+    - '13192301'
+    - '11394185'
+    - '11268743'
+    - '13192366'
+'217127':
+  artists:
+  - Iggy Azalea
+  title: The New Classic
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '121530'
+    - '1369'
+    - '506302'
+    - '550508'
+    - '41355'
+'2188501':
+  artists:
+  - Jason Derulo
+  title: Future History
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '448660'
+'218893':
+  artists:
+  - Conan Gray
+  title: Kid Krow
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '209425'
+    - '1239601'
+'218905':
+  artists:
+  - Doja Cat
+  title: Amala
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1985188'
+    - '1985187'
+'2191471':
+  artists:
+  - KYLE
+  title: Light of Mine
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '13509558'
+    - '2715831'
+    - '13435721'
+'2233328':
+  artists:
+  - YG
+  title: STAY DANGEROUS
+  versions:
+  - image: https://i.imgur.com/ak9BfwT.png
+    name: standard
+    songs:
+    - '3596283'
+'226306':
+  artists:
+  - Destiny's Child
+  title: Survivor
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1197443'
+    - '5545'
+'22840':
+  artists:
+  - Mabel
+  title: High Expectations
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '9985574'
+    - '191196'
+    - '263517'
+    - '374035'
+'228996':
+  artists:
+  - Lady Gaga
+  complete: true
+  title: Chromatica
+  versions:
+  - image: https://i.imgur.com/gw8lbsa.png
+    name: standard
+    songs:
+    - '2058036'
+    - '2058039'
+    - '218182'
+    - '2058212'
+    - '602998'
+    - '2058041'
+    - '2058042'
+    - '1177591'
+    - '2058043'
+    - '533644'
+    - '2058044'
+    - '2058215'
+    - '2058046'
+    - '2058040'
+'229491':
+  artists:
+  - The Weeknd
+  title: After Hours
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '303665'
+    - '218181'
+    - '533793'
+'229498':
+  artists:
+  - Charli XCX
+  complete: true
+  title: Pop 2
+  versions:
+  - image: https://i.imgur.com/L2GiOY7.png
+    name: standard
+    songs:
+    - '2063755'
+    - '2063756'
+    - '2063774'
+    - '2063780'
+    - '2063775'
+    - '2063786'
+    - '2063776'
+    - '2063777'
+    - '2063778'
+    - '2063779'
+'229532':
+  artists:
+  - Katy Perry
+  title: Smile
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1827449'
+    - '374057'
+'229582':
+  artists:
+  - Whitney Houston
+  title: Whitney
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '22856'
+    - '842143'
+'2329337':
+  artists:
+  - Whitney Houston
+  title: Whitney Houston
+  versions:
+  - image: https://i.imgur.com/UqMjXTv.png
+    name: standard
+    songs:
+    - '842093'
+    - '12276090'
+    - '12276088'
+    - '842094'
+    - '14340333'
+    - '187981'
+    - '842095'
+    - '86135'
+    - '545959'
+    - '14340334'
+'233923':
+  artists:
+  - David Guetta
+  title: Nothing but the Beat
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '103790'
+    - '587892'
+    - '6849522'
+'24453':
+  artists:
+  - Little Mix
+  title: Glory Days
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '282990'
+    - '283064'
+    - '283065'
+    - '283066'
+'24458':
+  artists:
+  - Little Mix
+  title: Confetti
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '282879'
+    - '283032'
+    - '282982'
+    - '283035'
+'24461':
+  artists:
+  - Adele
+  complete: true
+  title: '21'
+  versions:
+  - image: https://i.imgur.com/iNHRzMh.png
+    name: standard
+    songs:
+    - '282904'
+    - '282905'
+    - '282891'
+    - '282892'
+    - '282893'
+    - '282894'
+    - '282895'
+    - '282896'
+    - '283048'
+    - '282937'
+    - '283049'
+'24462':
+  artists:
+  - Little Mix
+  title: Get Weird
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '283047'
+    - '283072'
+    - '283059'
+    - '282984'
+'24468':
+  artists:
+  - Bruno Mars
+  complete: true
+  title: Doo-Wops & Hooligans
+  versions:
+  - image: https://i.imgur.com/FGkixpT.png
+    name: standard
+    songs:
+    - '250107'
+    - '17064'
+    - '282964'
+    - '282950'
+    - '282963'
+    - '282965'
+    - '282966'
+    - '282978'
+    - '282951'
+    - '282986'
+'24535':
+  artists:
+  - Halsey
+  title: hopeless fountain kingdom
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '283804'
+'24539':
+  artists:
+  - Little Mix
+  title: LM5
+  versions:
+  - image: https://i.imgur.com/pOgxeK2.png
+    name: standard
+    songs:
+    - '283725'
+    - '283683'
+    - '283772'
+'24541':
+  artists:
+  - Adele
+  complete: true
+  title: '25'
+  versions:
+  - image: https://i.imgur.com/wHUcILT.png
+    name: standard
+    songs:
+    - '283777'
+    - '283761'
+    - '283778'
+    - '283773'
+    - '283780'
+    - '283767'
+    - '283774'
+    - '283766'
+    - '283789'
+    - '283783'
+    - '283784'
+'24546':
+  artists:
+  - Adele
+  complete: true
+  title: '19'
+  versions:
+  - image: https://i.imgur.com/vWSrRNM.png
+    name: standard
+    songs:
+    - '283825'
+    - '283826'
+    - '283820'
+    - '283848'
+    - '283827'
+    - '283828'
+    - '283829'
+    - '283830'
+    - '283831'
+    - '283832'
+    - '283833'
+    - '283834'
+'24549':
+  artists:
+  - Demi Lovato
+  title: Dancing With The Devil
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '283845'
+    - '283852'
+    - '343774'
+    - '2442046'
+    - '607745'
+'24553':
+  artists:
+  - "Beyonc\xE9"
+  title: '4'
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '283723'
+    - '283709'
+'24555':
+  artists:
+  - Demi Lovato
+  title: Tell Me You Love Me
+  versions:
+  - image: https://i.imgur.com/WEc5BS2.png
+    name: standard
+    songs:
+    - '222047'
+    - '283701'
+    - '283702'
+    - '283710'
+    - '6915771'
+    - '283746'
+'24599':
+  artists:
+  - Demi Lovato
+  title: Unbroken
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '171357'
+'24601':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Dangerous Woman
+  versions:
+  - image: https://i.imgur.com/oGNFKx6.png
+    name: standard
+    songs:
+    - '284580'
+    - '284581'
+    - '284597'
+    - '242469'
+    - '116367'
+    - '284578'
+    - '284572'
+    - '284679'
+    - '284678'
+    - '284577'
+    - '284576'
+    - '284574'
+    - '284575'
+    - '284573'
+    - '284570'
+  - include: standard
+    name: Dangerous Woman (Deluxe)
+    songs:
+    - '3751832'
+    - '3751831'
+  - image: https://i.imgur.com/oO6KTqP.png
+    include: standard
+    name: Dangerous Woman (Japanese Deluxe)
+    songs:
+    - '3755408'
+'24603':
+  artists:
+  - Demi Lovato
+  title: Demi
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '41346'
+    - '283886'
+    - '171414'
+'24609':
+  artists:
+  - Lizzo
+  title: Cuz I Love You
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '284565'
+    - '829105'
+    - '103903'
+'24647':
+  artists:
+  - Justin Bieber
+  title: Justice
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '164410'
+    - '164476'
+    - '164572'
+'24670':
+  artists:
+  - Billie Eilish
+  complete: true
+  title: Happier Than Ever
+  versions:
+  - image: https://i.imgur.com/IenxVhj.png
+    name: standard
+    songs:
+    - '285158'
+    - '285188'
+    - '285190'
+    - '285189'
+    - '285159'
+    - '285160'
+    - '285181'
+    - '285192'
+    - '285183'
+    - '285184'
+    - '285182'
+    - '285194'
+    - '144531'
+    - '285163'
+    - '285175'
+    - '285176'
+'24673':
+  artists:
+  - Ed Sheeran
+  title: Equals
+  versions:
+  - image: https://i.imgur.com/Comm6a2.png
+    name: standard
+    songs:
+    - '284961'
+    - '285206'
+'24737':
+  artists:
+  - Fifth Harmony
+  title: Fifth Harmony
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '184568'
+    - '286506'
+'24739':
+  artists:
+  - Rihanna
+  complete: true
+  title: Good Girl Gone Bad
+  versions:
+  - image: https://i.imgur.com/bgCJCGz.png
+    name: standard
+    songs:
+    - '263165'
+    - '286481'
+    - '286482'
+    - '286473'
+    - '127401'
+    - '50564'
+    - '286475'
+    - '286480'
+    - '286474'
+    - '286476'
+    - '286479'
+    - '286477'
+  - image: https://i.imgur.com/4A7g7ig.png
+    include: standard
+    name: 'Good Girl Gone Bad: Reloaded'
+    songs:
+    - '253036'
+    - '286484'
+    - '286572'
+'24745':
+  artists:
+  - Fergie
+  title: Double Dutchess
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '13388150'
+'24747':
+  artists:
+  - Rihanna
+  complete: true
+  title: ANTI
+  versions:
+  - image: https://i.imgur.com/a2VDrnC.png
+    name: standard
+    songs:
+    - '286561'
+    - '286465'
+    - '286466'
+    - '286542'
+    - '286468'
+    - '286463'
+    - '175471'
+    - '286469'
+    - '286470'
+    - '286411'
+    - '240059'
+    - '286412'
+    - '286414'
+  - include: standard
+    name: ANTI (Deluxe)
+    songs:
+    - '286415'
+    - '286410'
+    - '175482'
+'25979':
+  artists:
+  - Pitbull
+  title: Globalization
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '300468'
+    - '300458'
+'25985':
+  artists:
+  - Lil Nas X
+  title: MONTERO
+  versions:
+  - image: https://i.imgur.com/atvdbmh.png
+    name: standard
+    songs:
+    - '299889'
+    - '299904'
+    - '300513'
+    - '299909'
+    - '300432'
+    - '299903'
+    - '299912'
+    - '300435'
+    - '299914'
+    - '299913'
+    - '299915'
+    - '299897'
+    - '299916'
+    - '299917'
+'25994':
+  artists:
+  - Sean Paul
+  title: Mad Love The Prequel
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4961'
 '25998':
   artists:
   - Dua Lipa
@@ -57,6 +1315,349 @@
     - '9861812'
     - '9861834'
     - '9861835'
+'26001':
+  artists:
+  - Bruno Mars
+  title: Unorthodox Jukebox
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '300042'
+    - '266615'
+    - '300028'
+    - '185757'
+    - '300002'
+    - '300029'
+    - '300038'
+    - '300034'
+    - '300035'
+    - '300039'
+'26002':
+  artists:
+  - Macklemore
+  - Ryan Lewis
+  title: The Heist
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1117243'
+    - '1117215'
+'2634':
+  artists:
+  - The Weeknd
+  title: Beauty Behind the Madness
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '32952'
+    - '32950'
+    - '32943'
+'2639159':
+  artists:
+  - Kiiara
+  title: lil kiiwi
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '768999'
+'267546':
+  artists:
+  - Maroon 5
+  title: Hands All Over
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '173444'
+    - '181950'
+'2688170':
+  artists:
+  - David Guetta
+  title: Listen
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '286584'
+'274389':
+  artists:
+  - Migos
+  title: Culture II
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '369912'
+'277927':
+  artists:
+  - Sam Smith
+  title: In The Lonely Hour
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '113756'
+    - '1034963'
+    - '242470'
+    - '1034964'
+    - '1034965'
+    - '1034966'
+    - '756514'
+    - '1034967'
+    - '1034987'
+    - '1940138'
+'283682':
+  artists:
+  - Sam Smith
+  title: Love Goes
+  versions:
+  - image: https://i.imgur.com/yBkXZzz.png
+    name: standard
+    songs:
+    - '416970'
+    - '243138'
+    - '416982'
+    - '2442025'
+    - '2442009'
+    - '2441994'
+    - '2441995'
+    - '2442008'
+    - '416969'
+    - '2442026'
+    - '416968'
+    - '2442044'
+    - '1022984'
+    - '1063120'
+    - '2442046'
+    - '2442010'
+    - '13410915'
+'307397':
+  artists:
+  - Kelly Clarkson
+  title: Breakaway
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '75319'
+    - '5530'
+    - '2610627'
+    - '263183'
+'3099018':
+  artists:
+  - Silk Sonic
+  - Bruno Mars
+  - Anderson .Paak
+  complete: true
+  title: An Evening With Silk Sonic
+  versions:
+  - image: https://i.imgur.com/qXTAeDl.png
+    name: standard
+    songs:
+    - '11896960'
+    - '1006064'
+    - '18648096'
+    - '18648099'
+    - '2752464'
+    - '18648100'
+    - '18648097'
+    - '1006061'
+    - '18648098'
+    - '29343712'
+'318919':
+  artists:
+  - Iggy Azalea
+  title: The End of an Era
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '2682826'
+'329129':
+  artists:
+  - SZA
+  complete: true
+  title: CTRL
+  versions:
+  - image: https://i.imgur.com/qIWjCpP.png
+    name: standard
+    songs:
+    - '2754424'
+    - '2754546'
+    - '2754423'
+    - '2754425'
+    - '2754427'
+    - '2754428'
+    - '2754430'
+    - '2754446'
+    - '2754447'
+    - '2754439'
+    - '2754547'
+    - '2754443'
+    - '2754548'
+    - '2754444'
+  - image: https://i.imgur.com/75A5Nec.png
+    include: standard
+    name: CTRL (Deluxe)
+    songs:
+    - '40531454'
+    - '40531455'
+    - '40531456'
+    - '40531457'
+    - '40531458'
+    - '40531459'
+'332069':
+  artists:
+  - Nicki Minaj
+  complete: true
+  title: Beam Me Up Scotty
+  versions:
+  - image: https://i.imgur.com/pAIDtNi.png
+    name: standard
+    songs:
+    - '2772909'
+    - '2772929'
+    - '2772910'
+    - '2772971'
+    - '2772989'
+    - '2772928'
+    - '2772927'
+    - '2772926'
+    - '2772925'
+    - '2772890'
+    - '497172'
+    - '2772924'
+    - '2772891'
+    - '2772934'
+    - '2772933'
+    - '2772984'
+    - '2772951'
+    - '2772950'
+    - '2772949'
+    - '2772948'
+'333063':
+  artists:
+  - DJ Snake
+  title: Encore
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4953'
+'3413951':
+  artists:
+  - Adele
+  complete: true
+  title: '30'
+  versions:
+  - image: https://i.imgur.com/slyQJ4Z.png
+    name: standard
+    songs:
+    - '20253696'
+    - '282945'
+    - '20253698'
+    - '20253701'
+    - '20253697'
+    - '20253699'
+    - '20253700'
+    - '20253706'
+    - '20253703'
+    - '20253704'
+    - '20253702'
+    - '20253705'
+'36551':
+  artists:
+  - Charlie Puth
+  complete: true
+  title: Voicenotes
+  versions:
+  - image: https://i.imgur.com/XuLLFlB.png
+    name: standard
+    songs:
+    - '402138'
+    - '402137'
+    - '402117'
+    - '402135'
+    - '402142'
+    - '402136'
+    - '402161'
+    - '402160'
+    - '402134'
+    - '402190'
+    - '402192'
+    - '402191'
+    - '402189'
+'369867':
+  artists:
+  - Tinashe
+  complete: true
+  title: Aquarius
+  versions:
+  - image: https://i.imgur.com/U5EeGwn.png
+    name: standard
+    songs:
+    - '839621'
+    - '3055343'
+    - '3055327'
+    - '3055344'
+    - '3055345'
+    - '3055346'
+    - '552644'
+    - '3055339'
+    - '3055325'
+    - '3055337'
+    - '3055336'
+    - '3055335'
+    - '3055334'
+    - '3055333'
+    - '3055332'
+'418417':
+  artists:
+  - Maroon 5
+  title: Overexposed
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '398685'
+    - '5862'
+    - '398680'
+    - '398683'
+    - '398687'
+    - '216224'
+    - '398690'
+    - '398696'
+    - '398694'
+    - '398697'
+    - '398676'
+    - '398699'
+    - '398698'
+    - '398704'
+    - '398712'
+'432639':
+  artists:
+  - Taylor Swift
+  title: Speak Now
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '706789'
+    - '706774'
+    - '706777'
+'432644':
+  artists:
+  - Gesaffelstein
+  title: Hyperion
+  versions:
+  - image: https://i.imgur.com/qziC5Cc.png
+    name: standard
+    songs:
+    - '3464151'
 '436594':
   artists:
   - Dua Lipa
@@ -98,618 +1699,11 @@
     - '4830283'
     - '533774'
     - '4961'
-90128:
-  artists:
-  - Lauv
-  title: ~how i'm feeling~
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '900210'
-    - '8624825'
-    - '900190'
-    - '33723295'
-24546:
-  artists:
-  - Adele
-  complete: true
-  title: '19'
-  versions:
-  - image: https://i.imgur.com/vWSrRNM.png
-    name: standard
-    songs:
-    - '283825'
-    - '283826'
-    - '283820'
-    - '283848'
-    - '283827'
-    - '283828'
-    - '283829'
-    - '283830'
-    - '283831'
-    - '283832'
-    - '283833'
-    - '283834'
-547550:
-  artists:
-  - Taylor Swift
-  title: '1989'
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/UXJl1G6.png
-    name: standard
-    songs:
-    - '587334'
-    - '586538'
-    - '587335'
-    - '587340'
-    - '587342'
-    - '587343'
-    - '587344'
-    - '587336'
-    - '587345'
-    - '587346'
-    - '587347'
-    - '587348'
-    - '587337'
-  - name: 1989 (Deluxe)
-    image: https://i.imgur.com/Dk2bFTl.png
-    include: standard
-    songs:
-    - '587363'
-    - '587332'
-    - '587349'
-24461:
-  artists:
-  - Adele
-  complete: true
-  title: '21'
-  versions:
-  - image: https://i.imgur.com/iNHRzMh.png
-    name: standard
-    songs:
-    - '282904'
-    - '282905'
-    - '282891'
-    - '282892'
-    - '282893'
-    - '282894'
-    - '282895'
-    - '282896'
-    - '283048'
-    - '282937'
-    - '283049'
-475943:
-  artists:
-  - Bruno Mars
-  complete: TRUE
-  title: 24K Magic
-  versions:
-  - image: https://i.imgur.com/f3753ge.png
-    name: standard
-    songs:
-    - '17083'
-    - '3750565'
-    - '3750566'
-    - '2001400'
-    - '3750573'
-    - '3750574'
-    - '3750567'
-    - '3750568'
-    - '3750575'
-  - name: 24K Magic (Japanese Deluxe)
-    include: standard
-    songs: 
-    - '173378'
-24541:
-  artists:
-  - Adele
-  complete: true
-  title: '25'
-  versions:
-  - image: https://i.imgur.com/wHUcILT.png
-    name: standard
-    songs:
-    - '283777'
-    - '283761'
-    - '283778'
-    - '283773'
-    - '283780'
-    - '283767'
-    - '283774'
-    - '283766'
-    - '283789'
-    - '283783'
-    - '283784'
-3413951:
-  artists:
-  - Adele
-  complete: true
-  title: '30'
-  versions:
-  - image: https://i.imgur.com/slyQJ4Z.png
-    name: standard
-    songs:
-    - '20253696'
-    - '282945'
-    - '20253698'
-    - '20253701'
-    - '20253697'
-    - '20253699'
-    - '20253700'
-    - '20253706'
-    - '20253703'
-    - '20253704'
-    - '20253702'
-    - '20253705'
-1822892:
-  artists:
-  - Tinashe
-  title: '333'
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '11674967'
-    - '11674992'
-    - '11674965'
-    - '11674978'
-    - '11674979'
-24553:
-  artists:
-  - "Beyonc\xE9"
-  title: '4'
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '283723'
-    - '283709'
-112319:
-  artists:
-  - Lil Nas X
-  title: '7'
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/M3a5Mqy.png
-    name: standard
-    songs:
-    - '1127309'
-    - '1126606'
-    - '1127284'
-    - '1126609'
-    - '1127278'
-    - '1126608'
-    - '1126610'
-    - '607787'
-476659:
-  artists:
-  - Cashmere Cat
-  title: '9'
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '3755421'
-    - '5442792'
-101376:
-  artists:
-  - Rihanna
-  title: A Girl Like Me
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '248408'
-    - '134673'
-229491:
-  artists:
-  - The Weeknd
-  title: After Hours
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '303665'
-    - '218181'
-    - '533793'
-3099018:
-  artists:
-  - Silk Sonic
-  - Bruno Mars
-  - Anderson .Paak
-  title: An Evening With Silk Sonic
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/qXTAeDl.png
-    name: standard
-    songs:
-    - '11896960'
-    - '1006064'
-    - '18648096'
-    - '18648099'
-    - '2752464'
-    - '18648100'
-    - '18648097'
-    - '1006061'
-    - '18648098'
-    - '29343712'
-369867:
-  artists:
-  - Tinashe
-  title: Aquarius
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/U5EeGwn.png
-    name: standard
-    songs:
-    - '839621'
-    - '3055343'
-    - '3055327'
-    - '3055344'
-    - '3055345'
-    - '3055346'
-    - '552644'
-    - '3055339'
-    - '3055325'
-    - '3055337'
-    - '3055336'
-    - '3055335'
-    - '3055334'
-    - '3055333'
-    - '3055332'
-130185:
-  artists:
-  - Lady Gaga
-  title: ARTPOP
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1390'
-    - '1356'
-56172:
-  artists:
-  - "Beyonc\xE9"
-  title: B'Day
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4375335'
-    - '594041'
-    - '594128'
-332069:
-  artists:
-  - Nicki Minaj
-  complete: true
-  title: Beam Me Up Scotty
-  versions:
-  - image: https://i.imgur.com/pAIDtNi.png
-    name: standard
-    songs:
-    - '2772909'
-    - '2772929'
-    - '2772910'
-    - '2772971'
-    - '2772989'
-    - '2772928'
-    - '2772927'
-    - '2772926'
-    - '2772925'
-    - '2772890'
-    - '497172'
-    - '2772924'
-    - '2772891'
-    - '2772934'
-    - '2772933'
-    - '2772984'
-    - '2772951'
-    - '2772950'
-    - '2772949'
-    - '2772948'
-49359:
-  artists:
-  - Post Malone
-  complete: true
-  title: beerbongs & bentleys
-  versions:
-  - image: https://i.imgur.com/oVGCEBU.png
-    name: standard
-    songs:
-    - '533159'
-    - '533276'
-    - '533160'
-    - '533162'
-    - '533163'
-    - '533286'
-    - '533164'
-    - '533290'
-    - '250136'
-    - '533287'
-    - '533165'
-    - '533166'
-    - '533168'
-    - '533336'
-    - '533167'
-    - '533169'
-    - '533171'
-    - '533172'
-917611:
-  artists:
-  - Bebe Rexha
-  title: Better Mistakes
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '363509'
-    - '6581847'
-442358:
-  artists:
-  - Britney Spears
-  title: Blackout
-  versions:
-  - image: https://i.imgur.com/oFJRLo8.png
-    name: standard
-    songs:
-    - '3527427'
-    - '3527425'
-1718763:
-  artists:
-  - BLACKPINK
-  title: BLACKPINK IN YOUR AREA
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/JUamTBM.png
-    name: standard
-    songs:
-    - '533735'
-    - '533734'
-    - '533641'
-    - '533620'
-    - '11219180'
-    - '533138'
-    - '533140'
-    - '533141'
-    - '533142'
-619132:
-  artists:
-  - Troye Sivan
-  title: Bloom
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1342544'
-307397:
-  artists:
-  - Kelly Clarkson
-  title: Breakaway
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '75319'
-    - '5530'
-    - '2610627'
-    - '263183'
-476647:
-  artists:
-  - Camila Cabello
-  title: Camila
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/7n94j85.png
-    name: standard
-    songs:
-    - '1691859'
-    - '3755399'
-    - '3755400'
-    - '3167787'
-    - '3755402'
-    - '1387092'
-    - '3755403'
-    - '3755404'
-    - '3755405'
-    - '3755406'
-    - '3755401'
-475941:
-  artists:
-  - Justin Bieber
-  title: Changes
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '3750576'
-804819:
-  artists:
-  - Charli XCX
-  title: Charli
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '728038'
-    - '697181'
-9947436:
-  artists:
-  - Charlie Puth
-  complete: true
-  title: CHARLIE
-  versions:
-  - image: https://i.imgur.com/xyUz2sP.png
-    name: standard
-    songs:
-    - '33518339'
-    - '52320886'
-    - '26404015'
-    - '52885144'
-    - '49436082'
-    - '42089712'
-    - '52885145'
-    - '52885146'
-    - '52885147'
-    - '52885148'
-    - '51031776'
-    - '52885149'
-228996:
-  artists:
-  - Lady Gaga
-  title: Chromatica
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/gw8lbsa.png
-    name: standard
-    songs:
-    - '2058036'
-    - '2058039'
-    - '218182'
-    - '2058212'
-    - '602998'
-    - '2058041'
-    - '2058042'
-    - '1177591'
-    - '2058043'
-    - '533644'
-    - '2058044'
-    - '2058215'
-    - '2058046'
-    - '2058040'
-24458:
-  artists:
-  - Little Mix
-  title: Confetti
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '282879'
-    - '283032'
-    - '282982'
-    - '283035'
-17447:
-  artists:
-  - Demi Lovato
-  title: Confident
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '171361'
-    - '167432'
-    - '191203'
-5553476:
-  artists:
-  - Charli XCX
-  complete: true
-  title: CRASH
-  versions:
-  - image: https://i.imgur.com/GdwWPjp.png
-    name: standard
-    songs:
-    - '31618373'
-    - '17709834'
-    - '4180297'
-    - '31618378'
-    - '27451853'
-    - '31618377'
-    - '30103560'
-    - '31618379'
-    - '31440009'
-    - '31618376'
-    - '31618374'
-    - '31618375'
-  - image: https://i.imgur.com/gm7xdKW.png
-    name: CRASH (Deluxe)
-    songs:
-    - '32537383'
-    - '32537384'
-    - '32537385'
-    - '32537386'
-274389:
-  artists:
-  - Migos
-  title: Culture II
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '369912'
-24609:
-  artists:
-  - Lizzo
-  title: Cuz I Love You
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '284565'
-    - '829105'
-    - '103903'
-24601:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Dangerous Woman
-  versions:
-  - image: https://i.imgur.com/oGNFKx6.png
-    name: standard
-    songs:
-    - '284580'
-    - '284581'
-    - '284597'
-    - '242469'
-    - '116367'
-    - '284578'
-    - '284572'
-    - '284679'
-    - '284678'
-    - '284577'
-    - '284576'
-    - '284574'
-    - '284575'
-    - '284573'
-    - '284570'
-  - include: standard
-    name: Dangerous Woman (Deluxe)
-    songs:
-    - '3751832'
-    - '3751831'
-  - image: https://i.imgur.com/oO6KTqP.png
-    include: standard
-    name: Dangerous Woman (Japanese Deluxe)
-    songs:
-    - '3755408'
-742007:
-  artists:
-  - "Beyonc\xE9"
-  title: Dangerously In Love
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '5665'
-    - '350263'
-    - '5489502'
-4452536:
-  artists:
-  - The Weeknd
-  title: Dawn FM
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '25656584'
-    - '1005952'
-    - '25656590'
-436762:
+'436762':
   artists:
   - Mariah Carey
+  complete: true
   title: Daydream
-  complete: TRUE
   versions:
   - image: https://i.imgur.com/vg8GxqK.png
     name: standard
@@ -726,1413 +1720,68 @@
     - '288333'
     - '3491062'
     - '3491034'
-24603:
+'442358':
   artists:
-  - Demi Lovato
-  title: Demi
+  - Britney Spears
+  title: Blackout
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/oFJRLo8.png
     name: standard
     songs:
-    - '41346'
-    - '283886'
-    - '171414'
-11958583:
-  artists:
-  - Ava Max
-  title: Diamonds & Dancefloors
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/SwBisiY.png
-    name: standard
-    songs:
-    - '49448651'
-    - '61824852'
-    - '35707910'
-    - '61824853'
-    - '61824848'
-    - '56134320'
-    - '61824849'
-    - '61824854'
-    - '61824850'
-    - '61053568'
-    - '61824851'
-    - '61768612'
-    - '61824855'
-    - '58801663'
-21088:
-  artists:
-  - DNCE
-  title: DNCE
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1401'
-    - '116368'
-24468:
-  artists:
-  - Bruno Mars
-  title: Doo-Wops & Hooligans
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/FGkixpT.png
-    name: standard
-    songs:
-    - '250107'
-    - '17064'
-    - '282964'
-    - '282950'
-    - '282963'
-    - '282965'
-    - '282966'
-    - '282978'
-    - '282951'
-    - '282986'
-138147:
-  artists:
-  - 6ix9ine
-  title: DUMMY BOY
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1365007'
-    - '1365013'
-1610611:
-  artists:
-  - 24kGoldn
-  title: El Dorado
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '607743'
-333063:
-  artists:
-  - DJ Snake
-  title: Encore
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4953'
-558728:
-  artists:
-  - George Michael
-  title: Faith
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '865186'
-    - '1531574'
-120914:
-  artists:
-  - Taylor Swift
-  title: Fearless
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '274234'
-    - '274240'
-24737:
-  artists:
-  - Fifth Harmony
-  title: Fifth Harmony
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '184568'
-    - '286506'
-1652898:
-  artists:
-  - BIA
-  title: FOR CERTAIN
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '10104753'
-    - '3647693'
-25979:
-  artists:
-  - Pitbull
-  title: Globalization
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '300468'
-    - '300458'
-11959436:
-  artists:
-  - Sam Smith
-  title: Gloria
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/Q6E3SCr.png
-    name: standard
-    songs:
-    - '35753034'
-    - '61827944'
-    - '61827943'
-    - '61827942'
-    - '51580767'
-    - '61827941'
-    - '61827946'
-    - '60999793'
-    - '61827948'
-    - '61553411'
-    - '61827949'
-1714269:
-  artists:
-  - Kygo
-  title: Golden Hour
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '11193115'
-    - '768117'
-24739:
-  artists:
-  - Rihanna
-  title: Good Girl Gone Bad
-  complete: TRUE
-  versions:
-  - image: https://i.imgur.com/bgCJCGz.png
-    name: standard
-    songs:
-    - '263165'
-    - '286481'
-    - '286482'
-    - '286473'
-    - '127401'
-    - '50564'
-    - '286475'
-    - '286480'
-    - '286474'
-    - '286476'
-    - '286479'
-    - '286477'
-  - name: 'Good Girl Gone Bad: Reloaded'
-    include: standard
-    image: https://i.imgur.com/4A7g7ig.png
-    songs:
-    - '253036'
-    - '286484'
-    - '286572'
-49358:
-  artists:
-  - Megan Thee Stallion
-  title: Good News
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '533132'
-    - '533271'
-    - '533137'
-53692:
-  artists:
-  - Dan + Shay
-  title: Good Things
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '574607'
-267546:
-  artists:
-  - Maroon 5
-  title: Hands All Over
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '173444'
-    - '181950'
-24670:
-  artists:
-  - Billie Eilish
-  complete: true
-  title: Happier Than Ever
-  versions:
-  - image: https://i.imgur.com/IenxVhj.png
-    name: standard
-    songs:
-    - '285158'
-    - '285188'
-    - '285190'
-    - '285189'
-    - '285159'
-    - '285160'
-    - '285181'
-    - '285192'
-    - '285183'
-    - '285184'
-    - '285182'
-    - '285194'
-    - '144531'
-    - '285163'
-    - '285175'
-    - '285176'
-55953:
-  artists:
-  - Jonas Brothers
-  title: Happiness Begins
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4946'
-55089:
-  artists:
-  - Ava Max
-  title: Heaven & Hell
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '17117'
-    - '588159'
-    - '588170'
-    - '586589'
-    - '588154'
-    - '588098'
-22840:
-  artists:
-  - Mabel
-  title: High Expectations
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '9985574'
-    - '191196'
-    - '263517'
-    - '374035'
-124568:
-  artists:
-  - Doja Cat
-  title: Hot Pink
-  versions:
-  - image: https://i.imgur.com/Wp61pSo.png
-    name: standard
-    songs:
-    - '1249886'
-    - '1249901'
-    - '1249887'
-    - '1249888'
-    - '10948337'
-    - '883709'
-    - '1249890'
-    - '1249891'
-    - '1249892'
-    - '1249893'
-    - '1249894'
-    - '1985188'
-432644:
-  artists:
-  - Gesaffelstein
-  title: Hyperion
-  versions:
-  - image: https://i.imgur.com/qziC5Cc.png
-    name: standard
-    songs:
-    - '3464151'
-1193382:
-  artists:
-  - Yo Gotti
-  title: I Still Am
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '8292177'
-629959:
-  artists:
-  - ZAYN
-  title: Icarus Falls
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4748250'
-    - '2724810'
-2126897:
-  artists:
-  - Labrinth
-  title: Imagination & the Misfit Kid
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '13192298'
-    - '13192293'
-    - '11283248'
-    - '13192284'
-    - '13192299'
-    - '13192365'
-    - '13192310'
-    - '12081100'
-    - '13192300'
-    - '11397476'
-    - '13192301'
-    - '11394185'
-    - '11268743'
-    - '13192366'
-133774:
-  artists:
-  - Saucy Santana
-  title: Imma Celebrity
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1328670'
-122130:
-  artists:
-  - Iggy Azalea
-  title: In My Defense
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1223431'
-    - '1223433'
-277927:
-  artists:
-  - Sam Smith
-  title: In The Lonely Hour
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '113756'
-    - '1034963'
-    - '242470'
-    - '1034964'
-    - '1034965'
-    - '1034966'
-    - '756514'
-    - '1034967'
-    - '1034987'
-    - '1940138'
-713801:
-  artists:
-  - Alessia Cara
-  title: In The Meantime
-  versions:
-  - image: https://i.imgur.com/WD1lN6d.png
-    name: standard
-    songs:
-    - '5311733'
-    - '5311724'
-    - '5311730'
-    - '1211811'
-    - '5311728'
-    - '5311734'
-    - '5311818'
-    - '5311735'
-    - '5311723'
-    - '5311736'
-    - '5311737'
-    - '519772'
-    - '5311740'
-    - '5311741'
-    - '5311738'
-    - '5311739'
-    - '5311742'
-58684:
-  artists:
-  - Jason Derulo
-  title: Jason Derulo
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '405711'
-    - '447734'
-    - '611826'
-    - '611841'
-24647:
-  artists:
-  - Justin Bieber
-  title: Justice
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '164410'
-    - '164476'
-    - '164572'
-1468831:
-  artists:
-  - Karol G
-  title: KG0516
-  versions:
-  - image: https://i.imgur.com/L33vIG6.png
-    name: standard
-    songs:
-    - '221984'
-218893:
-  artists:
-  - Conan Gray
-  title: Kid Krow
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '209425'
-    - '1239601'
-1366054:
-  artists:
-  - Alessia Cara
-  title: Know-It-All
-  versions:
-  - image: https://i.imgur.com/L9zrk1r.png
-    name: standard
-    songs:
-    - '286489'
-    - '167366'
-    - '286490'
-    - '286487'
-    - '286491'
-    - '251132'
-    - '23550'
-    - '286492'
-    - '286486'
-    - '75658'
-    - '286493'
-1515673:
-  artists:
-  - Tyga
-  title: Legendary
-  versions:
-  - image: https://i.imgur.com/DYdnlTt.png
-    name: standard
-    songs:
-    - '2380245'
-    - '5748569'
-476657:
-  artists:
-  - "Beyonc\xE9"
-  title: Lemonade
-  versions:
-  - image: https://i.imgur.com/JuTXaei.png
-    name: standard
-    songs:
-    - '3755433'
-    - '3755436'
-    - '3755446'
-    - '3755437'
-    - '3755447'
-    - '3755438'
-    - '3755435'
-    - '3755434'
-    - '3755429'
-    - '3755448'
-    - '3755439'
-    - '3755441'
-2191471:
-  artists:
-  - KYLE
-  title: Light of Mine
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '13509558'
-    - '2715831'
-    - '13435721'
-2639159:
-  artists:
-  - Kiiara
-  title: lil kiiwi
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '768999'
-9103370:
-  artists:
-  - Rihanna
-  title: Loud
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '485997'
-    - '540421'
-    - '540138'
-    - '540141'
-    - '249970'
-    - '345813'
-    - '123317'
-    - '540422'
-    - '540142'
-    - '540144'
-    - '540423'
-283682:
-  artists:
-  - Sam Smith
-  title: Love Goes
-  versions:
-  - image: https://i.imgur.com/yBkXZzz.png
-    name: standard
-    songs:
-    - '416970'
-    - '243138'
-    - '416982'
-    - '2442025'
-    - '2442009'
-    - '2441994'
-    - '2441995'
-    - '2442008'
-    - '416969'
-    - '2442026'
-    - '416968'
-    - '2442044'
-    - '1022984'
-    - '1063120'
-    - '2442046'
-    - '2442010'
-    - '13410915'
-25994:
-  artists:
-  - Sean Paul
-  title: Mad Love The Prequel
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4961'
-9103708:
-  artists:
-  - Halsey
-  title: Manic
-  versions:
-  - image: https://i.imgur.com/eX8b2rJ.png
-    name: standard
-    songs:
-    - '7063588'
-    - '588035'
-    - '588043'
-    - '286531'
-50756:
-  artists:
-  - Mariah Carey
-  title: Memoirs of an imperfect Angel
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '545313'
-25985:
-  artists:
-  - Lil Nas X
-  title: MONTERO
-  versions:
-  - image: https://i.imgur.com/atvdbmh.png
-    name: standard
-    songs:
-    - '299889'
-    - '299904'
-    - '300513'
-    - '299909'
-    - '300432'
-    - '299903'
-    - '299912'
-    - '300435'
-    - '299914'
-    - '299913'
-    - '299915'
-    - '299897'
-    - '299916'
-    - '299917'
-12025790:
-  artists:
-  - RAYE
-  title: My 21st Century Blues
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '62075762'
-    - '62075763'
-    - '53355516'
-    - '53355515'
-    - '53355514'
-    - '62075764'
-    - '53355512'
-    - '62075765'
-    - '62075766'
-    - '62075767'
-    - '62075761'
-    - '62075768'
-    - '62075769'
-    - '62075770'
-    - '62075771'
-169208:
-  artists:
-  - Julia Michaels
-  title: Nervous System
-  versions:
-  - image: https://i.imgur.com/TpgbWys.png
-    name: standard
-    songs:
-    - '1402'
-9104700:
-  artists:
-  - Charlie Puth
-  title: Nine Track Mind
-  versions:
-  - image: https://i.imgur.com/hREvBmn.png
-    name: standard
-    songs:
-    - '17119'
-    - '3751835'
-    - '2001318'
-    - '3751833'
-    - '3751834'
-    - '3751836'
-    - '3751837'
-    - '3751839'
-    - '3751838'
-    - '248418'
-    - '3751844'
-    - '248417'
-    - '6457850'
-    - '6457851'
-    - '6457852'
-233923:
-  artists:
-  - David Guetta
-  title: Nothing but the Beat
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '103790'
-    - '587892'
-    - '6849522'
-418417:
-  artists:
-  - Maroon 5
-  title: Overexposed
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '398685'
-    - '5862'
-    - '398680'
-    - '398683'
-    - '398687'
-    - '216224'
-    - '398690'
-    - '398696'
-    - '398694'
-    - '398697'
-    - '398676'
-    - '398699'
-    - '398698'
-    - '398704'
-    - '398712'
-528553:
-  artists:
-  - PARTYNEXTDOOR
-  complete: true
-  title: PARTYMOBILE
-  versions:
-  - image: https://i.imgur.com/CMBPvM6.png
-    name: standard
-    songs:
-    - '4091497'
-    - '4091498'
-    - '241618'
-    - '4091499'
-    - '4091561'
-    - '4091500'
-    - '4091501'
-    - '4091502'
-    - '4091503'
-    - '2731505'
-    - '4091504'
-    - '4091508'
-    - '4091509'
-    - '4091510'
-735227:
-  artists:
-  - Nicki Minaj
-  title: Pink Friday
-  versions:
-  - image: https://i.imgur.com/iyVoufx.png
-    name: standard
-    songs:
-    - '5446524'
-    - '176212'
-    - '3581865'
-    - '5446522'
-    - '347995'
-    - '346551'
-49323:
-  artists:
-  - Doja Cat
-  title: Planet Her
-  versions:
-  - image: https://i.imgur.com/qkm3uo5.png
-    name: standard
-    songs:
-    - '533062'
-    - '533058'
-    - '533250'
-    - '533059'
-    - '533063'
-    - '533065'
-    - '533068'
-    - '533266'
-    - '533070'
-    - '533265'
-    - '533089'
-    - '533072'
-    - '533069'
-    - '533249'
-713819:
-  artists:
-  - Miley Cyrus
-  title: Plastic Hearts
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '539989'
-229498:
-  artists:
-  - Charli XCX
-  complete: true
-  title: Pop 2
-  versions:
-  - image: https://i.imgur.com/L2GiOY7.png
-    name: standard
-    songs:
-    - '2063755'
-    - '2063756'
-    - '2063774'
-    - '2063780'
-    - '2063775'
-    - '2063786'
-    - '2063776'
-    - '2063777'
-    - '2063778'
-    - '2063779'
-49333:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Positions
-  versions:
-  - image: https://i.imgur.com/bZmYlq6.png
-    name: standard
-    songs:
-    - '533678'
-    - '533695'
-    - '533696'
-    - '533697'
-    - '533776'
-    - '533677'
-    - '533780'
-    - '533700'
-    - '533701'
-    - '533702'
-    - '533703'
-    - '533698'
-    - '533707'
-    - '533705'
-  - image: https://i.imgur.com/WeFaRhU.png
-    include: standard
-    name: Positions (Deluxe)
-    songs:
-    - '1193367'
-    - '1193368'
-    - '1193550'
-    - '1193370'
-    - '1193371'
-55014:
-  artists:
-  - Katy Perry
-  title: PRISM
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '462046'
-    - '575855'
-    - '587712'
-    - '586651'
-    - '550514'
-    - '587713'
-190009:
-  artists:
-  - Nicki Minaj
-  complete: true
-  title: Queen
-  versions:
-  - image: https://i.imgur.com/8Rezh5B.png
-    name: standard
-    songs:
-    - '1767518'
-    - '1767529'
-    - '1767519'
-    - '1767528'
-    - '1767520'
-    - '1767526'
-    - '1767527'
-    - '1767467'
-    - '1767525'
-    - '250137'
-    - '1767463'
-    - '1767464'
-    - '1767450'
-    - '1767465'
-    - '1767466'
-    - '1767445'
-    - '1767451'
-    - '1767524'
-    - '1767461'
-  - include: standard
-    name: Queen (Deluxe)
-    songs:
-    - '1365007'
-    - '8292145'
-    - '8412138'
-1077159:
-  artists:
-  - Kesha
-  title: Rainbow
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '3153329'
-1364022:
-  artists:
-  - Taylor Swift
-  title: Red
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '285028'
-    - '285029'
-    - '285031'
-    - '285033'
-8312365:
-  artists:
-  - "Beyonc\xE9"
-  title: RENAISSANCE
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '45761811'
-    - '45761812'
-    - '45761824'
-    - '62300973'
-    - '45761814'
-    - '41955251'
-    - '45761825'
-    - '45761815'
-    - '45761816'
-    - '45761818'
-    - '45761817'
-    - '45761819'
-    - '45761820'
-    - '45761821'
-    - '45761822'
-    - '45761823'
-50073:
-  artists:
-  - Taylor Swift
-  title: reputation
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '74693'
-    - '540104'
-    - '540109'
-    - '540127'
-476650:
-  artists:
-  - Camila Cabello
-  title: Romance
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '3755388'
-    - '3755420'
-    - '4948'
-    - '3755391'
-    - '3755393'
-    - '3755394'
-    - '3755395'
-    - '3755396'
-    - '3755398'
-1692492:
-  artists:
-  - Omarion
-  title: Sex Playlist
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '11065621'
-55039:
-  artists:
-  - Sabrina Carpenter
-  title: Singular Act I
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '587807'
-229532:
-  artists:
-  - Katy Perry
-  title: Smile
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1827449'
-    - '374057'
-882965:
-  artists:
-  - Jax Jones
-  title: Snacks
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '11704243'
-    - '7700531'
-    - '117301'
-    - '7700533'
-    - '7700534'
-    - '7700532'
-    - '6915771'
-    - '238614'
-    - '363490'
-55166:
-  artists:
-  - Zara Larsson
-  complete: true
-  title: So Good
-  versions:
-  - image: https://i.imgur.com/GdKz6Vs.png
-    name: standard
-    songs:
-    - '585400'
-    - '552651'
-    - '585410'
-    - '585521'
-    - '585407'
-    - '585412'
-    - '317246'
-    - '585523'
-    - '585417'
-    - '585416'
-    - '585419'
-    - '585411'
-    - '585418'
-    - '585415'
-    - '284698'
-942547:
-  artists:
-  - Maroon 5
-  title: Songs About Jane
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '57678'
-    - '113387'
-    - '6737547'
-    - '221930'
-    - '6737546'
-    - '3437933'
-    - '6737545'
-    - '191187'
-    - '6737544'
-    - '3114898'
-    - '6737533'
-    - '6300281'
-699115:
-  artists:
-  - Tinashe
-  title: Songs For You
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '5218485'
-    - '5218486'
-    - '5218487'
-    - '5218488'
-    - '5218563'
-    - '5218489'
-    - '5218561'
-    - '5218567'
-    - '5218568'
-    - '5218569'
-    - '5218602'
-    - '5218570'
-    - '5218603'
-    - '5218572'
-11183304:
-  artists:
-  - SZA
-  complete: true
-  title: SOS
-  versions:
-  - image: https://i.imgur.com/dVmjfAA.png
-    name: standard
-    songs:
-    - '58406017'
-    - '58406018'
-    - '58406019'
-    - '58406020'
-    - '58406021'
-    - '58406022'
-    - '58406023'
-    - '58406024'
-    - '58406025'
-    - '58406027'
-    - '58406026'
-    - '58406028'
-    - '58406029'
-    - '58406030'
-    - '58406032'
-    - '58406031'
-    - '58406033'
-    - '58406034'
-    - '54320471'
-    - '58406035'
-    - '22696027'
-    - '5462882'
-    - '58406036'
-432639:
-  artists:
-  - Taylor Swift
-  title: Speak Now
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '706789'
-    - '706774'
-    - '706777'
-8014176:
-  artists:
-  - Lizzo
-  title: Special
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '44259839'
-    - '34506438'
-    - '40537509'
-    - '44259840'
-    - '44259841'
-    - '44259842'
-    - '44259843'
-    - '44259845'
-    - '44259844'
-    - '44259847'
-    - '44259846'
-    - '44259849'
-154345:
+    - '3527427'
+    - '3527425'
+'4452536':
   artists:
   - The Weeknd
-  title: Starboy
+  title: Dawn FM
   versions:
   - image: MISSING
     name: standard
     songs:
-    - '555740'
-    - '116371'
-    - '63772418'
-2233328:
+    - '25656584'
+    - '1005952'
+    - '25656590'
+'45462':
   artists:
-  - YG
-  title: STAY DANGEROUS
-  versions:
-  - image: https://i.imgur.com/ak9BfwT.png
-    name: standard
-    songs:
-    - '3596283'
-738046:
-  artists:
-  - Megan Thee Stallion
-  title: Suga
+  - Ed Sheeran
+  title: No.6 Collaborations Project
   versions:
   - image: MISSING
     name: standard
     songs:
-    - '533271'
-    - '5462883'
-7569016:
-  artists:
-  - Cona Gray
-  title: Superache
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1985103'
-    - '1984950'
-226306:
-  artists:
-  - Destiny's Child
-  title: Survivor
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1197443'
-    - '5545'
-6313:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Sweetener
-  versions:
-  - image: https://i.imgur.com/rTsQ2Xs.png
-    name: standard
-    songs:
-    - '78709'
-    - '78770'
-    - '78772'
-    - '78712'
-    - '78711'
-    - '78714'
-    - '78713'
-    - '78737'
-    - '78710'
-    - '78715'
-    - '78769'
-    - '78742'
-    - '78739'
-    - '78738'
-    - '78740'
-154244:
+    - '498336'
+    - '498339'
+    - '498226'
+'455613':
   artists:
   - Jason Derulo
-  title: Talk Dirty
+  title: Everything is 4
   versions:
   - image: MISSING
     name: standard
     songs:
-    - '589144'
-    - '103786'
-    - '187208'
-    - '1488758'
-    - '599605'
-    - '1488759'
-    - '183218'
-    - '599583'
-    - '599587'
-    - '599586'
-    - '179048'
-70069:
+    - '17125'
+    - '3619472'
+    - '3619536'
+'45685':
   artists:
-  - Taylor Swift
-  title: Taylor Swift
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '706754'
-    - '706747'
-    - '293276'
-55032:
-  artists:
-  - Katy Perry
-  title: Teenage Dream
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '415985'
-    - '326387'
-    - '405693'
-    - '345835'
-    - '540378'
-    - '540376'
-    - '448593'
-    - '255123'
-    - '540380'
-    - '540379'
-    - '540383'
-    - '540377'
-    - '479185'
-    - '540372'
-    - '540381'
-24555:
-  artists:
-  - Demi Lovato
-  title: Tell Me You Love Me
-  versions:
-  - image: https://i.imgur.com/WEc5BS2.png
-    name: standard
-    songs:
-    - '222047'
-    - '283701'
-    - '283702'
-    - '283710'
-    - '6915771'
-    - '283746'
-143884:
-  artists:
-  - Ariana Grande
+  - Michael Jackson
   complete: true
-  title: thank u, next
+  title: Thriller
   versions:
-  - image: https://i.imgur.com/6WNUfyT.png
+  - image: https://i.imgur.com/pfY5uHU.png
     name: standard
     songs:
-    - '1412611'
-    - '1412630'
-    - '1412487'
-    - '1412631'
-    - '1412632'
-    - '1412613'
-    - '1412614'
-    - '1412615'
-    - '1412617'
-    - '727690'
-    - '727948'
-    - '1412616'
-  - include: standard
-    name: thank u, next (Japanese Deluxe)
-    songs:
-    - '11911811'
-    - '3657307'
-56798:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: My Everything
-  versions:
-  - image: https://i.imgur.com/cMFvyFu.png
-    name: standard
-    songs:
-    - '286574'
-    - '286591'
-    - '286575'
-    - '286576'
-    - '180467'
-    - '286592'
-    - '286593'
-    - '286594'
-    - '286590'
-    - '286578'
-    - '286595'
-    - '286579'
-  - image: https://i.imgur.com/SnlhfMy.png
-    include: standard
-    name: My Everything (Deluxe)
-    songs:
-    - '121533'
-    - '286582'
-    - '286580'
-5600:
-  artists:
-  - Chance the Rapper
-  title: The Big Day
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '71951'
-318919:
-  artists:
-  - Iggy Azalea
-  title: The End of an Era
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '2682826'
-26002:
-  artists:
-  - Macklemore
-  - Ryan Lewis
-  title: The Heist
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1117243'
-    - '1117215'
-8514:
-  artists:
-  - Eminem
-  title: The Marshall Mathers LP2
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '102164'
-217127:
-  artists:
-  - Iggy Azalea
-  title: The New Classic
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '121530'
-    - '1369'
-    - '506302'
-    - '550508'
-    - '41355'
-1650961:
-  artists:
-  - Alessia Cara
-  complete: true
-  title: The Pains Of Growing
-  versions:
-  - image: https://i.imgur.com/pxiYhvz.png
-    name: standard
-    songs:
-    - '304118'
-    - '4842000'
-    - '10855909'
-    - '10855910'
-    - '4738951'
-    - '10855911'
-    - '10855912'
-    - '216227'
-    - '10855908'
-    - '222143'
-    - '191193'
-    - '10855915'
-    - '10855914'
-    - '10855913'
-    - '10855907'
-  - include: standard
-    name: The Pains of Growing (Japanese Deluxe)
-    songs:
-    - '4964'
-46777:
+    - '43015'
+    - '499605'
+    - '43013'
+    - '43011'
+    - '43012'
+    - '43014'
+    - '499608'
+    - '499603'
+    - '499716'
+'46777':
   artists:
   - Nicki Minaj
   complete: true
@@ -2178,7 +1827,1061 @@
     - '7476186'
     - '11682796'
     - '8564281'
-997526:
+'46976':
+  artists:
+  - Fifth Harmony
+  title: 7/27
+  versions:
+  - image: https://i.imgur.com/TYhQVXO.png
+    name: standard
+    songs:
+    - '510841'
+    - '317257'
+    - '510896'
+'47033':
+  artists:
+  - Ludacris
+  title: Battle of the Sexes
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '228357'
+'473807':
+  artists:
+  - Meghan Trainor
+  title: TREAT MYSELF
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1362836'
+'475941':
+  artists:
+  - Justin Bieber
+  title: Changes
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '3750576'
+'475943':
+  artists:
+  - Bruno Mars
+  complete: true
+  title: 24K Magic
+  versions:
+  - image: https://i.imgur.com/f3753ge.png
+    name: standard
+    songs:
+    - '17083'
+    - '3750565'
+    - '3750566'
+    - '2001400'
+    - '3750573'
+    - '3750574'
+    - '3750567'
+    - '3750568'
+    - '3750575'
+  - include: standard
+    name: 24K Magic (Japanese Deluxe)
+    songs:
+    - '173378'
+'476647':
+  artists:
+  - Camila Cabello
+  complete: true
+  title: Camila
+  versions:
+  - image: https://i.imgur.com/7n94j85.png
+    name: standard
+    songs:
+    - '1691859'
+    - '3755399'
+    - '3755400'
+    - '3167787'
+    - '3755402'
+    - '1387092'
+    - '3755403'
+    - '3755404'
+    - '3755405'
+    - '3755406'
+    - '3755401'
+'476650':
+  artists:
+  - Camila Cabello
+  title: Romance
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '3755388'
+    - '3755420'
+    - '4948'
+    - '3755391'
+    - '3755393'
+    - '3755394'
+    - '3755395'
+    - '3755396'
+    - '3755398'
+'476657':
+  artists:
+  - "Beyonc\xE9"
+  title: Lemonade
+  versions:
+  - image: https://i.imgur.com/JuTXaei.png
+    name: standard
+    songs:
+    - '3755433'
+    - '3755436'
+    - '3755446'
+    - '3755437'
+    - '3755447'
+    - '3755438'
+    - '3755435'
+    - '3755434'
+    - '3755429'
+    - '3755448'
+    - '3755439'
+    - '3755441'
+'476659':
+  artists:
+  - Cashmere Cat
+  title: '9'
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '3755421'
+    - '5442792'
+'49323':
+  artists:
+  - Doja Cat
+  title: Planet Her
+  versions:
+  - image: https://i.imgur.com/qkm3uo5.png
+    name: standard
+    songs:
+    - '533062'
+    - '533058'
+    - '533250'
+    - '533059'
+    - '533063'
+    - '533065'
+    - '533068'
+    - '533266'
+    - '533070'
+    - '533265'
+    - '533089'
+    - '533072'
+    - '533069'
+    - '533249'
+'49330':
+  artists:
+  - Maroon 5
+  complete: true
+  title: JORDI
+  versions:
+  - image: https://i.imgur.com/R5GAesm.png
+    name: standard
+    songs:
+    - '533209'
+    - '533210'
+    - '533409'
+    - '533211'
+    - '533408'
+    - '533212'
+    - '533758'
+    - '533411'
+    - '9164'
+    - '533412'
+    - '4839'
+    - '533413'
+  - include: standard
+    name: JORDI (Deluxe)
+    songs:
+    - '533415'
+    - '533414'
+'49333':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Positions
+  versions:
+  - image: https://i.imgur.com/bZmYlq6.png
+    name: standard
+    songs:
+    - '533678'
+    - '533695'
+    - '533696'
+    - '533697'
+    - '533776'
+    - '533677'
+    - '533780'
+    - '533700'
+    - '533701'
+    - '533702'
+    - '533703'
+    - '533698'
+    - '533707'
+    - '533705'
+  - image: https://i.imgur.com/WeFaRhU.png
+    include: standard
+    name: Positions (Deluxe)
+    songs:
+    - '1193367'
+    - '1193368'
+    - '1193550'
+    - '1193370'
+    - '1193371'
+'49358':
+  artists:
+  - Megan Thee Stallion
+  title: Good News
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '533132'
+    - '533271'
+    - '533137'
+'49359':
+  artists:
+  - Post Malone
+  complete: true
+  title: beerbongs & bentleys
+  versions:
+  - image: https://i.imgur.com/oVGCEBU.png
+    name: standard
+    songs:
+    - '533159'
+    - '533276'
+    - '533160'
+    - '533162'
+    - '533163'
+    - '533286'
+    - '533164'
+    - '533290'
+    - '250136'
+    - '533287'
+    - '533165'
+    - '533166'
+    - '533168'
+    - '533336'
+    - '533167'
+    - '533169'
+    - '533171'
+    - '533172'
+'50073':
+  artists:
+  - Taylor Swift
+  title: reputation
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '74693'
+    - '540104'
+    - '540109'
+    - '540127'
+'50756':
+  artists:
+  - Mariah Carey
+  title: Memoirs of an imperfect Angel
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '545313'
+'528553':
+  artists:
+  - PARTYNEXTDOOR
+  complete: true
+  title: PARTYMOBILE
+  versions:
+  - image: https://i.imgur.com/CMBPvM6.png
+    name: standard
+    songs:
+    - '4091497'
+    - '4091498'
+    - '241618'
+    - '4091499'
+    - '4091561'
+    - '4091500'
+    - '4091501'
+    - '4091502'
+    - '4091503'
+    - '2731505'
+    - '4091504'
+    - '4091508'
+    - '4091509'
+    - '4091510'
+'53692':
+  artists:
+  - Dan + Shay
+  title: Good Things
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '574607'
+'544933':
+  artists:
+  - Chris Brown
+  - Tyga
+  title: Fan of A Fan
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4201670'
+    - '4201716'
+'547550':
+  artists:
+  - Taylor Swift
+  complete: true
+  title: '1989'
+  versions:
+  - image: https://i.imgur.com/UXJl1G6.png
+    name: standard
+    songs:
+    - '587334'
+    - '586538'
+    - '587335'
+    - '587340'
+    - '587342'
+    - '587343'
+    - '587344'
+    - '587336'
+    - '587345'
+    - '587346'
+    - '587347'
+    - '587348'
+    - '587337'
+  - image: https://i.imgur.com/Dk2bFTl.png
+    include: standard
+    name: 1989 (Deluxe)
+    songs:
+    - '587363'
+    - '587332'
+    - '587349'
+'55005':
+  artists:
+  - Billie Eilish
+  complete: true
+  title: dont smile at me
+  versions:
+  - image: https://i.imgur.com/al7z2r6.png
+    name: standard
+    songs:
+    - '585348'
+    - '585347'
+    - '67686'
+    - '585350'
+    - '585354'
+    - '437713'
+    - '169224'
+    - '585379'
+  - include: standard
+    name: dont smile at me (Reissue)
+    songs:
+    - '585483'
+  - include: dont smile at me (Reissue)
+    name: dont smile at me (Expanded Edition)
+    songs:
+    - '1046636'
+    - '822333'
+'55013':
+  artists:
+  - Billie Eilish
+  complete: true
+  title: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?
+  versions:
+  - image: https://i.imgur.com/3bRvYCO.png
+    name: standard
+    songs:
+    - '169221'
+    - '585318'
+    - '585320'
+    - '585322'
+    - '585321'
+    - '519777'
+    - '585329'
+    - '585330'
+    - '169226'
+    - '585331'
+    - '585332'
+    - '585319'
+    - '585333'
+  - include: standard
+    name: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? (Deluxe)
+    songs:
+    - '4457292'
+    - '822537'
+    - '822333'
+    - '586688'
+'55014':
+  artists:
+  - Katy Perry
+  title: PRISM
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '462046'
+    - '575855'
+    - '587712'
+    - '586651'
+    - '550514'
+    - '587713'
+'55032':
+  artists:
+  - Katy Perry
+  title: Teenage Dream
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '415985'
+    - '326387'
+    - '405693'
+    - '345835'
+    - '540378'
+    - '540376'
+    - '448593'
+    - '255123'
+    - '540380'
+    - '540379'
+    - '540383'
+    - '540377'
+    - '479185'
+    - '540372'
+    - '540381'
+'55039':
+  artists:
+  - Sabrina Carpenter
+  title: Singular Act I
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '587807'
+'55089':
+  artists:
+  - Ava Max
+  title: Heaven & Hell
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '17117'
+    - '588159'
+    - '588170'
+    - '586589'
+    - '588154'
+    - '588098'
+'55166':
+  artists:
+  - Zara Larsson
+  complete: true
+  title: So Good
+  versions:
+  - image: https://i.imgur.com/GdKz6Vs.png
+    name: standard
+    songs:
+    - '585400'
+    - '552651'
+    - '585410'
+    - '585521'
+    - '585407'
+    - '585412'
+    - '317246'
+    - '585523'
+    - '585417'
+    - '585416'
+    - '585419'
+    - '585411'
+    - '585418'
+    - '585415'
+    - '284698'
+'5553476':
+  artists:
+  - Charli XCX
+  complete: true
+  title: CRASH
+  versions:
+  - image: https://i.imgur.com/GdwWPjp.png
+    name: standard
+    songs:
+    - '31618373'
+    - '17709834'
+    - '4180297'
+    - '31618378'
+    - '27451853'
+    - '31618377'
+    - '30103560'
+    - '31618379'
+    - '31440009'
+    - '31618376'
+    - '31618374'
+    - '31618375'
+  - image: https://i.imgur.com/gm7xdKW.png
+    name: CRASH (Deluxe)
+    songs:
+    - '32537383'
+    - '32537384'
+    - '32537385'
+    - '32537386'
+'558728':
+  artists:
+  - George Michael
+  title: Faith
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '865186'
+    - '1531574'
+'55953':
+  artists:
+  - Jonas Brothers
+  title: Happiness Begins
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4946'
+'5600':
+  artists:
+  - Chance the Rapper
+  title: The Big Day
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '71951'
+'56172':
+  artists:
+  - "Beyonc\xE9"
+  title: B'Day
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4375335'
+    - '594041'
+    - '594128'
+'56798':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: My Everything
+  versions:
+  - image: https://i.imgur.com/cMFvyFu.png
+    name: standard
+    songs:
+    - '286574'
+    - '286591'
+    - '286575'
+    - '286576'
+    - '180467'
+    - '286592'
+    - '286593'
+    - '286594'
+    - '286590'
+    - '286578'
+    - '286595'
+    - '286579'
+  - image: https://i.imgur.com/SnlhfMy.png
+    include: standard
+    name: My Everything (Deluxe)
+    songs:
+    - '121533'
+    - '286582'
+    - '286580'
+'58215':
+  artists:
+  - "Beyonc\xE9"
+  title: I AM... SASHA FIERCE
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '608367'
+    - '608368'
+    - '608374'
+    - '174188'
+'58684':
+  artists:
+  - Jason Derulo
+  title: Jason Derulo
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '405711'
+    - '447734'
+    - '611826'
+    - '611841'
+'5913027':
+  artists:
+  - Coi Leray
+  title: Trendsetter
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '31652761'
+'619132':
+  artists:
+  - Troye Sivan
+  title: Bloom
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1342544'
+'629959':
+  artists:
+  - ZAYN
+  title: Icarus Falls
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '4748250'
+    - '2724810'
+'6313':
+  artists:
+  - Ariana Grande
+  complete: true
+  title: Sweetener
+  versions:
+  - image: https://i.imgur.com/rTsQ2Xs.png
+    name: standard
+    songs:
+    - '78709'
+    - '78770'
+    - '78772'
+    - '78712'
+    - '78711'
+    - '78714'
+    - '78713'
+    - '78737'
+    - '78710'
+    - '78715'
+    - '78769'
+    - '78742'
+    - '78739'
+    - '78738'
+    - '78740'
+'697634':
+  artists:
+  - DJ Khaled
+  title: Father of Asahd
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '5207830'
+'699115':
+  artists:
+  - Tinashe
+  title: Songs For You
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '5218485'
+    - '5218486'
+    - '5218487'
+    - '5218488'
+    - '5218563'
+    - '5218489'
+    - '5218561'
+    - '5218567'
+    - '5218568'
+    - '5218569'
+    - '5218602'
+    - '5218570'
+    - '5218603'
+    - '5218572'
+'70069':
+  artists:
+  - Taylor Swift
+  title: Taylor Swift
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '706754'
+    - '706747'
+    - '293276'
+'7107824':
+  artists:
+  - Post Malone
+  complete: true
+  title: Twelve Carat Toothache
+  versions:
+  - image: https://i.imgur.com/00OgCSK.png
+    name: standard
+    songs:
+    - '39661999'
+    - '36756515'
+    - '39662002'
+    - '39662000'
+    - '39662009'
+    - '39662007'
+    - '39662003'
+    - '39662008'
+    - '39662010'
+    - '39662005'
+    - '39662006'
+    - '39662004'
+    - '496229'
+    - '39662001'
+  - include: standard
+    name: Twelve Carat Toothache (Deluxe)
+    songs:
+    - '40294141'
+    - '40294142'
+'713801':
+  artists:
+  - Alessia Cara
+  title: In The Meantime
+  versions:
+  - image: https://i.imgur.com/WD1lN6d.png
+    name: standard
+    songs:
+    - '5311733'
+    - '5311724'
+    - '5311730'
+    - '1211811'
+    - '5311728'
+    - '5311734'
+    - '5311818'
+    - '5311735'
+    - '5311723'
+    - '5311736'
+    - '5311737'
+    - '519772'
+    - '5311740'
+    - '5311741'
+    - '5311738'
+    - '5311739'
+    - '5311742'
+'713819':
+  artists:
+  - Miley Cyrus
+  title: Plastic Hearts
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '539989'
+'735227':
+  artists:
+  - Nicki Minaj
+  title: Pink Friday
+  versions:
+  - image: https://i.imgur.com/iyVoufx.png
+    name: standard
+    songs:
+    - '5446524'
+    - '176212'
+    - '3581865'
+    - '5446522'
+    - '347995'
+    - '346551'
+'738046':
+  artists:
+  - Megan Thee Stallion
+  title: Suga
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '533271'
+    - '5462883'
+'742007':
+  artists:
+  - "Beyonc\xE9"
+  title: Dangerously In Love
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '5665'
+    - '350263'
+    - '5489502'
+'7569016':
+  artists:
+  - Cona Gray
+  title: Superache
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1985103'
+    - '1984950'
+'8014176':
+  artists:
+  - Lizzo
+  title: Special
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '44259839'
+    - '34506438'
+    - '40537509'
+    - '44259840'
+    - '44259841'
+    - '44259842'
+    - '44259843'
+    - '44259845'
+    - '44259844'
+    - '44259847'
+    - '44259846'
+    - '44259849'
+'804819':
+  artists:
+  - Charli XCX
+  title: Charli
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '728038'
+    - '697181'
+'8312365':
+  artists:
+  - "Beyonc\xE9"
+  title: RENAISSANCE
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '45761811'
+    - '45761812'
+    - '45761824'
+    - '62300973'
+    - '45761814'
+    - '41955251'
+    - '45761825'
+    - '45761815'
+    - '45761816'
+    - '45761818'
+    - '45761817'
+    - '45761819'
+    - '45761820'
+    - '45761821'
+    - '45761822'
+    - '45761823'
+'8403727':
+  artists:
+  - Calvin Harris
+  - Funk Wav
+  title: Funk Wav Bounces Vol 2
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '38832762'
+'84540':
+  artists:
+  - Christina Aguilera
+  title: Lotus
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '841004'
+'8514':
+  artists:
+  - Eminem
+  title: The Marshall Mathers LP2
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '102164'
+'8546656':
+  artists:
+  - Megan Thee Stallion
+  title: Traumazine
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '46829691'
+    - '34971761'
+    - '31287894'
+'882965':
+  artists:
+  - Jax Jones
+  title: Snacks
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '11704243'
+    - '7700531'
+    - '117301'
+    - '7700533'
+    - '7700534'
+    - '7700532'
+    - '6915771'
+    - '238614'
+    - '363490'
+'9':
+  artists:
+  - Miley Cyrus
+  title: Bangerz
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '135'
+    - '9'
+'90128':
+  artists:
+  - Lauv
+  title: ~how i'm feeling~
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '900210'
+    - '8624825'
+    - '900190'
+    - '33723295'
+'9103370':
+  artists:
+  - Rihanna
+  title: Loud
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '485997'
+    - '540421'
+    - '540138'
+    - '540141'
+    - '249970'
+    - '345813'
+    - '123317'
+    - '540422'
+    - '540142'
+    - '540144'
+    - '540423'
+'9103708':
+  artists:
+  - Halsey
+  title: Manic
+  versions:
+  - image: https://i.imgur.com/eX8b2rJ.png
+    name: standard
+    songs:
+    - '7063588'
+    - '588035'
+    - '588043'
+    - '286531'
+'9104700':
+  artists:
+  - Charlie Puth
+  title: Nine Track Mind
+  versions:
+  - image: https://i.imgur.com/hREvBmn.png
+    name: standard
+    songs:
+    - '17119'
+    - '3751835'
+    - '2001318'
+    - '3751833'
+    - '3751834'
+    - '3751836'
+    - '3751837'
+    - '3751839'
+    - '3751838'
+    - '248418'
+    - '3751844'
+    - '248417'
+    - '6457850'
+    - '6457851'
+    - '6457852'
+'917611':
+  artists:
+  - Bebe Rexha
+  title: Better Mistakes
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '363509'
+    - '6581847'
+'93929':
+  artists:
+  - The Kid LAROI
+  title: F*CK LOVE
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '941386'
+    - '498136'
+'942547':
+  artists:
+  - Maroon 5
+  title: Songs About Jane
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '57678'
+    - '113387'
+    - '6737547'
+    - '221930'
+    - '6737546'
+    - '3437933'
+    - '6737545'
+    - '191187'
+    - '6737544'
+    - '3114898'
+    - '6737533'
+    - '6300281'
+'984990':
+  artists:
+  - Various Artists
+  title: Fifty Shades Darker
+  versions:
+  - image: MISSING
+    name: standard
+    songs:
+    - '1199705'
+    - '6760737'
+'9947436':
+  artists:
+  - Charlie Puth
+  complete: true
+  title: CHARLIE
+  versions:
+  - image: https://i.imgur.com/xyUz2sP.png
+    name: standard
+    songs:
+    - '33518339'
+    - '52320886'
+    - '26404015'
+    - '52885144'
+    - '49436082'
+    - '42089712'
+    - '52885145'
+    - '52885146'
+    - '52885147'
+    - '52885148'
+    - '51031776'
+    - '52885149'
+'997526':
   artists:
   - Nicki Minaj
   complete: true
@@ -2217,708 +2920,3 @@
     - '114671'
     - '114673'
     - '9446117'
-101355:
-  artists:
-  - Destiny's Child
-  title: The Writing's On The Wall
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '125110'
-45685:
-  artists:
-  - Michael Jackson
-  complete: true
-  title: Thriller
-  versions:
-  - image: https://i.imgur.com/pfY5uHU.png
-    name: standard
-    songs:
-    - '43015'
-    - '499605'
-    - '43013'
-    - '43011'
-    - '43012'
-    - '43014'
-    - '499608'
-    - '499603'
-    - '499716'
-1504868:
-  artists:
-  - Megan Thee Stallion
-  title: Tina Snow
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '10088857'
-8546656:
-  artists:
-  - Megan Thee Stallion
-  title: Traumazine
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '46829691'
-    - '34971761'
-    - '31287894'
-473807:
-  artists:
-  - Meghan Trainor
-  title: TREAT MYSELF
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1362836'
-5913027:
-  artists:
-  - Coi Leray
-  title: Trendsetter
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '31652761'
-7107824:
-  artists:
-  - Post Malone
-  complete: true
-  title: Twelve Carat Toothache
-  versions:
-  - image: https://i.imgur.com/00OgCSK.png
-    name: standard
-    songs:
-    - '39661999'
-    - '36756515'
-    - '39662002'
-    - '39662000'
-    - '39662009'
-    - '39662007'
-    - '39662003'
-    - '39662008'
-    - '39662010'
-    - '39662005'
-    - '39662006'
-    - '39662004'
-    - '496229'
-    - '39662001'
-  - include: standard
-    name: Twelve Carat Toothache (Deluxe)
-    songs:
-    - '40294141'
-    - '40294142'
-24599:
-  artists:
-  - Demi Lovato
-  title: Unbroken
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '171357'
-26001:
-  artists:
-  - Bruno Mars
-  title: Unorthodox Jukebox
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '300042'
-    - '266615'
-    - '300028'
-    - '185757'
-    - '300002'
-    - '300029'
-    - '300038'
-    - '300034'
-    - '300035'
-    - '300039'
-157404:
-  artists:
-  - Maroon 5
-  title: V
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '398668'
-    - '209429'
-    - '203916'
-    - '398656'
-    - '1373'
-    - '398661'
-    - '398663'
-    - '398654'
-    - '398670'
-    - '398671'
-    - '398821'
-    - '398673'
-    - '398672'
-    - '398674'
-    - '398822'
-36551:
-  artists:
-  - Charlie Puth
-  complete: true
-  title: Voicenotes
-  versions:
-  - image: https://i.imgur.com/XuLLFlB.png
-    name: standard
-    songs:
-    - '402138'
-    - '402137'
-    - '402117'
-    - '402135'
-    - '402142'
-    - '402136'
-    - '402161'
-    - '402160'
-    - '402134'
-    - '402190'
-    - '402192'
-    - '402191'
-    - '402189'
-55005:
-  artists:
-  - Billie Eilish
-  complete: true
-  title: dont smile at me
-  versions:
-  - image: https://i.imgur.com/al7z2r6.png
-    name: standard
-    songs:
-    - '585348'
-    - '585347'
-    - '67686'
-    - '585350'
-    - '585354'
-    - '437713'
-    - '169224'
-    - '585379'
-  - include: standard
-    name: dont smile at me (Reissue)
-    songs:
-    - '585483'
-  - include: dont smile at me (Reissue)
-    name: dont smile at me (Expanded Edition)
-    songs:
-    - '1046636'
-    - '822333'
-55013:
-  artists:
-  - Billie Eilish
-  complete: true
-  title: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?
-  versions:
-  - image: https://i.imgur.com/3bRvYCO.png
-    name: standard
-    songs:
-    - '169221'
-    - '585318'
-    - '585320'
-    - '585322'
-    - '585321'
-    - '519777'
-    - '585329'
-    - '585330'
-    - '169226'
-    - '585331'
-    - '585332'
-    - '585319'
-    - '585333'
-  - include: standard
-    name: WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? (Deluxe)
-    songs:
-    - '4457292'
-    - '822537'
-    - '822333'
-    - '586688'
-229582:
-  artists:
-  - Whitney Houston
-  title: Whitney
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '22856'
-    - '842143'
-2329337:
-  artists:
-  - Whitney Houston
-  title: Whitney Houston
-  versions:
-  - image: https://i.imgur.com/UqMjXTv.png
-    name: standard
-    songs:
-    - '842093'
-    - '12276090'
-    - '12276088'
-    - '842094'
-    - '14340333'
-    - '187981'
-    - '842095'
-    - '86135'
-    - '545959'
-    - '14340334'
-100334:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Yours Truly
-  versions:
-  - image: https://i.imgur.com/zolcpi1.png
-    name: standard
-    songs:
-    - '1005964'
-    - '1005965'
-    - '1006144'
-    - '1005954'
-    - '1005966'
-    - '1005944'
-    - '1005946'
-    - '1006117'
-    - '1005955'
-    - '1006142'
-    - '1006143'
-    - '1005945'
-  - include: standard
-    name: Yours Truly (LatAm Version)
-    songs:
-    - '743709'
-    - '7989940'
-45462:
-  artists:
-  - Ed Sheeran
-  title: No.6 Collaborations Project
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '498336'
-    - '498339'
-    - '498226'
-46976:
-  artists:
-  - Fifth Harmony
-  title: 7/27
-  versions:
-  - image: https://i.imgur.com/TYhQVXO.png
-    name: standard
-    songs:
-    - '510841'
-    - '317257'
-    - '510896'
-218905:
-  artists:
-  - Doja Cat
-  title: Amala
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1985188'
-    - '1985187'
-24747:
-  artists:
-  - Rihanna
-  complete: true
-  title: ANTI
-  versions:
-  - image: https://i.imgur.com/a2VDrnC.png
-    name: standard
-    songs:
-    - '286561'
-    - '286465'
-    - '286466'
-    - '286542'
-    - '286468'
-    - '286463'
-    - '175471'
-    - '286469'
-    - '286470'
-    - '286411'
-    - '240059'
-    - '286412'
-    - '286414'
-  - include: standard
-    name: ANTI (Deluxe)
-    songs:
-    - '286415'
-    - '286410'
-    - '175482'
-2050905:
-  artists:
-  - Christina Aguilera
-  title: Back to Basics
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '440641'
-    - '357783'
-    - '12818323'
-    - '12818318'
-1766085:
-  artists:
-  - Michael Jackson
-  title: Bad
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1016606'
-    - '1016605'
-    - '1016623'
-9:
-  artists:
-  - Miley Cyrus
-  title: Bangerz
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '135'
-    - '9'
-47033:
-  artists:
-  - Ludacris
-  title: Battle of the Sexes
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '228357'
-2634:
-  artists:
-  - The Weeknd
-  title: Beauty Behind the Madness
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '32952'
-    - '32950'
-    - '32943'
-100571:
-  artists:
-  - "Beyonc\xE9"
-  complete: true
-  title: "BEYONC\xC9"
-  versions:
-  - image: https://i.imgur.com/6bYWhcf.png
-    name: standard
-    songs:
-    - '1008189'
-    - '1008148'
-    - '1008249'
-    - '1008172'
-    - '1008167'
-    - '1008178'
-    - '1008179'
-    - '1008174'
-    - '1008263'
-    - '1008190'
-    - '1008250'
-    - '1008287'
-    - '1008195'
-    - '1008288'
-  - image: https://i.imgur.com/8zZ033f.png
-    include: standard
-    name: "BEYONC\xC9 (Platinum Edition)"
-    songs:
-    - '1008180'
-    - '1008250'
-    - '1008255'
-    - '1008181'
-    - '1008256'
-    - '1008302'
-1810101:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Christmas & Chill
-  versions:
-  - image: https://i.imgur.com/rlktkLJ.png
-    name: standard
-    songs:
-    - '2905269'
-    - '3502707'
-    - '7581543'
-    - '7581544'
-    - '426359'
-
-1474937:
-  artists:
-  - Ariana Grande
-  complete: true
-  title: Christmas Kisses
-  versions:
-  - image: https://i.imgur.com/CrucziU.png
-    name: standard
-    songs:
-    - '1021234'
-    - '4155648'
-    - '7730814'
-    - '656612'
-    - '426258'
-
-329129:
-  artists:
-  - SZA
-  complete: true
-  title: CTRL
-  versions:
-  - image: https://i.imgur.com/qIWjCpP.png
-    name: standard
-    songs:
-    - '2754424'
-    - '2754546'
-    - '2754423'
-    - '2754425'
-    - '2754427'
-    - '2754428'
-    - '2754430'
-    - '2754446'
-    - '2754447'
-    - '2754439'
-    - '2754547'
-    - '2754443'
-    - '2754548'
-    - '2754444'
-  - image: https://i.imgur.com/75A5Nec.png
-    include: standard
-    name: CTRL (Deluxe)
-    songs:
-    - '40531454'
-    - '40531455'
-    - '40531456'
-    - '40531457'
-    - '40531458'
-    - '40531459'
-24549:
-  artists:
-  - Demi Lovato
-  title: Dancing With The Devil
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '283845'
-    - '283852'
-    - '343774'
-    - '2442046'
-    - '607745'
-24745:
-  artists:
-  - Fergie
-  title: Double Dutchess
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '13388150'
-24673:
-  artists:
-  - Ed Sheeran
-  title: Equals
-  versions:
-  - image: https://i.imgur.com/Comm6a2.png
-    name: standard
-    songs:
-    - '284961'
-    - '285206'
-455613:
-  artists:
-  - Jason Derulo
-  title: Everything is 4
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '17125'
-    - '3619472'
-    - '3619536'
-93929:
-  artists:
-  - The Kid LAROI
-  title: F*CK LOVE
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '941386'
-    - '498136'
-544933:
-  artists:
-  - Chris Brown
-  - Tyga
-  title: Fan of A Fan
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '4201670'
-    - '4201716'
-697634:
-  artists:
-  - DJ Khaled
-  title: Father of Asahd
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '5207830'
-984990:
-  artists:
-  - Various Artists
-  title: Fifty Shades Darker
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1199705'
-    - '6760737'
-1014148:
-  artists:
-  - Calvin Harris
-  - Funk Wav
-  title: Funk Wav Bounces Vol 1
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '7171578'
-    - '7171579'
-8403727:
-  artists:
-  - Calvin Harris
-  - Funk Wav
-  title: Funk Wav Bounces Vol 2
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '38832762'
-2188501:
-  artists:
-  - Jason Derulo
-  title: Future History
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '448660'
-24462:
-  artists:
-  - Little Mix
-  title: Get Weird
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '283047'
-    - '283072'
-    - '283059'
-    - '282984'
-24453:
-  artists:
-  - Little Mix
-  title: Glory Days
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '282990'
-    - '283064'
-    - '283065'
-    - '283066'
-24535:
-  artists:
-  - Halsey
-  title: hopeless fountain kingdom
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '283804'
-58215:
-  artists:
-  - "Beyonc\xE9"
-  title: I AM... SASHA FIERCE
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '608367'
-    - '608368'
-    - '608374'
-    - '174188'
-49330:
-  artists:
-  - Maroon 5
-  complete: true
-  title: JORDI
-  versions:
-  - image: https://i.imgur.com/R5GAesm.png
-    name: standard
-    songs:
-    - '533209'
-    - '533210'
-    - '533409'
-    - '533211'
-    - '533408'
-    - '533212'
-    - '533758'
-    - '533411'
-    - '9164'
-    - '533412'
-    - '4839'
-    - '533413'
-  - include: standard
-    name: JORDI (Deluxe)
-    songs:
-    - '533415'
-    - '533414'
-2688170:
-  artists:
-  - David Guetta
-  title: Listen
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '286584'
-24539:
-  artists:
-  - Little Mix
-  title: LM5
-  versions:
-  - image: https://i.imgur.com/pOgxeK2.png
-    name: standard
-    songs:
-    - '283725'
-    - '283683'
-    - '283772'
-84540:
-  artists:
-  - Christina Aguilera
-  title: Lotus
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '841004'
-176299:
-  artists:
-  - BTS
-  title: Love Yourself
-  versions:
-  - image: MISSING
-    name: standard
-    songs:
-    - '1666681'
