@@ -12,12 +12,26 @@ from operator import attrgetter, itemgetter, methodcaller
 from typing import Iterator
 
 from config import FIRST_DATE
-from model import SongCert
+from model import SongCert, Song
+from model.spotistats import songs_week
 from stats import CERTS, PLAYS_MILESTONES, time_to_plays, time_to_units
 from storage import Song, SongUOW
 
 TODAY = date.today()
 LAST_WK = TODAY - timedelta(days=7)
+
+
+def get_new_songs(uow: SongUOW):
+    """
+    Scans all of the songs recently listened to, displaying all the ones missing in the system.
+    """
+
+    all_songs = uow.songs.list()
+    upcoming_week = songs_week(after=LAST_WK, before=TODAY)
+    for pos in upcoming_week:
+        if pos.id not in all_songs:
+            song = Song(pos.id)
+            print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
 
 
 def get_new_certs(uow: SongUOW, cert: SongCert):
@@ -132,6 +146,8 @@ def get_all_time_plays_changes(uow: SongUOW):
 
 def main():
     uow = SongUOW()
+    get_new_songs(uow)
+    print('')
     get_all_new_certs(uow)
     print('')
     get_all_new_plays(uow)

@@ -9,8 +9,9 @@ SERVICE_ACCOUNT_FILE: str = (
     # on laptop
     'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'
     if platform.system() == 'Windows'
-    else '../data/google_token.json' # on ipad
+    else '../data/google_token.json'  # on ipad
 )
+
 
 class Spreadsheet:
     """

@@ -24,10 +24,9 @@ def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
     # don't care, because it will return a list regardless.
     ids = str_ids.split(', ')
 
-    song = uow.songs.get(ids[0])
-    if song is None:
+    if any(uow.songs.get(id) is None for id in ids):
         return _create_new_song(ids, song_name)
-    return song
+    return uow.songs.get(ids[0])
 
 
 def load_songs(uow: SongUOW, verbose: bool = False):

@@ -1,4 +1,5 @@
 import json
+from operator import itemgetter
 import yaml
 import requests
 
@@ -35,13 +36,25 @@ with open('data/albums.yml', 'r') as f:
 loaded_albums = [
     item['title'] for item in info.values() if item.get('complete') is not None
 ]
+thing = {
+    song_id: song_item
+    for song_id, song_item in list(info.items()).sort(
+        key=lambda i: i[1]['title'].lower()
+    )
+}
+print(thing)
+quit()
+with open('data/albums.yml', 'w') as f:
 
-print(sorted(loaded_albums))
+    quit()
+    yaml.dump(thing, f)
+
+print(sorted(loaded_albums, key=lambda i: i.lower()))
 quit()
 
 uow = SongUOW()
-for count, album in enumerate(uow.albums, start = 1):
-    if album.title in loaded_albums: 
+for count, album in enumerate(uow.albums, start=1):
+    if album.title in loaded_albums:
         print(f'({count}) already have loaded {album}')
         continue
 
@@ -64,24 +77,26 @@ for count, album in enumerate(uow.albums, start = 1):
 
     else:
         print(f'\n{album} stats fm id not found')
-     
+
         title = input(f'Select an album to merge with {album}: ')
-        if not title: continue
+        if not title:
+            continue
         while True:
             candidates = [a for a in name_to_id.keys() if a.startswith(title)]
             if not candidates or (len(candidates) == len(name_to_id)):
-                print("no matching albums found. enter to skip.")
+                print('no matching albums found. enter to skip.')
                 title = input(f'Select an album to merge with {album}: ')
-                if not title: break
-            
+                if not title:
+                    break
+
             else:
                 options = {}
-                print("\nHere are the options:")
+                print('\nHere are the options:')
                 for num, a in enumerate(candidates, start=1):
                     options[num] = a
                     print(f'({num}) {a}')
-                
-                selection = int(input("\nChoose a number: "))
+
+                selection = int(input('\nChoose a number: '))
                 if selection in range(1, len(candidates) + 1):
                     break
 
@@ -110,7 +125,8 @@ for count, album in enumerate(uow.albums, start = 1):
 
 
 for album_title, album_number in name_to_id.values():
-    if album_number in info: continue
+    if album_number in info:
+        continue
     print(f'{album_title} ({album_number}) not found')
 
 

@@ -709,8 +709,9 @@
   artists:
   - Mariah Carey
   title: Daydream
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/vg8GxqK.png
     name: standard
     songs:
     - '288331'
@@ -740,8 +741,9 @@
   artists:
   - Ava Max
   title: Diamonds & Dancefloors
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/SwBisiY.png
     name: standard
     songs:
     - '49448651'
@@ -772,8 +774,9 @@
   artists:
   - Bruno Mars
   title: Doo-Wops & Hooligans
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/FGkixpT.png
     name: standard
     songs:
     - '250107'
@@ -868,8 +871,9 @@
   artists:
   - Sam Smith
   title: Gloria
+  complete: TRUE
   versions:
-  - image: MISSING
+  - image: https://i.imgur.com/Q6E3SCr.png
     name: standard
     songs:
     - '35753034'
@@ -897,8 +901,9 @@
   artists:
   - Rihanna
   title: Good Girl Gone Bad
+  complete: TRUE
   versions:
-  - image: https://i.imgur.com/YdVLgl4.png
+  - image: https://i.imgur.com/bgCJCGz.png
     name: standard
     songs:
     - '263165'
@@ -913,6 +918,10 @@
     - '286476'
     - '286479'
     - '286477'
+  - name: 'Good Girl Gone Bad: Reloaded'
+    include: standard
+    image: https://i.imgur.com/4A7g7ig.png
+    songs:
     - '253036'
     - '286484'
     - '286572'

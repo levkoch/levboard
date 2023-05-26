@@ -356,6 +356,9 @@ class Song:
 
         self._populate_listens()
 
+        if self.plays <= MAX_ADJUSTED:
+            return self.plays
+
         play_dates: Iterable[date] = (
             listen.finished_playing.date() for listen in self.__listens
         )
