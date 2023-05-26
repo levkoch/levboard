@@ -95,55 +95,6 @@ def update_spreadsheet_plays(verbose=False):
         print(f'Updated {song_amt} spreadsheet song plays.')
 
 
-def update_spreadsheet_plays_from_local_plays(
-    uow: SongUOW, verbose: bool = False
-) -> None:
-    sheet = Spreadsheet(LEVBOARD_SHEET)
-
-    # check if first element isn't blank so that it gets rid of empty rows.
-    songs: list[list] = [
-        i for i in sheet.get_range('Song Info!A2:D').get('values') if i[0]
-    ]
-
-    song_amt = len(songs)
-    if verbose:
-        print(f'{song_amt} items found.')
-
-    final_songs: list[list] = []
-    all_songs = uow.songs.list()
-    missing_songs: list[str] = []
-
-    for count, (title, ids, artist, streams) in enumerate(songs, start=1):
-        all_ids = ids.split(', ')
-        if all(id in all_songs for id in all_ids):
-            song = uow.songs.get(all_ids[0])
-
-            final_songs.append(
-                [
-                    "'" + song.name if song.name[0].isnumeric() else song.name,
-                    ', '.join(song.ids),
-                    ', '.join(song.artists),
-                    song.plays,
-                ]
-            )
-            if verbose:
-                print(
-                    f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
-                    f'updated {song} -> {song.plays} plays'
-                )
-        else:
-            final_songs.append([title, ids, artist, streams])
-            missing_songs.append((ids, title, artist))
-
-    sheet.update_range(f'Song Info!A2:D{len(final_songs) + 1}', final_songs)
-
-    if verbose:
-        print(f'Updated {song_amt} spreadsheet song plays.')
-
-    for (ids, title, artist) in missing_songs:
-        print(f'Not able to find {title} by {artist} ({ids})')
-
-
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
     """
     Updates the song plays for the songs in the local storage.
@@ -245,8 +196,6 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
                 peak_weeks if peak_weeks > 1 else '—',
             ]
             song_rows.append(info)
-            if verbose:
-                print(*info, sep='\t')
 
         song_rows.append([''])
         current_year -= 1
@@ -257,10 +206,9 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    update_local_plays(uow, verbose=True)
+    # update_local_plays(uow, verbose=True)
 
     print('')
-    update_spreadsheet_plays_from_local_plays(uow, verbose=True)
 
-    # update_spreadsheet_plays(verbose=True)
-    load_year_end_songs(uow)
+    update_spreadsheet_plays(verbose=True)
+    load_year_end_songs(uow, verbose=True)

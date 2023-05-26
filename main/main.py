@@ -265,14 +265,28 @@ def update_song_sheet(
     positions: list[dict],
     start_date: date,
     end_date: date,
+    week_count: int,
 ) -> list[list]:
     actual_end = end_date - timedelta(days=1)
 
     new_rows = []
 
-    new_rows.append([f'{start_date.isoformat()} to {actual_end.isoformat()}'])
     new_rows.append(
-        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK']
+        [
+            f'{start_date.isoformat()} to {actual_end.isoformat()}',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',/kill markk in batle
+            '',
+            week_count,
+        ]
+    )
+    new_rows.append(
+        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK', '(WK)']
     )
 
     for pos in positions:
@@ -293,6 +307,7 @@ def update_song_sheet(
                 pos['points'],
                 pos['plays'],
                 peak,
+                week_count,
             ]
         )
 
@@ -343,7 +358,19 @@ def create_album_chart(
 
     actual_end = end_day - timedelta(days=1)
     new_rows = [
-        [f'{start_day.isoformat()} to {actual_end.isoformat()}'],
+        [
+            f'{start_day.isoformat()} to {actual_end.isoformat()}',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            week_count,
+        ],
         [
             'MV',
             'Title',
@@ -355,6 +382,7 @@ def create_album_chart(
             'UTS',
             'PLS',
             'PTS',
+            '(WK)',
         ],
     ]
 
@@ -397,6 +425,7 @@ def create_album_chart(
                 album_units,
                 plays,
                 points,
+                week_count,
             ]
         )
 
@@ -421,7 +450,7 @@ if __name__ == '__main__':
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
-            song_rows, uow, song_positions, start_day, end_day
+            song_rows, uow, song_positions, start_day, end_day, week_count
         )
 
         album_rows = create_album_chart(
@@ -431,7 +460,18 @@ if __name__ == '__main__':
     uow.commit()
 
     start_song_rows = [
-        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PTS', 'PLS', 'PK'],
+        [
+            'MV',
+            'Title',
+            'Artists',
+            'TW',
+            'LW',
+            'OC',
+            'PTS',
+            'PLS',
+            'PK',
+            '(WK)',
+        ],
         [''],
     ]
 
@@ -447,6 +487,7 @@ if __name__ == '__main__':
             'UTS',
             'PLS',
             'PTS',
+            '(WK)',
         ],
         [''],
     ]
@@ -459,13 +500,13 @@ if __name__ == '__main__':
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
 
-    song_range = f'BOT_SONGS!A1:I{len(song_rows) + 1}'
+    song_range = f'BOT_SONGS!A1:J{len(song_rows) + 1}'
     sheet.delete_range(song_range)
     sheet.update_range(song_range, song_rows)
 
     print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
 
-    album_range = f'BOT_ALBUMS!A1:J{len(album_rows) + 1}'
+    album_range = f'BOT_ALBUMS!A1:K{len(album_rows) + 1}'
     sheet.delete_range(album_range)
     sheet.update_range(album_range, album_rows)
 
