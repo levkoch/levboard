@@ -1,3 +1,5 @@
+from concurrent import futures
+from datetime import date
 import json
 import yaml
 
@@ -6,12 +8,14 @@ from typing import Literal
 
 from config import LEVBOARD_SHEET
 from main import ask_new_song
+from model import Song
 from model.spotistats import (
     _get_address,
     album_tracks,
     artist_tracks,
     song_info,
     top_artists,
+    songs_week,
 )
 from storage import SongUOW
 from spreadsheet import Spreadsheet
@@ -233,34 +237,102 @@ def save_songs_from_artist_to_uow(uow: SongUOW, artist: str):
     for count, song_id in enumerate(artist_songs, start=1):
         percentage = count / len(artist_songs) * 100
         if song_id in uow.songs.list():
-            print(f'{count} of {len(artist_songs)} ({percentage:.2f}%) already have {uow.songs.get(song_id)} loaded')
+            print(
+                f'{count} of {len(artist_songs)} ({percentage:.2f}%) already have {uow.songs.get(song_id)} loaded'
+            )
         else:
             song = ask_new_song(uow, song_id)
             if song is None:
                 print('-- Finishing session')
-                print("-- Saving songs to database.")
+                print('-- Saving songs to database.')
                 uow.commit()
                 return
             uow.songs.add(song)
-            print(f'{count} of {len(artist_songs)} ({percentage:.2f}%) sucessfully loaded {song}')
+            print(
+                f'{count} of {len(artist_songs)} ({percentage:.2f}%) sucessfully loaded {song}'
+            )
         if count % 40 == 0:
-            print("-- Saving songs to database.")
+            print('-- Saving songs to database.')
             uow.commit()
 
     uow.commit()
 
+
+def _load_song_from_ids(ids: set[str], name: str) -> Song:
+    listened_ids = iter(ids)
+    song = Song(next(listened_ids), name)
+    for remaining_id in listened_ids:
+        song.add_alt(remaining_id)
+    return song
+
+
 def load_uow_from_templates(uow: SongUOW):
     saved_songs = load_songs()
-    
+    this_year = date.today().year
+    # songs listned to in the last 3 years (kinda but this clunky way will have to do)
+    listened_songs = (
+        {
+            i.id
+            for i in songs_week(
+                after=date(this_year, 1, 1), before=date(this_year + 1, 1, 1)
+            )
+        }
+        | {
+            i.id
+            for i in songs_week(
+                after=date(this_year - 1, 1, 1), before=date(this_year, 1, 1)
+            )
+        }
+        | {
+            i.id
+            for i in songs_week(
+                after=date(this_year - 2, 1, 1),
+                before=date(this_year - 1, 1, 1),
+            )
+        }
+    )
+
+    print(f'{len(listened_songs)} songs found')
+
+    colliding = set(saved_songs.keys()) & listened_songs
+
+    with futures.ThreadPoolExecutor() as executor:
+        to_do: list[futures.Future] = []
+
+        for saved_item in saved_songs.values():
+            if len(listened_songs & set(saved_item['ids'])) != 0:
+                future = executor.submit(
+                    _load_song_from_ids,
+                    ids=(listened_songs & set(saved_item['ids'])),
+                    name=saved_item['name'],
+                )
+                to_do.append(future)
+
+        for count, future in enumerate(futures.as_completed(to_do), start=1):
+            song: Song = future.result()
+            uow.songs.add(song)
+            percentage = count / len(colliding) * 100
+            print(
+                f'{count} of {len(listened_songs)} ({percentage:.2f}%) '
+                f'successfully added {song}'
+            )
+
+            if count % 100 == 0:
+                uow.commit()
+
+    uow.commit()
+
 
 def save_songs_from_all_artists(uow: SongUOW):
     for artist_name, artist_id in top_artists()[:100]:
         print(f'Saving songs from {artist_name} ({artist_id})')
         save_songs_from_artist_to_uow(uow, artist_id)
 
+
 if __name__ == '__main__':
     uow = SongUOW()
-    save_songs_from_artist_to_uow(uow, 18609)
-    save_songs_from_uow(uow)
+    # save_songs_from_artist_to_uow(uow, 18609)
+    # load_uow_from_templates(uow)
+    # save_songs_from_uow(uow)
     # save_songs_from_all_artists(uow = uow)
     # alphabetize_albums()

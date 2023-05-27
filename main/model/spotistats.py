@@ -72,7 +72,10 @@ def top_artists() -> list[tuple[str, str]]:
     r = _get_address(
         f'http://api.stats.fm/api/v1/users/{USER_NAME}/top/artists?limit=1000'
     )
-    return [(artist['artist']['name'], artist['artist']['id']) for artist in r.json()['items']]
+    return [
+        (artist['artist']['name'], artist['artist']['id'])
+        for artist in r.json()['items']
+    ]
 
 
 def song_plays(

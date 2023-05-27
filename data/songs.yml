@@ -1,3 +1,20 @@
+'10020996':
+  artists:
+  - Tyga
+  - Nicki Minaj
+  ids:
+  - '10020996'
+  - '5748569'
+  image: https://i.imgur.com/IaNzbEh.png
+  name: Dip
+  standard: '10020996'
+  versions:
+  - artists:
+    - Tyga
+    - Nicki Minaj
+    id: '5748569'
+    name: Dip (feat. Nicki Minaj)
+    type: alternate
 '10024444':
   artists:
   - Wale
@@ -409,6 +426,22 @@
     id: '1008325'
     name: '***Flawless (feat. Chimamanda Ngozi Adichie)'
     type: remix
+'1008256':
+  artists:
+  - "Beyonc\xE9"
+  - Pharrell Williams
+  ids:
+  - '1008256'
+  - '1008172'
+  image: MISSING
+  name: Blow
+  standard: '1008256'
+  versions:
+  - artists:
+    - "Beyonc\xE9"
+    id: '1008172'
+    name: Blow
+    type: remix
 '1008263':
   artists:
   - "Beyonc\xE9"
@@ -793,6 +826,15 @@
   image: MISSING
   name: To Die For
   standard: '1063120'
+'10833056':
+  artists:
+  - Daniel Merriweather
+  - Adele
+  ids:
+  - '10833056'
+  image: MISSING
+  name: Water and A Flame
+  standard: '10833056'
 '10855907':
   artists:
   - Alessia Cara
@@ -1035,6 +1077,15 @@
   image: MISSING
   name: F9mily
   standard: '1127284'
+'1127309':
+  artists:
+  - Lil Nas X
+  - Billy Ray Cyrus
+  ids:
+  - '1127309'
+  image: MISSING
+  name: Old Town Road
+  standard: '1127309'
 '11277931':
   artists:
   - Sada Baby
@@ -1084,6 +1135,23 @@
   image: MISSING
   name: Time After Time Cover
   standard: '11356353'
+'11356392':
+  artists:
+  - Sam Smith
+  ids:
+  - '11356392'
+  - '13410915'
+  image: MISSING
+  name: Promises
+  standard: '11356392'
+  versions:
+  - artists:
+    - Calvin Harris
+    - Sam Smith
+    - Jessie Reyez
+    id: '13410915'
+    name: Promises (with Sam Smith)
+    type: remix
 '113756':
   artists:
   - Sam Smith
@@ -1415,6 +1483,14 @@
     id: '2063340'
     name: 911 - Charli XCX & A. G. Cook Remix
     type: remix
+'11814896':
+  artists:
+  - Adele
+  ids:
+  - '11814896'
+  image: MISSING
+  name: I Found A Boy
+  standard: '11814896'
 '1186905':
   artists:
   - Ariana Grande
@@ -1522,6 +1598,25 @@
   image: MISSING
   name: I Don't Wanna Live Forever
   standard: '1199705'
+'12007952':
+  artists:
+  - Jason Derulo
+  - Nicki Minaj
+  - Ty Dolla $ign
+  ids:
+  - '12007952'
+  - '8188890'
+  image: https://i.imgur.com/clvwCUE.png
+  name: Swalla
+  standard: '12007952'
+  versions:
+  - artists:
+    - Jason Derulo
+    - Nicki Minaj
+    - Ty Dolla $ign
+    id: '8188890'
+    name: Swalla (feat. Nicki Minaj & Ty Dolla $ign)
+    type: alternate
 '12081100':
   artists:
   - Labrinth
@@ -1546,6 +1641,22 @@
   image: MISSING
   name: Shapeshifter
   standard: '1211811'
+'12119772':
+  artists:
+  - Taylor Swift
+  - Kendrick Lamar
+  ids:
+  - '12119772'
+  - '587336'
+  image: MISSING
+  name: Bad Blood
+  standard: '12119772'
+  versions:
+  - artists:
+    - Taylor Swift
+    id: '587336'
+    name: Bad Blood
+    type: remix
 '121530':
   artists:
   - Iggy Azalea
@@ -2597,6 +2708,22 @@
   image: MISSING
   name: NDA
   standard: '144531'
+'14504609':
+  artists:
+  - Charlie Puth
+  - French Montana
+  ids:
+  - '14504609'
+  - '402135'
+  image: https://i.imgur.com/VhEIcJs.png
+  name: How Long
+  standard: '14504609'
+  versions:
+  - artists:
+    - Charlie Puth
+    id: '402135'
+    name: How Long
+    type: remix
 '14593658':
   artists:
   - Graham Phillips
@@ -3375,6 +3502,23 @@
   image: MISSING
   name: Marry Me
   standard: '179048'
+'180012':
+  artists:
+  - Sean Paul
+  - "Beyonc\xE9"
+  ids:
+  - '180012'
+  - '5489502'
+  image: MISSING
+  name: Baby Boy
+  standard: '180012'
+  versions:
+  - artists:
+    - "Beyonc\xE9"
+    - Sean Paul
+    id: '5489502'
+    name: Baby Boy (feat. Sean Paul)
+    type: alternate
 '180467':
   artists:
   - Ariana Grande
@@ -3607,6 +3751,21 @@
     - Sam Smith
     id: '1034988'
     name: Lay Me Down
+    type: alternate
+'1940164':
+  artists:
+  - Sam Smith
+  ids:
+  - '1940164'
+  - '243138'
+  image: MISSING
+  name: Diamonds (Sam)
+  standard: '1940164'
+  versions:
+  - artists:
+    - Sam Smith
+    id: '243138'
+    name: Diamonds
     type: alternate
 '1984950':
   artists:
@@ -3948,6 +4107,23 @@
   image: MISSING
   name: Sine From Above
   standard: '2058215'
+'2063340':
+  artists:
+  - Lady Gaga
+  - Charli XCX
+  - A. G. Cook
+  ids:
+  - '2063340'
+  - '1177591'
+  image: MISSING
+  name: '911'
+  standard: '2063340'
+  versions:
+  - artists:
+    - Lady Gaga
+    id: '1177591'
+    name: '911'
+    type: remix
 '2063755':
   artists:
   - Charli XCX
@@ -4041,6 +4217,23 @@
   image: MISSING
   name: Femmebot
   standard: '2063786'
+'2067000':
+  artists:
+  - Lil Nas X
+  - Jack Harlow
+  ids:
+  - '2067000'
+  - '300513'
+  image: https://i.imgur.com/L82cZfi.png
+  name: INDUSTRY BABY
+  standard: '2067000'
+  versions:
+  - artists:
+    - Lil Nas X
+    - Jack Harlow
+    id: '300513'
+    name: INDUSTRY BABY (feat. Jack Harlow)
+    type: alternate
 '209425':
   artists:
   - Conan Gray
@@ -4566,6 +4759,22 @@
   image: https://i.imgur.com/POgzMES.png
   name: Only Girl
   standard: '249970'
+'250104':
+  artists:
+  - Katy Perry
+  - Kanye West
+  ids:
+  - '250104'
+  - '255123'
+  image: MISSING
+  name: E.T.
+  standard: '250104'
+  versions:
+  - artists:
+    - Katy Perry
+    id: '255123'
+    name: E.T.
+    type: remix
 '250107':
   artists:
   - Bruno Mars
@@ -4832,6 +5041,22 @@
   image: MISSING
   name: Light Switch
   standard: '26404015'
+'2650310':
+  artists:
+  - Megan Thee Stallion
+  ids:
+  - '2650310'
+  - '533271'
+  image: MISSING
+  name: Savage
+  standard: '2650310'
+  versions:
+  - artists:
+    - "Beyonc\xE9"
+    - Megan Thee Stallion
+    id: '533271'
+    name: "Savage Remix (feat. Beyonc\xE9)"
+    type: remix
 '2661911':
   artists:
   - Alessia Cara
@@ -5340,18 +5565,32 @@
   artists:
   - Adele
   ids:
+  - '11814897'
   - '282891'
   image: https://i.imgur.com/N1p644y.png
   name: Turning Tables
   standard: '282891'
+  versions:
+  - artists:
+    - Adele
+    id: '11814897'
+    name: Turning Tables - Live Acoustic
+    type: alternate
 '282892':
   artists:
   - Adele
   ids:
   - '282892'
+  - '11814882'
   image: MISSING
   name: Don't You Remember
   standard: '282892'
+  versions:
+  - artists:
+    - Adele
+    id: '11814882'
+    name: Don't You Remember - Live Acoustic
+    type: alternate
 '282893':
   artists:
   - Adele
@@ -5516,6 +5755,22 @@
   image: MISSING
   name: Shout Out to My Ex
   standard: '282990'
+'283003':
+  artists:
+  - Little Mix
+  ids:
+  - '283003'
+  - '283066'
+  image: MISSING
+  name: No More Sad Songs
+  standard: '283003'
+  versions:
+  - artists:
+    - Little Mix
+    - Machine Gun Kelly
+    id: '283066'
+    name: No More Sad Songs (feat. Machine Gun Kelly)
+    type: remix
 '283032':
   artists:
   - Little Mix
@@ -5845,9 +6100,16 @@
   - Adele
   ids:
   - '283820'
+  - '284948'
   image: https://i.imgur.com/fbTR4B4.png
   name: Chasing Pavements
   standard: '283820'
+  versions:
+  - artists:
+    - Adele
+    id: '284948'
+    name: Chasing Pavements - Live at Hotel Cafe
+    type: alternate
 '283825':
   artists:
   - Adele
@@ -5924,10 +6186,25 @@
   artists:
   - Adele
   ids:
+  - '1870441'
+  - '1870440'
   - '283834'
   image: https://i.imgur.com/Z1nNxq1.png
   name: Hometown Glory
   standard: '283834'
+  versions:
+  - artists:
+    - Adele
+    - High Contrast
+    id: '1870441'
+    name: Hometown Glory - High Contrast Remix Instrumental
+    type: remix
+  - artists:
+    - Adele
+    - High Contrast
+    id: '1870440'
+    name: Hometown Glory - High Contrast Remix
+    type: remix
 '283845':
   artists:
   - Demi Lovato
@@ -6181,6 +6458,23 @@
   image: MISSING
   name: No Time For Tears
   standard: '284703'
+'284708':
+  artists:
+  - Rihanna
+  - Mikky Ekko
+  ids:
+  - '284708'
+  - '365127'
+  image: MISSING
+  name: Stay (Rihanna)
+  standard: '284708'
+  versions:
+  - artists:
+    - Rihanna
+    - Mikky Ekko
+    id: '365127'
+    name: Stay - Album Version (Edited)
+    type: alternate
 '284961':
   artists:
   - Ed Sheeran
@@ -6189,6 +6483,15 @@
   image: MISSING
   name: Shivers
   standard: '284961'
+'285019':
+  artists:
+  - Adele
+  - The Raconteurs
+  ids:
+  - '285019'
+  image: MISSING
+  name: Many Shades Of Black
+  standard: '285019'
 '285028':
   artists:
   - Taylor Swift
@@ -6672,6 +6975,21 @@
   image: MISSING
   name: I'm Yours
   standard: '286487'
+'286488':
+  artists:
+  - Alessia Cara
+  ids:
+  - '286488'
+  - '167366'
+  image: MISSING
+  name: Here
+  standard: '286488'
+  versions:
+  - artists:
+    - Alessia Cara
+    id: '167366'
+    name: Here
+    type: alternate
 '286489':
   artists:
   - Alessia Cara
@@ -7132,6 +7450,25 @@
   image: MISSING
   name: Fast Times
   standard: '29503870'
+'29861377':
+  artists:
+  - Charli XCX
+  - Rina Sawayama
+  - A.G. Cook
+  - VERNON OF SEVENTEEN
+  ids:
+  - '29861377'
+  - '27451853'
+  image: MISSING
+  name: Beg For You
+  standard: '29861377'
+  versions:
+  - artists:
+    - Charli XCX
+    - Rina Sawayama
+    id: '27451853'
+    name: Beg for You (feat. Rina Sawayama)
+    type: remix
 '29888659':
   artists:
   - Tyga
@@ -7546,6 +7883,22 @@
   image: MISSING
   name: Baby (Charli)
   standard: '30103560'
+'303654':
+  artists:
+  - The Weeknd
+  ids:
+  - '303654'
+  - '533793'
+  image: MISSING
+  name: Save Your Tears
+  standard: '303654'
+  versions:
+  - artists:
+    - The Weeknd
+    - Ariana Grande
+    id: '533793'
+    name: Save Your Tears (with Ariana Grande) (Remix)
+    type: remix
 '303665':
   artists:
   - The Weeknd
@@ -8875,6 +9228,21 @@
   image: https://i.imgur.com/KUN1nOa.png
   name: All Night
   standard: '3755439'
+'3755440':
+  artists:
+  - "Beyonc\xE9"
+  ids:
+  - '3755440'
+  - '3755437'
+  image: MISSING
+  name: Sorry (Bey)
+  standard: '3755440'
+  versions:
+  - artists:
+    - "Beyonc\xE9"
+    id: '3755437'
+    name: Sorry
+    type: alternate
 '3755441':
   artists:
   - "Beyonc\xE9"
@@ -10258,6 +10626,22 @@
   image: MISSING
   name: Roar
   standard: '462046'
+'46240656':
+  artists:
+  - "Beyonc\xE9"
+  - Madonna
+  ids:
+  - '46240656'
+  - '41955251'
+  image: MISSING
+  name: BREAK MY SOUL
+  standard: '46240656'
+  versions:
+  - artists:
+    - "Beyonc\xE9"
+    id: '41955251'
+    name: BREAK MY SOUL
+    type: remix
 '46738062':
   artists:
   - Ice Spice
@@ -10306,6 +10690,21 @@
   image: MISSING
   name: No Candle No Light
   standard: '4748250'
+'47562415':
+  artists:
+  - Nicki Minaj
+  ids:
+  - '47562415'
+  - '46829579'
+  image: MISSING
+  name: Super Freaky Girl
+  standard: '47562415'
+  versions:
+  - artists:
+    - Nicki Minaj
+    id: '46829579'
+    name: Super Freaky Girl
+    type: alternate
 '479177':
   artists:
   - Nicki Minaj
@@ -10737,6 +11136,22 @@
   image: MISSING
   name: Gun Shot
   standard: '509274'
+'5094549':
+  artists:
+  - Billie Eilish
+  - blackbear
+  ids:
+  - '5094549'
+  - '169224'
+  image: https://i.imgur.com/CuoWUNm.png
+  name: ocean eyes
+  standard: '5094549'
+  versions:
+  - artists:
+    - Billie Eilish
+    id: '169224'
+    name: ocean eyes
+    type: remix
 '51031776':
   artists:
   - Charlie Puth
@@ -11682,6 +12097,25 @@
   image: MISSING
   name: Can't Leave You Alone
   standard: '533412'
+'533414':
+  artists:
+  - Jason Derulo
+  - Adam Levine
+  - Maroon 5
+  ids:
+  - '533414'
+  - '2600853'
+  image: MISSING
+  name: Lifestyle
+  standard: '533414'
+  versions:
+  - artists:
+    - Jason Derulo
+    - Adam Levine
+    - Maroon 5
+    id: '2600853'
+    name: Lifestyle (feat. Adam Levine)
+    type: alternate
 '533415':
   artists:
   - Maroon 5
@@ -12314,6 +12748,127 @@
   image: MISSING
   name: Adore
   standard: '5442792'
+'5443426':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443426'
+  - '1412613'
+  image: MISSING
+  name: bad idea
+  standard: '5443426'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '1412613'
+    name: bad idea
+    type: alternate
+'5443433':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443433'
+  - '1412630'
+  image: MISSING
+  name: needy
+  standard: '5443433'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '1412630'
+    name: needy
+    type: alternate
+'5443434':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443434'
+  - '180467'
+  image: https://i.imgur.com/Xly1myc.png
+  name: Break Free
+  standard: '5443434'
+  versions:
+  - artists:
+    - Ariana Grande
+    - Zedd
+    id: '180467'
+    name: Break Free
+    type: remix
+'5443439':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443439'
+  - '78712'
+  image: MISSING
+  name: R.E.M
+  standard: '5443439'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '78712'
+    name: R.E.M
+    type: alternate
+'5443440':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443440'
+  - '78740'
+  image: MISSING
+  name: get well soon
+  standard: '5443440'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '78740'
+    name: get well soon
+    type: alternate
+'5443441':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443441'
+  - '78737'
+  image: MISSING
+  name: everytime
+  standard: '5443441'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '78737'
+    name: everytime
+    type: alternate
+'5443442':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443442'
+  - '1412617'
+  image: MISSING
+  name: in my head
+  standard: '5443442'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '1412617'
+    name: in my head
+    type: alternate
+'5443446':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443446'
+  - '727948'
+  image: https://i.imgur.com/8qh9Sxy.png
+  name: thank u, next
+  standard: '5443446'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '727948'
+    name: thank u, next
+    type: alternate
 '5443447':
   artists:
   - Ariana Grande
@@ -12322,6 +12877,86 @@
   image: MISSING
   name: my heart belongs to daddy
   standard: '5443447'
+'5443448':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443448'
+  - '286590'
+  image: MISSING
+  name: Love Me Harder
+  standard: '5443448'
+  versions:
+  - artists:
+    - Ariana Grande
+    - The Weeknd
+    id: '286590'
+    name: Love Me Harder
+    type: remix
+'5443449':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443449'
+  - '78715'
+  image: https://i.imgur.com/6v564qs.png
+  name: no tears left to cry
+  standard: '5443449'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '78715'
+    name: No Tears Left to Cry
+    type: alternate
+'5443450':
+  artists:
+  - Ariana Grande
+  ids:
+  - '5443450'
+  - '1412632'
+  image: MISSING
+  name: fake smile
+  standard: '5443450'
+  versions:
+  - artists:
+    - Ariana Grande
+    id: '1412632'
+    name: fake smile
+    type: alternate
+'5443471':
+  artists:
+  - Ariana Grande
+  - Nicki Minaj
+  ids:
+  - '5443471'
+  - '116367'
+  image: https://i.imgur.com/oGqBNiO.png
+  name: Side to Side
+  standard: '5443471'
+  versions:
+  - artists:
+    - Ariana Grande
+    - Nicki Minaj
+    id: '116367'
+    name: Side To Side
+    type: alternate
+'5443473':
+  artists:
+  - Ariana Grande
+  - Big Sean
+  ids:
+  - '5443473'
+  - '1006144'
+  image: MISSING
+  name: Right There
+  standard: '5443473'
+  versions:
+  - artists:
+    - Ariana Grande
+    - Big Sean
+    id: '1006144'
+    name: Right There
+    type: alternate
 '5446518':
   artists:
   - Nicki Minaj
@@ -13129,6 +13764,22 @@
   image: MISSING
   name: No Time To Die
   standard: '585421'
+'585483':
+  artists:
+  - Billie Eilish
+  - Vince Staples
+  ids:
+  - '585483'
+  - '585350'
+  image: MISSING
+  name: watch&burn
+  standard: '585483'
+  versions:
+  - artists:
+    - Billie Eilish
+    id: '585350'
+    name: watch
+    type: remix
 '585521':
   artists:
   - Zara Larsson
@@ -13605,6 +14256,29 @@
   image: MISSING
   name: Mood
   standard: '607743'
+'607744':
+  artists:
+  - Doja Cat
+  - Nicki Minaj
+  ids:
+  - '607744'
+  - '10948337'
+  - '1249889'
+  image: MISSING
+  name: Say So
+  standard: '607744'
+  versions:
+  - artists:
+    - Doja Cat
+    - Nicki Minaj
+    id: '10948337'
+    name: Say So (feat. Nicki Minaj)
+    type: alternate
+  - artists:
+    - Doja Cat
+    id: '1249889'
+    name: Say So
+    type: remix
 '607745':
   artists:
   - Marshmello
@@ -14116,6 +14790,21 @@
   image: MISSING
   name: Sweetest Goodbye
   standard: '6300281'
+'6329760':
+  artists:
+  - Sam Smith
+  ids:
+  - '6329760'
+  - '2441995'
+  image: MISSING
+  name: For The Lover That I Lost
+  standard: '6329760'
+  versions:
+  - artists:
+    - Sam Smith
+    id: '2441995'
+    name: For The Lover That I Lost
+    type: alternate
 '63772418':
   artists:
   - The Weeknd
@@ -15404,6 +16093,22 @@
   image: MISSING
   name: My House
   standard: '826584'
+'8285532':
+  artists:
+  - Dua Lipa
+  - Imanbek
+  ids:
+  - '8285532'
+  - '300008'
+  image: https://i.imgur.com/OoLvUNh.png
+  name: Love Again
+  standard: '8285532'
+  versions:
+  - artists:
+    - Dua Lipa
+    id: '300008'
+    name: Love Again
+    type: remix
 '829105':
   artists:
   - Lizzo
@@ -15487,6 +16192,22 @@
   image: MISSING
   name: Your Body
   standard: '841004'
+'8412138':
+  artists:
+  - Nicki Minaj
+  - Lil Wayne
+  ids:
+  - '8412138'
+  - '1767464'
+  image: MISSING
+  name: Good Form
+  standard: '8412138'
+  versions:
+  - artists:
+    - Nicki Minaj
+    id: '1767464'
+    name: Good Form
+    type: remix
 '841465':
   artists:
   - City Girls
@@ -15527,6 +16248,23 @@
   image: MISSING
   name: Where Do Broken Hearts Go
   standard: '842143'
+'8455146':
+  artists:
+  - Demi Lovato
+  - Ariana Grande
+  ids:
+  - '8455146'
+  - '283845'
+  image: MISSING
+  name: Met Him Last Night
+  standard: '8455146'
+  versions:
+  - artists:
+    - Demi Lovato
+    - Ariana Grande
+    id: '283845'
+    name: Met Him Last Night (feat. Ariana Grande)
+    type: alternate
 '855695':
   artists:
   - Nathan Sykes

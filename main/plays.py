@@ -209,6 +209,5 @@ if __name__ == '__main__':
     # update_local_plays(uow, verbose=True)
 
     print('')
-
     update_spreadsheet_plays(verbose=True)
     load_year_end_songs(uow, verbose=True)
