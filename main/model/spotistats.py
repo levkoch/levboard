@@ -22,6 +22,8 @@ import requests
 import tenacity
 from pydantic import BaseModel, NonNegativeInt
 
+from config import BANNED_SONGS
+
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
@@ -211,7 +213,7 @@ def songs_week(
 
     info = [
         Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
-        for i in r.json()['items']
+        for i in r.json()['items'] if str(i['track']['id']) not in BANNED_SONGS
     ]
 
     if not adjusted:

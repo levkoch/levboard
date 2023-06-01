@@ -27,7 +27,7 @@ def get_new_songs(uow: SongUOW):
     """
 
     all_songs = uow.songs.list()
-    upcoming_week = songs_week(after=LAST_WK, before=TODAY)
+    upcoming_week = songs_week(after=LAST_WK, before=TODAY+timedelta(days=1))
     for pos in upcoming_week:
         if pos.id not in all_songs and pos.plays > 1:
             song = Song(pos.id)
@@ -148,11 +148,11 @@ def main():
     uow = SongUOW()
     get_new_songs(uow)
     print('')
-    get_all_new_certs(uow)
+    # get_all_new_certs(uow)
     print('')
-    get_all_new_plays(uow)
+    # get_all_new_plays(uow)
     print('')
-    get_all_time_plays_changes(uow)
+    # get_all_time_plays_changes(uow)
 
 
 if __name__ == '__main__':

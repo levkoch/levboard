@@ -210,4 +210,4 @@ if __name__ == '__main__':
 
     print('')
     update_spreadsheet_plays(verbose=True)
-    load_year_end_songs(uow, verbose=True)
+    # load_year_end_songs(uow, verbose=True)
