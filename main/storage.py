@@ -1,8 +1,8 @@
 import json
 from typing import Iterator, Optional
 
-from config import ALBUM_FILE, SONG_FILE
-from model import Album, Song
+from .config import ALBUM_FILE, SONG_FILE
+from .model import Album, Song
 
 
 class SongRepository:

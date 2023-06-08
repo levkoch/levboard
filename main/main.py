@@ -37,6 +37,44 @@ class Week(BaseModel):
         except AttributeError:
             return NotImplemented
 
+    def __add__(self, other):
+        # adding supported when either both of the dates match or 
+        # when one of the end dates is the other's start date
+
+        if not isinstance(other, type(self)):
+            return NotImplemented
+
+        if self.start_day == other.start_day and self.end_day == other.start_day:
+            song_ids = {pos.id for pos in self.songs
+                       } | {pos.id for pos in other.songs}
+            
+            self_plays = defaultdict(int)
+            for pos in self.songs:
+                self_plays[pos.id] = pos.plays
+
+            other_plays = defaultdict(int)
+            for pos in other.songs:
+                other_plays[pos.id] = pos.plays
+
+            
+            song_list = []
+            for song_id in song_ids:
+                song_list.append(
+                    spotistats.Position(
+                        id = song_id,
+                        plays = self_plays[song_id] + other_plays[song_id],
+                        place = 0
+                    )
+                )
+
+            week = type(self)(self.start_day, self.end_day, song_list)       
+
+        raise ValueError(
+            "Can only add two weeks that are adjacent to each other or that "
+            " share the same start and end dates"
+        )
+
+
 
 def load_week(start_day: date, end_day: date) -> Week:
     songs = spotistats.songs_week(start_day, end_day, adjusted=True)

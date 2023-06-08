@@ -22,13 +22,11 @@ import requests
 import tenacity
 from pydantic import BaseModel, NonNegativeInt
 
-from config import BANNED_SONGS
-
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
 MAX_ADJUSTED: Final[int] = 25
-
+BANNED_SONGS: Final[set[str]] = {'15225941'}
 
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
@@ -160,6 +158,66 @@ class Position(BaseModel):
 
     def __hash__(self):
         return hash((self.id, self.plays, self.place))
+
+
+class Week(BaseModel):
+    """
+    A dataclass for a loaded week of songs. Supports comparison &
+    sorting (by week count.)
+
+    Attributes:
+    * start_day (`date`): The date when the week started.
+    * end_day (`date`): The date when the week ended.
+    * songs: (`list[spotistats.Position]`): The `spotistats.Positions`
+    of all the songs that charted that week.
+    """
+
+    start_day: date
+    end_day: date
+    songs: list[Position]
+
+    def __lt__(self, other):
+        try:
+            return self.end_day < other.end_day
+        except AttributeError:
+            return NotImplemented
+
+    def __add__(self, other):
+        # adding supported when either both of the dates match or 
+        # when one of the end dates is the other's start date
+
+        if not isinstance(other, type(self)):
+            return NotImplemented
+
+        if self.start_day == other.start_day and self.end_day == other.start_day:
+            song_ids = {pos.id for pos in self.songs
+                       } | {pos.id for pos in other.songs}
+            
+            self_plays = defaultdict(int)
+            for pos in self.songs:
+                self_plays[pos.id] = pos.plays
+
+            other_plays = defaultdict(int)
+            for pos in other.songs:
+                other_plays[pos.id] = pos.plays
+
+            
+            song_list = []
+            for song_id in song_ids:
+                song_list.append(
+                    spotistats.Position(
+                        id = song_id,
+                        plays = self_plays[song_id] + other_plays[song_id],
+                        place = 0
+                    )
+                )
+
+            week = type(self)(self.start_day, self.end_day, song_list)       
+
+        raise ValueError(
+            "Can only add two weeks that are adjacent to each other or that "
+            " share the same start and end dates"
+        )
 
 
 def album_tracks(album_id: str):

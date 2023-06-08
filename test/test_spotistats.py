@@ -4,8 +4,27 @@ import pytest
 
 from ..main.model import spotistats
 
+from ..main.model.spotistats import Position, Week
+
 TEST_WEEK_START = date(2022, 1, 1)
 TEST_WEEK_END = date(2022, 1, 7)
+
+
+def test_song_week_merging():
+    week_one = Week(TEST_WEEK_START, TEST_WEEK_END, [
+        Position("a", 13, 0), Position("b", 6, 0), Position("c", 2, 0)
+    ])
+    week_two = Week(TEST_WEEK_START, TEST_WEEK_END, [
+        Position("c", 6, 0), Position("a", 3, 0), Position("d", 2, 0)
+    ])
+
+    combined = week_one + week_two
+
+    assert len(combined.songs) == 4
+    assert set(combined.songs) == {
+        Position("a", 16, 0), Position("b", 6, 0), 
+        Position("c", 8, 0), Position("d", 2, 0)
+    }
 
 
 @pytest.fixture()
