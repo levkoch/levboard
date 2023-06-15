@@ -15,9 +15,10 @@ import datetime
 import itertools
 from concurrent import futures
 from operator import itemgetter
+from typing import Callable
 
-from config import LEVBOARD_SHEET, FIRST_DATE
-from model import Song
+from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
+from model import Song, spotistats
 from spreadsheet import Spreadsheet
 from storage import SongUOW
 
@@ -38,6 +39,65 @@ def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
 def _update_song_plays(song: Song) -> tuple[Song, int]:
     song.update_plays(adjusted=True)
     return (song, song._plays)
+
+
+def create_song_play_updater(uow: SongUOW) -> Callable[[str, str], tuple[Song, int]]:
+    sheet = Spreadsheet(LEVBOARD_SHEET)
+    songs_flagged_for_filtering = set()
+    for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
+        if (not row) or (row[0] == 'Title'): continue
+        if int(row[6]) >= MAX_ADJUSTED:
+            songs_flagged_for_filtering.add(
+                uow.songs.get_by_name(row[0])
+            )
+
+    print(f'{len(songs_flagged_for_filtering)} songs flagged for filtering')
+    saved_plays = spotistats.songs_week(
+        after = datetime.date(2000, 1, 1),
+        before = datetime.date(3000, 1, 1)
+    ) 
+    # all time saved plays. this unfortunately only returns the top 
+    # 1 thousands songs of all time so some lesser played tracks will return 
+
+    saved_plays_ids = [pos.id for pos in saved_plays]
+    saved_plays_threshold = min(
+        pos.plays for pos in saved_plays
+    )
+
+    print(f'Plays threshold is {saved_plays_threshold} plays.')
+
+    def inner_update_song_plays(song_id: str, song_name: str) -> tuple[Song, int]:
+        song_id = song_id.replace(',', ', ').replace('  ', ' ')
+        if ', ' in song_id:
+            song = Song(song_id.split(', ')[0], song_name)
+            for alt in song_id.split(', ')[1:]:
+               song.add_alt(alt)
+        else:
+            song = Song(song_id, song_name)
+
+        
+        if song in songs_flagged_for_filtering:
+            print('song flagged for filtering')
+            song.update_plays(adjusted=True)
+            return (song, song._plays)
+
+        plays = 0
+        for track_id in song.ids:
+            if track_id in saved_plays_ids:
+                print('grabbing play data from all time')
+                plays += next(
+                    pos.plays for pos in saved_plays if pos.id == track_id
+                )
+            else:
+                print('play data not loaded')
+                plays += spotistats.song_plays(track_id, adjusted = (saved_plays_threshold > MAX_ADJUSTED))
+                # adjust plays if this id could have somehow been adjusted 
+                # and also not in the top 1 thousand songs of all time
+                # otherwise if all other song ids have less streams than the 
+                # adjusted limit, save time by not having to adjust
+
+        return (song, plays)
+    return inner_update_song_plays
 
 
 def update_spreadsheet_plays(verbose=False):
@@ -62,12 +122,14 @@ def update_spreadsheet_plays(verbose=False):
 
     final_songs: list[list] = []
 
+    create_song = create_song_play_updater(uow)
+
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
 
         for sheet_song in songs:
             song_name, song_id, _, _ = sheet_song
-            future = executor.submit(_create_song, song_id, song_name)
+            future = executor.submit(create_song, song_id, song_name)
             to_do.append(future)
 
         for count, future in enumerate(futures.as_completed(to_do), 1):
@@ -206,8 +268,8 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    update_local_plays(uow, verbose=True)
+    # update_local_plays(uow, verbose=True)
 
     print('')
     update_spreadsheet_plays(verbose=True)
-    load_year_end_songs(uow, verbose=True)
+    # load_year_end_songs(uow, verbose=True)

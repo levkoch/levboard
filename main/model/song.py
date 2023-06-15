@@ -104,7 +104,7 @@ class Song:
             self._populate_listens()
 
     def __hash__(self) -> int:
-        return hash((self.name, self.ids))
+        return hash((self.name, tuple(self.ids)))
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):

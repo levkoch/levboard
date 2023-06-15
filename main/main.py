@@ -2,15 +2,15 @@
 levboard/main/main.py
 """
 
+import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
-from itertools import count
 from operator import itemgetter
 from typing import Iterator, Optional, Union
+from pydantic import BaseModel
 
 from config import FIRST_DATE, LEVBOARD_SHEET
 from model import Album, AlbumEntry, Entry, Song, spotistats
-from pydantic import BaseModel
 from spreadsheet import Spreadsheet
 from storage import SongUOW
 
@@ -75,25 +75,33 @@ class Week(BaseModel):
         )
 
 
-
-def load_week(start_day: date, end_day: date) -> Week:
+def load_week(start_day: date, end_day: date, started: itertools.count, completed: itertools.count) -> Week:
+    print(f'-> [{next(started):03d}] collecting info for week ending {end_day.isoformat()}')
     songs = spotistats.songs_week(start_day, end_day, adjusted=True)
+    print(f'!! [{next(completed):03d}] finished collecting info for week ending {end_day.isoformat()}')
     return Week(start_day=start_day, end_day=end_day, songs=songs)
 
 
 def load_all_weeks(start_day: date) -> list[Week]:
     print('Loading all weeks')
-    with futures.ThreadPoolExecutor() as executor:
+
+    started_counter = itertools.count(start=1)
+    completed_counter = itertools.count(start=1)
+
+    with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
         to_do: list[futures.Future] = []
         end_day = start_day + timedelta(days=7)
 
         while end_day <= date.today():
             future = executor.submit(
-                load_week, start_day=start_day, end_day=end_day
+                load_week, 
+                start_day=start_day,
+                end_day=end_day,
+                started=started_counter,
+                completed=completed_counter
             )
             to_do.append(future)
-            print(f'Loading from {start_day!s} to {end_day!s}')
-
+            
             start_day = end_day
             end_day = start_day + timedelta(days=7)
 
@@ -488,7 +496,7 @@ if __name__ == '__main__':
     clear_entries(uow)
     start_time = datetime.now()
 
-    week_counter = count(start=1)
+    week_counter = itertools.count(start=1)
     song_rows: list[list] = []
     album_rows: list[list] = []
     weeks = load_all_weeks(FIRST_DATE)
