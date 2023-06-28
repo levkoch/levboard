@@ -209,7 +209,7 @@ class Song:
         """
         (`int`): The total number of points for the song.
         """
-        return sum((61 - i.place) for i in self.entries)
+        return sum(((101) - i.place) for i in self.entries)
 
     @property
     def units(self) -> int:
@@ -285,7 +285,7 @@ class Song:
         """Returns the song's points gained for some period."""
 
         return sum(
-            (61 - i.place)
+            ((101) - i.place)
             for i in self.entries
             if i.end >= start and i.end <= end
         )

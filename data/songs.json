@@ -272,8 +272,8 @@
         "name": "Tattoed Heart",
         "main_id": "1005954",
         "ids": [
-            "1005954",
-            "5443451"
+            "5443451",
+            "1005954"
         ],
         "artists": [
             "Ariana Grande"
@@ -1244,8 +1244,8 @@
         "name": "How Do You Sleep?",
         "main_id": "1022984",
         "ids": [
-            "6314284",
-            "1022984"
+            "1022984",
+            "6314284"
         ],
         "artists": [
             "Sam Smith"
@@ -1683,7 +1683,15 @@
         ],
         "official_name": "I Don't Want To",
         "plays": 23,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 28,
+                "plays": 7,
+                "points": 76
+            }
+        ]
     },
     "10855915": {
         "name": "Girl Next Door",
@@ -3334,6 +3342,13 @@
                 "place": 26,
                 "plays": 7,
                 "points": 86
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 24,
+                "plays": 6,
+                "points": 90
             }
         ]
     },
@@ -3495,6 +3510,13 @@
                 "place": 51,
                 "plays": 6,
                 "points": 64
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 46,
+                "plays": 4,
+                "points": 56
             }
         ]
     },
@@ -3607,6 +3629,13 @@
                 "place": 51,
                 "plays": 6,
                 "points": 64
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 46,
+                "plays": 4,
+                "points": 56
             }
         ]
     },
@@ -3712,6 +3741,13 @@
                 "place": 36,
                 "plays": 4,
                 "points": 46
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 38,
+                "plays": 5,
+                "points": 64
             }
         ]
     },
@@ -6526,8 +6562,8 @@
         "name": "NASA",
         "main_id": "1412487",
         "ids": [
-            "1412487",
-            "5443436"
+            "5443436",
+            "1412487"
         ],
         "artists": [
             "Ariana Grande"
@@ -7137,8 +7173,8 @@
         "name": "break up with your girlfriend, i'm bored",
         "main_id": "1412616",
         "ids": [
-            "1412616",
-            "5443425"
+            "5443425",
+            "1412616"
         ],
         "artists": [
             "Ariana Grande"
@@ -7557,6 +7593,13 @@
                 "end": "2023-06-15",
                 "place": 15,
                 "plays": 8,
+                "points": 100
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 19,
+                "plays": 7,
                 "points": 100
             }
         ]
@@ -8272,6 +8315,13 @@
                 "place": 35,
                 "plays": 6,
                 "points": 76
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 43,
+                "plays": 4,
+                "points": 60
             }
         ]
     },
@@ -9156,6 +9206,13 @@
                 "place": 11,
                 "plays": 8,
                 "points": 104
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 6,
+                "plays": 11,
+                "points": 136
             }
         ]
     },
@@ -10109,6 +10166,13 @@
                 "place": 59,
                 "plays": 4,
                 "points": 62
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -15236,6 +15300,7 @@
         "main_id": "2442044",
         "ids": [
             "1316568",
+            "11892227",
             "2442044"
         ],
         "artists": [
@@ -15243,7 +15308,7 @@
             "Normani"
         ],
         "official_name": "Dancing With A Stranger (with Normani)",
-        "plays": 165,
+        "plays": 164,
         "entries": [
             {
                 "start": "2021-09-30",
@@ -16963,8 +17028,8 @@
         "name": "Love Galore",
         "main_id": "2754546",
         "ids": [
-            "2754546",
-            "40531453"
+            "40531453",
+            "2754546"
         ],
         "artists": [
             "SZA",
@@ -19991,8 +20056,8 @@
         "name": "Confetti",
         "main_id": "282982",
         "ids": [
-            "282982",
-            "283033"
+            "283033",
+            "282982"
         ],
         "artists": [
             "Little Mix",
@@ -22428,6 +22493,13 @@
                 "place": 4,
                 "plays": 8,
                 "points": 132
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 9,
+                "plays": 9,
+                "points": 126
             }
         ]
     },
@@ -25159,6 +25231,13 @@
                 "place": 16,
                 "plays": 8,
                 "points": 98
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 29,
+                "plays": 5,
+                "points": 74
             }
         ]
     },
@@ -25194,6 +25273,13 @@
                 "place": 26,
                 "plays": 7,
                 "points": 86
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -25285,6 +25371,13 @@
                 "place": 33,
                 "plays": 6,
                 "points": 80
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 51,
+                "plays": 3,
+                "points": 54
             }
         ]
     },
@@ -25390,6 +25483,13 @@
                 "place": 16,
                 "plays": 8,
                 "points": 98
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -25411,6 +25511,13 @@
                 "place": 60,
                 "plays": 4,
                 "points": 44
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 51,
+                "plays": 4,
+                "points": 54
             }
         ]
     },
@@ -25629,6 +25736,13 @@
                 "place": 23,
                 "plays": 7,
                 "points": 88
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 40,
+                "plays": 4,
+                "points": 62
             }
         ]
     },
@@ -25664,6 +25778,13 @@
                 "place": 48,
                 "plays": 5,
                 "points": 66
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 34,
+                "plays": 5,
+                "points": 68
             }
         ]
     },
@@ -25692,6 +25813,13 @@
                 "place": 29,
                 "plays": 7,
                 "points": 84
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 32,
+                "plays": 5,
+                "points": 70
             }
         ]
     },
@@ -25811,6 +25939,13 @@
                 "place": 14,
                 "plays": 8,
                 "points": 102
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 25,
+                "plays": 6,
+                "points": 88
             }
         ]
     },
@@ -25930,6 +26065,13 @@
                 "place": 22,
                 "plays": 7,
                 "points": 90
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 36,
+                "plays": 4,
+                "points": 66
             }
         ]
     },
@@ -26132,6 +26274,13 @@
                 "end": "2023-06-15",
                 "place": 9,
                 "plays": 9,
+                "points": 106
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 15,
+                "plays": 8,
                 "points": 106
             }
         ]
@@ -26346,6 +26495,13 @@
                 "place": 31,
                 "plays": 6,
                 "points": 82
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 46,
+                "plays": 3,
+                "points": 56
             }
         ]
     },
@@ -27737,8 +27893,8 @@
         "name": "Break Your Heart Right Back",
         "main_id": "286594",
         "ids": [
-            "5443474",
-            "286594"
+            "286594",
+            "5443474"
         ],
         "artists": [
             "Ariana Grande",
@@ -28413,8 +28569,8 @@
         "name": "MONTERO",
         "main_id": "299889",
         "ids": [
-            "1022799",
-            "299889"
+            "299889",
+            "1022799"
         ],
         "artists": [
             "Lil Nas X"
@@ -32440,8 +32596,8 @@
         "name": "The Hills",
         "main_id": "32952",
         "ids": [
-            "5652986",
-            "32952"
+            "32952",
+            "5652986"
         ],
         "artists": [
             "The Weeknd"
@@ -34215,8 +34371,8 @@
         "name": "Intentions",
         "main_id": "3750576",
         "ids": [
-            "9163",
-            "3750576"
+            "3750576",
+            "9163"
         ],
         "artists": [
             "Justin Bieber",
@@ -41234,6 +41390,13 @@
                 "place": 23,
                 "plays": 7,
                 "points": 88
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 2,
+                "points": 52
             }
         ]
     },
@@ -44555,8 +44718,8 @@
         "name": "IDGAF",
         "main_id": "533657",
         "ids": [
-            "14457530",
-            "533657"
+            "533657",
+            "14457530"
         ],
         "artists": [
             "Dua Lipa"
@@ -45012,8 +45175,8 @@
         "name": "34+35",
         "main_id": "533695",
         "ids": [
-            "1193550",
-            "533695"
+            "533695",
+            "1193550"
         ],
         "artists": [
             "Ariana Grande"
@@ -45447,6 +45610,13 @@
                 "place": 6,
                 "plays": 11,
                 "points": 120
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 12,
+                "plays": 9,
+                "points": 122
             }
         ]
     },
@@ -45937,6 +46107,13 @@
                 "place": 42,
                 "plays": 6,
                 "points": 72
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 40,
+                "plays": 4,
+                "points": 62
             }
         ]
     },
@@ -46574,6 +46751,13 @@
                 "place": 9,
                 "plays": 7,
                 "points": 106
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 8,
+                "plays": 9,
+                "points": 130
             }
         ]
     },
@@ -46777,6 +46961,13 @@
                 "place": 47,
                 "plays": 6,
                 "points": 68
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 46,
+                "plays": 4,
+                "points": 56
             }
         ]
     },
@@ -47182,6 +47373,13 @@
                 "place": 39,
                 "plays": 6,
                 "points": 74
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -48248,6 +48446,13 @@
                 "place": 7,
                 "plays": 8,
                 "points": 112
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 5,
+                "plays": 11,
+                "points": 148
             }
         ]
     },
@@ -50032,6 +50237,13 @@
                 "place": 11,
                 "plays": 7,
                 "points": 104
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 4,
+                "plays": 11,
+                "points": 154
             }
         ]
     },
@@ -50376,6 +50588,13 @@
                 "place": 35,
                 "plays": 5,
                 "points": 76
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 6,
+                "plays": 12,
+                "points": 136
             }
         ]
     },
@@ -51820,8 +52039,8 @@
         "name": "So Good",
         "main_id": "585521",
         "ids": [
-            "585521",
-            "10959047"
+            "10959047",
+            "585521"
         ],
         "artists": [
             "Zara Larsson",
@@ -52040,8 +52259,8 @@
         "name": "Sundown",
         "main_id": "585523",
         "ids": [
-            "11338877",
-            "585523"
+            "585523",
+            "11338877"
         ],
         "artists": [
             "Zara Larsson",
@@ -52346,8 +52565,8 @@
         "name": "Wildest Dreams",
         "main_id": "587345",
         "ids": [
-            "586662",
-            "587345"
+            "587345",
+            "586662"
         ],
         "artists": [
             "Taylor Swift"
@@ -54428,8 +54647,8 @@
         "name": "CUFF IT",
         "main_id": "62300973",
         "ids": [
-            "62300973",
-            "45761813"
+            "45761813",
+            "62300973"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -55494,6 +55713,13 @@
                 "place": 8,
                 "plays": 7,
                 "points": 110
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 14,
+                "plays": 7,
+                "points": 110
             }
         ]
     },
@@ -56475,6 +56701,13 @@
                 "place": 18,
                 "plays": 6,
                 "points": 68
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 26,
+                "plays": 8,
+                "points": 80
             }
         ]
     },
@@ -56551,8 +56784,8 @@
         "name": "successful",
         "main_id": "78713",
         "ids": [
-            "78713",
-            "5443437"
+            "5443437",
+            "78713"
         ],
         "artists": [
             "Ariana Grande"
@@ -56679,8 +56912,8 @@
         "name": "raindrops",
         "main_id": "78709",
         "ids": [
-            "78709",
-            "5443424"
+            "5443424",
+            "78709"
         ],
         "artists": [
             "Ariana Grande"
@@ -57031,8 +57264,8 @@
         "name": "goodnight n go",
         "main_id": "78739",
         "ids": [
-            "78739",
-            "5443429"
+            "5443429",
+            "78739"
         ],
         "artists": [
             "Ariana Grande"
@@ -57193,8 +57426,8 @@
         "name": "breathin",
         "main_id": "78710",
         "ids": [
-            "78710",
-            "5443431"
+            "5443431",
+            "78710"
         ],
         "artists": [
             "Ariana Grande"
@@ -57644,8 +57877,8 @@
         "name": "the light is coming",
         "main_id": "78772",
         "ids": [
-            "78772",
-            "5443472"
+            "5443472",
+            "78772"
         ],
         "artists": [
             "Ariana Grande",
@@ -58003,6 +58236,13 @@
                 "place": 26,
                 "plays": 7,
                 "points": 86
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 17,
+                "plays": 8,
+                "points": 104
             }
         ]
     },
@@ -58328,8 +58568,8 @@
         "name": "Wild Side",
         "main_id": "839754",
         "ids": [
-            "839754",
-            "5311092"
+            "5311092",
+            "839754"
         ],
         "artists": [
             "Normani",
@@ -58421,6 +58661,13 @@
                 "place": 3,
                 "plays": 12,
                 "points": 144
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 19,
+                "plays": 7,
+                "points": 100
             }
         ]
     },
@@ -59212,8 +59459,8 @@
         "name": "Blow",
         "main_id": "1008172",
         "ids": [
-            "1008256",
-            "1008172"
+            "1008172",
+            "1008256"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -59234,8 +59481,8 @@
         "name": "Cheap Thrills",
         "main_id": "1122112",
         "ids": [
-            "889917",
-            "1122112"
+            "1122112",
+            "889917"
         ],
         "artists": [
             "Sia",
@@ -59300,6 +59547,13 @@
                 "place": 16,
                 "plays": 8,
                 "points": 98
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 26,
+                "plays": 5,
+                "points": 80
             }
         ]
     },
@@ -59330,9 +59584,9 @@
         "name": "Say So",
         "main_id": "10948337",
         "ids": [
+            "10948337",
             "1249889",
-            "607744",
-            "10948337"
+            "607744"
         ],
         "artists": [
             "Doja Cat",
@@ -60063,6 +60317,13 @@
                 "place": 18,
                 "plays": 8,
                 "points": 82
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -60070,8 +60331,8 @@
         "name": "in my head",
         "main_id": "1412617",
         "ids": [
-            "1412617",
-            "5443442"
+            "5443442",
+            "1412617"
         ],
         "artists": [
             "Ariana Grande"
@@ -60099,8 +60360,8 @@
         "name": "needy",
         "main_id": "1412630",
         "ids": [
-            "5443433",
-            "1412630"
+            "1412630",
+            "5443433"
         ],
         "artists": [
             "Ariana Grande"
@@ -60788,6 +61049,13 @@
                 "place": 33,
                 "plays": 6,
                 "points": 80
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 22,
+                "plays": 7,
+                "points": 96
             }
         ]
     },
@@ -60817,8 +61085,8 @@
         "name": "Good Form",
         "main_id": "1767464",
         "ids": [
-            "8412138",
-            "1767464"
+            "1767464",
+            "8412138"
         ],
         "artists": [
             "Nicki Minaj"
@@ -60860,8 +61128,8 @@
         "name": "Break Free",
         "main_id": "180467",
         "ids": [
-            "5443434",
-            "180467"
+            "180467",
+            "5443434"
         ],
         "artists": [
             "Ariana Grande",
@@ -61410,8 +61678,8 @@
         "name": "E.T.",
         "main_id": "255123",
         "ids": [
-            "255123",
-            "250104"
+            "250104",
+            "255123"
         ],
         "artists": [
             "Katy Perry"
@@ -61520,8 +61788,8 @@
         "name": "Met Him Last Night",
         "main_id": "283845",
         "ids": [
-            "8455146",
-            "283845"
+            "283845",
+            "8455146"
         ],
         "artists": [
             "Demi Lovato",
@@ -61945,6 +62213,13 @@
                 "place": 7,
                 "plays": 11,
                 "points": 126
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 18,
+                "plays": 8,
+                "points": 102
             }
         ]
     },
@@ -61952,8 +62227,8 @@
         "name": "INDUSTRY BABY",
         "main_id": "300513",
         "ids": [
-            "2067000",
-            "300513"
+            "300513",
+            "2067000"
         ],
         "artists": [
             "Lil Nas X",
@@ -62074,8 +62349,8 @@
         "name": "Sorry (Bey)",
         "main_id": "3755437",
         "ids": [
-            "3755440",
-            "3755437"
+            "3755437",
+            "3755440"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -62159,8 +62434,8 @@
         "name": "How Long",
         "main_id": "402135",
         "ids": [
-            "402135",
-            "14504609"
+            "14504609",
+            "402135"
         ],
         "artists": [
             "Charlie Puth"
@@ -62300,8 +62575,8 @@
         "name": "Super Freaky Girl",
         "main_id": "46829579",
         "ids": [
-            "47562415",
-            "46829579"
+            "46829579",
+            "47562415"
         ],
         "artists": [
             "Nicki Minaj"
@@ -62387,9 +62662,9 @@
         "name": "New Rules",
         "main_id": "355995",
         "ids": [
-            "355995",
+            "533648",
             "2882600",
-            "533648"
+            "355995"
         ],
         "artists": [
             "Dua Lipa"
@@ -62711,6 +62986,13 @@
                 "place": 33,
                 "plays": 5,
                 "points": 60
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 46,
+                "plays": 5,
+                "points": 56
             }
         ]
     },
@@ -62718,8 +63000,8 @@
         "name": "Save Your Tears",
         "main_id": "533793",
         "ids": [
-            "303654",
-            "533793"
+            "533793",
+            "303654"
         ],
         "artists": [
             "The Weeknd",
@@ -62927,8 +63209,8 @@
         "name": "watch&burn",
         "main_id": "585350",
         "ids": [
-            "585350",
-            "585483"
+            "585483",
+            "585350"
         ],
         "artists": [
             "Billie Eilish"
@@ -63272,8 +63554,8 @@
         "name": "thank u, next",
         "main_id": "727948",
         "ids": [
-            "727948",
-            "5443446"
+            "5443446",
+            "727948"
         ],
         "artists": [
             "Ariana Grande"
@@ -63469,8 +63751,8 @@
         "name": "no tears left to cry",
         "main_id": "78715",
         "ids": [
-            "5443449",
-            "78715"
+            "78715",
+            "5443449"
         ],
         "artists": [
             "Ariana Grande"
@@ -64023,6 +64305,13 @@
                 "place": 1,
                 "plays": 14,
                 "points": 184
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 13,
+                "plays": 7,
+                "points": 116
             }
         ]
     },
@@ -64030,8 +64319,8 @@
         "name": "R.E.M",
         "main_id": "78712",
         "ids": [
-            "5443439",
-            "78712"
+            "78712",
+            "5443439"
         ],
         "artists": [
             "Ariana Grande"
@@ -64214,6 +64503,13 @@
                 "place": 5,
                 "plays": 12,
                 "points": 126
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 34,
+                "plays": 4,
+                "points": 68
             }
         ]
     },
@@ -64264,8 +64560,8 @@
         "name": "Swalla",
         "main_id": "8188890",
         "ids": [
-            "8188890",
-            "12007952"
+            "12007952",
+            "8188890"
         ],
         "artists": [
             "Jason Derulo",
@@ -66437,8 +66733,8 @@
         "name": "Canada",
         "main_id": "33723295",
         "ids": [
-            "587050",
-            "33723295"
+            "33723295",
+            "587050"
         ],
         "artists": [
             "Lauv",
@@ -69050,8 +69346,8 @@
         "name": "Drunk In Love",
         "main_id": "1008249",
         "ids": [
-            "1008255",
-            "1008249"
+            "1008249",
+            "1008255"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -69065,8 +69361,8 @@
         "name": "LOYAL",
         "main_id": "4091561",
         "ids": [
-            "4091561",
-            "4091562"
+            "4091562",
+            "4091561"
         ],
         "artists": [
             "PARTYNEXTDOOR",
@@ -69158,8 +69454,8 @@
         "name": "Bom Bidi Bom",
         "main_id": "6760737",
         "ids": [
-            "1582999",
-            "6760737"
+            "6760737",
+            "1582999"
         ],
         "artists": [
             "Nick Jonas",
@@ -69181,8 +69477,8 @@
         "name": "7 rings",
         "main_id": "727690",
         "ids": [
-            "727690",
             "11911811",
+            "727690",
             "5443443"
         ],
         "artists": [
@@ -69491,6 +69787,13 @@
                 "place": 29,
                 "plays": 7,
                 "points": 84
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 3,
+                "points": 52
             }
         ]
     },
@@ -69498,8 +69801,8 @@
         "name": "Faith",
         "main_id": "818065",
         "ids": [
-            "3140043",
-            "818065"
+            "818065",
+            "3140043"
         ],
         "artists": [
             "Stevie Wonder",
@@ -69537,8 +69840,8 @@
         "name": "fuck, i'm lonely",
         "main_id": "8624825",
         "ids": [
-            "8624825",
-            "900211"
+            "900211",
+            "8624825"
         ],
         "artists": [
             "Lauv",
@@ -70073,6 +70376,13 @@
                 "place": 7,
                 "plays": 6,
                 "points": 126
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 45,
+                "plays": 4,
+                "points": 58
             }
         ]
     },
@@ -70133,8 +70443,8 @@
         "name": "Old Town Road",
         "main_id": "607787",
         "ids": [
-            "1127309",
-            "607787"
+            "607787",
+            "1127309"
         ],
         "artists": [
             "Lil Nas X"
@@ -70182,6 +70492,13 @@
                 "place": 31,
                 "plays": 6,
                 "points": 82
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 23,
+                "plays": 6,
+                "points": 94
             }
         ]
     },
@@ -70203,6 +70520,13 @@
                 "place": 20,
                 "plays": 8,
                 "points": 80
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 36,
+                "plays": 5,
+                "points": 66
             }
         ]
     },
@@ -70408,6 +70732,13 @@
                 "place": 11,
                 "plays": 10,
                 "points": 104
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 38,
+                "plays": 4,
+                "points": 64
             }
         ]
     },
@@ -70415,8 +70746,8 @@
         "name": "Bravado",
         "main_id": "3482475",
         "ids": [
-            "3482475",
-            "9339725"
+            "9339725",
+            "3482475"
         ],
         "artists": [
             "Lorde"
@@ -70510,7 +70841,15 @@
         ],
         "official_name": "anthems",
         "plays": 7,
-        "entries": []
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 51,
+                "plays": 4,
+                "points": 54
+            }
+        ]
     },
     "12061042": {
         "name": "visions (charli)",
@@ -70543,6 +70882,13 @@
                 "place": 51,
                 "plays": 6,
                 "points": 64
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 9,
+                "plays": 11,
+                "points": 126
             }
         ]
     },
@@ -70642,6 +70988,545 @@
             "Kim Petras"
         ],
         "official_name": "They Wanna Fuck",
+        "plays": 3,
+        "entries": []
+    },
+    "9134438": {
+        "name": "Down 4 Whatever",
+        "main_id": "9134438",
+        "ids": [
+            "9134438"
+        ],
+        "artists": [
+            "Kingdom",
+            "SZA"
+        ],
+        "official_name": "Down 4 Whatever",
+        "plays": 19,
+        "entries": [
+            {
+                "start": "2023-06-08",
+                "end": "2023-06-15",
+                "place": 2,
+                "plays": 15,
+                "points": 150
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 19,
+                "plays": 7,
+                "points": 100
+            }
+        ]
+    },
+    "12801830": {
+        "name": "Waves",
+        "main_id": "12801830",
+        "ids": [
+            "12801830"
+        ],
+        "artists": [
+            "Normani",
+            "6LACK"
+        ],
+        "official_name": "Waves (feat. 6LACK)",
+        "plays": 8,
+        "entries": [
+            {
+                "start": "2023-06-08",
+                "end": "2023-06-15",
+                "place": 59,
+                "plays": 6,
+                "points": 62
+            },
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 11,
+                "plays": 11,
+                "points": 124
+            }
+        ]
+    },
+    "5871229": {
+        "name": "Gone",
+        "main_id": "5871229",
+        "ids": [
+            "5871229"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Christine and the Queens"
+        ],
+        "official_name": "Gone",
+        "plays": 17,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 31,
+                "plays": 7,
+                "points": 72
+            }
+        ]
+    },
+    "5871272": {
+        "name": "Click",
+        "main_id": "5871272",
+        "ids": [
+            "13164533",
+            "5871272"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Kim Petras",
+            "Tommy Cash"
+        ],
+        "official_name": "Click (feat. Kim Petras and Tommy Cash)",
+        "plays": 6,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 29,
+                "plays": 7,
+                "points": 74
+            }
+        ]
+    },
+    "5871224": {
+        "name": "Next Level Charli",
+        "main_id": "5871224",
+        "ids": [
+            "5871224"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Next Level Charli",
+        "plays": 13,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 40,
+                "plays": 6,
+                "points": 62
+            }
+        ]
+    },
+    "5871242": {
+        "name": "I Don't Wanna Know",
+        "main_id": "5871242",
+        "ids": [
+            "5871242"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "I Don't Wanna Know",
+        "plays": 8,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 32,
+                "plays": 7,
+                "points": 70
+            }
+        ]
+    },
+    "5871271": {
+        "name": "Cross You Out",
+        "main_id": "5871271",
+        "ids": [
+            "5871271"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Sky Ferreira"
+        ],
+        "official_name": "Cross You Out (feat. Sky Ferreira)",
+        "plays": 9,
+        "entries": []
+    },
+    "5871274": {
+        "name": "February 2017",
+        "main_id": "5871274",
+        "ids": [
+            "5871274"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Clairo",
+            "Yaeji"
+        ],
+        "official_name": "February 2017 (feat. Clairo and Yaeji)",
+        "plays": 4,
+        "entries": []
+    },
+    "5871273": {
+        "name": "Shake It",
+        "main_id": "5871273",
+        "ids": [
+            "5871273"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Big Freedia",
+            "cupcakKe",
+            "Brooke Candy",
+            "Pabllo Vittar"
+        ],
+        "official_name": "Shake It (feat. Big Freedia, CupcakKe, Brooke Candy and Pabllo Vittar)",
+        "plays": 6,
+        "entries": []
+    },
+    "5858213": {
+        "name": "Warm",
+        "main_id": "5858213",
+        "ids": [
+            "5858213"
+        ],
+        "artists": [
+            "Charli XCX",
+            "HAIM"
+        ],
+        "official_name": "Warm (feat. HAIM)",
+        "plays": 22,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 1,
+                "plays": 21,
+                "points": 210
+            }
+        ]
+    },
+    "5871240": {
+        "name": "Silver Cross",
+        "main_id": "5871240",
+        "ids": [
+            "5871240"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Silver Cross",
+        "plays": 20,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 2,
+                "plays": 19,
+                "points": 190
+            }
+        ]
+    },
+    "5871226": {
+        "name": "White Mercedes",
+        "main_id": "5871226",
+        "ids": [
+            "5871226"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "White Mercedes",
+        "plays": 17,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 3,
+                "plays": 16,
+                "points": 160
+            }
+        ]
+    },
+    "5871230": {
+        "name": "Thoughts",
+        "main_id": "5871230",
+        "ids": [
+            "5871230"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Thoughts",
+        "plays": 4,
+        "entries": []
+    },
+    "5871243": {
+        "name": "Official",
+        "main_id": "5871243",
+        "ids": [
+            "5871243"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Official",
+        "plays": 7,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 43,
+                "plays": 6,
+                "points": 60
+            }
+        ]
+    },
+    "5871275": {
+        "name": "2099",
+        "main_id": "5871275",
+        "ids": [
+            "5871275"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Troye Sivan"
+        ],
+        "official_name": "2099 (feat. Troye Sivan)",
+        "plays": 4,
+        "entries": []
+    },
+    "10431299": {
+        "name": "Expectations",
+        "main_id": "10431299",
+        "ids": [
+            "10431299"
+        ],
+        "artists": [
+            "Lauren Jauregui"
+        ],
+        "official_name": "Expectations",
+        "plays": 19,
+        "entries": []
+    },
+    "31627429": {
+        "name": "Fair",
+        "main_id": "31627429",
+        "ids": [
+            "31627429"
+        ],
+        "artists": [
+            "Normani"
+        ],
+        "official_name": "Fair",
+        "plays": 4,
+        "entries": []
+    },
+    "5352834": {
+        "name": "3AM (Pull Up)",
+        "main_id": "5352834",
+        "ids": [
+            "5352834"
+        ],
+        "artists": [
+            "Charli XCX",
+            "M\u00d8"
+        ],
+        "official_name": "3AM (Pull Up) (feat. M\u00d8)",
+        "plays": 2,
+        "entries": []
+    },
+    "72163842": {
+        "name": "Angel",
+        "main_id": "72163842",
+        "ids": [
+            "72163842"
+        ],
+        "artists": [
+            "JVKE",
+            "Jimin",
+            "Charlie Puth",
+            "Muni Long",
+            "Fast & Furious: The Fast Saga"
+        ],
+        "official_name": "Angel Pt. 2 (feat. Jimin of BTS, Charlie Puth and Muni Long / FAST X Soundtrack)",
+        "plays": 4,
+        "entries": []
+    },
+    "9894149": {
+        "name": "Dreamer",
+        "main_id": "9894149",
+        "ids": [
+            "9894149"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Starrah",
+            "RAYE"
+        ],
+        "official_name": "Dreamer - Compound Version",
+        "plays": 6,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 54,
+                "plays": 5,
+                "points": 52
+            }
+        ]
+    },
+    "5352824": {
+        "name": "Blame It on U",
+        "main_id": "5352824",
+        "ids": [
+            "5352824"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Blame It on U",
+        "plays": 2,
+        "entries": []
+    },
+    "5352828": {
+        "name": "White Roses",
+        "main_id": "5352828",
+        "ids": [
+            "5352828"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "White Roses",
+        "plays": 1,
+        "entries": []
+    },
+    "5352826": {
+        "name": "Emotional",
+        "main_id": "5352826",
+        "ids": [
+            "5352826"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Emotional",
+        "plays": 1,
+        "entries": []
+    },
+    "5352827": {
+        "name": "ILY2",
+        "main_id": "5352827",
+        "ids": [
+            "5352827"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "ILY2",
+        "plays": 1,
+        "entries": []
+    },
+    "5352818": {
+        "name": "Roll with Me",
+        "main_id": "5352818",
+        "ids": [
+            "5352818"
+        ],
+        "artists": [
+            "Charli XCX"
+        ],
+        "official_name": "Roll with Me",
+        "plays": 2,
+        "entries": []
+    },
+    "499214": {
+        "name": "Homemade Dynamite",
+        "main_id": "499214",
+        "ids": [
+            "499214",
+            "10730709"
+        ],
+        "artists": [
+            "Lorde"
+        ],
+        "official_name": "Homemade Dynamite",
+        "plays": 7,
+        "entries": [
+            {
+                "start": "2023-06-15",
+                "end": "2023-06-22",
+                "place": 15,
+                "plays": 10,
+                "points": 106
+            }
+        ]
+    },
+    "5352835": {
+        "name": "Babygirl",
+        "main_id": "5352835",
+        "ids": [
+            "5352835"
+        ],
+        "artists": [
+            "Charli XCX",
+            "Uffie"
+        ],
+        "official_name": "Babygirl (feat. Uffie)",
+        "plays": 2,
+        "entries": []
+    },
+    "5352840": {
+        "name": "Lipgloss",
+        "main_id": "5352840",
+        "ids": [
+            "5352840"
+        ],
+        "artists": [
+            "Charli XCX",
+            "cupcakKe"
+        ],
+        "official_name": "Lipgloss (feat. CupcakKe)",
+        "plays": 1,
+        "entries": []
+    },
+    "5352836": {
+        "name": "Drugs",
+        "main_id": "5352836",
+        "ids": [
+            "5352836"
+        ],
+        "artists": [
+            "Charli XCX",
+            "ABRA"
+        ],
+        "official_name": "Drugs (feat. ABRA)",
+        "plays": 1,
+        "entries": []
+    },
+    "72561901": {
+        "name": "King of Hearts",
+        "main_id": "72561901",
+        "ids": [
+            "72561901"
+        ],
+        "artists": [
+            "Kim Petras"
+        ],
+        "official_name": "King of Hearts",
+        "plays": 1,
+        "entries": []
+    },
+    "22617537": {
+        "name": "Coconuts",
+        "main_id": "22617537",
+        "ids": [
+            "22617537"
+        ],
+        "artists": [
+            "Kim Petras"
+        ],
+        "official_name": "Coconuts",
         "plays": 3,
         "entries": []
     },
@@ -70990,48 +71875,13 @@
     "9339725": {
         "merge": "3482475"
     },
-    "9134438": {
-        "name": "Down 4 Whatever",
-        "main_id": "9134438",
-        "ids": [
-            "9134438"
-        ],
-        "artists": [
-            "Kingdom",
-            "SZA"
-        ],
-        "official_name": "Down 4 Whatever",
-        "plays": 19,
-        "entries": [
-            {
-                "start": "2023-06-08",
-                "end": "2023-06-15",
-                "place": 2,
-                "plays": 15,
-                "points": 150
-            }
-        ]
+    "13164533": {
+        "merge": "5871272"
     },
-    "12801830": {
-        "name": "Waves",
-        "main_id": "12801830",
-        "ids": [
-            "12801830"
-        ],
-        "artists": [
-            "Normani",
-            "6LACK"
-        ],
-        "official_name": "Waves (feat. 6LACK)",
-        "plays": 8,
-        "entries": [
-            {
-                "start": "2023-06-08",
-                "end": "2023-06-15",
-                "place": 59,
-                "plays": 6,
-                "points": 62
-            }
-        ]
+    "10730709": {
+        "merge": "499214"
+    },
+    "11892227": {
+        "merge": "2442044"
     }
 }

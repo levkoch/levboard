@@ -41,62 +41,62 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
     return (song, song._plays)
 
 
-def create_song_play_updater(uow: SongUOW) -> Callable[[str, str], tuple[Song, int]]:
+def create_song_play_updater(
+    uow: SongUOW,
+) -> Callable[[str, str], tuple[Song, int]]:
     sheet = Spreadsheet(LEVBOARD_SHEET)
     songs_flagged_for_filtering = set()
     for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
-        if (not row) or (row[0] == 'Title'): continue
+        if (not row) or (row[0] == 'Title'):
+            continue
         if int(row[6]) >= MAX_ADJUSTED:
-            songs_flagged_for_filtering.add(
-                uow.songs.get_by_name(row[0])
-            )
+            songs_flagged_for_filtering.add(uow.songs.get_by_name(row[0]))
 
     print(f'{len(songs_flagged_for_filtering)} songs flagged for filtering')
     saved_plays = spotistats.songs_week(
-        after = datetime.date(2000, 1, 1),
-        before = datetime.date(3000, 1, 1)
-    ) 
-    # all time saved plays. this unfortunately only returns the top 
-    # 1 thousands songs of all time so some lesser played tracks will return 
+        after=datetime.date(2000, 1, 1), before=datetime.date(3000, 1, 1)
+    )
+    # all time saved plays. this unfortunately only returns the top
+    # 1 thousands songs of all time so some lesser played tracks will
+    # have to be retrieved manually
 
     saved_plays_ids = [pos.id for pos in saved_plays]
-    saved_plays_threshold = min(
-        pos.plays for pos in saved_plays
-    )
+    saved_plays_threshold = min(pos.plays for pos in saved_plays)
 
     print(f'Plays threshold is {saved_plays_threshold} plays.')
 
-    def inner_update_song_plays(song_id: str, song_name: str) -> tuple[Song, int]:
+    def inner_update_song_plays(
+        song_id: str, song_name: str
+    ) -> tuple[Song, int]:
         song_id = song_id.replace(',', ', ').replace('  ', ' ')
         if ', ' in song_id:
             song = Song(song_id.split(', ')[0], song_name)
             for alt in song_id.split(', ')[1:]:
-               song.add_alt(alt)
+                song.add_alt(alt)
         else:
             song = Song(song_id, song_name)
 
-        
         if song in songs_flagged_for_filtering:
-            print('song flagged for filtering')
             song.update_plays(adjusted=True)
             return (song, song._plays)
 
         plays = 0
         for track_id in song.ids:
             if track_id in saved_plays_ids:
-                print('grabbing play data from all time')
                 plays += next(
                     pos.plays for pos in saved_plays if pos.id == track_id
                 )
             else:
-                print('play data not loaded')
-                plays += spotistats.song_plays(track_id, adjusted = (saved_plays_threshold > MAX_ADJUSTED))
-                # adjust plays if this id could have somehow been adjusted 
+                plays += spotistats.song_plays(
+                    track_id, adjusted=(saved_plays_threshold > MAX_ADJUSTED)
+                )
+                # adjust plays if this id could have somehow been adjusted
                 # and also not in the top 1 thousand songs of all time
-                # otherwise if all other song ids have less streams than the 
+                # otherwise if all other song ids have less streams than the
                 # adjusted limit, save time by not having to adjust
 
         return (song, plays)
+
     return inner_update_song_plays
 
 
@@ -139,7 +139,9 @@ def update_spreadsheet_plays(verbose=False):
 
             final_songs.append(
                 [
-                    "'" + song.name if song.name[0].isnumeric() else song.name,
+                    "'" + song.name
+                    if any(letter.isnumeric() for letter in song.name)
+                    else song.name,
                     ', '.join(song.ids),
                     ', '.join(song.artists),
                     plays,

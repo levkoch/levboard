@@ -19,8 +19,12 @@ from typing import Final
 MAX_ADJUSTED: Final[int] = 25
 # where my google sheet is located at
 LEVBOARD_SHEET: Final[str] = '1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk'
+# where the group charts sheet is located at
+GROUPBOARD_SHEET: Final[str] = '16ZJCz0AU5WM-e2YytmFtzLRhJ1Pd5bJpuAVv2y8XmM0'
 # the first date of my listening
 FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
+# the date the group charts started
+GROUP_DATE: Final[date] = date.fromisoformat('2022-12-30')
 # my user name
 USER_NAME: Final[str] = 'lev'
 

@@ -110,7 +110,7 @@ def flourish_albums(
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     sheet.append_range(
-        f'BOT_FLOURISH!A1:CZ{len(sheet_rows)+1}', values=sheet_rows
+        f'BOT_FLOURISH!A1:ZZ{len(sheet_rows)+1}', values=sheet_rows
     )
 
     print('')
@@ -202,10 +202,10 @@ if __name__ == '__main__':
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)
-    # flourish_albums(album_con_weeks, (lambda i: i.get_con_weeks() >= 10))
+    flourish_albums(album_con_weeks, (lambda i: i.get_con_weeks() >= 10))
     album_chart_weeks = album_data_generator(get_album_weeks)
     # flourish_albums(album_chart_weeks, (lambda i: i.weeks > 10))
-
     album_top_fives = album_data_generator(get_album_top_five_weeks)
-    flourish_albums(album_top_fives, lambda i: i.peak < 6)
+    # flourish_albums(album_top_fives, lambda i: i.peak < 6)
+
     # flourish_songs()

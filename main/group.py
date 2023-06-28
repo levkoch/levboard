@@ -1,18 +1,27 @@
-"""
-levboard/main/main.py
-"""
-
 import itertools
-from concurrent import futures
-from datetime import date, datetime, timedelta
-from operator import itemgetter
-from typing import Iterator, Optional, Union
+import functools
+import operator
 
-from config import FIRST_DATE, LEVBOARD_SHEET
-from model import Album, AlbumEntry, Entry, Song, spotistats
+from datetime import date, timedelta, datetime
+from concurrent import futures
+from typing import Optional, Union, Iterator
+from operator import itemgetter
+
+from model import spotistats, Song, Entry, Album, AlbumEntry
 from model.spotistats import Week
-from spreadsheet import Spreadsheet
 from storage import SongUOW
+from config import GROUPBOARD_SHEET, GROUP_DATE
+from spreadsheet import Spreadsheet
+
+MEMBERS: set[str] = {
+    'lev',  # lev levsnasty
+    'edmo',  # ed winagn
+    'layomi',  # layomi _layomi_
+    'joejoe',  # joe joeislevitating
+    'thedoll',  # khia khiakardashian
+    'akonsleeze',  # akon onickaspet
+    'crisbehavior',  # cris crisbehavior
+}
 
 
 def load_week(
@@ -24,11 +33,23 @@ def load_week(
     print(
         f'-> [{next(started):03d}] collecting info for week ending {end_day.isoformat()}'
     )
-    songs = spotistats.songs_week(start_day, end_day, adjusted=True)
+
+    def getter(user):
+        songs = spotistats.songs_week(
+            start_day, end_day, user=user, adjusted=True
+        )
+        return Week(start_day=start_day, end_day=end_day, songs=songs)
+
+    with futures.ThreadPoolExecutor(
+        thread_name_prefix=f'{end_day.isoformat()}wk'
+    ) as executor:
+        weeks = list(executor.map(getter, MEMBERS))
+
     print(
         f'!! [{next(completed):03d}] finished collecting info for week ending {end_day.isoformat()}'
     )
-    return Week(start_day=start_day, end_day=end_day, songs=songs)
+
+    return functools.reduce(operator.add, weeks)
 
 
 def load_all_weeks(start_day: date) -> list[Week]:
@@ -200,7 +221,6 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
 
     return Song(song_id, name)
 
-
 def clear_entries(uow: SongUOW) -> None:
     print('Clearing previous entries.')
     with uow:
@@ -321,7 +341,6 @@ def update_song_sheet(
     new_rows.extend([['']] + rows)
     return new_rows
 
-
 def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
     album_plays = {}
 
@@ -341,7 +360,6 @@ def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
 
     return album_plays
 
-
 def create_album_chart(
     uow: SongUOW,
     positions: list[dict],
@@ -360,8 +378,8 @@ def create_album_chart(
 
     units.sort(key=itemgetter(1), reverse=True)
 
-    if len(units) > 20:
-        units = [i for i in units if i[1] >= units[19][1]]
+    if len(units) > 20: # CHANGE to 40 later
+        units = [i for i in units if i[1] >= units[19][1]] # CHANGE to 39 later
 
     actual_end = end_day - timedelta(days=1)
     new_rows = [
@@ -440,21 +458,20 @@ def create_album_chart(
     return new_rows
 
 
-def create_personal_charts():
-    uow = SongUOW()
-
+def create_group_charts():
+    uow = SongUOW(song_file = '../data/groupsongs.json', album_file = '../data/groupalbums.json')
     clear_entries(uow)
     start_time = datetime.now()
 
     week_counter = itertools.count(start=1)
     song_rows: list[list] = []
     album_rows: list[list] = []
-    weeks = load_all_weeks(FIRST_DATE)
+    weeks = load_all_weeks(GROUP_DATE)
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
         week_count = next(week_counter)
-        song_positions = [pos for pos in positions if pos['place'] <= 60]
+        song_positions = [pos for pos in positions if pos['place'] <= 60] # CHANGE to 100 later
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
@@ -503,7 +520,7 @@ def create_personal_charts():
     song_rows = start_song_rows + song_rows
     album_rows = start_album_rows + album_rows
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(GROUPBOARD_SHEET)
 
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
@@ -526,5 +543,6 @@ def create_personal_charts():
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
 
+   
 if __name__ == '__main__':
-    create_personal_charts()
+    create_group_charts()

@@ -13,7 +13,7 @@ Requests:
 
 import functools
 import time
-from collections import Counter
+from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime
 from typing import Final, Iterable, Optional, Union
@@ -27,6 +27,7 @@ MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
 MAX_ADJUSTED: Final[int] = 25
 BANNED_SONGS: Final[set[str]] = {'15225941'}
+
 
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
@@ -182,41 +183,65 @@ class Week(BaseModel):
         except AttributeError:
             return NotImplemented
 
+    @classmethod
+    def _merge_songs(cls, first: 'Week', second: 'Week') -> list[Position]:
+        song_ids = {pos.id for pos in first.songs} | {
+            pos.id for pos in second.songs
+        }
+
+        self_plays = defaultdict(int)
+        for pos in first.songs:
+            self_plays[pos.id] = pos.plays
+
+        other_plays = defaultdict(int)
+        for pos in second.songs:
+            other_plays[pos.id] = pos.plays
+
+        song_list = []
+        for song_id in song_ids:
+            song_list.append(
+                Position(
+                    id=song_id,
+                    plays=self_plays[song_id] + other_plays[song_id],
+                    place=0,
+                )
+            )
+
+        return song_list
+
     def __add__(self, other):
-        # adding supported when either both of the dates match or 
+        # adding supported when either both of the dates match or
         # when one of the end dates is the other's start date
 
         if not isinstance(other, type(self)):
             return NotImplemented
 
-        if self.start_day == other.start_day and self.end_day == other.start_day:
-            song_ids = {pos.id for pos in self.songs
-                       } | {pos.id for pos in other.songs}
-            
-            self_plays = defaultdict(int)
-            for pos in self.songs:
-                self_plays[pos.id] = pos.plays
+        if (
+            self.start_day == other.start_day
+            and self.end_day == other.end_day
+        ):
+            return Week(
+                start_day = self.start_day,
+                end_day = self.end_day,
+                songs = Week._merge_songs(self, other),
+            )
 
-            other_plays = defaultdict(int)
-            for pos in other.songs:
-                other_plays[pos.id] = pos.plays
-
-            
-            song_list = []
-            for song_id in song_ids:
-                song_list.append(
-                    spotistats.Position(
-                        id = song_id,
-                        plays = self_plays[song_id] + other_plays[song_id],
-                        place = 0
-                    )
-                )
-
-            week = type(self)(self.start_day, self.end_day, song_list)       
+        if self.start_day == other.end_day or self.end_day == other.start_day:
+            all_days = (
+                self.start_day,
+                self.end_day,
+                other.start_day,
+                other.end_day,
+            )
+            return Week(
+                start_day = min(all_days),
+                end_day = max(all_days),
+                songs = Week._merge_songs(self, other),
+            )
 
         raise ValueError(
-            "Can only add two weeks that are adjacent to each other or that "
-            " share the same start and end dates"
+            'Can only add two weeks that are adjacent to each other or that '
+            ' share the same start and end dates'
         )
 
 
@@ -271,7 +296,8 @@ def songs_week(
 
     info = [
         Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
-        for i in r.json()['items'] if str(i['track']['id']) not in BANNED_SONGS
+        for i in r.json()['items']
+        if str(i['track']['id']) not in BANNED_SONGS
     ]
 
     if not adjusted:

@@ -318,7 +318,7 @@ class Album:
         for song in self.songs:
             entry = song.get_entry(end_date)
             if entry:  # (is not None)
-                points += 61 - entry.place
+                points += 101 - entry.place
         return points
 
     def to_dict(self) -> dict:
