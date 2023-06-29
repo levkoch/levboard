@@ -12,7 +12,7 @@ from typing import Iterable, Iterator, Optional, Union
 
 from .cert import AlbumCert, SongCert
 from .entry import AlbumEntry
-from .song import Song
+from .song import SONG_CHART_LENGTH, Song
 
 
 class Album:
@@ -318,7 +318,7 @@ class Album:
         for song in self.songs:
             entry = song.get_entry(end_date)
             if entry:  # (is not None)
-                points += 101 - entry.place
+                points += (SONG_CHART_LENGTH + 1) - entry.place
         return points
 
     def to_dict(self) -> dict:

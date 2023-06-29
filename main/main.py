@@ -9,7 +9,7 @@ from operator import itemgetter
 from typing import Iterator, Optional, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
-from model import Album, AlbumEntry, Entry, Song, spotistats
+from model import Album, AlbumEntry, Entry, Song, spotistats, SONG_CHART_LENGTH
 from model.spotistats import Week
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -454,7 +454,7 @@ def create_personal_charts():
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
         week_count = next(week_counter)
-        song_positions = [pos for pos in positions if pos['place'] <= 60]
+        song_positions = [pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH]
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(

@@ -18,7 +18,7 @@ from .cert import SongCert
 from .entry import Entry
 
 MAX_ADJUSTED = 25
-
+SONG_CHART_LENGTH = 60
 
 class Song:
     """
@@ -209,7 +209,7 @@ class Song:
         """
         (`int`): The total number of points for the song.
         """
-        return sum(((101) - i.place) for i in self.entries)
+        return sum(((SONG_CHART_LENGTH + 1) - i.place) for i in self.entries)
 
     @property
     def units(self) -> int:
@@ -285,7 +285,7 @@ class Song:
         """Returns the song's points gained for some period."""
 
         return sum(
-            ((101) - i.place)
+            ((SONG_CHART_LENGTH + 1) - i.place)
             for i in self.entries
             if i.end >= start and i.end <= end
         )

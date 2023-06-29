@@ -7,7 +7,7 @@ from concurrent import futures
 from typing import Optional, Union, Iterator
 from operator import itemgetter
 
-from model import spotistats, Song, Entry, Album, AlbumEntry
+from model import spotistats, Song, Entry, Album, AlbumEntry, SONG_CHART_LENGTH
 from model.spotistats import Week
 from storage import SongUOW
 from config import GROUPBOARD_SHEET, GROUP_DATE
@@ -378,8 +378,8 @@ def create_album_chart(
 
     units.sort(key=itemgetter(1), reverse=True)
 
-    if len(units) > 20: # CHANGE to 40 later
-        units = [i for i in units if i[1] >= units[19][1]] # CHANGE to 39 later
+    if len(units) > 40: # CHANGE to 40 later
+        units = [i for i in units if i[1] >= units[39][1]] # CHANGE to 39 later
 
     actual_end = end_day - timedelta(days=1)
     new_rows = [
@@ -471,7 +471,7 @@ def create_group_charts():
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
         week_count = next(week_counter)
-        song_positions = [pos for pos in positions if pos['place'] <= 60] # CHANGE to 100 later
+        song_positions = [pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH]
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
