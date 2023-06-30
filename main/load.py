@@ -2,7 +2,7 @@ import itertools
 from concurrent import futures
 from typing import Optional
 
-from config import LEVBOARD_SHEET
+from config import LEVBOARD_SHEET, GROUPBOARD_SHEET
 from model import Album, Song
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -27,12 +27,12 @@ def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
     return uow.songs.get(ids[0])
 
 
-def load_songs(uow: SongUOW, verbose: bool = False):
+def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
     Loads the songs in the spreadsheet to the file
     """
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(sheet_link)
 
     values = sheet.get_range('Song Info!A2:B').get('values')
     if values is None:
@@ -63,10 +63,10 @@ def load_songs(uow: SongUOW, verbose: bool = False):
     uow.commit()
 
 
-def load_albums(uow: SongUOW, verbose: bool = False):
+def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(sheet_link)
     values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
     if values is None:
         raise IndexError("shouldn't happen but maybe range error")
@@ -119,5 +119,12 @@ def load_albums(uow: SongUOW, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    load_songs(uow, verbose=True)
-    load_albums(uow, verbose=True)
+    load_songs(uow, LEVBOARD_SHEET, verbose=True)
+    load_albums(uow, LEVBOARD_SHEET, verbose=True)
+
+    group_uow = SongUOW(
+        song_file='../data/groupsongs.json',
+        album_file='../data/groupalbums.json',
+    )
+    load_songs(group_uow, GROUPBOARD_SHEET, verbose=True)
+    load_albums(group_uow, GROUPBOARD_SHEET, verbose=True)

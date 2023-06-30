@@ -25,7 +25,9 @@ from pydantic import BaseModel, NonNegativeInt
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
-MAX_ADJUSTED: Final[int] = 25
+
+MAX_ADJUSTED: Final[int] = 10
+SONG_CHART_LENGTH = 100
 BANNED_SONGS: Final[set[str]] = {'15225941'}
 
 
@@ -216,14 +218,11 @@ class Week(BaseModel):
         if not isinstance(other, type(self)):
             return NotImplemented
 
-        if (
-            self.start_day == other.start_day
-            and self.end_day == other.end_day
-        ):
+        if self.start_day == other.start_day and self.end_day == other.end_day:
             return Week(
-                start_day = self.start_day,
-                end_day = self.end_day,
-                songs = Week._merge_songs(self, other),
+                start_day=self.start_day,
+                end_day=self.end_day,
+                songs=Week._merge_songs(self, other),
             )
 
         if self.start_day == other.end_day or self.end_day == other.start_day:
@@ -234,9 +233,9 @@ class Week(BaseModel):
                 other.end_day,
             )
             return Week(
-                start_day = min(all_days),
-                end_day = max(all_days),
-                songs = Week._merge_songs(self, other),
+                start_day=min(all_days),
+                end_day=max(all_days),
+                songs=Week._merge_songs(self, other),
             )
 
         raise ValueError(

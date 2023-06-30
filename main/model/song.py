@@ -16,9 +16,8 @@ from pydantic import ValidationError
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
+from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
-MAX_ADJUSTED = 25
-SONG_CHART_LENGTH = 60
 
 class Song:
     """

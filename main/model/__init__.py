@@ -18,7 +18,8 @@ Enums:
 from .album import Album
 from .cert import AlbumCert, CertType, SongCert
 from .entry import AlbumEntry, Entry
-from .song import Song, SONG_CHART_LENGTH
+from .song import Song
+from .spotistats import SONG_CHART_LENGTH
 
 # in alphabetical order
 __all__ = [
@@ -29,6 +30,6 @@ __all__ = [
     'Entry',
     'Entry',
     'Song',
-    'SONG_CHART_LENGTH'
+    'SONG_CHART_LENGTH',
     'SongCert',
 ]

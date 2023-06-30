@@ -221,6 +221,7 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
 
     return Song(song_id, name)
 
+
 def clear_entries(uow: SongUOW) -> None:
     print('Clearing previous entries.')
     with uow:
@@ -341,6 +342,7 @@ def update_song_sheet(
     new_rows.extend([['']] + rows)
     return new_rows
 
+
 def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
     album_plays = {}
 
@@ -360,6 +362,7 @@ def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
 
     return album_plays
 
+
 def create_album_chart(
     uow: SongUOW,
     positions: list[dict],
@@ -378,8 +381,10 @@ def create_album_chart(
 
     units.sort(key=itemgetter(1), reverse=True)
 
-    if len(units) > 40: # CHANGE to 40 later
-        units = [i for i in units if i[1] >= units[39][1]] # CHANGE to 39 later
+    if len(units) > 40:   # CHANGE to 40 later
+        units = [
+            i for i in units if i[1] >= units[39][1]
+        ]   # CHANGE to 39 later
 
     actual_end = end_day - timedelta(days=1)
     new_rows = [
@@ -459,7 +464,10 @@ def create_album_chart(
 
 
 def create_group_charts():
-    uow = SongUOW(song_file = '../data/groupsongs.json', album_file = '../data/groupalbums.json')
+    uow = SongUOW(
+        song_file='../data/groupsongs.json',
+        album_file='../data/groupalbums.json',
+    )
     clear_entries(uow)
     start_time = datetime.now()
 
@@ -471,7 +479,9 @@ def create_group_charts():
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
         week_count = next(week_counter)
-        song_positions = [pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH]
+        song_positions = [
+            pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH
+        ]
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
@@ -543,6 +553,6 @@ def create_group_charts():
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
 
-   
+
 if __name__ == '__main__':
     create_group_charts()

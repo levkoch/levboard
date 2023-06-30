@@ -454,7 +454,9 @@ def create_personal_charts():
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
         week_count = next(week_counter)
-        song_positions = [pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH]
+        song_positions = [
+            pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH
+        ]
         insert_entries(uow, song_positions, start_day, end_day)
         show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
@@ -525,6 +527,7 @@ def create_personal_charts():
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
+
 
 if __name__ == '__main__':
     create_personal_charts()
