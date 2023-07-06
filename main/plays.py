@@ -11,13 +11,15 @@ Functions:
     local storage.
 """
 
+from collections import defaultdict
 import datetime
-import itertools
+
 from concurrent import futures
 from operator import itemgetter
-from typing import Callable
+from typing import Any, Callable
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
+from model.spotistats import Week
 from model import Song, spotistats
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -41,9 +43,12 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
     return (song, song._plays)
 
 
+PLAY_UPDATER = Callable[[str, str], tuple[Song, int]]
+
+
 def create_song_play_updater(
     uow: SongUOW,
-) -> Callable[[str, str], tuple[Song, int]]:
+) -> PLAY_UPDATER:
     sheet = Spreadsheet(LEVBOARD_SHEET)
     songs_flagged_for_filtering = set()
     for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
@@ -100,7 +105,38 @@ def create_song_play_updater(
     return inner_update_song_plays
 
 
-def update_spreadsheet_plays(verbose=False):
+def create_song_play_updater_from_weeks(week: Week) -> PLAY_UPDATER:
+    """
+    Creates a song play updater function based on data collected from all
+    the weeks created by the main script comped together.
+    """
+
+    play_mapping = defaultdict(int)
+    play_mapping.update({pos.id: pos.plays for pos in week.songs})
+
+    print(f'{len(play_mapping)} songs loaded with streams.')
+
+    def inner_update_song_plays(
+        song_id: str, song_name: str
+    ) -> tuple[Song, int]:
+        song_id = song_id.replace(',', ', ').replace('  ', ' ')
+        if ', ' in song_id:
+            song = Song(song_id.split(', ')[0], song_name)
+            for alt in song_id.split(', ')[1:]:
+                song.add_alt(alt)
+        else:
+            song = Song(song_id, song_name)
+
+        plays = sum(play_mapping.get(track_id) for track_id in song.ids)
+        return (song, plays)
+
+    return inner_update_song_plays
+
+
+def update_spreadsheet_plays(
+    play_updater: PLAY_UPDATER,
+    verbose=False,
+):
     """
     Updates the song plays for the songs in the spreadsheet.
 
@@ -122,14 +158,12 @@ def update_spreadsheet_plays(verbose=False):
 
     final_songs: list[list] = []
 
-    create_song = create_song_play_updater(uow)
-
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
 
         for sheet_song in songs:
             song_name, song_id, _, _ = sheet_song
-            future = executor.submit(create_song, song_id, song_name)
+            future = executor.submit(play_updater, song_id, song_name)
             to_do.append(future)
 
         for count, future in enumerate(futures.as_completed(to_do), 1):
@@ -273,5 +307,7 @@ if __name__ == '__main__':
     # update_local_plays(uow, verbose=True)
 
     print('')
-    update_spreadsheet_plays(verbose=True)
+    update_spreadsheet_plays(
+        play_updater=create_song_play_updater(uow), verbose=True
+    )
     # load_year_end_songs(uow, verbose=True)

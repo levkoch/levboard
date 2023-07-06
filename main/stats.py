@@ -9,10 +9,10 @@ from typing import Final, Iterable, Optional
 
 from config import FIRST_DATE
 from model import Album, Song, SongCert, spotistats
+from model.spotistats import MAX_ADJUSTED
 from storage import SongUOW
 
 uow = SongUOW()
-MAX_ADJUSTED = 25
 
 
 def get_song_play_history(song: Song) -> list[spotistats.Listen]:
@@ -409,9 +409,9 @@ if __name__ == '__main__':
  
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
-    
+    """
     top_song_consecutive_weeks_infographic(uow)
-
+    """
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     """
@@ -425,6 +425,7 @@ if __name__ == '__main__':
     """
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
+    top_shortest_time_units_milestones_infograpic(uow, 6_000)
     """
     """
     for cert in CERTS[::-1]:
@@ -450,6 +451,7 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     """
 
+    """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -464,5 +466,4 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-
-    # display_all_songs(uow)
+    """

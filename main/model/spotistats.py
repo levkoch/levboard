@@ -26,8 +26,8 @@ USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
 MAX_ENTRIES: Final[int] = 10000
 
-MAX_ADJUSTED: Final[int] = 10
-SONG_CHART_LENGTH = 100
+MAX_ADJUSTED: Final[int] = 25
+SONG_CHART_LENGTH = 60
 BANNED_SONGS: Final[set[str]] = {'15225941'}
 
 

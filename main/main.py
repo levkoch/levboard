@@ -2,10 +2,12 @@
 levboard/main/main.py
 """
 
+import functools
 import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
+import operator
 from typing import Iterator, Optional, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
@@ -13,6 +15,7 @@ from model import Album, AlbumEntry, Entry, Song, spotistats, SONG_CHART_LENGTH
 from model.spotistats import Week
 from spreadsheet import Spreadsheet
 from storage import SongUOW
+from plays import update_spreadsheet_plays, create_song_play_updater_from_weeks
 
 
 def load_week(
@@ -528,6 +531,11 @@ def create_personal_charts():
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
 
+    return functools.reduce(operator.add, weeks)
+
 
 if __name__ == '__main__':
-    create_personal_charts()
+    weeks = create_personal_charts()
+    update_spreadsheet_plays(
+        play_updater=create_song_play_updater_from_weeks(weeks), verbose=True
+    )

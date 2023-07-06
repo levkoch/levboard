@@ -121,7 +121,7 @@ if __name__ == '__main__':
     uow = SongUOW()
     load_songs(uow, LEVBOARD_SHEET, verbose=True)
     load_albums(uow, LEVBOARD_SHEET, verbose=True)
-
+    quit()
     group_uow = SongUOW(
         song_file='../data/groupsongs.json',
         album_file='../data/groupalbums.json',

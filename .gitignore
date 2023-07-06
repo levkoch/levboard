@@ -129,6 +129,10 @@ dmypy.json
 .pyre/
 
 # other things
-info.txt
-info.csv
-.data/
+main/info.txt
+main/info.csv
+
+data/albums.json
+data/songs.json
+data/groupalbums.json
+data/groupsongs.json
