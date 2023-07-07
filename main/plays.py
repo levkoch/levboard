@@ -48,8 +48,9 @@ PLAY_UPDATER = Callable[[str, str], tuple[Song, int]]
 
 def create_song_play_updater(
     uow: SongUOW,
+    sheet_id: str
 ) -> PLAY_UPDATER:
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(sheet_id)
     songs_flagged_for_filtering = set()
     for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
         if (not row) or (row[0] == 'Title'):
@@ -135,6 +136,7 @@ def create_song_play_updater_from_weeks(week: Week) -> PLAY_UPDATER:
 
 def update_spreadsheet_plays(
     play_updater: PLAY_UPDATER,
+    sheet_id: str,
     verbose=False,
 ):
     """
@@ -145,7 +147,7 @@ def update_spreadsheet_plays(
         Defaults to `False`.
     """
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(sheet_id)
 
     # check if first element isn't blank so that it gets rid of empty rows.
     songs: list[list] = [
@@ -229,7 +231,7 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
         print(f'Updated {song_amt} local song plays.')
 
 
-def load_year_end_songs(uow: SongUOW, verbose: bool = False):
+def load_year_end_songs(uow: SongUOW, sheet_id: str, verbose: bool = False):
     """
     Updates the spreadsheet with the correct year-end songs.
 
@@ -238,7 +240,7 @@ def load_year_end_songs(uow: SongUOW, verbose: bool = False):
     not 40 minutes as the program sequentially gets play data for 1,600+ songs.
     """
 
-    sheet = Spreadsheet(LEVBOARD_SHEET)
+    sheet = Spreadsheet(sheet_id)
     song_rows: list[list] = []
 
     current_year = datetime.date.today().year
@@ -308,6 +310,6 @@ if __name__ == '__main__':
 
     print('')
     update_spreadsheet_plays(
-        play_updater=create_song_play_updater(uow), verbose=True
+        create_song_play_updater(uow, LEVBOARD_SHEET), LEVBOARD_SHEET, verbose=True
     )
-    # load_year_end_songs(uow, verbose=True)
+    # load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)

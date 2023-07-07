@@ -7,8 +7,10 @@ from concurrent import futures
 from typing import Optional, Union, Iterator
 from operator import itemgetter
 
+
 from model import spotistats, Song, Entry, Album, AlbumEntry, SONG_CHART_LENGTH
 from model.spotistats import Week
+from plays import create_song_play_updater_from_weeks, update_spreadsheet_plays
 from storage import SongUOW
 from config import GROUPBOARD_SHEET, GROUP_DATE
 from spreadsheet import Spreadsheet
@@ -552,7 +554,12 @@ def create_group_charts():
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
+    return functools.reduce(operator.add, weeks)
 
 
 if __name__ == '__main__':
-    create_group_charts()
+    weeks = create_group_charts()
+    update_spreadsheet_plays(
+        create_song_play_updater_from_weeks(weeks), GROUPBOARD_SHEET, verbose=True
+    )
+

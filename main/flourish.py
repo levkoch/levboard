@@ -198,11 +198,11 @@ def flourish_songs():
 
 if __name__ == '__main__':
     album_sellings = album_data_generator(get_album_units)
-    # flourish_albums(album_sellings, (lambda i: i.units >= 10000))
+    flourish_albums(album_sellings, (lambda i: i.units >= 10000))
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)
-    flourish_albums(album_con_weeks, (lambda i: i.get_con_weeks() >= 10))
+    # flourish_albums(album_con_weeks, (lambda i: i.get_con_weeks() >= 10))
     album_chart_weeks = album_data_generator(get_album_weeks)
     # flourish_albums(album_chart_weeks, (lambda i: i.weeks > 10))
     album_top_fives = album_data_generator(get_album_top_five_weeks)

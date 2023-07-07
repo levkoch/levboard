@@ -537,5 +537,5 @@ def create_personal_charts():
 if __name__ == '__main__':
     weeks = create_personal_charts()
     update_spreadsheet_plays(
-        play_updater=create_song_play_updater_from_weeks(weeks), verbose=True
+        create_song_play_updater_from_weeks(weeks), LEVBOARD_SHEET, verbose=True
     )
