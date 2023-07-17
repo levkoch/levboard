@@ -399,7 +399,7 @@ def create_album_chart(
     print(f'({week_count}) Albums chart for week of {end_day.isoformat()}.')
     print('')
     print(
-        f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PK  | UTS | PLS | PTS'
+        f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC  | PK  | UTS | PLS | PTS'
     )
 
     for (album, album_units) in units:
@@ -417,7 +417,7 @@ def create_album_chart(
 
         print(
             f'{movement:>3} | {album.title:<45} | {album.str_artists:<45}'
-            f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<2}"
+            f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<3}"
             f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
         )
 
@@ -536,6 +536,9 @@ def create_personal_charts():
 
 if __name__ == '__main__':
     weeks = create_personal_charts()
+    quit()
     update_spreadsheet_plays(
-        create_song_play_updater_from_weeks(weeks), LEVBOARD_SHEET, verbose=True
+        create_song_play_updater_from_weeks(weeks),
+        LEVBOARD_SHEET,
+        verbose=True,
     )

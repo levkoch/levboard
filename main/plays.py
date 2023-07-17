@@ -46,10 +46,7 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
 PLAY_UPDATER = Callable[[str, str], tuple[Song, int]]
 
 
-def create_song_play_updater(
-    uow: SongUOW,
-    sheet_id: str
-) -> PLAY_UPDATER:
+def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
     sheet = Spreadsheet(sheet_id)
     songs_flagged_for_filtering = set()
     for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
@@ -310,6 +307,8 @@ if __name__ == '__main__':
 
     print('')
     update_spreadsheet_plays(
-        create_song_play_updater(uow, LEVBOARD_SHEET), LEVBOARD_SHEET, verbose=True
+        create_song_play_updater(uow, LEVBOARD_SHEET),
+        LEVBOARD_SHEET,
+        verbose=True,
     )
     # load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)

@@ -5,13 +5,13 @@ Contains the central Song model.
 """
 
 import itertools
+
 from collections import Counter
 from copy import deepcopy
 from datetime import date
 from operator import attrgetter
-from typing import Iterable, Iterator, Optional
-
 from pydantic import ValidationError
+from typing import Iterable, Iterator, Optional
 
 from . import spotistats
 from .cert import SongCert

@@ -22,7 +22,6 @@ MEMBERS: set[str] = {
     'joejoe',  # joe joeislevitating
     'thedoll',  # khia khiakardashian
     'akonsleeze',  # akon onickaspet
-    'crisbehavior',  # cris crisbehavior
 }
 
 
@@ -560,6 +559,7 @@ def create_group_charts():
 if __name__ == '__main__':
     weeks = create_group_charts()
     update_spreadsheet_plays(
-        create_song_play_updater_from_weeks(weeks), GROUPBOARD_SHEET, verbose=True
+        create_song_play_updater_from_weeks(weeks),
+        GROUPBOARD_SHEET,
+        verbose=True,
     )
-

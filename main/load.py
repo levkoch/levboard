@@ -118,16 +118,15 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
 
 
 if __name__ == '__main__':
-
-    """
     uow = SongUOW()
     load_songs(uow, LEVBOARD_SHEET, verbose=True)
     load_albums(uow, LEVBOARD_SHEET, verbose=True)
+
     """
-  
     group_uow = SongUOW(
         song_file='../data/groupsongs.json',
         album_file='../data/groupalbums.json',
     )
     load_songs(group_uow, GROUPBOARD_SHEET, verbose=True)
     load_albums(group_uow, GROUPBOARD_SHEET, verbose=True)
+    """

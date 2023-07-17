@@ -6,9 +6,6 @@ Where the two entry types are held, for albums and songs.
 Data Classes:
 * SongEntry: An entry for a single `Song`.
 * AlbumEntry: An entry for a single `Album`.
-
-Other Classes:
-* _BaseEntry: The base class for both entry types. Do NOT construct.
 """
 
 from datetime import date
