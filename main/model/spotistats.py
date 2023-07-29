@@ -259,6 +259,16 @@ def artist_tracks(artist_id: str) -> list[str]:
     return [str(i['id']) for i in info['items'] if i['durationMs'] >= 30_000]
 
 
+def first_listen(user: USER_NAME) -> date:
+    address = (
+        f'http://api.stats.fm/api/v1/users/{user}/streams?limit=1&order=asc'
+    )
+    info = _get_address(address).json()
+    return datetime.strptime(
+        info['items'][0]['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
+    ).date()
+
+
 # this gets called by `main` in two places with the same values, so we cache
 # the last result here to not have to make the multiple API call operator
 # multiple times.
@@ -292,10 +302,23 @@ def songs_week(
     )
 
     r = _get_address(address)
+    items: list[dict] = r.json()['items']
+
+    if len(items) == 1000:   # filled in everything
+        offset = 1000
+        while len(items) % 1000 == 0:
+            address = (
+                f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
+                f'?after={after}&before={before}'
+                f'&limit=1000&offset={offset}'
+            )
+            r = _get_address(address)
+            items.extend(r.json()['items'])
+            offset += 1000
 
     info = [
         Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
-        for i in r.json()['items']
+        for i in items
         if str(i['track']['id']) not in BANNED_SONGS
     ]
 

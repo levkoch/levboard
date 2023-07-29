@@ -16,6 +16,7 @@ import datetime
 
 from concurrent import futures
 from operator import itemgetter
+from tqdm import tqdm
 from typing import Any, Callable
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
@@ -43,7 +44,7 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
     return (song, song._plays)
 
 
-PLAY_UPDATER = Callable[[str, str], tuple[Song, int]]
+PLAY_UPDATER = Callable[..., tuple[Song, int]]
 
 
 def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
@@ -55,7 +56,6 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
         if int(row[6]) >= MAX_ADJUSTED:
             songs_flagged_for_filtering.add(uow.songs.get_by_name(row[0]))
 
-    print(f'{len(songs_flagged_for_filtering)} songs flagged for filtering')
     saved_plays = spotistats.songs_week(
         after=datetime.date(2000, 1, 1), before=datetime.date(3000, 1, 1)
     )
@@ -65,12 +65,19 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
 
     saved_plays_ids = [pos.id for pos in saved_plays]
     saved_plays_threshold = min(pos.plays for pos in saved_plays)
+    print(
+        f'{len(songs_flagged_for_filtering)} songs flagged for filtering'
+        + f' | Plays threshold is {saved_plays_threshold} plays.'
+    )
 
-    print(f'Plays threshold is {saved_plays_threshold} plays.')
+    plays_from_statsfm = 0
+    plays_from_saved = 0
 
     def inner_update_song_plays(
         song_id: str, song_name: str
     ) -> tuple[Song, int]:
+        nonlocal plays_from_saved, plays_from_statsfm
+
         song_id = song_id.replace(',', ', ').replace('  ', ' ')
         if ', ' in song_id:
             song = Song(song_id.split(', ')[0], song_name)
@@ -89,15 +96,21 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
                 plays += next(
                     pos.plays for pos in saved_plays if pos.id == track_id
                 )
+                plays_from_saved += 1
             else:
                 plays += spotistats.song_plays(
                     track_id, adjusted=(saved_plays_threshold > MAX_ADJUSTED)
                 )
+                plays_from_statsfm += 1
                 # adjust plays if this id could have somehow been adjusted
                 # and also not in the top 1 thousand songs of all time
                 # otherwise if all other song ids have less streams than the
                 # adjusted limit, save time by not having to adjust
 
+        print(
+            (14 * ' ')
+            + f'{plays_from_saved} saved plays used & {plays_from_statsfm} retrieved'
+        )
         return (song, plays)
 
     return inner_update_song_plays
