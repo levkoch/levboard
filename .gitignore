@@ -136,3 +136,4 @@ data/albums.json
 data/songs.json
 data/groupalbums.json
 data/groupsongs.json
+token.env
