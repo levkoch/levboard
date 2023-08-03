@@ -15,9 +15,10 @@ from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
 from typing import Optional
+from app import config
 
-from main.model import Entry, Song, config, spotistats
-from main.storage import SongUOW
+from app.model import Entry, Song, spotistats
+from app.storage import SongUOW
 
 
 def load_week(start_day: date, end_day: date):

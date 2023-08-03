@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from ..main.model import Entry
+from ..app.model import Entry
 
 
 @pytest.mark.parametrize(

@@ -15,10 +15,10 @@ Abstract Classes:
 """
 
 import operator
+
 from abc import ABC, abstractmethod
 from enum import Enum
 from typing import Any, Callable
-
 from pydantic import NonNegativeInt
 
 

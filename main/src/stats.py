@@ -4,8 +4,8 @@ from concurrent import futures
 from datetime import datetime, timedelta
 from typing import Iterator, Optional
 
-from main.model import Song, SongCert, spotistats
-from main.storage import SongUOW
+from app.model import Song, SongCert, spotistats
+from app.storage import SongUOW
 
 uow = SongUOW()
 

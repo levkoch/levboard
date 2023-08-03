@@ -4,15 +4,19 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
+import itertools
+
+from collections import Counter
 from copy import deepcopy
 from datetime import date
-from typing import Iterable, Optional
-
+from operator import attrgetter
 from pydantic import ValidationError
+from typing import Iterable, Iterator, Optional
 
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
+from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
 
 class Song:
@@ -62,11 +66,14 @@ class Song:
         *,
         load: bool = True,
     ):
-        self.id: str = song_id
+        self.main_id: str = song_id
         self.name: str = song_name
-        self.alt_ids: list[str] = []
-        self.plays: int = 0
-        self._entries: list[Entry] = []
+        self.ids: set[str] = {
+            song_id,
+        }
+        self._plays: int = 0
+        self._entries: dict[date, Entry] = {}
+        self.__listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
         # declared here for cpython reasons
@@ -83,7 +90,7 @@ class Song:
         current play count.
         """
 
-        info = spotistats.song_info(self.id)
+        info = spotistats.song_info(self.main_id)
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
@@ -92,19 +99,22 @@ class Song:
         if self.name is None:
             self.name = self.official_name
 
+        if self.__listens is None:
+            self._populate_listens()
+
     def __hash__(self) -> int:
-        return hash((self.name, self.id))
+        return hash((self.name, tuple(self.ids)))
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
-            return self.id == other.id
+            return self.ids == other.ids
         return NotImplemented
 
     def __str__(self) -> str:
         return f'{self.name} by {self.str_artists}'
 
     def __repr__(self) -> str:
-        return f'Song({self.id!r}, {self.name!r})'
+        return f'Song({self.main_id!r}, {self.name!r})'
 
     def __format__(self, fmt: str) -> str:
         # flags are "o" and "s"
@@ -115,8 +125,8 @@ class Song:
             return str(self)
 
         if fmt[-1] not in ('o', 's'):
-            # format flag not passed in (hopefully)
-            # so probably was like some sort of str formatting
+            # format flag not passed in so probably was some sort of str
+            # formatting. will throw an error if it doens't work for it
             return format(str(self), fmt)
 
         if len(fmt) != 1:
@@ -134,10 +144,13 @@ class Song:
             ]
             return f'{self.official_name} by {self._combine_artists(artists)}'
 
+        # something didn't work correctly
         raise ValueError(
-            'Incompatible string formatting. Only "o" and "s" are valid '
-            'indicators, along with any string formatting present BEFORE '
-            'them (aka "5<o")'
+            'Improper Song formatting. Only the `"o"` and `"s"` flags are '
+            'allowed, at the END of any string formatting you want to do '
+            'with the string afterwards. (Such as "12<o" will find the '
+            'official song name and then left align it in 12 characters '
+            'of space.)'
         )
 
     def _combine_artists(self, iter: Iterable[str]) -> str:
@@ -147,6 +160,12 @@ class Song:
         if len(artists) == 2:
             return ' & '.join(artists)
         return f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
+
+    @property
+    def plays(self) -> int:
+        if self.__listens is None:
+            return self._plays
+        return len(self.__listens)
 
     @property
     def str_artists(self) -> str:
@@ -189,7 +208,7 @@ class Song:
         """
         (`int`): The total number of points for the song.
         """
-        return sum((61 - i.place) for i in self.entries)
+        return sum(((SONG_CHART_LENGTH + 1) - i.place) for i in self.entries)
 
     @property
     def units(self) -> int:
@@ -206,7 +225,7 @@ class Song:
         song has charted.
         """
 
-        return deepcopy(self._entries)
+        return sorted(self._entries.values(), key=attrgetter('end'))
 
     @property
     def cert(self) -> SongCert:
@@ -216,17 +235,73 @@ class Song:
 
         return SongCert.from_units(self.units)
 
-    def period_plays(self, start: date, end: date) -> int:
+    def _populate_listens(self) -> None:
+        """Adds listens to the song."""
+
+        self.__listens = list(
+            itertools.chain.from_iterable(
+                spotistats.song_play_history(i) for i in self.ids
+            )
+        )
+
+        if len(self.ids) > 1:
+            self._update_version()
+
+    def _update_version(self):
+        common = Counter(l.played_from for l in self.__listens)
+        self.main_id = common.most_common(1)[0][0]
+        self._load_info()
+
+    def period_plays(self, start: date, end: date, adjusted=True) -> int:
         """
         Returns the song's plays for some period.
         """
 
-        plays = spotistats.song_plays(self.id, after=start, before=end)
+        if self.__listens is None:
+            self._populate_listens()
 
-        for alt_id in self.alt_ids:
-            plays += spotistats.song_plays(alt_id, after=start, before=end)
+        listens = (
+            listen
+            for listen in self.__listens
+            if listen.finished_playing.date() >= start
+            and listen.finished_playing.date() <= end
+        )
 
-        return plays
+        if not adjusted:
+            # we don't have to filter out any days that have
+            # too many streams, so simple route
+            return len(list(listens))
+
+        play_dates: Iterator[date] = (
+            listen.finished_playing.date() for listen in listens
+        )
+
+        date_counter = Counter(play_dates)
+
+        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+
+    def period_points(self, start: date, end: date) -> int:
+        """Returns the song's points gained for some period."""
+
+        return sum(
+            ((SONG_CHART_LENGTH + 1) - i.place)
+            for i in self.entries
+            if i.end >= start and i.end <= end
+        )
+
+    def period_weeks(self, start: date, end: date) -> int:
+        return len(
+            [w for w in self.entries if w.start >= start and w.end <= end]
+        )
+
+    def period_units(self, start: date, end: date, adjusted=True) -> int:
+        """
+        Returns the song's units gained for some period.
+        """
+
+        return self.period_plays(
+            start, end, adjusted
+        ) * 2 + self.period_points(start, end)
 
     def add_entry(self, entry: Entry) -> None:
         """
@@ -236,18 +311,11 @@ class Song:
             entry (`Entry`): The entry to add to the song.
         """
 
-        if entry.end in [i.end for i in self._entries]:
-            if entry.plays > next(
-                (i.plays for i in self._entries if i.end == entry.end)
-            ):
-                self._entries = [
-                    i for i in self._entries if i.end != entry.end
-                ]
-                self._entries.append(entry)
+        if entry.end in self._entries:
+            if entry.plays > self.get_entry(entry.end).plays:
+                self._entries[entry.end] = entry
         else:
-            self._entries.append(entry)
-
-        self._entries.sort(key=lambda i: i.end)  # from earliest to latest
+            self._entries[entry.end] = entry
 
     def get_entry(self, end_date: date) -> Optional[Entry]:
         """
@@ -261,17 +329,46 @@ class Song:
             or `None` otherwise.
         """
 
-        return next((i for i in self._entries if i.end == end_date), None)
+        return self._entries.get(end_date)
 
-    def update_plays(self) -> None:
+    def update_plays(self, adjusted=True) -> None:
         """
         Updates the lifetime plays for the song.
+        The `adjusted` flag marks if play data will be filtered or not.
         """
 
-        self.plays = spotistats.song_plays(self.id)
+        if adjusted:
+            self._plays = self.adjusted_plays()
+            return
 
-        for alt_id in self.alt_ids:
-            self.plays += spotistats.song_plays(alt_id)
+        if self.__listens is None:
+            self._populate_listens()
+
+        self._plays = len(self.__listens)
+
+    def adjusted_plays(self) -> int:
+        """
+        Returns the adjusted plays for a song. Adjusted plays count all
+        streams, unless a song got over a benchmark within a day, so it
+        will count up to that mark and no more.
+        """
+
+        self._populate_listens()
+
+        if self.plays <= MAX_ADJUSTED:
+            return self.plays
+
+        play_dates: Iterable[date] = (
+            listen.finished_playing.date() for listen in self.__listens
+        )
+        date_counter = Counter(play_dates)
+
+        total = 0
+
+        for count in date_counter.values():
+            total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
+
+        return total
 
     def add_alt(self, alt_id: str) -> None:
         """
@@ -280,8 +377,8 @@ class Song:
         Spotistats system, such as remastered versions.
         """
 
-        if alt_id not in self.alt_ids:
-            self.alt_ids.append(alt_id)
+        if alt_id not in self.ids:
+            self.ids.add(alt_id)
 
     def get_weeks(self, top: Optional[int] = None) -> int:
         """
@@ -329,6 +426,33 @@ class Song:
 
         return longest
 
+    def all_consecutive(self) -> list[tuple[date, int]]:
+        entries = self.entries
+
+        if len(entries) == 0:
+            return []
+
+        consecutive = []
+        current_entry = entries.pop(0)
+
+        while entries:
+            starting_entry = current_entry
+            streak = 1
+            next_entry = entries.pop(0)
+
+            while current_entry.end == next_entry.start:
+                streak += 1
+                current_entry = next_entry
+                try:
+                    next_entry = entries.pop(0)
+                except IndexError:
+                    break
+
+            consecutive.append((starting_entry.end, streak))
+            current_entry = next_entry
+
+        return consecutive
+
     def to_dict(self) -> dict:
         """
         Collects the song as a simple dictionary object for storing.
@@ -339,12 +463,12 @@ class Song:
 
         return {
             'name': self.name,
-            'id': self.id,
-            'alt_ids': self.alt_ids,
+            'main_id': self.main_id,
+            'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
             'plays': self.plays,
-            'entries': [i.to_dict() for i in self._entries],
+            'entries': [i.to_dict() for i in self.entries],
         }
 
     @classmethod
@@ -363,16 +487,20 @@ class Song:
         """
 
         try:
-            new = cls(song_id=info['id'], song_name=info['name'], load=False)
+            new = cls(
+                song_id=info['main_id'], song_name=info['name'], load=False
+            )
 
-            alts = info.get('alt_ids')
-            new.alt_ids = alts if alts is not None else []
+            alts = info.get('ids')
+            new.ids = set(alts) if alts is not None else set()
 
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
-            new.plays = int(info['plays'])
-            new._entries = [Entry(**i) for i in info['entries']]
-            new._entries.sort(key=lambda i: i.end)  # from earliest to latest
+            new._plays = int(info['plays'])
+            new._entries = {
+                date.fromisoformat(i['end']): Entry(**i)
+                for i in info['entries']
+            }
 
         except (KeyError, AttributeError, ValidationError) as exc:
             raise ValueError(

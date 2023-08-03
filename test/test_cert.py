@@ -1,7 +1,7 @@
 import pytest
 
-from ..main.model import AlbumCert, CertType, SongCert
-from ..main.model.cert import AbstractCert
+from ..app.model import AlbumCert, CertType, SongCert
+from ..app.model.cert import AbstractCert
 
 
 # comparison mechanism is in `BaseCert` so we only need

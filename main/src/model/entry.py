@@ -5,16 +5,11 @@ Where the two entry types are held, for albums and songs.
 
 Data Classes:
 * SongEntry: An entry for a single `Song`.
-* AlbumEntry: An entry for a single `Album`.
-
-Other Classes:
-* _BaseEntry: The base class for both entry types. Do NOT construct.
 """
 
 from datetime import date
 from typing import Union
-
-from pydantic import BaseModel, PositiveInt, conint, validator
+from pydantic import BaseModel, NonNegativeInt, PositiveInt, validator
 
 
 class _BaseEntry(BaseModel):
@@ -55,17 +50,21 @@ class Entry(_BaseEntry):
     * end (`datetime.date`): The date that the week's entry ended. Alsoc accepts
         and ISO date string.
     * plays (`int`): The plays the song got that week. Will be greater than `1`.
+    * points (`int`): The number of points that song got that week. Will be
+        greater than `1`.
     * place (`int`): The chart position attained by that song. A positive integer.
 
     Methods:
     * to_dict (`dict` method): Collects the Entry into a dictionary.
     """
 
-    plays: conint(gt=1)
+    plays: NonNegativeInt
+    points: NonNegativeInt
 
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""
 
         info = super().to_dict()
         info['plays'] = self.plays
+        info['points'] = self.points
         return info
