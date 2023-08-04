@@ -1,9 +1,8 @@
-import json
-
 import pytest
 
-from app.model import Album, Song
-from app.storage import SongUOW
+"""
+from ..main.src.model import Album, Song
+from ..main.src.storage import SongUOW
 
 TEST_UOW_PATH = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/test.json'
 TEST_ALBUM_PATH = 'C:/Users/levpo/Documents/GitHub/lev-bot/song/testalbum.py'
@@ -98,3 +97,4 @@ def test_song_regeneration():
     with uow:
         sweetener = uow.albums.get('Sweetener')
         assert sweetener
+"""

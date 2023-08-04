@@ -2,24 +2,25 @@ from datetime import date
 
 import pytest
 
-from ..app.model import Entry
+from ..main.src.model import Entry
 
 
 @pytest.mark.parametrize(
-    ('start', 'end', 'plays', 'place'),
+    ('start', 'end', 'plays', 'points', 'place'),
     [
-        (date(2000, 1, 1), date(2000, 1, 7), 20, 13),
-        ('2000-01-01', '2000-01-07', 20, 13),
-        (date(2000, 1, 1), date(2000, 1, 7), 20.0, 13.0),
+        (date(2000, 1, 1), date(2000, 1, 7), 20, 200.0, 13),
+        ('2000-01-01', '2000-01-07', 20, 200, 13),
+        (date(2000, 1, 1), date(2000, 1, 7), 20.0, 200, 13.0),
     ],
 )
-def test_creating_entry_types(start, end, plays, place):
+def test_creating_entry_types(start, end, plays, points, place):
     entry = Entry(**locals())
 
     type_tuples = [
         (entry.start, date),
         (entry.end, date),
         (entry.plays, int),
+        (entry.points, int),
         (entry.place, int),
     ]
 
@@ -28,14 +29,14 @@ def test_creating_entry_types(start, end, plays, place):
 
 
 @pytest.mark.parametrize(
-    ('start', 'end', 'plays', 'place'),
+    ('start', 'end', 'plays', 'points', 'place'),
     [
-        (date(2000, 1, 1), date(2000, 1, 7), 20, 13),
-        ('2000-01-01', '2000-01-07', 20, 13),
-        (date(2000, 1, 1), date(2000, 1, 7), 20.0, 13.0),
+        (date(2000, 1, 1), date(2000, 1, 7), 20, 200, 13),
+        ('2000-01-01', '2000-01-07', 20, 200.0, 13),
+        (date(2000, 1, 1), date(2000, 1, 7), 20.0, 200, 13.0),
     ],
 )
-def test_creating_entry_values(start, end, plays, place):
+def test_creating_entry_values(start, end, plays, points, place):
     entry = Entry(**locals())
 
     type_tuples = [
@@ -52,8 +53,8 @@ def test_creating_entry_values(start, end, plays, place):
 @pytest.mark.parametrize(
     ('info'),
     [
-        {'start': '2000-01-01', 'end': '2000-01-07', 'plays': 30, 'place': 13},
-        {'start': '2013-04-12', 'end': '2013-04-19', 'plays': 34, 'place': 5},
+        {'start': '2000-01-01', 'end': '2000-01-07', 'plays': 30, 'points': 300, 'place': 13},
+        {'start': '2013-04-12', 'end': '2013-04-19', 'plays': 34, 'points': 340, 'place': 5},
     ],
 )
 def test_creating_dict(info: dict):

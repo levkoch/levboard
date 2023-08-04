@@ -1,10 +1,5 @@
 """
-levboard/main.py
-
-The central file to run your charts creation program with.
-Invoke with just `python main.py` or specify your username
-with `python main.py lev` to set a new username (cached so
-you don't have to do this every time.)
+main/src/charts.py
 """
 
 import csv
@@ -15,10 +10,13 @@ from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
 from typing import Optional
-from app import config
 
-from app.model import Entry, Song, spotistats
-from app.storage import SongUOW
+from .storage import Process
+from .model import Entry, Song, spotistats
+
+
+def create_song_chart(process: Process) -> None:
+    return {}
 
 
 def load_week(start_day: date, end_day: date):

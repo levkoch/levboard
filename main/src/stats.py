@@ -4,10 +4,13 @@ from concurrent import futures
 from datetime import datetime, timedelta
 from typing import Iterator, Optional
 
-from app.model import Song, SongCert, spotistats
-from app.storage import SongUOW
+from main.src.model import Song, SongCert
+
+from .model import spotistats
+from .storage import SongUOW
 
 uow = SongUOW()
+
 
 
 def get_song_play_history(song: Song) -> Iterator[dict]:

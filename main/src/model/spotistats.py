@@ -29,11 +29,12 @@ MAX_ADJUSTED: Final[int] = 25
 SONG_CHART_LENGTH = 60
 
 
-class MissingStreamsException(Exception): 
+class MissingStreamsException(Exception):
     """
     An exception for when someone needs to have their streams imported
     for this to work.
     """
+
 
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
@@ -69,9 +70,9 @@ def _timestamp_check(day: Union[date, int]) -> int:
     return day
 
 
-def get_first_stream_date() -> date:
+def get_first_stream_date(user: str) -> date:
     r = _get_address(
-        f'http://api.stats.fm/api/v1/users/{USER_NAME}/streams?limit=1&order=asc'
+        f'http://api.stats.fm/api/v1/users/{user}/streams?limit=1&order=asc'
     )
     if not len(r['items']):
         raise MissingStreamsException('Must have stats.fm plus for this.')
@@ -86,9 +87,9 @@ def song_info(song_id: str) -> dict:
     return r.json()['item']
 
 
-def top_artists() -> list[tuple[str, str]]:
+def top_artists(user: str) -> list[tuple[str, str]]:
     r = _get_address(
-        f'http://api.stats.fm/api/v1/users/{USER_NAME}/top/artists?limit=1000'
+        f'http://api.stats.fm/api/v1/users/{user}/top/artists?limit=1000'
     )
     return [
         (artist['artist']['name'], artist['artist']['id'])
@@ -97,9 +98,9 @@ def top_artists() -> list[tuple[str, str]]:
 
 
 def song_plays(
+    user: str,
     song_id: str,
     *,
-    user: str = USER_NAME,
     after: Union[int, date] = 0,
     before: Union[int, date] = 0,
     adjusted: bool = False,
@@ -113,7 +114,7 @@ def song_plays(
     """
 
     if adjusted:
-        return _adjusted_song_plays(song_id, user, after, before)
+        return _adjusted_song_plays(user, song_id, after, before)
 
     after = _timestamp_check(after)
     before = _timestamp_check(before)
@@ -141,8 +142,8 @@ def song_plays(
 
 
 def _adjusted_song_plays(
-    song_id: str,
     user: str,
+    song_id: str,
     after: Union[date, int, None],
     before: Union[date, int, None],
 ) -> int:
@@ -279,10 +280,9 @@ def artist_tracks(artist_id: str) -> list[str]:
 # multiple times.
 @functools.lru_cache(maxsize=1)
 def songs_week(
+    user: str,
     after: Union[int, date],
     before: Union[int, date],
-    *,
-    user: str = USER_NAME,
     adjusted: bool = False,
 ) -> list[Position]:
     """
@@ -302,15 +302,29 @@ def songs_week(
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
-        f'?after={after}&before={before}'
-        '&limit=1000'  # max limit for this request is 1000 songs and not the 10,000 like others have
+        f'?after={after}&before={before}&limit=1000'  
+        # max limit for this request is 1000 songs and not the 10,000 like others have
     )
 
     r = _get_address(address)
+    items: list[dict] = r.json()['items']
+
+    if len(items) == 1000:   # if filled in everything
+        offset = 1000
+        while len(items) % 1000 == 0:
+            address = (
+                f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
+                f'?after={after}&before={before}'
+                f'&limit=1000&offset={offset}'
+            )
+            r = _get_address(address)
+            items.extend(r.json()['items'])
+            offset += 1000
 
     info = [
         Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
-        for i in r.json()['items']
+        for i in items
+        if str(i['track']['id'])
     ]
 
     if not adjusted:
@@ -354,18 +368,17 @@ class Listen(BaseModel):
 
 def song_play_history(
     song_id: str,
+    user: str,
     *,
-    user: str = USER_NAME,
     after: Union[date, int, None] = None,
     before: Union[date, int, None] = None,
-    max_entries: NonNegativeInt = MAX_ENTRIES,
 ) -> list[Listen]:
 
     """Returns a list of song listens for the indicated song id."""
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/streams/'
-        f'tracks/{song_id}?limit={max_entries}'
+        f'tracks/{song_id}?limit={MAX_ENTRIES}'
     )
 
     if after:
@@ -391,17 +404,3 @@ def song_play_history(
         for i in r.json()['items']
     ]
 
-
-def track_top_listener(song_id: str, user: str = USER_NAME) -> Optional[int]:
-    """
-    Returns the position `user` has in the world listening chart for the
-    song corresponding to `song_id`. Will return `None` if they're not in
-    the top 1000 users.
-    """
-
-    address = f'https://api.stats.fm/api/v1/tracks/{song_id}/top/listeners'
-    r = _get_address(address)
-    return next(
-        (i['position'] for i in r.json()['items'] if i['customId'] == user),
-        None,
-    )

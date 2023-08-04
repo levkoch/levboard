@@ -10,9 +10,9 @@ Constats:
 """
 
 from datetime import date
-from typing import Any, Optional
+from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 from model.spotistats import get_first_stream_date
 
 
@@ -21,7 +21,6 @@ class Config(BaseModel):
     The configurables for the charts.
     """
 
-    
     username: str
 
     # default values for config
@@ -43,40 +42,18 @@ class Config(BaseModel):
             self._start_date = get_first_stream_date(self.username)
         return self._start_date
 
-    @classmethod
-    def from_dict(self, mapping: dict[str, Any]):
-        """
-        Constructs a Config from a mapping provided.
-        A username of some sort must be provided.
-        """
-        
-        try:
-            self.username = mapping['username']
-        except IndexError:
-            raise ValueError('Username must be provided.')
-
-        self.start_date = mapping.get(
-            'start_date', get_first_stream_date(self.username)
-        )
-
-        other_attrs = (
-            'min_plays',
-            'use_points',
-            'current_weight',
-            'last_weight',
-            'second_last_weight',
-            'adjust_plays',
-            'max_adjusted',
-            'chart_length',
-        )
-
-        for attr in other_attrs:
-            if val := mapping.get(attr) is not None:
-                setattr(self, attr, val)
-
-    def to_dict():
-        return {
-
+    def to_dict(self) -> dict:
+        info = {
+            'username': self.username,
+            'min_plays': self.min_plays,
+            'use_points': self.use_points,
+            'current_weight': self.current_weight,
+            'last_weight': self.last_weight,
+            'second_last_weight': self.second_last_weight,
+            'adjust_plays': self.adjust_plays,
+            'max_adjusted': self.max_adjusted,
+            'chart_length': self.chart_length,
         }
-
-    
+        if self._start_date:
+            info['_start_date'] = self._start_date
+        return info

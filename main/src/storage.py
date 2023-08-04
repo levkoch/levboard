@@ -1,8 +1,8 @@
-
 from typing import Any, Iterator, Optional
 
 from model import Song
 from config import Config
+
 
 class SongRepository:
     """
@@ -104,10 +104,39 @@ class SongRepository:
         """returns the song respository as a dictionary."""
         return {song.main_id: song.to_dict() for song in self}
 
+
 class Process:
-    def __init__(self, config: Config, songs: Optional[dict]):
-        self.config = config
-        if songs:
-            self.songs = SongRepository(songs)
-        else: 
-            self.songs = SongRepository()
+    """
+    A single process for managing user data. Contains their settings along 
+    with all of the songs they've charted.
+
+    Arguments:
+    - `session` (`dict`): A dictionary to create a config instance from. 
+        Must include a "username" field so that we know who's data to look at.
+
+    Attributes:
+    - `config` (`config.Config`): The user's information and settings.
+    - `songs` (`storage.SongRepository`): The user's songs.
+
+    Using:
+    ```python
+    with Process({'username': 'lev'}) as process:
+        # start a process to page through their data somehow
+    ```
+    """
+    
+    __slots__ = ("config", "songs", "_session")
+
+    songs: SongRepository
+    config: Config
+
+    def __init__(self, session: dict):
+        self._session = session
+
+    def __enter__(self):
+        self.config = Config(**self._session)
+        self.songs = SongRepository(self._session.get('songs'))
+        return self
+
+    def __exit__(self, *_):
+        self._session.update(self.config.to_dict())
