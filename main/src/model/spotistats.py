@@ -73,11 +73,13 @@ def _timestamp_check(day: Union[date, int]) -> int:
 def get_first_stream_date(user: str) -> date:
     r = _get_address(
         f'http://api.stats.fm/api/v1/users/{user}/streams?limit=1&order=asc'
-    )
+    ).json()
     if not len(r['items']):
-        raise MissingStreamsException('Must have stats.fm plus for this.')
+        raise MissingStreamsException(
+            'Must have stats.fm plus for this to work.'
+        )
     return datetime.strptime(
-        r['items']['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
+        r['items'][0]['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
     ).date()
 
 
@@ -302,7 +304,7 @@ def songs_week(
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
-        f'?after={after}&before={before}&limit=1000'  
+        f'?after={after}&before={before}&limit=1000'
         # max limit for this request is 1000 songs and not the 10,000 like others have
     )
 
@@ -403,4 +405,3 @@ def song_play_history(
         )
         for i in r.json()['items']
     ]
-

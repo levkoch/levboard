@@ -53,8 +53,20 @@ def test_creating_entry_values(start, end, plays, points, place):
 @pytest.mark.parametrize(
     ('info'),
     [
-        {'start': '2000-01-01', 'end': '2000-01-07', 'plays': 30, 'points': 300, 'place': 13},
-        {'start': '2013-04-12', 'end': '2013-04-19', 'plays': 34, 'points': 340, 'place': 5},
+        {
+            'start': '2000-01-01',
+            'end': '2000-01-07',
+            'plays': 30,
+            'points': 300,
+            'place': 13,
+        },
+        {
+            'start': '2013-04-12',
+            'end': '2013-04-19',
+            'plays': 34,
+            'points': 340,
+            'place': 5,
+        },
     ],
 )
 def test_creating_dict(info: dict):

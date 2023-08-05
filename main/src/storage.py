@@ -1,7 +1,7 @@
 from typing import Any, Iterator, Optional
 
-from model import Song
-from config import Config
+from .model import Song
+from .config import Config
 
 
 class SongRepository:
@@ -48,10 +48,10 @@ class SongRepository:
 
     def get(self, song_id: str) -> Optional[Song]:
         """
-        Retrieves a `Song` by song id, or `None` if none with the specified id are found.
+        Retrieves a `Song` by song id, or `None` if none with the specified
+        id are found.
         """
-        song = self._songs.get(song_id)
-        return song
+        return self._songs.get(song_id)
 
     def get_by_name(self, song_name: str) -> Optional[Song]:
         """
@@ -81,19 +81,21 @@ class SongRepository:
         # causes songs with multiple ids to be sent out multiple times,
         # which is not what is intended
 
-        sent_ids: list[str] = []
+        sent_ids: set[str] = set()
         for song in self._songs.values():
             # check if has already sent a song with that id and send if hasn't
             if song.main_id not in sent_ids:
-                sent_ids.append(song.main_id)
+                sent_ids.add(song.main_id)
                 yield song
 
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
         self._songs[song.main_id] = song
-        for alt_id in song.ids:
-            if alt_id == song.main_id:
-                continue
+
+        # for every alternate id (so the symmetric difference [appears in one
+        # but not both] between the set of all ids and the set of just the
+        # main id.)
+        for alt_id in song.ids ^ {song.main_id}:
             self._songs[alt_id] = song
 
     def list(self) -> list[str]:
@@ -107,11 +109,11 @@ class SongRepository:
 
 class Process:
     """
-    A single process for managing user data. Contains their settings along 
+    A single process for managing user data. Contains their settings along
     with all of the songs they've charted.
 
     Arguments:
-    - `session` (`dict`): A dictionary to create a config instance from. 
+    - `session` (`dict`): A dictionary to create a config instance from.
         Must include a "username" field so that we know who's data to look at.
 
     Attributes:
@@ -124,8 +126,8 @@ class Process:
         # start a process to page through their data somehow
     ```
     """
-    
-    __slots__ = ("config", "songs", "_session")
+
+    __slots__ = ('config', 'songs', '_session')
 
     songs: SongRepository
     config: Config

@@ -27,7 +27,9 @@ AlbumCert = object()
     ],
 )
 def test_cert_comparison(cert1: int, cert2: int, expected: bool):
-    assert expected == (SongCert.from_units(cert1) < SongCert.from_units(cert2))
+    assert expected == (
+        SongCert.from_units(cert1) < SongCert.from_units(cert2)
+    )
 
 
 # so is equality testing
@@ -36,7 +38,9 @@ def test_cert_comparison(cert1: int, cert2: int, expected: bool):
     [(100, 100, True), (150, 100, True), (700, 600, True), (0, 200, False)],
 )
 def test_cert_equality(cert1: int, cert2: int, expected: bool):
-    assert expected == (SongCert.from_units(cert1) == SongCert.from_units(cert2))
+    assert expected == (
+        SongCert.from_units(cert1) == SongCert.from_units(cert2)
+    )
 
 
 @pytest.mark.parametrize(
@@ -62,6 +66,7 @@ def test_make_from_parts(cert_type: type, mult: int, cert: CertType):
     tester = cert_type(mult, cert)
     assert (tester.mult, tester.cert) == (mult, cert)
 
+
 @pytest.mark.skip()
 @pytest.mark.parametrize(
     ('units', 'cert', 'mult'),
@@ -85,12 +90,10 @@ def test_albumcert_creation(units: int, cert: CertType, mult: int):
         (25, SongCert, 'SongCert(0, CertType.NONE)'),
         (300, SongCert, 'SongCert(0, CertType.PLATINUM)'),
         (1000, SongCert, 'SongCert(5, CertType.PLATINUM)'),
-        
-        #(0, AlbumCert, 'AlbumCert(0, CertType.NONE)'),
-        #(600, AlbumCert, 'AlbumCert(0, CertType.GOLD)'),
-        #(2100, AlbumCert, 'AlbumCert(2, CertType.PLATINUM)'),
-        #(5000, AlbumCert, 'AlbumCert(5, CertType.PLATINUM)'),
-       
+        # (0, AlbumCert, 'AlbumCert(0, CertType.NONE)'),
+        # (600, AlbumCert, 'AlbumCert(0, CertType.GOLD)'),
+        # (2100, AlbumCert, 'AlbumCert(2, CertType.PLATINUM)'),
+        # (5000, AlbumCert, 'AlbumCert(5, CertType.PLATINUM)'),
     ],
 )
 def test_cert_repr(units: int, cert_type: type, text: str):
@@ -107,13 +110,12 @@ def test_cert_repr(units: int, cert_type: type, text: str):
         (400, SongCert, '2x▲'),
         (2000, SongCert, '10x⬥'),
         (3600, SongCert, '18x⬥'),
-        
-        #(0, AlbumCert, '-'),
-        #(500, AlbumCert, '●'),
-        #(1000, AlbumCert, '▲'),
-        #(2000, AlbumCert, '2x▲'),
-        #(10000, AlbumCert, '10x⬥'),
-        #(18000, AlbumCert, '18x⬥'),  
+        # (0, AlbumCert, '-'),
+        # (500, AlbumCert, '●'),
+        # (1000, AlbumCert, '▲'),
+        # (2000, AlbumCert, '2x▲'),
+        # (10000, AlbumCert, '10x⬥'),
+        # (18000, AlbumCert, '18x⬥'),
     ],
 )
 def test_cert_str(units: int, cert_type: type, text: str):
@@ -189,7 +191,7 @@ def test_cant_make_basecert():
 @pytest.mark.parametrize(
     ('cert_type'),
     [
-        #(AlbumCert),
+        # (AlbumCert),
         (SongCert),
     ],
 )

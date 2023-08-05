@@ -15,12 +15,8 @@ from .storage import Process
 from .model import Entry, Song, spotistats
 
 
-def create_song_chart(process: Process) -> None:
-    return {}
-
-
-def load_week(start_day: date, end_day: date):
-    songs = spotistats.songs_week(start_day, end_day)
+def load_week(username: str, start_day: date, end_day: date):
+    songs = spotistats.songs_week(username, start_day, end_day)
 
     if len(songs) < 60:
         print(f'Only {len(songs)} songs got over 1 stream that week.')
@@ -35,14 +31,13 @@ def load_week(start_day: date, end_day: date):
     return sorted(songs, key=itemgetter('plays'), reverse=True)
 
 
-def ask_new_song(uow: SongUOW, song_id: str) -> Song:
+def get_new_song(process, song_id: str) -> Song:
     """
     Song factory function to add songs into the database.
+    TODO: create from images
     """
 
-    tester = Song(song_id)
-    if config.get_lazy_name():
-        return tester
+    return Song(song_id)
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
@@ -61,13 +56,15 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     return Song(song_id, name)
 
 
-def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
+def get_positions(
+    username: str, start_date: date, end_date: date
+) -> tuple[list[dict], date]:
     while True:
         print(
             f'\nChecking songs from {start_date.isoformat()} to {end_date.isoformat()}.'
         )
         try:
-            positions = load_week(start_date, end_date)
+            positions = load_week(username, start_date, end_date)
         except ValueError:
             print('Not enough songs found in the time range.')
             end_date += timedelta(days=7)
@@ -79,17 +76,18 @@ def get_positions(start_date: date, end_date: date) -> tuple[list[dict], date]:
             return positions, end_date
 
 
-def insert_entry(song_id: str, uow: SongUOW, entry: Entry) -> None:
-    song: Optional[Song] = uow.songs.get(song_id)
+def insert_entry(song_id: str, process: Process, entry: Entry) -> None:
+    song: Optional[Song] = process.songs.get(song_id)
     if not song:
-        song = ask_new_song(uow, song_id)
-        uow.songs.add(song)
+        song = get_new_song(process, song_id)
+        process.songs.add(song)
     song.add_entry(entry)
 
 
-def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
+def insert_entries(
+    process: Process, positions: list[dict], start_date, end_date
+):
     song_ids = (position['id'] for position in positions)
-    uows = itertools.repeat(uow)
     entries = (
         Entry(
             end=end_date,
@@ -99,21 +97,14 @@ def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
         )
         for position in positions
     )
-    if config.get_lazy_name():
-        with futures.ThreadPoolExecutor() as executor:
-            executor.map(insert_entry, song_ids, uows, entries)
-    else:
-        for song_id in song_ids:
-            insert_entry(song_id, uow, next(entries))
-    uow.commit()
+    for song_id in song_ids:
+        insert_entry(song_id, process, next(entries))
 
 
-def clear_entries(uow: SongUOW) -> None:
+def clear_entries(uow: Process) -> None:
     print('Clearing previous entries.')
-    with uow:
-        for song in uow.songs:
-            song._entries = []
-        uow.commit()
+    for song in uow.songs:
+        song._entries = []
 
 
 def get_movement(current: date, last: date, song: Song) -> str:
@@ -138,7 +129,7 @@ def get_movement(current: date, last: date, song: Song) -> str:
 
 
 def show_chart(
-    uow: SongUOW,
+    process: Process,
     positions: list[dict],
     start: date,
     end: date,
@@ -147,64 +138,13 @@ def show_chart(
     print(f'\n({week_count}) Week of {start.isoformat()} to {end.isoformat()}')
     print(f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PLS | PK')
     for pos in positions:
-        with uow:
-            song: Song = uow.songs.get(pos['id'])
+        song: Song = process.songs.get(pos['id'])
         prev = song.get_entry(start)
         print(
             f"{get_movement(end, start, song):>3} | {song.name:<45} | {', '.join(song.artists):<45} | {pos['place']:<2}"
             f" | {(prev.place if prev else '-'):<2} | {song.weeks:<2} | {pos['plays']:<3} | {get_peak(song):<3}"
         )
     print('')
-
-
-def update_song_sheet(
-    rows: list[list],
-    uow: SongUOW,
-    positions: list[dict],
-    start_date: date,
-    end_date: date,
-) -> list[list]:
-    actual_end = end_date - timedelta(days=1)
-
-    new_rows = []
-
-    new_rows.append(
-        [
-            f'{start_date.isoformat()} to {actual_end.isoformat()}',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-        ]
-    )
-    new_rows.append(['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'])
-
-    for pos in positions:
-        with uow:
-            song: Song = uow.songs.get(pos['id'])
-        prev: Optional[Entry] = song.get_entry(start_date)
-        movement: str = get_movement(end_date, start_date, song)
-        peak: str = get_peak(song)
-
-        new_rows.append(
-            [
-                "'=" if movement == '=' else movement,
-                song.name,
-                ', '.join(song.artists),
-                pos['place'],
-                str(prev.place) if prev else '-',
-                str(song.weeks),
-                pos['plays'],
-                peak,
-            ]
-        )
-
-    new_rows.append(['', '', '', '', '', '', '', ''])
-    new_rows.extend(rows)
-    return new_rows
 
 
 def get_peak(song: Song) -> str:
@@ -230,31 +170,14 @@ def get_peak(song: Song) -> str:
     return str(song.peak) + pweeks
 
 
-def update_start_date() -> None:
-    username = config.get_username()
-    [info] = spotistats.user_play_history(username, max_entries=1, order='asc')
-    first_stream: datetime = info['finished_playing']
-    config.update_settings(start_date=first_stream.date())
-
-
-if __name__ == '__main__':
-    if len(sys.argv) >= 2:
-        config.update_settings(username=sys.argv[1])
-        update_start_date()
-        if len(sys.argv) == 3:
-            config.update_settings(
-                lazy_name=(False if sys.argv[2].startswith('f') else True)
-            )
-
-    username = config.get_username()
+def create_song_chart(process: Process) -> dict:
+    username = process.config.username
     print(f'Finding song data for {username}.')
-    uow = SongUOW()
     start_time = datetime.now()
     week_count = 0
-    start_date = config.get_start_date()
-    song_rows: list[list] = []
+    start_date = process.config.start_date
 
-    clear_entries(uow)
+    clear_entries(process)
 
     while True:
         end_date = start_date + timedelta(days=7)
@@ -267,23 +190,12 @@ if __name__ == '__main__':
             print('All weeks found. Ending Process.')
             break  # from the big loop
 
-        insert_entries(uow, positions, start_date, end_date)
+        insert_entries(process, positions, start_date, end_date)
         week_count += 1
-        show_chart(uow, positions, start_date, end_date, week_count)
-
-        song_rows = update_song_sheet(
-            song_rows, uow, positions, start_date, end_date
-        )
+        show_chart(process, positions, start_date, end_date, week_count)
         start_date = end_date  # shift pointer
-
-    start_song_row = (
-        ['MV', 'Title', 'Artists', 'TW', 'LW', 'OC', 'PLS', 'PK'],
-    )
-
-    with open('songs.csv', 'w', encoding='UTF-8', newline='') as f:
-        songs_writer = csv.writer(f)
-        songs_writer.writerow(start_song_row)
-        songs_writer.writerows(song_rows)
 
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
+
+    return process.songs.to_dict()

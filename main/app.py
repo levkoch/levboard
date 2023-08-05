@@ -35,14 +35,19 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
 
+@app.route('/config')
+def display_config():
+    with Process(session) as process:
+        return process.config.to_dict()
 
 @app.route('/chart')
 def create_charts():
     if 'username' in session:
         with Process(session) as process:
-            create_song_chart(process) 
+            create_song_chart(process)
     else:
-        return "You need to sign in", 400
+        return 'You need to sign in', 400
+
 
 """
 @app.route('/config', methods=['GET', 'POST'])

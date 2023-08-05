@@ -1,24 +1,23 @@
 """
-levboard/main/config.py
+levboard/main/src/config.py
 
-Contains all of the static and user-configurable variables.
-
-Constats:
-* ALBUM_FILE: The file to read stored album json from.
-* SONG_FILE: The file to read stored song json from.
-* SETTINGS_FILE: The file to read configuration json from.
+Contains the Config class to configure user input.
 """
 
 from datetime import date
 from typing import Optional
 
 from pydantic import BaseModel
-from model.spotistats import get_first_stream_date
+from .model.spotistats import get_first_stream_date
 
 
 class Config(BaseModel):
     """
     The configurables for the charts.
+
+    Attributes:
+    *  `username` (`str`): The username of the person making the request.
+    * `min_plays`
     """
 
     username: str

@@ -12,7 +12,6 @@ from .storage import SongUOW
 uow = SongUOW()
 
 
-
 def get_song_play_history(song: Song) -> Iterator[dict]:
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
