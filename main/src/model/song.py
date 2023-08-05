@@ -7,7 +7,6 @@ Contains the central Song model.
 import itertools
 
 from collections import Counter
-from copy import deepcopy
 from datetime import date
 from operator import attrgetter
 from pydantic import ValidationError
@@ -64,6 +63,7 @@ class Song:
         song_id: str,
         song_name: Optional[str] = None,
         *,
+        username: str,
         load: bool = True,
     ):
         self.main_id: str = song_id
@@ -71,6 +71,7 @@ class Song:
         self.ids: set[str] = {
             song_id,
         }
+        self.username = username
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
         self.__listens: Optional[list[spotistats.Listen]] = None
@@ -240,7 +241,8 @@ class Song:
 
         self.__listens = list(
             itertools.chain.from_iterable(
-                spotistats.song_play_history(i) for i in self.ids
+                spotistats.song_play_history(i, user=self.username)
+                for i in self.ids
             )
         )
 

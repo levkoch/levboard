@@ -2,42 +2,42 @@
 main/src/charts.py
 """
 
-import csv
+import functools
 import itertools
-import sys
 
 from concurrent import futures
 from datetime import date, datetime, timedelta
-from operator import itemgetter
+from operator import attrgetter, itemgetter
 from typing import Optional
 
 from .storage import Process
+from .config import Config
 from .model import Entry, Song, spotistats
 
 
-def load_week(username: str, start_day: date, end_day: date):
-    songs = spotistats.songs_week(username, start_day, end_day)
+def load_week(config: Config, start_day: date, end_day: date):
+    positions = spotistats.songs_week(config.username, start_day, end_day)
+    positions = filter(lambda pos: pos.plays >= config.min_plays, positions)
 
-    if len(songs) < 60:
-        print(f'Only {len(songs)} songs got over 1 stream that week.')
+    if len(positions) < 60:
+        print(f'Only {len(positions)} songs got over 1 stream that week.')
         raise ValueError('not enough songs')
 
-    cutoff: int = songs[59]['plays']
+    cutoff: int = positions[59].plays
     print(f'Song cutoff this week is {cutoff} plays.')
-    songs = [i for i in songs if i['plays'] >= cutoff]
-    for i in songs:
-        i['place'] = len([j for j in songs if j['plays'] > i['plays']]) + 1
+    positions = [pos for pos in positions if pos.plays >= cutoff]
+    for pos in positions:
+        pos.place = len([p for p in positions if p.plays > pos.plays]) + 1
+    return sorted(positions, key=attrgetter('plays'), reverse=True)
 
-    return sorted(songs, key=itemgetter('plays'), reverse=True)
 
-
-def get_new_song(process, song_id: str) -> Song:
+def get_new_song(process: Process, song_id: str) -> Song:
     """
     Song factory function to add songs into the database.
     TODO: create from images
     """
 
-    return Song(song_id)
+    return Song(song_id, username=process.config.username)
     # defaults to official name if no name specified
     print(f'\nSong {tester.name} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
@@ -57,14 +57,14 @@ def get_new_song(process, song_id: str) -> Song:
 
 
 def get_positions(
-    username: str, start_date: date, end_date: date
+    config: Config, start_date: date, end_date: date
 ) -> tuple[list[dict], date]:
     while True:
         print(
-            f'\nChecking songs from {start_date.isoformat()} to {end_date.isoformat()}.'
+            f'\nCollecting songs from {start_date.isoformat()} to {end_date.isoformat()}.'
         )
         try:
-            positions = load_week(username, start_date, end_date)
+            positions = load_week(config, start_date, end_date)
         except ValueError:
             print('Not enough songs found in the time range.')
             end_date += timedelta(days=7)
@@ -85,20 +85,32 @@ def insert_entry(song_id: str, process: Process, entry: Entry) -> None:
 
 
 def insert_entries(
-    process: Process, positions: list[dict], start_date, end_date
+    process: Process,
+    positions: list[spotistats.Position],
+    start_date,
+    end_date,
 ):
-    song_ids = (position['id'] for position in positions)
+    print(f'inserting {len(positions)} entries')
     entries = (
         Entry(
             end=end_date,
             start=start_date,
-            plays=position['plays'],
-            place=position['place'],
+            plays=position.plays,
+            place=position.place,
+            points=position.plays * process.config.current_weight,
         )
         for position in positions
     )
-    for song_id in song_ids:
-        insert_entry(song_id, process, next(entries))
+    with futures.ThreadPoolExecutor() as executor:
+        # force the iterator to execute
+        list(
+            executor.map(
+                insert_entry,
+                (position.id for position in positions),
+                itertools.repeat(process),
+                entries,
+            )
+        )
 
 
 def clear_entries(uow: Process) -> None:
@@ -130,7 +142,7 @@ def get_movement(current: date, last: date, song: Song) -> str:
 
 def show_chart(
     process: Process,
-    positions: list[dict],
+    positions: list[spotistats.Position],
     start: date,
     end: date,
     week_count: int,
@@ -138,11 +150,11 @@ def show_chart(
     print(f'\n({week_count}) Week of {start.isoformat()} to {end.isoformat()}')
     print(f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PLS | PK')
     for pos in positions:
-        song: Song = process.songs.get(pos['id'])
+        song: Song = process.songs.get(pos.id)
         prev = song.get_entry(start)
         print(
-            f"{get_movement(end, start, song):>3} | {song.name:<45} | {', '.join(song.artists):<45} | {pos['place']:<2}"
-            f" | {(prev.place if prev else '-'):<2} | {song.weeks:<2} | {pos['plays']:<3} | {get_peak(song):<3}"
+            f"{get_movement(end, start, song):>3} | {song.name:<45} | {', '.join(song.artists):<45} | {pos.place:<2}"
+            f" | {(prev.place if prev else '-'):<2} | {song.weeks:<2} | {pos.plays:<3} | {get_peak(song):<3}"
         )
     print('')
 
@@ -183,7 +195,7 @@ def create_song_chart(process: Process) -> dict:
         end_date = start_date + timedelta(days=7)
 
         try:
-            positions, end_date = get_positions(start_date, end_date)
+            positions, end_date = get_positions(process.config, start_date, end_date)
         # thrown when not enough to fill a week so week is extended past today
         except ValueError:
             print('')

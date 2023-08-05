@@ -5,9 +5,9 @@ Contains the Config class to configure user input.
 """
 
 from datetime import date
-from typing import Optional
+from typing import Optional, Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from .model.spotistats import get_first_stream_date
 
 
@@ -17,7 +17,8 @@ class Config(BaseModel):
 
     Attributes:
     *  `username` (`str`): The username of the person making the request.
-    * `min_plays`
+    * `min_plays` (`int`): The minimum amount of plays a song needs to chart.
+
     """
 
     username: str
@@ -32,14 +33,27 @@ class Config(BaseModel):
     max_adjusted: int = 25
     chart_length: int = 60
 
-    # computed & cached attributes
-    _start_date: Optional[date] = None
+    # computed attributes
+    start_date: date
 
-    @property
-    def start_date(self) -> date:
-        if self._start_date is None:
-            self._start_date = get_first_stream_date(self.username)
-        return self._start_date
+    def __init__(self, info: dict):
+        username = info.get('username')
+        if not username:
+            raise ValueError('username must be provided')
+
+        start_date = info.get('start_date')
+        if not start_date:
+            info['start_date'] = get_first_stream_date(info['username'])
+
+        super().__init__(**info)
+
+    @validator('start_date', check_fields=False)
+    def convert_date(cls, item: Union[date, str, None]) -> Optional[date]:
+        if not item:
+            return None
+        if isinstance(item, date):
+            return item
+        return date.fromisoformat(item)
 
     def to_dict(self) -> dict:
         info = {
@@ -52,7 +66,6 @@ class Config(BaseModel):
             'adjust_plays': self.adjust_plays,
             'max_adjusted': self.max_adjusted,
             'chart_length': self.chart_length,
+            'start_date': self.start_date.isoformat(),
         }
-        if self._start_date:
-            info['_start_date'] = self._start_date
         return info

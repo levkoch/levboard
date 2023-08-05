@@ -136,7 +136,7 @@ class Process:
         self._session = session
 
     def __enter__(self):
-        self.config = Config(**self._session)
+        self.config = Config(self._session)
         self.songs = SongRepository(self._session.get('songs'))
         return self
 
