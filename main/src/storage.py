@@ -2,6 +2,9 @@ from typing import Any, Iterator, Optional
 
 from .model import Song
 from .config import Config
+from .images import SongImage, load_song_images
+
+IMAGES: dict[str, SongImage] = load_song_images()
 
 
 class SongRepository:
@@ -23,9 +26,13 @@ class SongRepository:
     * list (`list[str]` method): Returns all of the song ids stored.
     """
 
-    __slots__ = ('_songs',)
+    __slots__ = (
+        'username',
+        '_songs',
+    )
 
-    def __init__(self, songs: Optional[dict] = None):
+    def __init__(self, username: str, songs: Optional[dict] = None):
+        self.username = str
         self._songs: dict[str, Song] = []
         self._load(songs if songs is not None else {})
 
@@ -88,6 +95,12 @@ class SongRepository:
                 sent_ids.add(song.main_id)
                 yield song
 
+    def create(self, song_id, song_name) -> Song:
+        """Creates a song and adds it into the repo"""
+        song = Song(song_id, song_name, self.username)
+        self.add(song)
+        return song
+
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
         self._songs[song.main_id] = song
@@ -137,7 +150,9 @@ class Process:
 
     def __enter__(self):
         self.config = Config(self._session)
-        self.songs = SongRepository(self._session.get('songs'))
+        self.songs = SongRepository(
+            songs=self._session.get('songs'), username=self.config.username
+        )
         return self
 
     def __exit__(self, *_):

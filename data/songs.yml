@@ -15544,6 +15544,8 @@
   standard: '727690'
   versions:
   - id: '5443443'
+    artists:
+    - Ariana Grande
     name: 7 rings - live
     type: alternate
   - artists:

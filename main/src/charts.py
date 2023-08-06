@@ -17,7 +17,7 @@ from .model import Entry, Song, spotistats
 
 def load_week(config: Config, start_day: date, end_day: date):
     positions = spotistats.songs_week(config.username, start_day, end_day)
-    positions = filter(lambda pos: pos.plays >= config.min_plays, positions)
+    positions = list(filter(lambda pos: pos.plays >= config.min_plays, positions))
 
     if len(positions) < 60:
         print(f'Only {len(positions)} songs got over 1 stream that week.')
@@ -34,7 +34,6 @@ def load_week(config: Config, start_day: date, end_day: date):
 def get_new_song(process: Process, song_id: str) -> Song:
     """
     Song factory function to add songs into the database.
-    TODO: create from images
     """
 
     return Song(song_id, username=process.config.username)
@@ -195,7 +194,9 @@ def create_song_chart(process: Process) -> dict:
         end_date = start_date + timedelta(days=7)
 
         try:
-            positions, end_date = get_positions(process.config, start_date, end_date)
+            positions, end_date = get_positions(
+                process.config, start_date, end_date
+            )
         # thrown when not enough to fill a week so week is extended past today
         except ValueError:
             print('')

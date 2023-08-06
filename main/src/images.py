@@ -1,6 +1,12 @@
 """
 Collects the song images from the yaml file so that they can be used
 to create song instances later on.
+
+class:
+* SongImage: A dataclass containing information about a song skeleton.
+
+functions:
+* load_song_images(): Loads all the song images from the file for use.
 """
 
 import yaml
@@ -30,7 +36,10 @@ class SongImage(BaseModel):
         return _SongImageVersion(**version)
 
 
-def load_song_images() -> dict[str, SongImage]:
+DEFAULT_FILE_PATH = 'C:/Users/levpo/Documents/GitHub/levboard/data/songs.yml'
+
+
+def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
     """
     Collects song images from the yaml file and converts them into song
     images for usage.
@@ -59,10 +68,11 @@ def load_song_images() -> dict[str, SongImage]:
 
     collection: dict[str, SongImage] = {}
 
-    with open('data/songimages.py', 'r') as fp:
-        images: dict[str, dict[str, Any]] = yaml.load(fp)
+    with open(file, 'r') as fp:
+        images: dict[str, dict[str, Any]] = yaml.safe_load(fp)
 
-    for (main_id, image_dict) in images.values():
+    for (main_id, image_dict) in images.items():
+        print(image_dict)
         image = SongImage(**image_dict)
         collection[main_id] = image
         for alternate_id in image.ids ^ {main_id}:

@@ -15,6 +15,8 @@ def example_config() -> dict:
                 'artists': [
                     'Ariana Grande',
                 ],
+                'username': 'lev',
+                'image': 'https://i.imgur.com/6v564qs.png',
                 'official_name': 'No Tears Left To Cry',
                 'plays': 302,
                 'entries': [
@@ -59,3 +61,9 @@ def test_song_merge_points_to_same(example_config: dict):
         standard_ntltc = process.songs.get('78715')
         live_ntltc = process.songs.get('5443449')
     assert standard_ntltc is live_ntltc
+
+
+def test_process_with_no_plus_raises_error():
+    with pytest.raises(ValueError):
+        with Process({'username': 'banana'}):
+            pass

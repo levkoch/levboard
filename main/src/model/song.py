@@ -61,9 +61,9 @@ class Song:
     def __init__(
         self,
         song_id: str,
+        username: str,
         song_name: Optional[str] = None,
         *,
-        username: str,
         load: bool = True,
     ):
         self.main_id: str = song_id
@@ -71,7 +71,8 @@ class Song:
         self.ids: set[str] = {
             song_id,
         }
-        self.username = username
+        self.username: str = username
+        self.image: str = 'MISSING'
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
         self.__listens: Optional[list[spotistats.Listen]] = None
@@ -95,6 +96,18 @@ class Song:
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
+        image = next(
+            (
+                i['image']
+                for i in info['albums']
+                if i['name'] == self.official_name
+            ),
+            None,
+        )
+        if image is None:
+            self.image = info['albums'][0]['image']
+        else:
+            self.image = image
 
         # for when the name wasn't specified (defaults to `None`)
         if self.name is None:
@@ -468,7 +481,9 @@ class Song:
             'main_id': self.main_id,
             'ids': list(self.ids),
             'artists': self.artists,
+            'image': self.image,
             'official_name': self.official_name,
+            'username': self.username,
             'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
         }
@@ -490,11 +505,15 @@ class Song:
 
         try:
             new = cls(
-                song_id=info['main_id'], song_name=info['name'], load=False
+                song_id=info['main_id'],
+                song_name=info['name'],
+                username=info['username'],
+                load=False,
             )
 
             alts = info.get('ids')
             new.ids = set(alts) if alts is not None else set()
+            new.image = info['image']
 
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])

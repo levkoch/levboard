@@ -29,7 +29,7 @@ MAX_ADJUSTED: Final[int] = 25
 SONG_CHART_LENGTH = 60
 
 
-class MissingStreamsException(Exception):
+class MissingStreamsException(ValueError):
     """
     An exception for when someone needs to have their streams imported
     for this to work.
