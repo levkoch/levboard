@@ -25,6 +25,7 @@ class _SongImageVersion(BaseModel):
 class SongImage(BaseModel):
     name: str
     standard: str   # main id
+    artists: list[str]
     ids: set[str]
     image: str = 'MISSING'
     versions: list[_SongImageVersion] = []
@@ -72,7 +73,6 @@ def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
         images: dict[str, dict[str, Any]] = yaml.safe_load(fp)
 
     for (main_id, image_dict) in images.items():
-        print(image_dict)
         image = SongImage(**image_dict)
         collection[main_id] = image
         for alternate_id in image.ids ^ {main_id}:

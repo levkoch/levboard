@@ -15,7 +15,6 @@ from typing import Iterable, Iterator, Optional
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
-from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
 
 class Song:
@@ -58,10 +57,15 @@ class Song:
         current play count.
     """
 
+    # to be overloaded by the inject_config function below ... username is only
+    # set to anything here to make testing easier to deal with
+    username: str = 'lev'
+    max_adjusted: int
+    chart_length: int
+
     def __init__(
         self,
         song_id: str,
-        username: str,
         song_name: Optional[str] = None,
         *,
         load: bool = True,
@@ -71,11 +75,11 @@ class Song:
         self.ids: set[str] = {
             song_id,
         }
-        self.username: str = username
+
         self.image: str = 'MISSING'
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
-        self.__listens: Optional[list[spotistats.Listen]] = None
+        self._listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
         # declared here for cpython reasons
@@ -94,26 +98,27 @@ class Song:
 
         info = spotistats.song_info(self.main_id)
 
-        self.official_name = info['name']
-        self.artists = [i['name'] for i in info['artists']]
+        self.official_name: str = info['name']
+        self.artists: list[str] = [i['name'] for i in info['artists']]
         image = next(
             (
                 i['image']
                 for i in info['albums']
-                if i['name'] == self.official_name
+                if (i['name'].lower() == self.official_name.lower())
+                or (i['name'].lower() == self.name.lower())
             ),
             None,
         )
         if image is None:
-            self.image = info['albums'][0]['image']
+            self.image: str = info['albums'][0]['image']
         else:
-            self.image = image
+            self.image: str = image
 
         # for when the name wasn't specified (defaults to `None`)
         if self.name is None:
             self.name = self.official_name
 
-        if self.__listens is None:
+        if self._listens is None:
             self._populate_listens()
 
     def __hash__(self) -> int:
@@ -177,9 +182,9 @@ class Song:
 
     @property
     def plays(self) -> int:
-        if self.__listens is None:
+        if self._listens is None:
             return self._plays
-        return len(self.__listens)
+        return len(self._listens)
 
     @property
     def str_artists(self) -> str:
@@ -222,7 +227,7 @@ class Song:
         """
         (`int`): The total number of points for the song.
         """
-        return sum(((SONG_CHART_LENGTH + 1) - i.place) for i in self.entries)
+        return sum(((self.chart_length + 1) - i.place) for i in self.entries)
 
     @property
     def units(self) -> int:
@@ -252,9 +257,9 @@ class Song:
     def _populate_listens(self) -> None:
         """Adds listens to the song."""
 
-        self.__listens = list(
+        self._listens = list(
             itertools.chain.from_iterable(
-                spotistats.song_play_history(i, user=self.username)
+                spotistats.song_play_history(song_id=i, user=self.username)
                 for i in self.ids
             )
         )
@@ -263,7 +268,7 @@ class Song:
             self._update_version()
 
     def _update_version(self):
-        common = Counter(l.played_from for l in self.__listens)
+        common = Counter(l.played_from for l in self._listens)
         self.main_id = common.most_common(1)[0][0]
         self._load_info()
 
@@ -272,12 +277,12 @@ class Song:
         Returns the song's plays for some period.
         """
 
-        if self.__listens is None:
+        if self._listens is None:
             self._populate_listens()
 
         listens = (
             listen
-            for listen in self.__listens
+            for listen in self._listens
             if listen.finished_playing.date() >= start
             and listen.finished_playing.date() <= end
         )
@@ -293,13 +298,15 @@ class Song:
 
         date_counter = Counter(play_dates)
 
-        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+        return sum(
+            min(self.max_adjusted, count) for count in date_counter.values()
+        )
 
     def period_points(self, start: date, end: date) -> int:
         """Returns the song's points gained for some period."""
 
         return sum(
-            ((SONG_CHART_LENGTH + 1) - i.place)
+            ((self.chart_length + 1) - i.place)
             for i in self.entries
             if i.end >= start and i.end <= end
         )
@@ -356,10 +363,10 @@ class Song:
             self._plays = self.adjusted_plays()
             return
 
-        if self.__listens is None:
+        if self._listens is None:
             self._populate_listens()
 
-        self._plays = len(self.__listens)
+        self._plays = len(self._listens)
 
     def adjusted_plays(self) -> int:
         """
@@ -370,18 +377,18 @@ class Song:
 
         self._populate_listens()
 
-        if self.plays <= MAX_ADJUSTED:
+        if self.plays <= self.max_adjusted:
             return self.plays
 
         play_dates: Iterable[date] = (
-            listen.finished_playing.date() for listen in self.__listens
+            listen.finished_playing.date() for listen in self._listens
         )
         date_counter = Counter(play_dates)
 
         total = 0
 
         for count in date_counter.values():
-            total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
+            total += count if count < self.max_adjusted else self.max_adjusted
 
         return total
 
@@ -483,7 +490,6 @@ class Song:
             'artists': self.artists,
             'image': self.image,
             'official_name': self.official_name,
-            'username': self.username,
             'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
         }
@@ -507,7 +513,6 @@ class Song:
             new = cls(
                 song_id=info['main_id'],
                 song_name=info['name'],
-                username=info['username'],
                 load=False,
             )
 
@@ -530,3 +535,12 @@ class Song:
             ) from exc
         else:
             return new
+
+
+def inject_config(config) -> type[Song]:
+    config = {
+        'username': config.username,
+        'chart_length': config.chart_length,
+        'max_adjusted': config.max_adjusted,
+    }
+    return type('ConfSong', (Song,), config)

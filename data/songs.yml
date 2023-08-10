@@ -11548,7 +11548,7 @@
   ids:
   - '529766'
   image: MISSING
-  name: Material Girl (Madonna)
+  name: Material Girl
   standard: '529766'
 '529767':
   artists:
@@ -11775,7 +11775,7 @@
   ids:
   - '533072'
   image: MISSING
-  name: Imagine (Doja)
+  name: Imagine
   standard: '533072'
 '533089':
   artists:
@@ -11887,7 +11887,7 @@
   ids:
   - '533166'
   image: MISSING
-  name: Stay (Posty)
+  name: Stay
   standard: '533166'
 '533167':
   artists:
@@ -12068,7 +12068,7 @@
   ids:
   - '533408'
   image: MISSING
-  name: Remedy (Maroon 5)
+  name: Remedy
   standard: '533408'
 '533409':
   artists:
@@ -12165,7 +12165,7 @@
   ids:
   - '533620'
   image: MISSING
-  name: STAY (BP)
+  name: STAY
   standard: '533620'
 '533641':
   artists:
@@ -12445,7 +12445,7 @@
   ids:
   - '533734'
   image: MISSING
-  name: WHISTLE (BP)
+  name: WHISTLE
   standard: '533734'
 '533735':
   artists:
@@ -12613,7 +12613,7 @@
   ids:
   - '540142'
   image: MISSING
-  name: Complicated (Rih)
+  name: Complicated
   standard: '540142'
 '540144':
   artists:
@@ -13029,7 +13029,7 @@
     - Sean Paul
     - "Beyonc\xE9"
     id: '180012'
-    name: "Baby Boy (feat. Beyonc\xE9 )"
+    name: "Baby Boy (feat. Beyonc\xE9)"
     type: alternate
 '5492319':
   artists:
@@ -13279,7 +13279,7 @@
     - Tyga
     - Nicki Minaj
     id: '10020996'
-    name: Dip (feat. Nicki Minaj) (feat. Nicki Minaj)
+    name: Dip (feat. Nicki Minaj)
     type: alternate
 '5748570':
   artists:
@@ -13343,7 +13343,7 @@
   ids:
   - '58406017'
   image: MISSING
-  name: SOS (SZA)
+  name: SOS
   standard: '58406017'
 '58406018':
   artists:
@@ -13367,7 +13367,7 @@
   ids:
   - '58406020'
   image: MISSING
-  name: Low (SZA)
+  name: Low
   standard: '58406020'
 '58406021':
   artists:
@@ -13375,7 +13375,7 @@
   ids:
   - '58406021'
   image: MISSING
-  name: Love Language (SZA)
+  name: Love Language
   standard: '58406021'
 '58406022':
   artists:
@@ -13457,7 +13457,7 @@
   ids:
   - '58406031'
   image: MISSING
-  name: Special (SZA)
+  name: Special
   standard: '58406031'
 '58406032':
   artists:
@@ -13611,7 +13611,7 @@
   ids:
   - '585333'
   image: MISSING
-  name: goodbye (billie)
+  name: goodbye
   standard: '585333'
 '585347':
   artists:
@@ -13983,7 +13983,7 @@
   ids:
   - '587347'
   image: MISSING
-  name: This Love (Taylor)
+  name: This Love
   standard: '587347'
 '587348':
   artists:
@@ -14201,7 +14201,7 @@
   ids:
   - '599586'
   image: MISSING
-  name: Stupid Love (Derulo)
+  name: Stupid Love
   standard: '599586'
 '599587':
   artists:
@@ -14493,7 +14493,7 @@
   ids:
   - '611826'
   image: MISSING
-  name: In My Head (Derulo)
+  name: In My Head
   standard: '611826'
 '611841':
   artists:
@@ -14550,7 +14550,7 @@
   ids:
   - '61824848'
   image: MISSING
-  name: Hold Up (Ava)
+  name: Hold Up (Wait A Minute)
   standard: '61824848'
 '61824849':
   artists:
@@ -14590,7 +14590,7 @@
   ids:
   - '61824853'
   image: MISSING
-  name: Ghost (Ava)
+  name: Ghost
   standard: '61824853'
 '61824854':
   artists:
@@ -14598,7 +14598,7 @@
   ids:
   - '61824854'
   image: MISSING
-  name: In The Dark (Ava)
+  name: In The Dark
   standard: '61824854'
 '61824855':
   artists:
@@ -15245,7 +15245,7 @@
   ids:
   - '67410858'
   image: MISSING
-  name: Alone (Kim)
+  name: Alone
   standard: '67410858'
 '6760737':
   artists:
@@ -15635,7 +15635,7 @@
   ids:
   - '7510132'
   image: MISSING
-  name: Time (Gambino)
+  name: Time
   standard: '7510132'
 '75319':
   artists:
@@ -15746,7 +15746,7 @@
   ids:
   - '7700533'
   image: MISSING
-  name: You Don't Know Me (Jax)
+  name: You Don't Know Me
   standard: '7700533'
 '7700534':
   artists:
@@ -15781,7 +15781,7 @@
   - '5443424'
   - '78709'
   image: MISSING
-  name: raindrops
+  name: raindrops (an angel cried)
   standard: '78709'
   versions:
   - artists:
@@ -16184,7 +16184,7 @@
     - Normani
     - Cardi B
     id: '5311092'
-    name: Wild Side (feat. Cardi B) - Extended Version
+    name: Wild Side - Extended Version
     type: alternate
 '841004':
   artists:
@@ -16350,7 +16350,7 @@
   ids:
   - '865186'
   image: MISSING
-  name: Faith (George)
+  name: Faith
   standard: '865186'
 '869384':
   artists:

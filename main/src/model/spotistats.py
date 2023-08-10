@@ -16,17 +16,11 @@ import time
 from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime
-from typing import Final, Iterable, Optional, Union
+from typing import Iterable, Optional, Union
 
 import requests
 import tenacity
-from pydantic import BaseModel, NonNegativeInt
-
-USER_NAME: Final[str] = 'lev'
-MAX_ENTRIES: Final[int] = 10000
-
-MAX_ADJUSTED: Final[int] = 25
-SONG_CHART_LENGTH = 60
+from pydantic import BaseModel
 
 
 class MissingStreamsException(ValueError):
@@ -106,6 +100,7 @@ def song_plays(
     after: Union[int, date] = 0,
     before: Union[int, date] = 0,
     adjusted: bool = False,
+    max_adjusted: Optional[int] = None,
 ) -> int:
     """
     Finds the plays for a song with the specified song id, between `after`
@@ -116,7 +111,11 @@ def song_plays(
     """
 
     if adjusted:
-        return _adjusted_song_plays(user, song_id, after, before)
+        if not max_adjusted:
+            raise ValueError(
+                'max_adjusted must be specified if calling for adjusted plays.'
+            )
+        return _adjusted_song_plays(user, song_id, after, before, max_adjusted)
 
     after = _timestamp_check(after)
     before = _timestamp_check(before)
@@ -148,6 +147,7 @@ def _adjusted_song_plays(
     song_id: str,
     after: Union[date, int, None],
     before: Union[date, int, None],
+    max_adjusted: int,
 ) -> int:
     """
     Internal helper method to find the adjusted plays for a song between
@@ -160,7 +160,7 @@ def _adjusted_song_plays(
 
     play_dates: Iterable[date] = (i.finished_playing.date() for i in plays)
     date_counter = Counter(play_dates)
-    return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+    return sum(min(max_adjusted, count) for count in date_counter.values())
 
 
 class Position(BaseModel):
@@ -270,7 +270,9 @@ def album_tracks(album_id: str):
 
 
 def artist_tracks(artist_id: str) -> list[str]:
-    address = f'http://api.stats.fm/api/v1/artists/{artist_id}/tracks?limit={MAX_ENTRIES}'
+    address = (
+        f'http://api.stats.fm/api/v1/artists/{artist_id}/tracks?limit=10000'
+    )
     info = _get_address(address).json()
 
     # filter out all songs shorter than 30000 milliseconds (30 seconds)
@@ -286,6 +288,7 @@ def songs_week(
     after: Union[int, date],
     before: Union[int, date],
     adjusted: bool = False,
+    max_adjusted: Optional[int] = None,
 ) -> list[Position]:
     """
     Returns the "week" between `after` and `before` (it doesn't have to
@@ -334,12 +337,15 @@ def songs_week(
             pos.place = len([i for i in info if i.plays > pos.plays]) + 1
         return info
 
+    if not max_adjusted:
+        raise ValueError('max_adjusted must be specified')
+
     # adjust the song plays if requested to do so, but we are doing
     # this threaded to make this take less time.
     with futures.ThreadPoolExecutor() as executor:
         values: Iterable[tuple[str, int]] = executor.map(
             lambda i: (i, _adjusted_song_plays(i, user, after, before)),
-            (i.id for i in info if i.plays > MAX_ADJUSTED),
+            (i.id for i in info if i.plays > max_adjusted),
         )
 
         for song_id, song_plays in values:
@@ -380,7 +386,7 @@ def song_play_history(
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/streams/'
-        f'tracks/{song_id}?limit={MAX_ENTRIES}'
+        f'tracks/{song_id}?limit=10000'
     )
 
     if after:

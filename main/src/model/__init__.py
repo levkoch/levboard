@@ -17,12 +17,13 @@ Enums:
 
 from .cert import CertType, SongCert
 from .entry import Entry
-from .song import Song
+from .song import Song, inject_config
 
 # in alphabetical order
 __all__ = [
     'CertType',
     'Entry',
+    'inject_config',
     'Song',
     'SongCert',
 ]

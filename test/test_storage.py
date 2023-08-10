@@ -15,7 +15,6 @@ def example_config() -> dict:
                 'artists': [
                     'Ariana Grande',
                 ],
-                'username': 'lev',
                 'image': 'https://i.imgur.com/6v564qs.png',
                 'official_name': 'No Tears Left To Cry',
                 'plays': 302,
@@ -67,3 +66,16 @@ def test_process_with_no_plus_raises_error():
     with pytest.raises(ValueError):
         with Process({'username': 'banana'}):
             pass
+
+
+def test_song_image_from_images_links_correctly(example_config: dict):
+    expected_link = 'https://i.imgur.com/6v564qs.png'
+    with Process(example_config) as process:
+        ntltc = process.songs.get_by_name('no tears left to cry')
+        assert ntltc.image == expected_link
+
+
+def test_username_injected_into_song(example_config: dict):
+    with Process(example_config) as process:
+        ntltc = process.songs.get_by_name('no tears left to cry')
+        assert ntltc.username == 'lev'

@@ -2,12 +2,11 @@
 main/src/charts.py
 """
 
-import functools
 import itertools
 
 from concurrent import futures
 from datetime import date, datetime, timedelta
-from operator import attrgetter, itemgetter
+from operator import attrgetter
 from typing import Optional
 
 from .storage import Process
@@ -17,7 +16,9 @@ from .model import Entry, Song, spotistats
 
 def load_week(config: Config, start_day: date, end_day: date):
     positions = spotistats.songs_week(config.username, start_day, end_day)
-    positions = list(filter(lambda pos: pos.plays >= config.min_plays, positions))
+    positions = list(
+        filter(lambda pos: pos.plays >= config.min_plays, positions)
+    )
 
     if len(positions) < 60:
         print(f'Only {len(positions)} songs got over 1 stream that week.')
@@ -29,30 +30,6 @@ def load_week(config: Config, start_day: date, end_day: date):
     for pos in positions:
         pos.place = len([p for p in positions if p.plays > pos.plays]) + 1
     return sorted(positions, key=attrgetter('plays'), reverse=True)
-
-
-def get_new_song(process: Process, song_id: str) -> Song:
-    """
-    Song factory function to add songs into the database.
-    """
-
-    return Song(song_id, username=process.config.username)
-    # defaults to official name if no name specified
-    print(f'\nSong {tester.name} ({song_id}) not found.')
-    print(f'Find the link here -> https://stats.fm/track/{song_id}')
-    name = input('What should the song be called in the database? ').strip()
-
-    if name == '':
-        return tester
-
-    if name.lower() == 'merge':
-        merge: str = input('Id of the song to merge with: ')
-        merge_into = uow.songs.get(merge)
-        merge_into.add_alt(song_id)
-        print(f'Sucessfully merged {tester.name} into {merge_into.name}')
-        return merge_into
-
-    return Song(song_id, name)
 
 
 def get_positions(
@@ -78,8 +55,7 @@ def get_positions(
 def insert_entry(song_id: str, process: Process, entry: Entry) -> None:
     song: Optional[Song] = process.songs.get(song_id)
     if not song:
-        song = get_new_song(process, song_id)
-        process.songs.add(song)
+        song = process.songs.create(song_id)
     song.add_entry(entry)
 
 
