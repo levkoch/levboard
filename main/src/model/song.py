@@ -97,8 +97,12 @@ class Song:
         """
 
         info = spotistats.song_info(self.main_id)
-
         self.official_name: str = info['name']
+
+        # for when the name wasn't specified (defaults to `None`)
+        if self.name is None:
+            self.name = self.official_name
+
         self.artists: list[str] = [i['name'] for i in info['artists']]
         image = next(
             (
@@ -114,15 +118,11 @@ class Song:
         else:
             self.image: str = image
 
-        # for when the name wasn't specified (defaults to `None`)
-        if self.name is None:
-            self.name = self.official_name
-
         if self._listens is None:
             self._populate_listens()
 
     def __hash__(self) -> int:
-        return hash((self.name, tuple(self.ids)))
+        return hash((self.name, *self.ids))
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
@@ -542,5 +542,8 @@ def inject_config(config) -> type[Song]:
         'username': config.username,
         'chart_length': config.chart_length,
         'max_adjusted': config.max_adjusted,
+        # we have to declare slots here again since this is a subclass of Song,
+        # and Song implements slots, so slots can still keep it's magic.
+        '__slots__': (),
     }
     return type('ConfSong', (Song,), config)

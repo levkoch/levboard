@@ -262,11 +262,11 @@ class Week(BaseModel):
         )
 
 
-def album_tracks(album_id: str):
+def album_tracks(album_id: str) -> list[str]:
     address = f'http://api.stats.fm/api/v1/albums/{album_id}/tracks'
     info = _get_address(address).json()
 
-    return [i['id'] for i in info['items']]
+    return [str(i['id']) for i in info['items']]
 
 
 def artist_tracks(artist_id: str) -> list[str]:

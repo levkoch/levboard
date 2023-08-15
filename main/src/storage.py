@@ -55,12 +55,12 @@ class SongRepository:
             merged_into.add_alt(alt_id)
             self._songs[alt_id] = merged_into
 
-    def get(self, song_id: str) -> Optional[Song]:
+    def get(self, song_id: str, fallback=None) -> Optional[Song]:
         """
-        Retrieves a `Song` by song id, or `None` if none with the specified
-        id are found.
+        Retrieves a `Song` by song id, or the fallback value (defaults to `None`)
+        if none with the specified id are found.
         """
-        return self._songs.get(song_id)
+        return self._songs.get(song_id, fallback)
 
     def get_by_name(self, song_name: str) -> Optional[Song]:
         """
@@ -70,20 +70,23 @@ class SongRepository:
         fitting was found in either case.
         """
         try:
-            return next(
-                i
-                for i in self._songs.values()
-                if i.name.lower() == song_name.lower()
-            )
+            return next(i for i in self._songs.values() if i.name == song_name)
         except StopIteration:
-            return next(
-                (
+            try:
+                return next(
                     i
                     for i in self._songs.values()
-                    if i.name.lower().startswith(song_name.lower())
-                ),
-                None,
-            )
+                    if i.name.lower() == song_name.lower()
+                )
+            except StopIteration:
+                return next(
+                    (
+                        i
+                        for i in self._songs.values()
+                        if i.name.lower().startswith(song_name.lower())
+                    ),
+                    None,
+                )
 
     def __iter__(self) -> Iterator[Song]:
         # this is implemented this way, as using iter(self._songs.values())
@@ -123,7 +126,7 @@ class SongRepository:
 
     def list(self) -> list[str]:
         """Returns all of the song ids stored."""
-        return list(self._songs.keys())
+        return list(song.main_id for song in self)
 
     def to_dict(self) -> dict[str, dict[str, Any]]:
         """returns the song respository as a dictionary."""
@@ -138,6 +141,9 @@ class Process:
     Arguments:
     - `session` (`dict`): A dictionary to create a config instance from.
         Must include a "username" field so that we know who's data to look at.
+        Any other attributes must coincide with the `Config` class's values
+        and any missing values will be autoset to the session dict later when
+        the process finishes.
 
     Attributes:
     - `config` (`config.Config`): The user's information and settings.
@@ -166,4 +172,6 @@ class Process:
         return self
 
     def __exit__(self, *_):
-        self._session.update(self.config.to_dict())
+        info = self.config.to_dict()
+        info['songs'] = self.songs.to_dict()
+        self._session.update(info)

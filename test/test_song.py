@@ -3,6 +3,13 @@ import pytest
 from ..main.src.model import Song
 
 
+def test_songs_equivalent():
+    ntltc_one = Song('78715')
+    ntltc_two = Song('78715')
+
+    assert ntltc_one == ntltc_two
+
+
 def test_song_image_link_single_image():
     # no tears left to cry single link from spotify
     expected_link = (

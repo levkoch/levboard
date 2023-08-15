@@ -4,12 +4,8 @@ from concurrent import futures
 from datetime import datetime, timedelta
 from typing import Iterator, Optional
 
-from main.src.model import Song, SongCert
-
-from .model import spotistats
-from .storage import SongUOW
-
-uow = SongUOW()
+from .model import spotistats, Song, SongCert
+from .storage import Process
 
 
 def get_song_play_history(song: Song) -> Iterator[dict]:
@@ -37,8 +33,8 @@ def time_to_plays(song: Song, plays: int) -> timedelta:
     return (song, time)
 
 
-def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
-    contenders = (song for song in uow.songs if song.plays >= plays)
+def top_shortest_time_plays_milestones(process: Process, plays: int):
+    contenders = (song for song in process.songs if song.plays >= plays)
 
     with futures.ThreadPoolExecutor() as executor:
         mapped = executor.map(
@@ -56,9 +52,9 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
     print('')
 
 
-def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
+def top_song_consecutive_weeks(process: Process, top: Optional[int]):
     units: list[tuple[Song, int]] = [
-        (song, song.get_conweeks(top)) for song in uow.songs
+        (song, song.get_conweeks(top)) for song in process.songs
     ]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] >= units[19][1] and i[1] > 1]
@@ -73,23 +69,10 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
         )
 
 
-def display_all_songs(uow: SongUOW):
-    all_songs = [song for song in uow.songs if song.units]
-    all_songs.sort(key=lambda i: i.units, reverse=True)
-    for (count, song) in enumerate(all_songs):
-        print(
-            f'{count + 1:>4} | {song.name:<45} | {song.str_artists:<45} | peak: {song.peak:<2} '
-            f'{(("(" + str(song.peakweeks) + ")") if (song.peak < 11 and song.peakweeks > 1) else " "):<4} '
-            f'| weeks: {song.weeks:<2} | plays: {song.plays:<3} | {song.cert}'
-        )
-
-
 MILESTONES = [25, 50, 75, 100, 150, 200, 250, 300, 350, 400]
 
 if __name__ == '__main__':
-    uow = SongUOW()
-
-    for milestone in MILESTONES[::-1]:
-        top_shortest_time_plays_milestones(uow, milestone)
-
-    display_all_songs(uow)
+    process = Process({'username': 'lev'})
+    with process:
+        for milestone in MILESTONES[::-1]:
+            top_shortest_time_plays_milestones(process, milestone)
