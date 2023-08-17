@@ -8,12 +8,10 @@ from .model import spotistats, Song, SongCert
 from .storage import Process
 
 
-def get_song_play_history(song: Song) -> Iterator[dict]:
+def get_song_play_history(song: Song) -> list[dict]:
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
-        mapped = executor.map(
-            spotistats.song_play_history, ([song.id] + song.alt_ids)
-        )
+        mapped = executor.map(spotistats.song_play_history, (song.ids))
 
     return list(itertools.chain(*mapped))
 

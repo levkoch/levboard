@@ -1,8 +1,8 @@
 from flask import session, request, url_for, redirect
-from .src.app_factory import app
+from .app_factory import app
 
-from .src.storage import Process
-from .src.charts import create_song_chart
+from .storage import Process
+from .charts import create_song_chart
 
 
 @app.route('/')
@@ -14,6 +14,8 @@ def index():
 
 @app.route('/home/<username>')
 def user_home(username: str):
+    if session.get('username') == username:
+        return f'welcome to your home page :)'
     return f'username home for {username}'
 
 
@@ -46,7 +48,7 @@ def display_config():
 def create_charts():
     if 'username' in session:
         with Process(session) as process:
-            return create_song_chart(process)
+            return {"rows": create_song_chart(process)}
     else:
         return 'You need to sign in', 400
 

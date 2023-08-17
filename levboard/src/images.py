@@ -37,7 +37,7 @@ class SongImage(BaseModel):
         return _SongImageVersion(**version)
 
 
-DEFAULT_FILE_PATH = './data/songs.yml'
+DEFAULT_FILE_PATH = 'levboard/data/songs.yml'
 
 
 def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:

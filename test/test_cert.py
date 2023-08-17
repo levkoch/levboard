@@ -1,7 +1,7 @@
 import pytest
 
-from ..main.src.model import CertType, SongCert
-from ..main.src.model.cert import AbstractCert
+from ..levboard.src.model import CertType, SongCert
+from ..levboard.src.model.cert import AbstractCert
 
 # so that it doens't complain but we don't have any albums in this system yet.
 AlbumCert = object()

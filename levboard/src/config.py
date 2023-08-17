@@ -7,7 +7,7 @@ Contains the Config class to configure user input.
 from datetime import date
 from typing import Optional, Union
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, conint, validator
 from .model.spotistats import get_first_stream_date
 
 
@@ -31,7 +31,7 @@ class Config(BaseModel):
     second_last_weight: int = 2
     adjust_plays: bool = False
     max_adjusted: int = 25
-    chart_length: int = 60
+    chart_length: conint(ge=10, le=60) = 40
 
     # computed attributes
     start_date: date

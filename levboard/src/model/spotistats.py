@@ -176,9 +176,10 @@ class Position(BaseModel):
     id: str
     plays: int
     place: int
+    points: int
 
     def __hash__(self):
-        return hash((self.id, self.plays, self.place))
+        return hash((self.id, self.plays, self.place, self.points))
 
 
 class Week(BaseModel):
@@ -327,7 +328,12 @@ def songs_week(
             offset += 1000
 
     info = [
-        Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
+        Position(
+            id=i['track']['id'],
+            plays=i['streams'],
+            points=i['streams'],
+            place=i['position'],
+        )
         for i in items
         if str(i['track']['id'])
     ]
@@ -337,14 +343,17 @@ def songs_week(
             pos.place = len([i for i in info if i.plays > pos.plays]) + 1
         return info
 
-    if not max_adjusted:
+    if max_adjusted is None:
         raise ValueError('max_adjusted must be specified')
 
     # adjust the song plays if requested to do so, but we are doing
     # this threaded to make this take less time.
     with futures.ThreadPoolExecutor() as executor:
         values: Iterable[tuple[str, int]] = executor.map(
-            lambda i: (i, _adjusted_song_plays(i, user, after, before)),
+            lambda i: (
+                i,
+                _adjusted_song_plays(user, i, after, before, max_adjusted),
+            ),
             (i.id for i in info if i.plays > max_adjusted),
         )
 

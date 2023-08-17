@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from ..main.src.model import Entry
+from ..levboard.src.model import Entry
 
 
 @pytest.mark.parametrize(

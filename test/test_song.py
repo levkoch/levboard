@@ -1,6 +1,6 @@
 import pytest
 
-from ..main.src.model import Song
+from ..levboard.src.model import Song
 
 
 def test_songs_equivalent():

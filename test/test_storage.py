@@ -1,7 +1,7 @@
 import pytest
 
-from ..main.src.storage import Process
-from ..main.src.model import Song
+from ..levboard.src.storage import Process
+from ..levboard.src.model import Song
 
 
 @pytest.fixture()
