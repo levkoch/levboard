@@ -106,7 +106,7 @@ def update_song_sheet(
     end_date: date,
     week_count: int,
 ) -> list[list]:
-    
+
     actual_end = end_date - timedelta(days=1)
     new_rows = [
         [
@@ -120,7 +120,8 @@ def update_song_sheet(
             '',
             '',
             week_count,
-        ], SONG_ROW_HEADERS
+        ],
+        SONG_ROW_HEADERS,
     ]
 
     for pos in positions:

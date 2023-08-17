@@ -1,8 +1,8 @@
-from flask import session, request, url_for, redirect
+from flask import render_template, session, request, url_for, redirect
 from .app_factory import app
 
 from .storage import Process
-from .charts import create_song_chart
+from .charts import create_song_chart, get_chart_week
 
 
 @app.route('/')
@@ -48,22 +48,15 @@ def display_config():
 def create_charts():
     if 'username' in session:
         with Process(session) as process:
-            return {"rows": create_song_chart(process)}
+            return {'rows': create_song_chart(process)}
     else:
         return 'You need to sign in', 400
 
 
-"""
-@app.route('/config', methods=['GET', 'POST'])
-def change_settings():
-    if request.method == 'POST':
-        config = update_config_from_form(request.form)
-        update_session_from_config(config, session)
-        return redirect(url_for('index'))
-    return '''
-        <form method="post">
-            <p><input type=text name=username>
-            <p><input type=submit value=Submit>
-        </form>
-    '''
-"""
+@app.route('/week/<int:week_count>')
+def display_week(week_count: int):
+    with Process(session) as process:
+        week = get_chart_week(process, week_count)
+    return render_template(
+        'chart.html', week=week['week'], entries=week['entries']
+    )

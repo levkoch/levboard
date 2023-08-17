@@ -5,9 +5,10 @@ from ..storage import Process
 from .chart_util import SONG_ROW_HEADERS
 from .original_charts import original_charts
 from .points_charts import points_charts
+from .chart_view import get_chart_week
 
 
-def clear_entries(process: Process) -> None:
+def _clear_entries(process: Process) -> None:
     print('Clearing previous entries.')
     for song in process.songs:
         song._entries.clear()
@@ -16,7 +17,7 @@ def clear_entries(process: Process) -> None:
 def create_song_chart(process: Process) -> list:
     username = process.config.username
     print(f'Finding song data for {username}.')
-    clear_entries(process)
+    _clear_entries(process)
 
     start_time = datetime.now()
 
