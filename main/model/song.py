@@ -193,7 +193,7 @@ class Song:
         defaulting to `0` if the song has never charted.
         """
 
-        return len([i for i in self.entries if i.place == self.peak])
+        return sum(1 for i in self.entries if i.place == self.peak)
 
     @property
     def weeks(self) -> int:
@@ -290,8 +290,8 @@ class Song:
         )
 
     def period_weeks(self, start: date, end: date) -> int:
-        return len(
-            [w for w in self.entries if w.start >= start and w.end <= end]
+        return sum(
+            1 for w in self.entries if w.start >= start and w.end <= end
         )
 
     def period_units(self, start: date, end: date, adjusted=True) -> int:
@@ -390,7 +390,7 @@ class Song:
         if top is None:
             return self.weeks
 
-        return len([entry for entry in self._entries if entry.place <= top])
+        return len(1 for entry in self._entries if entry.place <= top)
 
     def get_conweeks(self, top: Optional[int] = None) -> int:
         """

@@ -158,7 +158,7 @@ def create_song_chart(
 
         for info in song_info:
             info['place'] = (
-                len([i for i in song_info if i['points'] > info['points']]) + 1
+                sum(1 for i in song_info if i['points'] > info['points']) + 1
             )
 
         # song infos that didn't chart are filtered later on because we
@@ -403,7 +403,7 @@ def create_album_chart(
     )
 
     for (album, album_units) in units:
-        position = len([i for i in units if i[1] > album_units]) + 1
+        position = sum(1 for i in units if i[1] > album_units) + 1
         entry = AlbumEntry(
             start=start_day, end=end_day, units=album_units, place=position
         )
