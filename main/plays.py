@@ -300,12 +300,15 @@ def load_year_end_songs(uow: SongUOW, sheet_id: str, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    #update_local_plays(uow, verbose=True)
 
+    update_local_plays(uow, verbose=True)
+    load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)
+
+    """
     print('')
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
     )
-    #load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)
+    """

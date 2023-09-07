@@ -8,6 +8,7 @@ from operator import itemgetter
 from typing import Final, Iterable, Optional
 
 from config import FIRST_DATE
+from plays import update_local_plays
 from model import Album, Song, SongCert, spotistats
 from model.spotistats import MAX_ADJUSTED
 from storage import SongUOW
@@ -393,6 +394,28 @@ def display_all_songs(uow: SongUOW):
         )
 
 
+def _display_album_plays(album: Album):
+    for song in album:
+        song.update_plays()
+
+    print('')
+    print(f'{album!s} plays: {album.plays}')
+    print('◆ combined songs:')
+
+    for song in album:
+        print(f'◆ {song!s}: {song.plays}')
+        if len(song.ids) > 1:
+            for bonus_id in song.ids:
+                plays = spotistats.song_plays(bonus_id, adjusted=True)
+                print(f'◇ {bonus_id}: {plays}')
+
+
+def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
+    for album in uow.albums:
+        if album.plays > threshold:
+            _display_album_plays(album)
+
+
 PLAYS_MILESTONES = [25, 50, 75, 100] + list(range(150, 1000, 50))
 CERT_UNITS = [100] + list(range(200, 4000, 200))
 ALBUM_TOP = [1, 3, 5, 10, 15, None]
@@ -403,15 +426,18 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
+    update_local_plays(uow, verbose=True)
+    display_top_album_plays_infographic(uow, 1_000)
+
     """
     for milestone in PLAYS_MILESTONES[::-1]:
         top_shortest_time_plays_milestones(uow, milestone)
  
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
-    """
+   
     top_song_consecutive_weeks_infographic(uow)
-    """
+   
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     """
