@@ -7,7 +7,7 @@
   - link: https://i.imgur.com/xyUz2sP.png
     name: standard
   songs:
-  - "TAG: standard"
+  - "!TAG: standard"
   - '33518339'
   - '52320886'
   - '26404015'
@@ -26,7 +26,7 @@
   complete: true
   title: The Pinkprint
   songs:
-  - "TAG: standard"
+  - "!TAG: standard"
   - '513481'
   - '513482'
   - '513550'
@@ -43,11 +43,11 @@
   - '114707'
   - '513551'
   - '114708'
-  - "TAG: The Pinkprint (Deluxe)"
+  - "!TAG: The Pinkprint (Deluxe)"
   - '513549'
   - '114693'
   - '114694'
-  - "TAG: The Pinkprint (Complete Edition)"
+  - "!TAG: The Pinkprint (Complete Edition)"
   - '598620'
   - '114671'
   - '114673'
