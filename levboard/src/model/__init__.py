@@ -16,12 +16,16 @@ Enums:
 """
 
 from .cert import CertType, SongCert
+from .credits import Artist, Band, Credits
 from .entry import Entry
 from .song import Song, inject_config
 
 # in alphabetical order
 __all__ = [
+    'Artist',
+    'Band',
     'CertType',
+    'Credits',
     'Entry',
     'inject_config',
     'Song',

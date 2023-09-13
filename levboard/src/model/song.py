@@ -15,6 +15,7 @@ from typing import Iterable, Iterator, Optional
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
+from .credits import combine_artists
 
 
 class Song:
@@ -104,19 +105,19 @@ class Song:
             self.name = self.official_name
 
         self.artists: list[str] = [i['name'] for i in info['artists']]
-        image = next(
+        self.image = next(
             (
+                # try to match the full name of the song to match the
+                # single cover
                 i['image']
                 for i in info['albums']
                 if (i['name'].lower() == self.official_name.lower())
                 or (i['name'].lower() == self.name.lower())
             ),
-            None,
+            # and then if that doesn't work then match it up with just
+            # the first thing that pops up.
+            'MISSING',  # info['albums'][0]['image']
         )
-        if image is None:
-            self.image: str = info['albums'][0]['image']
-        else:
-            self.image: str = image
 
         if self._listens is None:
             self._populate_listens()
@@ -161,7 +162,7 @@ class Song:
                 for artist in self.artists
                 if artist not in self.official_name
             ]
-            return f'{self.official_name} by {self._combine_artists(artists)}'
+            return f'{self.official_name} by {combine_artists(artists)}'
 
         # something didn't work correctly
         raise ValueError(
@@ -171,14 +172,6 @@ class Song:
             'official song name and then left align it in 12 characters '
             'of space.)'
         )
-
-    def _combine_artists(self, iter: Iterable[str]) -> str:
-        artists = list(iter)
-        if len(artists) == 1:
-            return artists[0]
-        if len(artists) == 2:
-            return ' & '.join(artists)
-        return f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
 
     @property
     def plays(self) -> int:
@@ -194,7 +187,7 @@ class Song:
         and "artist1, artist2 & artist3" if there are three or more artists.
         """
 
-        return self._combine_artists(self.artists)
+        return combine_artists(self.artists)
 
     @property
     def peak(self) -> int:

@@ -16,17 +16,17 @@
   <span class="header peak">PEAK</span>
 
   {% for entry in entries %}
-  <span class="data movement">{{ entry['movement'] }}</span>
-  <img class="song-image" src="{{ entry['image'] }}" />
-  <span class="song-name">
-    <p class="title truncate">{{ entry['title'] }}</p>
-    <p class="artists truncate">{{ entry['artists'] }}</p>
-  </span>
-  <span class="data place"> {{ entry['place'] }} </span>
-  <span class="data previous"> {{ entry['previous'] }} </span>
-  <span class="data weeks"> {{entry['weeks'] }}</span>
-  <span class="data points"> {{entry['points'] }}</span>
-  <span class="data peak"> {{ entry['peak'] }}</span>
+    <span class="data movement">{{ entry['movement'] }}</span>
+    <img class="song-image" src="{{ entry['image'] }}" />
+    <span class="song-name">
+      <p class="title truncate">{{ entry['title'] }}</p>
+      <p class="artists truncate">{{ entry['artists'] }}</p>
+    </span>
+    <span class="data place"> {{ entry['place'] }} </span>
+    <span class="data previous"> {{ entry['previous'] }} </span>
+    <span class="data weeks"> {{entry['weeks'] }}</span>
+    <span class="data points"> {{entry['points'] }}</span>
+    <span class="data peak"> {{ entry['peak'] }}</span>
   {% endfor %}
 </div>
 {% endblock %}
