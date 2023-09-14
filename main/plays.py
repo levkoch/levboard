@@ -16,7 +16,6 @@ import datetime
 
 from concurrent import futures
 from operator import itemgetter
-from tqdm import tqdm
 from typing import Any, Callable
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
