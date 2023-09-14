@@ -13,27 +13,38 @@ import yaml
 
 from pydantic import BaseModel, validator
 from typing import Any, Literal, Union
+from model import Credits
 
 
 class _SongImageVersion(BaseModel):
     name: str
     id: str
-    artists: list[str]
+    artists: Credits
     type: Literal['alternate', 'remix']
 
 
 class SongImage(BaseModel):
     name: str
     standard: str   # main id
-    artists: list[str]
+    artists: Credits
     ids: set[str]
     image: str = 'MISSING'
     versions: list[_SongImageVersion] = []
 
+    @validator('artists')
+    def turn_credits_into_models(cls, artists: Union[list[dict], list[tuple], Credits]):
+        if isinstance(artists, Credits):
+            return artists
+        return Credits(artists)
+
     @validator('versions', each_item=True)
-    def turn_versions_into_models(version: Union[dict, _SongImageVersion]):
+    def turn_versions_into_models(
+        cls, version: Union[dict, _SongImageVersion]
+    ):
         if isinstance(version, _SongImageVersion):
             return version
+        if not 'artists' in version:
+            version['artists'] = cls.artists
         return _SongImageVersion(**version)
 
 
@@ -47,22 +58,21 @@ def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
 
     What the yaml is supposed to look like to declare a song image:
     ```yaml
-    '10020996': # same as "standard" main id
-        artists:
-        - Tyga
-        - Nicki Minaj
-        ids:
-        - '10020996'
-        - '5748569'
-        image: https://i.imgur.com/IaNzbEh.png
-        name: Dip
-        standard: '10020996' # main id
-        versions:
-        - artists:
-          - Tyga
-          - Nicki Minaj
-          id: '5748569'
-          name: Dip (feat. Nicki Minaj)
+    '5748569': # same as "standard" main id
+      artists:
+      - name: 19716 Tyga
+        type: main
+      - name: 11619 Nicki Minaj
+        type: main
+      ids:
+      - '10020996'
+      - '5748569'
+      image: https://i.imgur.com/IaNzbEh.png
+      name: Dip
+      standard: '5748569'
+      versions:
+      - id: '10020996'
+          name: Dip
           type: alternate
     ```
     """

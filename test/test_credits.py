@@ -60,6 +60,24 @@ def test_str_credits(constructor: tuple, expected: str):
 @pytest.mark.parametrize(
     ('constructor', 'expected'),
     [
+        (('Ariana Grande',), 'Ariana Grande'),
+        (
+            ('Ariana Grande', 'Nicki Minaj'),
+            'Ariana Grande ft. Nicki Minaj',
+        ),
+        (
+            ('Lady Gaga', 'Charli XCX', 'A. G. Cook'),
+            'Lady Gaga ft. A. G. Cook & Charli XCX',
+        ),
+    ],
+)
+def test_str_untagged_credits(constructor: tuple, expected: str):
+    assert str(Credits(constructor)) == expected
+
+
+@pytest.mark.parametrize(
+    ('constructor', 'expected'),
+    [
         (
             (
                 ('203847 Ashley O', 'main'),
@@ -154,18 +172,60 @@ def test_band_members_credits(constructor, expected):
         ),
     ],
 )
-class TestConstructorPool:
-    def test_members_in_credits(constructor):
-        credits = Credits(constructor)
-        artists = (
-            Artist(tag.split()[0], ' '.join(tag.split()[1:]))
-            for tag in (row[0] for row in constructor)
-        )
+def test_members_in_credits(constructor: tuple[tuple, ...]):
+    credits = Credits(constructor)
+    artists = (
+        Artist(tag.split()[0], ' '.join(tag.split()[1:]))
+        for tag in (row[0] for row in constructor)
+    )
 
-        for artist in artists:
-            assert artist in credits
+    for artist in artists:
+        assert artist in credits
 
-    def test_htmlizing_artists(constructor):
-        with open('example.html', 'a+') as f:
-            f.write(Credits(constructor).to_html())
-            f.write('')
+
+@pytest.mark.parametrize(
+    ('constructor',),
+    [
+        (
+            [
+                {
+                    'name': '25059 Ariana Grande',
+                    'type': 'main',
+                },
+            ],
+        ),
+        (
+            [
+                {'name': '2089 Dua Lipa', 'type': 'main'},
+                {'name': '124584 BLACKPINK', 'type': 'lead'},
+            ],
+        ),
+        (
+            [
+                {'name': '11619 Nicki Minaj', 'type': 'main'},
+                {'name': '354 Labrinth', 'type': 'lead'},
+                {'name': '443 Eminem', 'type': 'feature'},
+            ],
+        ),
+        (
+            [
+                {'name': '338 Young Money', 'type': 'main'},
+                {
+                    'name': '858484 Nicki Minaj',
+                    'type': 'member',
+                    'band': 'Young Money',
+                },
+                {'name': '447 Tyga', 'type': 'member', 'band': 'Young Money'},
+                {
+                    'name': '23848 Lil Wayne',
+                    'type': 'member',
+                    'band': 'Young Money',
+                },
+            ],
+        ),
+    ],
+)
+def test_credit_serialization(constructor: tuple[dict, ...]):
+    serialized = Credits(constructor).to_list()
+    for credit_line in constructor:
+        assert credit_line in serialized

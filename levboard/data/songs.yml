@@ -125,7 +125,6 @@
   image: https://i.imgur.com/f0vspVH.png
   name: Tap In
   standard: '1362216'
-# LEFT OFF
 '1365961':
   artists:
   - Cardi B
@@ -137,7 +136,8 @@
   standard: '1365961'
 '1412616':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '5443425'
   - '1412616'
@@ -145,27 +145,9 @@
   name: break up with your girlfriend, i'm bored
   standard: '1412616'
   versions:
-  - artists:
-    - Ariana Grande
-    id: '5443425'
+  - id: '5443425'
     name: break up with your girlfriend, i'm bored - live
     type: alternate
-'14504609':
-  artists:
-  - Charlie Puth
-  - French Montana
-  ids:
-  - '14504609'
-  - '402135'
-  image: https://i.imgur.com/VhEIcJs.png
-  name: How Long
-  standard: '14504609'
-  versions:
-  - artists:
-    - Charlie Puth
-    id: '402135'
-    name: How Long
-    type: remix
 '1586605':
   artists:
   - Dua Lipa
@@ -177,7 +159,8 @@
   standard: '1586605'
 '163325':
   artists:
-  - Nicki Minaj
+  - name: 11619 Nicki Minaj
+    type: main
   ids:
   - '163325'
   image: https://i.imgur.com/3YZl2dn.png
@@ -185,84 +168,58 @@
   standard: '163325'
 '169224':
   artists:
-  - Billie Eilish
+  - name: 22320 Billie Eilish
+    type: main
   ids:
-  - '5094548'
-  - '17408751'
-  - '17410244'
-  - '8318923'
-  - '11304393'
-  - '1926001'
-  - '9505940'
   - '169224'
+  - '5094548'
+  - '8318923'
+  - '1926001'
   - '5094545'
-  - '13516258'
   - '5094549'
   image: https://i.imgur.com/CuoWUNm.png
   name: ocean eyes
   standard: '169224'
   versions:
   - artists:
-    - Billie Eilish
-    - GOLDHOUSE
+    - name: 22320 Billie Eilish
+      type: main
+    - name: 100113 GOLDHOUSE
+      type: feature
     id: '5094548'
     name: Ocean Eyes - GOLDHOUSE Remix
     type: remix
-  - artists:
-    - Billie Eilish
-    - GOLDHOUSE
-    id: '17408751'
-    name: Ocean Eyes (Goldhouse Remix)
-    type: remix
-  - artists:
-    - Billie Eilish
-    - Cautious Clay
-    id: '17410244'
-    name: Ocean Eyes (Cautious Clay Remix) [feat. Cautious Clay]
-    type: remix
-  - artists:
-    - Billie Eilish
-    id: '8318923'
-    name: ocean eyes - NOW What's Next!
+  - id: '8318923'
+    name: ocean eyes
     type: alternate
   - artists:
-    - Billie Eilish
-    - Astronomyy
-    id: '11304393'
-    name: Ocean Eyes (Astronomyy Edit)
-    type: remix
-  - artists:
-    - Billie Eilish
-    - Astronomyy
+    - name: 22320 Billie Eilish
+      type: main
+    - name: 100204 Astronomyy
+      type: feature
     id: '1926001'
     name: Ocean Eyes - Astronomyy Remix
     type: remix
   - artists:
-    - Billie Eilish
-    - Cautious Clay
-    id: '9505940'
-    name: Ocean Eyes - Cautious Clay Remix
-    type: remix
-  - artists:
-    - Billie Eilish
+    - name: 22320 Billie Eilish
+      type: main
+    - name: 158521 Cautious Clay
+      type: feature
     id: '5094545'
     name: Ocean Eyes - Cautious Clay Remix
     type: alternate
   - artists:
-    - Billie Eilish
-    - blackbear
-    id: '13516258'
-    name: Ocean Eyes (Blackbear Remix)
-    type: remix
-  - artists:
-    - Billie Eilish
-    - blackbear
+    - name: 22320 Billie Eilish
+      type: main
+    - name: 2086 blackbear
+      type: feature
     id: '5094549'
     name: Ocean Eyes - Blackbear Remix
     type: remix
 '175471':
   artists:
-  - Rihanna
+  - name: 18521 Rihanna
+    type: main
   ids:
   - '175471'
   image: https://i.imgur.com/a9ToS3E.png
@@ -270,75 +227,46 @@
   standard: '175471'
 '1767526':
   artists:
-  - Nicki Minaj
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
+  - name: 11619 Nicki Minaj
+    type: feature
   ids:
   - '1767526'
-  - '5709130'
   image: https://i.imgur.com/YEbwAP3.png
   name: Bed
   standard: '1767526'
-  versions:
-  - artists:
-    - Nicki Minaj
-    - Ariana Grande
-    id: '5709130'
-    name: Bed
-    type: alternate
 '180467':
   artists:
-  - Ariana Grande
-  - Zedd
+  - name: 25059 Ariana Grande
+    type: main
+  - name: 2085 Zedd
+    type: feature
   ids:
   - '9726245'
-  - '24259158'
-  - '39766614'
   - '1080994'
   - '5443434'
-  - '59141914'
   - '180467'
   image: https://i.imgur.com/Xly1myc.png
   name: Break Free
   standard: '180467'
   versions:
-  - artists:
-    - Ariana Grande
-    - Zedd
-    id: '9726245'
+  - id: '9726245'
     name: Break Free - Zedd's Extended Mix
     type: alternate
-  - artists:
-    - Michael Aasen
-    - Ariana Grande
-    id: '24259158'
-    name: Break Free - Remix
-    type: remix
-  - artists:
-    - Danny Williams
-    - Ariana Grande
-    id: '39766614'
-    name: Break Free - Remix
-    type: remix
-  - artists:
-    - Ariana Grande
-    - Zedd
-    id: '1080994'
-    name: Break Free (feat. Zedd)
+  - id: '1080994'
+    name: Break Free
     type: alternate
   - artists:
-    - Ariana Grande
+    - name: 25059 Ariana Grande
+      type: main
     id: '5443434'
     name: break free - live
     type: remix
-  - artists:
-    - Ariana Grande
-    - Zedd
-    id: '59141914'
-    name: Break Free - Radio Edit
-    type: alternate
 '1860852':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '1860852'
   image: https://i.imgur.com/5xa4iQp.png
@@ -346,29 +274,13 @@
   standard: '1860852'
 '20253697':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '20253697'
   image: https://i.imgur.com/DYp4wcK.png
   name: Oh My God
   standard: '20253697'
-'2067000':
-  artists:
-  - Lil Nas X
-  - Jack Harlow
-  ids:
-  - '2067000'
-  - '300513'
-  image: https://i.imgur.com/L82cZfi.png
-  name: INDUSTRY BABY
-  standard: '2067000'
-  versions:
-  - artists:
-    - Lil Nas X
-    - Jack Harlow
-    id: '300513'
-    name: INDUSTRY BABY (feat. Jack Harlow)
-    type: alternate
 '221984':
   artists:
   - KAROL G
@@ -380,7 +292,8 @@
   standard: '221984'
 '22696027':
   artists:
-  - SZA
+  - name: 25195 SZA
+    type: main
   ids:
   - '22696027'
   image: https://i.imgur.com/vUvqRJG.png
@@ -397,7 +310,8 @@
   standard: '2380245'
 '242469':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '7581554'
   - '8177654'
@@ -408,26 +322,30 @@
   standard: '242469'
   versions:
   - artists:
-    - Ariana Grande
-    - Mac Miller
-    - Alex Ghenea
+    - name: 25059 Ariana Grande
+      type: main
+    - name: 26532 Mac Miller
+      type: feature
+    - name: 14112 Alex Ghenea
+      type: feature
     id: '7581554'
     name: Into You - Alex Ghenea Remix
     type: remix
   - artists:
-    - Ariana Grande
-    - 3LAU
+    - name: 25059 Ariana Grande
+      type: main
+    - name: 12916 3LAU
+      type: feature
     id: '8177654'
     name: Into You - 3LAU Remix
     type: remix
-  - artists:
-    - Ariana Grande
-    id: '5443444'
+  - id: '5443444'
     name: into you - live
     type: alternate
 '249970':
   artists:
-  - Rihanna
+  - name: 18521 Rihanna
+    type: main
   ids:
   - '249970'
   image: https://i.imgur.com/POgzMES.png
@@ -444,8 +362,10 @@
   standard: '256524'
 '2624319':
   artists:
-  - Ariana Grande
-  - Social House
+  - name: 25059 Ariana Grande
+    type: main
+  - name: 54407 Social House
+    type: lead
   ids:
   - '1660076'
   - '2624319'
@@ -453,10 +373,7 @@
   name: boyfriend
   standard: '2624319'
   versions:
-  - artists:
-    - Ariana Grande
-    - Social House
-    id: '1660076'
+  - id: '1660076'
     name: boyfriend
     type: alternate
 '2715831':
@@ -470,7 +387,8 @@
   standard: '2715831'
 '282891':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '11814897'
   - '282891'
@@ -478,14 +396,13 @@
   name: Turning Tables
   standard: '282891'
   versions:
-  - artists:
-    - Adele
-    id: '11814897'
+  - id: '11814897'
     name: Turning Tables - Live Acoustic
     type: alternate
 '282893':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '282893'
   image: https://i.imgur.com/hqcRBU9.png
@@ -493,7 +410,8 @@
   standard: '282893'
 '282905':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '282905'
   image: https://i.imgur.com/PwB4IDK.png
@@ -501,7 +419,8 @@
   standard: '282905'
 '282945':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '282945'
   image: https://i.imgur.com/LZOuUdc.png
@@ -509,7 +428,8 @@
   standard: '282945'
 '283047':
   artists:
-  - Little Mix
+  - name: 40311 Little Mix
+    type: main
   ids:
   - '283047'
   image: https://i.imgur.com/DHop4Dn.png
@@ -517,7 +437,8 @@
   standard: '283047'
 '283049':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283049'
   image: https://i.imgur.com/vKx9GQa.png
@@ -534,7 +455,8 @@
   standard: '283725'
 '283761':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283761'
   image: https://i.imgur.com/xPK5B4I.png
@@ -542,7 +464,8 @@
   standard: '283761'
 '283767':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283767'
   image: https://i.imgur.com/J73WNVJ.png
@@ -550,7 +473,8 @@
   standard: '283767'
 '283773':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283773'
   image: https://i.imgur.com/3Hf4Q6Q.png
@@ -558,7 +482,8 @@
   standard: '283773'
 '283777':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283777'
   image: https://i.imgur.com/rJAMTz1.png
@@ -566,7 +491,8 @@
   standard: '283777'
 '283820':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283820'
   - '284948'
@@ -574,14 +500,13 @@
   name: Chasing Pavements
   standard: '283820'
   versions:
-  - artists:
-    - Adele
-    id: '284948'
+  - id: '284948'
     name: Chasing Pavements - Live at Hotel Cafe
     type: alternate
 '283831':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283831'
   image: https://i.imgur.com/C1ctyEA.png
@@ -589,7 +514,8 @@
   standard: '283831'
 '283834':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '1870441'
   - '1870440'
@@ -599,20 +525,25 @@
   standard: '283834'
   versions:
   - artists:
-    - Adele
-    - High Contrast
+    - name: 18609 Adele
+      type: main
+    - name: 64511 High Contrast
+      type: feature
     id: '1870441'
     name: Hometown Glory - High Contrast Remix Instrumental
     type: remix
   - artists:
-    - Adele
-    - High Contrast
+    - name: 18609 Adele
+      type: main
+    - name: 64511 High Contrast
+      type: feature
     id: '1870440'
     name: Hometown Glory - High Contrast Remix
     type: remix
 '283848':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '283848'
   image: https://i.imgur.com/MwXD74o.png
@@ -620,7 +551,8 @@
   standard: '283848'
 '285143':
   artists:
-  - Adele
+  - name: 18609 Adele
+    type: main
   ids:
   - '285143'
   image: https://i.imgur.com/yJ1dxEC.png
@@ -628,7 +560,8 @@
   standard: '285143'
 '285206':
   artists:
-  - Ed Sheeran
+  - name: 8752 Ed Sheeran
+    type: main
   ids:
   - '285206'
   image: https://i.imgur.com/XALn6NX.png
@@ -686,13 +619,10 @@
     - Iggy Azalea
     - J Balvin
     id: '4832583'
-    name: Problem
+    name: Problem - J Baldvin Remix
     type: remix
-  - artists:
-    - Ariana Grande
-    - Iggy Azalea
-    id: '725440'
-    name: Problem (feat. Iggy Azalea)
+  - id: '725440'
+    name: Problem
     type: alternate
   - artists:
     - Ariana Grande
@@ -701,12 +631,6 @@
     id: '9726244'
     name: Problem - Dave Aude Twerk Edit
     type: remix
-  - artists:
-    - Ariana Grande
-    - Iggy Azalea
-    id: '46604328'
-    name: Problem - Dawin Remix
-    type: alternate
 '29089640':
   artists:
   - Nicki Minaj
@@ -727,7 +651,8 @@
   standard: '29888659'
 '299889':
   artists:
-  - Lil Nas X
+  - name: 97502 Lil Nas X
+    type: main
   ids:
   - '299889'
   - '1022799'
@@ -735,14 +660,13 @@
   name: MONTERO
   standard: '299889'
   versions:
-  - artists:
-    - Lil Nas X
-    id: '1022799'
-    name: MONTERO (Call Me By Your Name) - SATAN'S EXTENDED VERSION
+  - id: '1022799'
+    name: MONTERO (Call Me By Your Name) - Extended
     type: alternate
 '299913':
   artists:
-  - Lil Nas X
+  - name: 97502 Lil Nas X
+    type: main
   ids:
   - '299913'
   image: https://i.imgur.com/tO9HPmb.png
@@ -750,7 +674,8 @@
   standard: '299913'
 '299959':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '299959'
   image: https://i.imgur.com/MlTEI8t.png
@@ -758,7 +683,8 @@
   standard: '299959'
 '300003':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '300003'
   image: https://i.imgur.com/7IlD11p.png
@@ -766,7 +692,8 @@
   standard: '300003'
 '300004':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '300004'
   image: https://i.imgur.com/Ufw1iRH.png
@@ -774,7 +701,8 @@
   standard: '300004'
 '300005':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '300005'
   image: https://i.imgur.com/cznUv3k.png
@@ -782,7 +710,8 @@
   standard: '300005'
 '300006':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   complete: true
   ids:
   - '300006'
@@ -795,53 +724,69 @@
   standard: '300006'
   versions:
   - artists:
-    - Dua Lipa
-    - DaBaby
+    - name: 2089 Dua Lipa
+      type: main
+    - name: 23570 DaBaby
+      type: feature
     id: '498342'
     image: https://i.imgur.com/lYJRllk.png
-    name: Levitating (feat. DaBaby)
+    name: Levitating - DaBaby Remix
     type: remix
   - artists:
-    - Dua Lipa
-    - DaBaby
-    - KUU
+    - name: 2089 Dua Lipa
+      type: main
+    - name: 23570 DaBaby
+      type: feature
+    - name: 109156 KUU
+      type: feature
     id: '9373712'
-    name: Levitating (feat. DaBaby) - KUU Remix
+    name: Levitating - KUU Remix
     type: remix
   - artists:
-    - Dua Lipa
-    - Madonna
-    - Missy Elliott
-    - The Blessed Madonna
+    - name: 2089 Dua Lipa
+      type: main
+    - name: 15911 Madonna
+      type: feature
+    - name: 18570 Missy Elliott
+      type: feature
+    - name: 94089 The Blessed Madonna
+      type: feature
     id: '9373717'
-    name: Levitating (feat. Madonna and Missy Elliott) [The Blessed Madonna Remix]
+    name: Levitating - The Blessed Madonna Remix
     type: remix
   - artists:
-    - Dua Lipa
-    - Don Diablo
-    - DaBaby
+    - name: 2089 Dua Lipa
+      type: main
+    - name: 23570 DaBaby
+      type: feature
+    - name: 23878 Don Diablo
+      type: feature
     id: '9373711'
-    name: Levitating (feat. DaBaby) - Don Diablo Remix
+    name: Levitating - Don Diablo Remix
     type: remix
 '300008':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
-  - '8285532'
   - '300008'
+  - '8285532'
   image: https://i.imgur.com/OoLvUNh.png
   name: Love Again
   standard: '300008'
   versions:
   - artists:
-    - Dua Lipa
-    - Imanbek
+    - name: 2089 Dua Lipa
+      type: main
+    - name: 31806 Imanbek
+      type: feature
     id: '8285532'
     name: Love Again - Imanbek Remix
     type: remix
 '300010':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '300010'
   image: https://i.imgur.com/V6Wllpf.png
@@ -849,8 +794,10 @@
   standard: '300010'
 '300513':
   artists:
-  - Lil Nas X
-  - Jack Harlow
+  - name: 97502 Lil Nas X
+    type: main
+  - name: 97598 Jack Harlow
+    type: feature
   ids:
   - '2067000'
   - '300513'
@@ -858,10 +805,7 @@
   name: INDUSTRY BABY
   standard: '300513'
   versions:
-  - artists:
-    - Lil Nas X
-    - Jack Harlow
-    id: '2067000'
+  - id: '2067000'
     name: INDUSTRY BABY - EXTENDED
     type: alternate
 '31287894':
@@ -884,7 +828,8 @@
   standard: '31652761'
 '355995':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '533648'
   - '2882600'
@@ -893,19 +838,16 @@
   name: New Rules
   standard: '355995'
   versions:
-  - artists:
-    - Dua Lipa
-    id: '2882600'
-    name: New Rules - Piano, Acoustic; Live
+  - id: '2882600'
+    name: New Rules - Acoustic
     type: alternate
-  - artists:
-    - Dua Lipa
-    id: '533648'
+  - id: '533648'
     name: New Rules - Live
     type: alternate
 '3755408':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '3755408'
   image: https://i.imgur.com/LIWRrx1.png
@@ -913,7 +855,8 @@
   standard: '3755408'
 '3755439':
   artists:
-  - "Beyonc\xE9"
+  - name: "2428 Beyonc\xE9"
+    type: main
   ids:
   - '3755439'
   image: https://i.imgur.com/KUN1nOa.png
@@ -940,7 +883,8 @@
   standard: '39662009'
 '398668':
   artists:
-  - Maroon 5
+  - name: 364 Maroon 5
+    type: main
   ids:
   - '398668'
   image: https://i.imgur.com/yJp8Zbj.png
@@ -948,7 +892,8 @@
   standard: '398668'
 '402135':
   artists:
-  - Charlie Puth
+  - name: 6587 Charlie Puth
+    type: main
   ids:
   - '402135'
   - '14504609'
@@ -957,14 +902,17 @@
   standard: '402135'
   versions:
   - artists:
-    - Charlie Puth
-    - French Montana
+    - name: 6587 Charlie Puth
+      type: main
+    - name: 34 French Montana
+      type: feature
     id: '14504609'
-    name: How Long (feat. French Montana) - Remix
+    name: How Long - French Montana Remix
     type: remix
 '402137':
   artists:
-  - Charlie Puth
+  - name: 6587 Charlie Puth
+    type: main
   ids:
   - '402137'
   image: https://i.imgur.com/1CLfdsU.png
@@ -972,8 +920,10 @@
   standard: '402137'
 '402142':
   artists:
-  - Charlie Puth
-  - Kehlani
+  - name: 6587 Charlie Puth
+    type: main
+  - name: 34454 Kehlani
+    type: feature
   ids:
   - '402142'
   image: https://i.imgur.com/ngz3Ko9.png
@@ -999,7 +949,8 @@
     type: remix
 '41352':
   artists:
-  - Justin Bieber
+  - name: 16 Justin Bieber
+    type: main
   ids:
   - '41352'
   image: https://i.imgur.com/QXafdp3.png
@@ -1025,7 +976,8 @@
   standard: '417528'
 '426258':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '426258'
   image: https://i.imgur.com/NoGD4np.png
@@ -1051,10 +1003,16 @@
   standard: '4830275'
 '4830283':
   artists:
-  - Silk City
-  - Dua Lipa
-  - Diplo
-  - Mark Ronson
+  - name: 165051 Silk City
+    type: main
+  - name: 2089 Dua Lipa
+    type: lead
+  - name: 4746 Diplo
+    type: member
+    band: Silk City
+  - name: 11667 Mark Ronson
+    type: member
+    band: Silk City
   ids:
   - '4830283'
   image: https://i.imgur.com/ub2ACCL.png
@@ -1087,22 +1045,6 @@
   image: https://i.imgur.com/1tP4sWx.png
   name: Stay
   standard: '4964'
-'5094549':
-  artists:
-  - Billie Eilish
-  - blackbear
-  ids:
-  - '5094549'
-  - '169224'
-  image: https://i.imgur.com/CuoWUNm.png
-  name: ocean eyes
-  standard: '5094549'
-  versions:
-  - artists:
-    - Billie Eilish
-    id: '169224'
-    name: ocean eyes
-    type: remix
 '513483':
   artists:
   - Nicki Minaj
@@ -1143,7 +1085,8 @@
   standard: '533290'
 '533656':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '533656'
   image: https://i.imgur.com/vGH5fsD.png
@@ -1151,7 +1094,8 @@
   standard: '533656'
 '533657':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '14457530'
   - '533657'
@@ -1167,7 +1111,8 @@
     type: remix
 '533658':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '533658'
   image: https://i.imgur.com/dos1ukm.png
@@ -1175,7 +1120,8 @@
   standard: '533658'
 '533663':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '533663'
   image: https://i.imgur.com/UFSvezy.png
@@ -1183,7 +1129,8 @@
   standard: '533663'
 '533665':
   artists:
-  - Dua Lipa
+  - name: 2089 Dua Lipa
+    type: main
   ids:
   - '533665'
   image: https://i.imgur.com/hcacR97.png
@@ -1191,7 +1138,8 @@
   standard: '533665'
 '533698':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '533698'
   image: https://i.imgur.com/5NoAfqR.png
@@ -1199,10 +1147,11 @@
   standard: '533698'
 '533701':
   artists:
-  - Ariana Grande
+  - name: 25059 Ariana Grande
+    type: main
   ids:
   - '533701'
-  image: https://i.imgur.com/fXpub3N.png
+  image: MISSING
   name: nasty
   standard: '533701'
 '533772':
@@ -1223,54 +1172,6 @@
   image: https://i.imgur.com/oh00WYV.png
   name: Prisoner
   standard: '539989'
-'5443434':
-  artists:
-  - Ariana Grande
-  ids:
-  - '5443434'
-  - '180467'
-  image: https://i.imgur.com/Xly1myc.png
-  name: Break Free
-  standard: '5443434'
-  versions:
-  - artists:
-    - Ariana Grande
-    - Zedd
-    id: '180467'
-    name: Break Free
-    type: remix
-'5443446':
-  artists:
-  - Ariana Grande
-  ids:
-  - '5443446'
-  - '727948'
-  image: https://i.imgur.com/8qh9Sxy.png
-  name: thank u, next
-  standard: '5443446'
-  versions:
-  - artists:
-    - Ariana Grande
-    id: '727948'
-    name: thank u, next
-    type: alternate
-'5443471':
-  artists:
-  - Ariana Grande
-  - Nicki Minaj
-  ids:
-  - '5443471'
-  - '116367'
-  image: https://i.imgur.com/oGqBNiO.png
-  name: Side to Side
-  standard: '5443471'
-  versions:
-  - artists:
-    - Ariana Grande
-    - Nicki Minaj
-    id: '116367'
-    name: Side To Side
-    type: alternate
 '5748569':
   artists:
   - name: 19716 Tyga
@@ -1285,11 +1186,12 @@
   standard: '5748569'
   versions:
   - id: '10020996'
-    name: Dip (feat. Nicki Minaj)
+    name: Dip
     type: alternate
 '5748570':
   artists:
-  - Nicki Minaj
+  - name: 11619 Nicki Minaj
+    type: main
   ids:
   - '5748570'
   image: https://i.imgur.com/aoeJkyn.png
@@ -1297,7 +1199,8 @@
   standard: '5748570'
 '585348':
   artists:
-  - Billie Eilish
+  - name: 22320 Billie Eilish
+    type: main
   ids:
   - '585348'
   - '9411902'
@@ -1306,8 +1209,10 @@
   standard: '585348'
   versions:
   - artists:
-    - Billie Eilish
-    - Sofi Tukker
+    - name: 22320 Billie Eilish
+      type: main
+    - name: 102408 Sofi Tukker
+      type: feature
     id: '9411902'
     name: COPYCAT - Sofi Tukker Remix
     type: remix
@@ -1322,7 +1227,8 @@
   standard: '586634'
 '587345':
   artists:
-  - Taylor Swift
+  - name: 24118 Taylor Swift
+    type: main
   ids:
   - '586662'
   - '587345'
@@ -1330,9 +1236,7 @@
   name: Wildest Dreams
   standard: '587345'
   versions:
-  - artists:
-    - Taylor Swift
-    id: '586662'
+  - id: '586662'
     name: Wildest Dreams (Taylor's Version)
     type: alternate
 '627931':
@@ -1347,7 +1251,8 @@
   standard: '627931'
 '6457853':
   artists:
-  - Charlie Puth
+  - name: 6587 Charlie Puth
+    type: main
   ids:
   - '6457853'
   image: https://i.imgur.com/jSKW78j.png
@@ -1355,20 +1260,20 @@
   standard: '6457853'
 '645833':
   artists:
-  - Maroon 5
+  - name: 364 Maroon 5
+    type: main
   ids:
   - '645833'
   image: https://i.imgur.com/lydZbtA.png
   name: Wait
   standard: '645833'
-# cut off
 '683750':
   artists:
   - name: 203847 Ashley O
     type: main
-  - name: 11 Miley Cyrus
+  - band: Ashley O
+    name: 11 Miley Cyrus
     type: member
-    band: Ashley O
   ids:
   - '683750'
   image: https://i.imgur.com/5NgO1nn.png
@@ -1422,7 +1327,7 @@
   name: no tears left to cry
   standard: '78715'
   versions:
-  - artists:
+  - artists: null
     id: '5443449'
     name: no tears left to cry - live
     type: alternate
