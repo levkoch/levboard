@@ -22,6 +22,25 @@ class _SongImageVersion(BaseModel):
     artists: Credits
     type: Literal['alternate', 'remix']
 
+    class Config:
+        arbitrary_types_allowed = True
+
+    @validator('artists', pre=True)
+    def turn_credits_into_models(
+        cls, artists: Union[list[dict], list[tuple], Credits]
+    ):
+        if isinstance(artists, Credits):
+            return artists
+        return Credits(artists)
+
+    def to_dict(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+            'artists': self.artists.to_list(),
+            'type': self.type,
+        }
+
 
 class SongImage(BaseModel):
     name: str
@@ -31,24 +50,44 @@ class SongImage(BaseModel):
     image: str = 'MISSING'
     versions: list[_SongImageVersion] = []
 
-    @validator('artists')
-    def turn_credits_into_models(cls, artists: Union[list[dict], list[tuple], Credits]):
+    class Config:
+        arbitrary_types_allowed = True
+
+    @validator('artists', pre=True)
+    def turn_credits_into_models(
+        cls, artists: Union[list[dict], list[tuple], Credits]
+    ):
         if isinstance(artists, Credits):
             return artists
-        return Credits(artists)
+        credits = Credits(artists)
+        cls.latest_credits = credits
+        return credits
 
-    @validator('versions', each_item=True)
+    @validator('versions', pre=True, each_item=True)
     def turn_versions_into_models(
         cls, version: Union[dict, _SongImageVersion]
     ):
         if isinstance(version, _SongImageVersion):
             return version
         if not 'artists' in version:
-            version['artists'] = cls.artists
+            version['artists'] = cls.latest_credits
         return _SongImageVersion(**version)
+
+    def to_dict(self):
+        info = {
+            'name': self.name,
+            'standard': self.standard,
+            'artists': self.artists.to_list(),
+            'ids': list(self.ids),
+            'image': self.image,
+        }
+        if self.versions:
+            info['versions'] = [v.to_dict() for v in self.versions]
+        return info
 
 
 DEFAULT_FILE_PATH = 'levboard/data/songs.yml'
+PARSED_FILE_PATH = 'levboard/data/parsedsongs.yml'
 
 
 def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
@@ -72,8 +111,8 @@ def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
       standard: '5748569'
       versions:
       - id: '10020996'
-          name: Dip
-          type: alternate
+        name: Dip
+        type: alternate
     ```
     """
 
@@ -89,3 +128,15 @@ def load_song_images(file: str = DEFAULT_FILE_PATH) -> dict[str, SongImage]:
             collection[alternate_id] = image
 
     return collection
+
+
+def ingest_song_images():
+    """
+    Collect any images from the songs file and then process them into the
+    nicest machine form and dump them into the parsedsongs file.
+    """
+    
+    images = load_song_images()
+    info = {image.standard: image.to_dict() for image in images.values()}
+    with open(PARSED_FILE_PATH, 'w') as f:
+        yaml.dump(info, f)

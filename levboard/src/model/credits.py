@@ -50,9 +50,7 @@ class Artist:
         return f'<a href="https://stats.fm/artist/{self.tag}">{self.name}</a>'
 
     def __eq__(self, other):
-        return (self.tag == other.tag) and (
-            self.name == other.name
-        )
+        return (self.tag == other.tag) and (self.name == other.name)
 
     def __hash__(self):
         return hash((self.tag, self.name))

@@ -945,7 +945,7 @@
     - Drake
     - Bad Bunny
     id: '4091562'
-    name: LOYAL (feat. Drake and Bad Bunny) - Remix
+    name: LOYAL - Drake & Bad Bunny Remix
     type: remix
 '41352':
   artists:
@@ -1327,8 +1327,7 @@
   name: no tears left to cry
   standard: '78715'
   versions:
-  - artists: null
-    id: '5443449'
+  - id: '5443449'
     name: no tears left to cry - live
     type: alternate
 '8188890':
