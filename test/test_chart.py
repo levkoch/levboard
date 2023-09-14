@@ -1,8 +1,8 @@
 from datetime import date, timedelta
 import pytest
 
-from ..levboard.src.charts import create_song_chart
-from ..levboard.src.storage import Process
+from levboard.src.charts import create_song_chart
+from levboard.src.storage import Process
 
 
 """

@@ -15,7 +15,7 @@ from typing import Iterable, Iterator, Optional
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
-from .credits import combine_artists
+from .credits import Credits
 
 
 class Song:
@@ -58,8 +58,8 @@ class Song:
         current play count.
     """
 
-    # to be overloaded by the inject_config function below ... username is only
-    # set to anything here to make testing easier to deal with
+    # to be overloaded by the inject_config function below
+    # username is only set to anything here to make testing easier to deal with
     username: str = 'lev'
     max_adjusted: int
     chart_length: int
@@ -84,7 +84,7 @@ class Song:
 
         # configured by _load_info()
         # declared here for cpython reasons
-        self.artists: list[str] = []
+        self.artists: Credits = None
         self.official_name: str = ''
 
         if load:
@@ -104,19 +104,28 @@ class Song:
         if self.name is None:
             self.name = self.official_name
 
-        self.artists: list[str] = [i['name'] for i in info['artists']]
+        first = info['artists'][0]
+        credits = [
+            (f'{first["id"]} {first["name"]}', 'main'),
+        ]
+        if len(info['artists']) > 1:
+            credits.extend(
+                (f'{item["id"]} {item["name"]}', 'feature')
+                for item in info['artists'][1:]
+            )
+        self.artists: Credits = Credits(credits)
+
         self.image = next(
             (
                 # try to match the full name of the song to match the
                 # single cover
                 i['image']
                 for i in info['albums']
-                if (i['name'].lower() == self.official_name.lower())
-                or (i['name'].lower() == self.name.lower())
+                if (i['name'].lower() in {self.official_name.lower(), self.name.lower()})
             ),
             # and then if that doesn't work then match it up with just
             # the first thing that pops up.
-            'MISSING',  # info['albums'][0]['image']
+            info['albums'][0]['image']
         )
 
         if self._listens is None:
@@ -131,7 +140,7 @@ class Song:
         return NotImplemented
 
     def __str__(self) -> str:
-        return f'{self.name} by {self.str_artists}'
+        return f'{self.name!s} by {self.artists!s}'
 
     def __repr__(self) -> str:
         return f'Song({self.main_id!r}, {self.name!r})'
@@ -157,12 +166,7 @@ class Song:
 
         if fmt == 'o':
             # official formatting, like "No Lie (ft. Dua Lipa) by Sean Paul"
-            artists = [
-                artist
-                for artist in self.artists
-                if artist not in self.official_name
-            ]
-            return f'{self.official_name} by {combine_artists(artists)}'
+            return f'{self.official_name} by {self.artists!s}'
 
         # something didn't work correctly
         raise ValueError(
@@ -187,7 +191,7 @@ class Song:
         and "artist1, artist2 & artist3" if there are three or more artists.
         """
 
-        return combine_artists(self.artists)
+        return str(self.artists)
 
     @property
     def peak(self) -> int:
@@ -480,7 +484,7 @@ class Song:
             'name': self.name,
             'main_id': self.main_id,
             'ids': list(self.ids),
-            'artists': self.artists,
+            'artists': self.artists.to_list(),
             'image': self.image,
             'official_name': self.official_name,
             'plays': self.plays,
@@ -513,7 +517,7 @@ class Song:
             new.ids = set(alts) if alts is not None else set()
             new.image = info['image']
 
-            new.artists = list(info['artists'])
+            new.artists = Credits(info['artists'])
             new.official_name = str(info['official_name'])
             new._plays = int(info['plays'])
             new._entries = {

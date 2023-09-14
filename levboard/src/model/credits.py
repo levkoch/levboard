@@ -45,6 +45,9 @@ class Artist:
 
     def __str__(self):
         return self.name
+    
+    def __repr__(self):
+        return f"<Artist({self.tag!r}, {self.name!r})>"
 
     def to_html(self):
         return f'<a href="https://stats.fm/artist/{self.tag}">{self.name}</a>'
@@ -68,6 +71,9 @@ class Band(Artist):
 
     def __str__(self):
         return f'{super().__str__()} ({combine_artists(str(m) for m in self.members)})'
+    
+    def __repr__(self):
+        return f"<Band({self.tag!r}, {self.name!r})>"
 
     def to_html(self):
         return (
@@ -153,7 +159,7 @@ class Credits:
 
         new_info = []
         # we got tuples of information either of the form
-        # ("XXX Artist", "credit") or ("XXX Artist", "member", "band name")
+        # ("### Artist", "credit") or ("### Artist", "member", "band name")
         for credit_tuple in info:
             artist_tag = credit_tuple[0]
             credit_type = credit_tuple[1]
@@ -241,6 +247,9 @@ class Credits:
             credit_str += combine_artists(str(a) for a in feature_artists)
 
         return credit_str
+    
+    def __repr__(self) -> str:
+        return f"<Credits({self.to_list()})>"
 
     def to_html(self) -> str:
         """

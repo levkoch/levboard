@@ -13,7 +13,8 @@ import yaml
 
 from pydantic import BaseModel, validator
 from typing import Any, Literal, Union
-from model import Credits
+
+from .model import Credits
 
 
 class _SongImageVersion(BaseModel):
@@ -135,7 +136,7 @@ def ingest_song_images():
     Collect any images from the songs file and then process them into the
     nicest machine form and dump them into the parsedsongs file.
     """
-    
+
     images = load_song_images()
     info = {image.standard: image.to_dict() for image in images.values()}
     with open(PARSED_FILE_PATH, 'w') as f:

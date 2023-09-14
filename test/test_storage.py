@@ -1,7 +1,7 @@
 import pytest
 
-from ..levboard.src.storage import Process
-from ..levboard.src.model import Song
+from levboard.src.storage import Process
+from levboard.src.model import Song
 
 
 @pytest.fixture()
@@ -14,7 +14,7 @@ def example_config() -> dict:
                 'ids': ['78715', '5443449'],  # standard & live version
                 'main_id': '78715',
                 'artists': [
-                    'Ariana Grande',
+                    {'name': '25059 Ariana Grande', 'type': "main"},
                 ],
                 'image': 'https://i.imgur.com/6v564qs.png',
                 'official_name': 'No Tears Left To Cry',
@@ -50,7 +50,7 @@ def test_process_binds_songs(example_config: dict):
         ntltc = process.songs.get('78715')
 
     assert ntltc is not None
-    assert ntltc.artists == ['Ariana Grande']
+    assert ntltc.artists.to_list() == [{"name": '25059 Ariana Grande', "type": "main"}]
     assert ntltc.main_id == '78715'
     assert ntltc.official_name == 'No Tears Left To Cry'
     assert ntltc.plays == 302

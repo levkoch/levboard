@@ -104,8 +104,11 @@ class SongRepository:
         """Creates a song and adds it into the repo"""
         if song_id in IMAGES:
             song_image: SongImage = IMAGES[song_id]
-            song = self._songtype(song_image.standard, song_image.name)
+            song = self._songtype(
+                song_image.standard, song_image.name, load=False
+            )
             song.image = song_image.image
+            song.artists = song_image.artists
             for alt_id in song_image.ids ^ {song_image.standard}:
                 song.add_alt(alt_id)
 
