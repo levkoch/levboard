@@ -303,10 +303,9 @@ if __name__ == '__main__':
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)
     """
-   
+
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
     )
-  

@@ -165,7 +165,12 @@ class Song:
     def plays(self) -> int:
         if self.__listens is None:
             return self._plays
-        return len(self.__listens)
+        play_dates = (i.finished_playing.date() for i in self.__listens)
+        date_counter = Counter(play_dates)
+        plays = sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+        self._plays = plays
+        return plays
+
 
     @property
     def str_artists(self) -> str:

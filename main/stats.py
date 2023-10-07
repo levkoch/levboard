@@ -58,11 +58,13 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     raise ValueError(f'{song} hasnt reached {units_mark} units yet')
 
 
-def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
+def top_shortest_time_units_milestones(
+    uow: SongUOW, unit_milestone: int, cutoff: int = 20
+):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
             lambda i: i._populate_listens(),
-            (song for song in uow.songs if song.weeks),
+            (song for song in uow.songs if song.weeks and not song.plays),
         )
 
     contenders = (song for song in uow.songs if song.units >= unit_milestone)
@@ -74,10 +76,10 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
                 contenders,
             )
         )
-
+    """
     units.sort(key=itemgetter(1))
-    if len(units) > 19:
-        day_units = [i for i in units if i[1] <= units[19][1]]
+    if len(units) > cutoff:
+        day_units = [i for i in units if i[1] <= units[(cutoff-1)][1]]
     else:
         day_units = deepcopy(units)
 
@@ -86,12 +88,13 @@ def top_shortest_time_units_milestones(uow: SongUOW, unit_milestone: int):
         place = len([unit for unit in day_units if unit[1] < day]) + 1
         print(f'{place:<2} | {song:<60} | {day} ({time} days)')
     print('')
+    """
 
     units.sort(key=itemgetter(2))
-    if len(units) > 19:
-        time_units = [i for i in units if i[2] <= units[19][2]]
+    if len(units) > cutoff:
+        time_units = [i for i in units if i[2] <= units[(cutoff - 1)][2]]
     else:
-        time_units = deepcopy(units)
+        time_units = units
 
     print(f'Fastest songs to reach {unit_milestone} units:')
     for (song, day, time) in time_units:
@@ -148,7 +151,9 @@ def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
     return (song, wanted_play.date(), time.days)
 
 
-def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
+def top_shortest_time_plays_milestones(
+    uow: SongUOW, plays: int, cutoff: int = 20
+):
     contenders = (song for song in uow.songs if song.plays >= plays)
 
     with futures.ThreadPoolExecutor() as executor:
@@ -157,8 +162,8 @@ def top_shortest_time_plays_milestones(uow: SongUOW, plays: int):
         )
     units = list(mapped)
     units.sort(key=itemgetter(2))
-    if len(units) > 19:
-        units = [i for i in units if i[2] <= units[19][2]]
+    if len(units) > cutoff:
+        units = [i for i in units if i[2] <= units[(cutoff - 1)][2]]
     if units:
         print(f'Fastest songs to reach {plays} plays:')
     for (song, _, time) in units:
@@ -323,9 +328,30 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     print('')
 
 
+def get_song_units(song: Song, start: date, end: date) -> tuple[Song, int]:
+    return song, song.period_units(start, end), song.period_plays(start, end)
+
+def top_songs_month(uow: SongUOW, start: date, end: date):
+    with futures.ThreadPoolExecutor() as executor:
+        units: list[tuple] = list(
+            executor.map(
+                functools.partial(get_song_units, start=start, end=end),
+                (song for song in uow.songs if song.period_points(start=start, end=end) > 0)
+            )
+        )
+    units.sort(key=lambda i: i[1], reverse=True)
+    units = [i for i in units if i[1] > units[19][1]]
+
+    print(
+        f'Bestselling songs between {start.isoformat()} and {end.isoformat()}.'
+    )
+    for song, unit, plays in units:
+        place = len([i for i in units if i[1] > unit]) + 1
+        print(f'{place:>3} | {str(song):<50} | {unit:<2} units | {plays:<2} plays')
+    print('')
+
 def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
     return album, album.period_units(start, end)
-
 
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
@@ -417,7 +443,7 @@ def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
 
 
 PLAYS_MILESTONES = [25, 50, 75, 100] + list(range(150, 1000, 50))
-CERT_UNITS = [100] + list(range(200, 4000, 200))
+CERT_UNITS = [100] + list(range(200, 6000, 200))
 ALBUM_TOP = [1, 3, 5, 10, 15, None]
 SONG_TOP = [1, 3, 5, 10, 20, 30, None]
 SONG_WEEKS = [30, 20, 15, 10, 5, None]
@@ -437,33 +463,31 @@ if __name__ == '__main__':
  
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
-   
-    top_song_consecutive_weeks_infographic(uow)
-
     
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     
+   
     for milestone in CERT_UNITS[::-1]:
-        top_shortest_time_units_milestones(uow, milestone)
-    """
+        top_shortest_time_units_milestones(uow, milestone, cutoff=10)
+   
+    top_listeners_chart(uow)
 
-    # top_listeners_chart(uow)
+    top_song_consecutive_weeks_infographic(uow)
 
-    
+   
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
     top_shortest_time_units_milestones_infograpic(uow, 6_000)
+  
     
-    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
-    """
 
-    # top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
-    # top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
+    top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
+    top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
+    top_albums_month(uow, date.fromisoformat('2023-01-01'), date.fromisoformat('2024-01-01'))
 
-    """
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         # top_albums_weeks(uow, top)
@@ -477,7 +501,9 @@ if __name__ == '__main__':
     """
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-    """
+  
+    top_song_consecutive_weeks(uow, top=5)
+    top_songs_month(uow, date(2023, 9, 1), date(2023, 10, 1))
 
     """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
@@ -494,4 +520,4 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    """
+

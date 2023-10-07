@@ -34,6 +34,22 @@ def get_new_songs(uow: SongUOW):
             print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
 
 
+def get_missing_songs(uow: SongUOW, threshold: int= 10):
+    """
+    Scans all of the songs listened to across all time,
+    displaying all the ones missing in the system.
+    """
+
+    all_songs = uow.songs.list()
+    all_listened = songs_week(
+        after=TODAY - timedelta(days=3_650), before=TODAY + timedelta(days=1)
+    )
+    for pos in all_listened:
+        if pos.id not in all_songs and pos.plays > threshold:
+            song = Song(pos.id)
+            print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
+
+
 def get_new_certs(uow: SongUOW, cert: SongCert):
     contenders = (song for song in uow.songs if song.cert == cert)
 
@@ -147,6 +163,8 @@ def get_all_time_plays_changes(uow: SongUOW):
 def main():
     uow = SongUOW()
     get_new_songs(uow)
+    print('')
+    get_missing_songs(uow)
     print('')
     # get_all_new_certs(uow)
     print('')
