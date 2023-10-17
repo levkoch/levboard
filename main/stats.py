@@ -5,7 +5,7 @@ from concurrent import futures
 from copy import deepcopy
 from datetime import date, datetime, timedelta
 from operator import itemgetter
-from typing import Final, Iterable, Optional
+from typing import Final, Iterable, Optional, Union
 
 from config import FIRST_DATE
 from plays import update_local_plays
@@ -15,6 +15,23 @@ from storage import SongUOW
 
 uow = SongUOW()
 
+def is_chart_date(date: date) -> bool:
+    return date.weekday() == 3
+
+def charted_between(song_or_album: Union[Song, Album], start: date, end: date) -> bool:
+    current = start
+    def chart_dates(end: date):
+        nonlocal current
+        while True:
+            if is_chart_date(current):
+                yield current
+            if current > end:
+                return
+            current += timedelta(days=1)
+    
+    dates = set(chart_dates(end))
+
+    return len(dates & set(entry.end for entry in song_or_album.entries)) > 0
 
 def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     with futures.ThreadPoolExecutor() as executor:
@@ -351,25 +368,25 @@ def top_songs_month(uow: SongUOW, start: date, end: date):
     print('')
 
 def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
-    return album, album.period_units(start, end)
+    return album, album.period_units(start, end), album.period_plays(start, end)
 
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple] = list(
             executor.map(
                 functools.partial(get_album_units, start=start, end=end),
-                uow.albums,
+                (album for album in uow.albums if charted_between(album, start, end)),
             )
         )
     units.sort(key=lambda i: i[1], reverse=True)
-    units = [units[0]]   # [i for i in units if i[1] > units[19][1]]
+    units = [i for i in units if i[1] > units[19][1]]
 
     print(
         f'Bestselling albums between {start.isoformat()} and {end.isoformat()}.'
     )
-    for album, data in units:
-        place = len([i for i in units if i[1] > data]) + 1
-        print(f'{place:>3} | {str(album):<50} | {data:<2} units')
+    for album, unit, plays in units:
+        place = len([i for i in units if i[1] > unit]) + 1
+        print(f'{place:>3} | {str(album):<50} | {unit:<2} units | {plays:<2} plays')
     print('')
 
 
@@ -503,7 +520,8 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
   
     top_song_consecutive_weeks(uow, top=5)
-    top_songs_month(uow, date(2023, 9, 1), date(2023, 10, 1))
+    """
+    top_albums_month(uow, date(2023, 9, 1), date(2023, 10, 1))
 
     """
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
@@ -520,4 +538,4 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-
+    """

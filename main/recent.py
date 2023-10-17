@@ -164,7 +164,7 @@ def main():
     uow = SongUOW()
     get_new_songs(uow)
     print('')
-    get_missing_songs(uow)
+    # get_missing_songs(uow)
     print('')
     # get_all_new_certs(uow)
     print('')
