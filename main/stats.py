@@ -508,22 +508,19 @@ if __name__ == '__main__':
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)
         # top_albums_weeks(uow, top)
-    """
 
-    """
     for top in SONG_TOP:
         # top_album_hits(uow, top)
         top_song_consecutive_weeks(uow, top)
-    """
-    """
+
     for weeks in SONG_WEEKS:
         top_album_song_weeks(uow, weeks)
-  
+    
     top_song_consecutive_weeks(uow, top=5)
-    """
+    
     top_albums_month(uow, date(2023, 9, 1), date(2023, 10, 1))
-
     """
+    
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
 
@@ -538,4 +535,3 @@ if __name__ == '__main__':
             next_year += 1
 
         end_day = date(next_year, next_month, 1)
-    """

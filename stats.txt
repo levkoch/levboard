@@ -1,0 +1,610 @@
+Bestselling albums between 2021-05-01 and 2021-06-01.
+
+Bestselling albums between 2021-06-01 and 2021-07-01.
+  1 | Future Nostalgia by Dua Lipa                       | 1713 units | 103 plays
+  2 | Dua Lipa by Dua Lipa                               | 956 units | 85 plays
+  3 | Dangerous Woman by Ariana Grande                   | 635 units | 45 plays
+  4 | Know-It-All by Alessia Cara                        | 585 units | 39 plays
+  5 | Positions by Ariana Grande                         | 577 units | 48 plays
+  6 | thank u, next by Ariana Grande                     | 544 units | 58 plays
+  7 | My Everything by Ariana Grande                     | 441 units | 34 plays
+  8 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 418 units | 39 plays
+  9 | The Pinkprint by Nicki Minaj                       | 387 units | 31 plays
+ 10 | The Pains Of Growing by Alessia Cara               | 312 units | 36 plays
+ 11 | Get Weird by Little Mix                            | 305 units | 25 plays
+ 12 | KG0516 by Karol G                                  | 263 units | 18 plays
+ 13 | 1989 by Taylor Swift                               | 257 units | 23 plays
+ 14 | Queen by Nicki Minaj                               | 252 units | 30 plays
+ 15 | Sweetener by Ariana Grande                         | 244 units | 29 plays
+ 16 | Red by Taylor Swift                                | 210 units | 15 plays
+ 17 | Good News by Megan Thee Stallion                   | 197 units | 16 plays
+ 18 | Romance by Camila Cabello                          | 190 units | 13 plays
+ 19 | Witness by Katy Perry                              | 172 units | 14 plays
+
+Bestselling albums between 2021-07-01 and 2021-08-01.
+  1 | thank u, next by Ariana Grande                     | 1334 units | 95 plays
+  2 | Future Nostalgia by Dua Lipa                       | 824 units | 69 plays
+  3 | Sweetener by Ariana Grande                         | 822 units | 67 plays
+  4 | Positions by Ariana Grande                         | 695 units | 61 plays
+  5 | My Everything by Ariana Grande                     | 649 units | 55 plays
+  6 | Dangerous Woman by Ariana Grande                   | 568 units | 52 plays
+  7 | Dua Lipa by Dua Lipa                               | 468 units | 35 plays
+  8 | Queen by Nicki Minaj                               | 308 units | 26 plays
+  9 | Yours Truly by Ariana Grande                       | 266 units | 34 plays
+ 10 | KG0516 by Karol G                                  | 258 units | 12 plays
+ 11 | Purpouse by Justin Bieber                          | 233 units | 17 plays
+ 12 | Lemonade by Beyoncé                                | 232 units | 13 plays
+ 13 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 222 units | 22 plays
+ 14 | Everything Changed... by Social House              | 210 units | 13 plays
+ 15 | 1989 by Taylor Swift                               | 204 units | 18 plays
+ 16 | MONTERO by Lil Nas X                               | 194 units | 43 plays
+ 17 | Sweet Talker by Jessie J                           | 172 units | 8  plays
+ 18 | Equals by Ed Sheeran                               | 156 units | 20 plays
+ 19 | Witness by Katy Perry                              | 153 units | 7  plays
+
+Bestselling albums between 2021-08-01 and 2021-09-01.
+  1 | Future Nostalgia by Dua Lipa                       | 1018 units | 71 plays
+  2 | Dangerous Woman by Ariana Grande                   | 881 units | 67 plays
+  3 | thank u, next by Ariana Grande                     | 703 units | 60 plays
+  4 | My Everything by Ariana Grande                     | 667 units | 56 plays
+  5 | MONTERO by Lil Nas X                               | 596 units | 68 plays
+  6 | Positions by Ariana Grande                         | 552 units | 47 plays
+  7 | Sweetener by Ariana Grande                         | 531 units | 39 plays
+  8 | Queen by Nicki Minaj                               | 263 units | 17 plays
+  9 | JORDI by Maroon 5                                  | 228 units | 17 plays
+ 10 | After Hours by The Weeknd                          | 219 units | 8  plays
+ 11 | Loud by Rihanna                                    | 211 units | 14 plays
+ 12 | Equals by Ed Sheeran                               | 202 units | 8  plays
+ 13 | Yours Truly by Ariana Grande                       | 195 units | 24 plays
+ 14 | KG0516 by Karol G                                  | 194 units | 10 plays
+ 15 | An Evening With Silk Sonic by Silk Sonic, Bruno Mars & Anderson .Paak | 193 units | 10 plays
+ 16 | Dua Lipa by Dua Lipa                               | 189 units | 22 plays
+ 17 | Planet Her by Doja Cat                             | 181 units | 7  plays
+ 18 | FOR CERTAIN by BIA                                 | 172 units | 8  plays
+ 19 | Lemonade by Beyoncé                                | 162 units | 8  plays
+
+Bestselling albums between 2021-09-01 and 2021-10-01.
+  1 | MONTERO by Lil Nas X                               | 3280 units | 857 plays
+  2 | Sweetener by Ariana Grande                         | 1851 units | 322 plays
+  3 | Positions by Ariana Grande                         | 1803 units | 384 plays
+  4 | Dangerous Woman by Ariana Grande                   | 1383 units | 285 plays
+  5 | My Everything by Ariana Grande                     | 1127 units | 280 plays
+  6 | Sweet Talker by Jessie J                           | 511 units | 118 plays
+  7 | Future Nostalgia by Dua Lipa                       | 424 units | 68 plays
+  8 | Christmas Kisses by Ariana Grande                  | 393 units | 73 plays
+  9 | thank u, next by Ariana Grande                     | 368 units | 95 plays
+ 10 | 24K Magic by Bruno Mars                            | 364 units | 94 plays
+ 11 | KG0516 by Karol G                                  | 311 units | 48 plays
+ 12 | X by Chris Brown                                   | 299 units | 51 plays
+ 13 | Unorthodox Jukebox by Bruno Mars                   | 250 units | 52 plays
+ 14 | FOR CERTAIN by BIA                                 | 247 units | 38 plays
+ 15 | Planet Her by Doja Cat                             | 244 units | 73 plays
+ 16 | Voicenotes by Charlie Puth                         | 216 units | 96 plays
+ 17 | An Evening With Silk Sonic by Silk Sonic, Bruno Mars & Anderson .Paak | 208 units | 26 plays
+ 18 | V by Maroon 5                                      | 207 units | 76 plays
+ 19 | Queen of the Clouds by Tove Lo                     | 199 units | 31 plays
+
+Bestselling albums between 2021-10-01 and 2021-11-01.
+  1 | Positions by Ariana Grande                         | 2386 units | 352 plays
+  2 | MONTERO by Lil Nas X                               | 1064 units | 83 plays
+  3 | thank u, next by Ariana Grande                     | 1061 units | 143 plays
+  4 | Voicenotes by Charlie Puth                         | 758 units | 120 plays
+  5 | Dangerous Woman by Ariana Grande                   | 500 units | 92 plays
+  6 | Sweetener by Ariana Grande                         | 486 units | 73 plays
+  7 | My Everything by Ariana Grande                     | 428 units | 88 plays
+  8 | Red Pill Blues by Maroon 5                         | 229 units | 40 plays
+  9 | Good Girl Gone Bad by Rihanna                      | 199 units | 33 plays
+  9 | The Pinkprint by Nicki Minaj                       | 199 units | 63 plays
+ 11 | LM5 by Little Mix                                  | 197 units | 23 plays
+ 12 | Sweet Talker by Jessie J                           | 188 units | 16 plays
+ 13 | V by Maroon 5                                      | 172 units | 40 plays
+ 14 | Dua Lipa by Dua Lipa                               | 159 units | 77 plays
+ 15 | Planet Her by Doja Cat                             | 153 units | 51 plays
+ 16 | Nervous System by Julia Michaels                   | 148 units | 21 plays
+ 17 | Manic by Halsey                                    | 143 units | 19 plays
+ 18 | dont smile at me by Billie Eilish                  | 138 units | 18 plays
+ 19 | 9 by Cashmere Cat                                  | 136 units | 25 plays
+
+Bestselling albums between 2021-11-01 and 2021-12-01.
+  1 | Positions by Ariana Grande                         | 1930 units | 199 plays
+  2 | The Pinkprint by Nicki Minaj                       | 1042 units | 136 plays
+  3 | thank u, next by Ariana Grande                     | 899 units | 131 plays
+  4 | Voicenotes by Charlie Puth                         | 676 units | 85 plays
+  5 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 513 units | 91 plays
+  6 | Sweetener by Ariana Grande                         | 511 units | 88 plays
+  7 | My Everything by Ariana Grande                     | 470 units | 70 plays
+  8 | Dangerous Woman by Ariana Grande                   | 468 units | 101 plays
+  9 | Dua Lipa by Dua Lipa                               | 270 units | 83 plays
+ 10 | Sweet Talker by Jessie J                           | 264 units | 28 plays
+ 11 | KG0516 by Karol G                                  | 242 units | 35 plays
+ 12 | Hot Pink by Doja Cat                               | 230 units | 18 plays
+ 13 | Witness by Katy Perry                              | 229 units | 25 plays
+ 14 | 9 by Cashmere Cat                                  | 177 units | 13 plays
+ 15 | LM5 by Little Mix                                  | 170 units | 24 plays
+ 16 | Vroom Vroom by Charli XCX                          | 159 units | 17 plays
+ 17 | X by Chris Brown                                   | 142 units | 18 plays
+ 18 | Queen by Nicki Minaj                               | 125 units | 25 plays
+ 19 | Good Girl Gone Bad by Rihanna                      | 123 units | 39 plays
+
+Bestselling albums between 2021-12-01 and 2022-01-01.
+  1 | Positions by Ariana Grande                         | 2356 units | 285 plays
+  2 | Dangerous Woman by Ariana Grande                   | 1117 units | 186 plays
+  3 | thank u, next by Ariana Grande                     | 1113 units | 119 plays
+  4 | Sweetener by Ariana Grande                         | 846 units | 110 plays
+  5 | The Pinkprint by Nicki Minaj                       | 822 units | 140 plays
+  6 | My Everything by Ariana Grande                     | 662 units | 98 plays
+  7 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 367 units | 63 plays
+  8 | Hot Pink by Doja Cat                               | 304 units | 46 plays
+  9 | Red Pill Blues by Maroon 5                         | 276 units | 49 plays
+ 10 | Sweet Talker by Jessie J                           | 261 units | 20 plays
+ 11 | Voicenotes by Charlie Puth                         | 258 units | 28 plays
+ 12 | LM5 by Little Mix                                  | 245 units | 24 plays
+ 13 | Dua Lipa by Dua Lipa                               | 240 units | 89 plays
+ 14 | BEYONCÉ by Beyoncé                                 | 224 units | 30 plays
+ 15 | KG0516 by Karol G                                  | 212 units | 17 plays
+ 16 | 21 by Adele                                        | 205 units | 30 plays
+ 17 | Queen by Nicki Minaj                               | 201 units | 46 plays
+ 18 | V by Maroon 5                                      | 198 units | 39 plays
+ 19 | JORDI by Maroon 5                                  | 184 units | 24 plays
+
+Bestselling albums between 2022-01-01 and 2022-02-01.
+  1 | Dangerous Woman by Ariana Grande                   | 1297 units | 246 plays
+  2 | My Everything by Ariana Grande                     | 1185 units | 177 plays
+  3 | Positions by Ariana Grande                         | 718 units | 115 plays
+  4 | The Pinkprint by Nicki Minaj                       | 690 units | 105 plays
+  5 | thank u, next by Ariana Grande                     | 622 units | 99 plays
+  6 | Red Pill Blues by Maroon 5                         | 569 units | 106 plays
+  7 | Sweetener by Ariana Grande                         | 555 units | 81 plays
+  8 | Queen by Nicki Minaj                               | 345 units | 55 plays
+  9 | beerbongs & bentleys by Post Malone                | 268 units | 66 plays
+ 10 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 262 units | 58 plays
+ 11 | Planet Her by Doja Cat                             | 227 units | 48 plays
+ 12 | Witness by Katy Perry                              | 219 units | 36 plays
+ 13 | 21 by Adele                                        | 209 units | 32 plays
+ 14 | BEYONCÉ by Beyoncé                                 | 199 units | 33 plays
+ 15 | 9 by Cashmere Cat                                  | 196 units | 20 plays
+ 16 | Dua Lipa by Dua Lipa                               | 190 units | 52 plays
+ 17 | Paris Pack by Nicki Minaj                          | 181 units | 37 plays
+ 18 | F*CK LOVE by The Kid LAROI                         | 160 units | 28 plays
+ 19 | LM5 by Little Mix                                  | 155 units | 17 plays
+
+Bestselling albums between 2022-02-01 and 2022-03-01.
+  1 | Positions by Ariana Grande                         | 1759 units | 359 plays
+  2 | Dangerous Woman by Ariana Grande                   | 984 units | 137 plays
+  3 | My Everything by Ariana Grande                     | 698 units | 109 plays
+  4 | The Pinkprint by Nicki Minaj                       | 618 units | 103 plays
+  5 | Queen by Nicki Minaj                               | 473 units | 69 plays
+  6 | thank u, next by Ariana Grande                     | 452 units | 95 plays
+  7 | Sweetener by Ariana Grande                         | 352 units | 56 plays
+  8 | Red Pill Blues by Maroon 5                         | 278 units | 40 plays
+  9 | Major Lazer Essentials by Major Lazer & Diplo      | 262 units | 26 plays
+ 10 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 248 units | 43 plays
+ 11 | 21 by Adele                                        | 239 units | 48 plays
+ 12 | Superache by Conan Gray                            | 226 units | 24 plays
+ 13 | Voicenotes by Charlie Puth                         | 222 units | 47 plays
+ 14 | Paris Pack by Nicki Minaj                          | 221 units | 20 plays
+ 15 | STAY DANGEROUS by YG                               | 216 units | 21 plays
+ 16 | beerbongs & bentleys by Post Malone                | 214 units | 28 plays
+ 17 | BEYONCÉ by Beyoncé                                 | 209 units | 25 plays
+ 17 | Dua Lipa by Dua Lipa                               | 209 units | 52 plays
+ 19 | 30 by Adele                                        | 195 units | 25 plays
+
+Bestselling albums between 2022-03-01 and 2022-04-01.
+  1 | Positions by Ariana Grande                         | 3067 units | 280 plays
+  2 | Dangerous Woman by Ariana Grande                   | 751 units | 115 plays
+  3 | The Pinkprint by Nicki Minaj                       | 738 units | 103 plays
+  4 | thank u, next by Ariana Grande                     | 714 units | 120 plays
+  5 | Future Nostalgia by Dua Lipa                       | 642 units | 118 plays
+  6 | My Everything by Ariana Grande                     | 635 units | 107 plays
+  7 | Sweetener by Ariana Grande                         | 394 units | 83 plays
+  8 | Queen by Nicki Minaj                               | 384 units | 50 plays
+  9 | Hot Pink by Doja Cat                               | 327 units | 45 plays
+ 10 | KG0516 by Karol G                                  | 324 units | 49 plays
+ 11 | Legendary by Tyga                                  | 299 units | 41 plays
+ 12 | Thriller by Michael Jackson                        | 288 units | 50 plays
+ 13 | Dua Lipa by Dua Lipa                               | 263 units | 71 plays
+ 14 | Voicenotes by Charlie Puth                         | 234 units | 59 plays
+ 15 | Witness by Katy Perry                              | 232 units | 30 plays
+ 16 | 21 by Adele                                        | 201 units | 38 plays
+ 17 | beerbongs & bentleys by Post Malone                | 179 units | 17 plays
+ 18 | dont smile at me by Billie Eilish                  | 172 units | 22 plays
+ 19 | JORDI by Maroon 5                                  | 169 units | 43 plays
+
+Bestselling albums between 2022-04-01 and 2022-05-01.
+  1 | Future Nostalgia by Dua Lipa                       | 1031 units | 218 plays
+  2 | My Everything by Ariana Grande                     | 938 units | 180 plays
+  3 | Positions by Ariana Grande                         | 744 units | 143 plays
+  4 | Dangerous Woman by Ariana Grande                   | 725 units | 189 plays
+  5 | Sweetener by Ariana Grande                         | 710 units | 174 plays
+  6 | Hot Pink by Doja Cat                               | 582 units | 97 plays
+  7 | The Pinkprint by Nicki Minaj                       | 481 units | 90 plays
+  8 | thank u, next by Ariana Grande                     | 446 units | 96 plays
+  9 | Queen by Nicki Minaj                               | 408 units | 85 plays
+ 10 | In The Meantime by Alessia Cara                    | 367 units | 91 plays
+ 11 | Voicenotes by Charlie Puth                         | 335 units | 81 plays
+ 12 | KG0516 by Karol G                                  | 324 units | 51 plays
+ 13 | Witness by Katy Perry                              | 294 units | 66 plays
+ 14 | Reflection by Fifth Harmony                        | 274 units | 49 plays
+ 15 | Sex Playlist by Omarion                            | 267 units | 47 plays
+ 16 | beerbongs & bentleys by Post Malone                | 259 units | 38 plays
+ 17 | Dua Lipa by Dua Lipa                               | 237 units | 86 plays
+ 18 | The End of an Era by Iggy Azalea                   | 233 units | 32 plays
+ 19 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 228 units | 75 plays
+
+Bestselling albums between 2022-05-01 and 2022-06-01.
+  1 | Dangerous Woman by Ariana Grande                   | 1670 units | 340 plays
+  2 | Future Nostalgia by Dua Lipa                       | 1053 units | 279 plays
+  3 | Dua Lipa by Dua Lipa                               | 959 units | 272 plays
+  4 | thank u, next by Ariana Grande                     | 842 units | 184 plays
+  5 | Positions by Ariana Grande                         | 679 units | 176 plays
+  6 | The Pinkprint by Nicki Minaj                       | 658 units | 131 plays
+  7 | Queen by Nicki Minaj                               | 624 units | 149 plays
+  8 | Sweetener by Ariana Grande                         | 591 units | 134 plays
+  9 | Witness by Katy Perry                              | 480 units | 72 plays
+ 10 | JORDI by Maroon 5                                  | 464 units | 107 plays
+ 11 | In The Meantime by Alessia Cara                    | 459 units | 104 plays
+ 12 | 30 by Adele                                        | 443 units | 106 plays
+ 13 | Red Pill Blues by Maroon 5                         | 428 units | 132 plays
+ 14 | My Everything by Ariana Grande                     | 390 units | 75 plays
+ 15 | The Pains Of Growing by Alessia Cara               | 388 units | 105 plays
+ 16 | 21 by Adele                                        | 342 units | 133 plays
+ 17 | beerbongs & bentleys by Post Malone                | 339 units | 95 plays
+ 18 | KG0516 by Karol G                                  | 310 units | 51 plays
+ 19 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 307 units | 92 plays
+
+Bestselling albums between 2022-06-01 and 2022-07-01.
+  1 | Future Nostalgia by Dua Lipa                       | 1603 units | 256 plays
+  2 | 21 by Adele                                        | 1360 units | 209 plays
+  3 | Dangerous Woman by Ariana Grande                   | 1328 units | 222 plays
+  4 | Positions by Ariana Grande                         | 928 units | 196 plays
+  5 | beerbongs & bentleys by Post Malone                | 691 units | 108 plays
+  6 | Twelve Carat Toothache by Post Malone              | 638 units | 127 plays
+  7 | thank u, next by Ariana Grande                     | 563 units | 88 plays
+  8 | Love Goes by Sam Smith                             | 551 units | 106 plays
+  9 | My Everything by Ariana Grande                     | 514 units | 115 plays
+ 10 | Dua Lipa by Dua Lipa                               | 457 units | 139 plays
+ 11 | Red Pill Blues by Maroon 5                         | 371 units | 74 plays
+ 12 | 30 by Adele                                        | 330 units | 55 plays
+ 13 | Sweetener by Ariana Grande                         | 321 units | 51 plays
+ 14 | The Pains Of Growing by Alessia Cara               | 305 units | 76 plays
+ 15 | JORDI by Maroon 5                                  | 258 units | 36 plays
+ 16 | Hot Pink by Doja Cat                               | 256 units | 46 plays
+ 17 | Queen by Nicki Minaj                               | 226 units | 43 plays
+ 18 | Pink Friday ... Roman Reloaded by Nicki Minaj      | 214 units | 52 plays
+ 19 | KG0516 by Karol G                                  | 206 units | 23 plays
+
+Bestselling albums between 2022-07-01 and 2022-08-01.
+  1 | 21 by Adele                                        | 1577 units | 208 plays
+  2 | Future Nostalgia by Dua Lipa                       | 1240 units | 201 plays
+  3 | thank u, next by Ariana Grande                     | 1028 units | 170 plays
+  4 | Dangerous Woman by Ariana Grande                   | 990 units | 186 plays
+  5 | Positions by Ariana Grande                         | 581 units | 144 plays
+  6 | beerbongs & bentleys by Post Malone                | 416 units | 65 plays
+  7 | My Everything by Ariana Grande                     | 380 units | 96 plays
+  8 | Dua Lipa by Dua Lipa                               | 372 units | 159 plays
+  9 | Voicenotes by Charlie Puth                         | 345 units | 97 plays
+ 10 | 30 by Adele                                        | 327 units | 79 plays
+ 11 | Sweetener by Ariana Grande                         | 322 units | 60 plays
+ 12 | The Pinkprint by Nicki Minaj                       | 312 units | 72 plays
+ 13 | Red Pill Blues by Maroon 5                         | 308 units | 82 plays
+ 14 | Twelve Carat Toothache by Post Malone              | 271 units | 39 plays
+ 15 | dont smile at me by Billie Eilish                  | 259 units | 53 plays
+ 15 | Queen by Nicki Minaj                               | 259 units | 65 plays
+ 17 | The Pains Of Growing by Alessia Cara               | 230 units | 57 plays
+ 18 | JORDI by Maroon 5                                  | 222 units | 29 plays
+ 19 | Paris Pack by Nicki Minaj                          | 201 units | 29 plays
+
+Bestselling albums between 2022-08-01 and 2022-09-01.
+  1 | dont smile at me by Billie Eilish                  | 1476 units | 247 plays
+  2 | Future Nostalgia by Dua Lipa                       | 1224 units | 258 plays
+  3 | thank u, next by Ariana Grande                     | 1088 units | 207 plays
+  4 | Love Goes by Sam Smith                             | 1015 units | 202 plays
+  5 | Dangerous Woman by Ariana Grande                   | 938 units | 218 plays
+  6 | 30 by Adele                                        | 808 units | 152 plays
+  7 | Positions by Ariana Grande                         | 767 units | 168 plays
+  8 | My Everything by Ariana Grande                     | 556 units | 111 plays
+  9 | JORDI by Maroon 5                                  | 451 units | 82 plays
+ 10 | Dua Lipa by Dua Lipa                               | 411 units | 93 plays
+ 11 | Queen by Nicki Minaj                               | 394 units | 72 plays
+ 12 | The Pains Of Growing by Alessia Cara               | 374 units | 97 plays
+ 13 | Planet Her by Doja Cat                             | 325 units | 46 plays
+ 14 | V by Maroon 5                                      | 282 units | 49 plays
+ 15 | Sweetener by Ariana Grande                         | 276 units | 84 plays
+ 16 | Light of Mine by KYLE                              | 274 units | 42 plays
+ 17 | Witness by Katy Perry                              | 234 units | 43 plays
+ 18 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 227 units | 55 plays
+ 19 | 21 by Adele                                        | 218 units | 80 plays
+
+Bestselling albums between 2022-09-01 and 2022-10-01.
+  1 | 21 by Adele                                        | 2471 units | 464 plays
+  2 | Future Nostalgia by Dua Lipa                       | 1561 units | 397 plays
+  3 | dont smile at me by Billie Eilish                  | 1462 units | 361 plays
+  4 | 30 by Adele                                        | 1213 units | 278 plays
+  5 | Positions by Ariana Grande                         | 917 units | 203 plays
+  6 | Dangerous Woman by Ariana Grande                   | 867 units | 187 plays
+  7 | thank u, next by Ariana Grande                     | 772 units | 167 plays
+  8 | Love Goes by Sam Smith                             | 557 units | 84 plays
+  9 | JORDI by Maroon 5                                  | 430 units | 82 plays
+ 10 | Queen by Nicki Minaj                               | 426 units | 86 plays
+ 11 | My Everything by Ariana Grande                     | 387 units | 128 plays
+ 12 | Sweetener by Ariana Grande                         | 381 units | 135 plays
+ 13 | Dua Lipa by Dua Lipa                               | 327 units | 145 plays
+ 14 | ANTI by Rihanna                                    | 305 units | 73 plays
+ 15 | Smile by Katy Perry                                | 280 units | 44 plays
+ 16 | The Pains Of Growing by Alessia Cara               | 245 units | 73 plays
+ 17 | beerbongs & bentleys by Post Malone                | 238 units | 67 plays
+ 18 | Witness by Katy Perry                              | 233 units | 46 plays
+
+Bestselling albums between 2022-10-01 and 2022-11-01.
+  1 | dont smile at me by Billie Eilish                  | 1988 units | 404 plays
+  2 | 21 by Adele                                        | 1986 units | 371 plays
+  3 | My Everything by Ariana Grande                     | 1420 units | 353 plays
+  4 | 30 by Adele                                        | 965 units | 229 plays
+  5 | Future Nostalgia by Dua Lipa                       | 961 units | 284 plays
+  6 | CHARLIE by Charlie Puth                            | 755 units | 211 plays
+  7 | Dangerous Woman by Ariana Grande                   | 659 units | 176 plays
+  8 | Happier Than Ever by Billie Eilish                 | 636 units | 175 plays
+  9 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 614 units | 157 plays
+ 10 | The Pinkprint by Nicki Minaj                       | 504 units | 139 plays
+ 11 | Dua Lipa by Dua Lipa                               | 500 units | 220 plays
+ 12 | 19 by Adele                                        | 480 units | 154 plays
+ 13 | thank u, next by Ariana Grande                     | 469 units | 149 plays
+ 14 | Positions by Ariana Grande                         | 441 units | 149 plays
+ 15 | Loud by Rihanna                                    | 392 units | 107 plays
+ 16 | Queen by Nicki Minaj                               | 336 units | 124 plays
+ 17 | beerbongs & bentleys by Post Malone                | 326 units | 77 plays
+ 18 | JORDI by Maroon 5                                  | 301 units | 60 plays
+ 19 | The Pains Of Growing by Alessia Cara               | 298 units | 70 plays
+
+Bestselling albums between 2022-11-01 and 2022-12-01.
+  1 | 21 by Adele                                        | 2012 units | 263 plays
+  2 | dont smile at me by Billie Eilish                  | 1670 units | 314 plays
+  3 | thank u, next by Ariana Grande                     | 1609 units | 283 plays
+  4 | Future Nostalgia by Dua Lipa                       | 1001 units | 200 plays
+  5 | Positions by Ariana Grande                         | 823 units | 220 plays
+  6 | Dangerous Woman by Ariana Grande                   | 680 units | 178 plays
+  7 | CHARLIE by Charlie Puth                            | 666 units | 123 plays
+  8 | Pop 2 by Charli XCX                                | 656 units | 124 plays
+  9 | PARTYMOBILE by PARTYNEXTDOOR                       | 633 units | 142 plays
+ 10 | 30 by Adele                                        | 565 units | 136 plays
+ 11 | My Everything by Ariana Grande                     | 516 units | 135 plays
+ 12 | The Pains Of Growing by Alessia Cara               | 494 units | 107 plays
+ 13 | The Pinkprint by Nicki Minaj                       | 346 units | 106 plays
+ 14 | JORDI by Maroon 5                                  | 266 units | 50 plays
+ 15 | Queen by Nicki Minaj                               | 259 units | 62 plays
+ 16 | Dua Lipa by Dua Lipa                               | 257 units | 87 plays
+ 17 | beerbongs & bentleys by Post Malone                | 254 units | 50 plays
+ 18 | Charlie's Angels by Ariana Grande                  | 230 units | 43 plays
+ 19 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 224 units | 100 plays
+
+Bestselling albums between 2022-12-01 and 2023-01-01.
+  1 | Future Nostalgia by Dua Lipa                       | 1830 units | 233 plays
+  2 | 21 by Adele                                        | 1436 units | 256 plays
+  3 | thank u, next by Ariana Grande                     | 1349 units | 193 plays
+  4 | dont smile at me by Billie Eilish                  | 1026 units | 153 plays
+  5 | My Everything by Ariana Grande                     | 890 units | 171 plays
+  6 | Pop 2 by Charli XCX                                | 643 units | 90 plays
+  7 | SOS by SZA                                         | 636 units | 138 plays
+  8 | Positions by Ariana Grande                         | 533 units | 98 plays
+  9 | Dangerous Woman by Ariana Grande                   | 527 units | 111 plays
+ 10 | 30 by Adele                                        | 487 units | 95 plays
+ 11 | Manic by Halsey                                    | 357 units | 52 plays
+ 12 | Dua Lipa by Dua Lipa                               | 349 units | 103 plays
+ 13 | Aquarius by Tinashe                                | 310 units | 36 plays
+ 14 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 230 units | 86 plays
+ 15 | CHARLIE by Charlie Puth                            | 208 units | 25 plays
+ 16 | Legendary by Tyga                                  | 204 units | 33 plays
+ 17 | The Pains Of Growing by Alessia Cara               | 200 units | 23 plays
+ 18 | JORDI by Maroon 5                                  | 190 units | 28 plays
+ 19 | Happier Than Ever by Billie Eilish                 | 186 units | 56 plays
+
+Bestselling albums between 2023-01-01 and 2023-02-01.
+  1 | 21 by Adele                                        | 2205 units | 269 plays
+  2 | 25 by Adele                                        | 1535 units | 284 plays
+  3 | Lemonade by Beyoncé                                | 912 units | 170 plays
+  4 | dont smile at me by Billie Eilish                  | 839 units | 148 plays
+  5 | Future Nostalgia by Dua Lipa                       | 708 units | 190 plays
+  6 | 19 by Adele                                        | 657 units | 112 plays
+  7 | My Everything by Ariana Grande                     | 623 units | 159 plays
+  8 | Dangerous Woman by Ariana Grande                   | 424 units | 195 plays
+  9 | 30 by Adele                                        | 335 units | 97 plays
+ 10 | This Summer by Alessia Cara                        | 308 units | 60 plays
+ 11 | Pop 2 by Charli XCX                                | 302 units | 78 plays
+ 11 | Positions by Ariana Grande                         | 302 units | 95 plays
+ 13 | Yours Truly by Ariana Grande                       | 254 units | 97 plays
+ 14 | The Pains Of Growing by Alessia Cara               | 251 units | 66 plays
+ 15 | Dua Lipa by Dua Lipa                               | 224 units | 81 plays
+ 16 | BEYONCÉ by Beyoncé                                 | 218 units | 52 plays
+ 17 | thank u, next by Ariana Grande                     | 209 units | 76 plays
+ 18 | Sweetener by Ariana Grande                         | 203 units | 70 plays
+ 19 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 197 units | 92 plays
+
+Bestselling albums between 2023-02-01 and 2023-03-01.
+  1 | Lemonade by Beyoncé                                | 1476 units | 220 plays
+  2 | 21 by Adele                                        | 1297 units | 232 plays
+  3 | My Everything by Ariana Grande                     | 952 units | 188 plays
+  4 | Dangerous Woman by Ariana Grande                   | 656 units | 99 plays
+  5 | dont smile at me by Billie Eilish                  | 622 units | 131 plays
+  6 | My 21st Century Blues by RAYE                      | 569 units | 132 plays
+  7 | Positions by Ariana Grande                         | 488 units | 134 plays
+  8 | Snacks by Jax Jones                                | 484 units | 117 plays
+  9 | Diamonds & Dancefloors by Ava Max                  | 449 units | 106 plays
+ 10 | 25 by Adele                                        | 418 units | 67 plays
+ 11 | Future Nostalgia by Dua Lipa                       | 367 units | 115 plays
+ 12 | Gloria by Sam Smith                                | 332 units | 70 plays
+ 13 | thank u, next by Ariana Grande                     | 317 units | 75 plays
+ 14 | beerbongs & bentleys by Post Malone                | 301 units | 57 plays
+ 15 | CHARLIE by Charlie Puth                            | 270 units | 50 plays
+ 16 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 249 units | 85 plays
+ 17 | Dua Lipa by Dua Lipa                               | 240 units | 68 plays
+ 18 | Loud by Rihanna                                    | 235 units | 32 plays
+ 19 | Voicenotes by Charlie Puth                         | 225 units | 61 plays
+
+Bestselling albums between 2023-03-01 and 2023-04-01.
+  1 | 21 by Adele                                        | 1723 units | 166 plays
+  2 | 25 by Adele                                        | 1346 units | 177 plays
+  3 | Future Nostalgia by Dua Lipa                       | 1112 units | 198 plays
+  4 | 30 by Adele                                        | 1068 units | 120 plays
+  5 | dont smile at me by Billie Eilish                  | 971 units | 109 plays
+  6 | Positions by Ariana Grande                         | 684 units | 132 plays
+  7 | Sweetener by Ariana Grande                         | 524 units | 121 plays
+  8 | High Expectations by Mabel                         | 434 units | 53 plays
+  9 | Gloria by Sam Smith                                | 433 units | 48 plays
+ 10 | Songs For You by Tinashe                           | 333 units | 57 plays
+ 11 | Love Goes by Sam Smith                             | 314 units | 83 plays
+ 12 | My Everything by Ariana Grande                     | 306 units | 42 plays
+ 13 | beerbongs & bentleys by Post Malone                | 305 units | 42 plays
+ 14 | thank u, next by Ariana Grande                     | 283 units | 77 plays
+ 15 | SOS by SZA                                         | 275 units | 59 plays
+ 16 | Happier Than Ever by Billie Eilish                 | 262 units | 60 plays
+ 17 | CTRL by SZA                                        | 214 units | 22 plays
+ 18 | Daydream by Mariah Carey                           | 210 units | 35 plays
+ 19 | Dangerous Woman by Ariana Grande                   | 208 units | 56 plays
+
+Bestselling albums between 2023-04-01 and 2023-05-01.
+  1 | Positions by Ariana Grande                         | 1765 units | 295 plays
+  2 | SOS by SZA                                         | 1440 units | 246 plays
+  3 | 25 by Adele                                        | 934 units | 160 plays
+  4 | Happier Than Ever by Billie Eilish                 | 764 units | 127 plays
+  5 | thank u, next by Ariana Grande                     | 711 units | 115 plays
+  6 | dont smile at me by Billie Eilish                  | 688 units | 89 plays
+  7 | 30 by Adele                                        | 666 units | 95 plays
+  8 | 21 by Adele                                        | 577 units | 140 plays
+  9 | Future Nostalgia by Dua Lipa                       | 474 units | 113 plays
+ 10 | Lemonade by Beyoncé                                | 428 units | 132 plays
+ 11 | beerbongs & bentleys by Post Malone                | 350 units | 67 plays
+ 12 | Sweetener by Ariana Grande                         | 349 units | 49 plays
+ 13 | Dangerous Woman by Ariana Grande                   | 295 units | 85 plays
+ 14 | ANTI by Rihanna                                    | 283 units | 63 plays
+ 15 | Gloria by Sam Smith                                | 193 units | 57 plays
+ 16 | My Everything by Ariana Grande                     | 180 units | 51 plays
+ 17 | Imagination & the Misfit Kid by Labrinth           | 172 units | 43 plays
+ 18 | Songs For You by Tinashe                           | 155 units | 17 plays
+ 19 | Like..? by Ice Spice                               | 148 units | 22 plays
+
+Bestselling albums between 2023-05-01 and 2023-06-01.
+  1 | SOS by SZA                                         | 1991 units | 279 plays
+  2 | 25 by Adele                                        | 1562 units | 202 plays
+  3 | dont smile at me by Billie Eilish                  | 1318 units | 222 plays
+  4 | Positions by Ariana Grande                         | 1298 units | 212 plays
+  5 | 21 by Adele                                        | 950 units | 134 plays
+  6 | Happier Than Ever by Billie Eilish                 | 949 units | 182 plays
+  7 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 780 units | 146 plays
+  8 | Sweetener by Ariana Grande                         | 756 units | 153 plays
+  9 | Future Nostalgia by Dua Lipa                       | 622 units | 131 plays
+ 10 | thank u, next by Ariana Grande                     | 448 units | 135 plays
+ 11 | 30 by Adele                                        | 308 units | 72 plays
+ 12 | Dua Lipa by Dua Lipa                               | 291 units | 103 plays
+ 13 | JORDI by Maroon 5                                  | 267 units | 34 plays
+ 14 | So Good by Zara Larsson                            | 225 units | 50 plays
+ 15 | Dangerous Woman by Ariana Grande                   | 209 units | 62 plays
+ 16 | 1989 by Taylor Swift                               | 195 units | 44 plays
+ 17 | beerbongs & bentleys by Post Malone                | 189 units | 36 plays
+ 18 | Hot Pink by Doja Cat                               | 186 units | 35 plays
+ 19 | CRASH by Charli XCX                                | 182 units | 37 plays
+
+Bestselling albums between 2023-06-01 and 2023-07-01.
+  1 | Positions by Ariana Grande                         | 2243 units | 436 plays
+  2 | Happier Than Ever by Billie Eilish                 | 1931 units | 295 plays
+  3 | SOS by SZA                                         | 855 units | 231 plays
+  4 | Charli by Charli XCX                               | 814 units | 167 plays
+  5 | 25 by Adele                                        | 751 units | 110 plays
+  6 | dont smile at me by Billie Eilish                  | 747 units | 89 plays
+  7 | Sweetener by Ariana Grande                         | 740 units | 168 plays
+  8 | thank u, next by Ariana Grande                     | 739 units | 161 plays
+  9 | Future Nostalgia by Dua Lipa                       | 690 units | 128 plays
+ 10 | 21 by Adele                                        | 625 units | 129 plays
+ 11 | how i'm feeling now by Charli XCX                  | 545 units | 144 plays
+ 12 | Number 1 Angel by Charli XCX                       | 385 units | 118 plays
+ 13 | Dua Lipa by Dua Lipa                               | 319 units | 114 plays
+ 14 | Chromatica by Lady Gaga                            | 254 units | 52 plays
+ 15 | Dangerous Woman by Ariana Grande                   | 231 units | 76 plays
+ 16 | Barbie The Album by Various Artists                | 226 units | 36 plays
+ 17 | ANTI by Rihanna                                    | 183 units | 46 plays
+ 18 | The Pains Of Growing by Alessia Cara               | 174 units | 48 plays
+ 19 | My Everything by Ariana Grande                     | 169 units | 82 plays
+
+Bestselling albums between 2023-07-01 and 2023-08-01.
+  1 | Happier Than Ever by Billie Eilish                 | 1625 units | 334 plays
+  2 | Positions by Ariana Grande                         | 1472 units | 209 plays
+  3 | dont smile at me by Billie Eilish                  | 1428 units | 284 plays
+  4 | 21 by Adele                                        | 1282 units | 250 plays
+  5 | SOS by SZA                                         | 1241 units | 325 plays
+  6 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 719 units | 180 plays
+  7 | 25 by Adele                                        | 686 units | 169 plays
+  8 | Barbie The Album by Various Artists                | 633 units | 199 plays
+  9 | Sweetener by Ariana Grande                         | 441 units | 118 plays
+ 10 | Future Nostalgia by Dua Lipa                       | 427 units | 105 plays
+ 11 | thank u, next by Ariana Grande                     | 412 units | 111 plays
+ 12 | My Everything by Ariana Grande                     | 361 units | 111 plays
+ 13 | Charli by Charli XCX                               | 299 units | 65 plays
+ 14 | 13 Reasons Why by Various Artists                  | 293 units | 51 plays
+ 15 | Number 1 Angel by Charli XCX                       | 268 units | 31 plays
+ 16 | Queen by Nicki Minaj                               | 246 units | 105 plays
+ 17 | Lemonade by Beyoncé                                | 228 units | 105 plays
+ 18 | Love Goes by Sam Smith                             | 186 units | 93 plays
+ 19 | Dangerous Woman by Ariana Grande                   | 175 units | 71 plays
+
+Bestselling albums between 2023-08-01 and 2023-09-01.
+  1 | Happier Than Ever by Billie Eilish                 | 3207 units | 507 plays
+  2 | Positions by Ariana Grande                         | 1402 units | 269 plays
+  3 | dont smile at me by Billie Eilish                  | 1314 units | 187 plays
+  4 | 21 by Adele                                        | 1174 units | 215 plays
+  5 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 957 units | 178 plays
+  6 | Sweetener by Ariana Grande                         | 886 units | 209 plays
+  7 | thank u, next by Ariana Grande                     | 789 units | 167 plays
+  8 | 25 by Adele                                        | 613 units | 110 plays
+  9 | Barbie The Album by Various Artists                | 581 units | 143 plays
+ 10 | Songs For You by Tinashe                           | 450 units | 88 plays
+ 11 | My Everything by Ariana Grande                     | 449 units | 133 plays
+ 12 | SOS by SZA                                         | 435 units | 86 plays
+ 13 | AR by Addison Rae                                  | 364 units | 122 plays
+ 14 | Charli by Charli XCX                               | 359 units | 120 plays
+ 15 | Love Goes by Sam Smith                             | 351 units | 115 plays
+ 16 | 13 Reasons Why by Various Artists                  | 348 units | 45 plays
+ 16 | Dangerous Woman by Ariana Grande                   | 348 units | 120 plays
+ 18 | Lemonade by Beyoncé                                | 302 units | 113 plays
+ 18 | The Pinkprint by Nicki Minaj                       | 302 units | 76 plays
+
+Bestselling albums between 2023-09-01 and 2023-10-01.
+  1 | Happier Than Ever by Billie Eilish                 | 3028 units | 558 plays
+  2 | Positions by Ariana Grande                         | 1068 units | 248 plays
+  3 | dont smile at me by Billie Eilish                  | 995 units | 208 plays
+  4 | thank u, next by Ariana Grande                     | 937 units | 223 plays
+  5 | Sweetener by Ariana Grande                         | 808 units | 195 plays
+  6 | 25 by Adele                                        | 600 units | 113 plays
+  7 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 574 units | 113 plays
+  8 | 21 by Adele                                        | 471 units | 102 plays
+  9 | BB/ANG3L by Tinashe                                | 451 units | 111 plays
+ 10 | Lemonade by Beyoncé                                | 415 units | 123 plays
+ 11 | Barbie The Album by Various Artists                | 408 units | 87 plays
+ 12 | AR by Addison Rae                                  | 348 units | 63 plays
+ 13 | Dangerous Woman by Ariana Grande                   | 310 units | 94 plays
+ 14 | Future Nostalgia by Dua Lipa                       | 307 units | 96 plays
+ 14 | My Everything by Ariana Grande                     | 307 units | 121 plays
+ 16 | Pop 2 by Charli XCX                                | 299 units | 71 plays
+ 17 | Love Goes by Sam Smith                             | 290 units | 61 plays
+ 18 | SOS by SZA                                         | 273 units | 94 plays
+ 19 | BEYONCÉ by Beyoncé                                 | 246 units | 88 plays
+
+Bestselling albums between 2023-10-01 and 2023-11-01.
+  1 | Happier Than Ever by Billie Eilish                 | 1292 units | 197 plays
+  2 | My 21st Century Blues by RAYE                      | 1089 units | 250 plays
+  3 | thank u, next by Ariana Grande                     | 1061 units | 207 plays
+  4 | Positions by Ariana Grande                         | 865 units | 191 plays
+  5 | dont smile at me by Billie Eilish                  | 695 units | 125 plays
+  6 | BB/ANG3L by Tinashe                                | 647 units | 128 plays
+  7 | Sweetener by Ariana Grande                         | 572 units | 161 plays
+  8 | WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? by Billie Eilish | 485 units | 92 plays
+  9 | My Everything by Ariana Grande                     | 451 units | 112 plays
+ 10 | SOS by SZA                                         | 379 units | 134 plays
+ 11 | Barbie The Album by Various Artists                | 343 units | 74 plays
+ 12 | RENAISSANCE by Beyonce                             | 261 units | 70 plays
+ 13 | Future Nostalgia by Dua Lipa                       | 238 units | 110 plays
+ 14 | Dangerous Woman by Ariana Grande                   | 237 units | 68 plays
+ 15 | 21 by Adele                                        | 148 units | 74 plays
+ 16 | The Pains Of Growing by Alessia Cara               | 117 units | 54 plays
+ 17 | AR by Addison Rae                                  | 115 units | 17 plays
+ 18 | Queen by Nicki Minaj                               | 97 units | 29 plays
+ 19 | Love Goes by Sam Smith                             | 96 units | 48 plays
+
