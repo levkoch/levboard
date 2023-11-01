@@ -73,15 +73,29 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
     def inner_update_song_plays(
         song_id: str, song_name: str
     ) -> tuple[Song, int]:
-        song_id = song_id.replace(',', ', ').replace('  ', ' ').strip()
-        if ', ' in song_id:
-            song = Song(song_id.split(', ')[0], song_name)
-            for alt in song_id.split(', ')[1:]:
-                song.add_alt(alt)
+        song_id = song_id.replace(',', ', ').replace('  ', ' ')
+        if ', ' in song_id: # has multiple ids
+            first_id = song_id.split(', ')[0]
+            all_ids = set(song_id.split(', '))
+            cached_song = uow.songs.get(first_id)
+
+            if cached_song is None or cached_song.ids != all_ids:
+                song = Song(song_id.split(', ')[0], song_name)
+                for alt in song_id.split(', ')[1:]:
+                    song.add_alt(alt)
+                print(f'unable to find {song} in cache.')
+            else:
+                song = cached_song
         else:
-            song = Song(song_id, song_name)
+            cached_song = uow.songs.get(song_id)
+            if cached_song is None:
+                song = Song(song_id, song_name)
+                print(f'unable to find {song} in cache.')
+            else: 
+                song = cached_song
 
         if song in songs_flagged_for_filtering:
+            print(f'{song} flagged for filtering')
             song.update_plays(adjusted=True)
             return (song, song._plays)
 
@@ -90,6 +104,7 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
             if track_id in saved_plays_ids:
                 plays += saved_plays_mapping[track_id]
             else:
+                print(f'### {song} {track_id}: loading information')
                 plays += spotistats.song_plays(
                     track_id, adjusted=(saved_plays_threshold > MAX_ADJUSTED)
                 )
@@ -99,7 +114,10 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
     return inner_update_song_plays
 
 
-def create_song_play_updater_from_weeks(week: Week) -> PLAY_UPDATER:
+def create_song_play_updater_from_weeks(
+    week: Week, 
+    uow: SongUOW
+) -> PLAY_UPDATER:
     """
     Creates a song play updater function based on data collected from all
     the weeks created by the main script comped together.
@@ -114,12 +132,25 @@ def create_song_play_updater_from_weeks(week: Week) -> PLAY_UPDATER:
         song_id: str, song_name: str
     ) -> tuple[Song, int]:
         song_id = song_id.replace(',', ', ').replace('  ', ' ')
-        if ', ' in song_id:
-            song = Song(song_id.split(', ')[0], song_name)
-            for alt in song_id.split(', ')[1:]:
-                song.add_alt(alt)
+        if ', ' in song_id: # has multiple ids
+            first_id = song_id.split(', ')[0]
+            all_ids = set(song_id.split(', '))
+            cached_song = uow.songs.get(first_id)
+
+            if cached_song is None or cached_song.ids != all_ids:
+                song = Song(song_id.split(', ')[0], song_name)
+                for alt in song_id.split(', ')[1:]:
+                    song.add_alt(alt)
+                print(f'unable to find {song} in cache.')
+            else:
+                song = cached_song
         else:
-            song = Song(song_id, song_name)
+            cached_song = uow.songs.get(song_id)
+            if cached_song is None:
+                song = Song(song_id, song_name)
+                print(f'unable to find {song} in cache.')
+            else: 
+                song = cached_song
 
         plays = sum(play_mapping.get(track_id) for track_id in song.ids)
         return (song, plays)
@@ -179,6 +210,7 @@ def update_spreadsheet_plays(
             if verbose:
                 print(
                     f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
+                    f'| {spotistats.total_requests:>3} req | '
                     f'updated {song} -> {plays} plays'
                 )
 
@@ -186,6 +218,7 @@ def update_spreadsheet_plays(
 
     if verbose:
         print(f'Updated {song_amt} spreadsheet song plays.')
+        print(spotistats.all_requests.most_common())
 
 
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
