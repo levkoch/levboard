@@ -8,7 +8,7 @@ import itertools
 
 from collections import Counter
 from copy import deepcopy
-from datetime import date
+from datetime import date, timedelta
 from operator import attrgetter
 from pydantic import ValidationError
 from typing import Iterable, Iterator, Optional
@@ -397,11 +397,13 @@ class Song:
 
         return len(1 for entry in self._entries if entry.place <= top)
 
-    def get_conweeks(self, top: Optional[int] = None) -> int:
+    def get_conweeks(self, breaks: bool = False, top: Optional[int] = None) -> int:
         """
         The greatest number of consecutive weeks the song has spent in the top
         `top` of the chart. Will return 0 if the song has never charted or
-        never charted in that region.
+        never charted in that region. Allows for songs to leave for 1 week if
+        `breaks` is true. CCC_CCCCC_C will return 5 if `breaks` is false but 11
+        if it's true.
         """
 
         entries = self.entries  # returns a copy, so we can pop
@@ -418,8 +420,17 @@ class Song:
             streak = 1
             next_entry = entries.pop(0)
 
-            while current_entry.end == next_entry.start:
+            while ((current_entry.end == next_entry.start)
+                # standard mode where the next week charted too
+                or (breaks and (
+                    current_entry.end + timedelta(days=7)) == next_entry.start)):
+                # with breaks mode where the next week didn't chart but we have
+                # break mode turned on and the week after that charted.
+                
                 streak += 1
+                if current_entry.end != next_entry.start:
+                    streak += 1
+
                 current_entry = next_entry
                 try:
                     next_entry = entries.pop(0)
@@ -431,7 +442,7 @@ class Song:
 
         return longest
 
-    def all_consecutive(self) -> list[tuple[date, int]]:
+    def all_consecutive(self, breaks=False) -> list[tuple[date, int]]:
         entries = self.entries
 
         if len(entries) == 0:
@@ -445,7 +456,13 @@ class Song:
             streak = 1
             next_entry = entries.pop(0)
 
-            while current_entry.end == next_entry.start:
+            while ((current_entry.end == next_entry.start)
+                # standard mode where the next week charted too
+                or (breaks and (
+                    current_entry.end + timedelta(days=7)) == next_entry.start)):
+                # with breaks mode where the next week didn't chart but we have
+                # break mode turned on and the week after that charted.
+             
                 streak += 1
                 current_entry = next_entry
                 try:
