@@ -453,6 +453,7 @@ def create_personal_charts():
     song_rows: list[list] = []
     album_rows: list[list] = []
     weeks = load_all_weeks(FIRST_DATE)
+    loading_time = datetime.now() - start_time
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
 
@@ -471,6 +472,8 @@ def create_personal_charts():
         )
 
     uow.commit()
+
+    crunching_time = (datetime.now() - start_time) - loading_time
 
     start_song_rows = [
         [
@@ -528,9 +531,19 @@ def create_personal_charts():
     # to overwrite with for some reason, so we clear it first and then
     # add the new data.
 
-    print('')
-    print(f'Process Completed in {datetime.now() - start_time}')
+    finished = datetime.now()
+    sending_time = (finished - start_time) - (loading_time + crunching_time)
+    total_time = finished - start_time
 
+    print('')
+    print(f'Process completed in {total_time} '
+          f'({total_time / week_count} per week)')
+    print(f'Loading weeks took   {loading_time} '
+          f'({loading_time / week_count} per week)')
+    print(f'Crunching data took  {crunching_time} '
+          f'({crunching_time / week_count} per week)')
+    print(f'Updated sheet in     {sending_time}')
+  
     return functools.reduce(operator.add, weeks)
 
 
