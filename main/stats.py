@@ -121,7 +121,7 @@ def top_shortest_time_units_milestones(
 
 
 def top_shortest_time_units_milestones_infograpic(
-    uow: SongUOW, unit_milestone: int
+    uow: SongUOW, unit_milestone: int, extras = False
 ):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
@@ -147,10 +147,16 @@ def top_shortest_time_units_milestones_infograpic(
     for (song, day, time) in day_units:
         place = len([unit for unit in day_units if unit[1] < day]) + 1
         start_day: date = day - timedelta(days=time)
+        
         print(
-            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days} to '
-            f'day {(day - BEGINNING).days} ({time} days / {day.isoformat()})'
+            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
+            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / {day.isoformat()})'
         )
+
+        if extras:
+            period_plays = song.period_plays(start_day, day)
+            period_weeks = song.period_weeks(start_day, day)
+            print(f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks')
 
 
 def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
@@ -452,6 +458,11 @@ def _display_album_plays(album: Album):
                 plays = spotistats.song_plays(bonus_id, adjusted=True)
                 print(f'◇ {bonus_id}: {plays}')
 
+def random_lookup(uow: SongUOW):
+    wwimf = uow.songs.get_by_name("What Was I Made For?")
+    nasty = uow.songs.get_by_name("nasty")
+    print(wwimf.period_plays(date(2023, 11, 16)))
+
 
 def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
     for album in uow.albums:
@@ -489,15 +500,14 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
    
     top_listeners_chart(uow)
-    """
+    
     top_song_consecutive_weeks_infographic(uow)
-
+    
     """
-    top_shortest_time_units_milestones_infograpic(uow, 2_000)
-
-    top_shortest_time_units_milestones_infograpic(uow, 4_000)
-    top_shortest_time_units_milestones_infograpic(uow, 6_000)
-  
+    top_shortest_time_units_milestones_infograpic(uow, 2_000, extras=True)
+    top_shortest_time_units_milestones_infograpic(uow, 4_000, extras=True)
+    top_shortest_time_units_milestones_infograpic(uow, 6_000, extras=True)
+    """
     
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
@@ -518,8 +528,8 @@ if __name__ == '__main__':
         top_album_song_weeks(uow, weeks)
     
     top_song_consecutive_weeks(uow, top=5)
-    
-    top_albums_month(uow, date(2023, 9, 1), date(2023, 10, 1))
+
+    top_albums_month(uow, date(2023, 11, 1), date(2023, 12, 1))
     
     start_day = date(FIRST_DATE.year, FIRST_DATE.month, 1)
     end_day = date(start_day.year, start_day.month + 1, 1)
