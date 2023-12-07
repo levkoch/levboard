@@ -16,13 +16,13 @@ import datetime
 
 from concurrent import futures
 from operator import itemgetter
-from typing import Any, Callable
+from typing import Any, Callable, Union
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
 from model.spotistats import Week
 from model import Song, spotistats
 from spreadsheet import Spreadsheet
-from storage import SongUOW
+from storage import SongUOW, SongRepository, AlbumRepository
 
 
 def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
@@ -256,88 +256,93 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
     if verbose:
         print(f'Updated {song_amt} local song plays.')
 
-
-def load_year_end_songs(uow: SongUOW, sheet_id: str, verbose: bool = False):
-    """
-    Updates the spreadsheet with the correct year-end songs.
-
-    MUST be ran AFTER update_local_plays so that all songs in memory have all
-    of their plays attached to them so that this takes 15 seconds to run and
-    not 40 minutes as the program sequentially gets play data for 1,600+ songs.
-    """
-
+def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
     sheet = Spreadsheet(sheet_id)
-    song_rows: list[list] = []
 
-    current_year = datetime.date.today().year
-    while current_year > FIRST_DATE.year - 1:
-        if verbose:
-            print(f'Collecting top songs of {current_year}')
-        year_start = datetime.date(current_year, 1, 1)
-        year_end = datetime.date(current_year + 1, 1, 1)
-        year = (year_start, year_end)
+    def inner(collection: Union[SongRepository, AlbumRepository], verbose = False):
+        nonlocal sheet, range_name, quantity
+        item_rows: list[list] = []
+        kind = type(collection.get(collection.list()[0])).__name__
 
-        song_rows.extend(
-            [
+        current_year = datetime.date.today().year
+        while current_year > FIRST_DATE.year - 1:
+            if verbose:
+                print(f'Collecting top {kind}s of {current_year}')
+            year_start = datetime.date(current_year, 1, 1)
+            year_end = datetime.date(current_year + 1, 1, 1)
+            year = (year_start, year_end)
+
+            item_rows.extend(
                 [
-                    f'{current_year} Year-End Songs',
-                ],
-                ['POS', 'Title', 'Artists', 'WKS', 'UTS', 'PLS', 'PK', 'PKW'],
+                   [
+                      f'{current_year} Year-End {kind}s',
+                 ],
+                 ['POS', 'Title', 'Artists', 'WKS', 'UTS', 'PLS', 'PK', 'PKW'],
             ]
-        )
-
-        eligible_songs = [
-            (song, song.period_units(*year))
-            for song in uow.songs
-            if song.period_weeks(*year)
-        ]
-
-        eligible_songs.sort(key=itemgetter(1), reverse=True)
-        eligible_songs = eligible_songs[:100]
-
-        for song, units in eligible_songs:
-            place = len([s for (s, u) in eligible_songs if u > units]) + 1
-            peak = min(
-                entry.place
-                for entry in song.entries
-                if entry.start >= year_start and entry.end <= year_end
             )
-            peak_weeks = len(
+
+            eligible_items = [
+                (item, item.period_units(*year))
+                for item in collection
+                if item.period_weeks(*year)
+            ]
+
+            eligible_items.sort(key=itemgetter(1), reverse=True)
+            eligible_items = eligible_items[:quantity]
+
+            for item, units in eligible_items:
+                place = len([s for (s, u) in eligible_items if u > units]) + 1
+                peak = min(
+                    entry.place
+                    for entry in item.entries
+                    if entry.start >= year_start and entry.end <= year_end
+                )
+                peak_weeks = len(
                 [
                     entry
-                    for entry in song.entries
+                    for entry in item.entries
                     if entry.start >= year_start
                     and entry.end <= year_end
                     and entry.place == peak
                 ]
-            )
-            info = [
-                place,
-                song.name,
-                ', '.join(song.artists),
-                song.period_weeks(*year),
-                song.period_units(*year),
-                song.period_plays(*year),
-                peak,
-                peak_weeks if peak_weeks > 1 else '—',
-            ]
-            song_rows.append(info)
+                )
+                info = [
+                    place,
+                    (item.name if kind == 'Song' else item.title),
+                    # why aren't both called title RAHHHH
+                    ', '.join(item.artists),
+                    item.period_weeks(*year),
+                    item.period_units(*year),
+                    item.period_plays(*year),
+                    peak,
+                    peak_weeks if peak_weeks > 1 else '—',
+                    current_year
+                    # for filtering reasons but will be hidden in sheet
+                ]
+                item_rows.append(info)
 
-        song_rows.append([''])
-        current_year -= 1
+            item_rows.append([''])
+            current_year -= 1
 
-    sheet.delete_range('Year-End!A:H')
-    sheet.append_range('Year-End!A1:H', song_rows)
+        sheet.delete_range(range_name)
+        sheet.append_range(range_name, item_rows)
 
+    return inner
+
+load_year_end_songs = year_end_collection_creater(
+    LEVBOARD_SHEET, 'Year-End!A1:I', 100)
+load_year_end_albums = year_end_collection_creater(
+    LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40)
 
 if __name__ == '__main__':
     uow = SongUOW()
-    '''
+
     update_local_plays(uow, verbose=True)
-    load_year_end_songs(uow, LEVBOARD_SHEET, verbose=True)
-    '''
+    load_year_end_songs(uow.songs, verbose=True)
+    load_year_end_albums(uow.albums, verbose=True)
+    """
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )
+    )"""
