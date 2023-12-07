@@ -74,7 +74,7 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
         song_id: str, song_name: str
     ) -> tuple[Song, int]:
         song_id = song_id.replace(',', ', ').replace('  ', ' ')
-        if ', ' in song_id: # has multiple ids
+        if ', ' in song_id:   # has multiple ids
             first_id = song_id.split(', ')[0]
             all_ids = set(song_id.split(', '))
             cached_song = uow.songs.get(first_id)
@@ -91,7 +91,7 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
             if cached_song is None:
                 song = Song(song_id, song_name)
                 print(f'unable to find {song} in cache.')
-            else: 
+            else:
                 song = cached_song
 
         if song in songs_flagged_for_filtering:
@@ -115,8 +115,7 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
 
 
 def create_song_play_updater_from_weeks(
-    week: Week, 
-    uow: SongUOW
+    week: Week, uow: SongUOW
 ) -> PLAY_UPDATER:
     """
     Creates a song play updater function based on data collected from all
@@ -132,7 +131,7 @@ def create_song_play_updater_from_weeks(
         song_id: str, song_name: str
     ) -> tuple[Song, int]:
         song_id = song_id.replace(',', ', ').replace('  ', ' ')
-        if ', ' in song_id: # has multiple ids
+        if ', ' in song_id:   # has multiple ids
             first_id = song_id.split(', ')[0]
             all_ids = set(song_id.split(', '))
             cached_song = uow.songs.get(first_id)
@@ -149,7 +148,7 @@ def create_song_play_updater_from_weeks(
             if cached_song is None:
                 song = Song(song_id, song_name)
                 print(f'unable to find {song} in cache.')
-            else: 
+            else:
                 song = cached_song
 
         plays = sum(play_mapping.get(track_id) for track_id in song.ids)
@@ -256,10 +255,13 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
     if verbose:
         print(f'Updated {song_amt} local song plays.')
 
+
 def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
     sheet = Spreadsheet(sheet_id)
 
-    def inner(collection: Union[SongRepository, AlbumRepository], verbose = False):
+    def inner(
+        collection: Union[SongRepository, AlbumRepository], verbose=False
+    ):
         nonlocal sheet, range_name, quantity
         item_rows: list[list] = []
         kind = type(collection.get(collection.list()[0])).__name__
@@ -274,11 +276,20 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
             item_rows.extend(
                 [
-                   [
-                      f'{current_year} Year-End {kind}s',
-                 ],
-                 ['POS', 'Title', 'Artists', 'WKS', 'UTS', 'PLS', 'PK', 'PKW'],
-            ]
+                    [
+                        f'{current_year} Year-End {kind}s',
+                    ],
+                    [
+                        'POS',
+                        'Title',
+                        'Artists',
+                        'WKS',
+                        'UTS',
+                        'PLS',
+                        'PK',
+                        'PKW',
+                    ],
+                ]
             )
 
             eligible_items = [
@@ -298,13 +309,13 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                     if entry.start >= year_start and entry.end <= year_end
                 )
                 peak_weeks = len(
-                [
-                    entry
-                    for entry in item.entries
-                    if entry.start >= year_start
-                    and entry.end <= year_end
-                    and entry.place == peak
-                ]
+                    [
+                        entry
+                        for entry in item.entries
+                        if entry.start >= year_start
+                        and entry.end <= year_end
+                        and entry.place == peak
+                    ]
                 )
                 info = [
                     place,
@@ -329,10 +340,13 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
     return inner
 
+
 load_year_end_songs = year_end_collection_creater(
-    LEVBOARD_SHEET, 'Year-End!A1:I', 100)
+    LEVBOARD_SHEET, 'Year-End!A1:I', 100
+)
 load_year_end_albums = year_end_collection_creater(
-    LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40)
+    LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40
+)
 
 if __name__ == '__main__':
     uow = SongUOW()

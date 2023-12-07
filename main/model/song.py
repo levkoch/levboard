@@ -167,10 +167,11 @@ class Song:
             return self._plays
         play_dates = (i.finished_playing.date() for i in self.__listens)
         date_counter = Counter(play_dates)
-        plays = sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+        plays = sum(
+            min(MAX_ADJUSTED, count) for count in date_counter.values()
+        )
         self._plays = plays
         return plays
-
 
     @property
     def str_artists(self) -> str:
@@ -397,7 +398,9 @@ class Song:
 
         return len(1 for entry in self._entries if entry.place <= top)
 
-    def get_conweeks(self, breaks: bool = False, top: Optional[int] = None) -> int:
+    def get_conweeks(
+        self, breaks: bool = False, top: Optional[int] = None
+    ) -> int:
         """
         The greatest number of consecutive weeks the song has spent in the top
         `top` of the chart. Will return 0 if the song has never charted or
@@ -420,13 +423,18 @@ class Song:
             streak = 1
             next_entry = entries.pop(0)
 
-            while ((current_entry.end == next_entry.start)
+            while (
+                (current_entry.end == next_entry.start)
                 # standard mode where the next week charted too
-                or (breaks and (
-                    current_entry.end + timedelta(days=7)) == next_entry.start)):
+                or (
+                    breaks
+                    and (current_entry.end + timedelta(days=7))
+                    == next_entry.start
+                )
+            ):
                 # with breaks mode where the next week didn't chart but we have
                 # break mode turned on and the week after that charted.
-                
+
                 streak += 1
                 if current_entry.end != next_entry.start:
                     streak += 1
@@ -456,13 +464,18 @@ class Song:
             streak = 1
             next_entry = entries.pop(0)
 
-            while ((current_entry.end == next_entry.start)
+            while (
+                (current_entry.end == next_entry.start)
                 # standard mode where the next week charted too
-                or (breaks and (
-                    current_entry.end + timedelta(days=7)) == next_entry.start)):
+                or (
+                    breaks
+                    and (current_entry.end + timedelta(days=7))
+                    == next_entry.start
+                )
+            ):
                 # with breaks mode where the next week didn't chart but we have
                 # break mode turned on and the week after that charted.
-             
+
                 streak += 1
                 current_entry = next_entry
                 try:

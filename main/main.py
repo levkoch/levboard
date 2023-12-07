@@ -536,14 +536,20 @@ def create_personal_charts():
     total_time = finished - start_time
 
     print('')
-    print(f'Process completed in {total_time} '
-          f'({total_time / week_count} per week)')
-    print(f'Loading weeks took   {loading_time} '
-          f'({loading_time / week_count} per week)')
-    print(f'Crunching data took  {crunching_time} '
-          f'({crunching_time / week_count} per week)')
+    print(
+        f'Process completed in {total_time} '
+        f'({total_time / week_count} per week)'
+    )
+    print(
+        f'Loading weeks took   {loading_time} '
+        f'({loading_time / week_count} per week)'
+    )
+    print(
+        f'Crunching data took  {crunching_time} '
+        f'({crunching_time / week_count} per week)'
+    )
     print(f'Updated sheet in     {sending_time}')
-  
+
     return functools.reduce(operator.add, weeks)
 
 

@@ -15,11 +15,16 @@ from storage import SongUOW
 
 uow = SongUOW()
 
+
 def is_chart_date(date: date) -> bool:
     return date.weekday() == 3
 
-def charted_between(song_or_album: Union[Song, Album], start: date, end: date) -> bool:
+
+def charted_between(
+    song_or_album: Union[Song, Album], start: date, end: date
+) -> bool:
     current = start
+
     def chart_dates(end: date):
         nonlocal current
         while True:
@@ -28,10 +33,11 @@ def charted_between(song_or_album: Union[Song, Album], start: date, end: date) -
             if current > end:
                 return
             current += timedelta(days=1)
-    
+
     dates = set(chart_dates(end))
 
     return len(dates & set(entry.end for entry in song_or_album.entries)) > 0
+
 
 def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     with futures.ThreadPoolExecutor() as executor:
@@ -121,7 +127,7 @@ def top_shortest_time_units_milestones(
 
 
 def top_shortest_time_units_milestones_infograpic(
-    uow: SongUOW, unit_milestone: int, extras = False
+    uow: SongUOW, unit_milestone: int, extras=False
 ):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
@@ -147,7 +153,7 @@ def top_shortest_time_units_milestones_infograpic(
     for (song, day, time) in day_units:
         place = len([unit for unit in day_units if unit[1] < day]) + 1
         start_day: date = day - timedelta(days=time)
-        
+
         print(
             f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
             f' -> {(day - BEGINNING).days:<4} ({time:<4} days / {day.isoformat()})'
@@ -156,7 +162,9 @@ def top_shortest_time_units_milestones_infograpic(
         if extras:
             period_plays = song.period_plays(start_day, day)
             period_weeks = song.period_weeks(start_day, day)
-            print(f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks')
+            print(
+                f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
+            )
 
 
 def time_to_plays(song: Song, plays: int) -> tuple[Song, date, int]:
@@ -293,7 +301,9 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
 def top_song_consecutive_weeks_infographic(uow: SongUOW):
     THRESHOLD: Final[int] = 20
     contenders: Iterable[Song] = (
-        song for song in uow.songs if song.get_conweeks(breaks=True) >= THRESHOLD
+        song
+        for song in uow.songs
+        if song.get_conweeks(breaks=True) >= THRESHOLD
     )
 
     units: list[tuple[Song, date, int]] = []
@@ -354,12 +364,17 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
 def get_song_units(song: Song, start: date, end: date) -> tuple[Song, int]:
     return song, song.period_units(start, end), song.period_plays(start, end)
 
+
 def top_songs_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple] = list(
             executor.map(
                 functools.partial(get_song_units, start=start, end=end),
-                (song for song in uow.songs if song.period_points(start=start, end=end) > 0)
+                (
+                    song
+                    for song in uow.songs
+                    if song.period_points(start=start, end=end) > 0
+                ),
             )
         )
     units.sort(key=lambda i: i[1], reverse=True)
@@ -370,18 +385,30 @@ def top_songs_month(uow: SongUOW, start: date, end: date):
     )
     for song, unit, plays in units:
         place = len([i for i in units if i[1] > unit]) + 1
-        print(f'{place:>3} | {str(song):<50} | {unit:<2} units | {plays:<2} plays')
+        print(
+            f'{place:>3} | {str(song):<50} | {unit:<2} units | {plays:<2} plays'
+        )
     print('')
 
+
 def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
-    return album, album.period_units(start, end), album.period_plays(start, end)
+    return (
+        album,
+        album.period_units(start, end),
+        album.period_plays(start, end),
+    )
+
 
 def top_albums_month(uow: SongUOW, start: date, end: date):
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple] = list(
             executor.map(
                 functools.partial(get_album_units, start=start, end=end),
-                (album for album in uow.albums if charted_between(album, start, end)),
+                (
+                    album
+                    for album in uow.albums
+                    if charted_between(album, start, end)
+                ),
             )
         )
     units.sort(key=lambda i: i[1], reverse=True)
@@ -392,7 +419,9 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
     )
     for album, unit, plays in units:
         place = len([i for i in units if i[1] > unit]) + 1
-        print(f'{place:>3} | {str(album):<50} | {unit:<2} units | {plays:<2} plays')
+        print(
+            f'{place:>3} | {str(album):<50} | {unit:<2} units | {plays:<2} plays'
+        )
     print('')
 
 
@@ -458,9 +487,10 @@ def _display_album_plays(album: Album):
                 plays = spotistats.song_plays(bonus_id, adjusted=True)
                 print(f'◇ {bonus_id}: {plays}')
 
+
 def random_lookup(uow: SongUOW):
-    wwimf = uow.songs.get_by_name("What Was I Made For?")
-    nasty = uow.songs.get_by_name("nasty")
+    wwimf = uow.songs.get_by_name('What Was I Made For?')
+    nasty = uow.songs.get_by_name('nasty')
     print(wwimf.period_plays(date(2023, 11, 16)))
 
 

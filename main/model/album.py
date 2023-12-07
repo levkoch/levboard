@@ -313,7 +313,7 @@ class Album:
         return sum(
             1 for w in self.entries if w.start >= start and w.end <= end
         )
-        
+
     def get_points(self, end_date: date) -> int:
         """
         Returns the total points collected by the album that tracking week.

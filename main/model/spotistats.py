@@ -33,6 +33,7 @@ BANNED_SONGS: Final[set[str]] = {'15225941'}
 total_requests = 0
 all_requests = Counter([])
 
+
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
     """
@@ -51,7 +52,11 @@ def _get_address(address: str) -> requests.Response:
     response.raise_for_status()
     global total_requests, all_requests
     total_requests += 1
-    all_requests.update([address,])
+    all_requests.update(
+        [
+            address,
+        ]
+    )
     return response
 
 

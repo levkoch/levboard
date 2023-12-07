@@ -34,7 +34,7 @@ def get_new_songs(uow: SongUOW):
             print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
 
 
-def get_missing_songs(uow: SongUOW, threshold: int= 10):
+def get_missing_songs(uow: SongUOW, threshold: int = 10):
     """
     Scans all of the songs listened to across all time,
     displaying all the ones missing in the system.
