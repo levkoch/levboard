@@ -70,14 +70,14 @@ class SongRepository:
             return next(
                 i
                 for i in self._songs.values()
-                if i.name.lower() == song_name.lower()
+                if i.title.lower() == song_name.lower()
             )
         except StopIteration:
             return next(
                 (
                     i
                     for i in self._songs.values()
-                    if i.name.lower().startswith(song_name.lower())
+                    if i.title.lower().startswith(song_name.lower())
                 ),
                 None,
             )

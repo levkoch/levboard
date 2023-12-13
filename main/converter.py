@@ -196,13 +196,13 @@ def save_songs_from_uow(uow: SongUOW):
                 continue
 
         song_item = {
-            'name': song.name,
+            'name': song.title,
             'artists': song.artists,
             'ids': list(song.ids),
             'standard': song.main_id,
             'image': 'MISSING'
-            if song.name not in name_to_image
-            else name_to_image[song.name],
+            if song.title not in name_to_image
+            else name_to_image[song.title],
         }
 
         if len(song.ids) > 1:

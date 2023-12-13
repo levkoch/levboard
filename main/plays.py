@@ -198,9 +198,9 @@ def update_spreadsheet_plays(
 
             final_songs.append(
                 [
-                    "'" + song.name
-                    if any(letter.isnumeric() for letter in song.name)
-                    else song.name,
+                    "'" + song.title
+                    if any(letter.isnumeric() for letter in song.title)
+                    else song.title,
                     ', '.join(song.ids),
                     ', '.join(song.artists),
                     plays,
@@ -319,8 +319,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                 )
                 info = [
                     place,
-                    (item.name if kind == 'Song' else item.title),
-                    # why aren't both called title RAHHHH
+                    item.title,
                     ', '.join(item.artists),
                     item.period_weeks(*year),
                     item.period_units(*year),

@@ -15,7 +15,6 @@ from model import Album, AlbumEntry, Entry, Song, spotistats, SONG_CHART_LENGTH
 from model.spotistats import Week
 from spreadsheet import Spreadsheet
 from storage import SongUOW
-from plays import update_spreadsheet_plays, create_song_play_updater_from_weeks
 
 
 def load_week(
@@ -180,7 +179,7 @@ def create_song_chart(
 def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     tester = Song(song_id)
     # defaults to official name if no name specified
-    print(f'\nSong {tester.name} ({song_id}) not found.')
+    print(f'\nSong {tester.title} ({song_id}) not found.')
     print(f'Find the link here -> https://stats.fm/track/{song_id}')
     name = input('What should the song be called in the database? ').strip()
 
@@ -198,7 +197,7 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
             )
 
         merge_into.add_alt(song_id)
-        print(f'Sucessfully merged {tester.name} into {merge_into.name}')
+        print(f'Sucessfully merged {tester.title} into {merge_into.title}')
         return merge_into
 
     return Song(song_id, name)
@@ -250,7 +249,7 @@ def show_chart(
             song: Song = uow.songs.get(pos['id'])
         prev = song.get_entry(start)
         print(
-            f'{get_movement(end, start, song):>3} | {song.name:<45} | '
+            f'{get_movement(end, start, song):>3} | {song.title:<45} | '
             f"{', '.join(song.artists):<45} | {pos['place']:<2} | "
             f"{(prev.place if prev else '-'):<2} | {song.weeks:<2} | "
             f"{pos['points']:<3} | {pos['plays']:<3} | {get_peak(song):<3}"
@@ -309,7 +308,7 @@ def update_song_sheet(
         new_rows.append(
             [
                 "'" + movement,
-                "'" + song.name if song.name[0].isnumeric() else song.name,
+                "'" + song.title if song.title[0].isnumeric() else song.title,
                 ', '.join(song.artists),
                 pos['place'],
                 prev.place if prev is not None else '-',
@@ -554,10 +553,4 @@ def create_personal_charts():
 
 
 if __name__ == '__main__':
-    weeks = create_personal_charts()
-    quit()
-    update_spreadsheet_plays(
-        create_song_play_updater_from_weeks(weeks),
-        LEVBOARD_SHEET,
-        verbose=True,
-    )
+    create_personal_charts()

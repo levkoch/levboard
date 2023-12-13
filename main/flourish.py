@@ -137,10 +137,10 @@ def get_song_sellings(
 
     print(f'-> [{next(started):03d}] collecting info for {song}')
     info = {
-        'title': song.name,
+        'title': song.title,
         'artist': song.str_artists,
     }
-    with futures.ThreadPoolExecutor(thread_name_prefix=song.name) as executor:
+    with futures.ThreadPoolExecutor(thread_name_prefix=song.title) as executor:
         data = executor.map(
             functools.partial(get_song_points, song=song), weeks
         )
@@ -188,7 +188,7 @@ def flourish_songs():
         # write to csv in case google sheets is annoying
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
-    range = f'BOT_FLOURISH!A1:CZ{len(sheet_rows)+1}'
+    range = f'BOT_FLOURISH!A1:ZZ{len(sheet_rows)+1}'
     sheet.delete_range(range)
     sheet.append_range(range, sheet_rows)
 
@@ -198,7 +198,7 @@ def flourish_songs():
 
 if __name__ == '__main__':
     album_sellings = album_data_generator(get_album_units)
-    flourish_albums(album_sellings, (lambda i: i.units >= 10000))
+    # flourish_albums(album_sellings, (lambda i: i.units >= 10000))
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)
@@ -208,4 +208,4 @@ if __name__ == '__main__':
     album_top_fives = album_data_generator(get_album_top_five_weeks)
     # flourish_albums(album_top_fives, lambda i: i.peak < 6)
 
-    # flourish_songs()
+    flourish_songs()

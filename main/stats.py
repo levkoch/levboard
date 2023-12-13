@@ -293,7 +293,7 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     for (song, weeks) in units:
         place = len([unit for unit in units if unit[1] > weeks]) + 1
         print(
-            f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {weeks:>2} wks"
+            f"{place:>2} | {f'{song.title} by {song.str_artists}':<55} | {weeks:>2} wks"
         )
     print('')
 
@@ -323,7 +323,7 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
         print(
-            f"{place:>2} | {f'{song.name} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
+            f"{place:>2} | {f'{song.title} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
             f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 2}'
         )
     print('')
@@ -466,7 +466,7 @@ def display_all_songs(uow: SongUOW):
     all_songs.sort(key=lambda i: i.units, reverse=True)
     for (count, song) in enumerate(all_songs):
         print(
-            f'{count + 1:>4} | {song.name:<45} | {song.str_artists:<45} | peak: {song.peak:<2} '
+            f'{count + 1:>4} | {song.title:<45} | {song.str_artists:<45} | peak: {song.peak:<2} '
             f'{(("(" + str(song.peakweeks) + ")") if (song.peak < 11 and song.peakweeks > 1) else " "):<4} '
             f'| weeks: {song.weeks:<2} | plays: {song.plays:<3} | {song.cert}'
         )
@@ -486,12 +486,6 @@ def _display_album_plays(album: Album):
             for bonus_id in song.ids:
                 plays = spotistats.song_plays(bonus_id, adjusted=True)
                 print(f'◇ {bonus_id}: {plays}')
-
-
-def random_lookup(uow: SongUOW):
-    wwimf = uow.songs.get_by_name('What Was I Made For?')
-    nasty = uow.songs.get_by_name('nasty')
-    print(wwimf.period_plays(date(2023, 11, 16)))
 
 
 def display_top_album_plays_infographic(uow: SongUOW, threshold: int):

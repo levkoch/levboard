@@ -25,16 +25,16 @@ class Song:
 
     Arguments:
     * song_id (`str`): The song's unique Spotistats id, as a numeric string.
-    * song_name (optional `str`): The name of the song that the system will use.
+    * song_title (optional `str`): The title of the song that the system will use.
         Needs to be unique across all songs. Defualts to the song's official
-        name if none is specified.
+        title if none is specified.
     * load (keyword-only `bool`): If the song metadata needs to be loaded or not.
         Defaults to `True`, but should be overwritten only if is being constructed
         from storage.
 
     Attributes:
     * id (`str`): The Spotistats id of the song.
-    * name (`str`): The specified name of the song.
+    * title (`str`): The specified title of the song.
     * plays (`int`): The song's plays. Updated by the update_plays() method.
     * peak (property `int`): The highest peak of the song on the chart. Defaults to
         `0` if the song has never charted.
@@ -55,19 +55,19 @@ class Song:
     * from_dict (class method): Forms a new song from a simple dictionary object.
     * Additionally supports hashing, equality comparison, and putting into sets.
     * _load_info (internal method): Retreives the metadata for the song id from
-        Spotistats, including the artists, the official name, and the song's
+        Spotistats, including the artists, the official title, and the song's
         current play count.
     """
 
     def __init__(
         self,
         song_id: str,
-        song_name: Optional[str] = None,
+        song_title: Optional[str] = None,
         *,
         load: bool = True,
     ):
         self.main_id: str = song_id
-        self.name: str = song_name
+        self.title: str = song_title
         self.ids: set[str] = {
             song_id,
         }
@@ -96,14 +96,14 @@ class Song:
         self.artists = [i['name'] for i in info['artists']]
 
         # for when the name wasn't specified (defaults to `None`)
-        if self.name is None:
-            self.name = self.official_name
+        if self.title is None:
+            self.title = self.official_name
 
         if self.__listens is None:
             self._populate_listens()
 
     def __hash__(self) -> int:
-        return hash((self.name, tuple(self.ids)))
+        return hash((self.title, tuple(self.ids)))
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
@@ -111,10 +111,10 @@ class Song:
         return NotImplemented
 
     def __str__(self) -> str:
-        return f'{self.name} by {self.str_artists}'
+        return f'{self.title} by {self.str_artists}'
 
     def __repr__(self) -> str:
-        return f'Song({self.main_id!r}, {self.name!r})'
+        return f'Song({self.main_id!r}, {self.title!r})'
 
     def __format__(self, fmt: str) -> str:
         # flags are "o" and "s"
@@ -497,7 +497,7 @@ class Song:
         """
 
         return {
-            'name': self.name,
+            'title': self.title,
             'main_id': self.main_id,
             'ids': list(self.ids),
             'artists': self.artists,
@@ -523,7 +523,7 @@ class Song:
 
         try:
             new = cls(
-                song_id=info['main_id'], song_name=info['name'], load=False
+                song_id=info['main_id'], song_title=info['title'], load=False
             )
 
             alts = info.get('ids')

@@ -7,7 +7,7 @@ from storage import SongUOW
 uow = SongUOW()
 sheet = Spreadsheet(LEVBOARD_SHEET)
 
-request = sheet.get_range('Song Info!A2:B2000')
+request = sheet.get_range('Song Info!A2:B')
 song_ids: list[list] = [i[1] for i in request.get('values') if i[0]]
 
 print(len(song_ids), 'items found')
@@ -24,7 +24,7 @@ for song in uow.songs:
 
     ids = itertools.chain([song.main_id], song.ids)
 
-    missing_songs.append([song.name, ', '.join(ids), ', '.join(song.artists)])
+    missing_songs.append([song.title, ', '.join(ids), ', '.join(song.artists)])
 
 range = f'MISSING_SONGS!A1:D{len(missing_songs) + 1}'
 sheet.update_range(range, missing_songs)
