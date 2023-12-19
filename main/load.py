@@ -9,21 +9,21 @@ from storage import SongUOW
 
 
 def _create_new_song(ids: list[str], name: str) -> Song:
-    new_song = Song(song_id=ids[0], song_name=name)
+    new_song = Song(song_id=ids[0], song_title=name)
     if len(ids) > 1:
         for alt_id in ids[1:]:
             new_song.add_alt(alt_id)
     return new_song
 
 
-def _add_song(song_name: str, str_ids: str, uow: SongUOW) -> Song:
+def _add_song(song_title: str, str_ids: str, uow: SongUOW) -> Song:
     """adds a song into the uow."""
     # split by comma. not all songs will have multiple ids but we
     # don't care, because it will return a list regardless.
     ids = str_ids.split(', ')
 
     if any(uow.songs.get(id) is None for id in ids):
-        return _create_new_song(ids, song_name)
+        return _create_new_song(ids, song_title)
     return uow.songs.get(ids[0])
 
 
@@ -45,8 +45,8 @@ def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
 
-        for song_name, str_ids in songs:
-            future = executor.submit(_add_song, song_name, str_ids, uow)
+        for song_title, str_ids in songs:
+            future = executor.submit(_add_song, song_title, str_ids, uow)
             to_do.append(future)
 
         for count, future in enumerate(futures.as_completed(to_do), 1):

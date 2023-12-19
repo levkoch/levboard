@@ -72,7 +72,9 @@ def _timestamp_check(day: Union[date, int]) -> int:
     """submethod to make casting dates to timestamps easier."""
     if isinstance(day, date):
         return date_to_timestamp(day)
-    return day
+    if isinstance(day, int):
+        return day
+    raise TypeError('please give a date or an int timestamp.')
 
 
 def song_info(song_id: str) -> dict:
@@ -107,11 +109,11 @@ def song_plays(
     plays will also be filtered.
     """
 
-    if adjusted:
-        return _adjusted_song_plays(song_id, user, after, before)
-
     after = _timestamp_check(after)
     before = _timestamp_check(before)
+
+    if adjusted:
+        return _adjusted_song_plays(song_id, user, after, before)
 
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/'

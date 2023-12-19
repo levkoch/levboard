@@ -383,9 +383,7 @@ def create_album_chart(
     units.sort(key=itemgetter(1), reverse=True)
 
     if len(units) > 40:
-        units = [
-            i for i in units if i[1] >= units[39][1]
-        ]
+        units = [i for i in units if i[1] >= units[39][1]]
 
     actual_end = end_day - timedelta(days=1)
     new_rows = [

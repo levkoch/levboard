@@ -675,7 +675,7 @@
             "4155648",
             "7730814",
             "656612",
-            "426258"
+            "86196496"
         ],
         "entries": []
     },
@@ -2119,9 +2119,28 @@
         "title": "Pink Friday 2",
         "artists": "Nicki Minaj",
         "songs": [
+            "86492587",
+            "86492597",
+            "86492588",
+            "86492589",
+            "86492591",
+            "86492590",
+            "86492592",
+            "86492593",
+            "86492594",
+            "86492595",
+            "86492596",
+            "86492598",
+            "64075520",
+            "86492599",
+            "86492600",
             "46829579",
+            "86492602",
+            "86492601",
+            "86492603",
+            "86492604",
             "78128124",
-            "64075520"
+            "86492605"
         ],
         "entries": []
     },
@@ -2787,16 +2806,29 @@
         "title": "THINK LATER",
         "artists": "Tate McRae",
         "songs": [
+            "86452307",
             "78936960",
-            "84123813"
+            "86452316",
+            "86452315",
+            "86452313",
+            "86452319",
+            "84123813",
+            "86452314",
+            "86452317",
+            "86452322",
+            "86452318",
+            "86452323",
+            "86452320",
+            "86452321"
         ],
         "entries": []
     },
     "The Big Day": {
         "title": "The Big Day",
-        "artists": "Chance the Rapper",
+        "artists": "Chance The Rapper",
         "songs": [
-            "71951"
+            "71951",
+            "71965"
         ],
         "entries": []
     },
@@ -3233,6 +3265,73 @@
             "1006142",
             "1006143",
             "1005945"
+        ],
+        "entries": []
+    },
+    "Faith (Pop Smoke)": {
+        "title": "Faith (Pop Smoke)",
+        "artists": "Pop Smoke",
+        "songs": [
+            "666631"
+        ],
+        "entries": []
+    },
+    "No Time to Die": {
+        "title": "No Time to Die",
+        "artists": "Various Artists",
+        "songs": [
+            "585421"
+        ],
+        "entries": []
+    },
+    "SHE IS COMING": {
+        "title": "SHE IS COMING",
+        "artists": "Miley Cyrus",
+        "songs": [
+            "3241884"
+        ],
+        "entries": []
+    },
+    "Shine": {
+        "title": "Shine",
+        "artists": "Wale",
+        "songs": [
+            "10024444"
+        ],
+        "entries": []
+    },
+    "Stay +": {
+        "title": "Stay +",
+        "artists": "Zedd",
+        "songs": [
+            "4964",
+            "180467",
+            "116374"
+        ],
+        "entries": []
+    },
+    "Tears In The Club": {
+        "title": "Tears In The Club",
+        "artists": "Kingdom",
+        "songs": [
+            "5370407",
+            "9134438"
+        ],
+        "entries": []
+    },
+    "TROLLS": {
+        "title": "TROLLS",
+        "artists": "Various Artists",
+        "songs": [
+            "1186905"
+        ],
+        "entries": []
+    },
+    "While We Wait": {
+        "title": "While We Wait",
+        "artists": "Kehlani",
+        "songs": [
+            "706863"
         ],
         "entries": []
     }

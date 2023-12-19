@@ -57,8 +57,8 @@
         "title": "MAMA",
         "main_id": "1365013",
         "ids": [
-            "80984272",
-            "1365013"
+            "1365013",
+            "80984272"
         ],
         "artists": [
             "6ix9ine",
@@ -1483,8 +1483,8 @@
         "title": "bad idea",
         "main_id": "1412613",
         "ids": [
-            "1412613",
-            "5443426"
+            "5443426",
+            "1412613"
         ],
         "artists": [
             "Ariana Grande"
@@ -2040,8 +2040,8 @@
         "title": "Be Alright",
         "main_id": "284597",
         "ids": [
-            "5443428",
-            "284597"
+            "284597",
+            "5443428"
         ],
         "artists": [
             "Ariana Grande"
@@ -2218,8 +2218,8 @@
         "title": "get well soon",
         "main_id": "78740",
         "ids": [
-            "5443440",
-            "78740"
+            "78740",
+            "5443440"
         ],
         "artists": [
             "Ariana Grande"
@@ -2287,8 +2287,8 @@
         "title": "goodnight n go",
         "main_id": "78739",
         "ids": [
-            "78739",
-            "5443429"
+            "5443429",
+            "78739"
         ],
         "artists": [
             "Ariana Grande"
@@ -2625,8 +2625,8 @@
         "title": "make up",
         "main_id": "1412614",
         "ids": [
-            "5443430",
-            "1412614"
+            "1412614",
+            "5443430"
         ],
         "artists": [
             "Ariana Grande"
@@ -2772,8 +2772,8 @@
         "main_id": "1005954",
         "ids": [
             "5443451",
-            "1005954",
-            "77370470"
+            "77370470",
+            "1005954"
         ],
         "artists": [
             "Ariana Grande"
@@ -2796,24 +2796,14 @@
         "entries": []
     },
     "426258": {
-        "title": "Santa Tell Me",
-        "main_id": "426258",
-        "ids": [
-            "426258"
-        ],
-        "artists": [
-            "Ariana Grande"
-        ],
-        "official_name": "Santa Tell Me",
-        "plays": 194,
-        "entries": []
+        "merge": "86196496"
     },
     "78709": {
         "title": "raindrops",
         "main_id": "78709",
         "ids": [
-            "78709",
-            "5443424"
+            "5443424",
+            "78709"
         ],
         "artists": [
             "Ariana Grande"
@@ -2943,8 +2933,8 @@
         "title": "successful",
         "main_id": "78713",
         "ids": [
-            "5443437",
-            "78713"
+            "78713",
+            "5443437"
         ],
         "artists": [
             "Ariana Grande"
@@ -3048,8 +3038,8 @@
         "title": "needy",
         "main_id": "1412630",
         "ids": [
-            "1412630",
-            "5443433"
+            "5443433",
+            "1412630"
         ],
         "artists": [
             "Ariana Grande"
@@ -5348,8 +5338,8 @@
         "title": "Drunk In Love",
         "main_id": "1008249",
         "ids": [
-            "1008255",
-            "1008249"
+            "1008249",
+            "1008255"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -5840,8 +5830,8 @@
         "title": "Beg For You",
         "main_id": "27451853",
         "ids": [
-            "29861377",
-            "27451853"
+            "27451853",
+            "29861377"
         ],
         "artists": [
             "Charli XCX",
@@ -6268,8 +6258,8 @@
         "title": "ENERGY",
         "main_id": "45761814",
         "ids": [
-            "46254376",
-            "45761814"
+            "45761814",
+            "46254376"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -7850,8 +7840,8 @@
         "title": "Side to Side",
         "main_id": "116367",
         "ids": [
-            "116367",
-            "5443471"
+            "5443471",
+            "116367"
         ],
         "artists": [
             "Ariana Grande",
@@ -7932,8 +7922,8 @@
         "title": "Don't Start Now",
         "main_id": "300003",
         "ids": [
-            "300003",
-            "8607693"
+            "8607693",
+            "300003"
         ],
         "artists": [
             "Dua Lipa"
@@ -8257,8 +8247,8 @@
         "main_id": "10948337",
         "ids": [
             "1249889",
-            "10948337",
-            "607744"
+            "607744",
+            "10948337"
         ],
         "artists": [
             "Doja Cat",
@@ -8548,8 +8538,8 @@
         "title": "Love Again",
         "main_id": "300008",
         "ids": [
-            "300008",
-            "8285532"
+            "8285532",
+            "300008"
         ],
         "artists": [
             "Dua Lipa"
@@ -8862,8 +8852,8 @@
         "title": "Levitating",
         "main_id": "300006",
         "ids": [
-            "300006",
-            "498342"
+            "498342",
+            "300006"
         ],
         "artists": [
             "Dua Lipa"
@@ -9138,8 +9128,8 @@
         "title": "IDGAF",
         "main_id": "533657",
         "ids": [
-            "533657",
-            "14457530"
+            "14457530",
+            "533657"
         ],
         "artists": [
             "Dua Lipa"
@@ -9274,8 +9264,8 @@
         "title": "Tick Tock",
         "main_id": "9985574",
         "ids": [
-            "9985574",
-            "588565"
+            "588565",
+            "9985574"
         ],
         "artists": [
             "Clean Bandit",
@@ -11284,8 +11274,8 @@
         "title": "911",
         "main_id": "2063340",
         "ids": [
-            "1177591",
-            "2063340"
+            "2063340",
+            "1177591"
         ],
         "artists": [
             "Lady Gaga",
@@ -12365,8 +12355,8 @@
         "title": "No More Sad Songs",
         "main_id": "283066",
         "ids": [
-            "283066",
-            "283003"
+            "283003",
+            "283066"
         ],
         "artists": [
             "Little Mix",
@@ -12972,8 +12962,8 @@
         "title": "Can't Hold Us",
         "main_id": "1117243",
         "ids": [
-            "300019",
-            "1117243"
+            "1117243",
+            "300019"
         ],
         "artists": [
             "Macklemore",
@@ -13863,8 +13853,8 @@
         "title": "Girls Like You",
         "main_id": "212760",
         "ids": [
-            "5488556",
-            "212760"
+            "212760",
+            "5488556"
         ],
         "artists": [
             "Maroon 5"
@@ -14101,8 +14091,8 @@
         "title": "Sugar",
         "main_id": "1373",
         "ids": [
-            "398823",
-            "1373"
+            "1373",
+            "398823"
         ],
         "artists": [
             "Maroon 5"
@@ -14286,8 +14276,8 @@
         "title": "Savage",
         "main_id": "533271",
         "ids": [
-            "2650310",
-            "533271"
+            "533271",
+            "2650310"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -14327,8 +14317,8 @@
         "title": "Memories",
         "main_id": "4839",
         "ids": [
-            "533413",
-            "4839"
+            "4839",
+            "533413"
         ],
         "artists": [
             "Maroon 5"
@@ -14629,8 +14619,8 @@
         "title": "Bad",
         "main_id": "1016605",
         "ids": [
-            "43009",
-            "1016605"
+            "1016605",
+            "43009"
         ],
         "artists": [
             "Michael Jackson"
@@ -14777,8 +14767,8 @@
         "title": "She Will Be Loved",
         "main_id": "118561",
         "ids": [
-            "118561",
-            "221930"
+            "221930",
+            "118561"
         ],
         "artists": [
             "Maroon 5"
@@ -15892,9 +15882,9 @@
         "title": "Worth It.",
         "main_id": "62075769",
         "ids": [
-            "62075769",
             "81125771",
-            "81125772"
+            "81125772",
+            "62075769"
         ],
         "artists": [
             "RAYE"
@@ -15987,8 +15977,8 @@
         "title": "INDUSTRY BABY",
         "main_id": "300513",
         "ids": [
-            "2067000",
-            "300513"
+            "300513",
+            "2067000"
         ],
         "artists": [
             "Lil Nas X",
@@ -16057,8 +16047,8 @@
         "title": "Wild Side",
         "main_id": "839754",
         "ids": [
-            "839754",
-            "5311092"
+            "5311092",
+            "839754"
         ],
         "artists": [
             "Normani",
@@ -16368,9 +16358,9 @@
         "title": "Black Mascara.",
         "main_id": "53355515",
         "ids": [
-            "53355515",
             "48864967",
-            "81125773"
+            "81125773",
+            "53355515"
         ],
         "artists": [
             "RAYE"
@@ -16383,8 +16373,8 @@
         "title": "Oscar Winning Tears.",
         "main_id": "62075763",
         "ids": [
-            "62075763",
-            "81125761"
+            "81125761",
+            "62075763"
         ],
         "artists": [
             "RAYE"
@@ -16424,8 +16414,8 @@
         "title": "Roman's Revenge",
         "main_id": "5446524",
         "ids": [
-            "7530128",
-            "5446524"
+            "5446524",
+            "7530128"
         ],
         "artists": [
             "Nicki Minaj",
@@ -18210,8 +18200,8 @@
         "title": "For The Lover That I Lost",
         "main_id": "2441995",
         "ids": [
-            "2441995",
-            "6329760"
+            "6329760",
+            "2441995"
         ],
         "artists": [
             "Sam Smith"
@@ -18644,8 +18634,8 @@
         "title": "Snooze",
         "main_id": "58406024",
         "ids": [
-            "58406024",
-            "78973051"
+            "78973051",
+            "58406024"
         ],
         "artists": [
             "SZA"
@@ -19058,8 +19048,8 @@
         "title": "Lay Me Down",
         "main_id": "1940138",
         "ids": [
-            "1940138",
-            "1034988"
+            "1034988",
+            "1940138"
         ],
         "artists": [
             "Sam Smith"
@@ -19245,8 +19235,8 @@
         "title": "Super Freaky Girl",
         "main_id": "46829579",
         "ids": [
-            "47562415",
-            "46829579"
+            "46829579",
+            "47562415"
         ],
         "artists": [
             "Nicki Minaj"
@@ -19912,8 +19902,8 @@
         "title": "Bad Blood",
         "main_id": "587336",
         "ids": [
-            "12119772",
-            "587336"
+            "587336",
+            "12119772"
         ],
         "artists": [
             "Taylor Swift"
@@ -20470,8 +20460,8 @@
         "title": "You Belong With Me",
         "main_id": "274240",
         "ids": [
-            "274240",
-            "706709"
+            "706709",
+            "274240"
         ],
         "artists": [
             "Taylor Swift"
@@ -20660,8 +20650,8 @@
         "title": "The Hills",
         "main_id": "32952",
         "ids": [
-            "32952",
-            "5652986"
+            "5652986",
+            "32952"
         ],
         "artists": [
             "The Weeknd"
@@ -22283,8 +22273,8 @@
         "title": "Homemade Dynamite",
         "main_id": "499214",
         "ids": [
-            "499214",
-            "10730709"
+            "10730709",
+            "499214"
         ],
         "artists": [
             "Lorde"
@@ -23245,8 +23235,8 @@
         "title": "break up with your girlfriend, i'm bored",
         "main_id": "1412616",
         "ids": [
-            "1412616",
-            "5443425"
+            "5443425",
+            "1412616"
         ],
         "artists": [
             "Ariana Grande"
@@ -23273,8 +23263,8 @@
         "title": "34+35",
         "main_id": "533695",
         "ids": [
-            "533695",
-            "1193550"
+            "1193550",
+            "533695"
         ],
         "artists": [
             "Ariana Grande"
@@ -23287,8 +23277,8 @@
         "title": "Dangerous Woman",
         "main_id": "284581",
         "ids": [
-            "284581",
-            "5443445"
+            "5443445",
+            "284581"
         ],
         "artists": [
             "Ariana Grande"
@@ -23301,8 +23291,8 @@
         "title": "NASA",
         "main_id": "1412487",
         "ids": [
-            "1412487",
-            "5443436"
+            "5443436",
+            "1412487"
         ],
         "artists": [
             "Ariana Grande"
@@ -23315,8 +23305,8 @@
         "title": "no tears left to cry",
         "main_id": "78715",
         "ids": [
-            "5443449",
-            "78715"
+            "78715",
+            "5443449"
         ],
         "artists": [
             "Ariana Grande"
@@ -23343,8 +23333,8 @@
         "title": "sweetener",
         "main_id": "78714",
         "ids": [
-            "5443432",
-            "78714"
+            "78714",
+            "5443432"
         ],
         "artists": [
             "Ariana Grande"
@@ -23414,8 +23404,8 @@
         "title": "Sorry (Bey)",
         "main_id": "3755437",
         "ids": [
-            "3755437",
-            "3755440"
+            "3755440",
+            "3755437"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -23442,8 +23432,8 @@
         "title": "God Is A Woman",
         "main_id": "78711",
         "ids": [
-            "78711",
-            "5443427"
+            "5443427",
+            "78711"
         ],
         "artists": [
             "Ariana Grande"
@@ -23456,22 +23446,23 @@
         "title": "Into You",
         "main_id": "242469",
         "ids": [
-            "5443444",
-            "242469"
+            "242469",
+            "7581554",
+            "5443444"
         ],
         "artists": [
             "Ariana Grande"
         ],
         "official_name": "Into You",
-        "plays": 511,
+        "plays": 479,
         "entries": []
     },
     "45761818": {
         "title": "MOVE",
         "main_id": "45761818",
         "ids": [
-            "45761818",
-            "46254377"
+            "46254377",
+            "45761818"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -23484,8 +23475,8 @@
         "title": "How Long",
         "main_id": "402135",
         "ids": [
-            "402135",
-            "14504609"
+            "14504609",
+            "402135"
         ],
         "artists": [
             "Charlie Puth"
@@ -23498,8 +23489,8 @@
         "title": "Never Be the Same",
         "main_id": "1691859",
         "ids": [
-            "3755401",
-            "1691859"
+            "1691859",
+            "3755401"
         ],
         "artists": [
             "Camila Cabello"
@@ -23528,8 +23519,8 @@
         "title": "Break Free",
         "main_id": "180467",
         "ids": [
-            "180467",
-            "5443434"
+            "5443434",
+            "180467"
         ],
         "artists": [
             "Ariana Grande",
@@ -23576,8 +23567,8 @@
         "title": "watch&burn",
         "main_id": "585350",
         "ids": [
-            "585483",
-            "585350"
+            "585350",
+            "585483"
         ],
         "artists": [
             "Billie Eilish"
@@ -23606,9 +23597,9 @@
         "title": "ocean eyes",
         "main_id": "169224",
         "ids": [
+            "5094549",
             "1926001",
-            "169224",
-            "5094549"
+            "169224"
         ],
         "artists": [
             "Billie Eilish"
@@ -23621,8 +23612,8 @@
         "title": "Rain On Me",
         "main_id": "2058212",
         "ids": [
-            "2058212",
-            "2063310"
+            "2063310",
+            "2058212"
         ],
         "artists": [
             "Lady Gaga",
@@ -23636,8 +23627,8 @@
         "title": "Confetti",
         "main_id": "282982",
         "ids": [
-            "283033",
-            "282982"
+            "282982",
+            "283033"
         ],
         "artists": [
             "Little Mix",
@@ -23651,8 +23642,8 @@
         "title": "Canada",
         "main_id": "33723295",
         "ids": [
-            "33723295",
-            "587050"
+            "587050",
+            "33723295"
         ],
         "artists": [
             "Lauv",
@@ -23696,8 +23687,8 @@
         "title": "Good Form",
         "main_id": "1767464",
         "ids": [
-            "8412138",
-            "1767464"
+            "1767464",
+            "8412138"
         ],
         "artists": [
             "Nicki Minaj"
@@ -23710,8 +23701,8 @@
         "title": "Kids Again",
         "main_id": "416968",
         "ids": [
-            "6314290",
-            "416968"
+            "416968",
+            "6314290"
         ],
         "artists": [
             "Sam Smith"
@@ -23724,8 +23715,8 @@
         "title": "Diamonds (Sam)",
         "main_id": "243138",
         "ids": [
-            "1940164",
-            "243138"
+            "243138",
+            "1940164"
         ],
         "artists": [
             "Sam Smith"
@@ -23738,8 +23729,8 @@
         "title": "Stay (Rihanna)",
         "main_id": "365127",
         "ids": [
-            "284708",
-            "365127"
+            "365127",
+            "284708"
         ],
         "artists": [
             "Rihanna",
@@ -23753,8 +23744,8 @@
         "title": "How Do You Sleep?",
         "main_id": "1022984",
         "ids": [
-            "1022984",
-            "6314284"
+            "6314284",
+            "1022984"
         ],
         "artists": [
             "Sam Smith"
@@ -23767,8 +23758,8 @@
         "title": "Too Good at Goodbyes",
         "main_id": "417427",
         "ids": [
-            "442103",
-            "417427"
+            "417427",
+            "442103"
         ],
         "artists": [
             "Sam Smith"
@@ -23796,8 +23787,8 @@
         "title": "Cheap Thrills",
         "main_id": "1122112",
         "ids": [
-            "1122112",
-            "889917"
+            "889917",
+            "1122112"
         ],
         "artists": [
             "Sia",
@@ -23826,8 +23817,8 @@
         "title": "Love Galore",
         "main_id": "2754546",
         "ids": [
-            "40531453",
-            "2754546"
+            "2754546",
+            "40531453"
         ],
         "artists": [
             "SZA",
@@ -23841,8 +23832,8 @@
         "title": "Dancing With A Stranger",
         "main_id": "2442044",
         "ids": [
-            "1316568",
             "2442044",
+            "1316568",
             "11892227"
         ],
         "artists": [
@@ -23857,8 +23848,8 @@
         "title": "Love Is Religion",
         "main_id": "12860328",
         "ids": [
-            "9861811",
-            "12860328"
+            "12860328",
+            "9861811"
         ],
         "artists": [
             "Dua Lipa",
@@ -23872,8 +23863,8 @@
         "title": "Save Your Tears",
         "main_id": "533793",
         "ids": [
-            "533793",
-            "303654"
+            "303654",
+            "533793"
         ],
         "artists": [
             "The Weeknd",
@@ -23931,8 +23922,8 @@
         "title": "Bravado",
         "main_id": "3482475",
         "ids": [
-            "9339725",
-            "3482475"
+            "3482475",
+            "9339725"
         ],
         "artists": [
             "Lorde"
@@ -23945,8 +23936,8 @@
         "title": "WOW",
         "main_id": "9497055",
         "ids": [
-            "9497055",
-            "2541413"
+            "2541413",
+            "9497055"
         ],
         "artists": [
             "Zara Larsson",
@@ -23991,8 +23982,8 @@
         "main_id": "81125764",
         "ids": [
             "81125763",
-            "81125764",
-            "53355512"
+            "53355512",
+            "81125764"
         ],
         "artists": [
             "RAYE",
@@ -24006,8 +23997,8 @@
         "title": "Body Dysmorphia.",
         "main_id": "81125776",
         "ids": [
-            "81125776",
-            "62075767"
+            "62075767",
+            "81125776"
         ],
         "artists": [
             "RAYE",
@@ -24047,8 +24038,8 @@
         "title": "Five Star Hotels.",
         "main_id": "62075768",
         "ids": [
-            "62075768",
-            "81125765"
+            "81125765",
+            "62075768"
         ],
         "artists": [
             "RAYE",
@@ -24077,8 +24068,8 @@
         "title": "Introduction.",
         "main_id": "81125777",
         "ids": [
-            "62075762",
-            "81125777"
+            "81125777",
+            "62075762"
         ],
         "artists": [
             "RAYE",
@@ -24109,8 +24100,8 @@
         "title": "Ice Cream Man.",
         "main_id": "62075765",
         "ids": [
-            "81125768",
-            "62075765"
+            "62075765",
+            "81125768"
         ],
         "artists": [
             "RAYE"
@@ -24123,10 +24114,10 @@
         "title": "Right There",
         "main_id": "5443473",
         "ids": [
-            "1006144",
-            "77370471",
             "5443473",
-            "77370463"
+            "77370463",
+            "1006144",
+            "77370471"
         ],
         "artists": [
             "Ariana Grande",
@@ -24154,8 +24145,8 @@
         "title": "Flip A Switch.",
         "main_id": "81125770",
         "ids": [
-            "81125770",
-            "62075766"
+            "62075766",
+            "81125770"
         ],
         "artists": [
             "RAYE",
@@ -24617,5 +24608,478 @@
     },
     "48864967": {
         "merge": "53355515"
+    },
+    "86492595": {
+        "title": "Cowgirl",
+        "main_id": "86492595",
+        "ids": [
+            "86492595"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Lourdiz"
+        ],
+        "official_name": "Cowgirl (feat. Lourdiz)",
+        "plays": 4,
+        "entries": []
+    },
+    "86492587": {
+        "title": "Are You Gone Already",
+        "main_id": "86492587",
+        "ids": [
+            "86492587"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Are You Gone Already",
+        "plays": 2,
+        "entries": []
+    },
+    "86492588": {
+        "title": "FTCU",
+        "main_id": "86492588",
+        "ids": [
+            "86492588"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "FTCU",
+        "plays": 3,
+        "entries": []
+    },
+    "86492593": {
+        "title": "Pink Birthday",
+        "main_id": "86492593",
+        "ids": [
+            "86492593"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Pink Birthday",
+        "plays": 2,
+        "entries": []
+    },
+    "86492589": {
+        "title": "Beep Beep",
+        "main_id": "86492589",
+        "ids": [
+            "86492589"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Beep Beep",
+        "plays": 4,
+        "entries": []
+    },
+    "86492598": {
+        "title": "Big Difference",
+        "main_id": "86492598",
+        "ids": [
+            "86492598"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Big Difference",
+        "plays": 4,
+        "entries": []
+    },
+    "86492597": {
+        "title": "Barbie Dangerous",
+        "main_id": "86492597",
+        "ids": [
+            "86492597"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Barbie Dangerous",
+        "plays": 4,
+        "entries": []
+    },
+    "86492596": {
+        "title": "Everybody",
+        "main_id": "86492596",
+        "ids": [
+            "86492596"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Lil Uzi Vert"
+        ],
+        "official_name": "Everybody (feat. Lil Uzi Vert)",
+        "plays": 4,
+        "entries": []
+    },
+    "86492591": {
+        "title": "Fallin 4 U",
+        "main_id": "86492591",
+        "ids": [
+            "86492591"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Fallin 4 U",
+        "plays": 4,
+        "entries": []
+    },
+    "86492594": {
+        "title": "Needle",
+        "main_id": "86492594",
+        "ids": [
+            "86492594"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Drake"
+        ],
+        "official_name": "Needle (feat. Drake)",
+        "plays": 3,
+        "entries": []
+    },
+    "86492590": {
+        "title": "Let Me Calm Down",
+        "main_id": "86492590",
+        "ids": [
+            "86492590"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "J. Cole"
+        ],
+        "official_name": "Let Me Calm Down (feat. J. Cole)",
+        "plays": 6,
+        "entries": []
+    },
+    "86492602": {
+        "title": "Bahm Bahm",
+        "main_id": "86492602",
+        "ids": [
+            "86492602"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Bahm Bahm",
+        "plays": 17,
+        "entries": []
+    },
+    "86492603": {
+        "title": "Nicki Hendrix",
+        "main_id": "86492603",
+        "ids": [
+            "86492603"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Future"
+        ],
+        "official_name": "Nicki Hendrix (feat. Future)",
+        "plays": 1,
+        "entries": []
+    },
+    "86492604": {
+        "title": "Blessings",
+        "main_id": "86492604",
+        "ids": [
+            "86492604"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Tasha Cobbs Leonard"
+        ],
+        "official_name": "Blessings (feat. Tasha Cobbs Leonard)",
+        "plays": 2,
+        "entries": []
+    },
+    "86492600": {
+        "title": "Pink Friday Girls",
+        "main_id": "86492600",
+        "ids": [
+            "86492600"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Pink Friday Girls",
+        "plays": 6,
+        "entries": []
+    },
+    "86452316": {
+        "title": "run for the hills",
+        "main_id": "86452316",
+        "ids": [
+            "86452316"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "run for the hills",
+        "plays": 3,
+        "entries": []
+    },
+    "86452307": {
+        "title": "cut my hair",
+        "main_id": "86452307",
+        "ids": [
+            "86452307"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "cut my hair",
+        "plays": 3,
+        "entries": []
+    },
+    "86492605": {
+        "title": "Just The Memories",
+        "main_id": "86492605",
+        "ids": [
+            "86492605"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "Just The Memories",
+        "plays": 2,
+        "entries": []
+    },
+    "86492601": {
+        "title": "My Life",
+        "main_id": "86492601",
+        "ids": [
+            "86492601"
+        ],
+        "artists": [
+            "Nicki Minaj"
+        ],
+        "official_name": "My Life",
+        "plays": 9,
+        "entries": []
+    },
+    "86492599": {
+        "title": "Forward From Trini",
+        "main_id": "86492599",
+        "ids": [
+            "86492599"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Skillibeng",
+            "Skeng"
+        ],
+        "official_name": "Forward From Trini (feat. Skillibeng & Skeng)",
+        "plays": 2,
+        "entries": []
+    },
+    "86452319": {
+        "title": "stay done",
+        "main_id": "86452319",
+        "ids": [
+            "86452319"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "stay done",
+        "plays": 3,
+        "entries": []
+    },
+    "86452313": {
+        "title": "grave",
+        "main_id": "86452313",
+        "ids": [
+            "86452313"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "grave",
+        "plays": 4,
+        "entries": []
+    },
+    "86452315": {
+        "title": "hurt my feelings",
+        "main_id": "86452315",
+        "ids": [
+            "86452315"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "hurt my feelings",
+        "plays": 4,
+        "entries": []
+    },
+    "86452317": {
+        "title": "calgary",
+        "main_id": "86452317",
+        "ids": [
+            "86452317"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "calgary",
+        "plays": 4,
+        "entries": []
+    },
+    "86452318": {
+        "title": "think later",
+        "main_id": "86452318",
+        "ids": [
+            "86452318"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "think later",
+        "plays": 4,
+        "entries": []
+    },
+    "86452323": {
+        "title": "guilty conscience",
+        "main_id": "86452323",
+        "ids": [
+            "86452323"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "guilty conscience",
+        "plays": 4,
+        "entries": []
+    },
+    "86452320": {
+        "title": "want that too",
+        "main_id": "86452320",
+        "ids": [
+            "86452320"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "want that too",
+        "plays": 3,
+        "entries": []
+    },
+    "86452322": {
+        "title": "messier",
+        "main_id": "86452322",
+        "ids": [
+            "86452322"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "messier",
+        "plays": 4,
+        "entries": []
+    },
+    "86452314": {
+        "title": "we're not alike",
+        "main_id": "86452314",
+        "ids": [
+            "86452314"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "we're not alike",
+        "plays": 3,
+        "entries": []
+    },
+    "86452321": {
+        "title": "plastic palm trees",
+        "main_id": "86452321",
+        "ids": [
+            "86452321"
+        ],
+        "artists": [
+            "Tate McRae"
+        ],
+        "official_name": "plastic palm trees",
+        "plays": 3,
+        "entries": []
+    },
+    "5370407": {
+        "title": "What Is Love",
+        "main_id": "5370407",
+        "ids": [
+            "5370407"
+        ],
+        "artists": [
+            "Kingdom",
+            "SZA"
+        ],
+        "official_name": "What Is Love",
+        "plays": 8,
+        "entries": []
+    },
+    "2006621": {
+        "title": "Realize",
+        "main_id": "2006621",
+        "ids": [
+            "2006621"
+        ],
+        "artists": [
+            "2 Chainz",
+            "Nicki Minaj"
+        ],
+        "official_name": "Realize",
+        "plays": 27,
+        "entries": []
+    },
+    "71965": {
+        "title": "Zanies and Fools",
+        "main_id": "71965",
+        "ids": [
+            "71965"
+        ],
+        "artists": [
+            "Chance the Rapper",
+            "DIXSON",
+            "Nicki Minaj"
+        ],
+        "official_name": "Zanies and Fools",
+        "plays": 3,
+        "entries": []
+    },
+    "86492592": {
+        "title": "RNB",
+        "main_id": "86492592",
+        "ids": [
+            "86492592"
+        ],
+        "artists": [
+            "Nicki Minaj",
+            "Lil Wayne",
+            "Tate Kobang"
+        ],
+        "official_name": "RNB (feat. Lil Wayne & Tate Kobang)",
+        "plays": 31,
+        "entries": []
+    },
+    "7581554": {
+        "merge": "242469"
+    },
+    "86196496": {
+        "title": "Santa Tell Me",
+        "main_id": "86196496",
+        "ids": [
+            "426258",
+            "86196496"
+        ],
+        "artists": [
+            "Ariana Grande"
+        ],
+        "official_name": "Santa Tell Me - Naughty Version",
+        "plays": 8,
+        "entries": []
     }
 }
