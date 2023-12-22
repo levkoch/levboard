@@ -217,7 +217,6 @@ def update_spreadsheet_plays(
 
     if verbose:
         print(f'Updated {song_amt} spreadsheet song plays.')
-        print(spotistats.all_requests.most_common())
 
 
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
@@ -349,7 +348,7 @@ load_year_end_albums = year_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-
+    """
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
@@ -358,4 +357,4 @@ if __name__ == '__main__':
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )"""
+    )

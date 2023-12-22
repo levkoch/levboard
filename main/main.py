@@ -56,9 +56,21 @@ def load_all_weeks(start_day: date) -> list[Week]:
             start_day = end_day
             end_day = start_day + timedelta(days=7)
 
-        weeks = [future.result() for future in futures.as_completed(to_do)]
-        return sorted(weeks)
+    weeks = iter(sorted(
+        future.result() for future in futures.as_completed(to_do)
+    ))
+    
+    final = []
+    for week in weeks:
+        if len(week.songs) < (SONG_CHART_LENGTH / 2):
+            # not enough songs streamed to be able 
+            # to create an actual chart (probably)
+            while len(week.songs) < (SONG_CHART_LENGTH / 2):
+                week = week + next(weeks)
+        final.append(week)
 
+    return final
+            
 
 def get_movement(current: date, last: date, song: Song) -> str:
     c_place: Optional[Entry] = song.get_entry(current)
