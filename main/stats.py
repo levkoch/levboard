@@ -528,10 +528,12 @@ if __name__ == '__main__':
     top_song_consecutive_weeks_infographic(uow)
     
     """
+    top_song_consecutive_weeks(uow, top=10)
+    """
     top_shortest_time_units_milestones_infograpic(uow, 2_000, extras=True)
     top_shortest_time_units_milestones_infograpic(uow, 4_000, extras=True)
     top_shortest_time_units_milestones_infograpic(uow, 6_000, extras=True)
-    """
+    
     
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)

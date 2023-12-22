@@ -318,7 +318,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                 )
                 info = [
                     place,
-                    item.title,
+                    "'" + item.title if item.title[0].isnumeric() else item.title,
                     ', '.join(item.artists),
                     item.period_weeks(*year),
                     item.period_units(*year),
@@ -346,15 +346,123 @@ load_year_end_albums = year_end_collection_creater(
     LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40
 )
 
+def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
+    sheet = Spreadsheet(sheet_id)
+
+    def inner(
+        collection: Union[SongRepository, AlbumRepository], verbose=False
+    ):
+        nonlocal sheet, range_name, quantity
+        item_rows: list[list] = []
+        kind = type(collection.get(collection.list()[0])).__name__
+
+        current_year = datetime.date.today().year
+        current_month = datetime.date.today().month
+
+        while ((current_year > FIRST_DATE.year - 1) 
+            or (current_month > FIRST_DATE.month - 1)):
+            if verbose:
+                print(
+                    f'Collecting top {kind}s of {current_month}/{current_year}')
+            
+            year_start = datetime.date(current_year, current_month, 1)
+            next_month = (1 if current_month == 12 else current_month + 1)
+            next_year = (
+                current_year + 1 if current_month == 12 else current_year)
+            year_end = datetime.date(next_year, next_month, 1)
+            year = (year_start, year_end)
+
+            item_rows.extend(
+                [
+                    [
+                        f'{current_month}/{current_year} Month-End {kind}s',
+                    ],
+                    [
+                        'POS',
+                        'Title',
+                        'Artists',
+                        'WKS',
+                        'UTS',
+                        'PLS',
+                        'PK',
+                        'PKW',
+                    ],
+                ]
+            )
+
+            eligible_items = [
+                (item, item.period_units(*year))
+                for item in collection
+                if item.period_weeks(*year)
+            ]
+
+            eligible_items.sort(key=itemgetter(1), reverse=True)
+            eligible_items = eligible_items[:quantity]
+
+            for item, units in eligible_items:
+                place = len([s for (s, u) in eligible_items if u > units]) + 1
+                peak = min(
+                    entry.place
+                    for entry in item.entries
+                    if entry.start >= year_start and entry.end <= year_end
+                )
+                peak_weeks = len(
+                    [
+                        entry
+                        for entry in item.entries
+                        if entry.start >= year_start
+                        and entry.end <= year_end
+                        and entry.place == peak
+                    ]
+                )
+                info = [
+                    place,
+                    "'" + item.title if item.title[0].isnumeric() else item.title,
+                    ', '.join(item.artists),
+                    item.period_weeks(*year),
+                    item.period_units(*year),
+                    item.period_plays(*year),
+                    peak,
+                    peak_weeks if peak_weeks > 1 else '—',
+                    f'{current_month}/{current_year}'
+                    # for filtering reasons but will be hidden in sheet
+                ]
+                item_rows.append(info)
+
+            item_rows.append([''])
+
+            prev_month = (12 if current_month == 1 else current_month - 1)
+            prev_year = (current_year - 1 
+                if current_month == 1 else current_year)
+            current_month = prev_month
+            current_year = prev_year
+
+        sheet.delete_range(range_name)
+        sheet.append_range(range_name, item_rows)
+
+    return inner
+
+
+load_month_end_songs = month_end_collection_creater(
+    LEVBOARD_SHEET, 'Month-End!A1:I', 40
+)
+load_month_end_albums = month_end_collection_creater(
+    LEVBOARD_SHEET, "'Month-End Albums'!A1:I", 20
+)
+
+
 if __name__ == '__main__':
     uow = SongUOW()
-    """
+    
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
+    load_month_end_songs(uow.songs, verbose=True)
+    load_month_end_albums(uow.albums, verbose=True)
+
     """
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )
+    )"""
