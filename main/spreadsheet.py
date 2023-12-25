@@ -5,13 +5,7 @@ from typing import Any
 from google.oauth2 import service_account
 from googleapiclient import discovery
 
-SERVICE_ACCOUNT_FILE: str = (
-    # on laptop
-    'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'
-    if platform.system() == 'Windows'
-    else '../data/google_token.json'  # on ipad
-)
-
+from .config import SERVICE_ACCOUNT_FILE
 
 class Spreadsheet:
     """
