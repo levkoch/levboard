@@ -10,6 +10,7 @@ Constats:
 """
 
 import pathlib
+import platform
 from datetime import date
 from typing import Final
 
@@ -41,3 +42,10 @@ data_dir += '/data'
 ALBUM_FILE: Final[str] = data_dir + '/albums.json'
 SONG_FILE: Final[str] = data_dir + '/songs.json'
 TEST_SONG_FILE: Final[str] = data_dir + '/test_songs.json'
+
+SERVICE_ACCOUNT_FILE: str = (
+    # on laptop
+    'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'
+    if platform.system() == 'Windows'
+    else f'{data_dir}/google_token.json'  # on ipad
+)
