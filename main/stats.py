@@ -299,7 +299,7 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
 
 
 def top_song_consecutive_weeks_infographic(uow: SongUOW):
-    THRESHOLD: Final[int] = 20
+    THRESHOLD: Final[int] = 18
     contenders: Iterable[Song] = (
         song
         for song in uow.songs
@@ -310,7 +310,7 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
     for contender in contenders:
         units.extend(
             (contender, start, weeks)
-            for (start, weeks) in contender.all_consecutive(breaks=True)
+            for (start, weeks) in contender.all_consecutive(breaks=False)
             if weeks >= THRESHOLD
         )
 
@@ -318,7 +318,7 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
 
     units.sort(key=lambda i: i[2], reverse=True)
 
-    print('Songs with most consecutive weeks (with allowed breaks) on chart')
+    print('Songs with most consecutive weeks on chart')
     for (song, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
@@ -524,11 +524,10 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
    
     top_listeners_chart(uow)
-    
+    """
     top_song_consecutive_weeks_infographic(uow)
     
-    """
-    top_song_consecutive_weeks(uow, top=10)
+    
     """
     top_shortest_time_units_milestones_infograpic(uow, 2_000, extras=True)
     top_shortest_time_units_milestones_infograpic(uow, 4_000, extras=True)

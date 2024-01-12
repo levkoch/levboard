@@ -297,7 +297,7 @@ class Song:
 
     def period_weeks(self, start: date, end: date) -> int:
         return sum(
-            1 for w in self.entries if w.start >= start and w.end <= end
+            1 for w in self.entries if w.end >= start and w.end <= end
         )
 
     def period_units(self, start: date, end: date, adjusted=True) -> int:

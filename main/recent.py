@@ -162,7 +162,7 @@ def get_all_time_plays_changes(uow: SongUOW):
 
 def main():
     uow = SongUOW()
-    # get_new_songs(uow)
+    get_new_songs(uow)
     print('')
     get_missing_songs(uow)
     print('')

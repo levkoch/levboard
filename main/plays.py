@@ -359,7 +359,7 @@ def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
         current_year = datetime.date.today().year
         current_month = datetime.date.today().month
 
-        while ((current_year > FIRST_DATE.year - 1) 
+        while ((current_year > FIRST_DATE.year) 
             or (current_month > FIRST_DATE.month - 1)):
             if verbose:
                 print(
