@@ -5,7 +5,8 @@ from typing import Any
 from google.oauth2 import service_account
 from googleapiclient import discovery
 
-from .config import SERVICE_ACCOUNT_FILE
+from config import SERVICE_ACCOUNT_FILE
+
 
 class Spreadsheet:
     """

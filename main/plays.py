@@ -318,7 +318,9 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                 )
                 info = [
                     place,
-                    "'" + item.title if item.title[0].isnumeric() else item.title,
+                    "'" + item.title
+                    if item.title[0].isnumeric()
+                    else item.title,
                     ', '.join(item.artists),
                     item.period_weeks(*year),
                     item.period_units(*year),
@@ -346,7 +348,10 @@ load_year_end_albums = year_end_collection_creater(
     LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40
 )
 
-def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
+
+def month_end_collection_creater(
+    sheet_id: str, range_name: str, quantity: int
+):
     sheet = Spreadsheet(sheet_id)
 
     def inner(
@@ -359,16 +364,19 @@ def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
         current_year = datetime.date.today().year
         current_month = datetime.date.today().month
 
-        while ((current_year > FIRST_DATE.year) 
-            or (current_month > FIRST_DATE.month - 1)):
+        while (current_year > FIRST_DATE.year) or (
+            current_month > FIRST_DATE.month - 1
+        ):
             if verbose:
                 print(
-                    f'Collecting top {kind}s of {current_month}/{current_year}')
-            
+                    f'Collecting top {kind}s of {current_month}/{current_year}'
+                )
+
             year_start = datetime.date(current_year, current_month, 1)
-            next_month = (1 if current_month == 12 else current_month + 1)
+            next_month = 1 if current_month == 12 else current_month + 1
             next_year = (
-                current_year + 1 if current_month == 12 else current_year)
+                current_year + 1 if current_month == 12 else current_year
+            )
             year_end = datetime.date(next_year, next_month, 1)
             year = (year_start, year_end)
 
@@ -417,7 +425,9 @@ def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                 )
                 info = [
                     place,
-                    "'" + item.title if item.title[0].isnumeric() else item.title,
+                    "'" + item.title
+                    if item.title[0].isnumeric()
+                    else item.title,
                     ', '.join(item.artists),
                     item.period_weeks(*year),
                     item.period_units(*year),
@@ -431,9 +441,10 @@ def month_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
             item_rows.append([''])
 
-            prev_month = (12 if current_month == 1 else current_month - 1)
-            prev_year = (current_year - 1 
-                if current_month == 1 else current_year)
+            prev_month = 12 if current_month == 1 else current_month - 1
+            prev_year = (
+                current_year - 1 if current_month == 1 else current_year
+            )
             current_month = prev_month
             current_year = prev_year
 
@@ -453,7 +464,7 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-    
+
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
