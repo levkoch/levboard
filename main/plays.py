@@ -219,6 +219,117 @@ def update_spreadsheet_plays(
         print(f'Updated {song_amt} spreadsheet song plays.')
 
 
+def update_spreadsheet_variant_plays(
+    play_updater: PLAY_UPDATER,
+    sheet_id: str,
+    verbose=False,
+):
+    """
+    Updates the song plays for the songs in the spreadsheet.
+
+    Arguments:
+    * verbose (`bool`): Whether to produce console output or not.
+        Defaults to `False`.
+    """
+
+    sheet = Spreadsheet(sheet_id)
+
+    # check if first element isn't blank so that it gets rid of empty rows.
+    songs: list[list] = [
+        i for i in sheet.get_range('SONG_NEW!A2:D').get('values') if i[0]
+    ]
+
+    song_amt = len(songs)
+    if verbose:
+        print(f'{song_amt} items found.')
+
+    final_songs: list[list] = []
+    prev_id: str = songs[0][1].split(', ')[0]
+    links: dict[str, list] = defaultdict(list)
+    linked = set()
+    linked_songs: dict[str, tuple[Song, int]] = {}
+
+    with futures.ThreadPoolExecutor() as executor:
+        to_do: list[futures.Future] = []
+
+        for sheet_song in songs:
+            song_name, is_variant, song_id, song_artists = sheet_song
+
+            if is_variant == 'X':
+                links[prev_id].append(song_id.split(', ')[0])
+                linked.update((prev_id, song_id.split(', ')[0]))
+            else:
+                prev_id = song_id.split(', ')[0]
+
+            future = executor.submit(play_updater, song_id, song_name)
+            to_do.append(future)
+
+        for count, future in enumerate(futures.as_completed(to_do), 1):
+            song: Song
+            plays: int
+            song, plays = future.result()
+
+            if len(song.ids & linked):
+                linked_songs[song.main_id] = (song, plays)
+
+            else:
+                final_songs.append(
+                    [
+                        "'" + song.title
+                        if any(letter.isnumeric() for letter in song.title)
+                        else song.title,
+                        '',
+                        ', '.join(song.ids),
+                        ', '.join(song.artists),
+                        plays,
+                    ]
+                )
+            if verbose:
+                print(
+                    f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
+                    f'| {spotistats.total_requests:>3} req | '
+                    f'updated {song} -> {plays} plays'
+                )
+
+    if verbose:
+        print(f'compiling variant plays')
+
+    for main_id, variant_ids in links.items():
+        song, plays = linked_songs[main_id]
+        final_songs.append(
+            [
+                "'" + song.title
+                if any(letter.isnumeric() for letter in song.title)
+                else song.title,
+                '',
+                ', '.join(song.ids),
+                ', '.join(song.artists),
+                plays,
+            ]
+        )
+        for variant_id in variant_ids:
+            song, plays = linked_songs[variant_id]
+            final_songs.append(
+                [
+                    "'" + song.title
+                    if any(letter.isnumeric() for letter in song.title)
+                    else song.title,
+                    'X',
+                    ', '.join(song.ids),
+                    ', '.join(song.artists),
+                    plays,
+                ]
+            )
+
+    if verbose:
+        print('finished compiling variant plays')
+
+    sheet.update_range(f'SONG_NEW!A2:E{len(final_songs) + 1}', final_songs)
+
+    if verbose:
+        print(f'Updated {song_amt} spreadsheet song plays.')
+
+
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
     """
     Updates the song plays for the songs in the local storage.
@@ -464,16 +575,22 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-
+    """
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
 
-    """
+    
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
     )"""
+
+    update_spreadsheet_variant_plays(
+        create_song_play_updater(uow, LEVBOARD_SHEET),
+        LEVBOARD_SHEET,
+        verbose=True,
+    )
