@@ -7,7 +7,6 @@ from googleapiclient import discovery
 
 from config import SERVICE_ACCOUNT_FILE
 
-
 class Spreadsheet:
     """
     A google sheets access class, to be able to send data to files from python directly.
