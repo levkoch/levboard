@@ -1,3 +1,4 @@
+from collections import defaultdict
 import itertools
 from concurrent import futures
 from typing import Optional
@@ -25,6 +26,56 @@ def _add_song(song_title: str, str_ids: str, uow: SongUOW) -> Song:
     if any(uow.songs.get(id) is None for id in ids):
         return _create_new_song(ids, song_title)
     return uow.songs.get(ids[0])
+
+
+def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
+    """
+    Loads the linked songs in the spreadsheet to the file
+    """
+
+    sheet = Spreadsheet(sheet_link)
+
+    values = sheet.get_range('Songs!A2:C').get('values')
+    songs: list[list[str]] = [i for i in values if i[0]]
+
+    prev_id: str = songs[0][1].split(', ')[0]
+    links: dict[str, list] = defaultdict(list)
+
+    if verbose:
+        print(f'{len(songs)} items found.')
+
+    with futures.ThreadPoolExecutor() as executor:
+        to_do: list[futures.Future] = []
+
+        for song_title, is_variant, str_ids in songs:
+            if is_variant == 'X':
+                links[prev_id].append(str_ids.split(', ')[0])
+            else:
+                prev_id = str_ids.split(', ')[0]
+
+            future = executor.submit(_add_song, song_title, str_ids, uow)
+            to_do.append(future)
+
+        for count, future in enumerate(futures.as_completed(to_do), 1):
+            song: Song = future.result()
+            uow.songs.add(song)
+            percentage = count / len(songs) * 100
+            if verbose:
+                print(
+                    f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.main_id})'
+                )
+
+    if verbose:
+        print('binding songs together')
+
+    for (main_id, variant_ids) in links.items():
+        main_song = uow.songs.get(main_id)
+        for variant_id in variant_ids:
+            main_song.add_variant(uow.songs.get(variant_id))
+
+    if verbose:
+        print('Completed process. Saving all songs to database.')
+    uow.commit()
 
 
 def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
@@ -67,7 +118,9 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
     sheet = Spreadsheet(sheet_link)
-    values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
+    values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get(
+        'values'
+    )
     if values is None:
         raise IndexError("shouldn't happen but maybe range error")
 
@@ -119,7 +172,7 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    load_songs(uow, LEVBOARD_SHEET, verbose=True)
+    load_linked_songs(uow, LEVBOARD_SHEET, verbose=True)
     load_albums(uow, LEVBOARD_SHEET, verbose=True)
 
     """

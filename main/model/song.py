@@ -18,6 +18,24 @@ from .cert import SongCert
 from .entry import Entry
 from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
+def sheet_id_factory():
+    conversions = {num - 65: chr(num) for num in range(65, 91)}
+    print(conversions)
+    value = 0
+    while True:
+        tag = '' if value > 0 else "A"
+        current = value
+
+        while (current > 0):
+            remainder = current % 26
+            tag = conversions[remainder] + tag
+            current = current // 26
+        print((value, tag))
+
+        yield tag
+        value += 1
+
+sheet_id = sheet_id_factory()
 
 class Song:
     """
@@ -73,6 +91,7 @@ class Song:
         }
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
+        self._variants: set[Song] = set()
         self.__listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
@@ -296,9 +315,7 @@ class Song:
         )
 
     def period_weeks(self, start: date, end: date) -> int:
-        return sum(
-            1 for w in self.entries if w.end >= start and w.end <= end
-        )
+        return sum(1 for w in self.entries if w.end >= start and w.end <= end)
 
     def period_units(self, start: date, end: date, adjusted=True) -> int:
         """
@@ -309,6 +326,24 @@ class Song:
             start, end, adjusted
         ) * 2 + self.period_points(start, end)
 
+    @property
+    def variants(self) -> list[str]:
+        return [variant.main_id for variant in self._variants]
+
+    def add_variant(self, other: 'Song') -> None:
+        """Links together two songs as variants."""
+        if other.main_id in self.variants:
+            return
+
+        self._variants.add(other)
+        self._variants.update(other._variants)
+        self._variants.discard(self.main_id)
+        if self.plays > other.plays:
+            self._plays += other._plays
+            other._plays = 0
+
+        other.add_variant(self)
+
     def add_entry(self, entry: Entry) -> None:
         """
         Adds an entry, as an `Entry` object into the song data.
@@ -317,25 +352,40 @@ class Song:
             entry (`Entry`): The entry to add to the song.
         """
 
-        if entry.end in self._entries:
-            if entry.plays > self.get_entry(entry.end).plays:
+        if entry.end in self._entries.keys():
+            if entry.plays > self.get_entry(entry.end, strict=False).plays:
                 self._entries[entry.end] = entry
+            return
         else:
             self._entries[entry.end] = entry
 
-    def get_entry(self, end_date: date) -> Optional[Entry]:
+        for variant in self._variants:
+            variant.add_entry(entry)
+
+    def get_entry(
+        self, end_date: date, strict: bool = True
+    ) -> Optional[Entry]:
         """
         Retrieves a stored entry.
 
-        Arguements:
+        Arguments:
         * end_date (`datetime.date`): The week end of the entry to be found.
+        * strict (optional `bool`): Whether the entry returned must be of this
+            specific variant. Defaults to `True`.
 
         Returns:
         * entry (Optional `Entry`): The entry at that end date, if there is one,
             or `None` otherwise.
         """
-
-        return self._entries.get(end_date)
+        possible = self._entries.get(end_date)
+        return (
+            possible
+            if (
+                not strict
+                or ((possible is not None) and (possible.variant in self.ids))
+            )
+            else None
+        )
 
     def update_plays(self, adjusted=True) -> None:
         """
@@ -504,6 +554,7 @@ class Song:
             'official_name': self.official_name,
             'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
+            'variants': list(self.variants),
         }
 
     @classmethod
@@ -532,6 +583,7 @@ class Song:
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
             new._plays = int(info['plays'])
+            new._variants = set(info['variants'])
             new._entries = {
                 date.fromisoformat(i['end']): Entry(**i)
                 for i in info['entries']
