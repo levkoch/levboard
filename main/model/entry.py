@@ -55,6 +55,7 @@ class Entry(_BaseEntry):
     * points (`int`): The number of points that song got that week. Will be
         greater than `1`.
     * place (`int`): The chart position attained by that song. A positive integer.
+    * variant (`str`): The ID of the song variant that charted.
 
     Methods:
     * to_dict (`dict` method): Collects the Entry into a dictionary.
@@ -62,6 +63,7 @@ class Entry(_BaseEntry):
 
     plays: NonNegativeInt
     points: NonNegativeInt
+    variant: str
 
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""
@@ -69,6 +71,7 @@ class Entry(_BaseEntry):
         info = super().to_dict()
         info['plays'] = self.plays
         info['points'] = self.points
+        info['variant'] = self.variant
         return info
 
 

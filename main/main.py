@@ -56,28 +56,37 @@ def load_all_weeks(start_day: date) -> list[Week]:
             start_day = end_day
             end_day = start_day + timedelta(days=7)
 
-    weeks = iter(sorted(
-        future.result() for future in futures.as_completed(to_do)
-    ))
-    
+    weeks = iter(
+        sorted(future.result() for future in futures.as_completed(to_do))
+    )
+
     final = []
     for week in weeks:
         if len(week.songs) < (SONG_CHART_LENGTH / 2):
-            # not enough songs streamed to be able 
+            # not enough songs streamed to be able
             # to create an actual chart (probably)
             while len(week.songs) < (SONG_CHART_LENGTH / 2):
                 week = week + next(weeks)
         final.append(week)
 
     return final
-            
 
-def get_movement(current: date, last: date, song: Song) -> str:
-    c_place: Optional[Entry] = song.get_entry(current)
+
+def get_movement(
+    current: date, last: date, charteable: Union[Song, Album]
+) -> str:
+    if isinstance(charteable, Song):
+        # hate to do this but the signatures are slightly different now with variants.
+        c_place: Optional[Entry] = charteable.get_entry(current, strict=False)
+        p_place: Optional[Entry] = charteable.get_entry(last, strict=False)
+    else:
+        c_place = charteable.get_entry(current)
+        p_place: Optional[Entry] = charteable.get_entry(last)
+
+    weeks = charteable.weeks
+
     if c_place is None:   # shouldn't happen but always good to check
         raise ValueError('cant get the movement for a song not charting')
-    p_place: Optional[Entry] = song.get_entry(last)
-    weeks = song.weeks
 
     if p_place is None:
         return 'NEW' if weeks == 1 else 'RE'
@@ -121,6 +130,11 @@ def create_song_chart(
     this_wk = next(weeks)
 
     registered_ids: set[str] = set(uow.songs.list())
+    variant_groups: set[tuple[str]] = set(
+        tuple(set(song.variants) | {song.main_id})
+        for song in uow.songs
+        if song.variants
+    )
 
     while True:
         all_song_ids: set[str] = {
@@ -130,7 +144,7 @@ def create_song_chart(
             | set(this_wk.songs)
         }
 
-        # all songs who are registered (and could be merged into another one)
+        # all songs which are registered (and could be merged into another one)
         # are checked and turned into the base id
         filtered_ids: set[str] = {
             uow.songs.get(song_id).main_id
@@ -138,7 +152,7 @@ def create_song_chart(
             # and then all songs that arent registered are added into the set normally
         } | (all_song_ids - registered_ids)
 
-        song_info: list[dict] = []
+        song_dicts: dict[dict] = {}
 
         for song_id in filtered_ids:
             if song_id in registered_ids:
@@ -156,16 +170,43 @@ def create_song_chart(
                 pos.plays for pos in this_wk.songs if pos.id in song_ids
             )
 
-            song_info.append(
-                {
-                    'id': song_id,
-                    'points': (
-                        (two_wa_plays + one_wa_plays) * 2
-                        + (10 * this_wk_plays)
-                    ),
-                    'plays': this_wk_plays,
-                }
-            )
+            song_dicts[song_id] = {
+                'id': song_id,
+                'points': (
+                    (two_wa_plays + one_wa_plays) * 2 + (10 * this_wk_plays)
+                ),
+                'plays': this_wk_plays,
+            }
+
+        # if a song has the most streams out of all it's variants this week,
+        # combine all of the other variant's points and plays with it's points and plays.
+
+        for variant_group in variant_groups:
+            song_infos = []
+
+            for variant_id in variant_group:
+                if variant_id in song_dicts:
+                    song_infos.append((variant_id, song_dicts[variant_id]))
+
+            if not song_infos:
+                continue
+
+            song_infos.sort(key=lambda i: i[1]['plays'], reverse=True)
+            main_id = song_infos[0][0]
+
+            song_dicts[main_id] = {
+                'id': main_id,
+                'points': sum(i[1]['points'] for i in song_infos),
+                'plays': sum(i[1]['plays'] for i in song_infos),
+            }
+
+            for other_id in set(variant_group) - {main_id}:
+                song_dicts.pop(
+                    other_id, None
+                )   # so wont raise keyerror cuz wdgaf about the value
+
+        # dont need lookup later down the line so trim into list for later processing
+        song_info = list(song_dicts.values())
 
         for info in song_info:
             info['place'] = (
@@ -240,6 +281,7 @@ def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
                 plays=position['plays'],
                 place=position['place'],
                 points=position['points'],
+                variant=position['id'],
             )
             song.add_entry(entry)
         uow.commit()
@@ -259,7 +301,7 @@ def show_chart(
     for pos in positions:
         with uow:
             song: Song = uow.songs.get(pos['id'])
-        prev = song.get_entry(start)
+        prev = song.get_entry(start, strict=False)
         print(
             f'{get_movement(end, start, song):>3} | {song.title:<45} | '
             f"{', '.join(song.artists):<45} | {pos['place']:<2} | "
@@ -313,7 +355,7 @@ def update_song_sheet(
     for pos in positions:
         with uow:
             song: Song = uow.songs.get(pos['id'])
-        prev: Optional[Entry] = song.get_entry(start_date)
+        prev: Optional[Entry] = song.get_entry(start_date, strict=False)
         movement: str = get_movement(end_date, start_date, song)
         peak: str = get_peak(song)
 
@@ -527,13 +569,13 @@ def create_personal_charts():
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
 
-    song_range = f'BOT_SONGS!A1:J{len(song_rows) + 1}'
+    song_range = f'SONG_RAW!A1:J{len(song_rows) + 1}'
     sheet.delete_range(song_range)
     sheet.update_range(song_range, song_rows)
 
     print(f'Sending {len(album_rows)} album rows to the spreadsheet.')
 
-    album_range = f'BOT_ALBUMS!A1:K{len(album_rows) + 1}'
+    album_range = f'ALBUM_RAW!A1:K{len(album_rows) + 1}'
     sheet.delete_range(album_range)
     sheet.update_range(album_range, album_rows)
 
@@ -560,8 +602,6 @@ def create_personal_charts():
         f'({crunching_time / week_count} per week)'
     )
     print(f'Updated sheet in     {sending_time}')
-
-    return functools.reduce(operator.add, weeks)
 
 
 if __name__ == '__main__':

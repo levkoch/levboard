@@ -52,6 +52,10 @@ class SongRepository:
             merged_into.add_alt(alt_id)
             self._songs[alt_id] = merged_into
 
+        # change the variant tags from strings into actual pointers
+        for song in self:
+            song._variants = {self.get(variant) for variant in song._variants}
+
     def get(self, song_id: str) -> Optional[Song]:
         """
         Retrieves a `Song` by song id, or `None` if none with the specified id are found.

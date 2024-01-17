@@ -526,8 +526,7 @@ if __name__ == '__main__':
     top_listeners_chart(uow)
     """
     top_song_consecutive_weeks_infographic(uow)
-    
-    
+
     """
     top_shortest_time_units_milestones_infograpic(uow, 2_000, extras=True)
     top_shortest_time_units_milestones_infograpic(uow, 4_000, extras=True)
