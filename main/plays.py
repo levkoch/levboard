@@ -236,7 +236,7 @@ def update_spreadsheet_variant_plays(
 
     # check if first element isn't blank so that it gets rid of empty rows.
     songs: list[list] = [
-        i for i in sheet.get_range('SONG_NEW!A2:D').get('values') if i[0]
+        i for i in sheet.get_range('Songs!A2:C').get('values') if i[0]
     ]
 
     song_amt = len(songs)
@@ -252,8 +252,8 @@ def update_spreadsheet_variant_plays(
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
 
-        for sheet_song in songs:
-            song_name, is_variant, song_id, song_artists = sheet_song
+        for sheet_row in songs:
+            song_name, is_variant, song_id = sheet_row
 
             if is_variant == 'X':
                 links[prev_id].append(song_id.split(', ')[0])
@@ -270,7 +270,8 @@ def update_spreadsheet_variant_plays(
             song, plays = future.result()
 
             if len(song.ids & linked):
-                linked_songs[song.main_id] = (song, plays)
+                for song_id in song.ids:
+                    linked_songs[song_id] = (song, plays)
 
             else:
                 final_songs.append(
@@ -280,6 +281,7 @@ def update_spreadsheet_variant_plays(
                         else song.title,
                         '',
                         ', '.join(song.ids),
+                        song.sheet_id,
                         ', '.join(song.artists),
                         plays,
                     ]
@@ -295,27 +297,26 @@ def update_spreadsheet_variant_plays(
         print(f'compiling variant plays')
 
     for main_id, variant_ids in links.items():
-        song, plays = linked_songs[main_id]
-        final_songs.append(
-            [
-                "'" + song.title
-                if any(letter.isnumeric() for letter in song.title)
-                else song.title,
-                '',
-                ', '.join(song.ids),
-                ', '.join(song.artists),
-                plays,
-            ]
-        )
+        variant_pool: list[tuple[song, int]] = [
+            linked_songs[main_id],
+        ]
         for variant_id in variant_ids:
-            song, plays = linked_songs[variant_id]
+            variant_pool.append(linked_songs[variant_id])
+
+        variant_pool.sort(key=itemgetter(1), reverse=True)
+        main_id = variant_pool[0][0].main_id
+
+        for song, plays in variant_pool:
+            song.sheet_id = main_id
+
             final_songs.append(
                 [
                     "'" + song.title
                     if any(letter.isnumeric() for letter in song.title)
                     else song.title,
-                    'X',
+                    '' if song.main_id == main_id else 'X',
                     ', '.join(song.ids),
+                    main_id,
                     ', '.join(song.artists),
                     plays,
                 ]
@@ -324,7 +325,7 @@ def update_spreadsheet_variant_plays(
     if verbose:
         print('finished compiling variant plays')
 
-    sheet.update_range(f'Songs!A2:E{len(final_songs) + 1}', final_songs)
+    sheet.update_range(f'Songs!A2:F{len(final_songs) + 1}', final_songs)
 
     if verbose:
         print(f'Updated {song_amt} spreadsheet song plays.')
@@ -594,3 +595,4 @@ if __name__ == '__main__':
         LEVBOARD_SHEET,
         verbose=True,
     )
+    uow.commit()

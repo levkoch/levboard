@@ -335,6 +335,7 @@ def update_song_sheet(
             '',
             '',
             week_count,
+            '',
         ]
     )
     new_rows.append(
@@ -349,6 +350,7 @@ def update_song_sheet(
             'PLS',
             'PK',
             '(WK)',
+            '(ID)',
         ]
     )
 
@@ -371,6 +373,7 @@ def update_song_sheet(
                 pos['plays'],
                 peak,
                 week_count,
+                song.sheet_id,
             ]
         )
 
@@ -540,6 +543,7 @@ def create_personal_charts():
             'PLS',
             'PK',
             '(WK)',
+            '(ID)',
         ],
         [''],
     ]
@@ -569,7 +573,7 @@ def create_personal_charts():
     print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
 
-    song_range = f'BOT_SONGS!A1:J{len(song_rows) + 1}'
+    song_range = f'BOT_SONGS!A1:K{len(song_rows) + 1}'
     sheet.delete_range(song_range)
     sheet.update_range(song_range, song_rows)
 

@@ -65,6 +65,13 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
                     f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.main_id})'
                 )
 
+            """
+            # when realoading the entire thing in case it breaks halfway.
+            if count % 100 == 0:
+                uow.commit()
+                print(f'saving {count} intermediate group songs')
+            """
+
     if verbose:
         print('binding songs together')
 
@@ -118,9 +125,7 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
     sheet = Spreadsheet(sheet_link)
-    values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get(
-        'values'
-    )
+    values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
     if values is None:
         raise IndexError("shouldn't happen but maybe range error")
 

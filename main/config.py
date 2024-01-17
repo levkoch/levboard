@@ -22,6 +22,8 @@ MAX_ADJUSTED: Final[int] = 25
 LEVBOARD_SHEET: Final[str] = '1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk'
 # where the group charts sheet is located at
 GROUPBOARD_SHEET: Final[str] = '16ZJCz0AU5WM-e2YytmFtzLRhJ1Pd5bJpuAVv2y8XmM0'
+# date used for testing so that it doesn't have to load all 334 weeks
+TEST_DATE: Final[date] = date.fromisoformat('2023-11-23')
 # the first date of my listening
 FIRST_DATE: Final[date] = date.fromisoformat('2021-05-13')
 # the date the group charts started

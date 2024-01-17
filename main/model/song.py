@@ -7,7 +7,6 @@ Contains the central Song model.
 import itertools
 
 from collections import Counter
-from copy import deepcopy
 from datetime import date, timedelta
 from operator import attrgetter
 from pydantic import ValidationError
@@ -18,24 +17,23 @@ from .cert import SongCert
 from .entry import Entry
 from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
+
 def sheet_id_factory():
     conversions = {num - 65: chr(num) for num in range(65, 91)}
-    print(conversions)
     value = 0
+
     while True:
-        tag = '' if value > 0 else "A"
+        tag = '' if value > 0 else 'A'
         current = value
 
-        while (current > 0):
+        while current > 0:
             remainder = current % 26
             tag = conversions[remainder] + tag
             current = current // 26
-        print((value, tag))
 
         yield tag
         value += 1
 
-sheet_id = sheet_id_factory()
 
 class Song:
     """
@@ -83,8 +81,10 @@ class Song:
         song_title: Optional[str] = None,
         *,
         load: bool = True,
+        sheet_id: Optional[str] = None,
     ):
         self.main_id: str = song_id
+        self.sheet_id = sheet_id if sheet_id else self.main_id
         self.title: str = song_title
         self.ids: set[str] = {
             song_id,
@@ -342,6 +342,8 @@ class Song:
             self._plays += other._plays
             other._plays = 0
 
+        # set sheet ids to be equal and then have the other link as well.
+        other.sheet_id = self.sheet_id
         other.add_variant(self)
 
     def add_entry(self, entry: Entry) -> None:
@@ -552,6 +554,7 @@ class Song:
             'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
+            'sheet_id': self.sheet_id,
             'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
             'variants': list(self.variants),
@@ -574,7 +577,10 @@ class Song:
 
         try:
             new = cls(
-                song_id=info['main_id'], song_title=info['title'], load=False
+                song_id=info['main_id'],
+                song_title=info['title'],
+                load=False,
+                sheet_id=info.get('sheet_id'),
             )
 
             alts = info.get('ids')
