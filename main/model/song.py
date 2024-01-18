@@ -305,26 +305,49 @@ class Song:
 
         return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-    def period_points(self, start: date, end: date) -> int:
+    def period_points(self, start: date, end: date, strict=True) -> int:
         """Returns the song's points gained for some period."""
 
         return sum(
             ((SONG_CHART_LENGTH + 1) - i.place)
             for i in self.entries
-            if i.end >= start and i.end <= end
+            if i.end >= start
+            and i.end <= end
+            and (not strict or i.variant in self.ids)
         )
 
-    def period_weeks(self, start: date, end: date) -> int:
-        return sum(1 for w in self.entries if w.end >= start and w.end <= end)
+    def period_weeks(self, start: date, end: date, strict=True) -> int:
+        return sum(
+            1
+            for w in self.entries
+            if w.end >= start
+            and w.end <= end
+            and (not strict or w.variant in self.ids)
+        )
 
-    def period_units(self, start: date, end: date, adjusted=True) -> int:
+    def period_units(
+        self, start: date, end: date, adjusted=True, strict=True
+    ) -> int:
         """
         Returns the song's units gained for some period.
         """
 
-        return self.period_plays(
-            start, end, adjusted
-        ) * 2 + self.period_points(start, end)
+        if not strict:   # we are combining variants together
+            if (
+                self.sheet_id not in self.ids
+            ):   # this song is not the main variant
+                return self.period_plays(start, end, adjusted)
+            else:   # this song is the main variant
+                units = self.period_plays(
+                    start, end, adjusted
+                ) * 2 + self.period_points(start, end, strict=False)
+                for variant in self._variants:
+                    units += variant.period_plays(start, end, adjusted)
+                return units
+        else:
+            return self.period_plays(
+                start, end, adjusted
+            ) * 2 + self.period_points(start, end)
 
     @property
     def variants(self) -> list[str]:

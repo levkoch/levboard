@@ -405,6 +405,8 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
             eligible_items = [
                 (item, item.period_units(*year))
+                if kind == 'Album'
+                else (item, item.period_units(*year, strict=False))
                 for item in collection
                 if item.period_weeks(*year)
             ]
@@ -413,21 +415,20 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
             eligible_items = eligible_items[:quantity]
 
             for item, units in eligible_items:
-                place = len([s for (s, u) in eligible_items if u > units]) + 1
+                place = sum(1 for (_, u) in eligible_items if u > units) + 1
                 peak = min(
                     entry.place
                     for entry in item.entries
                     if entry.start >= year_start and entry.end <= year_end
                 )
-                peak_weeks = len(
-                    [
-                        entry
-                        for entry in item.entries
-                        if entry.start >= year_start
-                        and entry.end <= year_end
-                        and entry.place == peak
-                    ]
+                peak_weeks = sum(
+                    1
+                    for entry in item.entries
+                    if entry.start >= year_start
+                    and entry.end <= year_end
+                    and entry.place == peak
                 )
+
                 info = [
                     place,
                     "'" + item.title
@@ -442,6 +443,9 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                     current_year
                     # for filtering reasons but will be hidden in sheet
                 ]
+                if kind == 'Song':
+                    info.append(item.sheet_id)
+                    # also for filtering reasons but will be hidden in sheet
                 item_rows.append(info)
 
             item_rows.append([''])
@@ -454,7 +458,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
 
 load_year_end_songs = year_end_collection_creater(
-    LEVBOARD_SHEET, 'Year-End!A1:I', 100
+    LEVBOARD_SHEET, 'Year-End!A1:J', 100
 )
 load_year_end_albums = year_end_collection_creater(
     LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40
@@ -512,6 +516,8 @@ def month_end_collection_creater(
 
             eligible_items = [
                 (item, item.period_units(*year))
+                if kind == 'Album'
+                else (item, item.period_units(*year, strict=False))
                 for item in collection
                 if item.period_weeks(*year)
             ]
@@ -520,20 +526,18 @@ def month_end_collection_creater(
             eligible_items = eligible_items[:quantity]
 
             for item, units in eligible_items:
-                place = len([s for (s, u) in eligible_items if u > units]) + 1
+                place = sum(1 for (_, u) in eligible_items if u > units) + 1
                 peak = min(
                     entry.place
                     for entry in item.entries
                     if entry.start >= year_start and entry.end <= year_end
                 )
-                peak_weeks = len(
-                    [
-                        entry
-                        for entry in item.entries
-                        if entry.start >= year_start
-                        and entry.end <= year_end
-                        and entry.place == peak
-                    ]
+                peak_weeks = sum(
+                    1
+                    for entry in item.entries
+                    if entry.start >= year_start
+                    and entry.end <= year_end
+                    and entry.place == peak
                 )
                 info = [
                     place,
@@ -549,6 +553,8 @@ def month_end_collection_creater(
                     f'{current_month}/{current_year}'
                     # for filtering reasons but will be hidden in sheet
                 ]
+                if kind == 'Song':
+                    info.append(item.sheet_id)
                 item_rows.append(info)
 
             item_rows.append([''])
@@ -567,7 +573,7 @@ def month_end_collection_creater(
 
 
 load_month_end_songs = month_end_collection_creater(
-    LEVBOARD_SHEET, 'Month-End!A1:I', 40
+    LEVBOARD_SHEET, 'Month-End!A1:J', 40
 )
 load_month_end_albums = month_end_collection_creater(
     LEVBOARD_SHEET, "'Month-End Albums'!A1:I", 20
@@ -576,23 +582,30 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-    """
+
+    ntltc = uow.songs.get_by_name("no tears left to cry")
+    for song in ([ntltc,] + list(ntltc._variants)):
+        song.update_plays()
+    print(ntltc.period_units(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1), strict=False))
+    print(ntltc.period_units(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1), strict=True))
+    print(ntltc.period_plays(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1)))
+
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
 
-    
+    """
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )"""
+    )
 
     update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )
+    )"""
     uow.commit()
