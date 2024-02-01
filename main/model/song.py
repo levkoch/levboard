@@ -326,26 +326,12 @@ class Song:
         )
 
     def period_units(
-        self, start: date, end: date, adjusted=True, strict=True
+        self, start: date, end: date, adjusted=True,
     ) -> int:
         """
         Returns the song's units gained for some period.
         """
-
-        if not strict:   # we are combining variants together
-            if (
-                self.sheet_id not in self.ids
-            ):   # this song is not the main variant
-                return self.period_plays(start, end, adjusted)
-            else:   # this song is the main variant
-                units = self.period_plays(
-                    start, end, adjusted
-                ) * 2 + self.period_points(start, end, strict=False)
-                for variant in self._variants:
-                    units += variant.period_plays(start, end, adjusted)
-                return units
-        else:
-            return self.period_plays(
+        return self.period_plays(
                 start, end, adjusted
             ) * 2 + self.period_points(start, end)
 
@@ -360,13 +346,12 @@ class Song:
 
         self._variants.add(other)
         self._variants.update(other._variants)
-        self._variants.discard(self.main_id)
-        if self.plays > other.plays:
-            self._plays += other._plays
-            other._plays = 0
+        self._variants.discard(self)
+        if self._plays > other._plays:
+            other.sheet_id = self.sheet_id
+        else:
+            self.sheet_id = self.sheet_id
 
-        # set sheet ids to be equal and then have the other link as well.
-        other.sheet_id = self.sheet_id
         other.add_variant(self)
 
     def add_entry(self, entry: Entry) -> None:

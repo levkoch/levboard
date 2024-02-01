@@ -405,8 +405,6 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
             eligible_items = [
                 (item, item.period_units(*year))
-                if kind == 'Album'
-                else (item, item.period_units(*year, strict=False))
                 for item in collection
                 if item.period_weeks(*year)
             ]
@@ -416,11 +414,14 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
 
             for item, units in eligible_items:
                 place = sum(1 for (_, u) in eligible_items if u > units) + 1
-                peak = min(
-                    entry.place
-                    for entry in item.entries
-                    if entry.start >= year_start and entry.end <= year_end
-                )
+                try:
+                    peak = min(
+                        entry.place
+                        for entry in item.entries
+                        if entry.start >= year_start and entry.end <= year_end
+                    )
+                except ValueError: # min() arg is an empty sequence
+                    peak = "-"
                 peak_weeks = sum(
                     1
                     for entry in item.entries
@@ -516,8 +517,6 @@ def month_end_collection_creater(
 
             eligible_items = [
                 (item, item.period_units(*year))
-                if kind == 'Album'
-                else (item, item.period_units(*year, strict=False))
                 for item in collection
                 if item.period_weeks(*year)
             ]
@@ -527,11 +526,14 @@ def month_end_collection_creater(
 
             for item, units in eligible_items:
                 place = sum(1 for (_, u) in eligible_items if u > units) + 1
-                peak = min(
-                    entry.place
-                    for entry in item.entries
-                    if entry.start >= year_start and entry.end <= year_end
-                )
+                try:
+                    peak = min(
+                        entry.place
+                        for entry in item.entries
+                        if entry.start >= year_start and entry.end <= year_end
+                    )
+                except ValueError: # min() arg can't be an empty sequence
+                    peak = '-'
                 peak_weeks = sum(
                     1
                     for entry in item.entries
@@ -582,30 +584,22 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-
-    ntltc = uow.songs.get_by_name("no tears left to cry")
-    for song in ([ntltc,] + list(ntltc._variants)):
-        song.update_plays()
-    print(ntltc.period_units(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1), strict=False))
-    print(ntltc.period_units(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1), strict=True))
-    print(ntltc.period_plays(datetime.date(2021, 1, 1), datetime.date(2022, 1, 1)))
-
+    """
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
 
-    """
     update_spreadsheet_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )
+    )"""
 
     update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         verbose=True,
-    )"""
+    )
     uow.commit()

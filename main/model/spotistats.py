@@ -13,13 +13,15 @@ Requests:
 
 import functools
 import time
+import random 
+import requests
+import tenacity
+import string
+
 from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime
 from typing import Final, Iterable, Optional, Union
-
-import requests
-import tenacity
 from pydantic import BaseModel, NonNegativeInt
 
 USER_NAME: Final[str] = 'lev'
@@ -48,7 +50,13 @@ def _get_address(address: str) -> requests.Response:
         '/605.1.15 (KHTML, like Gecko) Mobile/15E148'
     }
 
-    response = requests.get(address, headers=HEADERS)
+    addon = ''.join(random.choices(string.ascii_lowercase, k=6))
+    if "?" in address:
+        sneaky_address = address + "&korea=" + addon
+    else:
+        sneaky_address = address + "?korea=" + addon
+
+    response = requests.get(sneaky_address, headers=HEADERS)
     response.raise_for_status()
     global total_requests, all_requests
     total_requests += 1
