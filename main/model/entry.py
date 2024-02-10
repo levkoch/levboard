@@ -93,7 +93,7 @@ class AlbumEntry(_BaseEntry):
     * to_dict (`dict` method): Collects the Entry into a dictionary.
     """
 
-    units: conint(gt=1)
+    units: conint(gt=1) # type: ignore
 
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""

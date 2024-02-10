@@ -297,7 +297,7 @@ def update_spreadsheet_variant_plays(
         print(f'compiling variant plays')
 
     for main_id, variant_ids in links.items():
-        variant_pool: list[tuple[song, int]] = [
+        variant_pool: list[tuple[Song, int]] = [
             linked_songs[main_id],
         ]
         for variant_id in variant_ids:
@@ -420,8 +420,18 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                         for entry in item.entries
                         if entry.start >= year_start and entry.end <= year_end
                     )
-                except ValueError: # min() arg is an empty sequence
-                    peak = "-"
+                except ValueError:   # min() arg is an empty sequence
+                    peak = '-'
+
+                try:
+                    peak = min(
+                        entry.place
+                        for entry in item.entries
+                        if entry.start >= year_start and entry.end <= year_end
+                    )
+                except ValueError:   # "min() arg is an empty sequence"
+                    peak = 0
+
                 peak_weeks = sum(
                     1
                     for entry in item.entries
@@ -532,7 +542,7 @@ def month_end_collection_creater(
                         for entry in item.entries
                         if entry.start >= year_start and entry.end <= year_end
                     )
-                except ValueError: # min() arg can't be an empty sequence
+                except ValueError:   # min() arg can't be an empty sequence
                     peak = '-'
                 peak_weeks = sum(
                     1
@@ -584,11 +594,12 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
+
     """
     update_local_plays(uow, verbose=True)
-    load_year_end_songs(uow.songs, verbose=True)
+    # load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
-    load_month_end_songs(uow.songs, verbose=True)
+    # load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
 
     update_spreadsheet_plays(

@@ -13,7 +13,7 @@ Requests:
 
 import functools
 import time
-import random 
+import random
 import requests
 import tenacity
 import string
@@ -51,10 +51,10 @@ def _get_address(address: str) -> requests.Response:
     }
 
     addon = ''.join(random.choices(string.ascii_lowercase, k=6))
-    if "?" in address:
-        sneaky_address = address + "&korea=" + addon
+    if '?' in address:
+        sneaky_address = address + '&korea=' + addon
     else:
-        sneaky_address = address + "?korea=" + addon
+        sneaky_address = address + '?korea=' + addon
 
     response = requests.get(sneaky_address, headers=HEADERS)
     response.raise_for_status()
@@ -279,7 +279,7 @@ def artist_tracks(artist_id: str) -> list[str]:
     return [str(i['id']) for i in info['items'] if i['durationMs'] >= 30_000]
 
 
-def first_listen(user: USER_NAME) -> date:
+def first_listen(user: str = USER_NAME) -> date:
     address = (
         f'http://api.stats.fm/api/v1/users/{user}/streams?limit=1&order=asc'
     )

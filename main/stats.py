@@ -42,7 +42,7 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     total_ids = song.ids
     for variant in song._variants:
         total_ids.update(variant.ids)
-    
+
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
         mapped = executor.map(spotistats.song_play_history, total_ids)
@@ -135,14 +135,19 @@ def top_shortest_time_units_milestones_infograpic(
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
             lambda i: i._populate_listens(),
-            (song for song in uow.songs if 
-                (song.units >= (unit_milestone / 4)) 
-                and (song.sheet_id in song.ids)),
+            (
+                song
+                for song in uow.songs
+                if (song.units >= (unit_milestone / 4))
+                and (song.sheet_id in song.ids)
+            ),
         )
 
-    contenders = (song for song in uow.songs 
-                    if song.units >= unit_milestone
-                    and song.sheet_id in song.ids)
+    contenders = (
+        song
+        for song in uow.songs
+        if song.units >= unit_milestone and song.sheet_id in song.ids
+    )
 
     with futures.ThreadPoolExecutor() as executor:
         units = list(
@@ -532,7 +537,7 @@ if __name__ == '__main__':
     top_listeners_chart(uow)
     top_song_consecutive_weeks_infographic(uow)
     """
-    
+
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
     top_shortest_time_units_milestones_infograpic(uow, 6_000)
