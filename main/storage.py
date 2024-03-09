@@ -49,12 +49,7 @@ class SongRepository:
 
         for alt_id, merge_to in merged.items():
             merged_into: Song = self._songs[merge_to]
-            merged_into.add_alt(alt_id)
             self._songs[alt_id] = merged_into
-
-        # change the variant tags from strings into actual pointers
-        for song in self:
-            song._variants = {self.get(variant) for variant in song._variants}
 
     def get(self, song_id: str) -> Optional[Song]:
         """
@@ -177,7 +172,7 @@ class SongUOW:
     def _attach_songs(self) -> None:
         for album in self.albums._albums.values():
             for stored_id in album.stored_ids:
-                album.add_song(self.songs.get(stored_id))
+                album.add_song(self.songs.get(stored_id), stored_id)
             del album.stored_ids
 
     def __enter__(self) -> 'SongUOW':

@@ -4,12 +4,11 @@ levboard/main/model/song.py
 Contains the central Song model.
 """
 
-import itertools
-
+from itertools import chain
 from collections import Counter
 from datetime import date, timedelta
 from operator import attrgetter
-from pydantic import ValidationError
+from pydantic import ValidationError, BaseModel
 from typing import Iterable, Iterator, Optional
 
 from . import spotistats
@@ -18,21 +17,35 @@ from .entry import Entry
 from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
 
 
-def sheet_id_factory():
-    conversions = {num - 65: chr(num) for num in range(65, 91)}
-    value = 0
+class Variant(BaseModel):
+    main_id: str
+    title: str
+    ids: set[str]
+    artists: tuple[str, ...]
 
-    while True:
-        tag = '' if value > 0 else 'A'
-        current = value
+    def to_dict(self):
+        return {
+            'main_id': self.main_id,
+            'title': self.title,
+            'ids': list(self.ids),
+            'artists': list(self.artists),
+        }
 
-        while current > 0:
-            remainder = current % 26
-            tag = conversions[remainder] + tag
-            current = current // 26
+    def __hash__(self):
+        return hash((self.title, self.main_id))
 
-        yield tag
-        value += 1
+    def __eq__(self, other):
+        return self.ids == other.ids
+
+    @classmethod
+    def from_id(cls, main_id) -> 'Variant':
+        info = spotistats.song_info(main_id)
+        title = info['name']
+        artists = tuple(i['name'] for i in info['artists'])
+
+        return cls(
+            main_id=main_id, title=title, ids={main_id}, artists=artists
+        )
 
 
 class Song:
@@ -81,17 +94,21 @@ class Song:
         song_title: Optional[str] = None,
         *,
         load: bool = True,
-        sheet_id: Optional[str] = None,
     ):
         self.main_id: str = song_id
-        self.sheet_id = sheet_id if sheet_id else self.main_id
         self.title: str = song_title
-        self.ids: set[str] = {
-            song_id,
-        }
+        self.main_variant = Variant(
+            main_id=self.main_id,
+            title=self.title,
+            ids={
+                self.main_id,
+            },
+            artists=[],
+        )
+        self.variants: set[Variant] = {self.main_variant}
+        self.active = self.main_variant
         self._plays: int = 0
         self._entries: dict[date, Entry] = {}
-        self._variants: set[Song] = set()
         self.__listens: Optional[list[spotistats.Listen]] = None
 
         # configured by _load_info()
@@ -181,9 +198,20 @@ class Song:
         return f'{", ".join(artists[:-2])}, {" & ".join(artists[-2:])}'
 
     @property
+    def ids(self) -> set[str]:
+        return set(
+            chain.from_iterable(variant.ids for variant in self.variants)
+        )
+
+    @property
+    def sheet_id(self) -> str:
+        return min(self.ids)
+
+    @property
     def plays(self) -> int:
         if self.__listens is None:
             return self._plays
+        # filtered plays
         play_dates = (i.finished_playing.date() for i in self.__listens)
         date_counter = Counter(play_dates)
         plays = sum(
@@ -191,6 +219,82 @@ class Song:
         )
         self._plays = plays
         return plays
+
+    def variant_plays(self, variant_id) -> int:
+        """
+        (`int`): The number of plays a certain variant attached to this
+        song has recieved.
+        """
+        if self.__listens is None:
+            self._populate_listens()
+
+        # filtered plays
+        play_dates = (
+            i.finished_playing.date()
+            for i in self.__listens
+            if i.played_from in self.get_variant(variant_id).ids
+        )
+        date_counter = Counter(play_dates)
+        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
+
+    def variant_points(self, variant_id) -> str:
+        """
+        (`int`): The number of chart points a certain variant attached to this
+        song has recieved.
+        """
+        return sum(
+            ((SONG_CHART_LENGTH + 1) - i.place)
+            for i in self.entries
+            if i.variant in self.get_variant(variant_id).ids
+        )
+
+    def variant_units(self, variant_id) -> int:
+        """
+        (`int`): The total number of units for a certain variant of this song.
+        """
+
+        return (2 * self.variant_plays(variant_id)) + self.variant_points(
+            variant_id
+        )
+
+    def variant_weeks(self, variant_id) -> int:
+        """
+        (`int`): The total number of weeks for a certain variant of this song.
+        """
+
+        return sum(
+            1
+            for entry in self.entries
+            if entry.variant in self.get_variant(variant_id).ids
+        )
+
+    def variant_peak(self, variant_id) -> int:
+        """
+        (`int`): The chart peak for a certain variant of this song.
+            Defaults to 0 if the song never charted.
+        """
+
+        return min(
+            (
+                entry.place
+                for entry in self.entries
+                if entry.variant in self.get_variant(variant_id).ids
+            ),
+            default=0,
+        )
+    
+    def variant_weeks(self, variant_id) -> int:
+        """
+        (`int`): The total number of weeks for a certain variant of this song.
+        """
+
+        return sum(
+            1
+            for entry in self.entries
+            if entry.variant in self.get_variant(variant_id).ids and entry.place == self.variant_peak(variant_id)
+        )
+    
+
 
     @property
     def str_artists(self) -> str:
@@ -264,7 +368,7 @@ class Song:
         """Adds listens to the song."""
 
         self.__listens = list(
-            itertools.chain.from_iterable(
+            chain.from_iterable(
                 spotistats.song_play_history(i) for i in self.ids
             )
         )
@@ -326,33 +430,35 @@ class Song:
         )
 
     def period_units(
-        self, start: date, end: date, adjusted=True,
+        self,
+        start: date,
+        end: date,
+        adjusted=True,
     ) -> int:
         """
         Returns the song's units gained for some period.
         """
         return self.period_plays(
-                start, end, adjusted
-            ) * 2 + self.period_points(start, end)
+            start, end, adjusted
+        ) * 2 + self.period_points(start, end)
 
-    @property
-    def variants(self) -> list[str]:
-        return [variant.main_id for variant in self._variants]
+    def add_variant(self, variant: Variant) -> None:
+        """Links together a new variant into the song."""
+        self.variants.add(variant)
+        self.ids.update(variant.ids)
 
-    def add_variant(self, other: 'Song') -> None:
-        """Links together two songs as variants."""
-        if other.main_id in self.variants:
-            return
-
-        self._variants.add(other)
-        self._variants.update(other._variants)
-        self._variants.discard(self)
-        if self._plays > other._plays:
-            other.sheet_id = self.sheet_id
-        else:
-            self.sheet_id = self.sheet_id
-
-        other.add_variant(self)
+    def get_variant(self, variant_id: str) -> Variant:
+        # TODO: rewrite variant storage to speed up lookup
+        try:
+            return next(
+                variant
+                for variant in self.variants
+                if variant_id in variant.ids
+            )
+        except StopIteration:
+            raise KeyError(
+                f'No variant of id {variant_id} found attached to instance.'
+            )
 
     def add_entry(self, entry: Entry) -> None:
         """
@@ -369,11 +475,13 @@ class Song:
         else:
             self._entries[entry.end] = entry
 
-        for variant in self._variants:
-            variant.add_entry(entry)
+        self.active = next(
+            (var for var in self.variants if entry.variant in var.ids),
+            self.main_variant,
+        )
 
     def get_entry(
-        self, end_date: date, strict: bool = True
+        self, end_date: date, variant: Optional[str] = None
     ) -> Optional[Entry]:
         """
         Retrieves a stored entry.
@@ -388,12 +496,20 @@ class Song:
             or `None` otherwise.
         """
         possible = self._entries.get(end_date)
+
+        if not variant:
+            return possible
+
+        try:
+            variant_ids = next(
+                v.ids for v in self.variants if variant in v.ids
+            )
+        except StopIteration:
+            raise KeyError('variant not found')
+
         return (
             possible
-            if (
-                not strict
-                or ((possible is not None) and (possible.variant in self.ids))
-            )
+            if ((possible is not None) and (possible.variant in variant_ids))
             else None
         )
 
@@ -444,7 +560,7 @@ class Song:
         """
 
         if alt_id not in self.ids:
-            self.ids.add(alt_id)
+            self.add_variant(Variant.from_id(alt_id))
 
     def get_weeks(self, top: Optional[int] = None) -> int:
         """
@@ -562,10 +678,9 @@ class Song:
             'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
-            'sheet_id': self.sheet_id,
             'plays': self.plays,
             'entries': [i.to_dict() for i in self.entries],
-            'variants': list(self.variants),
+            'variants': list(variant.to_dict() for variant in self.variants),
         }
 
     @classmethod
@@ -588,16 +703,12 @@ class Song:
                 song_id=info['main_id'],
                 song_title=info['title'],
                 load=False,
-                sheet_id=info.get('sheet_id'),
             )
-
-            alts = info.get('ids')
-            new.ids = set(alts) if alts is not None else set()
 
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
+            new.variants = set(Variant(**i) for i in info['variants'])
             new._plays = int(info['plays'])
-            new._variants = set(info['variants'])
             new._entries = {
                 date.fromisoformat(i['end']): Entry(**i)
                 for i in info['entries']
@@ -610,3 +721,41 @@ class Song:
             ) from exc
         else:
             return new
+
+    @classmethod
+    def from_variants(
+        cls, main_id: str, variants: Iterable[Variant]
+    ) -> 'Song':
+        """Forms a new song from the song's variants and a main id denoting which one
+        is the most important.
+
+        Arguments:
+        * main_id (`str`): The song to be created's main id.
+        * variants (`Iterable[Variant]`): All variants of that song.
+
+        Returns:
+        * new_song (`Song`): The song back as a Song class.
+
+        Raises:
+        * `ValueError`: If main_id doens't match up with any of the variants provided.
+        """
+
+        try:
+            main_variant = next(
+                variant for variant in variants if main_id in variant.ids
+            )
+        except StopIteration:
+            raise ValueError(
+                f'Missing the variant `main_id` ({main_id}) belongs to in `variants`.'
+            )
+
+        new = cls(
+            song_id=main_variant.main_id,
+            song_title=main_variant.title,
+            load=False,
+        )
+
+        new.artists = list(main_variant.artists)
+        new.variants = set(variants)
+
+        return new

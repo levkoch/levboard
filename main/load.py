@@ -4,7 +4,7 @@ from concurrent import futures
 from typing import Optional
 
 from config import LEVBOARD_SHEET, GROUPBOARD_SHEET
-from model import Album, Song
+from model import Album, Song, Variant
 from spreadsheet import Spreadsheet
 from storage import SongUOW
 
@@ -34,51 +34,58 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
 
     sheet = Spreadsheet(sheet_link)
-
-    values = sheet.get_range('Songs!A2:C').get('values')
+    values = sheet.get_range('Songs!A2:E').get('values')   # FIX FOR LATER
     songs: list[list[str]] = [i for i in values if i[0]]
 
-    prev_id: str = songs[0][1].split(', ')[0]
-    links: dict[str, list] = defaultdict(list)
+    counter = itertools.count(start=2)
+
+    # prime first song
+    song_title, _, str_ids, _, str_artists = songs[0]
+    ids = str_ids.split(', ')
+    prev_id: str = ids[0]
+    variant = Variant(
+        main_id=ids[0],
+        title=song_title,
+        ids=set(ids),
+        artists=str_artists.split(', '),
+    )
+    variant_hold = [variant]
 
     if verbose:
         print(f'{len(songs)} items found.')
 
-    with futures.ThreadPoolExecutor() as executor:
-        to_do: list[futures.Future] = []
+    # first song already primed so we skip it here
+    for song_title, demarcator, str_ids, _, str_artists in songs[1:]:
+        is_variant = demarcator == 'X'
 
-        for song_title, is_variant, str_ids in songs:
-            if is_variant == 'X':
-                links[prev_id].append(str_ids.split(', ')[0])
-            else:
-                prev_id = str_ids.split(', ')[0]
-
-            future = executor.submit(_add_song, song_title, str_ids, uow)
-            to_do.append(future)
-
-        for count, future in enumerate(futures.as_completed(to_do), 1):
-            song: Song = future.result()
+        if not is_variant:
+            song = Song.from_variants(main_id=prev_id, variants=variant_hold)
             uow.songs.add(song)
-            percentage = count / len(songs) * 100
-            if verbose:
-                print(
-                    f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.main_id})'
-                )
+            prev_id = str_ids.split(', ')[0]
+            variant_hold.clear()
 
-            """
-            # when realoading the entire thing in case it breaks halfway.
-            if count % 100 == 0:
-                uow.commit()
-                print(f'saving {count} intermediate group songs')
-            """
+        ids = str_ids.split(', ')
+        variant = Variant(
+            main_id=ids[0],
+            title=song_title,
+            ids=set(ids),
+            artists=str_artists.split(', '),
+        )
+        variant_hold.append(variant)
 
-    if verbose:
-        print('binding songs together')
+        count = next(counter)
+        percentage = count / len(songs) * 100
 
-    for (main_id, variant_ids) in links.items():
-        main_song = uow.songs.get(main_id)
-        for variant_id in variant_ids:
-            main_song.add_variant(uow.songs.get(variant_id))
+        if verbose:
+            print(
+                f'{count:>5} of {len(songs)} ({percentage:.2f}%):'
+                + (' # ' if is_variant else '   ')
+                + f'{song_title} ({ids[0]})'
+            )
+
+    # process final song
+    song = Song.from_variants(main_id=prev_id, variants=variant_hold)
+    uow.songs.add(song)
 
     if verbose:
         print('Completed process. Saving all songs to database.')
@@ -124,6 +131,7 @@ def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
 def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
+    print('finding rows')
     sheet = Spreadsheet(sheet_link)
     values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
     if values is None:
@@ -154,14 +162,12 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
         row = values.pop(0)
         try:
             while row:
-                song_id = row[6]
-                if ', ' in song_id:
-                    song_id = song_id.split(', ')[0]
+                song_id = row[6].split(', ')[0]
 
                 song = uow.songs.get(song_id)
                 if song is None:
                     raise ValueError('song not found')
-                album.add_song(song)
+                album.add_song(song, song_id)
                 row = values.pop(0)
                 # will get new song row or the blank row
                 # at the end, causing the while loop to end

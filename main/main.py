@@ -75,13 +75,9 @@ def load_all_weeks(start_day: date) -> list[Week]:
 def get_movement(
     current: date, last: date, charteable: Union[Song, Album]
 ) -> str:
-    if isinstance(charteable, Song):
-        # hate to do this but the signatures are slightly different now with variants.
-        c_place: Optional[Entry] = charteable.get_entry(current, strict=False)
-        p_place: Optional[Entry] = charteable.get_entry(last, strict=False)
-    else:
-        c_place = charteable.get_entry(current)
-        p_place: Optional[Entry] = charteable.get_entry(last)
+
+    c_place = charteable.get_entry(current)
+    p_place: Optional[Entry] = charteable.get_entry(last)
 
     weeks = charteable.weeks
 
@@ -130,10 +126,11 @@ def create_song_chart(
     this_wk = next(weeks)
 
     registered_ids: set[str] = set(uow.songs.list())
-    variant_groups: set[tuple[str]] = set(
-        tuple(set(song.variants) | {song.main_id})
-        for song in uow.songs
-        if song.variants
+
+    # we don't look at groups of one to save time, because they're 
+    # never going to combine with anything anyways
+    id_groups: set[tuple[str]] = set(
+        tuple(song.ids) for song in uow.songs if len(song.ids) > 1
     )
 
     while True:
@@ -152,7 +149,9 @@ def create_song_chart(
             # and then all songs that arent registered are added into the set normally
         } | (all_song_ids - registered_ids)
 
-        song_dicts: dict[dict] = {}
+        song_dicts: dict[str, dict[str, Union[str, int]]] = {}
+
+        # TODO: think about how to combine these two steps cuz i think we definitely can.
 
         for song_id in filtered_ids:
             if song_id in registered_ids:
@@ -178,15 +177,16 @@ def create_song_chart(
                 'plays': this_wk_plays,
             }
 
-        # if a song has the most streams out of all it's variants this week,
-        # combine all of the other variant's points and plays with it's points and plays.
+        # if a song has the most streams out of all it's ids this week,
+        # combine all of the other ids's points and plays with it's points 
+        # and plays as if they all went to that id.
 
-        for variant_group in variant_groups:
+        for id_group in id_groups:
             song_infos = []
 
-            for variant_id in variant_group:
-                if variant_id in song_dicts:
-                    song_infos.append((variant_id, song_dicts[variant_id]))
+            for song_id in id_group:
+                if song_id in song_dicts:
+                    song_infos.append((song_id, song_dicts[song_id]))
 
             if not song_infos:
                 continue
@@ -200,7 +200,7 @@ def create_song_chart(
                 'plays': sum(i[1]['plays'] for i in song_infos),
             }
 
-            for other_id in set(variant_group) - {main_id}:
+            for other_id in set(id_group) - {main_id}:
                 song_dicts.pop(
                     other_id, None
                 )   # so wont raise keyerror cuz wdgaf about the value
@@ -301,10 +301,10 @@ def show_chart(
     for pos in positions:
         with uow:
             song: Song = uow.songs.get(pos['id'])
-        prev = song.get_entry(start, strict=False)
+        prev = song.get_entry(start)
         print(
-            f'{get_movement(end, start, song):>3} | {song.title:<45} | '
-            f"{', '.join(song.artists):<45} | {pos['place']:<2} | "
+            f'{get_movement(end, start, song):>3} | {song.active.title:<45} | '
+            f"{', '.join(song.active.artists):<45} | {pos['place']:<2} | "
             f"{(prev.place if prev else '-'):<2} | {song.weeks:<2} | "
             f"{pos['points']:<3} | {pos['plays']:<3} | {get_peak(song):<3}"
         )
@@ -357,15 +357,15 @@ def update_song_sheet(
     for pos in positions:
         with uow:
             song: Song = uow.songs.get(pos['id'])
-        prev: Optional[Entry] = song.get_entry(start_date, strict=False)
+        prev: Optional[Entry] = song.get_entry(start_date)
         movement: str = get_movement(end_date, start_date, song)
         peak: str = get_peak(song)
 
         new_rows.append(
             [
                 "'" + movement,
-                "'" + song.title if song.title[0].isnumeric() else song.title,
-                ', '.join(song.artists),
+                "'" + song.active.title if song.title[0].isnumeric() else song.active.title,
+                ', '.join(song.active.artists),
                 pos['place'],
                 prev.place if prev is not None else '-',
                 song.weeks,
@@ -386,12 +386,12 @@ def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
 
     for album in uow.albums:
         plays = 0
-        for song in album:
+        for variant_id, song in album:
             plays += next(
                 (
                     pos['plays']
                     for pos in positions
-                    if pos['id'] == song.main_id
+                    if pos['id'] in song.get_variant(variant_id).ids
                 ),
                 0,
             )
@@ -508,7 +508,7 @@ def create_personal_charts():
     week_counter = itertools.count(start=1)
     song_rows: list[list] = []
     album_rows: list[list] = []
-    weeks = load_all_weeks(FIRST_DATE)
+    weeks = load_all_weeks(date(2024, 2, 1)) # FIRST_DATE)
     loading_time = datetime.now() - start_time
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):

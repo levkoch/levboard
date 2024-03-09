@@ -25,7 +25,7 @@ class Album:
         else:  # is an iterable of str
             self._artists = list(artists)
 
-        self.songs: list[Song] = []
+        self.songs: list[tuple[str, Song]] = []
         self.entries: list[AlbumEntry] = []
 
     def __str__(self) -> str:
@@ -49,7 +49,7 @@ class Album:
     def __len__(self) -> int:
         return len(self.songs)
 
-    def __iter__(self) -> Iterator[Song]:
+    def __iter__(self) -> Iterator[tuple[str, Song]]:
         return iter(self.songs)
 
     @property
@@ -85,33 +85,39 @@ class Album:
         (`int`): The total amount of units from the album.
         """
 
-        return sum(i.units for i in self.songs)
+        return sum(
+            song.variant_units(variant_id) for variant_id, song in self.songs
+        )
 
     @property
     def plays(self) -> int:
         """
         (`int`): The total streams of the album.
         """
-        return sum(i._plays for i in self.songs)
+        return sum(
+            song.variant_plays(variant_id) for variant_id, song in self.songs
+        )
 
     @property
     def points(self) -> int:
         """(`int`): The total song points for the album."""
-        return sum(i.points for i in self.songs)
+        return sum(
+            song.variant_points(variant_id) for variant_id, song in self.songs
+        )
 
     @property
     def total_song_weeks(self) -> int:
         """
         (`int`): The total weeks charted by songs in the album.
         """
-        return sum(song.weeks for song in self.songs)
+        return sum(song.variant_weeks(variant_id) for variant_id, song in self.songs)
 
     @property
     def top_song_peak(self) -> int:
         """
         (`int`): The highest peak among songs in the album.
         """
-        return min(song.peak for song in self.songs)
+        return min(song.variant_peak(variant_id) for variant_id, song in self.songs)
 
     @property
     def total_song_peak_weeks(self) -> int:
@@ -122,7 +128,7 @@ class Album:
         """
         return sum(
             song.peakweeks
-            for song in self.songs
+            for _, song in self.songs
             if song.peak == self.top_song_peak
         )
 
@@ -267,13 +273,13 @@ class Album:
             return len([song for song in self.songs if song.weeks != 0])
         return len([song for song in self.songs if song.weeks >= weeks])
 
-    def add_song(self, song: Song):
+    def add_song(self, song: Song, variant_id: str):
         """
         Adds a song into the album, if not already in album.
         """
 
         if song not in self.songs:
-            self.songs.append(song)
+            self.songs.append((variant_id, song))
 
     def add_entry(self, entry: AlbumEntry) -> None:
         """Adds an entry to the album."""
@@ -320,8 +326,8 @@ class Album:
         """
 
         points = 0
-        for song in self.songs:
-            entry = song.get_entry(end_date)
+        for variant_id, song in self.songs:
+            entry = song.get_entry(end_date, variant=variant_id)
             if entry:  # (is not None)
                 points += (SONG_CHART_LENGTH + 1) - entry.place
         return points
@@ -330,7 +336,7 @@ class Album:
         return {
             'title': self._title,
             'artists': ', '.join(self._artists),
-            'songs': [song.main_id for song in self.songs],
+            'songs': [variant_id for variant_id, _ in self.songs],
             'entries': [i.to_dict() for i in self.entries],
         }
 
