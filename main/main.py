@@ -8,10 +8,18 @@ from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
 import operator
-from typing import Iterator, Optional, Union
+from typing import Iterable, Iterator, Optional, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
-from model import Album, AlbumEntry, Entry, Song, spotistats, SONG_CHART_LENGTH
+from model import (
+    Album,
+    AlbumEntry,
+    Entry,
+    Song,
+    spotistats,
+    SONG_CHART_LENGTH,
+    Variant,
+)
 from model.spotistats import Week
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -30,7 +38,11 @@ def load_week(
     print(
         f'!! [{next(completed):03d}] finished collecting info for week ending {end_day.isoformat()}'
     )
-    return Week(start_day=start_day, end_day=end_day, songs=songs)
+    return Week(
+        start_day=start_day,
+        end_day=end_day,
+        songs={pos.id: pos for pos in songs},
+    )
 
 
 def load_all_weeks(start_day: date) -> list[Week]:
@@ -125,88 +137,113 @@ def create_song_chart(
     one_wa = next(weeks)
     this_wk = next(weeks)
 
-    registered_ids: set[str] = set(uow.songs.list())
-
-    # we don't look at groups of one to save time, because they're 
-    # never going to combine with anything anyways
-    id_groups: set[tuple[str]] = set(
-        tuple(song.ids) for song in uow.songs if len(song.ids) > 1
+    # every variant we have
+    all_variants: list[Variant] = list(
+        itertools.chain.from_iterable(
+            (var for var in song.variants) for song in uow.songs
+        )
     )
+
+    id_groups: list[tuple[str]] = list(tuple(song.ids) for song in uow.songs)
+
+    # every id we have stored somewhere in the system
+    registered_ids: set[str] = set(itertools.chain.from_iterable(id_groups))
 
     while True:
         all_song_ids: set[str] = {
             pos.id
-            for pos in set(two_wa.songs)
-            | set(one_wa.songs)
-            | set(this_wk.songs)
+            for pos in set(two_wa.songs.values())
+            | set(one_wa.songs.values())
+            | set(this_wk.songs.values())
         }
 
-        # all songs which are registered (and could be merged into another one)
-        # are checked and turned into the base id
-        filtered_ids: set[str] = {
-            uow.songs.get(song_id).main_id
-            for song_id in (all_song_ids & registered_ids)
-            # and then all songs that arent registered are added into the set normally
-        } | (all_song_ids - registered_ids)
+        # all ids that got streamed but aren't registered
+        rogue_ids: set[str] = all_song_ids - registered_ids
 
-        song_dicts: dict[str, dict[str, Union[str, int]]] = {}
+        # filtered positions to later process
+        song_info: list[dict[str, Union[str, int]]] = []
 
-        # TODO: think about how to combine these two steps cuz i think we definitely can.
-
-        for song_id in filtered_ids:
-            if song_id in registered_ids:
-                song_ids = {song_id}.union(uow.songs.get(song_id).ids)
-            else:
-                song_ids = {song_id}
-
-            two_wa_plays = sum(
-                pos.plays for pos in two_wa.songs if pos.id in song_ids
-            )
-            one_wa_plays = sum(
-                pos.plays for pos in one_wa.songs if pos.id in song_ids
-            )
-            this_wk_plays = sum(
-                pos.plays for pos in this_wk.songs if pos.id in song_ids
+        for song_id in rogue_ids:
+            # process rogue ids first
+            two_wa_plays = (
+                0
+                if song_id not in two_wa.songs
+                else two_wa.songs[song_id].plays
             )
 
-            song_dicts[song_id] = {
-                'id': song_id,
-                'points': (
-                    (two_wa_plays + one_wa_plays) * 2 + (10 * this_wk_plays)
-                ),
-                'plays': this_wk_plays,
-            }
+            one_wa_plays = (
+                0
+                if song_id not in one_wa.songs
+                else one_wa.songs[song_id].plays
+            )
+            this_wk_plays = (
+                0
+                if song_id not in this_wk.songs
+                else this_wk.songs[song_id].plays
+            )
+
+            song_info.append(
+                {
+                    'id': song_id,
+                    'points': (
+                        (two_wa_plays + one_wa_plays) * 2
+                        + (10 * this_wk_plays)
+                    ),
+                    'plays': this_wk_plays,
+                }
+            )
 
         # if a song has the most streams out of all it's ids this week,
-        # combine all of the other ids's points and plays with it's points 
+        # combine all of the other ids's points and plays with it's points
         # and plays as if they all went to that id.
 
+        # this is a little bit unfortunate if one of the variants has multiple
+        # ids attached to it. Ex.: if Black Mascara - Live. gains 4 streams while
+        # Black Mascara. and Black Mascara (without period for some reason) both
+        # gain 3 streams, the song will chart as Black Mascara - Live., even
+        # though the studio version of the song got 6 plays.
+
         for id_group in id_groups:
-            song_infos = []
+            id_plays: Iterable[tuple[str, int]] = (
+                (
+                    song_id,
+                    0
+                    if song_id not in this_wk.songs
+                    else this_wk.songs[song_id].plays,
+                )
+                for song_id in id_group
+            )
+            # the most streamed id out of the group.
+            main_id = sorted(id_plays, key=itemgetter(1), reverse=True,)[
+                0
+            ][0]
 
-            for song_id in id_group:
-                if song_id in song_dicts:
-                    song_infos.append((song_id, song_dicts[song_id]))
+            two_wa_plays = sum(
+                two_wa.songs[song_id].plays
+                for song_id in id_group
+                if song_id in two_wa.songs
+            )
+            one_wa_plays = sum(
+                one_wa.songs[song_id].plays
+                for song_id in id_group
+                if song_id in one_wa.songs
+            )
+            this_wk_plays = sum(
+                this_wk.songs[song_id].plays
+                for song_id in id_group
+                if song_id in this_wk.songs
+            )
 
-            if not song_infos:
-                continue
-
-            song_infos.sort(key=lambda i: i[1]['plays'], reverse=True)
-            main_id = song_infos[0][0]
-
-            song_dicts[main_id] = {
-                'id': main_id,
-                'points': sum(i[1]['points'] for i in song_infos),
-                'plays': sum(i[1]['plays'] for i in song_infos),
-            }
-
-            for other_id in set(id_group) - {main_id}:
-                song_dicts.pop(
-                    other_id, None
-                )   # so wont raise keyerror cuz wdgaf about the value
-
-        # dont need lookup later down the line so trim into list for later processing
-        song_info = list(song_dicts.values())
+            song_info.append(
+                {
+                    'id': main_id,
+                    'points': (
+                        (two_wa_plays + one_wa_plays) * 2
+                        + (10 * this_wk_plays)
+                    ),
+                    'plays': this_wk_plays,
+                }
+            )
 
         for info in song_info:
             info['place'] = (
@@ -364,7 +401,9 @@ def update_song_sheet(
         new_rows.append(
             [
                 "'" + movement,
-                "'" + song.active.title if song.title[0].isnumeric() else song.active.title,
+                "'" + song.active.title
+                if song.title[0].isnumeric()
+                else song.active.title,
                 ', '.join(song.active.artists),
                 pos['place'],
                 prev.place if prev is not None else '-',
@@ -508,7 +547,7 @@ def create_personal_charts():
     week_counter = itertools.count(start=1)
     song_rows: list[list] = []
     album_rows: list[list] = []
-    weeks = load_all_weeks(date(2024, 2, 1)) # FIRST_DATE)
+    weeks = load_all_weeks(date(2024, 2, 1))   # FIRST_DATE)
     loading_time = datetime.now() - start_time
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):

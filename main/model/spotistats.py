@@ -197,7 +197,7 @@ class Week(BaseModel):
 
     start_day: date
     end_day: date
-    songs: list[Position]
+    songs: dict[str, Position]
 
     def __lt__(self, other):
         try:

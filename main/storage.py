@@ -43,7 +43,9 @@ class SongRepository:
             try:
                 merge_to = song_dict['merge']
             except KeyError:
-                self._songs[song_id] = Song.from_dict(song_dict)
+                song_item = Song.from_dict(song_dict)
+                for song_alt_id in song_item.ids:
+                    self._songs[song_alt_id] = song_item
             else:
                 merged[song_id] = merge_to
 

@@ -110,14 +110,18 @@ class Album:
         """
         (`int`): The total weeks charted by songs in the album.
         """
-        return sum(song.variant_weeks(variant_id) for variant_id, song in self.songs)
+        return sum(
+            song.variant_weeks(variant_id) for variant_id, song in self.songs
+        )
 
     @property
     def top_song_peak(self) -> int:
         """
         (`int`): The highest peak among songs in the album.
         """
-        return min(song.variant_peak(variant_id) for variant_id, song in self.songs)
+        return min(
+            song.variant_peak(variant_id) for variant_id, song in self.songs
+        )
 
     @property
     def total_song_peak_weeks(self) -> int:
@@ -327,7 +331,7 @@ class Album:
 
         points = 0
         for variant_id, song in self.songs:
-            entry = song.get_entry(end_date, variant=variant_id)
+            entry = song.get_entry(end_date, variant_id=variant_id)
             if entry:  # (is not None)
                 points += (SONG_CHART_LENGTH + 1) - entry.place
         return points
