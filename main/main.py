@@ -137,13 +137,7 @@ def create_song_chart(
     one_wa = next(weeks)
     this_wk = next(weeks)
 
-    # every variant we have
-    all_variants: list[Variant] = list(
-        itertools.chain.from_iterable(
-            (var for var in song.variants) for song in uow.songs
-        )
-    )
-
+    # every group of ids attached to a song, regarless of their parent variant
     id_groups: list[tuple[str]] = list(tuple(song.ids) for song in uow.songs)
 
     # every id we have stored somewhere in the system
@@ -170,7 +164,6 @@ def create_song_chart(
                 if song_id not in two_wa.songs
                 else two_wa.songs[song_id].plays
             )
-
             one_wa_plays = (
                 0
                 if song_id not in one_wa.songs
@@ -204,6 +197,9 @@ def create_song_chart(
         # though the studio version of the song got 6 plays.
 
         for id_group in id_groups:
+            # skip everything that didn't get listened to at all
+            if len(set(id_group) & all_song_ids) == 0: continue
+
             id_plays: Iterable[tuple[str, int]] = (
                 (
                     song_id,
@@ -331,7 +327,11 @@ def show_chart(
     end: date,
     week_count: int,
 ):
+    
+    print(f'<> [{week_count:03d}] ({end.isoformat()}) S', end="")
+    return
     print(f'\n({week_count}) Week of {start.isoformat()} to {end.isoformat()}')
+
     print(
         f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC | PTS | PLS | PK'
     )
@@ -491,11 +491,14 @@ def create_album_chart(
         ],
     ]
 
+    print(f' | A')
+
+    """
     print(f'({week_count}) Albums chart for week of {end_day.isoformat()}.')
     print('')
     print(
         f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC  | PK  | UTS | PLS | PTS'
-    )
+    )"""
 
     for (album, album_units) in units:
         position = sum(1 for i in units if i[1] > album_units) + 1
@@ -510,11 +513,11 @@ def create_album_chart(
         plays = album_plays[album]
         points = album.get_points(end_day)
 
-        print(
+        """print(
             f'{movement:>3} | {album.title:<45} | {album.str_artists:<45}'
             f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<3}"
             f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
-        )
+        )"""
 
         new_rows.append(
             [
@@ -547,7 +550,7 @@ def create_personal_charts():
     week_counter = itertools.count(start=1)
     song_rows: list[list] = []
     album_rows: list[list] = []
-    weeks = load_all_weeks(date(2024, 2, 1))   # FIRST_DATE)
+    weeks = load_all_weeks(FIRST_DATE)
     loading_time = datetime.now() - start_time
 
     for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
