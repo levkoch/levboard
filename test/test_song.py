@@ -130,8 +130,7 @@ def test_song_from_variants():
     for variant in expected_variants:
         assert variant in ntltc.to_dict()['variants']
 
-    assert ntltc.title == "no tears left to cry"
+    assert ntltc.title == 'no tears left to cry'
     assert ntltc.main_id == '78715'
     assert ntltc.ids == {'78715', '5443449'}
     assert ntltc.artists == ['Ariana Grande']
-

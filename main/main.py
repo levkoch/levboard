@@ -198,7 +198,8 @@ def create_song_chart(
 
         for id_group in id_groups:
             # skip everything that didn't get listened to at all
-            if len(set(id_group) & all_song_ids) == 0: continue
+            if len(set(id_group) & all_song_ids) == 0:
+                continue
 
             id_plays: Iterable[tuple[str, int]] = (
                 (
@@ -327,8 +328,8 @@ def show_chart(
     end: date,
     week_count: int,
 ):
-    
-    print(f'<> [{week_count:03d}] ({end.isoformat()}) S', end="")
+
+    print(f'<> [{week_count:03d}] ({end.isoformat()}) S', end='')
     return
     print(f'\n({week_count}) Week of {start.isoformat()} to {end.isoformat()}')
 

@@ -19,8 +19,9 @@ from operator import itemgetter
 from typing import Any, Callable, Union
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
+from load import load_linked_songs
 from model.spotistats import Week
-from model import Song, spotistats
+from model import Song, Variant, spotistats
 from spreadsheet import Spreadsheet
 from storage import SongUOW, SongRepository, AlbumRepository
 
@@ -43,17 +44,27 @@ def _update_song_plays(song: Song) -> tuple[Song, int]:
     return (song, song._plays)
 
 
-PLAY_UPDATER = Callable[..., tuple[Song, int]]
+PLAY_UPDATER = Callable[
+    [
+        Song,
+    ],
+    tuple[Song, list[tuple[Variant, int]]],
+]
 
 
 def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
     sheet = Spreadsheet(sheet_id)
     songs_flagged_for_filtering: set[Song] = set()
-    for row in sheet.get_range('BOT_SONGS!B:H').get('values'):
-        if (not row) or (row[0] == 'Title'):
-            continue
-        if int(row[6]) >= MAX_ADJUSTED:
-            songs_flagged_for_filtering.add(uow.songs.get_by_name(row[0]))
+
+    filtered_rows = [
+        row for row in sheet.get_range('BOT_SONGS!H:K').get('values')
+        if row and not (row[0] in {'', 'PLS'})
+    ]
+    for row in sheet.get_range('BOT_SONGS!H:K').get('values'):
+        if not row or row[0] in {'', 'PLS'}:
+            continue # skip row
+        if int(row[0]) >= MAX_ADJUSTED:
+            songs_flagged_for_filtering.add(uow.songs.get(row[3]))
 
     # this now collects all song data, and makes multiple calls if need be
     saved_plays = spotistats.songs_week(
@@ -65,51 +76,43 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
         pos.id: pos.plays for pos in saved_plays
     }
     saved_plays_threshold: int = min(pos.plays for pos in saved_plays)
+    assert saved_plays_threshold == 1
+    # should be 1 wiht how spotistats.songs_week() works
+
     print(
         f'{len(songs_flagged_for_filtering)} songs flagged for filtering'
         + f' | Plays threshold is {saved_plays_threshold} plays.'
     )
 
     def inner_update_song_plays(
-        song_id: str, song_name: str
-    ) -> tuple[Song, int]:
-        song_id = song_id.replace(',', ', ').replace('  ', ' ')
-        if ', ' in song_id:   # has multiple ids
-            first_id = song_id.split(', ')[0]
-            all_ids = set(song_id.split(', '))
-            cached_song = uow.songs.get(first_id)
-
-            if cached_song is None or cached_song.ids != all_ids:
-                song = Song(song_id.split(', ')[0], song_name)
-                for alt in song_id.split(', ')[1:]:
-                    song.add_alt(alt)
-                print(f'unable to find {song} in cache.')
-            else:
-                song = cached_song
-        else:
-            cached_song = uow.songs.get(song_id)
-            if cached_song is None:
-                song = Song(song_id, song_name)
-                print(f'unable to find {song} in cache.')
-            else:
-                song = cached_song
-
+        song: Song,
+    ) -> tuple[Song, list[tuple[Variant, int]]]:
         if song in songs_flagged_for_filtering:
             print(f'{song} flagged for filtering')
-            song.update_plays(adjusted=True)
-            return (song, song._plays)
+            # variant_plays collects listens if the song doesn't have them already the first time
+            return (
+                song,
+                sorted(
+                    (
+                        (var, song.variant_plays(var.main_id))
+                        for var in song.variants
+                    ),
+                    key=itemgetter(1),
+                    reverse=True,
+                ),
+            )
 
-        plays = 0
-        for track_id in song.ids:
-            if track_id in saved_plays_ids:
-                plays += saved_plays_mapping[track_id]
-            else:
-                print(f'### {song} {track_id}: loading information')
-                plays += spotistats.song_plays(
-                    track_id, adjusted=(saved_plays_threshold > MAX_ADJUSTED)
-                )
-                # adjust plays if this id could have somehow been adjusted
-        return (song, plays)
+        var_plays = []
+
+        for var in song.variants:
+            plays = 0
+
+            for variant_id in var.ids:
+                plays += saved_plays_mapping.get(variant_id, 0)
+
+            var_plays.append((var, plays))
+
+        return (song, sorted(var_plays, key=itemgetter(1), reverse=True))
 
     return inner_update_song_plays
 
@@ -118,6 +121,7 @@ def create_song_play_updater_from_weeks(
     week: Week, uow: SongUOW
 ) -> PLAY_UPDATER:
     """
+    !! DEPRECATED !!
     Creates a song play updater function based on data collected from all
     the weeks created by the main script comped together.
     """
@@ -163,6 +167,7 @@ def update_spreadsheet_plays(
     verbose=False,
 ):
     """
+    !! DEPRECATED !!
     Updates the song plays for the songs in the spreadsheet.
 
     Arguments:
@@ -222,6 +227,7 @@ def update_spreadsheet_plays(
 def update_spreadsheet_variant_plays(
     play_updater: PLAY_UPDATER,
     sheet_id: str,
+    uow: SongUOW,
     verbose=False,
 ):
     """
@@ -238,97 +244,69 @@ def update_spreadsheet_variant_plays(
     songs: list[list] = [
         i for i in sheet.get_range('Songs!A2:C').get('values') if i[0]
     ]
+    song_count = sum(1 for row in songs if row[1] != 'X')
+    stored_count = len(uow.songs)
 
-    song_amt = len(songs)
+    if stored_count != song_count:
+        print('some songs are missing from the UOW, fetching them.')
+        print(f'{song_count} songs in sheet, {stored_count} in uow')
+        load_linked_songs(uow, sheet_id)
+        print('all songs loaded')
+
+    assert stored_count == song_count   # just in case
+
     if verbose:
-        print(f'{song_amt} items found.')
+        print(f'{song_count} items found.')
 
     final_songs: list[list] = []
-    prev_id: str = songs[0][1].split(', ')[0]
-    links: dict[str, list] = defaultdict(list)
-    linked = set()
-    linked_songs: dict[str, tuple[Song, int]] = {}
+    chops: list[list] = []
 
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
 
-        for sheet_row in songs:
-            song_name, is_variant, song_id = sheet_row
-
-            if is_variant == 'X':
-                links[prev_id].append(song_id.split(', ')[0])
-                linked.update((prev_id, song_id.split(', ')[0]))
-            else:
-                prev_id = song_id.split(', ')[0]
-
-            future = executor.submit(play_updater, song_id, song_name)
+        for song in uow.songs:
+            future = executor.submit(play_updater, song)
             to_do.append(future)
 
         for count, future in enumerate(futures.as_completed(to_do), 1):
             song: Song
-            plays: int
-            song, plays = future.result()
+            variants: list[tuple[Variant, int]]
+            song, variants = future.result()
 
-            if len(song.ids & linked):
-                for song_id in song.ids:
-                    linked_songs[song_id] = (song, plays)
+            first = True
 
-            else:
-                final_songs.append(
-                    [
-                        "'" + song.title
-                        if any(letter.isnumeric() for letter in song.title)
-                        else song.title,
-                        '',
-                        ', '.join(song.ids),
-                        song.sheet_id,
-                        ', '.join(song.artists),
-                        plays,
-                    ]
-                )
-            if verbose:
-                print(
-                    f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
-                    f'| {spotistats.total_requests:>3} req | '
-                    f'updated {song} -> {plays} plays'
-                )
-
-    if verbose:
-        print(f'compiling variant plays')
-
-    for main_id, variant_ids in links.items():
-        variant_pool: list[tuple[Song, int]] = [
-            linked_songs[main_id],
-        ]
-        for variant_id in variant_ids:
-            variant_pool.append(linked_songs[variant_id])
-
-        variant_pool.sort(key=itemgetter(1), reverse=True)
-        main_id = variant_pool[0][0].main_id
-
-        for song, plays in variant_pool:
-            song.sheet_id = main_id
-
-            final_songs.append(
-                [
-                    "'" + song.title
-                    if any(letter.isnumeric() for letter in song.title)
-                    else song.title,
-                    '' if song.main_id == main_id else 'X',
-                    ', '.join(song.ids),
-                    main_id,
-                    ', '.join(song.artists),
+            for variant, plays in variants:
+                info = [
+                    "'" + variant.title
+                    if any(letter.isnumeric() for letter in variant.title)
+                    else variant.title,
+                    '' if first else 'X',
+                    ', '.join(variant.ids),
+                    song.sheet_id,
+                    ', '.join(variant.artists),
                     plays,
                 ]
-            )
+                final_songs.append(info)
+                first = False
 
-    if verbose:
-        print('finished compiling variant plays')
+                if plays == 0:
+                    chops.append(info)
 
+                if verbose:
+                    print(
+                        f'{count:>4} ({(count / song_count * 100.0):.02f}%) '
+                        f'| {spotistats.total_requests:>3} req | '
+                        f'updated {variant.title} by {", ".join(variant.artists)} -> {plays} plays'
+                    )
+
+    print('')
+    # print(chops)
     sheet.update_range(f'Songs!A2:F{len(final_songs) + 1}', final_songs)
 
     if verbose:
-        print(f'Updated {song_amt} spreadsheet song plays.')
+        print(
+            f'Updated {song_count} spreadsheet song plays ({len(final_songs)} total rows).'
+        )
 
 
 def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
@@ -611,6 +589,7 @@ if __name__ == '__main__':
     update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
+        uow,
         verbose=True,
     )
     uow.commit()

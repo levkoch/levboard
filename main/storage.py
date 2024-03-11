@@ -3,9 +3,10 @@ from typing import Iterator, Optional
 
 from config import ALBUM_FILE, SONG_FILE
 from model import Album, Song
+from collections.abc import Collection
 
 
-class SongRepository:
+class SongRepository(Collection):
     """
     Stores all of the songs in the song file.
 
@@ -88,12 +89,13 @@ class SongRepository:
         # causes songs with multiple ids to be sent out multiple times,
         # which is not what is intended
 
-        sent_ids: list[str] = []
-        for song in self._songs.values():
-            # check if has already sent a song with that id and send if hasn't
-            if song.main_id not in sent_ids:
-                sent_ids.append(song.main_id)
-                yield song
+        return iter(set(self._songs.values()))
+
+    def __len__(self) -> int:
+        return len(set(self._songs.values()))
+
+    def __contains__(self, song: Song) -> bool:
+        return song in self._songs.values()
 
     def add(self, song: Song) -> None:
         """Adds a `Song` into the repository."""
@@ -108,7 +110,7 @@ class SongRepository:
         return list(self._songs.keys())
 
 
-class AlbumRepository:
+class AlbumRepository(Collection):
     __slots__ = ['_albums', '_file']
 
     def __init__(self, *, album_file: str = ALBUM_FILE):
@@ -142,6 +144,15 @@ class AlbumRepository:
     def list(self) -> list[str]:
         """Returns all of the album names stored."""
         return list(self._albums.keys())
+
+    def __iter__(self) -> Iterator[Album]:
+        return iter(set(self._albums.values()))
+
+    def __len__(self) -> int:
+        return len(self._albums)
+
+    def __contains__(self, album: Album) -> bool:
+        return album in self._albums.values()
 
 
 class SongUOW:
