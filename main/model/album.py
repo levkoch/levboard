@@ -314,7 +314,7 @@ class Album:
         with futures.ThreadPoolExecutor() as executor:
             return sum(
                 executor.map(
-                    methodcaller('period_units', start=start, end=end),
+                    methodcaller('period_units', start=start, end=end, adjusted=True),
                     self.songs,
                 )
             )

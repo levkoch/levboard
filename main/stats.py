@@ -333,9 +333,10 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
     for (song, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
+        # week start and week end are both inclusive of end weeks. 
         print(
             f"{place:>2} | {f'{song.title} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
-            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 2}'
+            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 3}'
         )
     print('')
 
@@ -535,13 +536,13 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
    
     top_listeners_chart(uow)
-    top_song_consecutive_weeks_infographic(uow)
     """
-
+    top_song_consecutive_weeks_infographic(uow)
+    
+    """
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
     top_shortest_time_units_milestones_infograpic(uow, 6_000)
-    """
     
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)

@@ -318,23 +318,29 @@ def songs_week(
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
         f'?after={after}&before={before}'
-        '&limit=1000'  # max limit for this request is 1000 songs and not the 10,000 like others have
+        '&limit=500'  # max limit for this request is 500 songs and not the 10,000 like others have
     )
 
     r = _get_address(address)
     items: list[dict] = r.json()['items']
+    print(f'{len(items)} items found.')
 
-    if len(items) == 1000:   # filled in everything
-        offset = 1000
-        while len(items) % 1000 == 0:
+    if len(items) == 500:   # filled in everything 
+        # might need to switch back to if len(items) % 500 > 450 but whatever
+        offset = 500
+        print("searching for more items")
+        while len(items) % 500 == 0:
             address = (
                 f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
                 f'?after={after}&before={before}'
-                f'&limit=1000&offset={offset}'
+                f'&limit=500&offset={offset}'
             )
             r = _get_address(address)
-            items.extend(r.json()['items'])
-            offset += 1000
+            additions = r.json()['items']
+            if not len(additions): break
+            items.extend(additions)
+            print(f'{offset} offset and {len(items)} total items after {len(additions)} added')
+            offset += 500
 
     info = [
         Position(id=i['track']['id'], plays=i['streams'], place=i['position'])

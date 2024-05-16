@@ -97,14 +97,17 @@ class Song:
     ):
         self.main_id: str = song_id
         self.title: str = song_title
-        self.main_variant = Variant(
-            main_id=self.main_id,
-            title=self.title,
-            ids={
-                self.main_id,
-            },
-            artists=[],
-        )
+        if song_title is None:
+            self.main_variant = Variant.from_id(song_id)
+        else:
+            self.main_variant = Variant(
+                main_id=self.main_id,
+                title=self.title,
+                ids={
+                    self.main_id,
+                },
+                artists=[],
+            )
         self._variants: dict[str, Variant] = {self.main_id: self.main_variant}
         self.active = self.main_variant
         self._plays: int = 0
