@@ -39,13 +39,9 @@ def charted_between(
 
 
 def get_song_play_history(song: Song) -> list[spotistats.Listen]:
-    total_ids = song.ids
-    for variant in song._variants:
-        total_ids.update(variant.ids)
-
     with futures.ThreadPoolExecutor() as executor:
         # make song main id into list to add to alternate ids
-        mapped = executor.map(spotistats.song_play_history, total_ids)
+        mapped = executor.map(spotistats.song_play_history, song.ids)
 
     return list(itertools.chain(*mapped))
 
@@ -536,14 +532,16 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
    
     top_listeners_chart(uow)
-    """
-    top_song_consecutive_weeks_infographic(uow)
     
+    top_song_consecutive_weeks_infographic(uow)
     """
+
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
     top_shortest_time_units_milestones_infograpic(uow, 6_000)
-    
+    top_shortest_time_units_milestones_infograpic(uow, 8_000)
+
+    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
