@@ -325,11 +325,11 @@ def songs_week(
     items: list[dict] = r.json()['items']
     print(f'{len(items)} items found.')
 
-    if len(items) == 500:   # filled in everything 
+    if len(items) % 500 == 0 or len(items) % 500 > 450:   # filled in everything 
         # might need to switch back to if len(items) % 500 > 450 but whatever
         offset = 500
         print("searching for more items")
-        while len(items) % 500 == 0:
+        while len(items) % 500 == 0 or len(items) % 500 > 450:
             address = (
                 f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
                 f'?after={after}&before={before}'
