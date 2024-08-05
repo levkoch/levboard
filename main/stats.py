@@ -329,7 +329,7 @@ def top_song_consecutive_weeks_infographic(uow: SongUOW):
     for (song, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
-        # week start and week end are both inclusive of end weeks. 
+        # week start and week end are both inclusive of end weeks.
         print(
             f"{place:>2} | {f'{song.title} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
             f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 3}'

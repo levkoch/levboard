@@ -302,20 +302,41 @@ class Album:
         """
         Returns the plays for a period of time.
         """
+        
+        def period_plays_caller(variant: int, song: Song):
+            return song.period_plays(
+                start=start, end=end, adjusted=True, variant=variant
+            )
+
         with futures.ThreadPoolExecutor() as executor:
             return sum(
                 executor.map(
-                    methodcaller('period_plays', start=start, end=end),
-                    self.songs,
+                    period_plays_caller,
+                    (item[0] for item in self.songs),
+                    (item[1] for item in self.songs),
                 )
             )
 
     def period_units(self, start: date, end: date) -> int:
+        """
+        Returns the units the album gained for a period of time. Conscious of variants.
+        """
+
+        # create lambda function that will grab the period units just from the
+        # variant we are asking for
+        def period_units_caller(variant: int, song: Song):
+            return song.period_units(
+                start=start, end=end, adjusted=True, variant=variant
+            )
+
         with futures.ThreadPoolExecutor() as executor:
             return sum(
                 executor.map(
-                    methodcaller('period_units', start=start, end=end, adjusted=True),
-                    self.songs,
+                    period_units_caller,
+                    # we have to split up self.songs into just the variant and song
+                    # iterables separately to feed them into the lambda function
+                    (item[0] for item in self.songs),
+                    (item[1] for item in self.songs),
                 )
             )
 

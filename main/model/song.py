@@ -386,7 +386,13 @@ class Song:
         self.main_id = common.most_common(1)[0][0]
         self._load_info()
 
-    def period_plays(self, start: date, end: date, adjusted=True) -> int:
+    def period_plays(
+        self,
+        start: date,
+        end: date,
+        adjusted=True,
+        variant: Optional[str] = None,
+    ) -> int:
         """
         Returns the song's plays for some period.
         """
@@ -394,11 +400,17 @@ class Song:
         if self.__listens is None:
             self._populate_listens()
 
+        if variant:
+            if variant not in self.ids:
+                raise ValueError(f'variant #{variant} not found in {self}')
+            variant_ids = self.get_variant(variant).ids
+
         listens = (
             listen
             for listen in self.__listens
             if listen.finished_playing.date() >= start
             and listen.finished_playing.date() <= end
+            and (not variant or listen.played_from in variant_ids)
         )
 
         if not adjusted:
@@ -414,15 +426,22 @@ class Song:
 
         return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-    def period_points(self, start: date, end: date, strict=True) -> int:
+    def period_points(
+        self, start: date, end: date, variant: Optional[str] = None
+    ) -> int:
         """Returns the song's points gained for some period."""
+
+        if variant:   # is not None
+            if variant not in self.ids:
+                raise ValueError(f'variant #{variant} not found in {self}')
+            variant_ids = self.get_variant(variant).ids
 
         return sum(
             ((SONG_CHART_LENGTH + 1) - e.place)
             for e in self.entries
             if e.end >= start
             and e.end <= end
-            and (not strict or e.variant in self.ids)
+            and (not variant or e.variant in variant_ids)
         )
 
     def period_weeks(self, start: date, end: date, strict=True) -> int:
@@ -439,13 +458,14 @@ class Song:
         start: date,
         end: date,
         adjusted=True,
+        variant: Optional[str] = None,
     ) -> int:
         """
         Returns the song's units gained for some period.
         """
         return self.period_plays(
-            start, end, adjusted
-        ) * 2 + self.period_points(start, end)
+            start, end, adjusted=adjusted, variant=variant
+        ) * 2 + self.period_points(start, end, variant=variant)
 
     def add_variant(self, variant: Variant) -> None:
         """Links together a new variant into the song."""

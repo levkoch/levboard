@@ -57,12 +57,13 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
     songs_flagged_for_filtering: set[Song] = set()
 
     filtered_rows = [
-        row for row in sheet.get_range('BOT_SONGS!H:K').get('values')
+        row
+        for row in sheet.get_range('BOT_SONGS!H:K').get('values')
         if row and not (row[0] in {'', 'PLS'})
     ]
     for row in sheet.get_range('BOT_SONGS!H:K').get('values'):
         if not row or row[0] in {'', 'PLS'}:
-            continue # skip row
+            continue   # skip row
         if int(row[0]) >= MAX_ADJUSTED:
             songs_flagged_for_filtering.add(uow.songs.get(row[3]))
 
@@ -470,7 +471,9 @@ def month_end_collection_creater(
         current_month = datetime.date.today().month
 
         while (current_year > FIRST_DATE.year) or (
-            current_month > FIRST_DATE.month - 1
+            # nothing actually renders for May 2021 which is when the first date is set 
+            # to so it counts for everything after that month
+            current_month > FIRST_DATE.month 
         ):
             if verbose:
                 print(
@@ -572,18 +575,35 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-    """
+
+    '''kbfn = uow.albums.get('k bye for now')
+    units_2021 = kbfn.period_units(
+        datetime.date(2021, 1, 1), datetime.date(2022, 1, 1)
+    )
+    units_2022 = kbfn.period_units(
+        datetime.date(2022, 1, 1), datetime.date(2023, 1, 1)
+    )
+    units_2023 = kbfn.period_units(
+        datetime.date(2023, 1, 1), datetime.date(2024, 1, 1)
+    )
+    units_2024 = kbfn.period_units(
+        datetime.date(2024, 1, 1), datetime.date(2025, 1, 1)
+    )
+
+    print((units_2021, units_2022, units_2023, units_2024))
+
+    quit()'''
+
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
-    # load_year_end_albums(uow.albums, verbose=True)
+    load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
-    # load_month_end_albums(uow.albums, verbose=True)
+    load_month_end_albums(uow.albums, verbose=True)
+
     """
     update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         uow,
         verbose=True,
-    )
-    # uow.commit()
-    
+    )"""
