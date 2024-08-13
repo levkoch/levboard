@@ -48,6 +48,8 @@ SONG_FILE: Final[str] = data_dir + '/songs.json'
 RECORDS_FILE: Final[str] = data_dir + '/records.json'
 TEST_SONG_FILE: Final[str] = data_dir + '/test_songs.json'
 
+image_dir = data_dir[:-5] + '/image'
+
 SERVICE_ACCOUNT_FILE: str = (
     # on laptop
     'C:/Users/levpo/Documents/GitHub/lev-bot/extras/google_token.json'

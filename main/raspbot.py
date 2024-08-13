@@ -1,8 +1,10 @@
 """functions for the raspberry pi until i figure out what i'll actaully be doing with it."""
 
 import json
+from waveshare.epd import EPD
+from PIL import Image, ImageDraw, ImageFont
 
-from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE
+from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, image_dir
 from spreadsheet import Spreadsheet
 
 
@@ -116,6 +118,40 @@ def update_records_info():
     with open(RECORDS_FILE, 'w', encoding='UTF-8') as f:
         json.dump(records, f, indent=4)
 
+def create_image_trial():
+    epd = EPD()
+    epd.Init_4Gray()
+    font24 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 24)
+    font18 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 18)
+    font35 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 35)
+    
+    Limage = Image.new('L', (epd.height, epd.width), 0)  # 255: clear the frame
+    draw = ImageDraw.Draw(Limage)
+    draw.text((0, 0), u'微雪电子', font = font35, fill = epd.GRAY1)
+    draw.text((0, 35), u'微雪电子', font = font35, fill = epd.GRAY2)
+    draw.text((0, 70), u'微雪电子', font = font35, fill = epd.GRAY3)
+    draw.text((20, 105), 'hello world', font = font18, fill = epd.GRAY1)
+    draw.line((160, 10, 210, 60), fill = epd.GRAY1)
+    draw.line((160, 60, 210, 10), fill = epd.GRAY1)
+    draw.rectangle((160, 10, 210, 60), outline = epd.GRAY1)
+    draw.line((160, 95, 210, 95), fill = epd.GRAY1)
+    draw.line((185, 70, 185, 120), fill = epd.GRAY1)
+    draw.arc((160, 70, 210, 120), 0, 360, fill = epd.GRAY1)
+    draw.rectangle((220, 10, 270, 60), fill = epd.GRAY1)
+    draw.chord((220, 70, 270, 120), 0, 360, fill = epd.GRAY1)
+
+    epd.display_4Gray(epd.getbuffer_4Gray(Limage))
+    
+    #display 4Gra bmp
+    # Himage = Image.open(os.path.join(picdir, '2in9_Scale.bmp'))
+    # epd.display_4Gray(epd.getbuffer_4Gray(Himage))
+    # time.sleep(2)
+            
+    epd.init()
+    epd.Clear(0xFF)
+    
+    epd.sleep()
+    
 
 if __name__ == '__main__':
     update_records_info()
