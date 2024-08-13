@@ -471,9 +471,10 @@ def month_end_collection_creater(
         current_month = datetime.date.today().month
 
         while (current_year > FIRST_DATE.year) or (
-            # nothing actually renders for May 2021 which is when the first date is set 
+            # nothing actually renders for May 2021 which is when the first date is set
             # to so it counts for everything after that month
-            current_month > FIRST_DATE.month 
+            current_month
+            > FIRST_DATE.month
         ):
             if verbose:
                 print(
@@ -576,7 +577,7 @@ load_month_end_albums = month_end_collection_creater(
 if __name__ == '__main__':
     uow = SongUOW()
 
-    '''kbfn = uow.albums.get('k bye for now')
+    """kbfn = uow.albums.get('k bye for now')
     units_2021 = kbfn.period_units(
         datetime.date(2021, 1, 1), datetime.date(2022, 1, 1)
     )
@@ -592,7 +593,7 @@ if __name__ == '__main__':
 
     print((units_2021, units_2022, units_2023, units_2024))
 
-    quit()'''
+    quit()"""
 
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)

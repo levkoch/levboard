@@ -302,7 +302,7 @@ class Album:
         """
         Returns the plays for a period of time.
         """
-        
+
         def period_plays_caller(variant: int, song: Song):
             return song.period_plays(
                 start=start, end=end, adjusted=True, variant=variant

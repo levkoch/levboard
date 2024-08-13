@@ -20,6 +20,8 @@ from typing import Final
 MAX_ADJUSTED: Final[int] = 25
 # where my google sheet is located at
 LEVBOARD_SHEET: Final[str] = '1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk'
+# where my collection sheet is located at
+COLLECTION_SHEET: Final[str] = '1RG6msaBX0Ysfx72yvdJ-Q14x-YZP_0YQpQYZThObJrA'
 # where the group charts sheet is located at
 GROUPBOARD_SHEET: Final[str] = '16ZJCz0AU5WM-e2YytmFtzLRhJ1Pd5bJpuAVv2y8XmM0'
 # date used for testing so that it doesn't have to load all 334 weeks
@@ -43,6 +45,7 @@ data_dir += '/data'
 
 ALBUM_FILE: Final[str] = data_dir + '/albums.json'
 SONG_FILE: Final[str] = data_dir + '/songs.json'
+RECORDS_FILE: Final[str] = data_dir + '/records.json'
 TEST_SONG_FILE: Final[str] = data_dir + '/test_songs.json'
 
 SERVICE_ACCOUNT_FILE: str = (
