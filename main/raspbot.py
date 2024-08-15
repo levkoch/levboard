@@ -1,11 +1,14 @@
 """functions for the raspberry pi until i figure out what i'll actaully be doing with it."""
 
+import time
 import json
-from waveshare.epd import EPD
+# from waveshare.epd import EPD
 from PIL import Image, ImageDraw, ImageFont
 
 from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, image_dir
-from spreadsheet import Spreadsheet
+
+# since the google libraries are a nightmare to install for some reason
+# from spreadsheet import Spreadsheet
 
 
 def update_records_info():
@@ -91,13 +94,13 @@ def update_records_info():
             'type': levboard_type,
             'title': levboard_title,
         }
-        # albums without a levboard equivalent (like compilations and 
+        # albums without a levboard equivalent (like compilations and
         # singles that i bought physical copies of but that didn't chart)
         # are registered as "NONE"
         if levboard_title != 'NONE':
             info_pool = albums_info if levboard_type == 'Album' else songs_info
             info_field = info_pool.get(levboard_title)
-            if info_field is None: # no match so it was merged wrong
+            if info_field is None:   # no match so it was merged wrong
                 print(f'Unable to find levboard item named {levboard_title}')
             else:
                 levboard_info.update(info_field)
@@ -118,40 +121,70 @@ def update_records_info():
     with open(RECORDS_FILE, 'w', encoding='UTF-8') as f:
         json.dump(records, f, indent=4)
 
+
 def create_image_trial():
-    epd = EPD()
-    epd.Init_4Gray()
-    font24 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 24)
-    font18 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 18)
-    font35 = ImageFont.truetype(image_dir + "/minecraftia.ttf", 35)
-    
+    # epd = EPD()
+    # epd.Init_4Gray()
+
+    WHITE = "#FFFFFF"
+    LGRAY = "#C0C0C0"
+    DGRAY = "#808080"
+    BLACK = "#000000"
+
+    """
+    example = Image.open(image_dir + '/example_display.png')
+    epd.display_4Gray(epd.getbuffer_4Gray(example))
+    time.sleep(10)
+    """
+    # epd.init()
+    # epd.Clear(0xFF)
+
+    # epd.Init_4Gray()
+    font_8 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 8)
+    font_16 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 16)
+    font_24 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 24)
+
+    display = Image.open(image_dir + '/blank_display.png')
+    # epd.display_4Gray(epd.getbuffer_4Gray(display))
+
+    draw = ImageDraw.Draw(display)
+    draw.rectangle(((12, 12), (38, 38)), fill=BLACK)
+    draw.text((18, 9), '2', font=font_24, fill=WHITE) #at 18, 13 on figma
+    # epd.display_4Gray(epd.getbuffer_4Gray(display))
+
+    draw.text((44, 9), 'hit me hard and soft', font=font_16, fill=BLACK) # at
+    draw.text((44, 29), 'billie eilish', font=font_8, fill=BLACK)
+
+    draw.text()
+
+    with open("C:/Users/levpo/Downloads/trial.png", "wb") as f:
+        display.save(f, format="png")
+    #epd.display_4Gray(epd.getbuffer_4Gray(display))
+    # time.sleep(10)
+
+    """
     Limage = Image.new('L', (epd.height, epd.width), 0)  # 255: clear the frame
     draw = ImageDraw.Draw(Limage)
-    draw.text((0, 0), u'微雪电子', font = font35, fill = epd.GRAY1)
-    draw.text((0, 35), u'微雪电子', font = font35, fill = epd.GRAY2)
-    draw.text((0, 70), u'微雪电子', font = font35, fill = epd.GRAY3)
-    draw.text((20, 105), 'hello world', font = font18, fill = epd.GRAY1)
-    draw.line((160, 10, 210, 60), fill = epd.GRAY1)
-    draw.line((160, 60, 210, 10), fill = epd.GRAY1)
-    draw.rectangle((160, 10, 210, 60), outline = epd.GRAY1)
-    draw.line((160, 95, 210, 95), fill = epd.GRAY1)
-    draw.line((185, 70, 185, 120), fill = epd.GRAY1)
-    draw.arc((160, 70, 210, 120), 0, 360, fill = epd.GRAY1)
-    draw.rectangle((220, 10, 270, 60), fill = epd.GRAY1)
-    draw.chord((220, 70, 270, 120), 0, 360, fill = epd.GRAY1)
+    draw.text((0, 0), '3', font=font35, fill=epd.GRAY1)
+    draw.text((20, 105), 'hello world', font=font18, fill=epd.GRAY1)
+    draw.line((160, 10, 210, 60), fill=epd.GRAY1)
+    draw.line((160, 60, 210, 10), fill=epd.GRAY1)
+    draw.rectangle((160, 10, 210, 60), outline=epd.GRAY1)
+    draw.line((160, 95, 210, 95), fill=epd.GRAY4)
+    draw.line((185, 70, 185, 120), fill=epd.GRAY1)
+    draw.arc((160, 70, 210, 120), 0, 360, fill=epd.GRAY1)
+    draw.rectangle((220, 10, 270, 60), fill=epd.GRAY1)
+    draw.chord((220, 70, 270, 120), 0, 360, fill=epd.GRAY1)
 
     epd.display_4Gray(epd.getbuffer_4Gray(Limage))
-    
-    #display 4Gra bmp
-    # Himage = Image.open(os.path.join(picdir, '2in9_Scale.bmp'))
-    # epd.display_4Gray(epd.getbuffer_4Gray(Himage))
-    # time.sleep(2)
-            
-    epd.init()
-    epd.Clear(0xFF)
-    
-    epd.sleep()
-    
+    """
+
+    # epd.init()
+    # epd.Clear(0xFF)
+
+    # epd.sleep()
+
 
 if __name__ == '__main__':
-    update_records_info()
+    # update_records_info()
+    create_image_trial()
