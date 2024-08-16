@@ -28,10 +28,10 @@
             "type": "Album",
             "title": "19",
             "place": 44,
-            "units": 2428,
-            "plays": 734,
+            "units": 2430,
+            "plays": 735,
             "points": 960,
-            "weeks": 16,
+            "weeks": 15,
             "peak": "2"
         }
     },
@@ -49,11 +49,34 @@
             "type": "Album",
             "title": "21",
             "place": 4,
-            "units": 27198,
-            "plays": 5262,
+            "units": 27282,
+            "plays": 5304,
             "points": 16674,
-            "weeks": 105,
-            "peak": "1\u00b9\u2079"
+            "weeks": 106,
+            "peak": "1(19)",
+            "current": {
+                "units": "84",
+                "plays": "42",
+                "points": "0",
+                "positions": [
+                    12,
+                    19,
+                    15,
+                    null,
+                    null,
+                    null,
+                    12,
+                    5,
+                    12,
+                    3,
+                    19,
+                    3,
+                    10,
+                    null,
+                    10,
+                    18
+                ]
+            }
         }
     },
     "30004": {
@@ -70,11 +93,34 @@
             "type": "Album",
             "title": "25",
             "place": 13,
-            "units": 11633,
-            "plays": 2567,
-            "points": 6499,
-            "weeks": 58,
-            "peak": "1\u2075"
+            "units": 11716,
+            "plays": 2596,
+            "points": 6524,
+            "weeks": 59,
+            "peak": "1(5)",
+            "current": {
+                "units": "83",
+                "plays": "29",
+                "points": "25",
+                "positions": [
+                    13,
+                    1,
+                    null,
+                    null,
+                    null,
+                    13,
+                    null,
+                    19,
+                    9,
+                    null,
+                    null,
+                    12,
+                    null,
+                    null,
+                    20,
+                    19
+                ]
+            }
         }
     },
     "30005": {
@@ -95,7 +141,7 @@
             "plays": 2379,
             "points": 4907,
             "weeks": 68,
-            "peak": "2\u2076"
+            "peak": "2(6)"
         }
     },
     "30006": {
@@ -116,7 +162,7 @@
             "plays": 2379,
             "points": 4907,
             "weeks": 68,
-            "peak": "2\u2076"
+            "peak": "2(6)"
         }
     },
     "30007": {
@@ -153,9 +199,9 @@
         "levboard": {
             "type": "Album",
             "title": "The Pains Of Growing",
-            "place": 28,
-            "units": 4751,
-            "plays": 1388,
+            "place": 29,
+            "units": 4755,
+            "plays": 1390,
             "points": 1975,
             "weeks": 40,
             "peak": "5"
@@ -196,11 +242,34 @@
             "type": "Album",
             "title": "My Everything",
             "place": 8,
-            "units": 19706,
-            "plays": 4308,
-            "points": 11090,
-            "weeks": 127,
-            "peak": "1\u2075"
+            "units": 19895,
+            "plays": 4389,
+            "points": 11117,
+            "weeks": 126,
+            "peak": "1(5)",
+            "current": {
+                "units": "234",
+                "plays": "86",
+                "points": "62",
+                "positions": [
+                    7,
+                    11,
+                    null,
+                    null,
+                    9,
+                    null,
+                    null,
+                    8,
+                    null,
+                    9,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30011": {
@@ -217,11 +286,11 @@
             "type": "Album",
             "title": "Dangerous Woman",
             "place": 7,
-            "units": 20147,
+            "units": 20180,
             "plays": 4207,
-            "points": 11733,
-            "weeks": 105,
-            "peak": "1\u00b9\u00b2"
+            "points": 11766,
+            "weeks": 106,
+            "peak": "1(12)"
         }
     },
     "30012": {
@@ -238,11 +307,34 @@
             "type": "Album",
             "title": "Sweetener",
             "place": 10,
-            "units": 15023,
-            "plays": 2979,
-            "points": 9065,
+            "units": 15066,
+            "plays": 3003,
+            "points": 9060,
             "weeks": 106,
-            "peak": "1\u00b3"
+            "peak": "1(3)",
+            "current": {
+                "units": "95",
+                "plays": "26",
+                "points": "43",
+                "positions": [
+                    9,
+                    14,
+                    11,
+                    13,
+                    8,
+                    10,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    18,
+                    null,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30013": {
@@ -259,11 +351,34 @@
             "type": "Album",
             "title": "k bye for now",
             "place": 11,
-            "units": 13254,
-            "plays": 4024,
-            "points": 5206,
-            "weeks": 52,
-            "peak": "1\u00b2"
+            "units": 13304,
+            "plays": 4061,
+            "points": 5182,
+            "weeks": 54,
+            "peak": "1(2)",
+            "current": {
+                "units": "42",
+                "plays": "21",
+                "points": "0",
+                "positions": [
+                    20,
+                    8,
+                    9,
+                    null,
+                    5,
+                    null,
+                    7,
+                    null,
+                    3,
+                    4,
+                    12,
+                    11,
+                    4,
+                    20,
+                    18,
+                    2
+                ]
+            }
         }
     },
     "30014": {
@@ -280,11 +395,34 @@
             "type": "Album",
             "title": "thank u, next",
             "place": 3,
-            "units": 30449,
-            "plays": 5496,
-            "points": 19457,
-            "weeks": 146,
-            "peak": "1\u2079"
+            "units": 30971,
+            "plays": 5572,
+            "points": 19827,
+            "weeks": 147,
+            "peak": "1(9)",
+            "current": {
+                "units": "438",
+                "plays": "85",
+                "points": "268",
+                "positions": [
+                    3,
+                    6,
+                    12,
+                    9,
+                    1,
+                    6,
+                    14,
+                    1,
+                    4,
+                    null,
+                    null,
+                    5,
+                    20,
+                    5,
+                    3,
+                    null
+                ]
+            }
         }
     },
     "30015": {
@@ -301,11 +439,34 @@
             "type": "Album",
             "title": "Positions",
             "place": 1,
-            "units": 53991,
-            "plays": 9936,
-            "points": 34119,
-            "weeks": 154,
-            "peak": "1\u00b3\u2075"
+            "units": 54261,
+            "plays": 10018,
+            "points": 34225,
+            "weeks": 155,
+            "peak": "1(35)",
+            "current": {
+                "units": "270",
+                "plays": "82",
+                "points": "106",
+                "positions": [
+                    5,
+                    3,
+                    2,
+                    3,
+                    7,
+                    4,
+                    1,
+                    2,
+                    10,
+                    2,
+                    2,
+                    2,
+                    2,
+                    1,
+                    5,
+                    4
+                ]
+            }
         }
     },
     "30016": {
@@ -322,11 +483,34 @@
             "type": "Album",
             "title": "Positions",
             "place": 1,
-            "units": 53991,
-            "plays": 9936,
-            "points": 34119,
-            "weeks": 154,
-            "peak": "1\u00b3\u2075"
+            "units": 54261,
+            "plays": 10018,
+            "points": 34225,
+            "weeks": 155,
+            "peak": "1(35)",
+            "current": {
+                "units": "270",
+                "plays": "82",
+                "points": "106",
+                "positions": [
+                    5,
+                    3,
+                    2,
+                    3,
+                    7,
+                    4,
+                    1,
+                    2,
+                    10,
+                    2,
+                    2,
+                    2,
+                    2,
+                    1,
+                    5,
+                    4
+                ]
+            }
         }
     },
     "30017": {
@@ -343,11 +527,34 @@
             "type": "Album",
             "title": "Positions",
             "place": 1,
-            "units": 53991,
-            "plays": 9936,
-            "points": 34119,
-            "weeks": 154,
-            "peak": "1\u00b3\u2075"
+            "units": 54261,
+            "plays": 10018,
+            "points": 34225,
+            "weeks": 155,
+            "peak": "1(35)",
+            "current": {
+                "units": "270",
+                "plays": "82",
+                "points": "106",
+                "positions": [
+                    5,
+                    3,
+                    2,
+                    3,
+                    7,
+                    4,
+                    1,
+                    2,
+                    10,
+                    2,
+                    2,
+                    2,
+                    2,
+                    1,
+                    5,
+                    4
+                ]
+            }
         }
     },
     "30018": {
@@ -364,11 +571,11 @@
             "type": "Album",
             "title": "eternal sunshine",
             "place": 14,
-            "units": 10036,
-            "plays": 2226,
+            "units": 10040,
+            "plays": 2228,
             "points": 5584,
             "weeks": 19,
-            "peak": "1\u2076"
+            "peak": "1(6)"
         }
     },
     "30019": {
@@ -385,11 +592,11 @@
             "type": "Album",
             "title": "eternal sunshine",
             "place": 14,
-            "units": 10036,
-            "plays": 2226,
+            "units": 10040,
+            "plays": 2228,
             "points": 5584,
             "weeks": 19,
-            "peak": "1\u2076"
+            "peak": "1(6)"
         }
     },
     "30020": {
@@ -406,11 +613,11 @@
             "type": "Album",
             "title": "eternal sunshine",
             "place": 14,
-            "units": 10036,
-            "plays": 2226,
+            "units": 10040,
+            "plays": 2228,
             "points": 5584,
             "weeks": 19,
-            "peak": "1\u2076"
+            "peak": "1(6)"
         }
     },
     "30021": {
@@ -490,11 +697,34 @@
             "type": "Album",
             "title": "Lemonade",
             "place": 18,
-            "units": 8547,
-            "plays": 2255,
-            "points": 4037,
-            "weeks": 56,
-            "peak": "1"
+            "units": 8634,
+            "plays": 2283,
+            "points": 4068,
+            "weeks": 57,
+            "peak": "1",
+            "current": {
+                "units": "60",
+                "plays": "30",
+                "points": "0",
+                "positions": [
+                    16,
+                    null,
+                    20,
+                    4,
+                    null,
+                    null,
+                    6,
+                    7,
+                    null,
+                    10,
+                    null,
+                    15,
+                    null,
+                    19,
+                    null,
+                    15
+                ]
+            }
         }
     },
     "30025": {
@@ -511,9 +741,9 @@
             "type": "Album",
             "title": "HOMECOMING",
             "place": 54,
-            "units": 2026,
-            "plays": 927,
-            "points": 172,
+            "units": 2013,
+            "plays": 941,
+            "points": 131,
             "weeks": 17,
             "peak": "6"
         }
@@ -532,11 +762,11 @@
             "type": "Album",
             "title": "RENAISSANCE",
             "place": 38,
-            "units": 2916,
-            "plays": 956,
+            "units": 2918,
+            "plays": 957,
             "points": 1004,
             "weeks": 22,
-            "peak": "4"
+            "peak": "5"
         }
     },
     "30027": {
@@ -553,11 +783,34 @@
             "type": "Album",
             "title": "dont smile at me",
             "place": 5,
-            "units": 25487,
-            "plays": 4726,
-            "points": 16035,
-            "weeks": 113,
-            "peak": "1\u2075"
+            "units": 25571,
+            "plays": 4756,
+            "points": 16059,
+            "weeks": 114,
+            "peak": "1(5)",
+            "current": {
+                "units": "94",
+                "plays": "35",
+                "points": "24",
+                "positions": [
+                    10,
+                    18,
+                    10,
+                    6,
+                    10,
+                    8,
+                    5,
+                    11,
+                    null,
+                    19,
+                    9,
+                    6,
+                    6,
+                    12,
+                    7,
+                    6
+                ]
+            }
         }
     },
     "30028": {
@@ -574,11 +827,34 @@
             "type": "Album",
             "title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
             "place": 9,
-            "units": 15048,
-            "plays": 3535,
-            "points": 7978,
+            "units": 15100,
+            "plays": 3555,
+            "points": 7990,
             "weeks": 71,
-            "peak": "1\u00b2"
+            "peak": "1(2)",
+            "current": {
+                "units": "52",
+                "plays": "20",
+                "points": "12",
+                "positions": [
+                    17,
+                    20,
+                    1,
+                    5,
+                    6,
+                    5,
+                    4,
+                    null,
+                    null,
+                    null,
+                    15,
+                    7,
+                    5,
+                    2,
+                    13,
+                    9
+                ]
+            }
         }
     },
     "30029": {
@@ -595,11 +871,34 @@
             "type": "Album",
             "title": "Happier Than Ever",
             "place": 2,
-            "units": 33441,
-            "plays": 6413,
-            "points": 20615,
-            "weeks": 80,
-            "peak": "1\u00b2\u00b9"
+            "units": 33896,
+            "plays": 6514,
+            "points": 20868,
+            "weeks": 81,
+            "peak": "1(21)",
+            "current": {
+                "units": "439",
+                "plays": "93",
+                "points": "253",
+                "positions": [
+                    2,
+                    5,
+                    3,
+                    2,
+                    3,
+                    2,
+                    3,
+                    4,
+                    7,
+                    6,
+                    3,
+                    4,
+                    3,
+                    3,
+                    2,
+                    8
+                ]
+            }
         }
     },
     "30030": {
@@ -616,11 +915,11 @@
             "type": "Single",
             "title": "What Was I Made For?",
             "place": 16,
-            "units": 5103,
-            "plays": 1086,
-            "points": 2931,
-            "weeks": 56,
-            "peak": "1\u00b9\u2077"
+            "units": 5215,
+            "plays": 1112,
+            "points": 2991,
+            "weeks": 57,
+            "peak": "1(18)"
         }
     },
     "30031": {
@@ -637,11 +936,34 @@
             "type": "Album",
             "title": "HIT ME HARD AND SOFT",
             "place": 19,
-            "units": 8091,
-            "plays": 1504,
-            "points": 5083,
-            "weeks": 12,
-            "peak": "1\u2075"
+            "units": 8431,
+            "plays": 1563,
+            "points": 5305,
+            "weeks": 13,
+            "peak": "1(5)",
+            "current": {
+                "units": "350",
+                "plays": "64",
+                "points": "222",
+                "positions": [
+                    4,
+                    2,
+                    4,
+                    1,
+                    2,
+                    3,
+                    2,
+                    3,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    null,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30032": {
@@ -658,11 +980,34 @@
             "type": "Album",
             "title": "HIT ME HARD AND SOFT",
             "place": 19,
-            "units": 8091,
-            "plays": 1504,
-            "points": 5083,
-            "weeks": 12,
-            "peak": "1\u2075"
+            "units": 8431,
+            "plays": 1563,
+            "points": 5305,
+            "weeks": 13,
+            "peak": "1(5)",
+            "current": {
+                "units": "350",
+                "plays": "64",
+                "points": "222",
+                "positions": [
+                    4,
+                    2,
+                    4,
+                    1,
+                    2,
+                    3,
+                    2,
+                    3,
+                    2,
+                    1,
+                    1,
+                    1,
+                    1,
+                    null,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30033": {
@@ -678,7 +1023,7 @@
         "levboard": {
             "type": "Album",
             "title": "Doo-Wops & Hooligans",
-            "place": 123,
+            "place": 125,
             "units": 551,
             "plays": 221,
             "points": 109,
@@ -699,12 +1044,12 @@
         "levboard": {
             "type": "Album",
             "title": "Unorthodox Jukebox",
-            "place": 82,
+            "place": 84,
             "units": 979,
             "plays": 303,
             "points": 373,
             "weeks": 7,
-            "peak": "8\u00b2"
+            "peak": "8(2)"
         }
     },
     "30035": {
@@ -720,7 +1065,7 @@
         "levboard": {
             "type": "Album",
             "title": "24K Magic",
-            "place": 84,
+            "place": 86,
             "units": 965,
             "plays": 337,
             "points": 291,
@@ -741,7 +1086,7 @@
         "levboard": {
             "type": "Single",
             "title": "One Kiss",
-            "place": 410,
+            "place": 411,
             "units": 414,
             "plays": 142,
             "points": 130,
@@ -763,8 +1108,8 @@
             "type": "Single",
             "title": "WAP",
             "place": 159,
-            "units": 650,
-            "plays": 97,
+            "units": 654,
+            "plays": 99,
             "points": 456,
             "weeks": 14,
             "peak": "2"
@@ -825,7 +1170,7 @@
         "levboard": {
             "type": "Album",
             "title": "how i'm feeling now",
-            "place": 72,
+            "place": 74,
             "units": 1225,
             "plays": 390,
             "points": 445,
@@ -846,10 +1191,10 @@
         "levboard": {
             "type": "Album",
             "title": "BRAT",
-            "place": 64,
-            "units": 1415,
-            "plays": 347,
-            "points": 721,
+            "place": 65,
+            "units": 1439,
+            "plays": 352,
+            "points": 735,
             "weeks": 10,
             "peak": "4"
         }
@@ -882,11 +1227,11 @@
         "levboard": {
             "type": "Album",
             "title": "Voicenotes",
-            "place": 29,
+            "place": 30,
             "units": 4745,
             "plays": 1252,
             "points": 2241,
-            "weeks": 33,
+            "weeks": 32,
             "peak": "2"
         }
     },
@@ -904,11 +1249,11 @@
             "type": "Album",
             "title": "CHARLIE",
             "place": 51,
-            "units": 2179,
-            "plays": 524,
+            "units": 2187,
+            "plays": 528,
             "points": 1131,
             "weeks": 12,
-            "peak": "3\u00b2"
+            "peak": "3(2)"
         }
     },
     "30045": {
@@ -946,11 +1291,11 @@
             "type": "Album",
             "title": "Planet Her",
             "place": 36,
-            "units": 2977,
-            "plays": 810,
+            "units": 2981,
+            "plays": 812,
             "points": 1357,
-            "weeks": 30,
-            "peak": "7\u00b2"
+            "weeks": 29,
+            "peak": "7(2)"
         }
     },
     "30047": {
@@ -967,11 +1312,11 @@
             "type": "Album",
             "title": "Dua Lipa",
             "place": 17,
-            "units": 8685,
-            "plays": 2600,
-            "points": 3485,
-            "weeks": 69,
-            "peak": "1\u00b2"
+            "units": 8663,
+            "plays": 2601,
+            "points": 3461,
+            "weeks": 67,
+            "peak": "1(2)"
         }
     },
     "30048": {
@@ -988,11 +1333,34 @@
             "type": "Album",
             "title": "Future Nostalgia",
             "place": 6,
-            "units": 23521,
-            "plays": 5022,
+            "units": 23571,
+            "plays": 5047,
             "points": 13477,
-            "weeks": 122,
-            "peak": "1\u00b9\u2075"
+            "weeks": 123,
+            "peak": "1(15)",
+            "current": {
+                "units": "50",
+                "plays": "25",
+                "points": "0",
+                "positions": [
+                    18,
+                    null,
+                    null,
+                    null,
+                    18,
+                    null,
+                    null,
+                    null,
+                    null,
+                    17,
+                    19,
+                    null,
+                    7,
+                    null,
+                    12,
+                    5
+                ]
+            }
         }
     },
     "30049": {
@@ -1009,11 +1377,34 @@
             "type": "Album",
             "title": "Future Nostalgia",
             "place": 6,
-            "units": 23521,
-            "plays": 5022,
+            "units": 23571,
+            "plays": 5047,
             "points": 13477,
-            "weeks": 122,
-            "peak": "1\u00b9\u2075"
+            "weeks": 123,
+            "peak": "1(15)",
+            "current": {
+                "units": "50",
+                "plays": "25",
+                "points": "0",
+                "positions": [
+                    18,
+                    null,
+                    null,
+                    null,
+                    18,
+                    null,
+                    null,
+                    null,
+                    null,
+                    17,
+                    19,
+                    null,
+                    7,
+                    null,
+                    12,
+                    5
+                ]
+            }
         }
     },
     "30050": {
@@ -1029,11 +1420,11 @@
         "levboard": {
             "type": "Album",
             "title": "Radical Optimism",
-            "place": 58,
+            "place": 59,
             "units": 1606,
             "plays": 334,
             "points": 938,
-            "weeks": 10,
+            "weeks": 9,
             "peak": "1"
         }
     },
@@ -1051,10 +1442,10 @@
             "type": "Single",
             "title": "Without Me",
             "place": 148,
-            "units": 812,
-            "plays": 158,
-            "points": 496,
-            "weeks": 16,
+            "units": 832,
+            "plays": 165,
+            "points": 502,
+            "weeks": 17,
             "peak": "1"
         }
     },
@@ -1101,7 +1492,7 @@
         "levboard": {
             "type": "Album",
             "title": "Teenage Dream",
-            "place": 96,
+            "place": 97,
             "units": 800,
             "plays": 294,
             "points": 212,
@@ -1122,7 +1513,7 @@
         "levboard": {
             "type": "Album",
             "title": "PRISM",
-            "place": 173,
+            "place": 174,
             "units": 264,
             "plays": 129,
             "points": 6,
@@ -1143,7 +1534,7 @@
         "levboard": {
             "type": "Single",
             "title": "Never Really Over",
-            "place": 293,
+            "place": 295,
             "units": 448,
             "plays": 111,
             "points": 226,
@@ -1179,12 +1570,12 @@
         "levboard": {
             "type": "Single",
             "title": "Love Lies",
-            "place": 523,
-            "units": 310,
-            "plays": 110,
-            "points": 90,
-            "weeks": 6,
-            "peak": "11"
+            "place": 386,
+            "units": 402,
+            "plays": 127,
+            "points": 148,
+            "weeks": 7,
+            "peak": "3"
         }
     },
     "30059": {
@@ -1216,8 +1607,8 @@
             "type": "Album",
             "title": "Chromatica",
             "place": 103,
-            "units": 741,
-            "plays": 307,
+            "units": 757,
+            "plays": 315,
             "points": 127,
             "weeks": 5,
             "peak": "13"
@@ -1236,9 +1627,9 @@
         "levboard": {
             "type": "Album",
             "title": "Cuz I Love You",
-            "place": 168,
-            "units": 268,
-            "plays": 73,
+            "place": 169,
+            "units": 270,
+            "plays": 74,
             "points": 122,
             "weeks": 1,
             "peak": "18"
@@ -1257,12 +1648,35 @@
         "levboard": {
             "type": "Album",
             "title": "Daydream",
-            "place": 86,
-            "units": 943,
-            "plays": 392,
+            "place": 83,
+            "units": 991,
+            "plays": 416,
             "points": 159,
-            "weeks": 8,
-            "peak": "5"
+            "weeks": 9,
+            "peak": "5",
+            "current": {
+                "units": "48",
+                "plays": "24",
+                "points": "0",
+                "positions": [
+                    19,
+                    20,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    17,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30063": {
@@ -1293,7 +1707,7 @@
         "levboard": {
             "type": "Album",
             "title": "Thriller",
-            "place": 69,
+            "place": 71,
             "units": 1319,
             "plays": 457,
             "points": 405,
@@ -1314,7 +1728,7 @@
         "levboard": {
             "type": "Single",
             "title": "MotorSport",
-            "place": 591,
+            "place": 592,
             "units": 176,
             "plays": 55,
             "points": 66,
@@ -1336,8 +1750,8 @@
             "type": "Album",
             "title": "Queen",
             "place": 21,
-            "units": 7220,
-            "plays": 1786,
+            "units": 7224,
+            "plays": 1788,
             "points": 3648,
             "weeks": 71,
             "peak": "2"
@@ -1372,10 +1786,10 @@
             "type": "Album",
             "title": "beerbongs & bentleys",
             "place": 26,
-            "units": 5023,
-            "plays": 1073,
+            "units": 5027,
+            "plays": 1075,
             "points": 2877,
-            "weeks": 50,
+            "weeks": 49,
             "peak": "1"
         }
     },
@@ -1392,12 +1806,12 @@
         "levboard": {
             "type": "Album",
             "title": "Hollywood's Bleeding",
-            "place": 230,
+            "place": 231,
             "units": 163,
             "plays": 52,
             "points": 59,
             "weeks": 1,
-            "peak": "16"
+            "peak": "17"
         }
     },
     "30070": {
@@ -1414,9 +1828,9 @@
             "type": "Album",
             "title": "My 21st Century Blues",
             "place": 50,
-            "units": 2253,
+            "units": 2213,
             "plays": 648,
-            "points": 957,
+            "points": 917,
             "weeks": 19,
             "peak": "2"
         }
@@ -1434,11 +1848,11 @@
         "levboard": {
             "type": "Album",
             "title": "My 21st Century Symphony",
-            "place": 41,
-            "units": 2569,
+            "place": 39,
+            "units": 2609,
             "plays": 764,
-            "points": 1041,
-            "weeks": 17,
+            "points": 1081,
+            "weeks": 16,
             "peak": "1"
         }
     },
@@ -1474,7 +1888,7 @@
             "units": 2371,
             "plays": 759,
             "points": 853,
-            "weeks": 24,
+            "weeks": 22,
             "peak": "4"
         }
     },
@@ -1492,11 +1906,11 @@
             "type": "Album",
             "title": "Love Goes",
             "place": 22,
-            "units": 6948,
-            "plays": 2208,
-            "points": 2532,
-            "weeks": 58,
-            "peak": "1\u00b2"
+            "units": 7013,
+            "plays": 2219,
+            "points": 2575,
+            "weeks": 55,
+            "peak": "1(2)"
         }
     },
     "30075": {
@@ -1512,11 +1926,11 @@
         "levboard": {
             "type": "Album",
             "title": "Gloria",
-            "place": 60,
-            "units": 1528,
-            "plays": 414,
+            "place": 61,
+            "units": 1530,
+            "plays": 415,
             "points": 700,
-            "weeks": 14,
+            "weeks": 13,
             "peak": "3"
         }
     },
@@ -1533,12 +1947,35 @@
         "levboard": {
             "type": "Album",
             "title": "CTRL",
-            "place": 30,
-            "units": 4559,
-            "plays": 1516,
-            "points": 1527,
-            "weeks": 31,
-            "peak": "1"
+            "place": 27,
+            "units": 4819,
+            "plays": 1617,
+            "points": 1585,
+            "weeks": 32,
+            "peak": "1",
+            "current": {
+                "units": "260",
+                "plays": "101",
+                "points": "58",
+                "positions": [
+                    6,
+                    8,
+                    null,
+                    null,
+                    null,
+                    17,
+                    10,
+                    6,
+                    1,
+                    5,
+                    7,
+                    16,
+                    16,
+                    4,
+                    null,
+                    null
+                ]
+            }
         }
     },
     "30077": {
@@ -1559,7 +1996,7 @@
             "plays": 3254,
             "points": 5456,
             "weeks": 59,
-            "peak": "1\u2076"
+            "peak": "1(6)"
         }
     },
     "30078": {
@@ -1575,12 +2012,35 @@
         "levboard": {
             "type": "Album",
             "title": "THINK LATER",
-            "place": 78,
-            "units": 1063,
-            "plays": 403,
-            "points": 257,
-            "weeks": 14,
-            "peak": "9"
+            "place": 55,
+            "units": 1989,
+            "plays": 570,
+            "points": 849,
+            "weeks": 15,
+            "peak": "1",
+            "current": {
+                "units": "926",
+                "plays": "167",
+                "points": "592",
+                "positions": [
+                    1,
+                    16,
+                    13,
+                    null,
+                    20,
+                    17,
+                    null,
+                    null,
+                    null,
+                    null,
+                    11,
+                    null,
+                    null,
+                    16,
+                    null,
+                    19
+                ]
+            }
         }
     },
     "30079": {
@@ -1596,7 +2056,7 @@
         "levboard": {
             "type": "Album",
             "title": "Beauty Behind the Madness",
-            "place": 145,
+            "place": 147,
             "units": 343,
             "plays": 128,
             "points": 87,
@@ -1618,8 +2078,8 @@
             "type": "Album",
             "title": "BB/ANG3L",
             "place": 49,
-            "units": 2298,
-            "plays": 618,
+            "units": 2300,
+            "plays": 619,
             "points": 1062,
             "weeks": 16,
             "peak": "1"
@@ -1654,11 +2114,11 @@
             "type": "Single",
             "title": "Freaky Deaky",
             "place": 43,
-            "units": 2565,
-            "plays": 438,
+            "units": 2569,
+            "plays": 440,
             "points": 1689,
             "weeks": 46,
-            "peak": "1\u00b2"
+            "peak": "1(2)"
         }
     },
     "30083": {
@@ -1674,7 +2134,7 @@
         "levboard": {
             "type": "Album",
             "title": "The Bodyguard",
-            "place": 133,
+            "place": 134,
             "units": 443,
             "plays": 149,
             "points": 145,
@@ -1695,7 +2155,7 @@
         "levboard": {
             "type": "Album",
             "title": "Whitney Houston",
-            "place": 119,
+            "place": 120,
             "units": 566,
             "plays": 234,
             "points": 98,

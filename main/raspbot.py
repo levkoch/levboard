@@ -1,14 +1,54 @@
-"""functions for the raspberry pi until i figure out what i'll actaully be doing with it."""
+"""
+functions for the raspberry pi until i figure out what i'll actaully
+be doing with it.
 
+raspberry pi lives at 192.168.5.63
+"""
+
+import math
 import time
 import json
-# from waveshare.epd import EPD
+import sys
+
+from waveshare.epd import EPD
 from PIL import Image, ImageDraw, ImageFont
 
 from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, image_dir
 
 # since the google libraries are a nightmare to install for some reason
-# from spreadsheet import Spreadsheet
+from spreadsheet import Spreadsheet
+
+WHITE = '#FFFFFF'
+LGRAY = '#C0C0C0'
+DGRAY = '#808080'
+BLACK = '#000000'
+
+FONT_8 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 8)
+FONT_16 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 16)
+FONT_24 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 24)
+
+
+def _check_peak(peak: str) -> str:
+    convert = [
+        ('¹', '_1'),
+        ('²', '_2'),
+        ('³', '_3'),
+        ('⁴', '_4'),
+        ('⁵', '_5'),
+        ('⁶', '_6'),
+        ('⁷', '_7'),
+        ('⁸', '_8'),
+        ('⁹', '_9'),
+        ('⁰', '_0'),
+    ]
+
+    if any(char in peak for char in '⁰¹²³⁴⁵⁶⁷⁸⁹'):
+        for (start, end) in convert:
+            peak = peak.replace(start, end)
+
+        peak = peak.split('_')[0] + '(' + ''.join(peak.split('_')[1:]) + ')'
+
+    return peak
 
 
 def update_records_info():
@@ -29,6 +69,7 @@ def update_records_info():
             weeks,
             peak,
         ) = row
+
         albums_info[album] = {
             'place': int(place.replace(',', '')),
             'units': int(units.replace(',', '')),
@@ -37,7 +78,7 @@ def update_records_info():
             # the weeks are the one item that shows as "-" when it's 0,
             # so we have to convert that into an numeric value
             'weeks': int(weeks.replace(',', '').replace('-', '0')),
-            'peak': peak,
+            'peak': _check_peak(peak),
         }
 
     songs_info = {}
@@ -60,10 +101,12 @@ def update_records_info():
             plays,
             units,
         ) = row
+
         # since the all time sheet fills in blank values when there isn't a
         # song specified, we skip all the ones without a song specified
         if not song:
             continue
+
         songs_info[song] = {
             'place': int(place.replace(',', '')),
             'units': int(units.replace(',', '')),
@@ -72,8 +115,23 @@ def update_records_info():
             # the weeks are the one item that shows as "-" when it's 0,
             # so we have to convert that into an numeric value
             'weeks': int(weeks.replace(',', '').replace('-', '0')),
-            'peak': peak,
+            'peak': _check_peak(peak),
         }
+
+    chart_rows = [
+        row
+        for row in levboard.get_range('BOT_ALBUMS!B5:K550').get('values')
+        # google sheets returns just a [] for blank rows so filter those out
+        # and also filter out all the header rows
+        if row and row[2].isnumeric()
+    ]
+    current_week = int(chart_rows[0][9])  # bot_albums!K5
+    current_rows = [row for row in chart_rows if int(row[9]) == current_week]
+    current_albums = [row[0] for row in current_rows]
+    chart_rows = [
+        (int(position), title, int(week))
+        for (title, _, position, _, _, _, _, _, _, week) in chart_rows
+    ]
 
     records = {}
     for row in collection.get_range('COLLECTION!A2:K').get('values'):
@@ -94,16 +152,44 @@ def update_records_info():
             'type': levboard_type,
             'title': levboard_title,
         }
+
         # albums without a levboard equivalent (like compilations and
         # singles that i bought physical copies of but that didn't chart)
         # are registered as "NONE"
         if levboard_title != 'NONE':
             info_pool = albums_info if levboard_type == 'Album' else songs_info
             info_field = info_pool.get(levboard_title)
+
             if info_field is None:   # no match so it was merged wrong
                 print(f'Unable to find levboard item named {levboard_title}')
             else:
                 levboard_info.update(info_field)
+
+            if levboard_title in current_albums:
+                album_row = next(
+                    row for row in current_rows if row[0] == levboard_title
+                )
+
+                positions = []
+                for chart_week in range(current_week - 15, current_week + 1):
+                    positions.append(
+                        next(
+                            (
+                                row[0]
+                                for row in chart_rows
+                                if row[1] == levboard_title
+                                and row[2] == chart_week
+                            ),
+                            None,
+                        )
+                    )
+
+                levboard_info['current'] = {
+                    'units': album_row[6],
+                    'plays': album_row[7],
+                    'points': album_row[8],
+                    'positions': positions[::-1],
+                }
 
         records[rfid] = {
             'rfid': rfid,
@@ -122,69 +208,110 @@ def update_records_info():
         json.dump(records, f, indent=4)
 
 
-def create_image_trial():
-    # epd = EPD()
-    # epd.Init_4Gray()
+def get_record(rfid: str) -> dict:
+    with open(RECORDS_FILE, 'r', encoding='UTF-8') as f:
+        return json.load(f).get(rfid)
 
-    WHITE = "#FFFFFF"
-    LGRAY = "#C0C0C0"
-    DGRAY = "#808080"
-    BLACK = "#000000"
 
-    """
-    example = Image.open(image_dir + '/example_display.png')
-    epd.display_4Gray(epd.getbuffer_4Gray(example))
-    time.sleep(10)
-    """
-    # epd.init()
-    # epd.Clear(0xFF)
+def create_album_image(info: dict) -> Image:
+    print(info)
 
-    # epd.Init_4Gray()
-    font_8 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 8)
-    font_16 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 16)
-    font_24 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 24)
+    chart = info['levboard']
+    current = chart['current']
 
     display = Image.open(image_dir + '/blank_display.png')
-    # epd.display_4Gray(epd.getbuffer_4Gray(display))
-
     draw = ImageDraw.Draw(display)
+
     draw.rectangle(((12, 12), (38, 38)), fill=BLACK)
-    draw.text((18, 9), '2', font=font_24, fill=WHITE) #at 18, 13 on figma
-    # epd.display_4Gray(epd.getbuffer_4Gray(display))
+    draw.text((18, 9), str(current['positions'][0]), font=FONT_24, fill=WHITE)
+    draw.text((44, 9), info['title'].lower(), font=FONT_16, fill=BLACK)
+    draw.text((44, 29), info['artist'].lower(), font=FONT_8, fill=BLACK)
 
-    draw.text((44, 9), 'hit me hard and soft', font=font_16, fill=BLACK) # at
-    draw.text((44, 29), 'billie eilish', font=font_8, fill=BLACK)
+    units_offset = 2 - math.floor(math.log10(int(current['units'])))
+    plays_offset = 2 - math.floor(math.log10(int(current['plays'])))
+    points_offset = 2 - math.floor(math.log10(int(current['points'])))
 
-    draw.text()
+    draw.text(
+        (32 + 12 * units_offset, 44),
+        current['units'],
+        font=FONT_16,
+        fill=BLACK,
+    )
+    draw.text(
+        (106 + 12 * plays_offset, 44),
+        current['plays'],
+        font=FONT_16,
+        fill=BLACK,
+    )
+    draw.text(
+        (196 + 12 * points_offset, 44),
+        current['points'],
+        font=FONT_16,
+        fill=BLACK,
+    )
 
-    with open("C:/Users/levpo/Downloads/trial.png", "wb") as f:
-        display.save(f, format="png")
-    #epd.display_4Gray(epd.getbuffer_4Gray(display))
-    # time.sleep(10)
+    draw.text((76, 96), f'{chart["units"]:,}', font=FONT_8, fill=BLACK)
+    draw.text((76, 106), f'{chart["plays"]:,}', font=FONT_8, fill=BLACK)
+    draw.text((170, 96), chart['peak'], font=FONT_8, fill=BLACK)
+    draw.text((170, 106), info['year'], font=FONT_8, fill=BLACK)
+    draw.text((244, 96), str(chart['weeks']), font=FONT_8, fill=BLACK)
+    draw.text((244, 106), str(chart['place']), font=FONT_8, fill=BLACK)
 
-    """
-    Limage = Image.new('L', (epd.height, epd.width), 0)  # 255: clear the frame
-    draw = ImageDraw.Draw(Limage)
-    draw.text((0, 0), '3', font=font35, fill=epd.GRAY1)
-    draw.text((20, 105), 'hello world', font=font18, fill=epd.GRAY1)
-    draw.line((160, 10, 210, 60), fill=epd.GRAY1)
-    draw.line((160, 60, 210, 10), fill=epd.GRAY1)
-    draw.rectangle((160, 10, 210, 60), outline=epd.GRAY1)
-    draw.line((160, 95, 210, 95), fill=epd.GRAY4)
-    draw.line((185, 70, 185, 120), fill=epd.GRAY1)
-    draw.arc((160, 70, 210, 120), 0, 360, fill=epd.GRAY1)
-    draw.rectangle((220, 10, 270, 60), fill=epd.GRAY1)
-    draw.chord((220, 70, 270, 120), 0, 360, fill=epd.GRAY1)
+    for offset, position in enumerate(current['positions']):
+        if position is None:
+            draw.rectangle(
+                ((13 + offset * 17, 70), (27 + offset * 17, 84)), outline=LGRAY
+            )
+            draw.line(
+                ((18 + offset * 17, 77), (22 + offset * 17, 77)), fill=LGRAY
+            )
+            continue
 
-    epd.display_4Gray(epd.getbuffer_4Gray(Limage))
-    """
+        if position < 4:
+            fill = LGRAY
+            text = BLACK
 
-    # epd.init()
-    # epd.Clear(0xFF)
+            if position == 1:
+                fill = BLACK
+                text = WHITE
 
-    # epd.sleep()
+            draw.rectangle(
+                ((13 + offset * 17, 70), (27 + offset * 17, 84)), fill=fill
+            )
+            draw.text(
+                (18 + offset * 17, 72), str(position), font=FONT_8, fill=text
+            )
+            continue
+
+        draw.rectangle(
+            ((13 + offset * 17, 70), (27 + offset * 17, 84)), outline=LGRAY
+        )
+        draw.text(
+            ((15 if position > 9 else 18) + offset * 17, 72),
+            str(position),
+            font=FONT_8,
+            fill=BLACK,
+        )
+
+    return display
+
+    with open('C:/Users/levpo/Downloads/trial.png', 'wb') as f:
+        display.save(f, format='png')
+
+
+def display_image(image: Image):
+    epd = EPD()
+    epd.Init_4Gray()
+    epd.display_4Gray(epd.getbuffer_4Gray(image))
+
+    time.sleep(10)
+
+    epd.init()
+    epd.Clear(0xFF)
+    epd.sleep()
 
 
 if __name__ == '__main__':
     # update_records_info()
-    create_image_trial()
+    record = str(sys.argv[1]) if len(sys.argv) > 1 else '30014'
+    display_image(create_album_image(get_record(record)))
