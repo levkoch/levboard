@@ -3,29 +3,58 @@ functions for the raspberry pi until i figure out what i'll actaully
 be doing with it.
 
 raspberry pi lives at 192.168.5.63
+
+PACKAGES INSTALLED:
+- rpi.lgpio (it's some sort of port)
+- google-api-python-client
+- pillow
+- mfrc522
+
+rfid chip connections:
+sda    brown    24
+sck    red      23
+mosi   orange   19
+miso   yellow   21
+irq    blank    
+gnd    green    20  
+rst    blue     22
+3.3v   purple   17
+
+display connections:
+vcc    grey     17 
+gnd    brown    20
+din    blue     19
+clk    yellow   23
+cd     orange   24
+dc     green    22
+rst    white    11
+busy   purple   18
 """
 
 import math
 import time
 import json
 import sys
+import RPi.GPIO as GPIO
 
-from waveshare.epd import EPD
 from PIL import Image, ImageDraw, ImageFont
 
-from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, image_dir
+from mfrc import  MFRC
+from epd import EPD
+
+from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, DATA_DIR
 
 # since the google libraries are a nightmare to install for some reason
-from spreadsheet import Spreadsheet
+from ..main.spreadsheet import Spreadsheet
 
 WHITE = '#FFFFFF'
 LGRAY = '#C0C0C0'
 DGRAY = '#808080'
 BLACK = '#000000'
 
-FONT_8 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 8)
-FONT_16 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 16)
-FONT_24 = ImageFont.truetype(image_dir + '/minecraftia.ttf', 24)
+FONT_8 = ImageFont.truetype(DATA_DIR + '/image/minecraftia.ttf', 8)
+FONT_16 = ImageFont.truetype(DATA_DIR + '/image/minecraftia.ttf', 16)
+FONT_24 = ImageFont.truetype(DATA_DIR + '/image/minecraftia.ttf', 24)
 
 
 def _check_peak(peak: str) -> str:
@@ -310,8 +339,18 @@ def display_image(image: Image):
     epd.Clear(0xFF)
     epd.sleep()
 
+def collect_rfid_tag():
+    try:
+        reader = MFRC()
+        print("created reader, awaiting scan")
+        tag = reader.read_id()
+        print(f'found id: {tag}')
+    finally:
+        GPIO.cleanup()
+
 
 if __name__ == '__main__':
+    # collect_rfid_tag()
     # update_records_info()
     record = str(sys.argv[1]) if len(sys.argv) > 1 else '30014'
     display_image(create_album_image(get_record(record)))

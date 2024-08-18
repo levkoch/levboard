@@ -1,7 +1,4 @@
-import platform
-import json
 from typing import Any
-
 from google.oauth2 import service_account
 from googleapiclient import discovery
 
