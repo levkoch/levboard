@@ -576,35 +576,17 @@ load_month_end_albums = month_end_collection_creater(
 
 if __name__ == '__main__':
     uow = SongUOW()
-
-    """kbfn = uow.albums.get('k bye for now')
-    units_2021 = kbfn.period_units(
-        datetime.date(2021, 1, 1), datetime.date(2022, 1, 1)
-    )
-    units_2022 = kbfn.period_units(
-        datetime.date(2022, 1, 1), datetime.date(2023, 1, 1)
-    )
-    units_2023 = kbfn.period_units(
-        datetime.date(2023, 1, 1), datetime.date(2024, 1, 1)
-    )
-    units_2024 = kbfn.period_units(
-        datetime.date(2024, 1, 1), datetime.date(2025, 1, 1)
-    )
-
-    print((units_2021, units_2022, units_2023, units_2024))
-
-    quit()"""
-
+    """
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
-
     """
+    
     update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         uow,
         verbose=True,
-    )"""
+    )
