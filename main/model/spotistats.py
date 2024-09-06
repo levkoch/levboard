@@ -22,7 +22,7 @@ from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime
 from typing import Final, Iterable, Optional, Union
-from pydantic import BaseModel, NonNegativeInt
+from pydantic import BaseModel, NonNegativeInt, field_validator
 
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
@@ -348,7 +348,7 @@ def songs_week(
             offset += 500
 
     info = [
-        Position(id=i['track']['id'], plays=i['streams'], place=i['position'])
+        Position(id=str(i['track']['id']), plays=i['streams'], place=i['position'])
         for i in items
         if str(i['track']['id']) not in BANNED_SONGS
     ]
