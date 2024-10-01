@@ -328,9 +328,6 @@ def show_chart(
     end: date,
     week_count: int,
 ):
-
-    print(f'<> [{week_count:03d}] ({end.isoformat()}) S', end='')
-    return
     print(f'\n({week_count}) Week of {start.isoformat()} to {end.isoformat()}')
 
     print(
@@ -561,7 +558,8 @@ def create_personal_charts():
             pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH
         ]
         insert_entries(uow, song_positions, start_day, end_day)
-        show_chart(uow, song_positions, start_day, end_day, week_count)
+        print(f'<> [{week_count:03d}] ({end_day.isoformat()}) S', end='')
+        # show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
             song_rows, uow, song_positions, start_day, end_day, week_count
         )
