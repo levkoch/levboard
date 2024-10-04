@@ -11,7 +11,8 @@ Data Classes:
 from datetime import date
 from typing import Union
 
-from pydantic import BaseModel, NonNegativeInt, PositiveInt, conint, validator
+from pydantic import BaseModel, NonNegativeInt, PositiveInt, conint
+from pydantic.functional_validators import field_validator
 
 
 class _BaseEntry(BaseModel):
@@ -21,7 +22,8 @@ class _BaseEntry(BaseModel):
     end: date
     place: PositiveInt
 
-    @validator('start', 'end')
+    @field_validator('start', 'end')
+    @classmethod
     def format_date(cls, v_date: Union[date, str]):
         """
         Format the two date parameters so that ISO strings can be passed in.

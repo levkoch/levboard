@@ -139,7 +139,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 133,
+        "plays": 135,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -365,7 +365,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 390,
+        "plays": 393,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -847,7 +847,7 @@
             "Frank Ocean"
         ],
         "official_name": "",
-        "plays": 179,
+        "plays": 180,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -1104,7 +1104,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 139,
+        "plays": 141,
         "entries": [
             {
                 "start": "2022-11-24",
@@ -1994,7 +1994,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 751,
+        "plays": 752,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -2683,6 +2683,14 @@
                 "plays": 7,
                 "points": 78,
                 "variant": "1412631"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 38,
+                "plays": 7,
+                "points": 78,
+                "variant": "1412631"
             }
         ],
         "variants": [
@@ -3037,18 +3045,18 @@
             }
         ]
     },
-    "186460049": {
+    "186399253": {
         "merge": "175790199"
     },
-    "186399253": {
+    "186460049": {
         "merge": "175790199"
     },
     "175790199": {
         "title": "Illusion",
         "main_id": "175790199",
         "ids": [
-            "186460049",
             "186399253",
+            "186460049",
             "175790199"
         ],
         "artists": [
@@ -3092,11 +3100,11 @@
         ],
         "variants": [
             {
-                "main_id": "175790199",
+                "main_id": "186460049",
                 "title": "Illusion",
                 "ids": [
-                    "186460049",
                     "186399253",
+                    "186460049",
                     "175790199"
                 ],
                 "artists": [
@@ -4296,6 +4304,14 @@
                 "plays": 10,
                 "points": 112,
                 "variant": "585321"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 14,
+                "plays": 9,
+                "points": 104,
+                "variant": "585321"
             }
         ],
         "variants": [
@@ -4529,7 +4545,7 @@
             "BJ Burton"
         ],
         "official_name": "",
-        "plays": 52,
+        "plays": 53,
         "entries": [
             {
                 "start": "2023-06-08",
@@ -4612,6 +4628,14 @@
                 "place": 27,
                 "plays": 9,
                 "points": 100,
+                "variant": "585320"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 32,
+                "plays": 7,
+                "points": 84,
                 "variant": "585320"
             }
         ],
@@ -5439,7 +5463,7 @@
             "Saweetie"
         ],
         "official_name": "",
-        "plays": 70,
+        "plays": 71,
         "entries": [],
         "variants": [
             {
@@ -5543,7 +5567,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 39,
+        "plays": 40,
         "entries": [],
         "variants": [
             {
@@ -5751,9 +5775,6 @@
             }
         ]
     },
-    "1249889": {
-        "merge": "10948337"
-    },
     "607744": {
         "merge": "10948337"
     },
@@ -5761,15 +5782,15 @@
         "title": "Say So Remix",
         "main_id": "10948337",
         "ids": [
-            "1249889",
             "607744",
-            "10948337"
+            "10948337",
+            "1249889"
         ],
         "artists": [
             "Doja Cat"
         ],
         "official_name": "Say So (feat. Nicki Minaj)",
-        "plays": 263,
+        "plays": 265,
         "entries": [
             {
                 "start": "2021-07-01",
@@ -5881,7 +5902,7 @@
                 "place": 51,
                 "plays": 5,
                 "points": 52,
-                "variant": "10948337"
+                "variant": "1249889"
             },
             {
                 "start": "2022-05-19",
@@ -5949,6 +5970,9 @@
             }
         ]
     },
+    "1249889": {
+        "merge": "10948337"
+    },
     "1008288": {
         "title": "Blue (Bey)",
         "main_id": "1008288",
@@ -5960,7 +5984,7 @@
             "Blue Ivy"
         ],
         "official_name": "",
-        "plays": 63,
+        "plays": 64,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -6053,7 +6077,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 133,
+        "plays": 134,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -6144,7 +6168,7 @@
             "Ty Dolla $ign"
         ],
         "official_name": "",
-        "plays": 197,
+        "plays": 198,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -6267,7 +6291,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 978,
+        "plays": 982,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -7236,6 +7260,14 @@
                 "plays": 11,
                 "points": 136,
                 "variant": "533700"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 51,
+                "plays": 2,
+                "points": 56,
+                "variant": "533700"
             }
         ],
         "variants": [
@@ -8179,7 +8211,7 @@
             "The Weeknd"
         ],
         "official_name": "",
-        "plays": 716,
+        "plays": 721,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -8740,6 +8772,14 @@
                 "plays": 11,
                 "points": 132,
                 "variant": "533776"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 45,
+                "plays": 3,
+                "points": 62,
+                "variant": "533776"
             }
         ],
         "variants": [
@@ -8766,7 +8806,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 727,
+        "plays": 736,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -9399,6 +9439,14 @@
                 "plays": 8,
                 "points": 120,
                 "variant": "285189"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 6,
+                "plays": 9,
+                "points": 122,
+                "variant": "285189"
             }
         ],
         "variants": [
@@ -9544,7 +9592,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 356,
+        "plays": 362,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -10776,7 +10824,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 100,
+        "plays": 106,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -10848,6 +10896,14 @@
                 "place": 24,
                 "plays": 7,
                 "points": 82,
+                "variant": "271933672"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 29,
+                "plays": 6,
+                "points": 86,
                 "variant": "271933672"
             }
         ],
@@ -11761,7 +11817,7 @@
             "Mariah The Scientist"
         ],
         "official_name": "",
-        "plays": 34,
+        "plays": 35,
         "entries": [
             {
                 "start": "2024-06-27",
@@ -11820,7 +11876,7 @@
         ],
         "variants": [
             {
-                "main_id": "167366",
+                "main_id": "286488",
                 "title": "Here",
                 "ids": [
                     "286488",
@@ -11948,12 +12004,15 @@
             }
         ]
     },
+    "10959047": {
+        "merge": "585521"
+    },
     "585521": {
         "title": "So Good",
         "main_id": "585521",
         "ids": [
-            "585521",
-            "10959047"
+            "10959047",
+            "585521"
         ],
         "artists": [
             "Zara Larsson",
@@ -11964,11 +12023,11 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "10959047",
+                "main_id": "585521",
                 "title": "So Good",
                 "ids": [
-                    "585521",
-                    "10959047"
+                    "10959047",
+                    "585521"
                 ],
                 "artists": [
                     "Zara Larsson",
@@ -11976,9 +12035,6 @@
                 ]
             }
         ]
-    },
-    "10959047": {
-        "merge": "585521"
     },
     "283829": {
         "title": "First Love",
@@ -12482,7 +12538,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 192,
+        "plays": 193,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -12844,13 +12900,19 @@
             }
         ]
     },
+    "1316568": {
+        "merge": "2442044"
+    },
+    "11892227": {
+        "merge": "2442044"
+    },
     "2442044": {
         "title": "Dancing With A Stranger",
         "main_id": "2442044",
         "ids": [
-            "2442044",
+            "1316568",
             "11892227",
-            "1316568"
+            "2442044"
         ],
         "artists": [
             "Sam Smith",
@@ -12982,18 +13044,6 @@
         ],
         "variants": [
             {
-                "main_id": "11892227",
-                "title": "Dancing With A Stranger",
-                "ids": [
-                    "2442044",
-                    "11892227"
-                ],
-                "artists": [
-                    "Sam Smith",
-                    "Normani"
-                ]
-            },
-            {
                 "main_id": "1316568",
                 "title": "Dancing With A Stranger - Live",
                 "ids": [
@@ -13002,14 +13052,20 @@
                 "artists": [
                     "Sam Smith"
                 ]
+            },
+            {
+                "main_id": "2442044",
+                "title": "Dancing With A Stranger",
+                "ids": [
+                    "11892227",
+                    "2442044"
+                ],
+                "artists": [
+                    "Sam Smith",
+                    "Normani"
+                ]
             }
         ]
-    },
-    "11892227": {
-        "merge": "2442044"
-    },
-    "1316568": {
-        "merge": "2442044"
     },
     "1387092": {
         "title": "Consequences",
@@ -13433,7 +13489,7 @@
             "Nicki Minaj"
         ],
         "official_name": "",
-        "plays": 578,
+        "plays": 579,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -14062,12 +14118,15 @@
             }
         ]
     },
+    "78713": {
+        "merge": "5443437"
+    },
     "5443437": {
         "title": "successful - live",
         "main_id": "5443437",
         "ids": [
-            "5443437",
-            "78713"
+            "78713",
+            "5443437"
         ],
         "artists": [
             "Ariana Grande"
@@ -14179,9 +14238,6 @@
             }
         ]
     },
-    "78713": {
-        "merge": "5443437"
-    },
     "344533": {
         "title": "My N****",
         "main_id": "344533",
@@ -14232,15 +14288,12 @@
             }
         ]
     },
-    "283033": {
-        "merge": "282982"
-    },
     "282982": {
         "title": "Confetti Remix",
         "main_id": "282982",
         "ids": [
-            "283033",
-            "282982"
+            "282982",
+            "283033"
         ],
         "artists": [
             "Little Mix",
@@ -14284,16 +14337,6 @@
         ],
         "variants": [
             {
-                "main_id": "283033",
-                "title": "Confetti",
-                "ids": [
-                    "283033"
-                ],
-                "artists": [
-                    "Little Mix"
-                ]
-            },
-            {
                 "main_id": "282982",
                 "title": "Confetti Remix",
                 "ids": [
@@ -14303,8 +14346,21 @@
                     "Little Mix",
                     "Saweetie"
                 ]
+            },
+            {
+                "main_id": "283033",
+                "title": "Confetti",
+                "ids": [
+                    "283033"
+                ],
+                "artists": [
+                    "Little Mix"
+                ]
             }
         ]
+    },
+    "283033": {
+        "merge": "282982"
     },
     "167432": {
         "title": "Cool for the Summer",
@@ -15229,7 +15285,7 @@
             "Adele"
         ],
         "official_name": "",
-        "plays": 627,
+        "plays": 629,
         "entries": [
             {
                 "start": "2021-11-04",
@@ -15836,12 +15892,15 @@
             }
         ]
     },
+    "81125762": {
+        "merge": "53355516"
+    },
     "53355516": {
         "title": "Hard Out Here.",
         "main_id": "53355516",
         "ids": [
-            "53355516",
-            "81125762"
+            "81125762",
+            "53355516"
         ],
         "artists": [
             "RAYE"
@@ -15884,16 +15943,6 @@
         ],
         "variants": [
             {
-                "main_id": "53355516",
-                "title": "Hard Out Here.",
-                "ids": [
-                    "53355516"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
-            },
-            {
                 "main_id": "81125762",
                 "title": "Hard Out Here. - Live",
                 "ids": [
@@ -15903,11 +15952,18 @@
                     "RAYE",
                     "The Heritage Orchestra"
                 ]
+            },
+            {
+                "main_id": "53355516",
+                "title": "Hard Out Here.",
+                "ids": [
+                    "53355516"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
             }
         ]
-    },
-    "81125762": {
-        "merge": "53355516"
     },
     "256511": {
         "title": "Let Me Go",
@@ -16874,7 +16930,7 @@
             "Lil Wayne"
         ],
         "official_name": "",
-        "plays": 52,
+        "plays": 54,
         "entries": [],
         "variants": [
             {
@@ -17237,7 +17293,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 102,
+        "plays": 103,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -17688,7 +17744,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 383,
+        "plays": 385,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -18201,7 +18257,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 286,
+        "plays": 300,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -18353,6 +18409,14 @@
                 "place": 16,
                 "plays": 11,
                 "points": 142,
+                "variant": "271933674"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 8,
+                "plays": 8,
+                "points": 120,
                 "variant": "271933674"
             }
         ],
@@ -18579,7 +18643,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 314,
+        "plays": 317,
         "entries": [
             {
                 "start": "2023-03-30",
@@ -18852,6 +18916,14 @@
                 "plays": 4,
                 "points": 62,
                 "variant": "285188"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 36,
+                "plays": 7,
+                "points": 82,
+                "variant": "285188"
             }
         ],
         "variants": [
@@ -18952,7 +19024,7 @@
             "Camila Cabello"
         ],
         "official_name": "",
-        "plays": 13,
+        "plays": 14,
         "entries": [],
         "variants": [
             {
@@ -19343,7 +19415,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 157,
+        "plays": 158,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -20587,7 +20659,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 215,
+        "plays": 216,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -20871,7 +20943,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 274,
+        "plays": 288,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -21023,6 +21095,14 @@
                 "place": 16,
                 "plays": 11,
                 "points": 142,
+                "variant": "271933673"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 8,
+                "plays": 8,
+                "points": 120,
                 "variant": "271933673"
             }
         ],
@@ -21223,7 +21303,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 644,
+        "plays": 653,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -21800,6 +21880,14 @@
                 "plays": 6,
                 "points": 84,
                 "variant": "285176"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 18,
+                "plays": 8,
+                "points": 100,
+                "variant": "285176"
             }
         ],
         "variants": [
@@ -21815,15 +21903,12 @@
             }
         ]
     },
-    "2541413": {
-        "merge": "9497055"
-    },
     "9497055": {
         "title": "WOW Remix",
         "main_id": "9497055",
         "ids": [
-            "2541413",
-            "9497055"
+            "9497055",
+            "2541413"
         ],
         "artists": [
             "Zara Larsson",
@@ -21873,6 +21958,9 @@
             }
         ]
     },
+    "2541413": {
+        "merge": "9497055"
+    },
     "1390": {
         "title": "G.U.Y.",
         "main_id": "1390",
@@ -21883,7 +21971,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 16,
+        "plays": 17,
         "entries": [],
         "variants": [
             {
@@ -22467,7 +22555,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 149,
+        "plays": 151,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -22558,7 +22646,16 @@
         ],
         "official_name": "",
         "plays": 42,
-        "entries": [],
+        "entries": [
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 57,
+                "plays": 5,
+                "points": 52,
+                "variant": "45761816"
+            }
+        ],
         "variants": [
             {
                 "main_id": "45761816",
@@ -22734,7 +22831,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 379,
+        "plays": 380,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -23189,7 +23286,7 @@
             "Big Sean"
         ],
         "official_name": "",
-        "plays": 201,
+        "plays": 202,
         "entries": [
             {
                 "start": "2021-07-15",
@@ -24311,7 +24408,7 @@
             "Camila Cabello"
         ],
         "official_name": "",
-        "plays": 8,
+        "plays": 9,
         "entries": [],
         "variants": [
             {
@@ -24774,19 +24871,13 @@
             }
         ]
     },
-    "194948873": {
-        "merge": "1412487"
-    },
-    "5443436": {
-        "merge": "1412487"
-    },
     "1412487": {
         "title": "NASA",
         "main_id": "1412487",
         "ids": [
-            "194948873",
+            "1412487",
             "5443436",
-            "1412487"
+            "194948873"
         ],
         "artists": [
             "Ariana Grande"
@@ -25061,17 +25152,6 @@
         ],
         "variants": [
             {
-                "main_id": "5443436",
-                "title": "nasa - live",
-                "ids": [
-                    "194948873",
-                    "5443436"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "1412487",
                 "title": "NASA",
                 "ids": [
@@ -25080,8 +25160,25 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "194948873",
+                "title": "nasa - live",
+                "ids": [
+                    "5443436",
+                    "194948873"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
+    },
+    "5443436": {
+        "merge": "1412487"
+    },
+    "194948873": {
+        "merge": "1412487"
     },
     "530147": {
         "title": "Ride Or Die",
@@ -25769,7 +25866,7 @@
             "Julia Michaels"
         ],
         "official_name": "",
-        "plays": 46,
+        "plays": 48,
         "entries": [
             {
                 "start": "2024-02-01",
@@ -25910,15 +26007,12 @@
             }
         ]
     },
-    "5443440": {
-        "merge": "78740"
-    },
     "78740": {
         "title": "get well soon",
         "main_id": "78740",
         "ids": [
-            "5443440",
-            "78740"
+            "78740",
+            "5443440"
         ],
         "artists": [
             "Ariana Grande"
@@ -25985,16 +26079,6 @@
         ],
         "variants": [
             {
-                "main_id": "5443440",
-                "title": "get well soon - live",
-                "ids": [
-                    "5443440"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "78740",
                 "title": "get well soon",
                 "ids": [
@@ -26003,8 +26087,21 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "5443440",
+                "title": "get well soon - live",
+                "ids": [
+                    "5443440"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
+    },
+    "5443440": {
+        "merge": "78740"
     },
     "402137": {
         "title": "Attention",
@@ -26154,7 +26251,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 336,
+        "plays": 338,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -26569,7 +26666,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 593,
+        "plays": 596,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -27747,7 +27844,7 @@
             "Katy Perry"
         ],
         "official_name": "",
-        "plays": 152,
+        "plays": 153,
         "entries": [
             {
                 "start": "2022-04-28",
@@ -29175,7 +29272,7 @@
             "A$AP Ferg"
         ],
         "official_name": "",
-        "plays": 194,
+        "plays": 195,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -29437,7 +29534,7 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "45761818",
+                "main_id": "46254377",
                 "title": "MOVE",
                 "ids": [
                     "46254377",
@@ -29826,7 +29923,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 250,
+        "plays": 251,
         "entries": [
             {
                 "start": "2023-06-01",
@@ -29954,6 +30051,14 @@
                 "place": 32,
                 "plays": 8,
                 "points": 88,
+                "variant": "285183"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 47,
+                "plays": 5,
+                "points": 60,
                 "variant": "285183"
             }
         ],
@@ -30305,15 +30410,12 @@
             }
         ]
     },
-    "3515617": {
-        "merge": "2442025"
-    },
     "2442025": {
         "title": "My Oasis",
         "main_id": "2442025",
         "ids": [
-            "3515617",
-            "2442025"
+            "2442025",
+            "3515617"
         ],
         "artists": [
             "Sam Smith",
@@ -30408,7 +30510,7 @@
                 "place": 59,
                 "plays": 2,
                 "points": 48,
-                "variant": "2442025"
+                "variant": "3515617"
             },
             {
                 "start": "2023-12-28",
@@ -30445,17 +30547,6 @@
         ],
         "variants": [
             {
-                "main_id": "3515617",
-                "title": "My Oasis - Live",
-                "ids": [
-                    "3515617"
-                ],
-                "artists": [
-                    "Sam Smith",
-                    "Jade Anouka"
-                ]
-            },
-            {
                 "main_id": "2442025",
                 "title": "My Oasis",
                 "ids": [
@@ -30465,8 +30556,22 @@
                     "Sam Smith",
                     "Burna Boy"
                 ]
+            },
+            {
+                "main_id": "3515617",
+                "title": "My Oasis - Live",
+                "ids": [
+                    "3515617"
+                ],
+                "artists": [
+                    "Sam Smith",
+                    "Jade Anouka"
+                ]
             }
         ]
+    },
+    "3515617": {
+        "merge": "2442025"
     },
     "842095": {
         "title": "All At Once",
@@ -32058,8 +32163,8 @@
         "main_id": "78772",
         "ids": [
             "78772",
-            "5443472",
-            "194952596"
+            "194952596",
+            "5443472"
         ],
         "artists": [
             "Ariana Grande",
@@ -32205,8 +32310,8 @@
                 "main_id": "5443472",
                 "title": "the light is coming - live",
                 "ids": [
-                    "5443472",
-                    "194952596"
+                    "194952596",
+                    "5443472"
                 ],
                 "artists": [
                     "Ariana Grande",
@@ -32215,10 +32320,10 @@
             }
         ]
     },
-    "5443472": {
+    "194952596": {
         "merge": "78772"
     },
-    "194952596": {
+    "5443472": {
         "merge": "78772"
     },
     "13044685": {
@@ -32490,15 +32595,12 @@
             }
         ]
     },
-    "11356392": {
-        "merge": "13410915"
-    },
     "13410915": {
         "title": "Promises",
         "main_id": "13410915",
         "ids": [
-            "11356392",
-            "13410915"
+            "13410915",
+            "11356392"
         ],
         "artists": [
             "Calvin Harris",
@@ -32518,16 +32620,6 @@
         ],
         "variants": [
             {
-                "main_id": "11356392",
-                "title": "Promises - Live",
-                "ids": [
-                    "11356392"
-                ],
-                "artists": [
-                    "Sam Smith"
-                ]
-            },
-            {
                 "main_id": "13410915",
                 "title": "Promises",
                 "ids": [
@@ -32538,8 +32630,21 @@
                     "Sam Smith",
                     "Jessie Reyez"
                 ]
+            },
+            {
+                "main_id": "11356392",
+                "title": "Promises - Live",
+                "ids": [
+                    "11356392"
+                ],
+                "artists": [
+                    "Sam Smith"
+                ]
             }
         ]
+    },
+    "11356392": {
+        "merge": "13410915"
     },
     "300463": {
         "title": "We Found Love",
@@ -33461,7 +33566,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 39,
+        "plays": 40,
         "entries": [],
         "variants": [
             {
@@ -33678,15 +33783,12 @@
             }
         ]
     },
-    "283003": {
-        "merge": "283066"
-    },
     "283066": {
         "title": "No More Sad Songs Remix",
         "main_id": "283066",
         "ids": [
-            "283003",
-            "283066"
+            "283066",
+            "283003"
         ],
         "artists": [
             "CNCO",
@@ -33723,16 +33825,6 @@
         ],
         "variants": [
             {
-                "main_id": "283003",
-                "title": "No More Sad Songs",
-                "ids": [
-                    "283003"
-                ],
-                "artists": [
-                    "Little Mix"
-                ]
-            },
-            {
                 "main_id": "283066",
                 "title": "No More Sad Songs Remix",
                 "ids": [
@@ -33742,8 +33834,21 @@
                     "Little Mix",
                     "Machine Gun Kelly"
                 ]
+            },
+            {
+                "main_id": "283003",
+                "title": "No More Sad Songs",
+                "ids": [
+                    "283003"
+                ],
+                "artists": [
+                    "Little Mix"
+                ]
             }
         ]
+    },
+    "283003": {
+        "merge": "283066"
     },
     "3750573": {
         "title": "Versace On the Floor",
@@ -34082,7 +34187,7 @@
             "Jessie Reyez"
         ],
         "official_name": "",
-        "plays": 131,
+        "plays": 132,
         "entries": [
             {
                 "start": "2023-02-23",
@@ -34229,6 +34334,14 @@
                 "place": 27,
                 "plays": 9,
                 "points": 100,
+                "variant": "585332"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 32,
+                "plays": 7,
+                "points": 84,
                 "variant": "585332"
             }
         ],
@@ -34620,7 +34733,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 213,
+        "plays": 215,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -35452,21 +35565,18 @@
             }
         ]
     },
-    "585483": {
-        "merge": "585350"
-    },
     "585350": {
         "title": "watch",
         "main_id": "585350",
         "ids": [
-            "585483",
-            "585350"
+            "585350",
+            "585483"
         ],
         "artists": [
             "Billie Eilish"
         ],
         "official_name": "watch",
-        "plays": 869,
+        "plays": 877,
         "entries": [
             {
                 "start": "2022-06-30",
@@ -36127,6 +36237,16 @@
         ],
         "variants": [
             {
+                "main_id": "585350",
+                "title": "watch",
+                "ids": [
+                    "585350"
+                ],
+                "artists": [
+                    "Billie Eilish"
+                ]
+            },
+            {
                 "main_id": "585483",
                 "title": "&burn",
                 "ids": [
@@ -36136,18 +36256,11 @@
                     "Billie Eilish",
                     "Vince Staples"
                 ]
-            },
-            {
-                "main_id": "585350",
-                "title": "watch",
-                "ids": [
-                    "585350"
-                ],
-                "artists": [
-                    "Billie Eilish"
-                ]
             }
         ]
+    },
+    "585483": {
+        "merge": "585350"
     },
     "74628934": {
         "title": "Man I Am",
@@ -36474,7 +36587,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 202,
+        "plays": 203,
         "entries": [
             {
                 "start": "2023-06-08",
@@ -36522,6 +36635,14 @@
                 "place": 56,
                 "plays": 6,
                 "points": 64,
+                "variant": "285194"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 51,
+                "plays": 5,
+                "points": 56,
                 "variant": "285194"
             }
         ],
@@ -36610,7 +36731,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 448,
+        "plays": 449,
         "entries": [
             {
                 "start": "2022-02-24",
@@ -37153,7 +37274,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 467,
+        "plays": 476,
         "entries": [
             {
                 "start": "2023-06-01",
@@ -37546,6 +37667,14 @@
                 "plays": 2,
                 "points": 64,
                 "variant": "1433253"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 57,
+                "plays": 4,
+                "points": 52,
+                "variant": "1433253"
             }
         ],
         "variants": [
@@ -37621,7 +37750,7 @@
             "Alessia Cara"
         ],
         "official_name": "",
-        "plays": 221,
+        "plays": 222,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -38297,7 +38426,7 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "284708",
+                "main_id": "365127",
                 "title": "Stay (Rihanna)",
                 "ids": [
                     "365127",
@@ -39341,19 +39470,25 @@
             }
         ]
     },
+    "194952594": {
+        "merge": "286582"
+    },
+    "5443438": {
+        "merge": "286582"
+    },
     "286582": {
         "title": "Only 1",
         "main_id": "286582",
         "ids": [
-            "286582",
+            "194952594",
             "5443438",
-            "194952594"
+            "286582"
         ],
         "artists": [
             "Ariana Grande"
         ],
         "official_name": "Only 1",
-        "plays": 225,
+        "plays": 226,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -39422,6 +39557,17 @@
         ],
         "variants": [
             {
+                "main_id": "5443438",
+                "title": "only 1 - live",
+                "ids": [
+                    "194952594",
+                    "5443438"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
+            },
+            {
                 "main_id": "286582",
                 "title": "Only 1",
                 "ids": [
@@ -39430,25 +39576,8 @@
                 "artists": [
                     "Ariana Grande"
                 ]
-            },
-            {
-                "main_id": "194952594",
-                "title": "only 1 - live",
-                "ids": [
-                    "5443438",
-                    "194952594"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
             }
         ]
-    },
-    "5443438": {
-        "merge": "286582"
-    },
-    "194952594": {
-        "merge": "286582"
     },
     "286489": {
         "title": "Seventeen",
@@ -39823,7 +39952,7 @@
             "Iggy Azalea"
         ],
         "official_name": "",
-        "plays": 617,
+        "plays": 618,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -40508,23 +40637,14 @@
             }
         ]
     },
-    "77370471": {
-        "merge": "5443473"
-    },
-    "1006144": {
-        "merge": "5443473"
-    },
-    "77370463": {
-        "merge": "5443473"
-    },
     "5443473": {
         "title": "right there - live",
         "main_id": "5443473",
         "ids": [
-            "77370471",
+            "5443473",
             "1006144",
             "77370463",
-            "5443473"
+            "77370471"
         ],
         "artists": [
             "Ariana Grande"
@@ -40567,19 +40687,6 @@
         ],
         "variants": [
             {
-                "main_id": "77370463",
-                "title": "Right There",
-                "ids": [
-                    "77370471",
-                    "1006144",
-                    "77370463"
-                ],
-                "artists": [
-                    "Ariana Grande",
-                    "Big Sean"
-                ]
-            },
-            {
                 "main_id": "5443473",
                 "title": "right there - live",
                 "ids": [
@@ -40589,8 +40696,30 @@
                     "Ariana Grande",
                     "Big Sean"
                 ]
+            },
+            {
+                "main_id": "77370471",
+                "title": "Right There",
+                "ids": [
+                    "1006144",
+                    "77370463",
+                    "77370471"
+                ],
+                "artists": [
+                    "Ariana Grande",
+                    "Big Sean"
+                ]
             }
         ]
+    },
+    "1006144": {
+        "merge": "5443473"
+    },
+    "77370463": {
+        "merge": "5443473"
+    },
+    "77370471": {
+        "merge": "5443473"
     },
     "114706": {
         "title": "The Night Is Still Young",
@@ -41189,7 +41318,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 365,
+        "plays": 366,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -41457,7 +41586,7 @@
             "Ty Dolla $ign"
         ],
         "official_name": "",
-        "plays": 588,
+        "plays": 593,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -42044,7 +42173,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 149,
+        "plays": 150,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -44287,7 +44416,7 @@
             "Ang\u00e8le"
         ],
         "official_name": "",
-        "plays": 823,
+        "plays": 826,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -45131,15 +45260,12 @@
             }
         ]
     },
-    "41955251": {
-        "merge": "46240656"
-    },
     "46240656": {
         "title": "BREAK MY SOUL - QUEENS REMIX",
         "main_id": "46240656",
         "ids": [
-            "41955251",
-            "46240656"
+            "46240656",
+            "41955251"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -45191,16 +45317,6 @@
         ],
         "variants": [
             {
-                "main_id": "41955251",
-                "title": "BREAK MY SOUL",
-                "ids": [
-                    "41955251"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
-            {
                 "main_id": "46240656",
                 "title": "BREAK MY SOUL - QUEENS REMIX",
                 "ids": [
@@ -45210,8 +45326,21 @@
                     "Beyonc\u00e9",
                     "Madonna"
                 ]
+            },
+            {
+                "main_id": "41955251",
+                "title": "BREAK MY SOUL",
+                "ids": [
+                    "41955251"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
             }
         ]
+    },
+    "41955251": {
+        "merge": "46240656"
     },
     "728038": {
         "title": "1999",
@@ -45299,7 +45428,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 256,
+        "plays": 259,
         "entries": [
             {
                 "start": "2023-06-01",
@@ -45419,6 +45548,14 @@
                 "place": 60,
                 "plays": 4,
                 "points": 58,
+                "variant": "285163"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 42,
+                "plays": 6,
+                "points": 72,
                 "variant": "285163"
             }
         ],
@@ -45589,7 +45726,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 223,
+        "plays": 224,
         "entries": [
             {
                 "start": "2021-12-30",
@@ -46229,7 +46366,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 665,
+        "plays": 669,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -46990,6 +47127,14 @@
                 "plays": 13,
                 "points": 150,
                 "variant": "533698"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 51,
+                "plays": 2,
+                "points": 56,
+                "variant": "533698"
             }
         ],
         "variants": [
@@ -47005,15 +47150,12 @@
             }
         ]
     },
-    "3755401": {
-        "merge": "1691859"
-    },
     "1691859": {
         "title": "Never Be the Same",
         "main_id": "1691859",
         "ids": [
-            "3755401",
-            "1691859"
+            "1691859",
+            "3755401"
         ],
         "artists": [
             "Camila Cabello"
@@ -47032,17 +47174,20 @@
         ],
         "variants": [
             {
-                "main_id": "1691859",
+                "main_id": "3755401",
                 "title": "Never Be the Same",
                 "ids": [
-                    "3755401",
-                    "1691859"
+                    "1691859",
+                    "3755401"
                 ],
                 "artists": [
                     "Camila Cabello"
                 ]
             }
         ]
+    },
+    "3755401": {
+        "merge": "1691859"
     },
     "533160": {
         "title": "Rich & Sad",
@@ -47187,6 +47332,14 @@
                 "place": 27,
                 "plays": 9,
                 "points": 100,
+                "variant": "585322"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 23,
+                "plays": 8,
+                "points": 94,
                 "variant": "585322"
             }
         ],
@@ -48272,6 +48425,14 @@
                 "plays": 8,
                 "points": 86,
                 "variant": "242469"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 47,
+                "plays": 4,
+                "points": 60,
+                "variant": "242469"
             }
         ],
         "variants": [
@@ -48762,7 +48923,7 @@
             "Ariana Grande"
         ],
         "official_name": "needy",
-        "plays": 550,
+        "plays": 551,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -49263,7 +49424,7 @@
         ],
         "variants": [
             {
-                "main_id": "5443433",
+                "main_id": "194948870",
                 "title": "needy - live",
                 "ids": [
                     "194948870",
@@ -49462,7 +49623,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 79,
+        "plays": 80,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -49832,12 +49993,15 @@
             }
         ]
     },
+    "2650310": {
+        "merge": "533271"
+    },
     "533271": {
         "title": "Savage Remix",
         "main_id": "533271",
         "ids": [
-            "533271",
-            "2650310"
+            "2650310",
+            "533271"
         ],
         "artists": [
             "Megan Thee Stallion",
@@ -49881,6 +50045,16 @@
         ],
         "variants": [
             {
+                "main_id": "2650310",
+                "title": "Savage",
+                "ids": [
+                    "2650310"
+                ],
+                "artists": [
+                    "Megan Thee Stallion"
+                ]
+            },
+            {
                 "main_id": "533271",
                 "title": "Savage Remix",
                 "ids": [
@@ -49890,21 +50064,8 @@
                     "Beyonc\u00e9",
                     "Megan Thee Stallion"
                 ]
-            },
-            {
-                "main_id": "2650310",
-                "title": "Savage",
-                "ids": [
-                    "2650310"
-                ],
-                "artists": [
-                    "Megan Thee Stallion"
-                ]
             }
         ]
-    },
-    "2650310": {
-        "merge": "533271"
     },
     "2865291": {
         "title": "Right Thru Me",
@@ -50254,7 +50415,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 73,
+        "plays": 74,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -50313,7 +50474,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 459,
+        "plays": 463,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -50700,7 +50861,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "Partition",
-        "plays": 278,
+        "plays": 291,
         "entries": [
             {
                 "start": "2021-07-01",
@@ -50876,6 +51037,14 @@
                 "place": 25,
                 "plays": 6,
                 "points": 66,
+                "variant": "1008178"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 32,
+                "plays": 8,
+                "points": 84,
                 "variant": "1008178"
             }
         ],
@@ -51096,7 +51265,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 174,
+        "plays": 175,
         "entries": [
             {
                 "start": "2024-01-11",
@@ -51235,7 +51404,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 229,
+        "plays": 230,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -51619,7 +51788,7 @@
             "Tate McRae"
         ],
         "official_name": "",
-        "plays": 99,
+        "plays": 100,
         "entries": [
             {
                 "start": "2024-08-08",
@@ -51716,12 +51885,15 @@
             }
         ]
     },
+    "62075762": {
+        "merge": "81125777"
+    },
     "81125777": {
         "title": "Overture. - Live",
         "main_id": "81125777",
         "ids": [
-            "81125777",
-            "62075762"
+            "62075762",
+            "81125777"
         ],
         "artists": [
             "RAYE",
@@ -51765,6 +51937,16 @@
         ],
         "variants": [
             {
+                "main_id": "62075762",
+                "title": "Introduction.",
+                "ids": [
+                    "62075762"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
+            },
+            {
                 "main_id": "81125777",
                 "title": "Overture. - Live",
                 "ids": [
@@ -51775,21 +51957,8 @@
                     "The Heritage Orchestra",
                     "Austin Lichtenstein"
                 ]
-            },
-            {
-                "main_id": "62075762",
-                "title": "Introduction.",
-                "ids": [
-                    "62075762"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
             }
         ]
-    },
-    "62075762": {
-        "merge": "81125777"
     },
     "285160": {
         "title": "GOLDWING",
@@ -51801,7 +51970,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 491,
+        "plays": 494,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -52258,6 +52427,14 @@
                 "plays": 4,
                 "points": 58,
                 "variant": "285160"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 24,
+                "plays": 8,
+                "points": 92,
+                "variant": "285160"
             }
         ],
         "variants": [
@@ -52407,15 +52584,12 @@
             }
         ]
     },
-    "900211": {
-        "merge": "8624825"
-    },
     "8624825": {
         "title": "fuck, i'm lonely",
         "main_id": "8624825",
         "ids": [
-            "900211",
-            "8624825"
+            "8624825",
+            "900211"
         ],
         "artists": [
             "Lauv",
@@ -52446,7 +52620,7 @@
                 "place": 51,
                 "plays": 0,
                 "points": 48,
-                "variant": "900211"
+                "variant": "8624825"
             }
         ],
         "variants": [
@@ -52454,8 +52628,8 @@
                 "main_id": "900211",
                 "title": "fuck, i'm lonely",
                 "ids": [
-                    "900211",
-                    "8624825"
+                    "8624825",
+                    "900211"
                 ],
                 "artists": [
                     "Lauv",
@@ -52463,6 +52637,9 @@
                 ]
             }
         ]
+    },
+    "900211": {
+        "merge": "8624825"
     },
     "3657307": {
         "title": "MONOPOLY",
@@ -52931,7 +53108,7 @@
         ],
         "variants": [
             {
-                "main_id": "77370470",
+                "main_id": "1005954",
                 "title": "Tattoed Heart",
                 "ids": [
                     "1005954",
@@ -53038,7 +53215,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 361,
+        "plays": 376,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -53190,6 +53367,14 @@
                 "place": 10,
                 "plays": 12,
                 "points": 154,
+                "variant": "271933676"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 1,
+                "plays": 14,
+                "points": 184,
                 "variant": "271933676"
             }
         ],
@@ -54364,7 +54549,7 @@
             "Ariana Grande"
         ],
         "official_name": "Santa Tell Me",
-        "plays": 243,
+        "plays": 244,
         "entries": [
             {
                 "start": "2021-08-26",
@@ -54583,13 +54768,19 @@
     "62075767": {
         "merge": "81125776"
     },
+    "194945053": {
+        "merge": "1412632"
+    },
+    "5443450": {
+        "merge": "1412632"
+    },
     "1412632": {
         "title": "fake smile",
         "main_id": "1412632",
         "ids": [
-            "1412632",
             "194945053",
-            "5443450"
+            "5443450",
+            "1412632"
         ],
         "artists": [
             "Ariana Grande"
@@ -55008,16 +55199,6 @@
         ],
         "variants": [
             {
-                "main_id": "1412632",
-                "title": "fake smile",
-                "ids": [
-                    "1412632"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "194945053",
                 "title": "fake smile - live",
                 "ids": [
@@ -55027,14 +55208,18 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "1412632",
+                "title": "fake smile",
+                "ids": [
+                    "1412632"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "194945053": {
-        "merge": "1412632"
-    },
-    "5443450": {
-        "merge": "1412632"
     },
     "86492587": {
         "title": "Are You Gone Already",
@@ -55061,15 +55246,12 @@
             }
         ]
     },
-    "398823": {
-        "merge": "1373"
-    },
     "1373": {
         "title": "Sugar",
         "main_id": "1373",
         "ids": [
-            "398823",
-            "1373"
+            "1373",
+            "398823"
         ],
         "artists": [
             "Maroon 5"
@@ -55088,6 +55270,16 @@
         ],
         "variants": [
             {
+                "main_id": "1373",
+                "title": "Sugar",
+                "ids": [
+                    "1373"
+                ],
+                "artists": [
+                    "Maroon 5"
+                ]
+            },
+            {
                 "main_id": "398823",
                 "title": "Sugar Remix",
                 "ids": [
@@ -55097,18 +55289,11 @@
                     "Maroon 5",
                     "Nicki Minaj"
                 ]
-            },
-            {
-                "main_id": "1373",
-                "title": "Sugar",
-                "ids": [
-                    "1373"
-                ],
-                "artists": [
-                    "Maroon 5"
-                ]
             }
         ]
+    },
+    "398823": {
+        "merge": "1373"
     },
     "241618": {
         "title": "THE NEWS",
@@ -55456,7 +55641,7 @@
             "AURORA"
         ],
         "official_name": "",
-        "plays": 22,
+        "plays": 24,
         "entries": [],
         "variants": [
             {
@@ -56124,12 +56309,15 @@
             }
         ]
     },
+    "1022799": {
+        "merge": "299889"
+    },
     "299889": {
         "title": "MONTERO",
         "main_id": "299889",
         "ids": [
-            "299889",
-            "1022799"
+            "1022799",
+            "299889"
         ],
         "artists": [
             "Lil Nas X"
@@ -56247,7 +56435,7 @@
                 "place": 43,
                 "plays": 4,
                 "points": 40,
-                "variant": "1022799"
+                "variant": "299889"
             },
             {
                 "start": "2022-06-30",
@@ -56260,20 +56448,17 @@
         ],
         "variants": [
             {
-                "main_id": "1022799",
+                "main_id": "299889",
                 "title": "MONTERO",
                 "ids": [
-                    "299889",
-                    "1022799"
+                    "1022799",
+                    "299889"
                 ],
                 "artists": [
                     "Lil Nas X"
                 ]
             }
         ]
-    },
-    "1022799": {
-        "merge": "299889"
     },
     "72561901": {
         "title": "King of Hearts",
@@ -56541,7 +56726,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 70,
+        "plays": 71,
         "entries": [
             {
                 "start": "2021-09-02",
@@ -57315,7 +57500,7 @@
             "Dua Lipa"
         ],
         "official_name": "Love Again",
-        "plays": 403,
+        "plays": 404,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -57982,7 +58167,7 @@
             "Lil Wayne"
         ],
         "official_name": "",
-        "plays": 156,
+        "plays": 165,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -58038,6 +58223,14 @@
                 "place": 38,
                 "plays": 4,
                 "points": 48,
+                "variant": "4461780"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 24,
+                "plays": 9,
+                "points": 92,
                 "variant": "4461780"
             }
         ],
@@ -58133,15 +58326,12 @@
             }
         ]
     },
-    "5443445": {
-        "merge": "284581"
-    },
     "284581": {
         "title": "Dangerous Woman",
         "main_id": "284581",
         "ids": [
-            "5443445",
-            "284581"
+            "284581",
+            "5443445"
         ],
         "artists": [
             "Ariana Grande"
@@ -58400,16 +58590,6 @@
         ],
         "variants": [
             {
-                "main_id": "5443445",
-                "title": "dangerous woman - live",
-                "ids": [
-                    "5443445"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "284581",
                 "title": "Dangerous Woman",
                 "ids": [
@@ -58418,8 +58598,21 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "5443445",
+                "title": "dangerous woman - live",
+                "ids": [
+                    "5443445"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
+    },
+    "5443445": {
+        "merge": "284581"
     },
     "95015684": {
         "title": "saturn returns",
@@ -58431,7 +58624,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 154,
+        "plays": 155,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -58651,15 +58844,12 @@
             }
         ]
     },
-    "180872673": {
-        "merge": "11675016"
-    },
     "11675016": {
         "title": "Small Reminders",
         "main_id": "11675016",
         "ids": [
-            "180872673",
-            "11675016"
+            "11675016",
+            "180872673"
         ],
         "artists": [
             "Tinashe"
@@ -58669,17 +58859,20 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "11675016",
+                "main_id": "180872673",
                 "title": "Small Reminders",
                 "ids": [
-                    "180872673",
-                    "11675016"
+                    "11675016",
+                    "180872673"
                 ],
                 "artists": [
                     "Tinashe"
                 ]
             }
         ]
+    },
+    "180872673": {
+        "merge": "11675016"
     },
     "77027378": {
         "title": "Nothing On (But The Radio)",
@@ -58716,7 +58909,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 150,
+        "plays": 151,
         "entries": [
             {
                 "start": "2021-07-15",
@@ -59149,7 +59342,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 255,
+        "plays": 258,
         "entries": [
             {
                 "start": "2023-06-01",
@@ -59270,6 +59463,14 @@
                 "plays": 4,
                 "points": 58,
                 "variant": "144531"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 39,
+                "plays": 6,
+                "points": 74,
+                "variant": "144531"
             }
         ],
         "variants": [
@@ -59295,7 +59496,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 54,
+        "plays": 55,
         "entries": [
             {
                 "start": "2021-07-08",
@@ -59931,7 +60132,7 @@
             "Nicki Minaj"
         ],
         "official_name": "",
-        "plays": 380,
+        "plays": 383,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -60385,12 +60586,15 @@
             }
         ]
     },
+    "588565": {
+        "merge": "9985574"
+    },
     "9985574": {
         "title": "Tick Tock",
         "main_id": "9985574",
         "ids": [
-            "9985574",
-            "588565"
+            "588565",
+            "9985574"
         ],
         "artists": [
             "Clean Bandit",
@@ -60451,11 +60655,11 @@
         ],
         "variants": [
             {
-                "main_id": "588565",
+                "main_id": "9985574",
                 "title": "Tick Tock",
                 "ids": [
-                    "9985574",
-                    "588565"
+                    "588565",
+                    "9985574"
                 ],
                 "artists": [
                     "Clean Bandit",
@@ -60464,9 +60668,6 @@
                 ]
             }
         ]
-    },
-    "588565": {
-        "merge": "9985574"
     },
     "84123813": {
         "title": "exes",
@@ -61360,7 +61561,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 244,
+        "plays": 246,
         "entries": [
             {
                 "start": "2022-06-30",
@@ -62046,15 +62247,12 @@
             }
         ]
     },
-    "5443428": {
-        "merge": "284597"
-    },
     "284597": {
         "title": "Be Alright",
         "main_id": "284597",
         "ids": [
-            "5443428",
-            "284597"
+            "284597",
+            "5443428"
         ],
         "artists": [
             "Ariana Grande"
@@ -62297,16 +62495,6 @@
         ],
         "variants": [
             {
-                "main_id": "5443428",
-                "title": "be alright - live",
-                "ids": [
-                    "5443428"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "284597",
                 "title": "Be Alright",
                 "ids": [
@@ -62315,8 +62503,21 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "5443428",
+                "title": "be alright - live",
+                "ids": [
+                    "5443428"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
+    },
+    "5443428": {
+        "merge": "284597"
     },
     "1034987": {
         "title": "Not In That Way",
@@ -62546,7 +62747,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 24,
+        "plays": 25,
         "entries": [],
         "variants": [
             {
@@ -62746,12 +62947,15 @@
             }
         ]
     },
+    "889917": {
+        "merge": "1122112"
+    },
     "1122112": {
         "title": "Cheap Thrills Remix",
         "main_id": "1122112",
         "ids": [
-            "1122112",
-            "889917"
+            "889917",
+            "1122112"
         ],
         "artists": [
             "Sia"
@@ -62786,6 +62990,16 @@
         ],
         "variants": [
             {
+                "main_id": "889917",
+                "title": "Cheap Thrills",
+                "ids": [
+                    "889917"
+                ],
+                "artists": [
+                    "Sia"
+                ]
+            },
+            {
                 "main_id": "1122112",
                 "title": "Cheap Thrills Remix",
                 "ids": [
@@ -62795,21 +63009,8 @@
                     "Sia",
                     "Sean Paul"
                 ]
-            },
-            {
-                "main_id": "889917",
-                "title": "Cheap Thrills",
-                "ids": [
-                    "889917"
-                ],
-                "artists": [
-                    "Sia"
-                ]
             }
         ]
-    },
-    "889917": {
-        "merge": "1122112"
     },
     "550518": {
         "title": "Shower",
@@ -62987,7 +63188,7 @@
                 "place": 48,
                 "plays": 6,
                 "points": 60,
-                "variant": "5443424"
+                "variant": "78709"
             },
             {
                 "start": "2023-11-16",
@@ -63090,7 +63291,7 @@
             "Camila Cabello"
         ],
         "official_name": "",
-        "plays": 17,
+        "plays": 18,
         "entries": [],
         "variants": [
             {
@@ -63258,7 +63459,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 206,
+        "plays": 208,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -63583,7 +63784,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 55,
+        "plays": 56,
         "entries": [
             {
                 "start": "2021-10-07",
@@ -63643,7 +63844,7 @@
             "JID"
         ],
         "official_name": "",
-        "plays": 36,
+        "plays": 37,
         "entries": [],
         "variants": [
             {
@@ -63754,18 +63955,21 @@
             }
         ]
     },
+    "120038": {
+        "merge": "3755436"
+    },
     "3755436": {
         "title": "Hold Up",
         "main_id": "3755436",
         "ids": [
-            "3755436",
-            "120038"
+            "120038",
+            "3755436"
         ],
         "artists": [
             "Beyonc\u00e9"
         ],
         "official_name": "Hold Up",
-        "plays": 342,
+        "plays": 343,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -64010,16 +64214,6 @@
         ],
         "variants": [
             {
-                "main_id": "3755436",
-                "title": "Hold Up",
-                "ids": [
-                    "3755436"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
-            {
                 "main_id": "120038",
                 "title": "Hold Up - Live",
                 "ids": [
@@ -64028,11 +64222,18 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
+            },
+            {
+                "main_id": "3755436",
+                "title": "Hold Up",
+                "ids": [
+                    "3755436"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
             }
         ]
-    },
-    "120038": {
-        "merge": "3755436"
     },
     "5339137": {
         "title": "Bound To You",
@@ -64222,6 +64423,14 @@
                 "plays": 8,
                 "points": 84,
                 "variant": "169226"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 5,
+                "plays": 11,
+                "points": 126,
+                "variant": "169226"
             }
         ],
         "variants": [
@@ -64237,15 +64446,12 @@
             }
         ]
     },
-    "8191852": {
-        "merge": "5207830"
-    },
     "5207830": {
         "title": "No Brainer",
         "main_id": "5207830",
         "ids": [
-            "8191852",
-            "5207830"
+            "5207830",
+            "8191852"
         ],
         "artists": [
             "DJ Khaled"
@@ -64296,11 +64502,11 @@
         ],
         "variants": [
             {
-                "main_id": "5207830",
+                "main_id": "8191852",
                 "title": "No Brainer",
                 "ids": [
-                    "8191852",
-                    "5207830"
+                    "5207830",
+                    "8191852"
                 ],
                 "artists": [
                     "DJ Khaled",
@@ -64310,6 +64516,9 @@
                 ]
             }
         ]
+    },
+    "8191852": {
+        "merge": "5207830"
     },
     "1767525": {
         "title": "Chun Swae",
@@ -64357,7 +64566,7 @@
             "The Weeknd"
         ],
         "official_name": "Love Me Harder",
-        "plays": 456,
+        "plays": 457,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -64682,7 +64891,7 @@
         ],
         "variants": [
             {
-                "main_id": "5443448",
+                "main_id": "194952590",
                 "title": "love me harder - live",
                 "ids": [
                     "194952590",
@@ -64730,12 +64939,15 @@
             }
         ]
     },
+    "5443429": {
+        "merge": "78739"
+    },
     "78739": {
         "title": "goodnight n go",
         "main_id": "78739",
         "ids": [
-            "78739",
-            "5443429"
+            "5443429",
+            "78739"
         ],
         "artists": [
             "Ariana Grande"
@@ -64930,16 +65142,6 @@
         ],
         "variants": [
             {
-                "main_id": "78739",
-                "title": "goodnight n go",
-                "ids": [
-                    "78739"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "5443429",
                 "title": "goodnight n go - live",
                 "ids": [
@@ -64948,11 +65150,18 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "78739",
+                "title": "goodnight n go",
+                "ids": [
+                    "78739"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "5443429": {
-        "merge": "78739"
     },
     "3055339": {
         "title": "Indigo Child",
@@ -65752,7 +65961,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 152,
+        "plays": 159,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -65857,6 +66066,14 @@
                 "plays": 7,
                 "points": 92,
                 "variant": "271933669"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 20,
+                "plays": 7,
+                "points": 98,
+                "variant": "271933669"
             }
         ],
         "variants": [
@@ -65883,7 +66100,7 @@
             "Drake"
         ],
         "official_name": "",
-        "plays": 182,
+        "plays": 183,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -66061,20 +66278,20 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "417427",
-                "title": "Too Good at Goodbyes",
+                "main_id": "442103",
+                "title": "Too Good at Goodbyes - Live",
                 "ids": [
-                    "417427"
+                    "442103"
                 ],
                 "artists": [
                     "Sam Smith"
                 ]
             },
             {
-                "main_id": "442103",
-                "title": "Too Good at Goodbyes - Live",
+                "main_id": "417427",
+                "title": "Too Good at Goodbyes",
                 "ids": [
-                    "442103"
+                    "417427"
                 ],
                 "artists": [
                     "Sam Smith"
@@ -66220,12 +66437,15 @@
             }
         ]
     },
+    "47562415": {
+        "merge": "46829579"
+    },
     "46829579": {
         "title": "Super Freaky Girl",
         "main_id": "46829579",
         "ids": [
-            "46829579",
-            "47562415"
+            "47562415",
+            "46829579"
         ],
         "artists": [
             "Nicki Minaj"
@@ -66276,20 +66496,17 @@
         ],
         "variants": [
             {
-                "main_id": "47562415",
+                "main_id": "46829579",
                 "title": "Super Freaky Girl",
                 "ids": [
-                    "46829579",
-                    "47562415"
+                    "47562415",
+                    "46829579"
                 ],
                 "artists": [
                     "Nicki Minaj"
                 ]
             }
         ]
-    },
-    "47562415": {
-        "merge": "46829579"
     },
     "6581847": {
         "title": "Baby, I'm Jealous",
@@ -66302,7 +66519,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 22,
+        "plays": 23,
         "entries": [
             {
                 "start": "2021-08-19",
@@ -66561,16 +66778,16 @@
             }
         ]
     },
-    "81125773": {
+    "48864967": {
         "merge": "53355515"
     },
     "53355515": {
         "title": "Black Mascara.",
         "main_id": "53355515",
         "ids": [
-            "81125773",
+            "48864967",
             "53355515",
-            "48864967"
+            "81125773"
         ],
         "artists": [
             "RAYE"
@@ -66645,6 +66862,17 @@
         ],
         "variants": [
             {
+                "main_id": "53355515",
+                "title": "Black Mascara.",
+                "ids": [
+                    "48864967",
+                    "53355515"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
+            },
+            {
                 "main_id": "81125773",
                 "title": "Black Mascara. - Live",
                 "ids": [
@@ -66654,21 +66882,10 @@
                     "RAYE",
                     "The Heritage Orchestra"
                 ]
-            },
-            {
-                "main_id": "48864967",
-                "title": "Black Mascara.",
-                "ids": [
-                    "53355515",
-                    "48864967"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
             }
         ]
     },
-    "48864967": {
+    "81125773": {
         "merge": "53355515"
     },
     "1910991": {
@@ -66845,7 +67062,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 17,
+        "plays": 18,
         "entries": [],
         "variants": [
             {
@@ -66870,7 +67087,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 204,
+        "plays": 205,
         "entries": [
             {
                 "start": "2023-06-15",
@@ -66958,15 +67175,12 @@
             }
         ]
     },
-    "81125774": {
-        "merge": "62075770"
-    },
     "62075770": {
         "title": "Buss It Down.",
         "main_id": "62075770",
         "ids": [
-            "81125774",
-            "62075770"
+            "62075770",
+            "81125774"
         ],
         "artists": [
             "RAYE"
@@ -67017,6 +67231,16 @@
         ],
         "variants": [
             {
+                "main_id": "62075770",
+                "title": "Buss It Down.",
+                "ids": [
+                    "62075770"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
+            },
+            {
                 "main_id": "81125774",
                 "title": "Buss It Down. - Live",
                 "ids": [
@@ -67026,18 +67250,11 @@
                     "RAYE",
                     "The Heritage Orchestra"
                 ]
-            },
-            {
-                "main_id": "62075770",
-                "title": "Buss It Down.",
-                "ids": [
-                    "62075770"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
             }
         ]
+    },
+    "81125774": {
+        "merge": "62075770"
     },
     "45761817": {
         "title": "HEATED",
@@ -67141,6 +67358,14 @@
                 "plays": 9,
                 "points": 100,
                 "variant": "585331"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 10,
+                "plays": 10,
+                "points": 114,
+                "variant": "585331"
             }
         ],
         "variants": [
@@ -67192,15 +67417,12 @@
             }
         ]
     },
-    "62075763": {
-        "merge": "81125761"
-    },
     "81125761": {
         "title": "Oscar Winning Tears. - Live",
         "main_id": "81125761",
         "ids": [
-            "62075763",
-            "81125761"
+            "81125761",
+            "62075763"
         ],
         "artists": [
             "RAYE",
@@ -67252,16 +67474,6 @@
         ],
         "variants": [
             {
-                "main_id": "62075763",
-                "title": "Oscar Winning Tears.",
-                "ids": [
-                    "62075763"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
-            },
-            {
                 "main_id": "81125761",
                 "title": "Oscar Winning Tears. - Live",
                 "ids": [
@@ -67271,8 +67483,21 @@
                     "RAYE",
                     "The Heritage Orchestra"
                 ]
+            },
+            {
+                "main_id": "62075763",
+                "title": "Oscar Winning Tears.",
+                "ids": [
+                    "62075763"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
             }
         ]
+    },
+    "62075763": {
+        "merge": "81125761"
     },
     "61073224": {
         "title": "Flowers",
@@ -67427,7 +67652,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 1169,
+        "plays": 1179,
         "entries": [
             {
                 "start": "2023-07-13",
@@ -67964,18 +68189,21 @@
             }
         ]
     },
+    "498342": {
+        "merge": "300006"
+    },
     "300006": {
         "title": "Levitating",
         "main_id": "300006",
         "ids": [
-            "300006",
-            "498342"
+            "498342",
+            "300006"
         ],
         "artists": [
             "Dua Lipa"
         ],
         "official_name": "Levitating",
-        "plays": 486,
+        "plays": 488,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -68452,16 +68680,6 @@
         ],
         "variants": [
             {
-                "main_id": "300006",
-                "title": "Levitating",
-                "ids": [
-                    "300006"
-                ],
-                "artists": [
-                    "Dua Lipa"
-                ]
-            },
-            {
                 "main_id": "498342",
                 "title": "Levitating Remix",
                 "ids": [
@@ -68471,11 +68689,18 @@
                     "Dua Lipa",
                     "DaBaby"
                 ]
+            },
+            {
+                "main_id": "300006",
+                "title": "Levitating",
+                "ids": [
+                    "300006"
+                ],
+                "artists": [
+                    "Dua Lipa"
+                ]
             }
         ]
-    },
-    "498342": {
-        "merge": "300006"
     },
     "398663": {
         "title": "In Your Pocket",
@@ -68899,7 +69124,7 @@
             "Mykki Blanco"
         ],
         "official_name": "",
-        "plays": 147,
+        "plays": 149,
         "entries": [
             {
                 "start": "2022-05-26",
@@ -69738,7 +69963,7 @@
             "Adele"
         ],
         "official_name": "",
-        "plays": 197,
+        "plays": 198,
         "entries": [
             {
                 "start": "2022-10-13",
@@ -70215,12 +70440,15 @@
             }
         ]
     },
+    "652316": {
+        "merge": "823669"
+    },
     "823669": {
         "title": "Get Lucky",
         "main_id": "823669",
         "ids": [
-            "823669",
-            "652316"
+            "652316",
+            "823669"
         ],
         "artists": [
             "Daft Punk",
@@ -70232,11 +70460,11 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "652316",
+                "main_id": "823669",
                 "title": "Get Lucky",
                 "ids": [
-                    "823669",
-                    "652316"
+                    "652316",
+                    "823669"
                 ],
                 "artists": [
                     "Daft Punk",
@@ -70245,9 +70473,6 @@
                 ]
             }
         ]
-    },
-    "652316": {
-        "merge": "823669"
     },
     "45761812": {
         "title": "COZY",
@@ -70587,7 +70812,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 1032,
+        "plays": 1037,
         "entries": [
             {
                 "start": "2022-09-22",
@@ -71347,19 +71572,22 @@
             }
         ]
     },
+    "120032": {
+        "merge": "3755446"
+    },
     "3755446": {
         "title": "Don't Hurt Yourself",
         "main_id": "3755446",
         "ids": [
-            "3755446",
-            "120032"
+            "120032",
+            "3755446"
         ],
         "artists": [
             "Beyonc\u00e9",
             "Jack White"
         ],
         "official_name": "Don't Hurt Yourself (feat. Jack White)",
-        "plays": 217,
+        "plays": 218,
         "entries": [
             {
                 "start": "2023-02-02",
@@ -71452,6 +71680,16 @@
         ],
         "variants": [
             {
+                "main_id": "120032",
+                "title": "Don't Hurt Yourself - Live",
+                "ids": [
+                    "120032"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
+            },
+            {
                 "main_id": "3755446",
                 "title": "Don't Hurt Yourself",
                 "ids": [
@@ -71461,21 +71699,8 @@
                     "Beyonc\u00e9",
                     "Jack White"
                 ]
-            },
-            {
-                "main_id": "120032",
-                "title": "Don't Hurt Yourself - Live",
-                "ids": [
-                    "120032"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
             }
         ]
-    },
-    "120032": {
-        "merge": "3755446"
     },
     "4091510": {
         "title": "SAVAGE ANTHEM",
@@ -71654,7 +71879,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 279,
+        "plays": 281,
         "entries": [
             {
                 "start": "2023-05-25",
@@ -71831,6 +72056,14 @@
                 "plays": 4,
                 "points": 58,
                 "variant": "285181"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 45,
+                "plays": 5,
+                "points": 62,
+                "variant": "285181"
             }
         ],
         "variants": [
@@ -71856,7 +72089,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 21,
+        "plays": 22,
         "entries": [],
         "variants": [
             {
@@ -71931,7 +72164,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 668,
+        "plays": 671,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -73303,7 +73536,7 @@
                 ]
             },
             {
-                "main_id": "194945060",
+                "main_id": "5443441",
                 "title": "everytime - live",
                 "ids": [
                     "5443441",
@@ -73832,7 +74065,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 550,
+        "plays": 554,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -74344,6 +74577,14 @@
                 "place": 29,
                 "plays": 11,
                 "points": 128,
+                "variant": "533707"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 47,
+                "plays": 3,
+                "points": 60,
                 "variant": "533707"
             }
         ],
@@ -75070,7 +75311,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 156,
+        "plays": 164,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -75190,6 +75431,14 @@
                 "place": 47,
                 "plays": 8,
                 "points": 98,
+                "variant": "271933668"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 13,
+                "plays": 8,
+                "points": 110,
                 "variant": "271933668"
             }
         ],
@@ -75759,15 +76008,12 @@
             }
         ]
     },
-    "533414": {
-        "merge": "2600853"
-    },
     "2600853": {
         "title": "Lifestyle",
         "main_id": "2600853",
         "ids": [
-            "533414",
-            "2600853"
+            "2600853",
+            "533414"
         ],
         "artists": [
             "Jason Derulo"
@@ -75829,8 +76075,8 @@
                 "main_id": "533414",
                 "title": "Lifestyle",
                 "ids": [
-                    "533414",
-                    "2600853"
+                    "2600853",
+                    "533414"
                 ],
                 "artists": [
                     "Jason Derulo",
@@ -75839,6 +76085,9 @@
                 ]
             }
         ]
+    },
+    "533414": {
+        "merge": "2600853"
     },
     "61053568": {
         "title": "One Of Us",
@@ -75875,7 +76124,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 974,
+        "plays": 988,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -76548,6 +76797,14 @@
                 "plays": 6,
                 "points": 128,
                 "variant": "285192"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 1,
+                "plays": 13,
+                "points": 184,
+                "variant": "285192"
             }
         ],
         "variants": [
@@ -77211,12 +77468,15 @@
             }
         ]
     },
+    "5443449": {
+        "merge": "78715"
+    },
     "78715": {
         "title": "no tears left to cry",
         "main_id": "78715",
         "ids": [
-            "78715",
-            "5443449"
+            "5443449",
+            "78715"
         ],
         "artists": [
             "Ariana Grande"
@@ -77918,7 +78178,7 @@
                 "place": 31,
                 "plays": 6,
                 "points": 92,
-                "variant": "78715"
+                "variant": "5443449"
             },
             {
                 "start": "2023-08-31",
@@ -78070,7 +78330,7 @@
                 "place": 34,
                 "plays": 6,
                 "points": 86,
-                "variant": "78715"
+                "variant": "5443449"
             },
             {
                 "start": "2024-03-14",
@@ -78203,16 +78463,6 @@
         ],
         "variants": [
             {
-                "main_id": "78715",
-                "title": "no tears left to cry",
-                "ids": [
-                    "78715"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "5443449",
                 "title": "no tears left to cry - live",
                 "ids": [
@@ -78221,11 +78471,18 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "78715",
+                "title": "no tears left to cry",
+                "ids": [
+                    "78715"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "5443449": {
-        "merge": "78715"
     },
     "1239601": {
         "title": "Checkmate",
@@ -78492,19 +78749,13 @@
             }
         ]
     },
-    "194945036": {
-        "merge": "1412617"
-    },
-    "5443442": {
-        "merge": "1412617"
-    },
     "1412617": {
         "title": "in my head",
         "main_id": "1412617",
         "ids": [
+            "1412617",
             "194945036",
-            "5443442",
-            "1412617"
+            "5443442"
         ],
         "artists": [
             "Ariana Grande"
@@ -78606,7 +78857,7 @@
                 "place": 59,
                 "plays": 6,
                 "points": 76,
-                "variant": "1412617"
+                "variant": "5443442"
             },
             {
                 "start": "2024-05-02",
@@ -78709,7 +78960,7 @@
                 ]
             },
             {
-                "main_id": "5443442",
+                "main_id": "194945036",
                 "title": "in my head - live",
                 "ids": [
                     "194945036",
@@ -78721,6 +78972,12 @@
             }
         ]
     },
+    "194945036": {
+        "merge": "1412617"
+    },
+    "5443442": {
+        "merge": "1412617"
+    },
     "585333": {
         "title": "goodbye",
         "main_id": "585333",
@@ -78731,7 +78988,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 407,
+        "plays": 414,
         "entries": [
             {
                 "start": "2023-05-04",
@@ -79052,6 +79309,14 @@
                 "plays": 11,
                 "points": 128,
                 "variant": "585333"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 16,
+                "plays": 8,
+                "points": 102,
+                "variant": "585333"
             }
         ],
         "variants": [
@@ -79077,7 +79342,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 21,
+        "plays": 22,
         "entries": [],
         "variants": [
             {
@@ -79470,12 +79735,15 @@
             }
         ]
     },
+    "12849627": {
+        "merge": "5218563"
+    },
     "5218563": {
         "title": "Save Room For Us",
         "main_id": "5218563",
         "ids": [
-            "5218563",
-            "12849627"
+            "12849627",
+            "5218563"
         ],
         "artists": [
             "Tinashe",
@@ -79554,8 +79822,8 @@
                 "main_id": "5218563",
                 "title": "Save Room For Us",
                 "ids": [
-                    "5218563",
-                    "12849627"
+                    "12849627",
+                    "5218563"
                 ],
                 "artists": [
                     "Tinashe",
@@ -79563,9 +79831,6 @@
                 ]
             }
         ]
-    },
-    "12849627": {
-        "merge": "5218563"
     },
     "962997": {
         "title": "Pussy Talk",
@@ -79776,7 +80041,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 81,
+        "plays": 82,
         "entries": [
             {
                 "start": "2024-04-25",
@@ -79846,7 +80111,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 338,
+        "plays": 340,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -80295,6 +80560,14 @@
                 "plays": 5,
                 "points": 82,
                 "variant": "607750"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 37,
+                "plays": 8,
+                "points": 80,
+                "variant": "607750"
             }
         ],
         "variants": [
@@ -80652,7 +80925,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 145,
+        "plays": 153,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -80764,6 +81037,14 @@
                 "place": 45,
                 "plays": 8,
                 "points": 102,
+                "variant": "271933675"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 10,
+                "plays": 8,
+                "points": 114,
                 "variant": "271933675"
             }
         ],
@@ -81052,6 +81333,14 @@
                 "plays": 9,
                 "points": 96,
                 "variant": "169221"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 27,
+                "plays": 7,
+                "points": 88,
+                "variant": "169221"
             }
         ],
         "variants": [
@@ -81077,7 +81366,7 @@
             "Tinashe"
         ],
         "official_name": "",
-        "plays": 166,
+        "plays": 167,
         "entries": [
             {
                 "start": "2023-09-07",
@@ -81181,15 +81470,12 @@
             }
         ]
     },
-    "6329760": {
-        "merge": "2441995"
-    },
     "2441995": {
         "title": "For The Lover That I Lost",
         "main_id": "2441995",
         "ids": [
-            "6329760",
-            "2441995"
+            "2441995",
+            "6329760"
         ],
         "artists": [
             "Sam Smith"
@@ -81224,16 +81510,6 @@
         ],
         "variants": [
             {
-                "main_id": "6329760",
-                "title": "For The Lover That I Lost - Live",
-                "ids": [
-                    "6329760"
-                ],
-                "artists": [
-                    "Sam Smith"
-                ]
-            },
-            {
                 "main_id": "2441995",
                 "title": "For The Lover That I Lost",
                 "ids": [
@@ -81242,8 +81518,21 @@
                 "artists": [
                     "Sam Smith"
                 ]
+            },
+            {
+                "main_id": "6329760",
+                "title": "For The Lover That I Lost - Live",
+                "ids": [
+                    "6329760"
+                ],
+                "artists": [
+                    "Sam Smith"
+                ]
             }
         ]
+    },
+    "6329760": {
+        "merge": "2441995"
     },
     "4091500": {
         "title": "TOUCH ME",
@@ -81508,12 +81797,15 @@
             }
         ]
     },
+    "46254376": {
+        "merge": "45761814"
+    },
     "45761814": {
         "title": "ENERGY",
         "main_id": "45761814",
         "ids": [
-            "45761814",
-            "46254376"
+            "46254376",
+            "45761814"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -81527,17 +81819,14 @@
                 "main_id": "45761814",
                 "title": "ENERGY",
                 "ids": [
-                    "45761814",
-                    "46254376"
+                    "46254376",
+                    "45761814"
                 ],
                 "artists": [
                     "Beyonc\u00e9"
                 ]
             }
         ]
-    },
-    "46254376": {
-        "merge": "45761814"
     },
     "39661999": {
         "title": "Reputation",
@@ -81665,7 +81954,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 91,
+        "plays": 93,
         "entries": [
             {
                 "start": "2024-07-04",
@@ -81986,7 +82275,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 474,
+        "plays": 478,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -82439,12 +82728,15 @@
             }
         ]
     },
+    "77370467": {
+        "merge": "1005964"
+    },
     "1005964": {
         "title": "Honeymoon Avenue",
         "main_id": "1005964",
         "ids": [
-            "1005964",
-            "77370467"
+            "77370467",
+            "1005964"
         ],
         "artists": [
             "Ariana Grande"
@@ -82490,17 +82782,14 @@
                 "main_id": "1005964",
                 "title": "Honeymoon Avenue",
                 "ids": [
-                    "1005964",
-                    "77370467"
+                    "77370467",
+                    "1005964"
                 ],
                 "artists": [
                     "Ariana Grande"
                 ]
             }
         ]
-    },
-    "77370467": {
-        "merge": "1005964"
     },
     "14504609": {
         "merge": "402135"
@@ -82612,7 +82901,7 @@
                 "place": 49,
                 "plays": 6,
                 "points": 64,
-                "variant": "14504609"
+                "variant": "402135"
             },
             {
                 "start": "2023-02-02",
@@ -82644,7 +82933,7 @@
                 "place": 40,
                 "plays": 2,
                 "points": 44,
-                "variant": "14504609"
+                "variant": "402135"
             }
         ],
         "variants": [
@@ -82736,12 +83025,15 @@
             }
         ]
     },
+    "77370469": {
+        "merge": "1005965"
+    },
     "1005965": {
         "title": "Baby I",
         "main_id": "1005965",
         "ids": [
-            "1005965",
-            "77370469"
+            "77370469",
+            "1005965"
         ],
         "artists": [
             "Ariana Grande"
@@ -82763,8 +83055,8 @@
                 "main_id": "1005965",
                 "title": "Baby I",
                 "ids": [
-                    "1005965",
-                    "77370469"
+                    "77370469",
+                    "1005965"
                 ],
                 "artists": [
                     "Ariana Grande"
@@ -82772,21 +83064,21 @@
             }
         ]
     },
-    "77370469": {
-        "merge": "1005965"
+    "95521548": {
+        "merge": "95015704"
     },
     "95015704": {
         "title": "supernatural",
         "main_id": "95015704",
         "ids": [
-            "95015704",
-            "95521548"
+            "95521548",
+            "95015704"
         ],
         "artists": [
             "Ariana Grande"
         ],
         "official_name": "supernatural",
-        "plays": 236,
+        "plays": 238,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -82895,16 +83187,6 @@
         ],
         "variants": [
             {
-                "main_id": "95015704",
-                "title": "supernatural",
-                "ids": [
-                    "95015704"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "95521548",
                 "title": "supernatural remix",
                 "ids": [
@@ -82914,11 +83196,18 @@
                     "Ariana Grande",
                     "Troye Sivan"
                 ]
+            },
+            {
+                "main_id": "95015704",
+                "title": "supernatural",
+                "ids": [
+                    "95015704"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "95521548": {
-        "merge": "95015704"
     },
     "533665": {
         "title": "Last Dance",
@@ -83192,13 +83481,19 @@
             }
         ]
     },
+    "194952588": {
+        "merge": "116367"
+    },
+    "5443471": {
+        "merge": "116367"
+    },
     "116367": {
         "title": "Side to Side",
         "main_id": "116367",
         "ids": [
-            "116367",
+            "194952588",
             "5443471",
-            "194952588"
+            "116367"
         ],
         "artists": [
             "Ariana Grande",
@@ -84082,6 +84377,18 @@
         ],
         "variants": [
             {
+                "main_id": "5443471",
+                "title": "side to side - live",
+                "ids": [
+                    "194952588",
+                    "5443471"
+                ],
+                "artists": [
+                    "Ariana Grande",
+                    "Nicki Minaj"
+                ]
+            },
+            {
                 "main_id": "116367",
                 "title": "Side to Side",
                 "ids": [
@@ -84091,26 +84398,8 @@
                     "Ariana Grande",
                     "Nicki Minaj"
                 ]
-            },
-            {
-                "main_id": "194952588",
-                "title": "side to side - live",
-                "ids": [
-                    "5443471",
-                    "194952588"
-                ],
-                "artists": [
-                    "Ariana Grande",
-                    "Nicki Minaj"
-                ]
             }
         ]
-    },
-    "5443471": {
-        "merge": "116367"
-    },
-    "194952588": {
-        "merge": "116367"
     },
     "509266": {
         "title": "Right By My Side",
@@ -84174,7 +84463,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 34,
+        "plays": 36,
         "entries": [],
         "variants": [
             {
@@ -84335,14 +84624,18 @@
             }
         ]
     },
+    "5652986": {
+        "merge": "32952"
+    },
     "32952": {
         "title": "The Hills",
         "main_id": "32952",
         "ids": [
-            "32952",
-            "5652986"
+            "5652986",
+            "32952"
         ],
         "artists": [
+            "The Weeknd",
             "The Weeknd"
         ],
         "official_name": "The Hills",
@@ -84371,9 +84664,6 @@
                 ]
             }
         ]
-    },
-    "5652986": {
-        "merge": "32952"
     },
     "75657": {
         "title": "Most Girls",
@@ -84445,7 +84735,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "Diva - Homecoming Live",
-        "plays": 41,
+        "plays": 43,
         "entries": [
             {
                 "start": "2024-06-06",
@@ -84466,7 +84756,7 @@
         ],
         "variants": [
             {
-                "main_id": "193686038",
+                "main_id": "120004",
                 "title": "Diva - Live",
                 "ids": [
                     "120004",
@@ -84481,12 +84771,15 @@
     "193686038": {
         "merge": "120004"
     },
+    "1177591": {
+        "merge": "2063340"
+    },
     "2063340": {
         "title": "911 Remix",
         "main_id": "2063340",
         "ids": [
-            "2063340",
-            "1177591"
+            "1177591",
+            "2063340"
         ],
         "artists": [
             "Lady Gaga",
@@ -84494,7 +84787,7 @@
             "Arca"
         ],
         "official_name": "911 - Charli XCX & A. G. Cook Remix",
-        "plays": 111,
+        "plays": 112,
         "entries": [
             {
                 "start": "2023-05-18",
@@ -84563,6 +84856,16 @@
         ],
         "variants": [
             {
+                "main_id": "1177591",
+                "title": "911",
+                "ids": [
+                    "1177591"
+                ],
+                "artists": [
+                    "Lady Gaga"
+                ]
+            },
+            {
                 "main_id": "2063340",
                 "title": "911 Remix",
                 "ids": [
@@ -84573,21 +84876,8 @@
                     "Charli XCX",
                     "A. G. Cook"
                 ]
-            },
-            {
-                "main_id": "1177591",
-                "title": "911",
-                "ids": [
-                    "1177591"
-                ],
-                "artists": [
-                    "Lady Gaga"
-                ]
             }
         ]
-    },
-    "1177591": {
-        "merge": "2063340"
     },
     "5446527": {
         "title": "Blazin",
@@ -84763,7 +85053,7 @@
             "Cashmere Cat"
         ],
         "official_name": "",
-        "plays": 199,
+        "plays": 200,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -84903,7 +85193,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 256,
+        "plays": 259,
         "entries": [
             {
                 "start": "2023-03-30",
@@ -85040,6 +85330,14 @@
                 "plays": 8,
                 "points": 100,
                 "variant": "285175"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 42,
+                "plays": 6,
+                "points": 72,
+                "variant": "285175"
             }
         ],
         "variants": [
@@ -85125,7 +85423,7 @@
             "Rina Sawayama"
         ],
         "official_name": "Beg for You (feat. Rina Sawayama)",
-        "plays": 81,
+        "plays": 82,
         "entries": [
             {
                 "start": "2023-05-18",
@@ -85419,7 +85717,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 815,
+        "plays": 825,
         "entries": [
             {
                 "start": "2023-03-30",
@@ -86004,6 +86302,14 @@
                 "plays": 7,
                 "points": 102,
                 "variant": "285158"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 6,
+                "plays": 10,
+                "points": 122,
+                "variant": "285158"
             }
         ],
         "variants": [
@@ -86315,7 +86621,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 36,
+        "plays": 38,
         "entries": [],
         "variants": [
             {
@@ -86534,7 +86840,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 155,
+        "plays": 156,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -86855,7 +87161,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 141,
+        "plays": 142,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -86943,12 +87249,15 @@
             }
         ]
     },
+    "587050": {
+        "merge": "33723295"
+    },
     "33723295": {
         "title": "Canada",
         "main_id": "33723295",
         "ids": [
-            "33723295",
-            "587050"
+            "587050",
+            "33723295"
         ],
         "artists": [
             "Lauv",
@@ -86962,8 +87271,8 @@
                 "main_id": "33723295",
                 "title": "Canada",
                 "ids": [
-                    "33723295",
-                    "587050"
+                    "587050",
+                    "33723295"
                 ],
                 "artists": [
                     "Lauv",
@@ -86971,9 +87280,6 @@
                 ]
             }
         ]
-    },
-    "587050": {
-        "merge": "33723295"
     },
     "2754558": {
         "title": "Love More",
@@ -87225,7 +87531,7 @@
             "Normani"
         ],
         "official_name": "Wild Side (feat. Cardi B)",
-        "plays": 285,
+        "plays": 286,
         "entries": [
             {
                 "start": "2022-08-04",
@@ -87273,7 +87579,7 @@
                 "place": 57,
                 "plays": 2,
                 "points": 36,
-                "variant": "5311092"
+                "variant": "839754"
             },
             {
                 "start": "2023-05-04",
@@ -87434,11 +87740,19 @@
                 "plays": 6,
                 "points": 64,
                 "variant": "839754"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 57,
+                "plays": 4,
+                "points": 52,
+                "variant": "5311092"
             }
         ],
         "variants": [
             {
-                "main_id": "839754",
+                "main_id": "5311092",
                 "title": "Wild Side",
                 "ids": [
                     "5311092",
@@ -88081,20 +88395,26 @@
             }
         ]
     },
+    "194952592": {
+        "merge": "286594"
+    },
+    "5443474": {
+        "merge": "286594"
+    },
     "286594": {
         "title": "Break Your Heart Right Back",
         "main_id": "286594",
         "ids": [
-            "286594",
             "194952592",
-            "5443474"
+            "5443474",
+            "286594"
         ],
         "artists": [
             "Ariana Grande",
             "Childish Gambino"
         ],
         "official_name": "Break Your Heart Right Back",
-        "plays": 321,
+        "plays": 323,
         "entries": [
             {
                 "start": "2022-10-13",
@@ -88190,7 +88510,7 @@
                 "place": 39,
                 "plays": 8,
                 "points": 90,
-                "variant": "286594"
+                "variant": "5443474"
             },
             {
                 "start": "2023-12-28",
@@ -88238,7 +88558,7 @@
                 "place": 48,
                 "plays": 6,
                 "points": 66,
-                "variant": "286594"
+                "variant": "5443474"
             },
             {
                 "start": "2024-06-13",
@@ -88267,6 +88587,17 @@
         ],
         "variants": [
             {
+                "main_id": "286594",
+                "title": "Break Your Heart Right Back",
+                "ids": [
+                    "286594"
+                ],
+                "artists": [
+                    "Ariana Grande",
+                    "Childish Gambino"
+                ]
+            },
+            {
                 "main_id": "194952592",
                 "title": "break your heart right back - live",
                 "ids": [
@@ -88277,25 +88608,8 @@
                     "Ariana Grande",
                     "Childish Gambino"
                 ]
-            },
-            {
-                "main_id": "286594",
-                "title": "Break Your Heart Right Back",
-                "ids": [
-                    "286594"
-                ],
-                "artists": [
-                    "Ariana Grande",
-                    "Childish Gambino"
-                ]
             }
         ]
-    },
-    "194952592": {
-        "merge": "286594"
-    },
-    "5443474": {
-        "merge": "286594"
     },
     "1412614": {
         "title": "make up",
@@ -88800,33 +89114,20 @@
             }
         ]
     },
-    "120029": {
-        "merge": "1008180"
-    },
     "1008180": {
         "title": "7/11",
         "main_id": "1008180",
         "ids": [
-            "120029",
-            "1008180"
+            "1008180",
+            "120029"
         ],
         "artists": [
             "Beyonc\u00e9"
         ],
         "official_name": "7/11",
-        "plays": 67,
+        "plays": 70,
         "entries": [],
         "variants": [
-            {
-                "main_id": "120029",
-                "title": "7/11 - Live",
-                "ids": [
-                    "120029"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
             {
                 "main_id": "1008180",
                 "title": "7/11",
@@ -88836,8 +89137,21 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
+            },
+            {
+                "main_id": "120029",
+                "title": "7/11 - Live",
+                "ids": [
+                    "120029"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
             }
         ]
+    },
+    "120029": {
+        "merge": "1008180"
     },
     "61824852": {
         "title": "Sleepwalker",
@@ -89008,7 +89322,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 314,
+        "plays": 315,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -89230,7 +89544,7 @@
             "Billie Eilish"
         ],
         "official_name": "ocean eyes",
-        "plays": 1170,
+        "plays": 1179,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -90167,6 +90481,14 @@
                 "plays": 20,
                 "points": 224,
                 "variant": "169224"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 55,
+                "plays": 1,
+                "points": 54,
+                "variant": "169224"
             }
         ],
         "variants": [
@@ -90363,7 +90685,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 399,
+        "plays": 404,
         "entries": [
             {
                 "start": "2023-05-04",
@@ -91134,6 +91456,14 @@
                 "plays": 9,
                 "points": 100,
                 "variant": "585319"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 32,
+                "plays": 7,
+                "points": 84,
+                "variant": "585319"
             }
         ],
         "variants": [
@@ -91467,12 +91797,15 @@
             }
         ]
     },
+    "10020996": {
+        "merge": "5748569"
+    },
     "5748569": {
         "title": "Dip",
         "main_id": "5748569",
         "ids": [
-            "5748569",
-            "10020996"
+            "10020996",
+            "5748569"
         ],
         "artists": [
             "Tyga",
@@ -91567,8 +91900,8 @@
                 "main_id": "5748569",
                 "title": "Dip",
                 "ids": [
-                    "5748569",
-                    "10020996"
+                    "10020996",
+                    "5748569"
                 ],
                 "artists": [
                     "Tyga",
@@ -91576,9 +91909,6 @@
                 ]
             }
         ]
-    },
-    "10020996": {
-        "merge": "5748569"
     },
     "72163842": {
         "title": "Angel",
@@ -91771,7 +92101,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 309,
+        "plays": 311,
         "entries": [
             {
                 "start": "2021-08-12",
@@ -91999,12 +92329,15 @@
             }
         ]
     },
+    "54030595": {
+        "merge": "70382997"
+    },
     "70382997": {
         "title": "Snow On The Beach",
         "main_id": "70382997",
         "ids": [
-            "70382997",
-            "54030595"
+            "54030595",
+            "70382997"
         ],
         "artists": [
             "Taylor Swift",
@@ -92024,11 +92357,11 @@
         ],
         "variants": [
             {
-                "main_id": "54030595",
+                "main_id": "70382997",
                 "title": "Snow On The Beach",
                 "ids": [
-                    "70382997",
-                    "54030595"
+                    "54030595",
+                    "70382997"
                 ],
                 "artists": [
                     "Taylor Swift",
@@ -92036,9 +92369,6 @@
                 ]
             }
         ]
-    },
-    "54030595": {
-        "merge": "70382997"
     },
     "8927990": {
         "title": "Slower",
@@ -92616,6 +92946,14 @@
                 "plays": 8,
                 "points": 86,
                 "variant": "585318"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 29,
+                "plays": 7,
+                "points": 86,
+                "variant": "585318"
             }
         ],
         "variants": [
@@ -92854,12 +93192,15 @@
             }
         ]
     },
+    "6314290": {
+        "merge": "416968"
+    },
     "416968": {
         "title": "Kids Again",
         "main_id": "416968",
         "ids": [
-            "416968",
-            "6314290"
+            "6314290",
+            "416968"
         ],
         "artists": [
             "Sam Smith"
@@ -92869,16 +93210,6 @@
         "entries": [],
         "variants": [
             {
-                "main_id": "416968",
-                "title": "Kids Again",
-                "ids": [
-                    "416968"
-                ],
-                "artists": [
-                    "Sam Smith"
-                ]
-            },
-            {
                 "main_id": "6314290",
                 "title": "Kids Again - Live",
                 "ids": [
@@ -92887,11 +93218,18 @@
                 "artists": [
                     "Sam Smith"
                 ]
+            },
+            {
+                "main_id": "416968",
+                "title": "Kids Again",
+                "ids": [
+                    "416968"
+                ],
+                "artists": [
+                    "Sam Smith"
+                ]
             }
         ]
-    },
-    "6314290": {
-        "merge": "416968"
     },
     "897100": {
         "title": "Don't Let Me Down",
@@ -93458,7 +93796,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 78,
+        "plays": 79,
         "entries": [
             {
                 "start": "2022-12-08",
@@ -93995,12 +94333,15 @@
             }
         ]
     },
+    "10730709": {
+        "merge": "499214"
+    },
     "499214": {
         "title": "Homemade Dynamite",
         "main_id": "499214",
         "ids": [
-            "499214",
-            "10730709"
+            "10730709",
+            "499214"
         ],
         "artists": [
             "Lorde"
@@ -94019,16 +94360,6 @@
         ],
         "variants": [
             {
-                "main_id": "499214",
-                "title": "Homemade Dynamite",
-                "ids": [
-                    "499214"
-                ],
-                "artists": [
-                    "Lorde"
-                ]
-            },
-            {
                 "main_id": "10730709",
                 "title": "Homemade Dynamite Remix",
                 "ids": [
@@ -94040,11 +94371,18 @@
                     "Post Malone",
                     "SZA"
                 ]
+            },
+            {
+                "main_id": "499214",
+                "title": "Homemade Dynamite",
+                "ids": [
+                    "499214"
+                ],
+                "artists": [
+                    "Lorde"
+                ]
             }
         ]
-    },
-    "10730709": {
-        "merge": "499214"
     },
     "306975": {
         "title": "Confidence",
@@ -94389,12 +94727,15 @@
             }
         ]
     },
+    "9163": {
+        "merge": "3750576"
+    },
     "3750576": {
         "title": "Intentions",
         "main_id": "3750576",
         "ids": [
-            "3750576",
-            "9163"
+            "9163",
+            "3750576"
         ],
         "artists": [
             "Justin Bieber",
@@ -94430,11 +94771,11 @@
         ],
         "variants": [
             {
-                "main_id": "9163",
+                "main_id": "3750576",
                 "title": "Intentions",
                 "ids": [
-                    "3750576",
-                    "9163"
+                    "9163",
+                    "3750576"
                 ],
                 "artists": [
                     "Justin Bieber",
@@ -94442,9 +94783,6 @@
                 ]
             }
         ]
-    },
-    "9163": {
-        "merge": "3750576"
     },
     "585329": {
         "title": "8",
@@ -94456,7 +94794,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 185,
+        "plays": 190,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -94528,6 +94866,14 @@
                 "place": 34,
                 "plays": 11,
                 "points": 122,
+                "variant": "585329"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 16,
+                "plays": 8,
+                "points": 102,
                 "variant": "585329"
             }
         ],
@@ -94608,7 +94954,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 336,
+        "plays": 337,
         "entries": [
             {
                 "start": "2022-07-28",
@@ -94880,7 +95226,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 397,
+        "plays": 398,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -96047,20 +96393,23 @@
             }
         ]
     },
+    "120036": {
+        "merge": "5489502"
+    },
     "5489502": {
         "title": "Baby Boy",
         "main_id": "5489502",
         "ids": [
+            "120036",
             "5489502",
-            "180012",
-            "120036"
+            "180012"
         ],
         "artists": [
             "Beyonc\u00e9",
             "Sean Paul"
         ],
         "official_name": "Baby Boy (feat. Sean Paul)",
-        "plays": 101,
+        "plays": 102,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -96105,18 +96454,6 @@
         ],
         "variants": [
             {
-                "main_id": "180012",
-                "title": "Baby Boy",
-                "ids": [
-                    "5489502",
-                    "180012"
-                ],
-                "artists": [
-                    "Beyonc\u00e9",
-                    "Sean Paul"
-                ]
-            },
-            {
                 "main_id": "120036",
                 "title": "Baby Boy - Live",
                 "ids": [
@@ -96126,13 +96463,22 @@
                     "Beyonc\u00e9",
                     "Sean Paul"
                 ]
+            },
+            {
+                "main_id": "5489502",
+                "title": "Baby Boy",
+                "ids": [
+                    "5489502",
+                    "180012"
+                ],
+                "artists": [
+                    "Beyonc\u00e9",
+                    "Sean Paul"
+                ]
             }
         ]
     },
     "180012": {
-        "merge": "5489502"
-    },
-    "120036": {
         "merge": "5489502"
     },
     "588152": {
@@ -96321,12 +96667,15 @@
             }
         ]
     },
+    "9861811": {
+        "merge": "12860328"
+    },
     "12860328": {
         "title": "Love Is Religion",
         "main_id": "12860328",
         "ids": [
-            "12860328",
-            "9861811"
+            "9861811",
+            "12860328"
         ],
         "artists": [
             "Dua Lipa"
@@ -96361,11 +96710,11 @@
         ],
         "variants": [
             {
-                "main_id": "9861811",
+                "main_id": "12860328",
                 "title": "Love Is Religion",
                 "ids": [
-                    "12860328",
-                    "9861811"
+                    "9861811",
+                    "12860328"
                 ],
                 "artists": [
                     "Dua Lipa",
@@ -96373,9 +96722,6 @@
                 ]
             }
         ]
-    },
-    "9861811": {
-        "merge": "12860328"
     },
     "709898": {
         "title": "Let It Go",
@@ -96387,7 +96733,7 @@
             "Idina Menzel"
         ],
         "official_name": "",
-        "plays": 18,
+        "plays": 19,
         "entries": [],
         "variants": [
             {
@@ -96466,7 +96812,7 @@
                 "place": 57,
                 "plays": 8,
                 "points": 86,
-                "variant": "1008172"
+                "variant": "1008256"
             }
         ],
         "variants": [
@@ -96506,7 +96852,7 @@
             "Adele"
         ],
         "official_name": "",
-        "plays": 195,
+        "plays": 196,
         "entries": [
             {
                 "start": "2022-08-25",
@@ -97268,7 +97614,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 307,
+        "plays": 314,
         "entries": [
             {
                 "start": "2023-03-30",
@@ -97816,7 +98162,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 24,
+        "plays": 27,
         "entries": [
             {
                 "start": "2024-08-01",
@@ -97923,7 +98269,7 @@
                 "place": 53,
                 "plays": 0,
                 "points": 10,
-                "variant": "727690"
+                "variant": "5443443"
             },
             {
                 "start": "2021-08-19",
@@ -98211,7 +98557,7 @@
                 "place": 55,
                 "plays": 4,
                 "points": 48,
-                "variant": "727690"
+                "variant": "5443443"
             },
             {
                 "start": "2023-06-01",
@@ -98291,7 +98637,7 @@
                 "place": 18,
                 "plays": 12,
                 "points": 138,
-                "variant": "727690"
+                "variant": "5443443"
             },
             {
                 "start": "2023-10-05",
@@ -98307,7 +98653,7 @@
                 "place": 36,
                 "plays": 6,
                 "points": 92,
-                "variant": "727690"
+                "variant": "5443443"
             },
             {
                 "start": "2023-10-19",
@@ -98987,7 +99333,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "Flawless Remix (feat. Nicki Minaj)",
-        "plays": 309,
+        "plays": 311,
         "entries": [
             {
                 "start": "2021-11-18",
@@ -99208,17 +99554,6 @@
         ],
         "variants": [
             {
-                "main_id": "1008250",
-                "title": "Flawless Remix",
-                "ids": [
-                    "1008250"
-                ],
-                "artists": [
-                    "Beyonc\u00e9",
-                    "Nicki Minaj"
-                ]
-            },
-            {
                 "main_id": "1008325",
                 "title": "***Flawless",
                 "ids": [
@@ -99227,6 +99562,17 @@
                 "artists": [
                     "Beyonc\u00e9",
                     "Chimamanda Ngozi Adichie"
+                ]
+            },
+            {
+                "main_id": "1008250",
+                "title": "Flawless Remix",
+                "ids": [
+                    "1008250"
+                ],
+                "artists": [
+                    "Beyonc\u00e9",
+                    "Nicki Minaj"
                 ]
             }
         ]
@@ -99332,7 +99678,7 @@
             "SZA"
         ],
         "official_name": "",
-        "plays": 25,
+        "plays": 26,
         "entries": [],
         "variants": [
             {
@@ -99627,7 +99973,7 @@
         ],
         "variants": [
             {
-                "main_id": "5443447",
+                "main_id": "194952598",
                 "title": "my heart belongs to daddy - live",
                 "ids": [
                     "194952598",
@@ -99732,7 +100078,7 @@
             "Charli XCX"
         ],
         "official_name": "Von dutch a. g. cook remix featuring addison rae",
-        "plays": 79,
+        "plays": 81,
         "entries": [
             {
                 "start": "2024-04-04",
@@ -99835,8 +100181,11 @@
         ]
     },
     "120048": {
+        "merge": "120025"
+    },
+    "120025": {
         "title": "I Been On - Live",
-        "main_id": "120048",
+        "main_id": "120025",
         "ids": [
             "120048",
             "120025"
@@ -99844,8 +100193,8 @@
         "artists": [
             "Beyonc\u00e9"
         ],
-        "official_name": "I Been On - Homecoming Live Bonus Track",
-        "plays": 71,
+        "official_name": "I Been On - Homecoming Live",
+        "plays": 73,
         "entries": [
             {
                 "start": "2024-05-30",
@@ -99893,9 +100242,6 @@
                 ]
             }
         ]
-    },
-    "120025": {
-        "merge": "120048"
     },
     "586634": {
         "title": "Closer",
@@ -100263,7 +100609,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 280,
+        "plays": 281,
         "entries": [
             {
                 "start": "2022-03-17",
@@ -102042,7 +102388,7 @@
             "Ariana Grande"
         ],
         "official_name": "break up with your girlfriend, i'm bored",
-        "plays": 888,
+        "plays": 890,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -102498,7 +102844,7 @@
                 "place": 59,
                 "plays": 2,
                 "points": 46,
-                "variant": "1412616"
+                "variant": "5443425"
             },
             {
                 "start": "2023-06-01",
@@ -102810,7 +103156,7 @@
                 "place": 43,
                 "plays": 4,
                 "points": 80,
-                "variant": "1412616"
+                "variant": "5443425"
             },
             {
                 "start": "2024-04-04",
@@ -102963,6 +103309,14 @@
                 "plays": 5,
                 "points": 78,
                 "variant": "1412616"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 29,
+                "plays": 8,
+                "points": 86,
+                "variant": "1412616"
             }
         ],
         "variants": [
@@ -103001,7 +103355,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 50,
+        "plays": 51,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -103732,15 +104086,12 @@
             }
         ]
     },
-    "1107915": {
-        "merge": "1985188"
-    },
     "1985188": {
         "title": "Juicy",
         "main_id": "1985188",
         "ids": [
-            "1107915",
-            "1985188"
+            "1985188",
+            "1107915"
         ],
         "artists": [
             "Doja Cat"
@@ -103831,6 +104182,16 @@
         ],
         "variants": [
             {
+                "main_id": "1985188",
+                "title": "Juicy",
+                "ids": [
+                    "1985188"
+                ],
+                "artists": [
+                    "Doja Cat"
+                ]
+            },
+            {
                 "main_id": "1107915",
                 "title": "Juicy Remix",
                 "ids": [
@@ -103840,18 +104201,11 @@
                     "Doja Cat",
                     "Tyga"
                 ]
-            },
-            {
-                "main_id": "1985188",
-                "title": "Juicy",
-                "ids": [
-                    "1985188"
-                ],
-                "artists": [
-                    "Doja Cat"
-                ]
             }
         ]
+    },
+    "1107915": {
+        "merge": "1985188"
     },
     "299912": {
         "title": "LOST IN THE CITADEL",
@@ -104093,7 +104447,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 537,
+        "plays": 542,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -104589,6 +104943,14 @@
                 "place": 24,
                 "plays": 11,
                 "points": 132,
+                "variant": "533703"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 44,
+                "plays": 3,
+                "points": 64,
                 "variant": "533703"
             }
         ],
@@ -105154,15 +105516,19 @@
             }
         ]
     },
+    "2067000": {
+        "merge": "300513"
+    },
     "300513": {
         "title": "INDUSTRY BABY",
         "main_id": "300513",
         "ids": [
-            "300513",
-            "2067000"
+            "2067000",
+            "300513"
         ],
         "artists": [
             "Lil Nas X",
+            "Jack Harlow",
             "Jack Harlow"
         ],
         "official_name": "INDUSTRY BABY (feat. Jack Harlow)",
@@ -105190,7 +105556,7 @@
                 "place": 1,
                 "plays": 0,
                 "points": 98,
-                "variant": "300513"
+                "variant": "2067000"
             },
             {
                 "start": "2021-08-12",
@@ -105275,11 +105641,11 @@
         ],
         "variants": [
             {
-                "main_id": "2067000",
+                "main_id": "300513",
                 "title": "INDUSTRY BABY",
                 "ids": [
-                    "300513",
-                    "2067000"
+                    "2067000",
+                    "300513"
                 ],
                 "artists": [
                     "Lil Nas X",
@@ -105287,9 +105653,6 @@
                 ]
             }
         ]
-    },
-    "2067000": {
-        "merge": "300513"
     },
     "61768612": {
         "title": "Cold As Ice",
@@ -105630,7 +105993,7 @@
                 "place": 9,
                 "plays": 9,
                 "points": 132,
-                "variant": "81125778"
+                "variant": "62075764"
             },
             {
                 "start": "2023-10-26",
@@ -105732,7 +106095,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 26,
+        "plays": 27,
         "entries": [],
         "variants": [
             {
@@ -106597,7 +106960,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 243,
+        "plays": 244,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -106760,7 +107123,7 @@
             "Tate McRae"
         ],
         "official_name": "",
-        "plays": 176,
+        "plays": 177,
         "entries": [
             {
                 "start": "2023-09-28",
@@ -106872,6 +107235,14 @@
                 "place": 4,
                 "plays": 15,
                 "points": 180,
+                "variant": "78936960"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 57,
+                "plays": 1,
+                "points": 52,
                 "variant": "78936960"
             }
         ],
@@ -107605,7 +107976,7 @@
             "Camila Cabello"
         ],
         "official_name": "",
-        "plays": 34,
+        "plays": 35,
         "entries": [],
         "variants": [
             {
@@ -107738,7 +108109,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 48,
+        "plays": 49,
         "entries": [
             {
                 "start": "2024-02-22",
@@ -107839,7 +108210,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 655,
+        "plays": 661,
         "entries": [
             {
                 "start": "2022-03-10",
@@ -108352,6 +108723,14 @@
                 "plays": 15,
                 "points": 164,
                 "variant": "519777"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 12,
+                "plays": 8,
+                "points": 112,
+                "variant": "519777"
             }
         ],
         "variants": [
@@ -108724,12 +109103,15 @@
             }
         ]
     },
+    "120045": {
+        "merge": "283723"
+    },
     "283723": {
         "title": "Love On Top",
         "main_id": "283723",
         "ids": [
-            "283723",
-            "120045"
+            "120045",
+            "283723"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -108748,16 +109130,6 @@
         ],
         "variants": [
             {
-                "main_id": "283723",
-                "title": "Love On Top",
-                "ids": [
-                    "283723"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
-            {
                 "main_id": "120045",
                 "title": "Love On Top - Live",
                 "ids": [
@@ -108766,11 +109138,18 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
+            },
+            {
+                "main_id": "283723",
+                "title": "Love On Top",
+                "ids": [
+                    "283723"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
             }
         ]
-    },
-    "120045": {
-        "merge": "283723"
     },
     "81125775": {
         "title": "Escapism. - Live",
@@ -108938,22 +109317,19 @@
             }
         ]
     },
-    "5443434": {
-        "merge": "180467"
-    },
     "180467": {
         "title": "Break Free",
         "main_id": "180467",
         "ids": [
-            "5443434",
-            "180467"
+            "180467",
+            "5443434"
         ],
         "artists": [
             "Ariana Grande",
             "Zedd"
         ],
         "official_name": "Break Free",
-        "plays": 903,
+        "plays": 906,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -109409,7 +109785,7 @@
                 "place": 18,
                 "plays": 2,
                 "points": 62,
-                "variant": "180467"
+                "variant": "5443434"
             },
             {
                 "start": "2023-03-09",
@@ -109726,16 +110102,6 @@
         ],
         "variants": [
             {
-                "main_id": "5443434",
-                "title": "break free - live",
-                "ids": [
-                    "5443434"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "180467",
                 "title": "Break Free",
                 "ids": [
@@ -109745,8 +110111,21 @@
                     "Ariana Grande",
                     "Zedd"
                 ]
+            },
+            {
+                "main_id": "5443434",
+                "title": "break free - live",
+                "ids": [
+                    "5443434"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
+    },
+    "5443434": {
+        "merge": "180467"
     },
     "284562": {
         "title": "Jesus Loves Me",
@@ -110028,7 +110407,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 168,
+        "plays": 169,
         "entries": [
             {
                 "start": "2022-06-16",
@@ -110411,7 +110790,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 555,
+        "plays": 563,
         "entries": [
             {
                 "start": "2022-10-06",
@@ -110964,6 +111343,14 @@
                 "plays": 4,
                 "points": 78,
                 "variant": "285159"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 27,
+                "plays": 7,
+                "points": 88,
+                "variant": "285159"
             }
         ],
         "variants": [
@@ -111147,15 +111534,12 @@
             }
         ]
     },
-    "43009": {
-        "merge": "1016605"
-    },
     "1016605": {
         "title": "Bad",
         "main_id": "1016605",
         "ids": [
-            "43009",
-            "1016605"
+            "1016605",
+            "43009"
         ],
         "artists": [
             "Michael Jackson"
@@ -111185,14 +111569,17 @@
                 "main_id": "43009",
                 "title": "Bad",
                 "ids": [
-                    "43009",
-                    "1016605"
+                    "1016605",
+                    "43009"
                 ],
                 "artists": [
                     "Michael Jackson"
                 ]
             }
         ]
+    },
+    "43009": {
+        "merge": "1016605"
     },
     "61827943": {
         "title": "Lose You",
@@ -111375,12 +111762,15 @@
             }
         ]
     },
+    "120023": {
+        "merge": "5665"
+    },
     "5665": {
         "title": "Crazy In Love",
         "main_id": "5665",
         "ids": [
-            "5665",
-            "120023"
+            "120023",
+            "5665"
         ],
         "artists": [
             "Beyonc\u00e9",
@@ -111416,6 +111806,16 @@
         ],
         "variants": [
             {
+                "main_id": "120023",
+                "title": "Crazy In Love - Live",
+                "ids": [
+                    "120023"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
+            },
+            {
                 "main_id": "5665",
                 "title": "Crazy In Love",
                 "ids": [
@@ -111425,21 +111825,8 @@
                     "Beyonc\u00e9",
                     "JAY-Z"
                 ]
-            },
-            {
-                "main_id": "120023",
-                "title": "Crazy In Love - Live",
-                "ids": [
-                    "120023"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
             }
         ]
-    },
-    "120023": {
-        "merge": "5665"
     },
     "1342544": {
         "title": "Dance To This",
@@ -111859,7 +112246,7 @@
             "JID"
         ],
         "official_name": "",
-        "plays": 32,
+        "plays": 34,
         "entries": [],
         "variants": [
             {
@@ -112154,7 +112541,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 46,
+        "plays": 47,
         "entries": [
             {
                 "start": "2022-06-02",
@@ -112548,7 +112935,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 482,
+        "plays": 487,
         "entries": [
             {
                 "start": "2022-07-14",
@@ -112933,6 +113320,14 @@
                 "plays": 12,
                 "points": 132,
                 "variant": "585330"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 14,
+                "plays": 8,
+                "points": 104,
+                "variant": "585330"
             }
         ],
         "variants": [
@@ -112948,21 +113343,18 @@
             }
         ]
     },
-    "272527539": {
-        "merge": "271933677"
-    },
     "271933677": {
         "title": "L'AMOUR DE MA VIE",
         "main_id": "271933677",
         "ids": [
-            "272527539",
-            "271933677"
+            "271933677",
+            "272527539"
         ],
         "artists": [
             "Billie Eilish"
         ],
         "official_name": "L\u2019AMOUR DE MA VIE",
-        "plays": 326,
+        "plays": 341,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -113115,19 +113507,17 @@
                 "plays": 12,
                 "points": 156,
                 "variant": "271933677"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 4,
+                "plays": 9,
+                "points": 134,
+                "variant": "271933677"
             }
         ],
         "variants": [
-            {
-                "main_id": "272527539",
-                "title": "L'AMOUR DE MA VIE EDIT",
-                "ids": [
-                    "272527539"
-                ],
-                "artists": [
-                    "Billie Eilish"
-                ]
-            },
             {
                 "main_id": "271933677",
                 "title": "L'AMOUR DE MA VIE",
@@ -113137,8 +113527,21 @@
                 "artists": [
                     "Billie Eilish"
                 ]
+            },
+            {
+                "main_id": "272527539",
+                "title": "L'AMOUR DE MA VIE EDIT",
+                "ids": [
+                    "272527539"
+                ],
+                "artists": [
+                    "Billie Eilish"
+                ]
             }
         ]
+    },
+    "272527539": {
+        "merge": "271933677"
     },
     "5497206": {
         "title": "Boyz",
@@ -113239,7 +113642,7 @@
             "Gucci Mane"
         ],
         "official_name": "",
-        "plays": 91,
+        "plays": 95,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -113850,7 +114253,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 41,
+        "plays": 42,
         "entries": [
             {
                 "start": "2023-06-29",
@@ -113923,12 +114326,15 @@
             }
         ]
     },
+    "3140043": {
+        "merge": "818065"
+    },
     "818065": {
         "title": "Faith",
         "main_id": "818065",
         "ids": [
-            "818065",
-            "3140043"
+            "3140043",
+            "818065"
         ],
         "artists": [
             "The Weeknd"
@@ -113950,8 +114356,8 @@
                 "main_id": "818065",
                 "title": "Faith",
                 "ids": [
-                    "818065",
-                    "3140043"
+                    "3140043",
+                    "818065"
                 ],
                 "artists": [
                     "Stevie Wonder",
@@ -113959,9 +114365,6 @@
                 ]
             }
         ]
-    },
-    "3140043": {
-        "merge": "818065"
     },
     "3491062": {
         "title": "Daydream Interlude",
@@ -114389,7 +114792,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 168,
+        "plays": 170,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -114540,7 +114943,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 59,
+        "plays": 60,
         "entries": [
             {
                 "start": "2023-08-03",
@@ -114871,7 +115274,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 158,
+        "plays": 159,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -115086,7 +115489,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 19,
+        "plays": 20,
         "entries": [],
         "variants": [
             {
@@ -115231,7 +115634,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 391,
+        "plays": 394,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -115941,7 +116344,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 31,
+        "plays": 33,
         "entries": [],
         "variants": [
             {
@@ -115966,7 +116369,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 420,
+        "plays": 423,
         "entries": [
             {
                 "start": "2021-08-05",
@@ -117389,7 +117792,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 123,
+        "plays": 130,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -117501,6 +117904,14 @@
                 "place": 52,
                 "plays": 7,
                 "points": 88,
+                "variant": "271933670"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 20,
+                "plays": 7,
+                "points": 98,
                 "variant": "271933670"
             }
         ],
@@ -117684,7 +118095,7 @@
             "Jay Park"
         ],
         "official_name": "",
-        "plays": 188,
+        "plays": 189,
         "entries": [
             {
                 "start": "2022-09-08",
@@ -118589,7 +119000,7 @@
             "Tainy"
         ],
         "official_name": "",
-        "plays": 140,
+        "plays": 141,
         "entries": [
             {
                 "start": "2022-06-16",
@@ -119408,7 +119819,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 38,
+        "plays": 40,
         "entries": [],
         "variants": [
             {
@@ -119503,7 +119914,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 259,
+        "plays": 261,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -119735,19 +120146,13 @@
             }
         ]
     },
-    "78714": {
-        "merge": "5443432"
-    },
-    "194952586": {
-        "merge": "5443432"
-    },
     "5443432": {
         "title": "sweetener - live",
         "main_id": "5443432",
         "ids": [
-            "78714",
+            "5443432",
             "194952586",
-            "5443432"
+            "78714"
         ],
         "artists": [
             "Ariana Grande"
@@ -119838,6 +120243,17 @@
         ],
         "variants": [
             {
+                "main_id": "194952586",
+                "title": "sweetener - live",
+                "ids": [
+                    "5443432",
+                    "194952586"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
+            },
+            {
                 "main_id": "78714",
                 "title": "sweetener",
                 "ids": [
@@ -119846,19 +120262,14 @@
                 "artists": [
                     "Ariana Grande"
                 ]
-            },
-            {
-                "main_id": "5443432",
-                "title": "sweetener - live",
-                "ids": [
-                    "194952586",
-                    "5443432"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
             }
         ]
+    },
+    "194952586": {
+        "merge": "5443432"
+    },
+    "78714": {
+        "merge": "5443432"
     },
     "25656585": {
         "title": "Don't Break My Heart",
@@ -120006,7 +120417,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 99,
+        "plays": 100,
         "entries": [
             {
                 "start": "2023-06-08",
@@ -120104,7 +120515,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 302,
+        "plays": 303,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -120874,7 +121285,7 @@
             "Tate McRae"
         ],
         "official_name": "",
-        "plays": 95,
+        "plays": 96,
         "entries": [
             {
                 "start": "2024-08-08",
@@ -121145,7 +121556,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 11,
+        "plays": 12,
         "entries": [],
         "variants": [
             {
@@ -121789,7 +122200,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 157,
+        "plays": 164,
         "entries": [
             {
                 "start": "2024-05-16",
@@ -121910,6 +122321,14 @@
                 "plays": 8,
                 "points": 98,
                 "variant": "271933671"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 18,
+                "plays": 7,
+                "points": 100,
+                "variant": "271933671"
             }
         ],
         "variants": [
@@ -121961,12 +122380,15 @@
             }
         ]
     },
+    "13164533": {
+        "merge": "5871272"
+    },
     "5871272": {
         "title": "Click",
         "main_id": "5871272",
         "ids": [
-            "5871272",
-            "13164533"
+            "13164533",
+            "5871272"
         ],
         "artists": [
             "Charli XCX",
@@ -121987,18 +122409,6 @@
         ],
         "variants": [
             {
-                "main_id": "5871272",
-                "title": "Click",
-                "ids": [
-                    "5871272"
-                ],
-                "artists": [
-                    "Charli XCX",
-                    "Kim Petras",
-                    "Tommy Cash"
-                ]
-            },
-            {
                 "main_id": "13164533",
                 "title": "Click Remix",
                 "ids": [
@@ -122009,11 +122419,20 @@
                     "Kim Petras",
                     "Slayyyter"
                 ]
+            },
+            {
+                "main_id": "5871272",
+                "title": "Click",
+                "ids": [
+                    "5871272"
+                ],
+                "artists": [
+                    "Charli XCX",
+                    "Kim Petras",
+                    "Tommy Cash"
+                ]
             }
         ]
-    },
-    "13164533": {
-        "merge": "5871272"
     },
     "608354": {
         "title": "Suga Mama",
@@ -122526,7 +122945,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 382,
+        "plays": 383,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -123032,12 +123451,15 @@
             }
         ]
     },
+    "586662": {
+        "merge": "587345"
+    },
     "587345": {
         "title": "Wildest Dreams",
         "main_id": "587345",
         "ids": [
-            "587345",
-            "586662"
+            "586662",
+            "587345"
         ],
         "artists": [
             "Taylor Swift"
@@ -123304,20 +123726,17 @@
         ],
         "variants": [
             {
-                "main_id": "586662",
+                "main_id": "587345",
                 "title": "Wildest Dreams",
                 "ids": [
-                    "587345",
-                    "586662"
+                    "586662",
+                    "587345"
                 ],
                 "artists": [
                     "Taylor Swift"
                 ]
             }
         ]
-    },
-    "586662": {
-        "merge": "587345"
     },
     "498179": {
         "title": "Leave Before You Love Me",
@@ -123748,7 +124167,7 @@
                 ]
             },
             {
-                "main_id": "194952584",
+                "main_id": "5443427",
                 "title": "god is a woman - live",
                 "ids": [
                     "5443427",
@@ -123801,7 +124220,7 @@
             "Lady Gaga"
         ],
         "official_name": "",
-        "plays": 28,
+        "plays": 29,
         "entries": [
             {
                 "start": "2023-01-26",
@@ -124128,7 +124547,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 75,
+        "plays": 76,
         "entries": [
             {
                 "start": "2024-04-25",
@@ -124211,7 +124630,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 1487,
+        "plays": 1491,
         "entries": [
             {
                 "start": "2021-09-09",
@@ -125380,6 +125799,14 @@
                 "plays": 12,
                 "points": 142,
                 "variant": "533701"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 51,
+                "plays": 2,
+                "points": 56,
+                "variant": "533701"
             }
         ],
         "variants": [
@@ -126023,19 +126450,22 @@
             }
         ]
     },
+    "1008255": {
+        "merge": "1008249"
+    },
     "1008249": {
         "title": "Drunk In Love",
         "main_id": "1008249",
         "ids": [
+            "1008255",
             "1008249",
-            "120026",
-            "1008255"
+            "120026"
         ],
         "artists": [
             "Beyonc\u00e9"
         ],
         "official_name": "Drunk in Love (feat. Jay Z)",
-        "plays": 138,
+        "plays": 141,
         "entries": [
             {
                 "start": "2023-11-23",
@@ -126043,7 +126473,7 @@
                 "place": 28,
                 "plays": 8,
                 "points": 86,
-                "variant": "1008255"
+                "variant": "1008249"
             },
             {
                 "start": "2023-11-30",
@@ -126064,6 +126494,18 @@
         ],
         "variants": [
             {
+                "main_id": "1008255",
+                "title": "Drunk In Love Remix",
+                "ids": [
+                    "1008255"
+                ],
+                "artists": [
+                    "Beyonc\u00e9",
+                    "JAY-Z",
+                    "Kanye West"
+                ]
+            },
+            {
                 "main_id": "1008249",
                 "title": "Drunk In Love",
                 "ids": [
@@ -126083,25 +126525,10 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
-            },
-            {
-                "main_id": "1008255",
-                "title": "Drunk In Love Remix",
-                "ids": [
-                    "1008255"
-                ],
-                "artists": [
-                    "Beyonc\u00e9",
-                    "JAY-Z",
-                    "Kanye West"
-                ]
             }
         ]
     },
     "120026": {
-        "merge": "1008249"
-    },
-    "1008255": {
         "merge": "1008249"
     },
     "283785": {
@@ -126176,7 +126603,7 @@
             "The Weeknd"
         ],
         "official_name": "",
-        "plays": 307,
+        "plays": 310,
         "entries": [
             {
                 "start": "2022-01-13",
@@ -126510,7 +126937,7 @@
         ],
         "variants": [
             {
-                "main_id": "81125764",
+                "main_id": "81125763",
                 "title": "The Thrill Is Gone. - Live",
                 "ids": [
                     "81125763",
@@ -126863,7 +127290,7 @@
         ],
         "variants": [
             {
-                "main_id": "300019",
+                "main_id": "1117243",
                 "title": "Can't Hold Us",
                 "ids": [
                     "1117243",
@@ -127068,7 +127495,7 @@
             "Young Thug"
         ],
         "official_name": "",
-        "plays": 37,
+        "plays": 39,
         "entries": [],
         "variants": [
             {
@@ -127378,7 +127805,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 307,
+        "plays": 309,
         "entries": [
             {
                 "start": "2021-06-24",
@@ -129273,12 +129700,15 @@
             }
         ]
     },
+    "62075766": {
+        "merge": "81125770"
+    },
     "81125770": {
         "title": "Flip A Switch. - Live",
         "main_id": "81125770",
         "ids": [
-            "81125770",
-            "62075766"
+            "62075766",
+            "81125770"
         ],
         "artists": [
             "RAYE",
@@ -129306,6 +129736,16 @@
         ],
         "variants": [
             {
+                "main_id": "62075766",
+                "title": "Flip A Switch.",
+                "ids": [
+                    "62075766"
+                ],
+                "artists": [
+                    "RAYE"
+                ]
+            },
+            {
                 "main_id": "81125770",
                 "title": "Flip A Switch. - Live",
                 "ids": [
@@ -129315,31 +129755,15 @@
                     "RAYE",
                     "The Heritage Orchestra"
                 ]
-            },
-            {
-                "main_id": "62075766",
-                "title": "Flip A Switch.",
-                "ids": [
-                    "62075766"
-                ],
-                "artists": [
-                    "RAYE"
-                ]
             }
         ]
-    },
-    "62075766": {
-        "merge": "81125770"
-    },
-    "77370468": {
-        "merge": "1005946"
     },
     "1005946": {
         "title": "Daydreamin'",
         "main_id": "1005946",
         "ids": [
-            "77370468",
-            "1005946"
+            "1005946",
+            "77370468"
         ],
         "artists": [
             "Ariana Grande"
@@ -129358,17 +129782,20 @@
         ],
         "variants": [
             {
-                "main_id": "1005946",
+                "main_id": "77370468",
                 "title": "Daydreamin'",
                 "ids": [
-                    "77370468",
-                    "1005946"
+                    "1005946",
+                    "77370468"
                 ],
                 "artists": [
                     "Ariana Grande"
                 ]
             }
         ]
+    },
+    "77370468": {
+        "merge": "1005946"
     },
     "173264": {
         "title": "Cold Water",
@@ -129492,7 +129919,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "",
-        "plays": 35,
+        "plays": 36,
         "entries": [
             {
                 "start": "2024-06-06",
@@ -129704,22 +130131,22 @@
             }
         ]
     },
-    "8607693": {
+    "12561980": {
         "merge": "300003"
     },
     "300003": {
         "title": "Don't Start Now",
         "main_id": "300003",
         "ids": [
-            "8607693",
+            "12561980",
             "300003",
-            "12561980"
+            "8607693"
         ],
         "artists": [
             "Dua Lipa"
         ],
         "official_name": "Don't Start Now",
-        "plays": 362,
+        "plays": 364,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -130004,14 +130431,13 @@
         ],
         "variants": [
             {
-                "main_id": "8607693",
-                "title": "Don't Start Now Remix",
+                "main_id": "12561980",
+                "title": "Don't Start Now Live",
                 "ids": [
-                    "8607693"
+                    "12561980"
                 ],
                 "artists": [
-                    "Dua Lipa",
-                    "Regard"
+                    "Dua Lipa"
                 ]
             },
             {
@@ -130025,18 +130451,19 @@
                 ]
             },
             {
-                "main_id": "12561980",
-                "title": "Don't Start Now Live",
+                "main_id": "8607693",
+                "title": "Don't Start Now Remix",
                 "ids": [
-                    "12561980"
+                    "8607693"
                 ],
                 "artists": [
-                    "Dua Lipa"
+                    "Dua Lipa",
+                    "Regard"
                 ]
             }
         ]
     },
-    "12561980": {
+    "8607693": {
         "merge": "300003"
     },
     "842093": {
@@ -130210,7 +130637,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 237,
+        "plays": 238,
         "entries": [
             {
                 "start": "2023-06-08",
@@ -130306,6 +130733,14 @@
                 "place": 32,
                 "plays": 8,
                 "points": 88,
+                "variant": "285184"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 47,
+                "plays": 5,
+                "points": 60,
                 "variant": "285184"
             }
         ],
@@ -130740,7 +131175,7 @@
                 "place": 53,
                 "plays": 2,
                 "points": 52,
-                "variant": "5443431"
+                "variant": "78710"
             },
             {
                 "start": "2023-09-28",
@@ -130836,7 +131271,7 @@
                 "place": 21,
                 "plays": 14,
                 "points": 154,
-                "variant": "5443431"
+                "variant": "78710"
             },
             {
                 "start": "2024-03-28",
@@ -130865,7 +131300,7 @@
         ],
         "variants": [
             {
-                "main_id": "194945025",
+                "main_id": "5443431",
                 "title": "breathin - live",
                 "ids": [
                     "5443431",
@@ -130887,15 +131322,12 @@
             }
         ]
     },
-    "12007952": {
-        "merge": "8188890"
-    },
     "8188890": {
         "title": "Swalla",
         "main_id": "8188890",
         "ids": [
-            "12007952",
-            "8188890"
+            "8188890",
+            "12007952"
         ],
         "artists": [
             "Jason Derulo"
@@ -131205,8 +131637,8 @@
                 "main_id": "12007952",
                 "title": "Swalla",
                 "ids": [
-                    "12007952",
-                    "8188890"
+                    "8188890",
+                    "12007952"
                 ],
                 "artists": [
                     "Jason Derulo",
@@ -131215,6 +131647,9 @@
                 ]
             }
         ]
+    },
+    "12007952": {
+        "merge": "8188890"
     },
     "503188": {
         "title": "Lookin Ass",
@@ -131472,19 +131907,22 @@
             }
         ]
     },
+    "2063310": {
+        "merge": "2058212"
+    },
     "2058212": {
         "title": "Rain On Me",
         "main_id": "2058212",
         "ids": [
-            "2058212",
-            "2063310"
+            "2063310",
+            "2058212"
         ],
         "artists": [
             "Lady Gaga",
             "Ariana Grande"
         ],
         "official_name": "Rain On Me (with Ariana Grande)",
-        "plays": 95,
+        "plays": 97,
         "entries": [
             {
                 "start": "2021-06-10",
@@ -131532,21 +131970,10 @@
                 "place": 53,
                 "plays": 0,
                 "points": 10,
-                "variant": "2063310"
+                "variant": "2058212"
             }
         ],
         "variants": [
-            {
-                "main_id": "2058212",
-                "title": "Rain On Me",
-                "ids": [
-                    "2058212"
-                ],
-                "artists": [
-                    "Lady Gaga",
-                    "Ariana Grande"
-                ]
-            },
             {
                 "main_id": "2063310",
                 "title": "Rain On Me Remix",
@@ -131558,11 +131985,19 @@
                     "Ariana Grande",
                     "Arca"
                 ]
+            },
+            {
+                "main_id": "2058212",
+                "title": "Rain On Me",
+                "ids": [
+                    "2058212"
+                ],
+                "artists": [
+                    "Lady Gaga",
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "2063310": {
-        "merge": "2058212"
     },
     "533209": {
         "title": "Beautiful Mistakes",
@@ -131575,7 +132010,7 @@
             "Megan Thee Stallion"
         ],
         "official_name": "",
-        "plays": 666,
+        "plays": 667,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -133075,7 +133510,7 @@
             "Charli XCX"
         ],
         "official_name": "",
-        "plays": 121,
+        "plays": 124,
         "entries": [
             {
                 "start": "2024-05-09",
@@ -133323,12 +133758,15 @@
             }
         ]
     },
+    "5443446": {
+        "merge": "727948"
+    },
     "727948": {
         "title": "thank u, next",
         "main_id": "727948",
         "ids": [
-            "727948",
-            "5443446"
+            "5443446",
+            "727948"
         ],
         "artists": [
             "Ariana Grande"
@@ -133699,16 +134137,6 @@
         ],
         "variants": [
             {
-                "main_id": "727948",
-                "title": "thank u, next",
-                "ids": [
-                    "727948"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
-            {
                 "main_id": "5443446",
                 "title": "thank u, next - live",
                 "ids": [
@@ -133717,11 +134145,18 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "727948",
+                "title": "thank u, next",
+                "ids": [
+                    "727948"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "5443446": {
-        "merge": "727948"
     },
     "11682763": {
         "title": "Up In Flames",
@@ -133811,7 +134246,7 @@
             "Dua Lipa"
         ],
         "official_name": "",
-        "plays": 253,
+        "plays": 254,
         "entries": [
             {
                 "start": "2021-08-05",
@@ -134032,7 +134467,7 @@
             "Nicki Minaj"
         ],
         "official_name": "",
-        "plays": 482,
+        "plays": 483,
         "entries": [
             {
                 "start": "2021-06-17",
@@ -135469,7 +135904,7 @@
             "Billie Eilish"
         ],
         "official_name": "",
-        "plays": 704,
+        "plays": 713,
         "entries": [
             {
                 "start": "2022-09-29",
@@ -136061,6 +136496,14 @@
                 "place": 22,
                 "plays": 4,
                 "points": 84,
+                "variant": "285190"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 20,
+                "plays": 8,
+                "points": 98,
                 "variant": "285190"
             }
         ],
@@ -136941,7 +137384,7 @@
             "Khalid"
         ],
         "official_name": "",
-        "plays": 44,
+        "plays": 58,
         "entries": [
             {
                 "start": "2022-09-22",
@@ -137038,7 +137481,16 @@
         ],
         "official_name": "",
         "plays": 31,
-        "entries": [],
+        "entries": [
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 26,
+                "plays": 9,
+                "points": 90,
+                "variant": "1365"
+            }
+        ],
         "variants": [
             {
                 "main_id": "1365",
@@ -137299,7 +137751,7 @@
         ],
         "variants": [
             {
-                "main_id": "1582999",
+                "main_id": "6760737",
                 "title": "Bom Bidi Bom",
                 "ids": [
                     "6760737",
@@ -137315,15 +137767,12 @@
     "1582999": {
         "merge": "6760737"
     },
-    "283709": {
-        "merge": "120042"
-    },
     "120042": {
         "title": "Run The World (Girls) - Live",
         "main_id": "120042",
         "ids": [
-            "283709",
-            "120042"
+            "120042",
+            "283709"
         ],
         "artists": [
             "Beyonc\u00e9"
@@ -137342,16 +137791,6 @@
         ],
         "variants": [
             {
-                "main_id": "283709",
-                "title": "Run The World",
-                "ids": [
-                    "283709"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
-            {
                 "main_id": "120042",
                 "title": "Run The World (Girls) - Live",
                 "ids": [
@@ -137360,8 +137799,21 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
+            },
+            {
+                "main_id": "283709",
+                "title": "Run The World",
+                "ids": [
+                    "283709"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
             }
         ]
+    },
+    "283709": {
+        "merge": "120042"
     },
     "256524": {
         "title": "Savior",
@@ -137448,18 +137900,21 @@
             }
         ]
     },
+    "1193550": {
+        "merge": "533695"
+    },
     "533695": {
         "title": "34+35",
         "main_id": "533695",
         "ids": [
-            "533695",
-            "1193550"
+            "1193550",
+            "533695"
         ],
         "artists": [
             "Ariana Grande"
         ],
         "official_name": "34+35",
-        "plays": 896,
+        "plays": 901,
         "entries": [
             {
                 "start": "2021-06-03",
@@ -138324,19 +138779,17 @@
                 "plays": 16,
                 "points": 188,
                 "variant": "1193550"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 39,
+                "plays": 3,
+                "points": 74,
+                "variant": "1193550"
             }
         ],
         "variants": [
-            {
-                "main_id": "533695",
-                "title": "34+35",
-                "ids": [
-                    "533695"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
             {
                 "main_id": "1193550",
                 "title": "34+35 Remix",
@@ -138348,11 +138801,18 @@
                     "Doja Cat",
                     "Megan Thee Stallion"
                 ]
+            },
+            {
+                "main_id": "533695",
+                "title": "34+35",
+                "ids": [
+                    "533695"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "1193550": {
-        "merge": "533695"
     },
     "1249891": {
         "title": "Addiction",
@@ -138676,7 +139136,7 @@
             "HAIM"
         ],
         "official_name": "",
-        "plays": 67,
+        "plays": 68,
         "entries": [
             {
                 "start": "2023-06-15",
@@ -138760,7 +139220,7 @@
             "Meghan Trainor"
         ],
         "official_name": "",
-        "plays": 14,
+        "plays": 15,
         "entries": [
             {
                 "start": "2024-04-04",
@@ -138836,7 +139296,7 @@
             "Doja Cat"
         ],
         "official_name": "",
-        "plays": 309,
+        "plays": 310,
         "entries": [
             {
                 "start": "2021-10-21",
@@ -139118,7 +139578,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 319,
+        "plays": 321,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -139264,7 +139724,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 221,
+        "plays": 222,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -139395,7 +139855,7 @@
             "Nonna"
         ],
         "official_name": "",
-        "plays": 138,
+        "plays": 139,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -139478,7 +139938,7 @@
             "Ariana Grande"
         ],
         "official_name": "",
-        "plays": 166,
+        "plays": 167,
         "entries": [
             {
                 "start": "2024-03-07",
@@ -139858,7 +140318,7 @@
                 "place": 35,
                 "plays": 4,
                 "points": 48,
-                "variant": "6314284"
+                "variant": "1022984"
             },
             {
                 "start": "2023-12-28",
@@ -139922,7 +140382,7 @@
                 "place": 42,
                 "plays": 6,
                 "points": 80,
-                "variant": "6314284"
+                "variant": "1022984"
             },
             {
                 "start": "2024-02-29",
@@ -140036,18 +140496,18 @@
             }
         ]
     },
-    "81125772": {
+    "81125771": {
         "merge": "62075769"
     },
-    "81125771": {
+    "81125772": {
         "merge": "62075769"
     },
     "62075769": {
         "title": "Worth It. - Live",
         "main_id": "62075769",
         "ids": [
-            "81125772",
             "81125771",
+            "81125772",
             "62075769"
         ],
         "artists": [
@@ -140086,7 +140546,7 @@
                 "place": 21,
                 "plays": 3,
                 "points": 106,
-                "variant": "62075769"
+                "variant": "81125772"
             },
             {
                 "start": "2023-11-16",
@@ -140099,11 +140559,11 @@
         ],
         "variants": [
             {
-                "main_id": "81125771",
+                "main_id": "81125772",
                 "title": "Worth It. - Live",
                 "ids": [
-                    "81125772",
-                    "81125771"
+                    "81125771",
+                    "81125772"
                 ],
                 "artists": [
                     "RAYE",
@@ -140122,18 +140582,21 @@
             }
         ]
     },
+    "5443426": {
+        "merge": "1412613"
+    },
     "1412613": {
         "title": "bad idea",
         "main_id": "1412613",
         "ids": [
-            "1412613",
-            "5443426"
+            "5443426",
+            "1412613"
         ],
         "artists": [
             "Ariana Grande"
         ],
         "official_name": "bad idea",
-        "plays": 1020,
+        "plays": 1021,
         "entries": [
             {
                 "start": "2021-05-27",
@@ -140958,19 +141421,17 @@
                 "plays": 30,
                 "points": 306,
                 "variant": "1412613"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 1,
+                "plays": 12,
+                "points": 184,
+                "variant": "1412613"
             }
         ],
         "variants": [
-            {
-                "main_id": "1412613",
-                "title": "bad idea",
-                "ids": [
-                    "1412613"
-                ],
-                "artists": [
-                    "Ariana Grande"
-                ]
-            },
             {
                 "main_id": "5443426",
                 "title": "bad idea - live",
@@ -140980,11 +141441,18 @@
                 "artists": [
                     "Ariana Grande"
                 ]
+            },
+            {
+                "main_id": "1412613",
+                "title": "bad idea",
+                "ids": [
+                    "1412613"
+                ],
+                "artists": [
+                    "Ariana Grande"
+                ]
             }
         ]
-    },
-    "5443426": {
-        "merge": "1412613"
     },
     "279955865": {
         "title": "WOMAN'S WORLD",
@@ -141011,15 +141479,12 @@
             }
         ]
     },
-    "275212882": {
-        "merge": "282920306"
-    },
     "282920306": {
         "title": "The guess remix",
         "main_id": "282920306",
         "ids": [
-            "275212882",
-            "282920306"
+            "282920306",
+            "275212882"
         ],
         "artists": [
             "Charli XCX",
@@ -141039,16 +141504,6 @@
         ],
         "variants": [
             {
-                "main_id": "275212882",
-                "title": "Guess",
-                "ids": [
-                    "275212882"
-                ],
-                "artists": [
-                    "Charli XCX"
-                ]
-            },
-            {
                 "main_id": "282920306",
                 "title": "The guess remix",
                 "ids": [
@@ -141058,8 +141513,21 @@
                     "Charli XCX",
                     "Billie Eilish"
                 ]
+            },
+            {
+                "main_id": "275212882",
+                "title": "Guess",
+                "ids": [
+                    "275212882"
+                ],
+                "artists": [
+                    "Charli XCX"
+                ]
             }
         ]
+    },
+    "275212882": {
+        "merge": "282920306"
     },
     "275212883": {
         "title": "Spring breakers",
@@ -141391,30 +141859,23 @@
             }
         ]
     },
+    "283705": {
+        "merge": "120039"
+    },
     "120039": {
         "title": "Countdown - Live",
         "main_id": "120039",
         "ids": [
-            "120039",
-            "283705"
+            "283705",
+            "120039"
         ],
         "artists": [
             "Beyonc\u00e9"
         ],
         "official_name": "Countdown - Homecoming Live",
-        "plays": 58,
+        "plays": 59,
         "entries": [],
         "variants": [
-            {
-                "main_id": "120039",
-                "title": "Countdown - Live",
-                "ids": [
-                    "120039"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
-            },
             {
                 "main_id": "283705",
                 "title": "Countdown",
@@ -141424,41 +141885,12 @@
                 "artists": [
                     "Beyonc\u00e9"
                 ]
-            }
-        ]
-    },
-    "283705": {
-        "merge": "120039"
-    },
-    "120033": {
-        "title": "I Care - Live",
-        "main_id": "120033",
-        "ids": [
-            "120033",
-            "283708"
-        ],
-        "artists": [
-            "Beyonc\u00e9"
-        ],
-        "official_name": "I Care - Homecoming Live",
-        "plays": 34,
-        "entries": [],
-        "variants": [
-            {
-                "main_id": "120033",
-                "title": "I Care - Live",
-                "ids": [
-                    "120033"
-                ],
-                "artists": [
-                    "Beyonc\u00e9"
-                ]
             },
             {
-                "main_id": "283708",
-                "title": "I Care",
+                "main_id": "120039",
+                "title": "Countdown - Live",
                 "ids": [
-                    "283708"
+                    "120039"
                 ],
                 "artists": [
                     "Beyonc\u00e9"
@@ -141468,6 +141900,42 @@
     },
     "283708": {
         "merge": "120033"
+    },
+    "120033": {
+        "title": "I Care - Live",
+        "main_id": "120033",
+        "ids": [
+            "283708",
+            "120033"
+        ],
+        "artists": [
+            "Beyonc\u00e9"
+        ],
+        "official_name": "I Care - Homecoming Live",
+        "plays": 35,
+        "entries": [],
+        "variants": [
+            {
+                "main_id": "283708",
+                "title": "I Care",
+                "ids": [
+                    "283708"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
+            },
+            {
+                "main_id": "120033",
+                "title": "I Care - Live",
+                "ids": [
+                    "120033"
+                ],
+                "artists": [
+                    "Beyonc\u00e9"
+                ]
+            }
+        ]
     },
     "283897": {
         "merge": "120031"
@@ -141483,7 +141951,7 @@
             "Beyonc\u00e9"
         ],
         "official_name": "Party - Homecoming Live",
-        "plays": 33,
+        "plays": 34,
         "entries": [],
         "variants": [
             {
@@ -141711,6 +142179,14 @@
                 "plays": 7,
                 "points": 130,
                 "variant": "289507763"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 39,
+                "plays": 0,
+                "points": 74,
+                "variant": "289507763"
             }
         ],
         "variants": [
@@ -141928,6 +142404,14 @@
                 "place": 54,
                 "plays": 6,
                 "points": 60,
+                "variant": "607747"
+            },
+            {
+                "start": "2024-09-26",
+                "end": "2024-10-03",
+                "place": 55,
+                "plays": 3,
+                "points": 54,
                 "variant": "607747"
             }
         ],

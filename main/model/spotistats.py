@@ -22,7 +22,7 @@ from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime
 from typing import Final, Iterable, Optional, Union
-from pydantic import BaseModel, NonNegativeInt, field_validator
+from pydantic import BaseModel, NonNegativeInt
 
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
