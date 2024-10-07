@@ -12,10 +12,13 @@ Requests:
 """
 
 import time
+import tenacity
+import requests
+import string
+import random
+
 from datetime import date, datetime
 from typing import Final, Literal, Union
-
-import requests
 from pydantic import NonNegativeInt
 
 from . import config
@@ -39,9 +42,33 @@ def _timestamp_check(day: Union[date, int]) -> int:
     return day
 
 
+@tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
+def _get_address(address: str) -> requests.Response:
+    """
+    A retrying requests.get call that will try three times if it
+    sends a bad gateway error like spotistats likes doing if it's
+    servers are overloaded at the moment.
+    """
+    # this is for getting around bot identification for the cloud scraping
+    # so they think the request is coming from an ipad
+    HEADERS = {
+        'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit'
+        '/605.1.15 (KHTML, like Gecko) Mobile/15E148'
+    }
+
+    addon = ''.join(random.choices(string.ascii_lowercase, k=6))
+    if '?' in address:
+        sneaky_address = address + '&korea=' + addon
+    else:
+        sneaky_address = address + '?korea=' + addon
+
+    response = requests.get(sneaky_address, headers=HEADERS)
+    response.raise_for_status()
+    return response
+
 def song_info(song_id: str) -> dict:
     """Returns the information about a song, from the song id."""
-    r = requests.get(f'https://api.stats.fm/api/v1/tracks/{song_id}')
+    r = _get_address(f'https://api.stats.fm/api/v1/tracks/{song_id}')
     return r.json()['item']
 
 
@@ -80,7 +107,7 @@ def song_plays(
     if before:
         address += f'before={before}'
 
-    r = requests.get(address)
+    r = _get_address(address)
 
     return r.json()['items']['count']
 
@@ -112,7 +139,7 @@ def songs_week(
         f'?after={after}&before={before}'
     )
 
-    r = requests.get(address)
+    r = _get_address(address)
 
     return [
         {'plays': int(i['streams']), 'id': str(i['track']['id'])}
@@ -138,7 +165,7 @@ def song_play_history(
         f'tracks/{song_id}?limit={max_entries}'
     )
 
-    r = requests.get(address)
+    r = _get_address(address)
 
     # datetime is formatted like '2022-04-11T05:03:15.000Z'
     # get rid of milliseconds with string slice
@@ -174,12 +201,12 @@ def user_play_history(
     if before:
         args.append(f'before={before}')
 
-    address = f'https://beta-api.stats.fm/api/v1/users/{user}/streams/'
+    address = f'https://api.stats.fm/api/v1/users/{user}/streams/'
 
     if args:
         address += '?' + '&'.join(args)
 
-    r = requests.get(address)
+    r = _get_address(address)
 
     return [
         {
