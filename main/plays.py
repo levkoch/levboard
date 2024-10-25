@@ -574,18 +574,93 @@ load_month_end_albums = month_end_collection_creater(
 )
 
 
+def milestone_collection_creater(sheet_id: str, range_name: str):
+    sheet = Spreadsheet(sheet_id)
+
+    def inner(
+        collection: Union[SongRepository, AlbumRepository], verbose=False
+    ):
+        nonlocal sheet, range_name
+        item_rows: list[list] = []
+        kind = type(collection.get(collection.list()[0])).__name__
+
+        today = datetime.date.today()
+        four_weeks = today - datetime.timedelta(days=4 * 7)
+        three_months = today - datetime.timedelta(days=12 * 7)
+        last_year = today - datetime.timedelta(days=365)
+
+        for item in collection:
+            first_date = item.first_stream()
+
+            days_streamed = (today - first_date).days
+
+            lifetime_average = item.units / days_streamed
+            four_average = lifetime_average
+            three_average = lifetime_average
+            year_average = lifetime_average
+
+            if first_date <= four_weeks:
+                four_average = item.period_units(
+                    start=four_weeks, end=today
+                ) / (4 * 7)
+            if first_date <= three_months:
+                three_average = item.period_units(
+                    start=three_months, end=today
+                ) / (12 * 7)
+            if first_date <= last_year:
+                year_average = item.period_units(
+                    start=last_year, end=today
+                ) / (365)
+
+            if verbose:
+                print(
+                    f'loading milestones for {str(item):<80}: '
+                    f'{four_average:.4f} this month, {lifetime_average:.4f} lifetime'
+                )
+
+            info = [
+                "'" + item.title
+                if (c.isnumeric() for c in item.title)
+                else item.title,
+                ', '.join(item.artists),
+                four_average,
+                three_average,
+                year_average,
+                lifetime_average,
+            ]
+            if kind == 'Song':
+                info.append(item.sheet_id)
+            item_rows.append(info)
+
+        sheet.delete_range(range_name)
+        sheet.append_range(range_name, item_rows)
+
+    return inner
+
+
+load_song_averages = milestone_collection_creater(
+    LEVBOARD_SHEET, 'Milestones!A3:G'
+)
+load_album_averages = milestone_collection_creater(
+    LEVBOARD_SHEET, 'Milestones!I3:N'
+)
+
+
 if __name__ == '__main__':
     uow = SongUOW()
-    
-    update_local_plays(uow, verbose=True)
-    load_year_end_songs(uow.songs, verbose=True)
-    load_year_end_albums(uow.albums, verbose=True)
-    load_month_end_songs(uow.songs, verbose=True)
-    load_month_end_albums(uow.albums, verbose=True)
-    
-    update_spreadsheet_variant_plays(
+
+    """update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         uow,
         verbose=True,
-    )
+    )"""
+
+    update_local_plays(uow, verbose=True)
+    load_song_averages(uow.songs, verbose=True)
+    load_album_averages(uow.albums, verbose=True)
+
+    load_year_end_songs(uow.songs, verbose=True)
+    load_year_end_albums(uow.albums, verbose=True)
+    load_month_end_songs(uow.songs, verbose=True)
+    load_month_end_albums(uow.albums, verbose=True)

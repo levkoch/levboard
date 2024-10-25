@@ -348,7 +348,9 @@ def songs_week(
             offset += 500
 
     info = [
-        Position(id=str(i['track']['id']), plays=i['streams'], place=i['position'])
+        Position(
+            id=str(i['track']['id']), plays=i['streams'], place=i['position']
+        )
         for i in items
         if str(i['track']['id']) not in BANNED_SONGS
     ]

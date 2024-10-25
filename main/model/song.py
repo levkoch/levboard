@@ -222,6 +222,24 @@ class Song:
         self._plays = plays
         return plays
 
+    def first_stream(self, variant_id: Optional[str] = None) -> date:
+        """
+        the date the first time this song (or the variant specified) was streamed,
+        or january 1st, 1, if it wasn't ever streamed.
+        """
+        if self.__listens is None:
+            self._populate_listens()
+
+        eligible_listens = (
+            i.finished_playing.date()
+            for i in self.__listens
+            if variant_id is None or i.played_from == variant_id
+        )
+        try:
+            return min(eligible_listens)
+        except ValueError:
+            return date(1, 1, 1)
+
     def variant_plays(self, variant_id) -> int:
         """
         (`int`): The number of plays a certain variant attached to this

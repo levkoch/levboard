@@ -170,6 +170,9 @@ class Album:
 
         return AlbumCert.from_units(self.units)
 
+    def first_stream(self) -> date:
+        return min(s.first_stream(v) for (v, s) in self.songs)
+
     def charting_songs(self, end_date: date) -> int:
         """The number of songs that charted the week of"""
         return len(
