@@ -15,13 +15,13 @@ sda    brown    24
 sck    red      23
 mosi   orange   19
 miso   yellow   21
-irq    blank    
-gnd    green    20  
+irq    blank
+gnd    green    20
 rst    blue     22
 3.3v   purple   17
 
 display connections:
-vcc    grey     17 
+vcc    grey     17
 gnd    brown    20
 din    blue     19
 clk    yellow   23
@@ -39,7 +39,7 @@ import RPi.GPIO as GPIO
 
 from PIL import Image, ImageDraw, ImageFont
 
-from mfrc import  MFRC
+from mfrc import MFRC
 from epd import EPD
 
 from config import COLLECTION_SHEET, LEVBOARD_SHEET, RECORDS_FILE, DATA_DIR
@@ -339,10 +339,11 @@ def display_image(image: Image):
     epd.Clear(0xFF)
     epd.sleep()
 
+
 def collect_rfid_tag():
     try:
         reader = MFRC()
-        print("created reader, awaiting scan")
+        print('created reader, awaiting scan')
         tag = reader.read_id()
         print(f'found id: {tag}')
     finally:

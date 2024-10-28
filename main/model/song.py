@@ -502,7 +502,7 @@ class Song:
         """
 
         if entry.end in self._entries.keys():
-            if entry.plays > self.get_entry(entry.end, strict=False).plays:
+            if entry.plays > self.get_entry(entry.end).plays:
                 self._entries[entry.end] = entry
             return
         else:
@@ -518,8 +518,9 @@ class Song:
 
         Arguments:
         * end_date (`datetime.date`): The week end of the entry to be found.
-        * strict (optional `bool`): Whether the entry returned must be of this
-            specific variant. Defaults to `True`.
+        * variant_id (optional `str`): The id of the variant that we want to 
+            check if it entered that week. By default is set to `None` and will 
+            return an entry with any variant id.
 
         Returns:
         * entry (Optional `Entry`): The entry at that end date, if there is one,

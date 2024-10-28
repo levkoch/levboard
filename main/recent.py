@@ -5,15 +5,18 @@ Displays recent events, such as new certifications & plays milestones,
 along with all time plays changes.
 """
 
+from collections import Counter
+import csv
 import functools
 from concurrent import futures
 from datetime import date, timedelta
+import itertools
 from operator import attrgetter, itemgetter, methodcaller
-from typing import Iterator
+from typing import Iterator, Optional
 
 from config import FIRST_DATE
 from model import SongCert, Song
-from model.spotistats import songs_week
+from model.spotistats import songs_week, Position
 from stats import CERTS, PLAYS_MILESTONES, time_to_plays, time_to_units
 from storage import Song, SongUOW
 
@@ -34,6 +37,18 @@ def get_new_songs(uow: SongUOW):
             print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
 
 
+cached_listens: Optional[list[Position]] = None
+
+
+def collect_listens():
+    global cached_listens
+    if cached_listens is not None:
+        return cached_listens
+    listens = songs_week(after=date(2000, 1, 1), before=TODAY + timedelta(days=1))
+    cached_listens = listens
+    return listens
+
+
 def get_missing_songs(uow: SongUOW, threshold: int = 10):
     """
     Scans all of the songs listened to across all time,
@@ -41,13 +56,62 @@ def get_missing_songs(uow: SongUOW, threshold: int = 10):
     """
 
     all_songs = uow.songs.list()
-    all_listened = songs_week(
-        after=TODAY - timedelta(days=3_650), before=TODAY + timedelta(days=1)
-    )
+    all_listened = collect_listens()
+    missing: list[list] = []
     for pos in all_listened:
         if pos.id not in all_songs and pos.plays > threshold:
             song = Song(pos.id)
             print(f'{song} ({pos.id}) not found ({pos.plays} plays)')
+            missing.append(
+                [
+                    f'https://stats.fm/track/{pos.id}',
+                    pos.id,
+                    pos.plays,
+                    str(song),
+                ]
+            )
+
+    with open('missing.csv', 'w+') as fp:
+        w = csv.writer(fp)
+        w.writerows(missing)
+
+
+def get_unused_ids(uow: SongUOW, threshold: int = 0):
+    """
+    Scans all of the songs listened to across all time, and then
+    displays all of the ones that aren't actually being listened to.
+    """
+
+    all_listened = collect_listens()
+
+    listened_ids = {pos.id for pos in all_listened if pos.plays > threshold}
+    unlistened: list[list] = []
+    for song in uow.songs:
+        for id in song.ids:
+            if id not in listened_ids:
+                print(
+                    f'{song} variant with id {id} not streamed. '
+                    f'link: https://stats.fm/track/{id}'
+                )
+
+                unlistened.append(
+                    [f'https://stats.fm/track/{id}', id, str(song)]
+                )
+    with open('unused.csv', 'w+') as fp:
+        w = csv.writer(fp)
+        w.writerows(unlistened)
+
+
+def audit_unique_ids(uow: SongUOW):
+    id_counter = Counter(
+        itertools.chain.from_iterable(song.ids for song in uow.songs)
+    )
+    if id_counter.most_common(1)[0][1] == 1: 
+        print('all ids are unique :)')
+        return
+    for (id, count) in id_counter.most_common():
+        if count > 1:
+            print(f'duplicate id found: {id}')
 
 
 def get_new_certs(uow: SongUOW, cert: SongCert):
@@ -162,14 +226,17 @@ def get_all_time_plays_changes(uow: SongUOW):
 
 def main():
     uow = SongUOW()
-    get_new_songs(uow)
-    print('')
+    audit_unique_ids(uow)
+    # get_new_songs(uow)
+    # print('')
     get_missing_songs(uow)
     print('')
+    get_unused_ids(uow)
+    # print('')
     # get_all_new_certs(uow)
-    print('')
+    # print('')
     # get_all_new_plays(uow)
-    print('')
+    # print('')
     # get_all_time_plays_changes(uow)
 
 

@@ -649,17 +649,18 @@ load_album_averages = milestone_collection_creater(
 if __name__ == '__main__':
     uow = SongUOW()
 
-    """update_spreadsheet_variant_plays(
+    update_spreadsheet_variant_plays(
         create_song_play_updater(uow, LEVBOARD_SHEET),
         LEVBOARD_SHEET,
         uow,
         verbose=True,
-    )"""
+    )
 
     update_local_plays(uow, verbose=True)
+    """
     load_song_averages(uow.songs, verbose=True)
     load_album_averages(uow.albums, verbose=True)
-
+    """
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)

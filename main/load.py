@@ -156,7 +156,6 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
         album = Album(album_name.strip(), album_artists.strip())
         uow.albums.add(album)
         if verbose:
-            print(f'\r{len(values)} rows left to process.', flush=True)
             print(f'\r({next(album_count)}) Processing {album}', flush=True)
 
         row = values.pop(0)
