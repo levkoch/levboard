@@ -530,12 +530,10 @@ if __name__ == '__main__':
    
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
-   
-    top_listeners_chart(uow)
-    """
-    top_song_consecutive_weeks_infographic(uow)
-    """
 
+    top_listeners_chart(uow)
+    top_song_consecutive_weeks_infographic(uow)
+    
     top_shortest_time_units_milestones_infograpic(uow, 2_000)
     top_shortest_time_units_milestones_infograpic(uow, 4_000)
     top_shortest_time_units_milestones_infograpic(uow, 6_000)

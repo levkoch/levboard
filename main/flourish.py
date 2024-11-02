@@ -8,6 +8,7 @@ from typing import Callable, Iterator, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
 from model import Album, Song
+from plays import update_local_plays
 from spreadsheet import Spreadsheet
 from storage import SongUOW
 
@@ -72,13 +73,13 @@ def album_data_generator(
 
 
 def flourish_albums(
+        uow: SongUOW,
     filter: Callable[
         [Album, list[date], itertools.count, itertools.count], dict[date, int]
     ],
     threshold: Callable[[Album], bool],
 ):
     start_time = datetime.now()
-    uow = SongUOW()
     weeks = list(get_all_weeks())
     str_weeks = list(i.isoformat() for i in weeks)
     albums = (album for album in uow.albums if threshold(album))
@@ -197,8 +198,10 @@ def flourish_songs():
 
 
 if __name__ == '__main__':
+    uow = SongUOW()
+    update_local_plays(uow, verbose=True)
     album_sellings = album_data_generator(get_album_units)
-    # flourish_albums(album_sellings, (lambda i: i.units >= 10000))
+    flourish_albums(uow, album_sellings, (lambda i: i.units >= 1000))
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)
@@ -208,4 +211,4 @@ if __name__ == '__main__':
     album_top_fives = album_data_generator(get_album_top_five_weeks)
     # flourish_albums(album_top_fives, lambda i: i.peak < 6)
 
-    flourish_songs()
+    # flourish_songs()
