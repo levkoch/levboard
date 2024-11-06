@@ -65,6 +65,7 @@ def _get_address(address: str) -> requests.Response:
             address,
         ]
     )
+    print(address)
     return response
 
 
@@ -206,7 +207,9 @@ class Week(BaseModel):
             return NotImplemented
 
     @classmethod
-    def _merge_songs(cls, first: 'Week', second: 'Week') -> list[Position]:
+    def _merge_songs(
+        cls, first: 'Week', second: 'Week'
+    ) -> dict[str, Position]:
         song_ids = {pos.id for pos in first.songs} | {
             pos.id for pos in second.songs
         }
@@ -219,17 +222,16 @@ class Week(BaseModel):
         for pos in second.songs:
             other_plays[pos.id] = pos.plays
 
-        song_list = []
-        for song_id in song_ids:
-            song_list.append(
-                Position(
-                    id=song_id,
-                    plays=self_plays[song_id] + other_plays[song_id],
-                    place=0,
-                )
+        songs: dict[str, Position] = {
+            song_id: Position(
+                id=song_id,
+                plays=self_plays[song_id] + other_plays[song_id],
+                place=0,
             )
+            for song_id in song_ids
+        }
 
-        return song_list
+        return songs
 
     def __add__(self, other):
         # adding supported when either both of the dates match or

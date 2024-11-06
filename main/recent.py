@@ -44,7 +44,9 @@ def collect_listens():
     global cached_listens
     if cached_listens is not None:
         return cached_listens
-    listens = songs_week(after=date(2000, 1, 1), before=TODAY + timedelta(days=1))
+    listens = songs_week(
+        after=date(2000, 1, 1), before=TODAY + timedelta(days=1)
+    )
     cached_listens = listens
     return listens
 
@@ -106,7 +108,7 @@ def audit_unique_ids(uow: SongUOW):
     id_counter = Counter(
         itertools.chain.from_iterable(song.ids for song in uow.songs)
     )
-    if id_counter.most_common(1)[0][1] == 1: 
+    if id_counter.most_common(1)[0][1] == 1:
         print('all ids are unique :)')
         return
     for (id, count) in id_counter.most_common():

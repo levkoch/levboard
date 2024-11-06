@@ -73,7 +73,7 @@ def album_data_generator(
 
 
 def flourish_albums(
-        uow: SongUOW,
+    uow: SongUOW,
     filter: Callable[
         [Album, list[date], itertools.count, itertools.count], dict[date, int]
     ],

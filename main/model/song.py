@@ -518,8 +518,8 @@ class Song:
 
         Arguments:
         * end_date (`datetime.date`): The week end of the entry to be found.
-        * variant_id (optional `str`): The id of the variant that we want to 
-            check if it entered that week. By default is set to `None` and will 
+        * variant_id (optional `str`): The id of the variant that we want to
+            check if it entered that week. By default is set to `None` and will
             return an entry with any variant id.
 
         Returns:

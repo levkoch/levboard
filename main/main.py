@@ -52,7 +52,7 @@ def load_all_weeks(start_day: date) -> list[Week]:
     completed_counter = itertools.count(start=1)
 
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
-        to_do: list[futures.Future] = []
+        to_do: list[futures.Future[Week]] = []
         end_day = start_day + timedelta(days=7)
 
         while end_day <= date.today():
@@ -68,17 +68,20 @@ def load_all_weeks(start_day: date) -> list[Week]:
             start_day = end_day
             end_day = start_day + timedelta(days=7)
 
-    weeks = iter(
+    weeks: Iterator[Week] = iter(
         sorted(future.result() for future in futures.as_completed(to_do))
     )
 
     final = []
     for week in weeks:
-        if len(week.songs) < (SONG_CHART_LENGTH / 2):
+        if len(week.songs) < SONG_CHART_LENGTH:
             # not enough songs streamed to be able
             # to create an actual chart (probably)
-            while len(week.songs) < (SONG_CHART_LENGTH / 2):
-                week = week + next(weeks)
+            while len(week.songs) < SONG_CHART_LENGTH:
+                try:
+                    week = week + next(weeks)
+                except StopIteration:   # we ran out of weeks
+                    break
         final.append(week)
 
     return final
