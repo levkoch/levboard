@@ -16,20 +16,94 @@ Head over to the [Google Cloud Console](https://console.cloud.google.com/) and c
 ## Setting Up Spreadsheet.
 The spreadsheet is where most of the data is stored for easier filtering. Clone it from [here](https://docs.google.com/spreadsheets/d/1_KNcoT92nfgQCRqLH7Iz4ZSxy9hxCd8ll0Hzn9hscqk/copy). Then, click on "Share", and grant the service account "Editor" privedges to the sheet. The service account is now able to edit portions of the spreadsheet.
 
-### Adding Songs & Albums
-Songs are stored in "Song Info" sub-spreadsheet. The first column is the **unique** name of the song (has to be unique or else filtering doesn't work correctly,) and the second row is the song's IDs (separated by commas.) The next two columns (for artists & plays) are auto-populated whenever `plays.py` is ran in spreadsheet mode, and the last two columns (for points & units) are Google Sheets functions. Make sure they're copied over for any new song row you add.
+### Adding Songs
+Songs are stored in "Songs" sub-spreadsheet. The first column is the **unique** name of the song (has to be unique or else filtering doesn't work correctly,) the second column is a flag for whether it's a variant or not. The third row is the song's IDs (separated by commas,) then the sheet ID, which is shared by all the song variants and is the lowest value (text wise, so "11" goes before "2") of all the song IDs. The last manually-entered column is the song artists. The next column is stored as plaintext, but is auto-populated whenever `plays.py` is ran in spreadsheet mode, and the last two columns (for points & units) are Google Sheets functions. Make sure they're copied over for any new song row you add.
 
-Albums are stored in the "Albums" sub-spreadsheet ("Albums Info" is for album images.) If you'd like to add a new album, copy another album, insert some new rows to free up space, and paste it into there. Edit the artist, name, and song name fields (just the leftmost column.) You do not need to add all of the songs into the album if you only listen to a few, but the ones that I've added all of have the album title and artists bolded. The rest of the columns will auto-populate with the current information the sheet holds. Ensure that column G also shows at least one song id, and copy over a function from the above row if the cell is blank.
+**NOTE**: For adding variants, which I do whenever there's a remix of a song or a live version that appears on a project separate from the original release, add an "X" in that row, directly following the main version. The system will automatically adjust which version of the song is the "main" version and which one are variants. You can also merge as many songs together as you'd like, just ensure all the variants appear directly below the main version and have an "X" in the second column. If you are unintersted in merging together variants, you can keep the entire "V" column blank.
 
-**NOTE**: Albums MUST be registered in the spreadsheet in order to chart. The "Top Albums" spreadsheet will tell you which songs are orphaned, and once a song reaches 200 units, I add it to an album, even if it's all by itself.
+| Song Title | V | Song ID | Sheet ID | Song Artists | Streams | Points | Units
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| no tears left to cry | | 78715 | 5443449 | Ariana Grande | 850 | 4451 | 6151
+| no tears left to cry - live | X | 5443449 | 5443449 | Ariana Grande | 219 | 603 | 1041
+| Scared To Be Lonely | | 533774, 12145872 | 12145872 | Martin Garrix, Dua Lipa | 86 | 18 | 190
+| What Was I Made For? | | 74278516 | 74278516 | Billie Eilish | 1234 | 3303 | 5771
 
-### Deleting & Albums
+
+### Adding Albums
+Albums are stored in the "Albums" sub-spreadsheet ("Images" is for album images.) If you'd like to add a new album, copy another album, insert some new rows to free up space, and paste it into there. Edit the artist, name, and song name fields (just the leftmost column.) You do not need to add all of the songs into the album if you only listen to a few, but the ones that I've added all of have the album title and artists bolded. The rest of the columns will auto-populate with the current information the sheet holds. Ensure that column G also shows at least one song id, and copy over a function from the above row if the cell is blank. Column H is auto-populated by a script, so ensure that you delete any data that might have copied into there.
+
+**NOTE**: Albums MUST be registered in the spreadsheet in order to chart. The "Top Albums" spreadsheet will tell you which songs are orphaned, and once a song reaches 200 units, I add it to an album, even if it's all by itself. Albums can also have multiple artists, which should be comma-separated. I keep the albums sorted in alphabetical order, and albums with all songs registered are bolded, but any sorting that works for you is totally okay.
+
+<table>
+  <tr>
+    <td colspan="2"><b>dont smile at me</b></td>
+    <td>Units:</td>
+    <td>27,350</td>
+    <td>Cert:</td>
+    <td>27x⬥</td>
+    <td colspan="2"> </td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Billie Eilish</b></td>
+    <td>Plays:</td>
+    <td>5,317</td>
+    <td>Points:</td>
+    <td>16,716</td>
+    <td> </td>
+    <td>dont smile at me</td>
+  </tr>
+  <tr>
+    <td>Song Title</td>
+    <td>Plays</td>
+    <td>Units</td>
+    <td>Cert</td>
+    <td>Peak</td>
+    <td>Weeks</td>
+    <td> </td>
+    <td>dont smile at me</td>
+  </tr>
+  <tr>
+    <td>COPYCAT</td>
+    <td>265</td>
+    <td>1,027</td>
+    <td>5x▲</td>
+    <td>6</td>
+    <td>21</td>
+    <td>585348</td>
+    <td>dont smile at me</td>
+  </tr>
+  <tr>
+    <td>dontwannabeyouanymore</td>
+    <td>318</td>
+    <td>1,334</td>
+    <td>6x▲</td>
+    <td>9<sup>3</sup></td>
+    <td>26</td>
+    <td>585347</td>
+    <td>dont smile at me</td>
+  </tr>
+  <tr>
+    <td colspan="8">[...]</td>
+  </tr>
+  <tr>
+    <td>btches broken hearts</td>
+    <td>1,087</td>
+    <td>6,356</td>
+    <td>5x▲</td>
+    <td>1<sup>8</sup></td>
+    <td>97</td>
+    <td>822333</td>
+    <td>dont smile at me</td>
+  </tr>
+</table>
+
+### Deleting Unneeded Content
 If you'd like to delete a song because you haven't listened to it and I have, that's also fine. (Deleting songs and albums you haven't listened to will make the system run faster.) Just make sure to delete it from any albums that it's attached to. Deleting Albums works the same way, just select the rows it occupies and remove them. 
 
 **NOTE**: whenever deleting albums or songs, make sure to also wipe `songs.json` and `albums.json` in the data folder by deleting their contents and replacing it with the `{}` characters.
 
 ## Editing Config
-The config in here is currently set to my information. The fields that need to be edited are `LEVBOARD_SHEET` (set it to the letters between `"spreadsheets/d/"` and `"/edit/"` in the URL of your cloned spreadsheet,) `USER_NAME` (set it to your stats.fm username,) `FIRST_DATE` (to the first stream date, found by comparing with a friend,) and `SERVICE_ACCOUNT_FILE` (to the path to the file Google gave you.)
+The config in here is currently set to my information. The fields that need to be edited are `LEVBOARD_SHEET` (set it to the letters between `"spreadsheets/d/"` and `"/edit/"` in the URL of your cloned spreadsheet,) `USER_NAME` (set it to your stats.fm username, this also needs to be updated inside of `main/model/spotistats.py`) `FIRST_DATE` (to the first stream date, found by comparing with a friend,) and `SERVICE_ACCOUNT_FILE` (to the path to the file Google gave you.)
 
 ## Running LevBoard
 Now that config is all set up, it's time to boot up LevBoard and have it replace all of my data in your spreadsheet with your data. First, delete the contents of `songs.json` and `albums.json`, replacing them with `{}`. Then, run `main/load.py` to grab all of the songs in the spreadsheet and save them to the program files. Then, run `main/main.py` to load all of the chart weeks in to the program files and into the spreadsheet. Reload the spreadsheet page, and all of the data should pop up for you to explore.
@@ -49,7 +123,7 @@ Songs also recieve units for all of the unit points they've recieved along with 
 
 Albums charts operate off of units, with albums sorted by the amount of units songs on them gained that week. Albums do not recieve unit points, and their certifications are based solely off of the total units of their songs. 500 units is the threshold for Gold, 1,000 units is for Platinum, and 10,000 units is Diamond, with albums also recieving an additional Platinum every 1,000 units.
 
-For combining songs, I've been pretty aggressive, combining rereleases, remastered versions, live versions, and remixes. Also, if a song appears on two different albums by the same artist, it's only added to the eariler album. For this reason, I don't have any live albums or remix albums registered in the spreadsheet, as the standard version of the song came before them.
+For combining songs, there are some straight up stats.fm errors (especially from the Apple Music integration) that crop up. Otherwise, sped-up, slowed-down, and other "versions" I combined into the statndard release. Live tracks that don't appear on a separate project are also conbined into the main release. Otherwise, songs from live albums, like *k bye for now (swt live)*, are listed separately as variants, and count towards their respective album with streams and also with points when the live version is the most popular that week.
 
 ## Contact Me
 If you have any questions, feel free to reach out to me on my [Charts Twitter](https://twitter.com/levboard). I am usually avaiable and happy to sort out any issues you may have. Happy charting :) 
