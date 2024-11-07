@@ -65,7 +65,6 @@ def _get_address(address: str) -> requests.Response:
             address,
         ]
     )
-    print(address)
     return response
 
 
@@ -192,8 +191,9 @@ class Week(BaseModel):
     Attributes:
     * start_day (`date`): The date when the week started.
     * end_day (`date`): The date when the week ended.
-    * songs: (`list[spotistats.Position]`): The `spotistats.Positions`
-    of all the songs that charted that week.
+    * songs: (`dict[str, spotistats.Position]`): The `spotistats.Positions`
+        of all the songs that charted that week, organized by the song id
+        that the song charted under.
     """
 
     start_day: date
@@ -210,16 +210,16 @@ class Week(BaseModel):
     def _merge_songs(
         cls, first: 'Week', second: 'Week'
     ) -> dict[str, Position]:
-        song_ids = {pos.id for pos in first.songs} | {
-            pos.id for pos in second.songs
+        song_ids = {pos_id for pos_id in first.songs.keys()} | {
+            pos_id for pos_id in second.songs.keys()
         }
 
         self_plays = defaultdict(int)
-        for pos in first.songs:
+        for pos in first.songs.values():
             self_plays[pos.id] = pos.plays
 
         other_plays = defaultdict(int)
-        for pos in second.songs:
+        for pos in second.songs.values():
             other_plays[pos.id] = pos.plays
 
         songs: dict[str, Position] = {
