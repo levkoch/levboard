@@ -453,8 +453,9 @@ def create_album_chart(
     album_plays: dict[Album, int] = get_album_plays(uow, positions)
 
     units: list[tuple[Album, int]] = [
-        (album, album.get_points(end_day) + (2 * album_plays[album]))
+        (album, u)
         for album in uow.albums
+        if (u := album.get_points(end_day) + (2 * album_plays[album])) > 0
     ]
 
     units.sort(key=itemgetter(1), reverse=True)
