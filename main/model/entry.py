@@ -53,9 +53,9 @@ class Entry(_BaseEntry):
         and ISO date string, and will convert it to a `datetime.date` object.
     * end (`datetime.date`): The date that the week's entry ended. Alsoc accepts
         and ISO date string.
-    * plays (`int`): The plays the song got that week. Will be greater than `1`.
+    * plays (`int`): The plays the song got that week. Will be 0 or greater.
     * points (`int`): The number of points that song got that week. Will be
-        greater than `1`.
+        1 or greater.
     * place (`int`): The chart position attained by that song. A positive integer.
     * variant (`str`): The ID of the song variant that charted.
 
@@ -64,7 +64,7 @@ class Entry(_BaseEntry):
     """
 
     plays: NonNegativeInt
-    points: NonNegativeInt
+    points: PositiveInt
     variant: str
 
     def to_dict(self) -> dict:
@@ -82,12 +82,11 @@ class AlbumEntry(_BaseEntry):
     A frozen dataclass representing a chart entry.
 
     Attributes / Arguments:
-    * start (`datetime.date`): The date that the week's entry started.
-        (NOTE: `start` and `end` can be passed in as ISO date strings,
-        they will be parsed as the correct type.)
-    * end (`datetime.date`): The date that the week's entry ended.
-    * plays (`int`): The plays the song got that week. Will be greater
-        than `1`.
+     * start (`datetime.date`): The date that the week's entry started. Accepts
+        and ISO date string, and will convert it to a `datetime.date` object.
+    * end (`datetime.date`): The date that the week's entry ended. Also accepts
+        and ISO date string.
+    * units (`int`): The units the album got that week. Must be non-negative.
     * place (`int`): The chart position attained by that song. A
         positive integer.
 
@@ -95,7 +94,7 @@ class AlbumEntry(_BaseEntry):
     * to_dict (`dict` method): Collects the Entry into a dictionary.
     """
 
-    units: conint(gt=1)   # type: ignore
+    units: PositiveInt
 
     def to_dict(self) -> dict:
         """Dictionary representation of entry for storage."""
