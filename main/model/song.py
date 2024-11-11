@@ -400,8 +400,22 @@ class Song:
             self._update_version()
 
     def _update_version(self):
+        """
+        internal method to update the main id of the song based on the cached listens.
+        those listens do have to be cached before calling the function, and will
+        reload the info about the song accordingly.
+        """
+        if self.__listens is None:
+            raise ValueError(
+                'must update cached listens before updating the main version.'
+            )
         common = Counter(l.played_from for l in self.__listens)
-        self.main_id = common.most_common(1)[0][0]
+        if len(common) != 0:
+            # len() will be zero if none of the variants have been listened to,
+            # which will cause an indexerror on the most_common call below.
+            # if none of them have been listened to, then we will keep whatever
+            # it currently has as the main id since it doesn't matter anyways.
+            self.main_id = common.most_common(1)[0][0]
         self._load_info()
 
     def period_plays(
