@@ -16,7 +16,7 @@ import datetime
 
 from concurrent import futures
 from operator import itemgetter
-from typing import Any, Callable, Union
+from typing import Callable, TypeAlias, Union
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
 from load import load_linked_songs
@@ -40,11 +40,10 @@ def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
 
 
 def _update_song_plays(song: Song) -> tuple[Song, int]:
-    song.update_plays(adjusted=True)
-    return (song, song._plays)
+    return (song, song.adjusted_plays())
 
 
-PLAY_UPDATER = Callable[
+PlayUpdater: TypeAlias = Callable[
     [
         Song,
     ],
@@ -52,15 +51,24 @@ PLAY_UPDATER = Callable[
 ]
 
 
-def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
+def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PlayUpdater:
+    """
+    Factory function to create a play updater to save the plays as a mapping
+    for later updating.
+
+    Arguments:
+    * uow (`SongUOW`): The Unit of Work to collect songs from.
+    * sheet_id (`str`): The spreadsheet to pull saved song data from.
+
+    Returns:
+    * play_updater (`Callable[Song, tuple[Song, list[tuple[Variant, int]]]]`):
+        A function that finds the song plays for all of the variants of a song.
+        Will not send additional calls to stats.fm unless the song could have
+        been flagged for filtering.
+    """
     sheet = Spreadsheet(sheet_id)
     songs_flagged_for_filtering: set[Song] = set()
 
-    filtered_rows = [
-        row
-        for row in sheet.get_range('BOT_SONGS!H:K').get('values')
-        if row and not (row[0] in {'', 'PLS'})
-    ]
     for row in sheet.get_range('BOT_SONGS!H:K').get('values'):
         if not row or row[0] in {'', 'PLS'}:
             continue   # skip row
@@ -72,13 +80,12 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
         after=datetime.date(2000, 1, 1), before=datetime.date(3000, 1, 1)
     )
 
-    saved_plays_ids: set[str] = {pos.id for pos in saved_plays}
     saved_plays_mapping: dict[str, int] = {
         pos.id: pos.plays for pos in saved_plays
     }
     saved_plays_threshold: int = min(pos.plays for pos in saved_plays)
     assert saved_plays_threshold == 1
-    # should be 1 wiht how spotistats.songs_week() works
+    # should be 1 with how spotistats.songs_week() works
 
     print(
         f'{len(songs_flagged_for_filtering)} songs flagged for filtering'
@@ -120,7 +127,7 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PLAY_UPDATER:
 
 def create_song_play_updater_from_weeks(
     week: Week, uow: SongUOW
-) -> PLAY_UPDATER:
+) -> PlayUpdater:
     """
     !! DEPRECATED !!
     Creates a song play updater function based on data collected from all
@@ -163,7 +170,7 @@ def create_song_play_updater_from_weeks(
 
 
 def update_spreadsheet_plays(
-    play_updater: PLAY_UPDATER,
+    play_updater: PlayUpdater,
     sheet_id: str,
     verbose=False,
 ):
@@ -226,7 +233,7 @@ def update_spreadsheet_plays(
 
 
 def update_spreadsheet_variant_plays(
-    play_updater: PLAY_UPDATER,
+    play_updater: PlayUpdater,
     sheet_id: str,
     uow: SongUOW,
     verbose=False,
@@ -235,6 +242,8 @@ def update_spreadsheet_variant_plays(
     Updates the song plays for the songs in the spreadsheet.
 
     Arguments:
+    * play_updater (`PLAY_UPDATER`): The function to pull song data from.
+    * sheet_id (`str`): The spreadsheet ID to pull data from.
     * verbose (`bool`): Whether to produce console output or not.
         Defaults to `False`.
     """
@@ -656,12 +665,10 @@ if __name__ == '__main__':
         verbose=True,
     )
 
+    """
     update_local_plays(uow, verbose=True)
-    """
-    load_song_averages(uow.songs, verbose=True)
-    load_album_averages(uow.albums, verbose=True)
-    """
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
+    """

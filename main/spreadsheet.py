@@ -1,3 +1,12 @@
+"""
+main/spreadsheet.py
+
+A class to manipulate Google Sheets data.
+
+Class:
+* `Spreadsheet`: A Google Sheets spreadsheet.
+"""
+
 from typing import Any
 from google.oauth2 import service_account
 from googleapiclient import discovery
@@ -38,7 +47,7 @@ class Spreadsheet:
         resource.
         """
 
-        service = discovery.build(
+        service: discovery.Resource = discovery.build(
             'sheets', 'v4', credentials=self._credentials
         )
         self.sheet = service.spreadsheets().values()
