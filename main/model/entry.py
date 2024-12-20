@@ -11,7 +11,7 @@ Data Classes:
 from datetime import date
 from typing import Union
 
-from pydantic import BaseModel, NonNegativeInt, PositiveInt, conint
+from pydantic import BaseModel, NonNegativeInt, PositiveInt
 from pydantic.functional_validators import field_validator
 
 

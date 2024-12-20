@@ -665,10 +665,8 @@ if __name__ == '__main__':
         verbose=True,
     )
 
-    """
     update_local_plays(uow, verbose=True)
     load_year_end_songs(uow.songs, verbose=True)
     load_year_end_albums(uow.albums, verbose=True)
     load_month_end_songs(uow.songs, verbose=True)
     load_month_end_albums(uow.albums, verbose=True)
-    """

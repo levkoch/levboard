@@ -7,7 +7,7 @@ Where the Album model is held.
 from concurrent import futures
 from copy import deepcopy
 from datetime import date
-from operator import methodcaller
+from operator import attrgetter, methodcaller
 from typing import Iterable, Iterator, Optional, Union
 
 from .cert import AlbumCert, SongCert
@@ -26,7 +26,7 @@ class Album:
             self._artists = list(artists)
 
         self.songs: list[tuple[str, Song]] = []
-        self.entries: list[AlbumEntry] = []
+        self._entries: dict[date, AlbumEntry] = {}
 
     def __str__(self) -> str:
         return f'{self.title} by {self.str_artists}'
@@ -143,7 +143,7 @@ class Album:
         `0` if the album has never charted.
         """
 
-        return min([i.place for i in self.entries], default=0)
+        return min([i.place for i in self._entries.values()], default=0)
 
     @property
     def peakweeks(self) -> int:
@@ -152,7 +152,7 @@ class Album:
         defaulting to `0` if the album has never charted.
         """
 
-        return len([i for i in self.entries if i.place == self.peak])
+        return len([i for i in self._entries.values() if i.place == self.peak])
 
     @property
     def weeks(self) -> int:
@@ -160,7 +160,7 @@ class Album:
         (`int`): The total number of weeks the album has charted for.
         """
 
-        return len(self.entries)
+        return len(self._entries)
 
     @property
     def cert(self) -> AlbumCert:
@@ -177,9 +177,9 @@ class Album:
         """The number of songs that charted the week of"""
         return len(
             [
-                song
+                song[0]
                 for song in self.songs
-                if song.get_entry(end_date) is not None
+                if song[1].get_entry(end_date) is not None
             ]
         )
 
@@ -240,14 +240,18 @@ class Album:
             return len(
                 [
                     1
-                    for entry in self.entries
+                    for entry in self._entries.values()
                     if entry.place <= top and entry.end <= before
                 ]
             )
         if top:   # filter only by top
-            return len([1 for entry in self.entries if entry.place <= top])
+            return len(
+                [1 for entry in self._entries.values() if entry.place <= top]
+            )
         if before:   # filter only by weeks before
-            return len([1 for entry in self.entries if entry.end <= before])
+            return len(
+                [1 for entry in self._entries.values() if entry.end <= before]
+            )
         return self.weeks   # dont filter whatsoever
 
     def get_song_weeks(self, top: Optional[int] = None) -> int:
@@ -288,18 +292,25 @@ class Album:
         if song not in self.songs:
             self.songs.append((variant_id, song))
 
+    @property
+    def entries(self) -> list[AlbumEntry]:
+        """a sorted list of the album's entries."""
+        # for internal use only, self._entries.values() suffices when we
+        # don't care about the order of traversal, but self.entries is
+        # more safe, as it returns a copy of the values stored inside
+        # of the object, so self._entries can't be manipulated some weird way.
+        return sorted(self._entries.values(), key=attrgetter('end'))
+
     def add_entry(self, entry: AlbumEntry) -> None:
         """Adds an entry to the album."""
-        if entry.end not in [i.end for i in self.entries]:
-            self.entries.append(entry)
-            self.entries.sort(key=lambda i: i.end)
+        self._entries[entry.end] = entry
 
     def get_entry(self, end_date: date) -> Optional[AlbumEntry]:
         """
         Returns the entry for the week ending in `end_date`, or None if the
         album didn't chart that week.
         """
-        return next((i for i in self.entries if i.end == end_date), None)
+        return self._entries.get(end_date, default=None)
 
     def period_plays(self, start: date, end: date) -> int:
         """
@@ -345,7 +356,9 @@ class Album:
 
     def period_weeks(self, start: date, end: date) -> int:
         return sum(
-            1 for w in self.entries if w.start >= start and w.end <= end
+            1
+            for w in self._entries.items()
+            if w.start >= start and w.end <= end
         )
 
     def get_points(self, end_date: date) -> int:
@@ -371,8 +384,10 @@ class Album:
     @classmethod
     def from_dict(cls, info: dict) -> 'Album':
         new = cls(info['title'], info['artists'])
-        new.entries = [AlbumEntry(**i) for i in info['entries']]
-        new.entries.sort(key=lambda i: i.end)  # from earliest to latest
+        new._entries = {
+            date.fromisoformat(i['end']): AlbumEntry(**i)
+            for i in info['entries']
+        }
 
         new.stored_ids = []
         for song_id in info['songs']:

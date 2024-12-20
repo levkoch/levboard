@@ -4,13 +4,15 @@ from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
-from typing import Final, Iterable, Optional, Union
+from typing import Final, Iterable, Optional, TypeAlias, Union
 
 from config import FIRST_DATE
 from plays import update_local_plays
 from model import Album, Song, SongCert, spotistats
 from model.spotistats import MAX_ADJUSTED
-from storage import SongUOW
+from storage import AlbumRepository, SongRepository, SongUOW
+
+Charteable: TypeAlias = Union[Song, Album]
 
 uow = SongUOW()
 
@@ -125,7 +127,7 @@ def top_shortest_time_units_milestones(
     print('')
 
 
-def top_shortest_time_units_milestones_infograpic(
+def top_shortest_time_units_milestones_infographic(
     uow: SongUOW, unit_milestone: int, extras=False
 ):
     with futures.ThreadPoolExecutor() as executor:
@@ -163,7 +165,28 @@ def top_shortest_time_units_milestones_infograpic(
 
         print(
             f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
-            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / {day.isoformat()})'
+            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
+            f'{start_day.isoformat()} -> {day.isoformat()})'
+        )
+
+        if extras:
+            period_plays = song.period_plays(start_day, day)
+            period_weeks = song.period_weeks(start_day, day)
+            print(
+                f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
+            )
+
+    units.sort(key=itemgetter(2))
+
+    print(f'\nFastest songs to reach {unit_milestone} units:')
+    for (song, day, time) in units:
+        place = len([unit for unit in units if unit[2] < time]) + 1
+        start_day: date = day - timedelta(days=time)
+
+        print(
+            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
+            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
+            f'{start_day.isoformat()} -> {day.isoformat()})'
         )
 
         if extras:
@@ -287,9 +310,133 @@ def top_album_hits(uow: SongUOW, top: Optional[int]):
     print('')
 
 
+def weeks_top(
+    c: Charteable, *, top: Optional[int] = None, before: Optional[date] = None
+) -> int:
+    """
+    the number of weeks the album spent in the top `top` before &
+    including the week ending `before`, both arguments are optional
+    and including just one works as well. Defaults to the number
+    of weeks the album has spent charting.
+    """
+
+    if top and before:   # filter by both
+        return len(
+            [
+                1
+                for entry in c.entries
+                if entry.place <= top and entry.end <= before
+            ]
+        )
+    if top:   # filter only by top
+        return len([1 for entry in c.entries if entry.place <= top])
+    if before:   # filter only by weeks before
+        return len([1 for entry in c.entries if entry.end <= before])
+    return c.weeks   # dont filter whatsoever
+
+
+def conweeks(
+    c: Charteable, breaks: bool = False, top: Optional[int] = None
+) -> int:
+    """
+    The greatest number of consecutive weeks the song has spent in the top
+    `top` of the chart. Will return 0 if the song has never charted or
+    never charted in that region. Allows for songs to leave for 1 week if
+    `breaks` is true. CCC_CCCCC_C will return 5 if `breaks` is false but 11
+    if it's true.
+    """
+
+    entries = c.entries  # returns a copy, so we can pop
+    if top:
+        entries = [i for i in entries if i.place <= top]
+
+    if len(entries) in (0, 1):
+        return len(entries)
+
+    longest = 0
+    current_entry = entries.pop(0)
+
+    while entries:
+        streak = 1
+        next_entry = entries.pop(0)
+
+        while (
+            (current_entry.end == next_entry.start)
+            # standard mode where the next week charted too
+            or (
+                breaks
+                and (current_entry.end + timedelta(days=7)) == next_entry.start
+            )
+        ):
+            # with breaks mode where the next week didn't chart but we have
+            # break mode turned on and the week after that charted.
+
+            streak += 1
+            if current_entry.end != next_entry.start:
+                streak += 1
+
+            current_entry = next_entry
+            try:
+                next_entry = entries.pop(0)
+            except IndexError:
+                break
+
+        longest = max(longest, streak)
+        current_entry = next_entry
+
+    return longest
+
+
+def all_consecutive(c: Charteable, breaks=False) -> list[tuple[date, int]]:
+    """
+    returns every streak that the charteable passed in has achived. returns a list
+    of tuples, where the first item is the week that the streak started, and the
+    second is how long the streak lasted. if breaks is turned on, then streaks
+    that are separated by just one week missing will be combined together.
+    so if something charted like `C_CCCC_CCCCC_CC` it will return
+    `[(1, 1), (3, 4), (8, 5), (13, 2)]`.
+    """
+
+    entries = c.entries
+
+    if len(entries) == 0:
+        return []
+
+    consecutive = []
+    current_entry = entries.pop(0)
+
+    while entries:
+        starting_entry = current_entry
+        streak = 1
+        next_entry = entries.pop(0)
+
+        while (
+            (current_entry.end == next_entry.start)
+            # standard mode where the next week charted too
+            or (
+                breaks
+                and (current_entry.end + timedelta(days=7)) == next_entry.start
+            )
+        ):
+            # with breaks mode where the next week didn't chart but we have
+            # break mode turned on and the week after that charted.
+
+            streak += 1
+            current_entry = next_entry
+            try:
+                next_entry = entries.pop(0)
+            except IndexError:
+                break
+
+        consecutive.append((starting_entry.end, streak))
+        current_entry = next_entry
+
+    return consecutive
+
+
 def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     units: list[tuple[Song, int]] = [
-        (song, song.get_conweeks(top)) for song in uow.songs
+        (song, conweeks(song, top=top)) for song in uow.songs
     ]
     units.sort(key=lambda i: i[1], reverse=True)
     units = [i for i in units if i[1] >= units[19][1] and i[1] > 1]
@@ -305,34 +452,39 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
     print('')
 
 
-def top_song_consecutive_weeks_infographic(uow: SongUOW):
+def top_collection_consecutive_weeks_infographic(
+    collection: Union[SongRepository, AlbumRepository]
+):
     THRESHOLD: Final[int] = 16
-    contenders: Iterable[Song] = (
-        song
-        for song in uow.songs
-        if song.get_conweeks(breaks=True) >= THRESHOLD
+    kind = type(collection.get(collection.list()[0])).__name__
+    print(f'{len(collection)} {kind}s stored')
+
+    contenders: Iterable[Union[Song, Album]] = (
+        c for c in collection if conweeks(c) >= THRESHOLD
     )
 
-    units: list[tuple[Song, date, int]] = []
+    units: list[tuple[Union[Song, Album], date, int]] = []
     for contender in contenders:
         units.extend(
             (contender, start, weeks)
-            for (start, weeks) in contender.all_consecutive(breaks=False)
+            for (start, weeks) in all_consecutive(contender)
             if weeks >= THRESHOLD
         )
 
-    print(f'{len(units)} songs found\n')
+    print(f'{len(units)} {kind}s found\n')
 
     units.sort(key=lambda i: i[2], reverse=True)
 
-    print('Songs with most consecutive weeks on chart')
-    for (song, start, weeks) in units:
+    print(f'{kind}s with most consecutive weeks on chart')
+    for (c, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
         # week start and week end are both inclusive of end weeks.
         print(
-            f"{place:>2} | {f'{song.title} by {song.str_artists}':<55} | {start.isoformat()} to {end.isoformat()} "
-            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} to {int((end - FIRST_DATE).days / 7) - 3}'
+            f"{place:>2} | {f'{c.title} by {c.str_artists}':<55} | "
+            f'{start.isoformat()} to {end.isoformat()} '
+            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} '
+            f'to {int((end - FIRST_DATE).days / 7) - 3}'
         )
     print('')
 
@@ -532,12 +684,15 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
 
     top_listeners_chart(uow)
-    top_song_consecutive_weeks_infographic(uow)
-    
-    top_shortest_time_units_milestones_infograpic(uow, 2_000)
-    top_shortest_time_units_milestones_infograpic(uow, 4_000)
-    top_shortest_time_units_milestones_infograpic(uow, 6_000)
-    top_shortest_time_units_milestones_infograpic(uow, 8_000)
+    """
+    top_collection_consecutive_weeks_infographic(uow.songs)
+    top_collection_consecutive_weeks_infographic(uow.albums)
+
+    """
+    top_shortest_time_units_milestones_infographic(uow, 2_000)
+    top_shortest_time_units_milestones_infographic(uow, 4_000)
+    top_shortest_time_units_milestones_infographic(uow, 6_000)
+    top_shortest_time_units_milestones_infographic(uow, 8_000)
 
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)

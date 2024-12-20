@@ -1,13 +1,16 @@
 """
 levboard/main/main.py
+
+The main (wow how original) script to run to collect the chart data
+for the weeks. Make sure to run load.py first to collect the songs
+and album declarations from the spreadsheet. Or add them one by one
+here after getting prompted for it. :)
 """
 
-import functools
 import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
-import operator
 from typing import Iterable, Iterator, Optional, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
@@ -18,7 +21,6 @@ from model import (
     Song,
     spotistats,
     SONG_CHART_LENGTH,
-    Variant,
 )
 from model.spotistats import Week
 from spreadsheet import Spreadsheet
@@ -31,6 +33,12 @@ def load_week(
     started: itertools.count,
     completed: itertools.count,
 ) -> Week:
+    """
+    Loads a singular week.
+
+    Returns:
+    *
+    """
     print(
         f'-> [{next(started):03d}] collecting info for week ending {end_day.isoformat()}'
     )
@@ -111,6 +119,10 @@ def get_movement(
 
 
 def get_peak(listenable: Union[Song, Album]) -> str:
+    """
+    Transforms the peak of the listenable item into a nice
+    string view with superscripts.
+    """
     num_to_exp: dict = {
         '0': '⁰',
         '1': '¹',
@@ -135,6 +147,9 @@ def create_song_chart(
     uow: SongUOW,
     weeks: Iterator[Week],
 ) -> Iterator[tuple[list[dict], date, date]]:
+    """
+    Parses the weeks passed in into chart weeks.
+    """
 
     two_wa = next(weeks)
     one_wa = next(weeks)
@@ -301,7 +316,7 @@ def clear_entries(uow: SongUOW) -> None:
             song._entries.clear()
         for album_name in uow.albums.list():
             album: Album = uow.albums.get(album_name)
-            album.entries.clear()
+            album._entries.clear()
         uow.commit()
 
 

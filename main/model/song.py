@@ -614,7 +614,7 @@ class Song:
         if top is None:
             return self.weeks
 
-        return len(1 for entry in self._entries if entry.place <= top)
+        return len(1 for entry in self.entries if entry.place <= top)
 
     def get_conweeks(
         self, breaks: bool = False, top: Optional[int] = None
