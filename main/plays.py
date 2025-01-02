@@ -16,7 +16,7 @@ import datetime
 
 from concurrent import futures
 from operator import itemgetter
-from typing import Callable, TypeAlias, Union
+from typing import Callable, Literal, TypeAlias, Union
 
 from config import LEVBOARD_SHEET, FIRST_DATE, MAX_ADJUSTED
 from load import load_linked_songs
@@ -365,7 +365,14 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
         item_rows: list[list] = []
         kind = type(collection.get(collection.list()[0])).__name__
 
-        current_year = datetime.date.today().year
+        cutoff = datetime.date.today()
+
+        # if the year just started, then don't create it but have the cutoff be in the previous year
+        if (cutoff.day <= 5 and cutoff.month == 1):
+            cutoff = cutoff - datetime.timedelta(days = 4)
+
+        current_year = cutoff.year
+
         while current_year > FIRST_DATE.year - 1:
             if verbose:
                 print(f'Collecting top {kind}s of {current_year}')
@@ -474,10 +481,16 @@ def month_end_collection_creater(
     ):
         nonlocal sheet, range_name, quantity
         item_rows: list[list] = []
-        kind = type(collection.get(collection.list()[0])).__name__
+        kind: Literal['Album', 'Song'] = type(collection.get(collection.list()[0])).__name__
 
-        current_year = datetime.date.today().year
-        current_month = datetime.date.today().month
+        cutoff = datetime.date.today()
+
+        # if the month just started, then don't create it but have the cutoff be in the previous month
+        if (cutoff.day <= 5):
+            cutoff = cutoff - datetime.timedelta(days = 6)
+
+        current_year = cutoff.year
+        current_month = cutoff.month
 
         while (current_year > FIRST_DATE.year) or (
             # nothing actually renders for May 2021 which is when the first date is set

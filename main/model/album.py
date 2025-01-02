@@ -310,7 +310,7 @@ class Album:
         Returns the entry for the week ending in `end_date`, or None if the
         album didn't chart that week.
         """
-        return self._entries.get(end_date, default=None)
+        return self._entries.get(end_date, None)
 
     def period_plays(self, start: date, end: date) -> int:
         """
@@ -357,7 +357,7 @@ class Album:
     def period_weeks(self, start: date, end: date) -> int:
         return sum(
             1
-            for w in self._entries.items()
+            for (_, w) in self._entries.items()
             if w.start >= start and w.end <= end
         )
 
