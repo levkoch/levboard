@@ -355,7 +355,7 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
         print(f'Updated {song_amt} local song plays.')
 
 
-def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
+def year_end_collection_creator(sheet_id: str, range_name: str, quantity: int):
     sheet = Spreadsheet(sheet_id)
 
     def inner(
@@ -413,7 +413,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                     peak = min(
                         entry.place
                         for entry in item.entries
-                        if entry.start >= year_start and entry.end <= year_end
+                        if entry.end >= year_start and entry.end <= year_end
                     )
                 except ValueError:   # min() arg is an empty sequence
                     peak = '-'
@@ -422,7 +422,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                     peak = min(
                         entry.place
                         for entry in item.entries
-                        if entry.start >= year_start and entry.end <= year_end
+                        if entry.end >= year_start and entry.end <= year_end
                     )
                 except ValueError:   # "min() arg is an empty sequence"
                     peak = 0
@@ -430,7 +430,7 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
                 peak_weeks = sum(
                     1
                     for entry in item.entries
-                    if entry.start >= year_start
+                    if entry.end >= year_start
                     and entry.end <= year_end
                     and entry.place == peak
                 )
@@ -463,15 +463,15 @@ def year_end_collection_creater(sheet_id: str, range_name: str, quantity: int):
     return inner
 
 
-load_year_end_songs = year_end_collection_creater(
+load_year_end_songs = year_end_collection_creator(
     LEVBOARD_SHEET, 'Year-End!A1:J', 100
 )
-load_year_end_albums = year_end_collection_creater(
+load_year_end_albums = year_end_collection_creator(
     LEVBOARD_SHEET, "'Year-End Albums'!A1:I", 40
 )
 
 
-def month_end_collection_creater(
+def month_end_collection_creator(
     sheet_id: str, range_name: str, quantity: int
 ):
     sheet = Spreadsheet(sheet_id)
@@ -485,7 +485,9 @@ def month_end_collection_creater(
 
         cutoff = datetime.date.today()
 
-        # if the month just started, then don't create it but have the cutoff be in the previous month
+        # if the month just started, then don't create a chart for that month but have the 
+        # cutoff be in the previous month, so that the charts start generating starting 
+        # with the month prior.
         if (cutoff.day <= 5):
             cutoff = cutoff - datetime.timedelta(days = 6)
 
@@ -544,14 +546,14 @@ def month_end_collection_creater(
                     peak = min(
                         entry.place
                         for entry in item.entries
-                        if entry.start >= year_start and entry.end <= year_end
+                        if entry.end >= year_start and entry.end <= year_end
                     )
                 except ValueError:   # min() arg can't be an empty sequence
                     peak = '-'
                 peak_weeks = sum(
                     1
                     for entry in item.entries
-                    if entry.start >= year_start
+                    if entry.end >= year_start
                     and entry.end <= year_end
                     and entry.place == peak
                 )
@@ -588,15 +590,15 @@ def month_end_collection_creater(
     return inner
 
 
-load_month_end_songs = month_end_collection_creater(
+load_month_end_songs = month_end_collection_creator(
     LEVBOARD_SHEET, 'Month-End!A1:J', 40
 )
-load_month_end_albums = month_end_collection_creater(
+load_month_end_albums = month_end_collection_creator(
     LEVBOARD_SHEET, "'Month-End Albums'!A1:I", 20
 )
 
 
-def milestone_collection_creater(sheet_id: str, range_name: str):
+def milestone_collection_creator(sheet_id: str, range_name: str):
     sheet = Spreadsheet(sheet_id)
 
     def inner(
@@ -660,10 +662,10 @@ def milestone_collection_creater(sheet_id: str, range_name: str):
     return inner
 
 
-load_song_averages = milestone_collection_creater(
+load_song_averages = milestone_collection_creator(
     LEVBOARD_SHEET, 'Milestones!A3:G'
 )
-load_album_averages = milestone_collection_creater(
+load_album_averages = milestone_collection_creator(
     LEVBOARD_SHEET, 'Milestones!I3:N'
 )
 

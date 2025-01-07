@@ -355,10 +355,11 @@ class Album:
             )
 
     def period_weeks(self, start: date, end: date) -> int:
+        """returns the number of weeks the album charted between the `start` and `end` dates."""
         return sum(
             1
             for (_, w) in self._entries.items()
-            if w.start >= start and w.end <= end
+            if w.end >= start and w.end <= end
         )
 
     def get_points(self, end_date: date) -> int:
