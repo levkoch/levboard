@@ -1,5 +1,5 @@
 # LevBoard
-This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with album versions. 
+This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. On this version, only creating song charts is available, due to some complications that Spotistats has with album versions. For a more full experience, if you are willing to set up a spreadsheet and a free Google Service Account, then head over to the [experimental version](https://github.com/levkoch/levboard/tree/personal).
 
 __Please Note__: Only accounts with Spotistats Plus __AND__ their files imported work, as all other accounts don't display stream counts, which the system needs to work correctly.
 
