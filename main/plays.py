@@ -367,9 +367,10 @@ def year_end_collection_creator(sheet_id: str, range_name: str, quantity: int):
 
         cutoff = datetime.date.today()
 
-        # if the year just started, then don't create it but have the cutoff be in the previous year
-        if (cutoff.day <= 5 and cutoff.month == 1):
-            cutoff = cutoff - datetime.timedelta(days = 4)
+        # if the year just started (under a month), then don't create it but have
+        # the cutoff be in the previous year
+        if cutoff.month == 1:
+            cutoff = cutoff - datetime.timedelta(days=32)
 
         current_year = cutoff.year
 
@@ -481,15 +482,17 @@ def month_end_collection_creator(
     ):
         nonlocal sheet, range_name, quantity
         item_rows: list[list] = []
-        kind: Literal['Album', 'Song'] = type(collection.get(collection.list()[0])).__name__
+        kind: Literal['Album', 'Song'] = type(
+            collection.get(collection.list()[0])
+        ).__name__
 
         cutoff = datetime.date.today()
 
-        # if the month just started, then don't create a chart for that month but have the 
-        # cutoff be in the previous month, so that the charts start generating starting 
+        # if the month just started, then don't create a chart for that month but have the
+        # cutoff be in the previous month, so that the charts start generating starting
         # with the month prior.
-        if (cutoff.day <= 5):
-            cutoff = cutoff - datetime.timedelta(days = 6)
+        if cutoff.day <= 5:
+            cutoff = cutoff - datetime.timedelta(days=6)
 
         current_year = cutoff.year
         current_month = cutoff.month

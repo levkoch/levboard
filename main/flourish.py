@@ -3,8 +3,9 @@ import functools
 import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
-from operator import attrgetter
-from typing import Callable, Iterator, Union
+import json
+from operator import attrgetter, itemgetter
+from typing import Callable, Iterable, Iterator, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
 from model import Album, Song
@@ -117,6 +118,80 @@ def flourish_albums(
     print('')
     print(f'Process Completed in {datetime.now() - start_time}')
 
+    return sheet_rows
+
+
+def flourish_top_ten_changes(rows: list[list[str]]):
+    albums = [row[0] for row in rows[1:]]
+    days: dict[date, list[str]] = {}
+
+    for column_index in range(2, len(rows[0])):
+        day = rows[0][column_index]
+        groups: Iterable[tuple[str, int]] = zip(
+            albums, (row[column_index] for row in rows[1:])
+        )
+        info = [
+            album
+            for (album, _) in sorted(groups, key=itemgetter(1), reverse=True)[
+                :10
+            ]
+        ]
+        print(day)
+        print(info)
+        days[day] = info
+
+    print(days)
+
+    combined = {}
+
+    # PRIME THE COMBINATOR !!
+    day = date.fromisoformat(rows[0][2])
+    info = [
+        album
+        for (album, _) in sorted(
+            zip(albums, (row[2] for row in rows[1:])),
+            key=itemgetter(1),
+            reverse=True,
+        )[:10]
+    ]
+
+    prev_row = info
+    start_date = day
+    prev_date = day
+
+    for column_index in range(3, len(rows[0])):
+        day = date.fromisoformat(rows[0][column_index])
+        info = [
+            album
+            for (album, _) in sorted(
+                zip(albums, (row[column_index] for row in rows[1:])),
+                key=itemgetter(1),
+                reverse=True,
+            )[:10]
+        ]
+
+        if info != prev_row:
+            combined[start_date.isoformat()] = {
+                'start': start_date.isoformat(),
+                'end': prev_date.isoformat(),
+                'albums': prev_row,
+            }
+            start_date = day
+
+        prev_date = day
+        prev_row = info
+
+    combined[start_date.isoformat()] = {
+        'start': start_date.isoformat(),
+        'end': prev_date.isoformat(),
+        'albums': prev_row,
+    }
+
+    print(combined)
+
+    with open("data/flourish.json", "w+") as f:
+        json.dump(combined, f, indent=4)
+
 
 def get_all_weeks() -> Iterator[date]:
     day = FIRST_DATE + timedelta(days=7)
@@ -201,7 +276,8 @@ if __name__ == '__main__':
     uow = SongUOW()
     update_local_plays(uow, verbose=True)
     album_sellings = album_data_generator(get_album_units)
-    flourish_albums(uow, album_sellings, (lambda i: i.units >= 1000))
+    rows = flourish_albums(uow, album_sellings, (lambda i: i.units >= 1000))
+    flourish_top_ten_changes(rows)
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)
