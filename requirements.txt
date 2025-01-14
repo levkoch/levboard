@@ -2,3 +2,4 @@ flask
 pydantic
 pytest
 requests
+pyyaml
