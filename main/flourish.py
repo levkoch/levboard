@@ -158,6 +158,7 @@ def flourish_top_ten_changes(rows: list[list[str]]):
     prev_row = info
     start_date = day
     prev_date = day
+    weeks = 1
 
     for column_index in range(3, len(rows[0])):
         day = date.fromisoformat(rows[0][column_index])
@@ -175,8 +176,12 @@ def flourish_top_ten_changes(rows: list[list[str]]):
                 'start': start_date.isoformat(),
                 'end': prev_date.isoformat(),
                 'albums': prev_row,
+                'weeks': weeks,
             }
             start_date = day
+            weeks = 1
+        else:
+            weeks += 1
 
         prev_date = day
         prev_row = info
@@ -185,11 +190,12 @@ def flourish_top_ten_changes(rows: list[list[str]]):
         'start': start_date.isoformat(),
         'end': prev_date.isoformat(),
         'albums': prev_row,
+        'weeks': weeks,
     }
 
     print(combined)
 
-    with open("data/flourish.json", "w+") as f:
+    with open('data/flourish.json', 'w+') as f:
         json.dump(combined, f, indent=4)
 
 
