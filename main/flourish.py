@@ -136,11 +136,9 @@ def flourish_top_ten_changes(rows: list[list[str]]):
                 :10
             ]
         ]
-        print(day)
-        print(info)
+
         days[day] = info
 
-    print(days)
 
     combined = {}
 
@@ -162,6 +160,7 @@ def flourish_top_ten_changes(rows: list[list[str]]):
 
     for column_index in range(3, len(rows[0])):
         day = date.fromisoformat(rows[0][column_index])
+        print(f'parsing top albums changes info for {rows[0][column_index]}')
         info = [
             album
             for (album, _) in sorted(
@@ -192,8 +191,6 @@ def flourish_top_ten_changes(rows: list[list[str]]):
         'albums': prev_row,
         'weeks': weeks,
     }
-
-    print(combined)
 
     with open('data/flourish.json', 'w+') as f:
         json.dump(combined, f, indent=4)
@@ -265,9 +262,11 @@ def flourish_songs():
             entry.append(info[date])
         sheet_rows.append(entry)
 
+    """
     with open('info.csv', 'a+', encoding='UTF-8') as f:
         csv.writer(f).writerows(sheet_rows)
         # write to csv in case google sheets is annoying
+    """
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     range = f'BOT_FLOURISH!A1:ZZ{len(sheet_rows)+1}'
