@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/levboard/static/js/main.a7ebe1c0.js",
+    "index.html": "/levboard/index.html",
+    "main.a7ebe1c0.js.map": "/levboard/static/js/main.a7ebe1c0.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a7ebe1c0.js"
+  ]
+}
