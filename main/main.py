@@ -11,7 +11,7 @@ import itertools
 from concurrent import futures
 from datetime import date, datetime, timedelta
 from operator import itemgetter
-from typing import Iterable, Iterator, Optional, Union
+from typing import Final, Iterable, Iterator, Optional, Union
 
 from config import FIRST_DATE, LEVBOARD_SHEET
 from model import (
@@ -260,11 +260,6 @@ def create_song_chart(
                 }
             )
 
-        for info in song_info:
-            info['place'] = (
-                sum(1 for i in song_info if i['points'] > info['points']) + 1
-            )
-
         # song infos that didn't chart are filtered later on because we
         # need the entire thing for albums
         song_info.sort(key=lambda i: i['points'], reverse=True)
@@ -320,23 +315,73 @@ def clear_entries(uow: SongUOW) -> None:
         uow.commit()
 
 
-def insert_entries(uow: SongUOW, positions: list[dict], start_date, end_date):
-    with uow:
-        for position in positions:
-            song: Optional[Song] = uow.songs.get(position['id'])
-            if not song:
-                song = ask_new_song(uow, position['id'])
-                uow.songs.add(song)
-            entry = Entry(
-                end=end_date,
-                start=start_date,
-                plays=position['plays'],
-                place=position['place'],
-                points=position['points'],
-                variant=position['id'],
-            )
-            song.add_entry(entry)
-        uow.commit()
+def insert_entries(
+    uow: SongUOW,
+    positions: list[dict],
+    start_date: date,
+    end_date: date,
+    chart_cutoff: int,
+) -> list[dict]:
+    """
+    filters out and inserts the eligible entries from the list of positions given.
+    * uow (`SongUOW`): the UOW to stick the entries into.
+    * positions (`list[dict[str, ...]]`): a SORTED list of dictionaries by "points"
+      with the following schema:
+        ```{
+            "plays": 37,
+            "points": 460,
+            "id": "325382"
+        }```
+    * start_date (`datetime.date`): the starting date of the week
+    * end_date (`datetime.date`): the ending date of the week
+    * chart_cutoff (`int`): the number of chart positions avaliable
+    """
+
+    # POSITIONS ARE NOT FILTERED YET
+
+    if not positions:
+        return   # if positions is empty
+
+    def process_song(song_id: str, plays: int, place: int, points: int):
+        song: Optional[Song] = uow.songs.get(song_id)
+        if not song:
+            song = ask_new_song(uow, song_id)
+            uow.songs.add(song)
+        entry = Entry(
+            end=end_date,
+            start=start_date,
+            plays=plays,
+            place=place,
+            points=points,
+            variant=song_id,
+        )
+        song.add_entry(entry)
+
+    first_pos = positions[0]
+    process_song(first_pos['id'], first_pos['plays'], 1, first_pos['points'])
+
+    prev_points = first_pos['points']
+    prev_place = 1
+    ties = 1
+    filtered = [first_pos | {'place': prev_place}]
+
+    for pos in positions[1:]:
+        if pos['points'] == prev_points:
+            ties += 1
+            process_song(pos['id'], pos['plays'], prev_place, pos['points'])
+            filtered.append(pos | {'place': prev_place})
+        else:
+            place = prev_place + ties
+            if place > chart_cutoff:
+                break
+            process_song(pos['id'], pos['plays'], place, pos['points'])
+            filtered.append(pos | {'place': place})
+            prev_place = place
+            prev_points = pos['points']
+            ties = 1
+
+    uow.commit()
+    return filtered
 
 
 def show_chart(
@@ -374,9 +419,7 @@ def update_song_sheet(
 ) -> list[list]:
     actual_end = end_date - timedelta(days=1)
 
-    new_rows = []
-
-    new_rows.append(
+    new_rows = [
         [
             f'{start_date.isoformat()} to {actual_end.isoformat()}',
             '',
@@ -389,9 +432,7 @@ def update_song_sheet(
             '',
             week_count,
             '',
-        ]
-    )
-    new_rows.append(
+        ],
         [
             'MV',
             'Title',
@@ -404,12 +445,11 @@ def update_song_sheet(
             'PK',
             '(WK)',
             '(ID)',
-        ]
-    )
+        ],
+    ]
 
     for pos in positions:
-        with uow:
-            song: Song = uow.songs.get(pos['id'])
+        song: Song = uow.songs.get(pos['id'])
         prev: Optional[Entry] = song.get_entry(start_date)
         movement: str = get_movement(end_date, start_date, song)
         peak: str = get_peak(song)
@@ -465,6 +505,8 @@ def create_album_chart(
     album_rows: list[list],
 ) -> list[list]:
 
+    ALBUMS_CHART_LENGTH: Final[int] = 20
+
     album_plays: dict[Album, int] = get_album_plays(uow, positions)
 
     units: list[tuple[Album, int]] = [
@@ -510,52 +552,54 @@ def create_album_chart(
 
     print(f' | A')
 
-    """
-    print(f'({week_count}) Albums chart for week of {end_day.isoformat()}.')
-    print('')
-    print(
-        f' MV | {"Title":<45} | {"Artists":<45} | TW | LW | OC  | PK  | UTS | PLS | PTS'
-    )"""
-
-    for (album, album_units) in units:
-        position = sum(1 for i in units if i[1] > album_units) + 1
+    def process_album(album: Album, album_units: int, place: int) -> list:
+        nonlocal start_day, end_day, week_count
         entry = AlbumEntry(
-            start=start_day, end=end_day, units=album_units, place=position
+            start=start_day, end=end_day, units=album_units, place=place
         )
         album.add_entry(entry)
 
-        prev = album.get_entry(start_day)
-        movement = get_movement(end_day, start_day, album)
-        peak = get_peak(album)
-        plays = album_plays[album]
-        points = album.get_points(end_day)
+        prev: Optional[AlbumEntry] = album.get_entry(start_day)
+        movement: str = get_movement(end_day, start_day, album)
+        peak: str = get_peak(album)
+        plays: int = album_plays[album]
+        points: int = album.get_points(end_day)
 
-        """print(
-            f'{movement:>3} | {album.title:<45} | {album.str_artists:<45}'
-            f" | {position:<2} | {(prev.place if prev else '-'):<2} | {album.weeks:<3}"
-            f' | {peak:<3} | {album_units:<3} | {plays:<3} | {points:<3}'
-        )"""
+        return [
+            "'" + movement,
+            "'" + album.title if album.title[0].isnumeric() else album.title,
+            album.str_artists,
+            place,
+            prev.place if prev else '-',
+            album.weeks,
+            peak,
+            album_units,
+            plays,
+            points,
+            week_count,
+        ]
 
-        new_rows.append(
-            [
-                "'" + movement,
-                "'" + album.title
-                if album.title[0].isnumeric()
-                else album.title,
-                album.str_artists,
-                position,
-                prev.place if prev else '-',
-                album.weeks,
-                peak,
-                album_units,
-                plays,
-                points,
-                week_count,
-            ]
-        )
+    f_album, f_units = units[0]
+    new_rows.append(process_album(f_album, f_units, 1))
 
-    new_rows.extend([['']] + album_rows)
-    return new_rows
+    prev_units = f_units
+    prev_place = 1
+    ties = 1
+
+    for (album, album_units) in units[1:]:
+        if album_units == prev_units:
+            ties += 1
+            new_rows.append(process_album(album, album_units, prev_place))
+        else:
+            place = prev_place + ties
+            if place > ALBUMS_CHART_LENGTH:
+                break
+            new_rows.append(process_album(album, album_units, place))
+            prev_place = place
+            prev_units = album_units
+            ties = 1
+
+    return new_rows + [['']] + album_rows
 
 
 def create_personal_charts():
@@ -570,21 +614,21 @@ def create_personal_charts():
     weeks = load_all_weeks(FIRST_DATE)
     loading_time = datetime.now() - start_time
 
-    for positions, start_day, end_day in create_song_chart(uow, iter(weeks)):
-
+    for song_positions, start_day, end_day in create_song_chart(
+        uow, iter(weeks)
+    ):
         week_count = next(week_counter)
-        song_positions = [
-            pos for pos in positions if pos['place'] <= SONG_CHART_LENGTH
-        ]
-        insert_entries(uow, song_positions, start_day, end_day)
+        filtered_songs = insert_entries(
+            uow, song_positions, start_day, end_day, SONG_CHART_LENGTH
+        )
         print(f'<> [{week_count:03d}] ({end_day.isoformat()}) S', end='')
         # show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
-            song_rows, uow, song_positions, start_day, end_day, week_count
+            song_rows, uow, filtered_songs, start_day, end_day, week_count
         )
 
         album_rows = create_album_chart(
-            uow, positions, start_day, end_day, week_count, album_rows
+            uow, song_positions, start_day, end_day, week_count, album_rows
         )
 
     uow.commit()

@@ -48,9 +48,9 @@ class Spreadsheet:
         """
 
         service: discovery.Resource = discovery.build(
-            'sheets', 'v4', credentials=self._credentials
+            'sheets', 'v4', credentials=self._credentials, cache_discovery=False
         )
-        self.sheet = service.spreadsheets().values()
+        self.sheet: discovery.Resource = service.spreadsheets().values()
 
     def delete_range(self, range: str) -> dict[str, Any]:
         """

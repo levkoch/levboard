@@ -139,7 +139,6 @@ def flourish_top_ten_changes(rows: list[list[str]]):
 
         days[day] = info
 
-
     combined = {}
 
     # PRIME THE COMBINATOR !!
