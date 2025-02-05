@@ -47,7 +47,7 @@ TEST_SONG_FILE: Final[str] = data_dir + '/test_songs.json'
 
 SERVICE_ACCOUNT_FILE: str = (
     # on laptop
-    '/Users/lev/Documents/GitHub/lev-bot/extras/google_token.json'
+    '/Users/lev/Documents/GitHub/google_token_two.json'
     if platform.system() == 'Darwin'
     else f'../data/google_token.json'  # on ipad
 )

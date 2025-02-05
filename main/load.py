@@ -34,7 +34,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
 
     sheet = Spreadsheet(sheet_link)
-    values = sheet.get_range('Songs!A2:E').get('values')   # FIX FOR LATER
+    values = sheet.get_range('Songs!A2:E').get('values')
     songs: list[list[str]] = [i for i in values if i[0]]
 
     counter = itertools.count(start=2)

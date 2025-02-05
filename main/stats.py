@@ -684,16 +684,21 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
 
     top_listeners_chart(uow)
-    """
+   
     top_collection_consecutive_weeks_infographic(uow.songs)
     top_collection_consecutive_weeks_infographic(uow.albums)
 
     """
     top_shortest_time_units_milestones_infographic(uow, 2_000)
+    print("")
     top_shortest_time_units_milestones_infographic(uow, 4_000)
+    print("")
     top_shortest_time_units_milestones_infographic(uow, 6_000)
+    print("")
     top_shortest_time_units_milestones_infographic(uow, 8_000)
-
+    print("")
+    top_shortest_time_units_milestones_infographic(uow, 10_000)
+    """
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
