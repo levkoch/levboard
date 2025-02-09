@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import flourish from "./data/flourish.json";
 import metadata from "./data/metadata.json";
+import { ReactComponent as Lemon } from "./image/lemon.svg";
 
 const HEIGHT = 214;
 
@@ -54,23 +55,44 @@ export class App extends Component<AppProps, AppState> {
     return (
       <div
         style={{
-          overflow: "scroll",
-          direction: "rtl",
+          direction: "ltr",
           display: "block",
-          // float: "none",
-          // margin-right: "auto",
-          // margin-left: "auto",
-          // max-width: "800px"
+          margin: "0 auto",
+          maxWidth: "1000px",
+          float: "none",
         }}
       >
-        <svg
-          id="svg"
-          width={String(this.state.width * 3n)}
-          height={String(HEIGHT * 3)}
-          viewBox={"0 0 " + this.state.width + " " + HEIGHT}
+        <Lemon />
+        <text
+          style={{
+            fontSize: "48px",
+            fontFamily: "montserrat",
+            fontWeight: "600",
+            fontVariant: "medium",
+            margin: "12px",
+          }}
         >
-          {this.state.elements}
-        </svg>
+          ALL-TIME ALBUMS
+        </text>
+        <div
+          style={{
+            overflow: "scroll",
+            direction: "rtl",
+            display: "block",
+            margin: "0 auto",
+            maxWidth: "1000px",
+            float: "none",
+          }}
+        >
+          <svg
+            id="svg"
+            width={String(this.state.width * 3n)}
+            height={String(HEIGHT * 3)}
+            viewBox={"0 0 " + this.state.width + " " + HEIGHT}
+          >
+            {this.state.elements}
+          </svg>
+        </div>
       </div>
     );
   };
@@ -132,6 +154,7 @@ export class App extends Component<AppProps, AppState> {
 
       // we gotta do this becasue ISO format does "02-08", which we would much
       // rather have as "2.8"
+      console.log(information.start, information.end);
       const start_month = Number(information.start.split("-")[1]).toString();
       const start_day = Number(information.start.split("-")[2]).toString();
       const end_month = Number(information.end.split("-")[1]).toString();
@@ -140,11 +163,14 @@ export class App extends Component<AppProps, AppState> {
       const start = start_month + "." + start_day;
       const end = end_month + "." + end_day;
 
+      console.log(start, end);
+
       if (information.weeks == 1n) {
-        ``;
         header = start;
       } else {
-        header = start + " - " + end;
+        // i have no clue why it has to be in this order for it to be in the correct
+        // order when it gets sent out...
+        header = end + " - " + start;
       }
 
       // add header text
@@ -154,8 +180,9 @@ export class App extends Component<AppProps, AppState> {
           y="4"
           fontSize="4px"
           alignmentBaseline="middle"
-          fontFamily="sans-serif"
-          fontVariant="sans-serif"
+          fontFamily="montserrat"
+          fontWeight="500"
+          fontVariant="medium"
           textAnchor="middle"
           key={"top-header-" + column}
         >
@@ -166,8 +193,9 @@ export class App extends Component<AppProps, AppState> {
           y="210"
           fontSize="4px"
           alignmentBaseline="middle"
-          fontFamily="sans-serif"
-          fontVariant="sans-serif"
+          fontFamily="montserrat"
+          fontWeight="500"
+          fontVariant="medium"
           textAnchor="middle"
           key={"bottom-header-" + column}
         >
