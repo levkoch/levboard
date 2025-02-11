@@ -53,37 +53,12 @@ export class App extends Component<AppProps, AppState> {
       return <div>Loading information...</div>;
     }
     return (
-      <div
-        style={{
-          direction: "ltr",
-          display: "block",
-          margin: "0 auto",
-          maxWidth: "1000px",
-          float: "none",
-        }}
-      >
-        <Lemon />
-        <text
-          style={{
-            fontSize: "48px",
-            fontFamily: "montserrat",
-            fontWeight: "600",
-            fontVariant: "medium",
-            margin: "12px",
-          }}
-        >
-          ALL-TIME ALBUMS
-        </text>
-        <div
-          style={{
-            overflow: "scroll",
-            direction: "rtl",
-            display: "block",
-            margin: "0 auto",
-            maxWidth: "1000px",
-            float: "none",
-          }}
-        >
+      <div className="center-column">
+        <div className="title">
+          <Lemon />
+          <text className="heading">ALL-TIME ALBUMS</text>
+        </div>
+        <div className="scroller">
           <svg
             id="svg"
             width={String(this.state.width * 3n)}
@@ -178,26 +153,16 @@ export class App extends Component<AppProps, AppState> {
         <text
           x={String(xOffset + 7n + BigInt(information.weeks))}
           y="4"
-          fontSize="4px"
-          alignmentBaseline="middle"
-          fontFamily="montserrat"
-          fontWeight="500"
-          fontVariant="medium"
-          textAnchor="middle"
-          key={"top-header-" + column}
+          className="label"
+          key={"top-label-" + column}
         >
           {header}
         </text>,
         <text
           x={String(xOffset + 7n + BigInt(information.weeks))}
           y="210"
-          fontSize="4px"
-          alignmentBaseline="middle"
-          fontFamily="montserrat"
-          fontWeight="500"
-          fontVariant="medium"
-          textAnchor="middle"
-          key={"bottom-header-" + column}
+          className="label"
+          key={"bottom-label-" + column}
         >
           {header}
         </text>

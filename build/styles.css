@@ -1,0 +1,43 @@
+.center-column {
+    direction: ltr;
+    display: block;
+    margin: 0px auto;
+    max-width: 1000px;
+    float: none;
+}
+
+text.heading {
+    font-size: 48px;
+    font-family: montserrat;
+    font-weight: 600;
+    margin: 12px;
+}
+
+.scroller {
+    overflow: scroll;
+    direction: rtl;
+    display: block;
+    margin: 0px auto;
+    max-width: 1000px;
+    float: none;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    height: 64px;
+}
+
+.label {
+    font-size: 4px;
+    alignment-baseline: middle;
+    font-family: montserrat;
+    font-weight: 500;
+    text-anchor: middle;
+}
+
+body {
+    background: url("./papertexture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
