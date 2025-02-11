@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/levboard/static/js/main.127b621f.js",
+    "main.js": "/levboard/static/js/main.9d0204f1.js",
     "static/media/lemon.svg": "/levboard/static/media/lemon.a2fee187dc54d19f876edb07f1bfe898.svg",
     "index.html": "/levboard/index.html",
-    "main.127b621f.js.map": "/levboard/static/js/main.127b621f.js.map"
+    "main.9d0204f1.js.map": "/levboard/static/js/main.9d0204f1.js.map"
   },
   "entrypoints": [
-    "static/js/main.127b621f.js"
+    "static/js/main.9d0204f1.js"
   ]
 }

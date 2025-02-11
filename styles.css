@@ -1,0 +1,14 @@
+center-column {
+    direction: ltr;
+    display: block;
+    margin: 0px auto;
+    max-width: 1000px;
+    float: none;
+}
+
+heading {
+    font-size: 48px;
+    font-family: montserrat;
+    font-weight: 600;
+    margin: 12px;
+}
