@@ -48,7 +48,10 @@ class Spreadsheet:
         """
 
         service: discovery.Resource = discovery.build(
-            'sheets', 'v4', credentials=self._credentials, cache_discovery=False
+            'sheets',
+            'v4',
+            credentials=self._credentials,
+            cache_discovery=False,
         )
         self.sheet: discovery.Resource = service.spreadsheets().values()
 

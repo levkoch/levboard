@@ -137,3 +137,5 @@ data/songs.json
 data/groupalbums.json
 data/groupsongs.json
 token.env
+
+node_modules

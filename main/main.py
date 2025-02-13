@@ -698,18 +698,18 @@ def create_personal_charts():
 
     print('')
     print(
-        f'Process completed in {total_time} '
+        f'Completed in     {total_time} '
         f'({total_time / week_count} per week)'
     )
     print(
-        f'Loading weeks took   {loading_time} '
+        f'Loaded weeks in  {loading_time} '
         f'({loading_time / week_count} per week)'
     )
     print(
-        f'Crunching data took  {crunching_time} '
+        f'Crunched data in {crunching_time} '
         f'({crunching_time / week_count} per week)'
     )
-    print(f'Updated sheet in     {sending_time}')
+    print(f'Updated sheet in {sending_time}')
 
 
 if __name__ == '__main__':

@@ -690,13 +690,13 @@ if __name__ == '__main__':
 
     """
     top_shortest_time_units_milestones_infographic(uow, 2_000)
-    print("")
+    print('')
     top_shortest_time_units_milestones_infographic(uow, 4_000)
-    print("")
+    print('')
     top_shortest_time_units_milestones_infographic(uow, 6_000)
-    print("")
+    print('')
     top_shortest_time_units_milestones_infographic(uow, 8_000)
-    print("")
+    print('')
     top_shortest_time_units_milestones_infographic(uow, 10_000)
     """
     for cert in CERTS[::-1]:
