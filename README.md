@@ -1,13 +1,12 @@
-# LevBoard
-This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is avaliable, due to some complications that Spotistats has with album versions. 
+# LevBoard [Archived Web App]
+This is a [Spotistats](https://stats.fm/) integration for building customizable song charts. Currently, only creating song charts is available, due to some complications that Spotistats has with album versions. 
 
-This is the version for web deployment. To use LevBoard on your computer (which gives you access to a whole lot more data) switch over to the `main` brach and have fun there.
+This is the (not even) half-baked web app version of LevBoard, here for archive purposes in case I decide to work on this some more. (I doubt I will, because if it's going to become a web app, it'll have to be turned into client-side JavaScript code so that it can be hosted on Github Pages.)
+
+To use LevBoard (which gives you access to a lot more data) switch over to the `main` or `personal` branch and have fun there.
 
 # To Run
-Move over to the `/main` folder and start up flask.
+Move over to the `/main` folder and start up Flask.
 ```console
 flask run
 ```
-
-# Contact Me
-If you have any issues with the code, feel free to ask me over on my [twitter](https://twitter.com/levsnasty) where I post the charts created from the experimental version of this program. I am currently working on bringing these charts to the web so you can view them directly in your browser.
