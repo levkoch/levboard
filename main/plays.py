@@ -11,9 +11,9 @@ Functions:
     local storage.
 """
 
-from collections import defaultdict
 import datetime
 
+from collections import defaultdict
 from concurrent import futures
 from operator import itemgetter
 from typing import Callable, Literal, TypeAlias, Union

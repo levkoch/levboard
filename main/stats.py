@@ -1,5 +1,12 @@
+"""
+main/stats.py
+
+a collection of various statistics generators for data already collected.
+"""
+
 import functools
 import itertools
+
 from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime, timedelta

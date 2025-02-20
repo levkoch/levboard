@@ -1,9 +1,21 @@
+"""
+main/storage.py
+
+the three main classes for data persistence and access.
+
+classes:
+* `SongRepository`: A collection of songs.
+* `AlbumRepository`: A collection of albums.
+* `SongUOW`: A unit-of-work for accessing songs and albums.
+"""
+
 import json
+
+from collections.abc import Collection
 from typing import Iterator, Optional
 
 from config import ALBUM_FILE, SONG_FILE
 from model import Album, Song
-from collections.abc import Collection
 
 
 class SongRepository(Collection):

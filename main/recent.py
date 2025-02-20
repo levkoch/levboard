@@ -5,12 +5,13 @@ Displays recent events, such as new certifications & plays milestones,
 along with all time plays changes.
 """
 
-from collections import Counter
 import csv
 import functools
+import itertools
+
+from collections import Counter
 from concurrent import futures
 from datetime import date, timedelta
-import itertools
 from operator import attrgetter, itemgetter, methodcaller
 from typing import Iterator, Optional
 
