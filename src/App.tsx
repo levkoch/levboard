@@ -55,8 +55,15 @@ export class App extends Component<AppProps, AppState> {
     return (
       <div className="center-column">
         <div className="title">
-          <Lemon />
-          <text className="heading">ALL-TIME ALBUMS</text>
+          <span className="left">
+            <Lemon />
+            <text className="heading">ALL-TIME ALBUMS</text>
+          </span>
+          <span className="right years">
+            <button className="year-select">2022</button>
+            <button className="year-select">2023</button>
+            <button className="year-select">2024</button>
+          </span>
         </div>
         <div className="scroller">
           <svg
