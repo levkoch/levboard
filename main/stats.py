@@ -55,6 +55,24 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
     return list(itertools.chain(*mapped))
 
 
+def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
+    def inner(main_id, ids) -> tuple[str, list[spotistats.Listen]]:
+        return (
+            main_id,
+            itertools.chain.from_iterable(
+                spotistats.song_play_history(i) for i in ids
+            ),
+        )
+
+    with futures.ThreadPoolExecutor() as executor:
+        mapped = executor.map(
+            inner,
+            ((id, song.get_variant(id).ids) for (id, song) in album.songs),
+        )
+
+    return {id: listens for (id, listens) in mapped}
+
+
 def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     """finds the time it took for a song to reach some unit amount"""
 
@@ -87,6 +105,45 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
             return (song, day, (day - first_play).days)
 
     raise ValueError(f'{song} hasnt reached {units_mark} units yet')
+
+
+def time_to_units_album(
+    album: Album, units_mark: int
+) -> tuple[Album, date, int]:
+    if album.units < units_mark:
+        raise ValueError(f'{album} hasnt reached {units_mark} units yet')
+
+    first_play: date = date.today()
+    # int() returns 0 which is what we want the slots to start at
+    daily_units: dict[date, int] = defaultdict(int)
+
+    all_listens = get_album_play_history(album)
+
+    for (id, song) in album.songs:
+        play_record = all_listens[id]
+        date_counter = Counter(i.finished_playing.date() for i in play_record)
+
+        play_record.sort(key=lambda i: i.finished_playing)
+        first_play = min(first_play, play_record[0].finished_playing.date())
+
+        for day, plays in date_counter.items():
+            if plays > MAX_ADJUSTED:
+                # filter plays so they cap out at 25 per day
+                plays = MAX_ADJUSTED
+            daily_units[day] += plays * 2
+
+        for entry in song.entries:
+            if entry.variant == id:
+                daily_units[entry.end] += 61 - entry.place
+
+    running_units = 0
+
+    for day, units in sorted(list(daily_units.items()), key=itemgetter(0)):
+        running_units += units
+        if running_units >= units_mark:
+            return (album, day, (day - first_play).days)
+        
+    raise ValueError(f'{album} hasnt reached {units_mark} units yet')
 
 
 def top_shortest_time_units_milestones(
@@ -199,6 +256,67 @@ def top_shortest_time_units_milestones_infographic(
         if extras:
             period_plays = song.period_plays(start_day, day)
             period_weeks = song.period_weeks(start_day, day)
+            print(
+                f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
+            )
+
+
+def top_shortest_time_album_units_milestones_infographic(
+    uow: SongUOW, unit_milestone: int, extras=False
+):
+    contenders = [
+        album for album in uow.albums if album.units >= unit_milestone
+    ]
+
+    print(f'found {len(contenders)} contenders for fastest to {unit_milestone}')
+
+    with futures.ThreadPoolExecutor() as executor:
+        units = list(
+            executor.map(
+                functools.partial(
+                    time_to_units_album, units_mark=unit_milestone
+                ),
+                contenders,
+            )
+        )
+
+    units.sort(key=itemgetter(1))
+    BEGINNING: date = date(2021, 5, 1)
+
+    print(f'First albums to reach {unit_milestone} units:')
+    for (album, day, time) in units:
+        place = len([unit for unit in units if unit[1] < day]) + 1
+        start_day: date = day - timedelta(days=time)
+
+        print(
+            f'{place:<2} | {album:<60} | day {(start_day - BEGINNING).days:>4}'
+            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
+            f'{start_day.isoformat()} -> {day.isoformat()})'
+        )
+
+        if extras:
+            period_plays = album.period_plays(start_day, day)
+            period_weeks = album.period_weeks(start_day, day)
+            print(
+                f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
+            )
+
+    units.sort(key=itemgetter(2))
+
+    print(f'\nFastest albums to reach {unit_milestone} units:')
+    for (album, day, time) in units:
+        place = len([unit for unit in units if unit[2] < time]) + 1
+        start_day: date = day - timedelta(days=time)
+
+        print(
+            f'{place:<2} | {album:<60} | day {(start_day - BEGINNING).days:>4}'
+            f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
+            f'{start_day.isoformat()} -> {day.isoformat()})'
+        )
+
+        if extras:
+            period_plays = album.period_plays(start_day, day)
+            period_weeks = album.period_weeks(start_day, day)
             print(
                 f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
             )
@@ -558,7 +676,9 @@ def top_songs_month(uow: SongUOW, start: date, end: date):
     print('')
 
 
-def get_album_units(album: Album, start: date, end: date) -> tuple[Album, int]:
+def get_album_units(
+    album: Album, start: date, end: date
+) -> tuple[Album, int, int]:
     return (
         album,
         album.period_units(start, end),
@@ -691,9 +811,13 @@ if __name__ == '__main__':
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
 
     top_listeners_chart(uow)
-   
+
     top_collection_consecutive_weeks_infographic(uow.songs)
     top_collection_consecutive_weeks_infographic(uow.albums)
+    """
+
+    for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):
+        top_shortest_time_album_units_milestones_infographic(uow, milestone)
 
     """
     top_shortest_time_units_milestones_infographic(uow, 2_000)
@@ -705,7 +829,7 @@ if __name__ == '__main__':
     top_shortest_time_units_milestones_infographic(uow, 8_000)
     print('')
     top_shortest_time_units_milestones_infographic(uow, 10_000)
-    """
+    
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
