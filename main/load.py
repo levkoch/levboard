@@ -1,5 +1,5 @@
-from collections import defaultdict
 import itertools
+
 from concurrent import futures
 from typing import Optional
 
@@ -30,7 +30,7 @@ def _add_song(song_title: str, str_ids: str, uow: SongUOW) -> Song:
 
 def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
-    Loads the linked songs in the spreadsheet to the file
+    Loads the songs with variant markers from the spreadsheet to local storage
     """
 
     sheet = Spreadsheet(sheet_link)
@@ -94,7 +94,8 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
 
 def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
-    Loads the songs in the spreadsheet to the file
+    !! DEPRECATED !!
+    Loads the songs in the spreadsheet to the file, before we had variants.
     """
 
     sheet = Spreadsheet(sheet_link)

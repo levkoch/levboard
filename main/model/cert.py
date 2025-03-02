@@ -115,7 +115,7 @@ class AbstractCert(ABC):
 
         elif len(items) == 1:
             if items[0].isnumeric():
-                mult, cert_letter = int(items[0]), 'N'
+                mult, cert_letter = items[0], 'N'
             else:
                 mult, cert_letter = 0, items[0]
 

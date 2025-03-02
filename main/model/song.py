@@ -129,6 +129,9 @@ class Song:
         current play count.
         """
 
+        if self.__listens is None:
+            self._populate_listens()
+
         info = spotistats.song_info(self.main_id)
 
         self.official_name = info['name']
@@ -138,9 +141,6 @@ class Song:
         # for when the name wasn't specified (defaults to `None`)
         if self.title is None:
             self.title = self.official_name
-
-        if self.__listens is None:
-            self._populate_listens()
 
     def __hash__(self) -> int:
         return hash((self.title, tuple(self.ids)))
@@ -203,7 +203,7 @@ class Song:
 
     @property
     def ids(self) -> set[str]:
-        return self._variants.keys()
+        return set(self._variants.keys())
 
     @property
     def sheet_id(self) -> str:
@@ -240,11 +240,15 @@ class Song:
         except ValueError:
             return date(1, 1, 1)
 
-    def variant_plays(self, variant_id) -> int:
+    def variant_plays(self, variant_id: str) -> int:
         """
         (`int`): The number of plays a certain variant attached to this
         song has recieved.
         """
+
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
+
         if self.__listens is None:
             self._populate_listens()
 
@@ -257,11 +261,15 @@ class Song:
         date_counter = Counter(play_dates)
         return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
-    def variant_points(self, variant_id) -> str:
+    def variant_points(self, variant_id) -> int:
         """
         (`int`): The number of chart points a certain variant attached to this
         song has recieved.
         """
+
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
+
         return sum(
             ((SONG_CHART_LENGTH + 1) - i.place)
             for i in self.entries
@@ -273,6 +281,9 @@ class Song:
         (`int`): The total number of units for a certain variant of this song.
         """
 
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
+
         return (2 * self.variant_plays(variant_id)) + self.variant_points(
             variant_id
         )
@@ -281,6 +292,9 @@ class Song:
         """
         (`int`): The total number of weeks for a certain variant of this song.
         """
+
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
 
         return sum(
             1
@@ -293,6 +307,9 @@ class Song:
         (`int`): The chart peak for a certain variant of this song.
             Defaults to 0 if the song never charted.
         """
+
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
 
         return min(
             (
@@ -307,6 +324,9 @@ class Song:
         """
         (`int`): The total number of weeks for a certain variant of this song.
         """
+
+        if variant_id not in self.ids:
+            raise ValueError(f'variant #{variant_id} not found in {self}')
 
         return sum(
             1
@@ -614,7 +634,7 @@ class Song:
         if top is None:
             return self.weeks
 
-        return len(1 for entry in self.entries if entry.place <= top)
+        return sum(1 for entry in self.entries if entry.place <= top)
 
     def get_conweeks(
         self, breaks: bool = False, top: Optional[int] = None

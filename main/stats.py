@@ -56,6 +56,8 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
 
 
 def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
+    print(f'collecting streams for {album}')
+
     def inner(main_id, ids) -> tuple[str, list[spotistats.Listen]]:
         return (
             main_id,
@@ -67,10 +69,12 @@ def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
     with futures.ThreadPoolExecutor() as executor:
         mapped = executor.map(
             inner,
-            ((id, song.get_variant(id).ids) for (id, song) in album.songs),
+            (id for (id, song) in album.songs),
+            (song.get_variant(id).ids for (id, song) in album.songs),
         )
 
-    return {id: listens for (id, listens) in mapped}
+    print(f'finished collection streams for {album}')
+    return {id: list(listens) for (id, listens) in mapped}
 
 
 def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
@@ -133,7 +137,7 @@ def time_to_units_album(
             daily_units[day] += plays * 2
 
         for entry in song.entries:
-            if entry.variant == id:
+            if entry.variant in song.get_variant(id).ids:
                 daily_units[entry.end] += 61 - entry.place
 
     running_units = 0
@@ -142,7 +146,8 @@ def time_to_units_album(
         running_units += units
         if running_units >= units_mark:
             return (album, day, (day - first_play).days)
-        
+
+    return (album, date.today(), -1)
     raise ValueError(f'{album} hasnt reached {units_mark} units yet')
 
 
@@ -196,7 +201,7 @@ def top_shortest_time_units_milestones_infographic(
 ):
     with futures.ThreadPoolExecutor() as executor:
         executor.map(
-            lambda i: i._populate_listens(),
+            lambda i: i.update_plays(),
             (
                 song
                 for song in uow.songs
@@ -264,21 +269,29 @@ def top_shortest_time_units_milestones_infographic(
 def top_shortest_time_album_units_milestones_infographic(
     uow: SongUOW, unit_milestone: int, extras=False
 ):
+    """
+    with futures.ThreadPoolExecutor() as executor:
+        executor.map(
+            lambda i: i.update_plays(),
+            uow.songs
+        )
+
     contenders = [
         album for album in uow.albums if album.units >= unit_milestone
     ]
 
-    print(f'found {len(contenders)} contenders for fastest to {unit_milestone}')
+    print(
+        f'found {len(contenders)} contenders for fastest to {unit_milestone}\n'
+    )"""
 
     with futures.ThreadPoolExecutor() as executor:
-        units = list(
-            executor.map(
-                functools.partial(
-                    time_to_units_album, units_mark=unit_milestone
-                ),
-                contenders,
-            )
+        units = executor.map(
+            functools.partial(time_to_units_album, units_mark=unit_milestone),
+            uow.albums,
         )
+
+    units = [(album, day, days) for (album, day, days) in units if days != -1]
+    print(f'found {len(units)} contenders for fastest to {unit_milestone}\n')
 
     units.sort(key=itemgetter(1))
     BEGINNING: date = date(2021, 5, 1)
@@ -289,7 +302,7 @@ def top_shortest_time_album_units_milestones_infographic(
         start_day: date = day - timedelta(days=time)
 
         print(
-            f'{place:<2} | {album:<60} | day {(start_day - BEGINNING).days:>4}'
+            f'{place:<2} | {str(album):<60} | day {(start_day - BEGINNING).days:>4}'
             f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
             f'{start_day.isoformat()} -> {day.isoformat()})'
         )
@@ -309,7 +322,7 @@ def top_shortest_time_album_units_milestones_infographic(
         start_day: date = day - timedelta(days=time)
 
         print(
-            f'{place:<2} | {album:<60} | day {(start_day - BEGINNING).days:>4}'
+            f'{place:<2} | {str(album):<60} | day {(start_day - BEGINNING).days:>4}'
             f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
             f'{start_day.isoformat()} -> {day.isoformat()})'
         )
@@ -727,14 +740,14 @@ def top_listeners_chart(uow: SongUOW):
     person, anyway.
     """
 
-    all_song_ids = [song.main_id for song in uow.songs if song._plays >= 25]
+    all_song_ids = [song.main_id for song in uow.songs if song._plays >= 100]
     with futures.ThreadPoolExecutor() as executor:
         units: list[tuple[str, Optional[int]]] = list(
             executor.map(
                 lambda i: (
                     i,
                     get_top_listener(i),
-                ),  # spotistats.track_top_listener(i)),
+                ),
                 all_song_ids,
             )
         )
@@ -816,20 +829,17 @@ if __name__ == '__main__':
     top_collection_consecutive_weeks_infographic(uow.albums)
     """
 
-    for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):
-        top_shortest_time_album_units_milestones_infographic(uow, milestone)
+    for milestone in range(2_000, 12_000, 2_000):
+        top_shortest_time_units_milestones_infographic(uow, milestone)
+        print('')
 
     """
-    top_shortest_time_units_milestones_infographic(uow, 2_000)
-    print('')
-    top_shortest_time_units_milestones_infographic(uow, 4_000)
-    print('')
-    top_shortest_time_units_milestones_infographic(uow, 6_000)
-    print('')
-    top_shortest_time_units_milestones_infographic(uow, 8_000)
-    print('')
-    top_shortest_time_units_milestones_infographic(uow, 10_000)
-    
+    top_listeners_chart(uow)
+
+    for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):
+        top_shortest_time_album_units_milestones_infographic(uow, milestone)
+        print('')
+
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 

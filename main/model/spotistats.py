@@ -32,8 +32,8 @@ MAX_ADJUSTED: Final[int] = 25
 SONG_CHART_LENGTH = 60
 BANNED_SONGS: Final[set[str]] = {'15225941'}
 
-total_requests = 0
-all_requests = Counter([])
+total_requests: int = 0
+all_requests: Counter = Counter([])
 
 
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))

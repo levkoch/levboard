@@ -192,7 +192,7 @@ class Album:
         return 0 if the album has never charted or never charted in that region.
         """
 
-        if None not in (top, before):
+        if top is not None and before is not None:
             entries = [
                 i for i in self.entries if i.place <= top and i.end <= before
             ]
@@ -256,19 +256,14 @@ class Album:
 
     def get_song_weeks(self, top: Optional[int] = None) -> int:
         """(`int`): The total weeks charted in the top `top` by songs from the album."""
-        return sum(song.get_weeks(top) for song in self.songs)
+        return sum(song.get_weeks(top) for (song_id, song) in self.songs)
 
     def get_hits(self, top: Optional[int] = None) -> int:
         """The number of songs from the album that entered the top `top`."""
-        if top is None:
-            return len([song for song in self.songs if song.peak != 0])
-
-        return len(
-            [
-                song
-                for song in self.songs
-                if song.peak <= top and song.peak != 0
-            ]
+        return sum(
+            1
+            for (song_id, song) in self.songs
+            if (top is None or song.variant_peak(song_id) <= top)
         )
 
     def song_cert_count(self, cert: Optional[SongCert] = None):
@@ -276,7 +271,7 @@ class Album:
         if cert is None:
             return len(self)
 
-        return len([song for song in self.songs if song.cert >= cert])
+        return sum(1 for (_, song) in self.songs if song.cert >= cert)
 
     def song_charted_count(self, weeks: Optional[int]) -> int:
         """The number of songs that charted for at least `weeks` weeks."""
