@@ -15,7 +15,6 @@ text.heading {
 
 .scroller {
   overflow: scroll;
-  direction: rtl;
   display: block;
   margin: 0px auto;
   max-width: 1000px;
