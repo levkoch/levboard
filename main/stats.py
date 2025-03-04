@@ -449,28 +449,41 @@ def top_album_hits(uow: SongUOW, top: Optional[int]):
 
 
 def weeks_top(
-    c: Charteable, *, top: Optional[int] = None, before: Optional[date] = None
+    c: Charteable,
+    *,
+    top: Optional[int] = None,
+    before: Optional[date] = None,
+    variant: Optional[str] = None,
 ) -> int:
     """
-    the number of weeks the album spent in the top `top` before &
+    the number of weeks the charteable spent in the top `top` before &
     including the week ending `before`, both arguments are optional
     and including just one works as well. Defaults to the number
     of weeks the album has spent charting.
     """
 
+    if variant:
+        try:
+            eligible = [e for e in c.entries if e.variant == variant]
+        except AttributeError:
+            raise ValueError(
+                "cannot specify an 'variant' parameter when filtering through album entries."
+            )
+
+    else:
+        eligible = c.entries
+
     if top and before:   # filter by both
-        return len(
-            [
-                1
-                for entry in c.entries
-                if entry.place <= top and entry.end <= before
-            ]
+        return sum(
+            1
+            for entry in eligible
+            if entry.place <= top and entry.end <= before
         )
     if top:   # filter only by top
-        return len([1 for entry in c.entries if entry.place <= top])
+        return sum(1 for entry in eligible if entry.place <= top)
     if before:   # filter only by weeks before
-        return len([1 for entry in c.entries if entry.end <= before])
-    return c.weeks   # dont filter whatsoever
+        return sum(1 for entry in eligible if entry.end <= before)
+    return len(eligible)   # dont filter whatsoever
 
 
 def conweeks(
@@ -760,6 +773,31 @@ def top_listeners_chart(uow: SongUOW):
         print(f'{position:02d} | {str(song)} | {song._plays} plays')
 
 
+def all_number_one_weeks_album(uow: SongUOW):
+    items = [
+        (
+            sum(weeks_top(song, top=1, variant=variant) for (variant, song) in album.songs)
+            + weeks_top(album, top=1),
+            album,
+        )
+        for album in uow.albums
+    ]
+
+    for weeks, album in sorted(
+        filter(lambda g: g[0] > 9, items), key=itemgetter(0), reverse=True
+    ):
+       
+        print(f'{weeks} {album}')
+        album_weeks = weeks_top(album, top=1)
+        if album_weeks > 0:
+            print(f"  {album_weeks} album")
+        for (variant, song) in album.songs:
+            song_weeks = weeks_top(song, top=1, variant=variant)
+            if song_weeks > 0:
+                print(f"  {song_weeks} {song}")
+        print('')
+
+
 def display_all_songs(uow: SongUOW):
     all_songs = [song for song in uow.songs if song.units]   # >= 1000]
     list(map(lambda i: i._populate_listens(), all_songs))
@@ -829,11 +867,13 @@ if __name__ == '__main__':
     top_collection_consecutive_weeks_infographic(uow.albums)
     """
 
+    all_number_one_weeks_album(uow)
+
+    """
     for milestone in range(2_000, 12_000, 2_000):
         top_shortest_time_units_milestones_infographic(uow, milestone)
         print('')
 
-    """
     top_listeners_chart(uow)
 
     for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):

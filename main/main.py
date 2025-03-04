@@ -481,7 +481,7 @@ def get_album_plays(uow: SongUOW, positions: list[dict]) -> dict[Album, int]:
 
     for album in uow.albums:
         plays = 0
-        for variant_id, song in album:
+        for variant_id, song in album.songs:
             plays += next(
                 (
                     pos['plays']

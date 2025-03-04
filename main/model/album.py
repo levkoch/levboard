@@ -44,13 +44,13 @@ class Album:
         return hash((self.__class__, self._title))
 
     def __contains__(self, song: Song) -> bool:
-        return song in self.songs
+        return song in {s for (v, s) in self.songs}
 
     def __len__(self) -> int:
         return len(self.songs)
 
-    def __iter__(self) -> Iterator[tuple[str, Song]]:
-        return iter(self.songs)
+    def __iter__(self) -> Iterator[Song]:
+        return (s for (v, s) in self.songs)
 
     @property
     def title(self) -> str:
