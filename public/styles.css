@@ -21,9 +21,10 @@ text.heading {
   float: none;
 }
 
-.title {
-  display: block;
+.info-title {
+  display: flex;
   align-items: center;
+  position: relative;
   height: 64px;
 }
 
@@ -50,5 +51,27 @@ body {
 }
 
 .years {
-    margin: 4px;
+  margin: 4px;
+  position: absolute;
+  bottom: 4px;
+  right: 0px;
+}
+
+.year-select {
+  text-align: center;
+  height: 22px;
+  width: 46px;
+  font-size: 12px;
+  font-family: montserrat;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  margin: 4px 2px;
+  border-radius: 11px;
+}
+
+.year-select:hover {
+  background-color: #555555;
+  color: white;
 }

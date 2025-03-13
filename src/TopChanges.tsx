@@ -46,13 +46,12 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
     }
     return (
       <div className="infographic">
-        <div className="title">
-          <span className="left">
-            <Lemon />
-            <text className="heading">ALL-TIME ALBUMS</text>
-          </span>
-          <span className="right years">{this.state.years}</span>
+        <div className="info-title">
+          <Lemon className="lemon"/>
+          <text className="heading">ALL-TIME ALBUMS</text>
+          <span className="years">{this.state.years}</span>
         </div>
+
         <div className="scroller" id="scroller">
           <svg
             id="svg"
@@ -74,9 +73,9 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
     return (_evt) => {
       console.log(`${year} ${offset}`);
 
-      const scroller = document.getElementById('scroller');
+      const scroller = document.getElementById("scroller");
       if (scroller === null) {
-        throw new Error('shouldnt happen');
+        throw new Error("shouldnt happen");
       }
       scroller.scrollLeft = Number(offset) * 3;
     };
@@ -202,7 +201,6 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       width: xOffset,
       elements: elements,
       years: years,
-
     });
   };
 }

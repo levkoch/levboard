@@ -1,0 +1,23 @@
+{
+    "count": 2,
+    "0": {
+        "assets": [
+            "2022 all time album changes.png",
+            "2023 all time album changes.png",
+            "2024 all time album changes.png",
+            "2024 all time album changes with milestones.png"
+        ],
+        "year": "2025",
+        "title": "All Time Albums Changes"
+    },
+    "1": {
+        "assets": [
+            "bestselling adele songs august 2024.png", 
+            "bestselling ariana songs august 2024.png", 
+            "bestselling billie songs august 2024.png", 
+            "bestselling nicki minaj songs august 2024.png"
+        ],
+        "year": "2024",
+        "title": "Top Artist Songs Breakdowns"
+    }
+}
