@@ -48,7 +48,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       <div className="infographic">
         <div className="info-title">
           <Lemon className="lemon"/>
-          <text className="heading">ALL-TIME ALBUMS</text>
+          <span className="heading">ALL-TIME ALBUMS</span>
           <span className="years">{this.state.years}</span>
         </div>
 
@@ -112,7 +112,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
 
         elements.push(
           <image
-            href={String(albuminfo.image)}
+            href={"/levboard/albums/" + String(albuminfo.image)}
             width="16"
             height="16"
             x={String(xOffset)}
@@ -143,6 +143,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
         years.push(
           <button
             className="year-select"
+            id={"year-select-" + String(year)}
             onClick={this.onYearClick(String(year), xOffset)}
           >
             {String(year)}

@@ -6,7 +6,7 @@
   float: none;
 }
 
-text.heading {
+span.heading {
   font-size: 48px;
   font-family: montserrat;
   font-weight: 600;
@@ -74,4 +74,12 @@ body {
 .year-select:hover {
   background-color: #555555;
   color: white;
+}
+
+.gallery-image {
+  width: 90%;
+}
+
+.gallery-arrow {
+  width: 5%;
 }

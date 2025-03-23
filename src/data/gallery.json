@@ -2,22 +2,24 @@
     "count": 2,
     "0": {
         "assets": [
-            "2022 all time album changes.png",
-            "2023 all time album changes.png",
-            "2024 all time album changes.png",
-            "2024 all time album changes with milestones.png"
+            "2022_all_time_album_changes.png",
+            "2023_all_time_album_changes.png",
+            "2024_all_time_album_changes.png",
+            "2024_all_time_album_changes_with_milestones.png"
         ],
         "year": "2025",
-        "title": "All Time Albums Changes"
+        "title": "All Time Albums Changes",
+        "description": "Overall changes made to the all-time charts, grouped together by the weeks where the ordering stayed the same."
     },
     "1": {
         "assets": [
-            "bestselling adele songs august 2024.png", 
-            "bestselling ariana songs august 2024.png", 
-            "bestselling billie songs august 2024.png", 
-            "bestselling nicki minaj songs august 2024.png"
+            "bestselling_adele_songs_august_2024.png", 
+            "bestselling_ariana_songs_august_2024.png", 
+            "bestselling_billie_songs_august_2024.png", 
+            "bestselling_nicki_minaj_songs_august_2024.png"
         ],
         "year": "2024",
-        "title": "Top Artist Songs Breakdowns"
+        "title": "Top Artist Songs Breakdowns",
+        "description": "Overviews of a particular artist's top songs, broken across the years their songs gained those units."
     }
 }
