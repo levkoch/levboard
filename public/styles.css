@@ -80,6 +80,15 @@ body {
   width: 90%;
 }
 
-.gallery-arrow {
+.gallery-b-container {
   width: 5%;
+  display: flex;
+  color: blue;
+  background-color: yellow;
+  justify-content: center;
+}
+
+.gallery-main-group {
+  direction: ltr;
+  display: flex;
 }

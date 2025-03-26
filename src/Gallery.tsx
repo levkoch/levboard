@@ -1,5 +1,7 @@
 import React, { Component, MouseEvent } from "react";
 import { ReactComponent as Lemon } from "./image/lemon.svg";
+import { ReactComponent as RightArrows } from "./image/right_arrows.svg";
+import { ReactComponent as LeftArrows } from "./image/left_arrows.svg";
 
 type EntryProps = {
   year: bigint;
@@ -18,16 +20,14 @@ type GalleryProps = {
 };
 
 type GalleryState = {
-  entries?: Array<GalleryEntry>;
+  entries: Array<EntryProps>;
   showing: bigint;
 };
 
 export class Gallery extends Component<GalleryProps, GalleryState> {
   constructor(props: GalleryProps) {
     super(props);
-    console.log(props);
-
-    this.state = { showing: 2n };
+    this.state = { showing: 2n, entries: [] };
   }
 
   componentDidMount = () => {
@@ -35,16 +35,17 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
   };
 
   render = (): JSX.Element => {
-    if (this.state.entries === undefined) {
+    if (this.state.entries.length === 0) {
       return <div>Loading galleries...</div>;
     }
 
-    const assets: Array<JSX.Element> = [];
-    this.state.entries.forEach((entry) => {
-      assets.push(entry.render());
-    });
-
-    return <div className="gallery" children={assets}></div>;
+    return (
+      <div className="gallery">
+        {this.state.entries.map((metadata, index) => (
+          <GalleryEntry key={index} {...metadata} />
+        ))}
+      </div>
+    );
   };
 
   onMoreClick = (_evt: MouseEvent<HTMLButtonElement>) => {
@@ -59,7 +60,7 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
   };
 
   generateEntries = (): void => {
-    const entries: Array<GalleryEntry> = [];
+    const entries: Array<EntryProps> = [];
     var i = 0n;
     while (i < this.props.count) {
       const metadata: EntryProps | undefined = this.props.metadata.get(
@@ -68,7 +69,7 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
       if (metadata === undefined) {
         throw Error("gallery length was wrong, shouldn't happen");
       }
-      entries.push(new GalleryEntry(metadata));
+      entries.push(metadata);
       i += 1n;
     }
 
@@ -79,7 +80,6 @@ export class Gallery extends Component<GalleryProps, GalleryState> {
 class GalleryEntry extends Component<EntryProps, EntryState> {
   constructor(props: EntryProps) {
     super(props);
-
     this.state = { selected: 0n };
   }
 
@@ -93,11 +93,44 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
           <span className="years">{String(this.props.year)}</span>
         </div>
 
-        <img
-          className="gallery-image"
-          src={"levboard/gallery/" + this.props.assets[0]}
-        />
+        <div className="gallery-main-group">
+          <span className="gallery-b-container">
+            <button className="gallery-button" onClick={this.onMoveLeft}>
+              <LeftArrows />
+            </button>
+          </span>
+          <img
+            className="gallery-image"
+            src={
+              "levboard/gallery/" +
+              this.props.assets[Number(this.state.selected)]
+            }
+          />
+          <span className="gallery-b-container">
+            <button className="gallery-button" onClick={this.onMoveRight}>
+              <RightArrows />
+            </button>
+          </span>
+        </div>
       </div>
     );
+  };
+
+  // bumps the image to the right
+  onMoveRight = (_evt: MouseEvent<HTMLButtonElement>) => {
+    const newSelected =
+      (this.state.selected + 1n) % BigInt(this.props.assets.length);
+    this.setState({ selected: newSelected });
+  };
+
+  // bumps the image to the left
+  onMoveLeft = (_evt: MouseEvent<HTMLButtonElement>) => {
+    const newSelected =
+      // this is kinda dumb, but if we don't add the length of assets, it will be 
+      // totally happy sending in a negative number, like -1 and -2 if we have 
+      // three total items.
+      (this.state.selected - 1n + BigInt(this.props.assets.length)) %
+      BigInt(this.props.assets.length);
+    this.setState({ selected: newSelected });
   };
 }
