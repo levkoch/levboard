@@ -84,19 +84,30 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
   }
 
   render = () => {
+    const dots: Array<JSX.Element> = [];
+    for (let i = 0n; i < this.props.assets.length; i += 1n) {
+      let type = "non-selected";
+      let color =  "#C39CF5";
+      if (i === this.state.selected) {
+        type = "selected";
+        color = "#3D3D3D";
+      } 
+      dots.push(<circle className={"gallery-dot " + type} cx={String(2n + i * 5n)} cy="2" r="2" fill={color} />);
+    }
+
     /* <!-- not the biggest fan of whatever the title is trying to be --> */
     return (
       <div className="gallery-entry">
         <div className="info-title">
           <Lemon className="lemon" />
           <span className="heading">{this.props.title}</span>
-          <span className="years">{String(this.props.year)}</span>
+          <div className="years year-pill center">{String(this.props.year)}</div>
         </div>
 
         <div className="gallery-main-group">
           <span className="gallery-b-container">
             <button className="gallery-button" onClick={this.onMoveLeft}>
-              <LeftArrows />
+              <LeftArrows width="100%" />
             </button>
           </span>
           <img
@@ -108,9 +119,18 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
           />
           <span className="gallery-b-container">
             <button className="gallery-button" onClick={this.onMoveRight}>
-              <RightArrows />
+              <RightArrows width="100%" />
             </button>
           </span>
+        </div>
+        <div className="entry-dots center">
+          <svg
+            width={this.props.assets.length * 15 - 3}
+            height={"12"}
+            viewBox={"0 0 " + (this.props.assets.length * 5 - 1) + " 4"}
+          >
+            {dots}
+          </svg>
         </div>
       </div>
     );
@@ -126,8 +146,8 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
   // bumps the image to the left
   onMoveLeft = (_evt: MouseEvent<HTMLButtonElement>) => {
     const newSelected =
-      // this is kinda dumb, but if we don't add the length of assets, it will be 
-      // totally happy sending in a negative number, like -1 and -2 if we have 
+      // this is kinda dumb, but if we don't add the length of assets, it will be
+      // totally happy sending in a negative number, like -1 and -2 if we have
       // three total items.
       (this.state.selected - 1n + BigInt(this.props.assets.length)) %
       BigInt(this.props.assets.length);

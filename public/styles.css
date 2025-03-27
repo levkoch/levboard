@@ -76,19 +76,51 @@ body {
   color: white;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-pill {
+  height: 22px;
+  width: 46px;
+  font-size: 12px;
+  font-family: montserrat;
+  font-weight: 500;
+  border-radius: 11px;
+  background-color: #555555;
+  color: white;
+}
+
 .gallery-image {
-  width: 90%;
+  height: 500px;
+  width: auto;
 }
 
 .gallery-b-container {
   width: 5%;
   display: flex;
-  color: blue;
-  background-color: yellow;
   justify-content: center;
 }
 
 .gallery-main-group {
   direction: ltr;
   display: flex;
+  justify-content: space-between;
+}
+
+.gallery-button {
+  background: transparent;
+  border: none !important;
+}
+
+.gallery-button:hover {
+  background-color: #f0f0f0;
+  color: white;
+  border-radius: 4px;
+}
+
+.entry-dots {
+  margin: 8px;
 }
