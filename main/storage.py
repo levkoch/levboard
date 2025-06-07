@@ -41,7 +41,7 @@ class SongRepository(Collection):
     __slots__ = ['_songs', '_file']
 
     def __init__(self, *, song_file: str = SONG_FILE):
-        self._songs: dict[str, Song] = []
+        self._songs: dict[str, Song] = {}
         self._file = song_file
         self._load()
 
@@ -126,7 +126,7 @@ class AlbumRepository(Collection):
     __slots__ = ['_albums', '_file']
 
     def __init__(self, *, album_file: str = ALBUM_FILE):
-        self._albums: dict[str, Album] = []
+        self._albums: dict[str, Album] = {}
         self._file = album_file
         self._load()
 
@@ -138,9 +138,6 @@ class AlbumRepository(Collection):
 
         for album_name, album_dict in albums.items():
             self._albums[album_name] = Album.from_dict(album_dict)
-
-    def __iter__(self) -> Iterator[Album]:
-        return iter(self._albums.values())
 
     def get(self, album_name: str) -> Optional[Album]:
         """
@@ -158,7 +155,7 @@ class AlbumRepository(Collection):
         return list(self._albums.keys())
 
     def __iter__(self) -> Iterator[Album]:
-        return iter(set(self._albums.values()))
+        return iter(self._albums.values())
 
     def __len__(self) -> int:
         return len(self._albums)

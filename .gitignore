@@ -139,3 +139,4 @@ data/groupsongs.json
 token.env
 
 node_modules
+.DS_Store

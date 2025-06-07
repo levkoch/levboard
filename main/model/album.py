@@ -7,7 +7,7 @@ Where the Album model is held.
 from concurrent import futures
 from copy import deepcopy
 from datetime import date
-from operator import attrgetter, methodcaller
+from operator import attrgetter
 from typing import Iterable, Iterator, Optional, Union
 
 from .cert import AlbumCert, SongCert
@@ -350,16 +350,18 @@ class Album:
             )
 
     def period_weeks(self, start: date, end: date) -> int:
-        """returns the number of weeks the album charted between the `start` and `end` dates."""
+        """
+        the number of weeks the album charted between the `start` and `end` dates.
+        """
         return sum(
             1
             for (_, w) in self._entries.items()
-            if w.end >= start and w.end <= end
+            if w.end >= start and w.end < end
         )
 
     def get_points(self, end_date: date) -> int:
         """
-        Returns the total points collected by the album that tracking week.
+        The total points collected by the album that tracking week.
         """
 
         points = 0

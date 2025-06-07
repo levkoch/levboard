@@ -58,7 +58,7 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
 def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
     print(f'collecting streams for {album}')
 
-    def inner(main_id, ids) -> tuple[str, list[spotistats.Listen]]:
+    def inner(main_id, ids) -> tuple[str, Iterable[spotistats.Listen]]:
         return (
             main_id,
             itertools.chain.from_iterable(
@@ -290,7 +290,9 @@ def top_shortest_time_album_units_milestones_infographic(
             uow.albums,
         )
 
-    units = [(album, day, days) for (album, day, days) in units if days != -1]
+    units: list[tuple] = [
+        (album, day, days) for (album, day, days) in units if days != -1
+    ]
     print(f'found {len(units)} contenders for fastest to {unit_milestone}\n')
 
     units.sort(key=itemgetter(1))
@@ -672,7 +674,9 @@ def top_albums_weeks(uow: SongUOW, top: Optional[int]):
     print('')
 
 
-def get_song_units(song: Song, start: date, end: date) -> tuple[Song, int]:
+def get_song_units(
+    song: Song, start: date, end: date
+) -> tuple[Song, int, int]:
     return song, song.period_units(start, end), song.period_plays(start, end)
 
 
@@ -776,7 +780,10 @@ def top_listeners_chart(uow: SongUOW):
 def all_number_one_weeks_album(uow: SongUOW):
     items = [
         (
-            sum(weeks_top(song, top=1, variant=variant) for (variant, song) in album.songs)
+            sum(
+                weeks_top(song, top=1, variant=variant)
+                for (variant, song) in album.songs
+            )
             + weeks_top(album, top=1),
             album,
         )
@@ -786,15 +793,15 @@ def all_number_one_weeks_album(uow: SongUOW):
     for weeks, album in sorted(
         filter(lambda g: g[0] > 9, items), key=itemgetter(0), reverse=True
     ):
-       
+
         print(f'{weeks} {album}')
         album_weeks = weeks_top(album, top=1)
         if album_weeks > 0:
-            print(f"  {album_weeks} album")
+            print(f'  {album_weeks} album')
         for (variant, song) in album.songs:
             song_weeks = weeks_top(song, top=1, variant=variant)
             if song_weeks > 0:
-                print(f"  {song_weeks} {song}")
+                print(f'  {song_weeks} {song}')
         print('')
 
 
@@ -857,19 +864,18 @@ if __name__ == '__main__':
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
     
-   
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
 
     top_listeners_chart(uow)
+    """
 
     top_collection_consecutive_weeks_infographic(uow.songs)
     top_collection_consecutive_weeks_infographic(uow.albums)
-    """
 
+    """   
     all_number_one_weeks_album(uow)
 
-    """
     for milestone in range(2_000, 12_000, 2_000):
         top_shortest_time_units_milestones_infographic(uow, milestone)
         print('')
@@ -879,7 +885,7 @@ if __name__ == '__main__':
     for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):
         top_shortest_time_album_units_milestones_infographic(uow, milestone)
         print('')
-
+  
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 

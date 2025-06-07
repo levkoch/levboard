@@ -497,11 +497,10 @@ def month_end_collection_creator(
         current_year = cutoff.year
         current_month = cutoff.month
 
+        # nothing actually renders for May 2021 which is when the first date is set
+        # to so it counts for everything after that month
         while (current_year > FIRST_DATE.year) or (
-            # nothing actually renders for May 2021 which is when the first date is set
-            # to so it counts for everything after that month
-            current_month
-            > FIRST_DATE.month
+            current_month > FIRST_DATE.month
         ):
             if verbose:
                 print(

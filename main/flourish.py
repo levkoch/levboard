@@ -14,13 +14,6 @@ from spreadsheet import Spreadsheet
 from storage import SongUOW
 
 
-def get_all_weeks() -> Iterator[date]:
-    day = FIRST_DATE + timedelta(days=7)
-    while day <= date.today():
-        yield day
-        day += timedelta(days=7)
-
-
 def get_album_consecutive_weeks(week: date, album: Album) -> tuple[date, int]:
     return week, album.get_con_weeks(before=week)
 

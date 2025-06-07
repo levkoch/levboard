@@ -35,7 +35,7 @@ class Variant(BaseModel):
         return hash((self.title, self.main_id))
 
     def __eq__(self, other):
-        return self.ids == other.ids
+        return set(self.ids) == set(other.ids)
 
     @classmethod
     def from_id(cls, main_id) -> 'Variant':
@@ -106,7 +106,7 @@ class Song:
                 ids={
                     self.main_id,
                 },
-                artists=[],
+                artists=(),
             )
         self._variants: dict[str, Variant] = {self.main_id: self.main_variant}
         self.active = self.main_variant

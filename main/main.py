@@ -214,6 +214,8 @@ def create_song_chart(
         # gain 3 streams, the song will chart as Black Mascara - Live., even
         # though the studio version of the song got 6 plays.
 
+        # i'm pretty sure this got patched with the variants update, though
+
         for id_group in id_groups:
             # skip everything that didn't get listened to at all
             if len(set(id_group) & all_song_ids) == 0:
@@ -327,11 +329,12 @@ def insert_entries(
     * uow (`SongUOW`): the UOW to stick the entries into.
     * positions (`list[dict[str, ...]]`): a SORTED list of dictionaries by "points"
       with the following schema:
-        ```{
-            "plays": 37,
-            "points": 460,
-            "id": "325382"
-        }```
+      ```
+      {
+        "plays": 37,
+        "points": 460,
+        "id": "325382"
+      }
     * start_date (`datetime.date`): the starting date of the week
     * end_date (`datetime.date`): the ending date of the week
     * chart_cutoff (`int`): the number of chart positions avaliable
@@ -340,7 +343,7 @@ def insert_entries(
     # POSITIONS ARE NOT FILTERED YET
 
     if not positions:
-        return   # if positions is empty
+        raise ValueError('positions is empty')
 
     def process_song(song_id: str, plays: int, place: int, points: int):
         song: Optional[Song] = uow.songs.get(song_id)
