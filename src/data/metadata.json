@@ -123,5 +123,15 @@
         "album": "25",
         "color": "443D33",
         "image": "25.png"
+    },
+    "Heaven & Hell": {
+        "album": "Heaven & Hell",
+        "color": "EE6514",
+        "image": "heaven_n_hell.png"
+    },
+    "Pink Friday": {
+        "album": "Pink Friday",
+        "color": "D2A7BA",
+        "image": "pink_friday.png"
     }
 }

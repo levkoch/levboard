@@ -75,7 +75,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
 
       const scroller = document.getElementById("scroller");
       if (scroller === null) {
-        throw new Error("shouldnt happen");
+        throw new Error("scroller doesn't exist, shouldn't happen");
       }
       scroller.scrollLeft = Number(offset) * 3;
     };
@@ -97,7 +97,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
         this.props.dates[Number(column)]
       );
       if (hold === undefined) {
-        throw new Error("shoudldn't happen.");
+        throw new Error("undefined hold, shoudldn't happen.");
       } else {
         information = hold;
       }
@@ -106,7 +106,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
         const albuminformation: AlbumMetadata | undefined =
           this.props.metadata.get(album);
         if (albuminformation === undefined) {
-          throw new Error("shouldn't happen");
+          throw new Error("undefined album information, shouldn't happen");
         }
         albuminfo = albuminformation;
 
@@ -170,7 +170,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       if (information.weeks == 1n) {
         header = start;
       } else {
-        header = end + " - " + start;
+        header = start + " - " + end;
       }
 
       // add header text
