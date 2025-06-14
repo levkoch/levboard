@@ -383,7 +383,11 @@ def insert_entries(
             prev_points = pos['points']
             ties = 1
 
-    uow.commit()
+    # we used to commit here, but that's just a bunch of time spent serializing
+    # and sending objects into a file that'll get overwritten the next iteration,
+    # so we commit inside of the __name__ == '__main__' segment at the bottom.
+    # it led to a 100% speed increase for the crunching portion (46 sec -> 23 sec)
+
     return filtered
 
 
@@ -696,8 +700,8 @@ def create_personal_charts():
     # add the new data.
 
     finished = datetime.now()
-    sending_time = (finished - start_time) - (loading_time + crunching_time)
     total_time = finished - start_time
+    sending_time = total_time - (loading_time + crunching_time)
 
     print('')
     print(

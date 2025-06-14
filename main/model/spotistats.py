@@ -317,22 +317,22 @@ def songs_week(
     after = _timestamp_check(after)
     before = _timestamp_check(before)
 
+    # max limit for this request is 500 songs and not the 10,000 like others have
     address = (
         f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
         f'?after={after}&before={before}'
-        '&limit=500'  # max limit for this request is 500 songs and not the 10,000 like others have
+        '&limit=500'
     )
 
     r = _get_address(address)
     items: list[dict] = r.json()['items']
-    print(f'{len(items)} items found.')
 
-    if (
-        len(items) % 500 == 0 or len(items) % 500 > 450
-    ):   # filled in everything
-        # might need to switch back to if len(items) % 500 > 450 but whatever
+    if len(items) % 500 == 0 or len(items) % 500 > 450:
+        # filled in everything (or almost everything, because sometimes stats.fm will
+        # glitch and return 497 or 499 songs for unknown reasons, even though we asked
+        # for 500 of them.)
+
         offset = 500
-        print('searching for more items')
         while len(items) % 500 == 0 or len(items) % 500 > 450:
             address = (
                 f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
@@ -344,9 +344,6 @@ def songs_week(
             if not len(additions):
                 break
             items.extend(additions)
-            print(
-                f'{offset} offset and {len(items)} total items after {len(additions)} added'
-            )
             offset += 500
 
     info = [
