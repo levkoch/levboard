@@ -37,7 +37,7 @@ span.heading {
 }
 
 body {
-  background: url("./papertexture.jpg");
+  background: url("../papertexture.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -58,9 +58,12 @@ body {
 }
 
 .year-select {
-  text-align: center;
   height: 22px;
   width: 46px;
+}
+
+.rounded-button {
+  text-align: center;
   font-size: 12px;
   font-family: montserrat;
   font-weight: 500;
@@ -71,7 +74,7 @@ body {
   border-radius: 11px;
 }
 
-.year-select:hover {
+.rounded-button:hover {
   background-color: #555555;
   color: white;
 }
@@ -124,3 +127,4 @@ body {
 .entry-dots {
   margin: 8px;
 }
+

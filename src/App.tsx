@@ -48,31 +48,24 @@ export class App extends Component<AppProps, AppState> {
     }
 
     return (
-      <div>
-        <span className="navigation">
-          <button
-            className="nav-button"
-            id="nav-button-infographic"
-            onClick={this.onNavClick("infographic")}
-          >
+      <>
+        <nav className="nav-container">
+          <a onClick={this.onNavClick("infographic")} className="nav-item">
             Featured
-          </button>
-          <button
-            className="nav-button"
-            id="nav-button-gallery"
-            onClick={this.onNavClick("gallery")}
-          >
+          </a>
+          <a onClick={this.onNavClick("gallery")} className="nav-item">
             Gallery
-          </button>
-        </span>
+          </a>
+          <a onClick={this.onNavClick("about")} className="nav-item">
+            About
+          </a>
+        </nav>
         <div className="center-column">{content}</div>
-      </div>
+      </>
     );
   };
 
-  onNavClick: (
-    option: string
-  ) => (_evt: MouseEvent<HTMLButtonElement>) => void = (option) => {
+  onNavClick: (option: string) => (_evt: MouseEvent) => void = (option) => {
     return (_evt) => {
       console.log(`selected ${option}`);
 

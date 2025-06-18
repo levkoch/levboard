@@ -2,6 +2,7 @@ import React, { Component, MouseEvent } from "react";
 import { ReactComponent as Lemon } from "./image/lemon.svg";
 
 const HEIGHT = 214;
+const MULTIPLIER = 3;
 
 type AlbumMetadata = {
   album: string;
@@ -56,7 +57,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
           <svg
             id="svg"
             width={String(this.state.width * 3n)}
-            height={String(HEIGHT * 3)}
+            height={String(HEIGHT * MULTIPLIER)}
             viewBox={"0 0 " + this.state.width + " " + HEIGHT}
           >
             {this.state.elements}
@@ -77,7 +78,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       if (scroller === null) {
         throw new Error("scroller doesn't exist, shouldn't happen");
       }
-      scroller.scrollLeft = Number(offset) * 3;
+      scroller.scrollLeft = Number(offset) * MULTIPLIER;
     };
   };
 
@@ -142,7 +143,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       if (prevYear != year) {
         years.push(
           <button
-            className="year-select"
+            className="year-select rounded-button"
             id={"year-select-" + String(year)}
             onClick={this.onYearClick(String(year), xOffset)}
           >

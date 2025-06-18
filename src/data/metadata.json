@@ -2,136 +2,163 @@
     "Positions": {
         "album": "Positions",
         "color": "97CDB7",
-        "image": "positions.png"
+        "image": "positions.png",
+        "artist": "Ariana Grande"
     },
     "Happier Than Ever": {
         "album": "Happier Than Ever",
         "color": "8F6543",
-        "image": "happier_than_ever.png"
+        "image": "happier_than_ever.png",
+        "artist": "Billie Eilish"
     },
     "thank u, next": {
         "album": "thank u, next",
         "color": "9F8995",
-        "image": "thank_u_next.png"
+        "image": "thank_u_next.png",
+        "artist": "Ariana Grande"
     },
     "21": {
         "album": "21",
         "color": "404145",
-        "image": "21.png"
+        "image": "21.png",
+        "artist": "Adele"
     },
     "dont smile at me": {
         "album": "dont smile at me",
         "color": "EED97E",
-        "image": "dont_smile_at_me.png"
+        "image": "dont_smile_at_me.png",
+        "artist": "Billie Eilish"
     },
     "Future Nostalgia": {
         "album": "Future Nostalgia",
         "color": "D4748E",
-        "image": "future_nostalgia.png"
+        "image": "future_nostalgia.png",
+        "artist": "Dua Lipa"
     },
     "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?": {
         "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
         "color": "010101",
-        "image": "when_we_all_fall_asleep.png"
+        "image": "when_we_all_fall_asleep.png",
+        "artist": "Billie Eilish"
     },
     "Dangerous Woman": {
         "album": "Dangerous Woman",
         "color": "5A5A5A",
-        "image": "dangerous_woman.png"
+        "image": "dangerous_woman.png",
+        "artist": "Ariana Grande"
     },
     "My Everything": {
         "album": "My Everything",
         "color": "20202A",
-        "image": "my_everything.png"
+        "image": "my_everything.png",
+        "artist": "Ariana Grande"
     },
     "HIT ME HARD AND SOFT": {
         "album": "HIT ME HARD AND SOFT",
         "color": "0F4267",
-        "image": "hit_me_hard_and_soft.png"
+        "image": "hit_me_hard_and_soft.png",
+        "artist": "Billie Eilish"
     },
     "Sweetener": {
         "album": "Sweetener",
         "color": "FCE4C5",
-        "image": "sweetener.png"
+        "image": "sweetener.png",
+        "artist": "Ariana Grande"
     },
     "k bye for now": {
         "album": "k bye for now",
         "color": "0F0F0F",
-        "image": "k_bye_for_now.png"
+        "image": "k_bye_for_now.png",
+        "artist": "Ariana Grande"
     },
     "Dua Lipa": {
         "album": "Dua Lipa",
         "color": "B4B7DB",
-        "image": "dua_lipa.png"
+        "image": "dua_lipa.png",
+        "artist": "Dua Lipa"
     },
     "Pink Friday ... Roman Reloaded": {
         "album": "Pink Friday ... Roman Reloaded",
         "color": "E26F9E",
-        "image": "roman_reloaded.png"
+        "image": "roman_reloaded.png",
+        "artist": "Nicki Minaj"
     },
     "The Pinkprint": {
         "album": "The Pinkprint",
         "color": "050505",
-        "image": "the_pinkprint.png"
+        "image": "the_pinkprint.png",
+        "artist": "Nicki Minaj"
     },
     "1989": {
         "album": "1989",
         "color": "CCBB9F",
-        "image": "1989.png"
+        "image": "1989.png",
+        "artist": "Taylor Swift"
     },
     "KG0516": {
         "album": "KG0516",
         "color": "1BE3FB",
-        "image": "kg0516.png"
+        "image": "kg0516.png",
+        "artist": "Karol G"
     },
     "Queen": {
         "album": "Queen",
         "color": "B01201",
-        "image": "queen.png"
+        "image": "queen.png",
+        "artist": "Nicki Minaj"
     },
     "Know-It-All": {
         "album": "Know-It-All",
         "color": "B7C6CB",
-        "image": "know_it_all.png"
+        "image": "know_it_all.png",
+        "artist": "Alessia Cara"
     },
     "The Pains Of Growing": {
         "album": "The Pains Of Growing",
         "color": "B58A57",
-        "image": "the_pains_of_growing.png"
+        "image": "the_pains_of_growing.png",
+        "artist": "Alessia Cara"
     },
     "Voicenotes": {
         "album": "Voicenotes",
         "color": "202425",
-        "image": "voicenotes.png"
+        "image": "voicenotes.png",
+        "artist": "Charlie Puth"
     },
     "MONTERO": {
         "album": "MONTERO",
         "color": "1E88B2",
-        "image": "montero.png"
+        "image": "montero.png",
+        "artist": "Lil Nas X"
     },
     "Sweet Talker": {
         "album": "Sweet Talker",
         "color": "414141",
-        "image": "sweet_talker.png"
+        "image": "sweet_talker.png",
+        "artist": "Jessie J"
     },
     "30": {
         "album": "30",
         "color": "244249",
-        "image": "30.png"
+        "image": "30.png",
+        "artist": "Adele"
     },
     "25": {
         "album": "25",
         "color": "443D33",
-        "image": "25.png"
+        "image": "25.png",
+        "artist": "Adele"
     },
     "Heaven & Hell": {
         "album": "Heaven & Hell",
         "color": "EE6514",
-        "image": "heaven_n_hell.png"
+        "image": "heaven_n_hell.png",
+        "artist": "Ava Max"
     },
     "Pink Friday": {
         "album": "Pink Friday",
         "color": "D2A7BA",
-        "image": "pink_friday.png"
+        "image": "pink_friday.png",
+        "artist": "Nicki Minaj"
     }
 }

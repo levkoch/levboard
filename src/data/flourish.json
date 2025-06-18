@@ -10,9 +10,9 @@
             "The Pinkprint",
             "My Everything",
             "Positions",
-            "KG0516",
+            "1989",
             "Heaven & Hell",
-            "Pink Friday"
+            "KG0516"
         ],
         "weeks": 1
     },
@@ -27,9 +27,9 @@
             "thank u, next",
             "Pink Friday ... Roman Reloaded",
             "1989",
-            "Voicenotes",
             "Positions",
-            "My Everything"
+            "Voicenotes",
+            "Queen"
         ],
         "weeks": 1
     },
@@ -80,7 +80,7 @@
             "Positions",
             "1989",
             "The Pinkprint",
-            "The Pains Of Growing"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -97,7 +97,7 @@
             "thank u, next",
             "The Pinkprint",
             "My Everything",
-            "The Pains Of Growing"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -114,7 +114,7 @@
             "Pink Friday ... Roman Reloaded",
             "My Everything",
             "The Pinkprint",
-            "The Pains Of Growing"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -144,8 +144,8 @@
             "thank u, next",
             "Positions",
             "Dangerous Woman",
-            "My Everything",
             "Know-It-All",
+            "My Everything",
             "Pink Friday ... Roman Reloaded",
             "Sweetener",
             "The Pinkprint"
@@ -165,26 +165,43 @@
             "Sweetener",
             "Know-It-All",
             "Pink Friday ... Roman Reloaded",
-            "1989"
+            "Queen"
         ],
         "weeks": 1
     },
     "2021-07-29": {
         "start": "2021-07-29",
-        "end": "2021-08-12",
+        "end": "2021-07-29",
         "albums": [
             "Future Nostalgia",
             "thank u, next",
             "Dua Lipa",
-            "Dangerous Woman",
             "Positions",
+            "Dangerous Woman",
             "Sweetener",
             "My Everything",
             "Know-It-All",
             "Pink Friday ... Roman Reloaded",
             "Queen"
         ],
-        "weeks": 3
+        "weeks": 1
+    },
+    "2021-08-05": {
+        "start": "2021-08-05",
+        "end": "2021-08-12",
+        "albums": [
+            "Future Nostalgia",
+            "thank u, next",
+            "Dua Lipa",
+            "Positions",
+            "Dangerous Woman",
+            "Sweetener",
+            "My Everything",
+            "Know-It-All",
+            "Queen",
+            "Pink Friday ... Roman Reloaded"
+        ],
+        "weeks": 2
     },
     "2021-08-19": {
         "start": "2021-08-19",
@@ -193,13 +210,13 @@
             "Future Nostalgia",
             "thank u, next",
             "Dangerous Woman",
-            "Dua Lipa",
             "Positions",
+            "Dua Lipa",
             "Sweetener",
             "My Everything",
             "Know-It-All",
-            "Pink Friday ... Roman Reloaded",
-            "Queen"
+            "Queen",
+            "Pink Friday ... Roman Reloaded"
         ],
         "weeks": 1
     },
@@ -210,8 +227,8 @@
             "Future Nostalgia",
             "thank u, next",
             "Dangerous Woman",
-            "Dua Lipa",
             "Positions",
+            "Dua Lipa",
             "My Everything",
             "Sweetener",
             "Know-It-All",
@@ -227,13 +244,13 @@
             "Future Nostalgia",
             "thank u, next",
             "Dangerous Woman",
+            "Positions",
             "Dua Lipa",
             "My Everything",
-            "Positions",
             "Sweetener",
             "Know-It-All",
-            "MONTERO",
-            "Pink Friday ... Roman Reloaded"
+            "Queen",
+            "MONTERO"
         ],
         "weeks": 1
     },
@@ -245,12 +262,12 @@
             "thank u, next",
             "Dangerous Woman",
             "My Everything",
-            "Sweetener",
             "Positions",
+            "Sweetener",
             "Dua Lipa",
             "MONTERO",
             "Know-It-All",
-            "KG0516"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -260,14 +277,14 @@
         "albums": [
             "Future Nostalgia",
             "Dangerous Woman",
-            "thank u, next",
             "Positions",
+            "thank u, next",
             "My Everything",
             "Sweetener",
             "Dua Lipa",
             "MONTERO",
             "Know-It-All",
-            "KG0516"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -278,13 +295,13 @@
             "Future Nostalgia",
             "MONTERO",
             "Dangerous Woman",
-            "Sweetener",
             "Positions",
+            "Sweetener",
             "thank u, next",
             "My Everything",
             "Dua Lipa",
             "Know-It-All",
-            "KG0516"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -528,6 +545,23 @@
     },
     "2022-02-03": {
         "start": "2022-02-03",
+        "end": "2022-02-03",
+        "albums": [
+            "Positions",
+            "Dangerous Woman",
+            "thank u, next",
+            "Sweetener",
+            "My Everything",
+            "MONTERO",
+            "Future Nostalgia",
+            "The Pinkprint",
+            "Dua Lipa",
+            "Voicenotes"
+        ],
+        "weeks": 1
+    },
+    "2022-02-10": {
+        "start": "2022-02-10",
         "end": "2022-02-17",
         "albums": [
             "Positions",
@@ -539,46 +573,12 @@
             "Future Nostalgia",
             "The Pinkprint",
             "Dua Lipa",
-            "Voicenotes"
+            "Queen"
         ],
-        "weeks": 3
+        "weeks": 2
     },
     "2022-02-24": {
         "start": "2022-02-24",
-        "end": "2022-03-10",
-        "albums": [
-            "Positions",
-            "Dangerous Woman",
-            "thank u, next",
-            "My Everything",
-            "Sweetener",
-            "MONTERO",
-            "Future Nostalgia",
-            "The Pinkprint",
-            "Dua Lipa",
-            "Voicenotes"
-        ],
-        "weeks": 3
-    },
-    "2022-03-17": {
-        "start": "2022-03-17",
-        "end": "2022-03-17",
-        "albums": [
-            "Positions",
-            "Dangerous Woman",
-            "thank u, next",
-            "My Everything",
-            "Sweetener",
-            "MONTERO",
-            "Future Nostalgia",
-            "The Pinkprint",
-            "Dua Lipa",
-            "Pink Friday ... Roman Reloaded"
-        ],
-        "weeks": 1
-    },
-    "2022-03-24": {
-        "start": "2022-03-24",
         "end": "2022-04-21",
         "albums": [
             "Positions",
@@ -589,30 +589,13 @@
             "MONTERO",
             "Future Nostalgia",
             "The Pinkprint",
-            "Dua Lipa",
-            "Voicenotes"
+            "Queen",
+            "Dua Lipa"
         ],
-        "weeks": 5
+        "weeks": 9
     },
     "2022-04-28": {
         "start": "2022-04-28",
-        "end": "2022-05-05",
-        "albums": [
-            "Positions",
-            "Dangerous Woman",
-            "thank u, next",
-            "My Everything",
-            "Sweetener",
-            "Future Nostalgia",
-            "MONTERO",
-            "The Pinkprint",
-            "Dua Lipa",
-            "Voicenotes"
-        ],
-        "weeks": 2
-    },
-    "2022-05-12": {
-        "start": "2022-05-12",
         "end": "2022-05-12",
         "albums": [
             "Positions",
@@ -623,10 +606,10 @@
             "Future Nostalgia",
             "MONTERO",
             "The Pinkprint",
-            "Dua Lipa",
-            "Queen"
+            "Queen",
+            "Dua Lipa"
         ],
-        "weeks": 1
+        "weeks": 3
     },
     "2022-05-19": {
         "start": "2022-05-19",
@@ -640,30 +623,13 @@
             "Future Nostalgia",
             "The Pinkprint",
             "MONTERO",
-            "Dua Lipa",
-            "Queen"
+            "Queen",
+            "Dua Lipa"
         ],
         "weeks": 5
     },
     "2022-06-23": {
         "start": "2022-06-23",
-        "end": "2022-07-21",
-        "albums": [
-            "Positions",
-            "Dangerous Woman",
-            "thank u, next",
-            "Future Nostalgia",
-            "My Everything",
-            "Sweetener",
-            "The Pinkprint",
-            "MONTERO",
-            "Dua Lipa",
-            "Queen"
-        ],
-        "weeks": 5
-    },
-    "2022-07-28": {
-        "start": "2022-07-28",
         "end": "2022-09-08",
         "albums": [
             "Positions",
@@ -674,10 +640,10 @@
             "Sweetener",
             "The Pinkprint",
             "MONTERO",
-            "Dua Lipa",
-            "21"
+            "Queen",
+            "Dua Lipa"
         ],
-        "weeks": 7
+        "weeks": 12
     },
     "2022-09-15": {
         "start": "2022-09-15",
@@ -690,9 +656,9 @@
             "My Everything",
             "Sweetener",
             "The Pinkprint",
+            "Queen",
             "MONTERO",
-            "21",
-            "Dua Lipa"
+            "21"
         ],
         "weeks": 1
     },
@@ -708,8 +674,8 @@
             "Sweetener",
             "The Pinkprint",
             "21",
-            "MONTERO",
-            "Dua Lipa"
+            "Queen",
+            "MONTERO"
         ],
         "weeks": 1
     },
@@ -725,8 +691,8 @@
             "Sweetener",
             "21",
             "The Pinkprint",
-            "MONTERO",
-            "Dua Lipa"
+            "Queen",
+            "MONTERO"
         ],
         "weeks": 4
     },
@@ -742,13 +708,30 @@
             "Sweetener",
             "21",
             "The Pinkprint",
-            "dont smile at me",
-            "Dua Lipa"
+            "Queen",
+            "dont smile at me"
         ],
         "weeks": 1
     },
     "2022-11-03": {
         "start": "2022-11-03",
+        "end": "2022-11-10",
+        "albums": [
+            "Positions",
+            "Dangerous Woman",
+            "Future Nostalgia",
+            "thank u, next",
+            "My Everything",
+            "21",
+            "Sweetener",
+            "The Pinkprint",
+            "Queen",
+            "dont smile at me"
+        ],
+        "weeks": 2
+    },
+    "2022-11-17": {
+        "start": "2022-11-17",
         "end": "2022-11-17",
         "albums": [
             "Positions",
@@ -760,9 +743,9 @@
             "Sweetener",
             "The Pinkprint",
             "dont smile at me",
-            "Dua Lipa"
+            "Queen"
         ],
-        "weeks": 3
+        "weeks": 1
     },
     "2022-11-24": {
         "start": "2022-11-24",
@@ -777,7 +760,7 @@
             "Sweetener",
             "dont smile at me",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
         "weeks": 1
     },
@@ -794,13 +777,13 @@
             "Sweetener",
             "dont smile at me",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
         "weeks": 5
     },
     "2023-01-05": {
         "start": "2023-01-05",
-        "end": "2023-02-16",
+        "end": "2023-02-02",
         "albums": [
             "Positions",
             "Dangerous Woman",
@@ -811,12 +794,12 @@
             "Sweetener",
             "dont smile at me",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
-        "weeks": 7
+        "weeks": 5
     },
-    "2023-02-23": {
-        "start": "2023-02-23",
+    "2023-02-09": {
+        "start": "2023-02-09",
         "end": "2023-02-23",
         "albums": [
             "Positions",
@@ -828,9 +811,9 @@
             "dont smile at me",
             "Sweetener",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
-        "weeks": 1
+        "weeks": 3
     },
     "2023-03-02": {
         "start": "2023-03-02",
@@ -845,13 +828,13 @@
             "dont smile at me",
             "Sweetener",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
         "weeks": 4
     },
     "2023-03-30": {
         "start": "2023-03-30",
-        "end": "2023-04-06",
+        "end": "2023-04-13",
         "albums": [
             "Positions",
             "Future Nostalgia",
@@ -862,12 +845,12 @@
             "dont smile at me",
             "Sweetener",
             "The Pinkprint",
-            "Dua Lipa"
+            "Queen"
         ],
-        "weeks": 2
+        "weeks": 3
     },
-    "2023-04-13": {
-        "start": "2023-04-13",
+    "2023-04-20": {
+        "start": "2023-04-20",
         "end": "2023-04-27",
         "albums": [
             "Positions",
@@ -881,10 +864,27 @@
             "The Pinkprint",
             "30"
         ],
-        "weeks": 3
+        "weeks": 2
     },
     "2023-05-04": {
         "start": "2023-05-04",
+        "end": "2023-05-18",
+        "albums": [
+            "Positions",
+            "21",
+            "Future Nostalgia",
+            "Dangerous Woman",
+            "thank u, next",
+            "My Everything",
+            "dont smile at me",
+            "Sweetener",
+            "The Pinkprint",
+            "30"
+        ],
+        "weeks": 3
+    },
+    "2023-05-25": {
+        "start": "2023-05-25",
         "end": "2023-05-25",
         "albums": [
             "Positions",
@@ -898,11 +898,11 @@
             "The Pinkprint",
             "30"
         ],
-        "weeks": 4
+        "weeks": 1
     },
     "2023-06-01": {
         "start": "2023-06-01",
-        "end": "2023-06-15",
+        "end": "2023-06-22",
         "albums": [
             "Positions",
             "21",
@@ -915,10 +915,10 @@
             "The Pinkprint",
             "30"
         ],
-        "weeks": 3
+        "weeks": 4
     },
-    "2023-06-22": {
-        "start": "2023-06-22",
+    "2023-06-29": {
+        "start": "2023-06-29",
         "end": "2023-07-06",
         "albums": [
             "Positions",
@@ -932,7 +932,7 @@
             "The Pinkprint",
             "30"
         ],
-        "weeks": 3
+        "weeks": 2
     },
     "2023-07-13": {
         "start": "2023-07-13",
@@ -953,7 +953,7 @@
     },
     "2023-07-27": {
         "start": "2023-07-27",
-        "end": "2023-08-03",
+        "end": "2023-07-27",
         "albums": [
             "Positions",
             "21",
@@ -966,10 +966,10 @@
             "25",
             "The Pinkprint"
         ],
-        "weeks": 2
+        "weeks": 1
     },
-    "2023-08-10": {
-        "start": "2023-08-10",
+    "2023-08-03": {
+        "start": "2023-08-03",
         "end": "2023-08-17",
         "albums": [
             "Positions",
@@ -983,11 +983,11 @@
             "25",
             "The Pinkprint"
         ],
-        "weeks": 2
+        "weeks": 3
     },
     "2023-08-24": {
         "start": "2023-08-24",
-        "end": "2023-09-21",
+        "end": "2023-09-14",
         "albums": [
             "Positions",
             "21",
@@ -1000,10 +1000,10 @@
             "Happier Than Ever",
             "25"
         ],
-        "weeks": 5
+        "weeks": 4
     },
-    "2023-09-28": {
-        "start": "2023-09-28",
+    "2023-09-21": {
+        "start": "2023-09-21",
         "end": "2023-10-05",
         "albums": [
             "Positions",
@@ -1017,16 +1017,33 @@
             "Happier Than Ever",
             "25"
         ],
-        "weeks": 2
+        "weeks": 3
     },
     "2023-10-12": {
         "start": "2023-10-12",
-        "end": "2023-10-26",
+        "end": "2023-10-19",
         "albums": [
             "Positions",
             "21",
             "Future Nostalgia",
             "thank u, next",
+            "Dangerous Woman",
+            "dont smile at me",
+            "My Everything",
+            "Happier Than Ever",
+            "Sweetener",
+            "25"
+        ],
+        "weeks": 2
+    },
+    "2023-10-26": {
+        "start": "2023-10-26",
+        "end": "2023-11-09",
+        "albums": [
+            "Positions",
+            "21",
+            "thank u, next",
+            "Future Nostalgia",
             "Dangerous Woman",
             "dont smile at me",
             "My Everything",
@@ -1036,25 +1053,25 @@
         ],
         "weeks": 3
     },
-    "2023-11-02": {
-        "start": "2023-11-02",
-        "end": "2023-11-23",
+    "2023-11-16": {
+        "start": "2023-11-16",
+        "end": "2023-11-30",
         "albums": [
             "Positions",
             "21",
             "thank u, next",
             "Future Nostalgia",
-            "Dangerous Woman",
             "dont smile at me",
+            "Dangerous Woman",
             "My Everything",
             "Happier Than Ever",
             "Sweetener",
             "25"
         ],
-        "weeks": 4
+        "weeks": 3
     },
-    "2023-11-30": {
-        "start": "2023-11-30",
+    "2023-12-07": {
+        "start": "2023-12-07",
         "end": "2023-12-28",
         "albums": [
             "Positions",
@@ -1068,52 +1085,35 @@
             "Sweetener",
             "25"
         ],
-        "weeks": 5
+        "weeks": 4
     },
     "2024-01-04": {
         "start": "2024-01-04",
+        "end": "2024-01-11",
+        "albums": [
+            "Positions",
+            "21",
+            "thank u, next",
+            "Future Nostalgia",
+            "dont smile at me",
+            "Happier Than Ever",
+            "Dangerous Woman",
+            "My Everything",
+            "Sweetener",
+            "25"
+        ],
+        "weeks": 2
+    },
+    "2024-01-18": {
+        "start": "2024-01-18",
         "end": "2024-01-18",
         "albums": [
             "Positions",
             "21",
             "thank u, next",
-            "Future Nostalgia",
-            "dont smile at me",
-            "Happier Than Ever",
-            "Dangerous Woman",
-            "My Everything",
-            "Sweetener",
-            "25"
-        ],
-        "weeks": 3
-    },
-    "2024-01-25": {
-        "start": "2024-01-25",
-        "end": "2024-02-22",
-        "albums": [
-            "Positions",
-            "21",
-            "thank u, next",
-            "Happier Than Ever",
             "dont smile at me",
             "Future Nostalgia",
-            "Dangerous Woman",
-            "My Everything",
-            "Sweetener",
-            "25"
-        ],
-        "weeks": 5
-    },
-    "2024-02-29": {
-        "start": "2024-02-29",
-        "end": "2024-02-29",
-        "albums": [
-            "Positions",
-            "21",
             "Happier Than Ever",
-            "thank u, next",
-            "dont smile at me",
-            "Future Nostalgia",
             "Dangerous Woman",
             "My Everything",
             "Sweetener",
@@ -1121,8 +1121,42 @@
         ],
         "weeks": 1
     },
+    "2024-01-25": {
+        "start": "2024-01-25",
+        "end": "2024-02-29",
+        "albums": [
+            "Positions",
+            "21",
+            "thank u, next",
+            "Happier Than Ever",
+            "dont smile at me",
+            "Future Nostalgia",
+            "Dangerous Woman",
+            "My Everything",
+            "Sweetener",
+            "25"
+        ],
+        "weeks": 6
+    },
     "2024-03-07": {
         "start": "2024-03-07",
+        "end": "2024-03-07",
+        "albums": [
+            "Positions",
+            "21",
+            "Happier Than Ever",
+            "thank u, next",
+            "dont smile at me",
+            "Future Nostalgia",
+            "Dangerous Woman",
+            "My Everything",
+            "Sweetener",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
+        "weeks": 1
+    },
+    "2024-03-14": {
+        "start": "2024-03-14",
         "end": "2024-03-14",
         "albums": [
             "Positions",
@@ -1136,7 +1170,7 @@
             "Sweetener",
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
         ],
-        "weeks": 2
+        "weeks": 1
     },
     "2024-03-21": {
         "start": "2024-03-21",
@@ -1157,7 +1191,7 @@
     },
     "2024-04-18": {
         "start": "2024-04-18",
-        "end": "2024-06-13",
+        "end": "2024-06-20",
         "albums": [
             "Positions",
             "Happier Than Ever",
@@ -1170,10 +1204,10 @@
             "Sweetener",
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
         ],
-        "weeks": 9
+        "weeks": 10
     },
-    "2024-06-20": {
-        "start": "2024-06-20",
+    "2024-06-27": {
+        "start": "2024-06-27",
         "end": "2024-06-27",
         "albums": [
             "Positions",
@@ -1187,7 +1221,7 @@
             "Sweetener",
             "k bye for now"
         ],
-        "weeks": 2
+        "weeks": 1
     },
     "2024-07-04": {
         "start": "2024-07-04",
@@ -1208,41 +1242,7 @@
     },
     "2024-08-22": {
         "start": "2024-08-22",
-        "end": "2024-10-17",
-        "albums": [
-            "Positions",
-            "Happier Than Ever",
-            "thank u, next",
-            "21",
-            "dont smile at me",
-            "Future Nostalgia",
-            "Dangerous Woman",
-            "My Everything",
-            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-            "Sweetener"
-        ],
-        "weeks": 9
-    },
-    "2024-10-24": {
-        "start": "2024-10-24",
-        "end": "2024-11-21",
-        "albums": [
-            "Positions",
-            "Happier Than Ever",
-            "thank u, next",
-            "21",
-            "dont smile at me",
-            "Future Nostalgia",
-            "My Everything",
-            "Dangerous Woman",
-            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-            "Sweetener"
-        ],
-        "weeks": 5
-    },
-    "2024-11-28": {
-        "start": "2024-11-28",
-        "end": "2024-11-28",
+        "end": "2024-08-22",
         "albums": [
             "Positions",
             "Happier Than Ever",
@@ -1257,9 +1257,26 @@
         ],
         "weeks": 1
     },
-    "2024-12-05": {
-        "start": "2024-12-05",
-        "end": "2024-12-19",
+    "2024-08-29": {
+        "start": "2024-08-29",
+        "end": "2024-08-29",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "Dangerous Woman",
+            "My Everything",
+            "HIT ME HARD AND SOFT",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
+        "weeks": 1
+    },
+    "2024-09-05": {
+        "start": "2024-09-05",
+        "end": "2024-09-12",
         "albums": [
             "Positions",
             "Happier Than Ever",
@@ -1272,7 +1289,75 @@
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
             "HIT ME HARD AND SOFT"
         ],
+        "weeks": 2
+    },
+    "2024-09-19": {
+        "start": "2024-09-19",
+        "end": "2024-10-17",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "Dangerous Woman",
+            "My Everything",
+            "HIT ME HARD AND SOFT",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
+        "weeks": 5
+    },
+    "2024-10-24": {
+        "start": "2024-10-24",
+        "end": "2024-11-07",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "My Everything",
+            "Dangerous Woman",
+            "HIT ME HARD AND SOFT",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
         "weeks": 3
+    },
+    "2024-11-14": {
+        "start": "2024-11-14",
+        "end": "2024-12-12",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "HIT ME HARD AND SOFT",
+            "My Everything",
+            "Dangerous Woman",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
+        "weeks": 5
+    },
+    "2024-12-19": {
+        "start": "2024-12-19",
+        "end": "2024-12-19",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "HIT ME HARD AND SOFT",
+            "Dangerous Woman",
+            "My Everything",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+        ],
+        "weeks": 1
     },
     "2024-12-26": {
         "start": "2024-12-26",
@@ -1284,15 +1369,32 @@
             "21",
             "dont smile at me",
             "Future Nostalgia",
-            "Dangerous Woman",
+            "HIT ME HARD AND SOFT",
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
             "My Everything",
-            "HIT ME HARD AND SOFT"
+            "Dangerous Woman"
         ],
         "weeks": 1
     },
     "2025-01-02": {
         "start": "2025-01-02",
+        "end": "2025-01-02",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "21",
+            "dont smile at me",
+            "Future Nostalgia",
+            "HIT ME HARD AND SOFT",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+            "Dangerous Woman",
+            "My Everything"
+        ],
+        "weeks": 1
+    },
+    "2025-01-09": {
+        "start": "2025-01-09",
         "end": "2025-01-23",
         "albums": [
             "Positions",
@@ -1301,62 +1403,45 @@
             "21",
             "dont smile at me",
             "Future Nostalgia",
+            "HIT ME HARD AND SOFT",
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-            "Dangerous Woman",
             "My Everything",
-            "HIT ME HARD AND SOFT"
+            "Dangerous Woman"
         ],
-        "weeks": 4
+        "weeks": 3
     },
     "2025-01-30": {
         "start": "2025-01-30",
-        "end": "2025-03-06",
+        "end": "2025-05-22",
         "albums": [
             "Positions",
             "Happier Than Ever",
             "thank u, next",
             "21",
             "dont smile at me",
-            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-            "Future Nostalgia",
-            "My Everything",
-            "Dangerous Woman",
-            "HIT ME HARD AND SOFT"
-        ],
-        "weeks": 6
-    },
-    "2025-03-13": {
-        "start": "2025-03-13",
-        "end": "2025-03-20",
-        "albums": [
-            "Positions",
-            "Happier Than Ever",
-            "thank u, next",
-            "21",
-            "dont smile at me",
-            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
-            "Future Nostalgia",
-            "My Everything",
             "HIT ME HARD AND SOFT",
-            "Dangerous Woman"
-        ],
-        "weeks": 2
-    },
-    "2025-03-27": {
-        "start": "2025-03-27",
-        "end": "2025-04-24",
-        "albums": [
-            "Positions",
-            "Happier Than Ever",
-            "thank u, next",
-            "21",
-            "dont smile at me",
             "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
             "Future Nostalgia",
-            "HIT ME HARD AND SOFT",
             "My Everything",
             "Dangerous Woman"
         ],
-        "weeks": 5
+        "weeks": 17
+    },
+    "2025-05-29": {
+        "start": "2025-05-29",
+        "end": "2025-06-12",
+        "albums": [
+            "Positions",
+            "Happier Than Ever",
+            "thank u, next",
+            "dont smile at me",
+            "21",
+            "HIT ME HARD AND SOFT",
+            "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+            "Future Nostalgia",
+            "My Everything",
+            "Dangerous Woman"
+        ],
+        "weeks": 3
     }
 }
