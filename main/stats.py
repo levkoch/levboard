@@ -634,10 +634,10 @@ def top_collection_consecutive_weeks_infographic(
         end = start + timedelta(days=weeks * 7)
         # week start and week end are both inclusive of end weeks.
         print(
-            f"{place:>2} | {f'{c.title} by {c.str_artists}':<55} | "
+            f"{place:>2} | {f'{c.title} by {c.str_artists}':60} | "
             f'{start.isoformat()} to {end.isoformat()} '
-            f'| {weeks:>2} wks | week {int((start - FIRST_DATE).days / 7) - 2} '
-            f'to {int((end - FIRST_DATE).days / 7) - 3}'
+            f'| {weeks:>3} wks | week {int((start - FIRST_DATE).days / 7) - 2:<3} '
+            f'to {int((end - FIRST_DATE).days / 7) - 3 :<3}'
         )
     print('')
 
@@ -872,6 +872,8 @@ if __name__ == '__main__':
 
     top_collection_consecutive_weeks_infographic(uow.songs)
     top_collection_consecutive_weeks_infographic(uow.albums)
+
+    # top_shortest_time_units_milestones_infographic(uow, 2_000)
 
     """   
     all_number_one_weeks_album(uow)

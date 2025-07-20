@@ -1,9 +1,9 @@
 import itertools
 
 from concurrent import futures
-from typing import Optional
+from typing import Iterable, Optional
 
-from config import LEVBOARD_SHEET, GROUPBOARD_SHEET
+from config import LEVBOARD_SHEET, GROUPBOARD_SHEET, ALBUM_FILE, SONG_FILE
 from model import Album, Song, Variant
 from spreadsheet import Spreadsheet
 from storage import SongUOW
@@ -180,8 +180,17 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
 
     uow.commit()
 
+def blank_storage_files(files: Iterable[str]):
+    '''overwrites the given files with a blank json object.'''
+
+    for file in files:
+        with open(file, "w") as f:
+            f.write(r'{}')
 
 if __name__ == '__main__':
+
+    blank_storage_files([ALBUM_FILE, SONG_FILE])
+
     uow = SongUOW()
     load_linked_songs(uow, LEVBOARD_SHEET, verbose=True)
     load_albums(uow, LEVBOARD_SHEET, verbose=True)
