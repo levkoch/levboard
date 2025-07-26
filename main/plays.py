@@ -683,7 +683,11 @@ if __name__ == '__main__':
     )
 
     update_local_plays(uow, verbose=True)
+    print('')
     load_year_end_songs(uow.songs, verbose=True)
+    print('')
     load_year_end_albums(uow.albums, verbose=True)
+    print('')
     load_month_end_songs(uow.songs, verbose=True)
+    print('')
     load_month_end_albums(uow.albums, verbose=True)
