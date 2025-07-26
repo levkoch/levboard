@@ -1,11 +1,13 @@
 {
   "files": {
-    "main.js": "/levboard/static/js/main.dba136bc.js",
+    "main.js": "/levboard/static/js/main.a525aa32.js",
     "static/media/lemon.svg": "/levboard/static/media/lemon.a2fee187dc54d19f876edb07f1bfe898.svg",
     "index.html": "/levboard/index.html",
-    "main.dba136bc.js.map": "/levboard/static/js/main.dba136bc.js.map"
+    "static/media/left_arrows.svg": "/levboard/static/media/left_arrows.614d105caffbe10089fc707dcc38ba67.svg",
+    "static/media/right_arrows.svg": "/levboard/static/media/right_arrows.e1fcfdbeb61a647bac8a53fa8d467330.svg",
+    "main.a525aa32.js.map": "/levboard/static/js/main.a525aa32.js.map"
   },
   "entrypoints": [
-    "static/js/main.dba136bc.js"
+    "static/js/main.a525aa32.js"
   ]
 }
