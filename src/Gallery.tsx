@@ -92,7 +92,7 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
         type = "selected";
         color = "#3D3D3D";
       } 
-      dots.push(<circle className={"gallery-dot " + type} cx={String(2n + i * 5n)} cy="2" r="2" fill={color} />);
+      dots.push(<circle className={"gallery-dot " + type} onClick={this.onSetSelected(i)} cx={String(2n + i * 5n)} cy="2" r="2" fill={color} />);
     }
 
     /* <!-- not the biggest fan of whatever the title is trying to be --> */
@@ -134,6 +134,15 @@ class GalleryEntry extends Component<EntryProps, EntryState> {
         </div>
       </div>
     );
+  };
+
+  onSetSelected: (index: bigint) => (_evt: MouseEvent) => void = (index) => {
+    return (_evt: MouseEvent) => {
+      if (index < 0n || index >= BigInt(this.props.assets.length)) {
+        throw Error("index out of bounds for assets");
+      }
+      this.setState({ selected: index });
+    };
   };
 
   // bumps the image to the right

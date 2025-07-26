@@ -68,11 +68,10 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
   };
 
   onYearClick: (
-    year: string,
     offset: bigint
-  ) => (_evt: MouseEvent<HTMLButtonElement>) => void = (year, offset) => {
+  ) => (_evt: MouseEvent<HTMLButtonElement>) => void = (offset) => {
     return (_evt) => {
-      console.log(`${year} ${offset}`);
+      // console.log(`${year} ${offset}`);
 
       const scroller = document.getElementById("scroller");
       if (scroller === null) {
@@ -145,7 +144,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
           <button
             className="year-select rounded-button"
             id={"year-select-" + String(year)}
-            onClick={this.onYearClick(String(year), xOffset)}
+            onClick={this.onYearClick(xOffset)}
           >
             {String(year)}
           </button>
@@ -157,7 +156,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
 
       // we gotta do this becasue ISO format does YYYY-MM-DD ("02-08",) which we
       // would much rather have as "2.8"
-      console.log(information.start, information.end);
+      // console.log(information.start, information.end);
       const start_month = Number(information.start.split("-")[1]).toString();
       const start_day = Number(information.start.split("-")[2]).toString();
       const end_month = Number(information.end.split("-")[1]).toString();
@@ -166,7 +165,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
       const start = start_month + "." + start_day;
       const end = end_month + "." + end_day;
 
-      console.log(start, end);
+      // console.log(start, end);
 
       if (information.weeks == 1n) {
         header = start;
@@ -194,7 +193,7 @@ export class TopChanges extends Component<TopChangesProps, TopChangesState> {
         </text>
       );
 
-      console.log("column " + column + " finished.");
+      // console.log("column " + column + " finished.");
       xOffset += 18n + 2n * BigInt(information.weeks);
       column += 1n;
     }

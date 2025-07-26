@@ -4,6 +4,7 @@ import flourish from "./data/flourish.json";
 import metadata from "./data/metadata.json";
 import { TopChanges } from "./TopChanges";
 import { Gallery } from "./Gallery";
+import { TopPacked } from "./TopPacked";
 
 type AppProps = {}; // no props
 
@@ -29,12 +30,17 @@ export class App extends Component<AppProps, AppState> {
   render = (): JSX.Element => {
     let content: JSX.Element;
     if (this.state.display === "infographic") {
-      content = (
+      content = (<div>
         <TopChanges
           flourish={new Map(Object.entries(flourish))}
           metadata={new Map(Object.entries(metadata))}
           dates={Object.keys(flourish)}
-        />
+        /> 
+        <TopPacked 
+        flourish={new Map(Object.entries(flourish))}
+          metadata={new Map(Object.entries(metadata))}
+          dates={Object.keys(flourish)}
+          /></div>
       );
     } else if (this.state.display === "gallery") {
       content = (
