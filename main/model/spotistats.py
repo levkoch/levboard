@@ -185,20 +185,20 @@ class Position(BaseModel):
 
 class Week(BaseModel):
     """
-    A dataclass for a loaded week of songs. Supports comparison &
+    A dataclass for a loaded week of song positions. Supports comparison &
     sorting (by week count.)
 
     Attributes:
     * start_day (`date`): The date when the week started.
     * end_day (`date`): The date when the week ended.
-    * songs: (`dict[str, spotistats.Position]`): The `spotistats.Positions`
+    * positions: (`dict[str, spotistats.Position]`): The `spotistats.Positions`
         of all the songs that charted that week, organized by the song id
         that the song charted under.
     """
 
     start_day: date
     end_day: date
-    songs: dict[str, Position]
+    positions: dict[str, Position]
 
     def __lt__(self, other):
         try:
@@ -210,16 +210,16 @@ class Week(BaseModel):
     def _merge_songs(
         cls, first: 'Week', second: 'Week'
     ) -> dict[str, Position]:
-        song_ids = {pos_id for pos_id in first.songs.keys()} | {
-            pos_id for pos_id in second.songs.keys()
+        song_ids = {pos_id for pos_id in first.positions.keys()} | {
+            pos_id for pos_id in second.positions.keys()
         }
 
         self_plays = defaultdict(int)
-        for pos in first.songs.values():
+        for pos in first.positions.values():
             self_plays[pos.id] = pos.plays
 
         other_plays = defaultdict(int)
-        for pos in second.songs.values():
+        for pos in second.positions.values():
             other_plays[pos.id] = pos.plays
 
         songs: dict[str, Position] = {
@@ -244,7 +244,7 @@ class Week(BaseModel):
             return Week(
                 start_day=self.start_day,
                 end_day=self.end_day,
-                songs=Week._merge_songs(self, other),
+                positions=Week._merge_songs(self, other),
             )
 
         if self.start_day == other.end_day or self.end_day == other.start_day:
@@ -257,7 +257,7 @@ class Week(BaseModel):
             return Week(
                 start_day=min(all_days),
                 end_day=max(all_days),
-                songs=Week._merge_songs(self, other),
+                positions=Week._merge_songs(self, other),
             )
 
         raise ValueError(

@@ -608,7 +608,7 @@ def top_song_consecutive_weeks(uow: SongUOW, top: Optional[int]):
 def top_collection_consecutive_weeks_infographic(
     collection: Union[SongRepository, AlbumRepository]
 ):
-    THRESHOLD: Final[int] = 16
+    THRESHOLD: Final[int] = 10
     kind = type(collection.get(collection.list()[0])).__name__
     print(f'{len(collection)} {kind}s stored')
 
@@ -632,9 +632,10 @@ def top_collection_consecutive_weeks_infographic(
     for (c, start, weeks) in units:
         place = len([unit for unit in units if unit[2] > weeks]) + 1
         end = start + timedelta(days=weeks * 7)
+        active = end >= (datetime.now().date() - timedelta(days=7))
         # week start and week end are both inclusive of end weeks.
         print(
-            f"{place:>2} | {f'{c.title} by {c.str_artists}':60} | "
+            f"{place:>2} | {f'{c.title} by {c.str_artists}':60} {'!!' if active else '  '} | "
             f'{start.isoformat()} to {end.isoformat()} '
             f'| {weeks:>3} wks | week {int((start - FIRST_DATE).days / 7) - 2:<3} '
             f'to {int((end - FIRST_DATE).days / 7) - 3 :<3}'
@@ -839,7 +840,7 @@ def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
             _display_album_plays(album)
 
 
-PLAYS_MILESTONES = [25, 50, 75, 100] + list(range(150, 1000, 50))
+PLAYS_MILESTONES = [25, 50, 75] + list(range(100, 1500, 100))
 CERT_UNITS = [100] + list(range(200, 6000, 200))
 ALBUM_TOP = [1, 3, 5, 10, 15, None]
 SONG_TOP = [1, 3, 5, 10, 20, 30, None]
@@ -873,9 +874,9 @@ if __name__ == '__main__':
     top_collection_consecutive_weeks_infographic(uow.songs)
     top_collection_consecutive_weeks_infographic(uow.albums)
 
-    # top_shortest_time_units_milestones_infographic(uow, 2_000)
+    """
+    top_shortest_time_units_milestones_infographic(uow, 2_000)
 
-    """   
     all_number_one_weeks_album(uow)
 
     for milestone in range(2_000, 12_000, 2_000):

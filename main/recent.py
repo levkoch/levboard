@@ -104,12 +104,13 @@ def get_unused_ids(uow: SongUOW, threshold: int = 0):
                     [f'https://stats.fm/track/{id}', id, str(song)]
                 )
 
-    if not found: 
-        print("no unused ids found :)")
+    if not found:
+        print('no unused ids found :)')
 
-    with open('unused.csv', 'w+') as fp:
-        w = csv.writer(fp)
-        w.writerows(unlistened)
+    if unlistened:
+        with open('unused.csv', 'w+') as fp:
+            w = csv.writer(fp)
+            w.writerows(unlistened)
 
 
 def audit_unique_ids(uow: SongUOW):
@@ -239,9 +240,9 @@ if __name__ == '__main__':
     audit_unique_ids(uow)
     get_new_songs(uow)
     print('')
-    get_missing_songs(uow)
+    # get_missing_songs(uow)
     print('')
-    get_unused_ids(uow)
+    # get_unused_ids(uow)
     # print('')
     # get_all_new_certs(uow)
     # print('')

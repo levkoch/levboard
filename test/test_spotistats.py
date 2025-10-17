@@ -24,8 +24,8 @@ def test_song_week_merging():
 
     combined = week_one + week_two
 
-    assert len(combined.songs) == 4
-    assert set(combined.songs) == {
+    assert len(combined.positions) == 4
+    assert set(combined.positions) == {
         Position('a', 16, 0),
         Position('b', 6, 0),
         Position('c', 8, 0),

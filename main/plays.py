@@ -135,7 +135,7 @@ def create_song_play_updater_from_weeks(
     """
 
     play_mapping = defaultdict(int)
-    play_mapping.update({pos.id: pos.plays for pos in week.songs})
+    play_mapping.update({pos.id: pos.plays for pos in week.positions})
 
     print(f'{len(play_mapping)} songs loaded with streams.')
 

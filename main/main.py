@@ -9,11 +9,13 @@ here after getting prompted for it. :)
 
 import itertools
 from concurrent import futures
+
 from datetime import date, datetime, timedelta
 from operator import itemgetter
+from threading import Lock
 from typing import Final, Iterable, Iterator, Optional, Union
 
-from config import FIRST_DATE, LEVBOARD_SHEET
+from config import FIRST_DATE, LEVBOARD_SHEET, MIN_SONG_PLAYS
 from model import (
     Album,
     AlbumEntry,
@@ -22,74 +24,115 @@ from model import (
     spotistats,
     SONG_CHART_LENGTH,
 )
-from model.spotistats import Week
 from spreadsheet import Spreadsheet
 from storage import SongUOW
+
+
+def _print_progress(progress_tracker: list) -> None:
+    """prints the progress of the loading process"""
+    output: str = ''.join(progress_tracker)
+    loading: int = output.count('*')
+    completed: int = output.count('X')
+
+    stride = max(1, len(output) // 40)
+    batches: list[str] = [
+        output[i : i + stride] for i in range(0, len(output), stride)
+    ]
+
+    output_batches = ''.join(
+        '.'
+        if any(c == '.' for c in batch)
+        else '*'
+        if any(c == '*' for c in batch)
+        else 'X'
+        for batch in batches
+    )
+
+    print(
+        f'\r<> [{completed:03d}/{len(output):03d}] completed, {loading:02d} loading [{output_batches}]',
+        end='',
+        flush=True,
+    )
 
 
 def load_week(
     start_day: date,
     end_day: date,
-    started: itertools.count,
-    completed: itertools.count,
-) -> Week:
+    week: int,
+    progress_tracker: list[str],
+    lock: Lock,
+) -> spotistats.Week:
     """
     Loads a singular week.
 
     Returns:
-    *
+    * week (`spotistats.Week`): the loaded week, with the provided start and end days,
+      and all songs that were streamed that week.
     """
-    print(
-        f'-> [{next(started):03d}] collecting info for week ending {end_day.isoformat()}'
+    progress_tracker[week - 1] = '*'
+    with lock:
+        _print_progress(progress_tracker)
+
+    songs: list[spotistats.Position] = spotistats.songs_week(
+        start_day, end_day, adjusted=True
     )
-    songs = spotistats.songs_week(start_day, end_day, adjusted=True)
-    print(
-        f'!! [{next(completed):03d}] finished collecting info for week ending {end_day.isoformat()}'
-    )
-    return Week(
+
+    progress_tracker[week - 1] = 'X'
+    with lock:
+        _print_progress(progress_tracker)
+
+    return spotistats.Week(
         start_day=start_day,
         end_day=end_day,
-        songs={pos.id: pos for pos in songs},
+        positions={pos.id: pos for pos in songs},
     )
 
 
-def load_all_weeks(start_day: date) -> list[Week]:
+def load_all_weeks(start_day: date) -> list[spotistats.Week]:
     print('Loading all weeks')
 
-    started_counter = itertools.count(start=1)
-    completed_counter = itertools.count(start=1)
+    week_counter = itertools.count(start=1)
+    progress_lock = Lock()
+    progress_tracker = []
 
     with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
-        to_do: list[futures.Future[Week]] = []
+        to_do: list[futures.Future[spotistats.Week]] = []
         end_day = start_day + timedelta(days=7)
 
         while end_day <= date.today():
+            progress_tracker.append('.')
+
             future = executor.submit(
                 load_week,
                 start_day=start_day,
                 end_day=end_day,
-                started=started_counter,
-                completed=completed_counter,
+                week=next(week_counter),
+                lock=progress_lock,
+                progress_tracker=progress_tracker,
             )
             to_do.append(future)
 
             start_day = end_day
             end_day = start_day + timedelta(days=7)
 
-    weeks: Iterator[Week] = iter(
+    print()   # jump to next line
+
+    weeks: Iterator[spotistats.Week] = iter(
         sorted(future.result() for future in futures.as_completed(to_do))
     )
 
     final = []
     for week in weeks:
-        if len(week.songs) < SONG_CHART_LENGTH:
-            # not enough songs streamed to be able
-            # to create an actual chart (probably)
-            while len(week.songs) < SONG_CHART_LENGTH:
-                try:
-                    week = week + next(weeks)
-                except StopIteration:   # we ran out of weeks
-                    break
+        # not enough songs streamed to be able
+        # to create an actual chart (probably)
+        while (
+            len([pos for pos in week.positions.values() if pos.plays >= MIN_SONG_PLAYS])
+            < SONG_CHART_LENGTH
+        ):
+            try:
+                week = week + next(weeks)
+            except StopIteration:   # we ran out of weeks
+                break
         final.append(week)
 
     return final
@@ -145,7 +188,7 @@ def get_peak(listenable: Union[Song, Album]) -> str:
 
 def create_song_chart(
     uow: SongUOW,
-    weeks: Iterator[Week],
+    weeks: Iterator[spotistats.Week],
 ) -> Iterator[tuple[list[dict], date, date]]:
     """
     Parses the weeks passed in into chart weeks.
@@ -164,9 +207,9 @@ def create_song_chart(
     while True:
         all_song_ids: set[str] = {
             pos.id
-            for pos in set(two_wa.songs.values())
-            | set(one_wa.songs.values())
-            | set(this_wk.songs.values())
+            for pos in set(two_wa.positions.values())
+            | set(one_wa.positions.values())
+            | set(this_wk.positions.values())
         }
 
         # all ids that got streamed but aren't registered
@@ -179,18 +222,18 @@ def create_song_chart(
             # process rogue ids first
             two_wa_plays = (
                 0
-                if song_id not in two_wa.songs
-                else two_wa.songs[song_id].plays
+                if song_id not in two_wa.positions
+                else two_wa.positions[song_id].plays
             )
             one_wa_plays = (
                 0
-                if song_id not in one_wa.songs
-                else one_wa.songs[song_id].plays
+                if song_id not in one_wa.positions
+                else one_wa.positions[song_id].plays
             )
             this_wk_plays = (
                 0
-                if song_id not in this_wk.songs
-                else this_wk.songs[song_id].plays
+                if song_id not in this_wk.positions
+                else this_wk.positions[song_id].plays
             )
 
             song_info.append(
@@ -225,8 +268,8 @@ def create_song_chart(
                 (
                     song_id,
                     0
-                    if song_id not in this_wk.songs
-                    else this_wk.songs[song_id].plays,
+                    if song_id not in this_wk.positions
+                    else this_wk.positions[song_id].plays,
                 )
                 for song_id in id_group
             )
@@ -236,19 +279,19 @@ def create_song_chart(
             ][0]
 
             two_wa_plays = sum(
-                two_wa.songs[song_id].plays
+                two_wa.positions[song_id].plays
                 for song_id in id_group
-                if song_id in two_wa.songs
+                if song_id in two_wa.positions
             )
             one_wa_plays = sum(
-                one_wa.songs[song_id].plays
+                one_wa.positions[song_id].plays
                 for song_id in id_group
-                if song_id in one_wa.songs
+                if song_id in one_wa.positions
             )
             this_wk_plays = sum(
-                this_wk.songs[song_id].plays
+                this_wk.positions[song_id].plays
                 for song_id in id_group
-                if song_id in this_wk.songs
+                if song_id in this_wk.positions
             )
 
             song_info.append(
@@ -557,8 +600,6 @@ def create_album_chart(
         ],
     ]
 
-    print(f' | A')
-
     def process_album(album: Album, album_units: int, place: int) -> list:
         nonlocal start_day, end_day, week_count
         entry = AlbumEntry(
@@ -621,6 +662,8 @@ def create_personal_charts():
     weeks = load_all_weeks(FIRST_DATE)
     loading_time = datetime.now() - start_time
 
+    print('\nProcessing all weeks')
+
     for song_positions, start_day, end_day in create_song_chart(
         uow, iter(weeks)
     ):
@@ -628,7 +671,7 @@ def create_personal_charts():
         filtered_songs = insert_entries(
             uow, song_positions, start_day, end_day, SONG_CHART_LENGTH
         )
-        print(f'<> [{week_count:03d}] ({end_day.isoformat()}) S', end='')
+        print(f'\r<> [{week_count:03d}/{len(weeks)-2}] ({end_day.isoformat()})', end='', flush=True)
         # show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
             song_rows, uow, filtered_songs, start_day, end_day, week_count
@@ -638,6 +681,7 @@ def create_personal_charts():
             uow, song_positions, start_day, end_day, week_count, album_rows
         )
 
+    print('\n')
     uow.commit()
 
     crunching_time = (datetime.now() - start_time) - loading_time
@@ -681,7 +725,6 @@ def create_personal_charts():
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
 
-    print('')
     print(f'Sending {len(song_rows)} song rows to the spreadsheet.')
 
     song_range = f'BOT_SONGS!A1:K{len(song_rows) + 1}'

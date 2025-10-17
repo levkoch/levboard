@@ -180,12 +180,14 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
 
     uow.commit()
 
+
 def blank_storage_files(files: Iterable[str]):
-    '''overwrites the given files with a blank json object.'''
+    """overwrites the given files with a blank json object."""
 
     for file in files:
-        with open(file, "w") as f:
+        with open(file, 'w') as f:
             f.write(r'{}')
+
 
 if __name__ == '__main__':
 
