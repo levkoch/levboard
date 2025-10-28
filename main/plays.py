@@ -263,7 +263,7 @@ def update_spreadsheet_variant_plays(
         load_linked_songs(uow, sheet_id)
         print('all songs loaded')
 
-    assert stored_count == song_count   # just in case
+    assert stored_count == song_count, "song counts uneven"  # just in case
 
     if verbose:
         print(f'{song_count} items found.')

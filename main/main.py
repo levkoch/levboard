@@ -189,6 +189,7 @@ def get_peak(listenable: Union[Song, Album]) -> str:
 def create_song_chart(
     uow: SongUOW,
     weeks: Iterator[spotistats.Week],
+    chart_cutoff: int,
 ) -> Iterator[tuple[list[dict], date, date]]:
     """
     Parses the weeks passed in into chart weeks.
@@ -203,6 +204,9 @@ def create_song_chart(
 
     # every id we have stored somewhere in the system
     registered_ids: set[str] = set(itertools.chain.from_iterable(id_groups))
+
+    # the number of plays 3+ weeks old that happened after the song last charted
+    historical_plays: dict[str, int] = {}
 
     while True:
         all_song_ids: set[str] = {
@@ -247,17 +251,9 @@ def create_song_chart(
                 }
             )
 
-        # if a song has the most streams out of all it's ids this week,
-        # combine all of the other ids's points and plays with it's points
-        # and plays as if they all went to that id.
-
-        # this is a little bit unfortunate if one of the variants has multiple
-        # ids attached to it. Ex.: if Black Mascara - Live. gains 4 streams while
-        # Black Mascara. and Black Mascara (without period for some reason) both
-        # gain 3 streams, the song will chart as Black Mascara - Live., even
-        # though the studio version of the song got 6 plays.
-
-        # i'm pretty sure this got patched with the variants update, though
+        # group by variants to select the most streamed variant to chart
+        # and build the point groups for all songs that got streamed in 
+        # the past 3 weeks.
 
         for id_group in id_groups:
             # skip everything that didn't get listened to at all
@@ -293,13 +289,15 @@ def create_song_chart(
                 for song_id in id_group
                 if song_id in this_wk.positions
             )
+            hist_plays = sum(historical_plays.get(song_id, 0) for song_id in id_group)
 
             song_info.append(
                 {
                     'id': main_id,
                     'points': (
-                        (two_wa_plays + one_wa_plays) * 2
-                        + (10 * this_wk_plays)
+                        (this_wk_plays * 10)
+                        + ((two_wa_plays + one_wa_plays) * 2)
+                        + hist_plays
                     ),
                     'plays': this_wk_plays,
                 }
@@ -309,7 +307,55 @@ def create_song_chart(
         # need the entire thing for albums
         song_info.sort(key=lambda i: i['points'], reverse=True)
 
-        yield (song_info, this_wk.start_day, this_wk.end_day)
+        # dump over two week plays as they will be eligible for plays next week
+        for pos in two_wa.positions.values():
+            historical_plays[pos.id] = historical_plays.get(pos.id, 0) + pos.plays
+
+        def process_song(song_id: str, plays: int, place: int, points: int):
+            """adds a song that charted into the system."""
+            song: Optional[Song] = uow.songs.get(song_id)
+            if not song:
+                song = ask_new_song(uow, song_id)
+                uow.songs.add(song)
+            entry = Entry(
+                end=this_wk.end_day,
+                start=this_wk.start_day,
+                plays=plays,
+                place=place,
+                points=points,
+                variant=song_id,
+            )
+            song.add_entry(entry)
+
+            # clear out any historical plays for songs that have charted this 
+            # week, as they will no longer be eligible.
+            for song_id in song.ids:
+                historical_plays[song_id] = 0
+
+        first_pos = song_info[0]
+        process_song(first_pos['id'], first_pos['plays'], 1, first_pos['points'])
+
+        prev_points = first_pos['points']
+        prev_place = 1
+        ties = 1
+        filtered = [first_pos | {'place': prev_place}]
+
+        for pos in song_info[1:]:
+            if pos['points'] == prev_points:
+                ties += 1
+                process_song(pos['id'], pos['plays'], prev_place, pos['points'])
+                filtered.append(pos | {'place': prev_place})
+            else:
+                place = prev_place + ties
+                if place > chart_cutoff:
+                    break
+                process_song(pos['id'], pos['plays'], place, pos['points'])
+                filtered.append(pos | {'place': place})
+                prev_place = place
+                prev_points = pos['points']
+                ties = 1
+
+        yield (song_info, filtered, this_wk.start_day, this_wk.end_day)
 
         # adjust week pointers
         two_wa = one_wa
@@ -358,80 +404,6 @@ def clear_entries(uow: SongUOW) -> None:
             album: Album = uow.albums.get(album_name)
             album._entries.clear()
         uow.commit()
-
-
-def insert_entries(
-    uow: SongUOW,
-    positions: list[dict],
-    start_date: date,
-    end_date: date,
-    chart_cutoff: int,
-) -> list[dict]:
-    """
-    filters out and inserts the eligible entries from the list of positions given.
-    * uow (`SongUOW`): the UOW to stick the entries into.
-    * positions (`list[dict[str, ...]]`): a SORTED list of dictionaries by "points"
-      with the following schema:
-      ```
-      {
-        "plays": 37,
-        "points": 460,
-        "id": "325382"
-      }
-    * start_date (`datetime.date`): the starting date of the week
-    * end_date (`datetime.date`): the ending date of the week
-    * chart_cutoff (`int`): the number of chart positions avaliable
-    """
-
-    # POSITIONS ARE NOT FILTERED YET
-
-    if not positions:
-        raise ValueError('positions is empty')
-
-    def process_song(song_id: str, plays: int, place: int, points: int):
-        song: Optional[Song] = uow.songs.get(song_id)
-        if not song:
-            song = ask_new_song(uow, song_id)
-            uow.songs.add(song)
-        entry = Entry(
-            end=end_date,
-            start=start_date,
-            plays=plays,
-            place=place,
-            points=points,
-            variant=song_id,
-        )
-        song.add_entry(entry)
-
-    first_pos = positions[0]
-    process_song(first_pos['id'], first_pos['plays'], 1, first_pos['points'])
-
-    prev_points = first_pos['points']
-    prev_place = 1
-    ties = 1
-    filtered = [first_pos | {'place': prev_place}]
-
-    for pos in positions[1:]:
-        if pos['points'] == prev_points:
-            ties += 1
-            process_song(pos['id'], pos['plays'], prev_place, pos['points'])
-            filtered.append(pos | {'place': prev_place})
-        else:
-            place = prev_place + ties
-            if place > chart_cutoff:
-                break
-            process_song(pos['id'], pos['plays'], place, pos['points'])
-            filtered.append(pos | {'place': place})
-            prev_place = place
-            prev_points = pos['points']
-            ties = 1
-
-    # we used to commit here, but that's just a bunch of time spent serializing
-    # and sending objects into a file that'll get overwritten the next iteration,
-    # so we commit inside of the __name__ == '__main__' segment at the bottom.
-    # it led to a 100% speed increase for the crunching portion (46 sec -> 23 sec)
-
-    return filtered
 
 
 def show_chart(
@@ -664,13 +636,10 @@ def create_personal_charts():
 
     print('\nProcessing all weeks')
 
-    for song_positions, start_day, end_day in create_song_chart(
-        uow, iter(weeks)
+    for song_positions, filtered_songs, start_day, end_day in create_song_chart(
+        uow, iter(weeks), SONG_CHART_LENGTH
     ):
         week_count = next(week_counter)
-        filtered_songs = insert_entries(
-            uow, song_positions, start_day, end_day, SONG_CHART_LENGTH
-        )
         print(f'\r<> [{week_count:03d}/{len(weeks)-2}] ({end_day.isoformat()})', end='', flush=True)
         # show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(

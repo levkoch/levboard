@@ -117,7 +117,7 @@ The spreadsheet contains mostly filtered files that are built upon data the serv
 ## Appendix: Chart Setup
 This is how charts are run, in case you're curious. (Do note that I won't be changing this for anyone, but if you'd like to clone LevBoard to change it for yourself, then be my guest.) 
 
-Every week, a song gets 10 charts points for every stream it got that week, and 2 bonus chart points for every stream it got the two weeks prior. The songs are sorted by chart points, and the top 60 songs (counting ties) receive a linear amount of unit points depending on where they placed. (60 for #1, 59 for #2, and down to 1 unit point for whatever song is at #60.)
+Every week, a song gets 10 charts points for every stream it got that week, and 2 bonus chart points for every stream it got the two weeks prior. Songs also recieve an additional 1 chart point for every stream that didn't appear during the last 3 weeks, but happened after the last time the song charted. The songs are sorted by chart points, and the top 60 songs (counting ties) receive a linear amount of unit points depending on where they placed. (60 for #1, 59 for #2, and down to 1 unit point for whatever song is at #60.)
 
 Songs also receive units for all of the unit points they've received along with all of their streams. 1 stream counts as 2 unit points. When a song reaches 100 units, it's now certified Gold, 200 units is Platinum, and 2,000 units is Diamond, with intervals every 200 units for an additional Platinum.
 
