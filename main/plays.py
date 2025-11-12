@@ -417,15 +417,6 @@ def year_end_collection_creator(sheet_id: str, range_name: str, quantity: int):
                         if entry.end >= year_start and entry.end <= year_end
                     )
                 except ValueError:   # min() arg is an empty sequence
-                    peak = '-'
-
-                try:
-                    peak = min(
-                        entry.place
-                        for entry in item.entries
-                        if entry.end >= year_start and entry.end <= year_end
-                    )
-                except ValueError:   # "min() arg is an empty sequence"
                     peak = 0
 
                 peak_weeks = sum(
@@ -552,6 +543,7 @@ def month_end_collection_creator(
                     )
                 except ValueError:   # min() arg can't be an empty sequence
                     peak = '-'
+                    
                 peak_weeks = sum(
                     1
                     for entry in item.entries
