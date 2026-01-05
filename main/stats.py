@@ -10,7 +10,7 @@ import itertools
 from collections import Counter, defaultdict
 from concurrent import futures
 from datetime import date, datetime, timedelta
-from operator import itemgetter
+from operator import attrgetter, itemgetter
 from typing import Final, Iterable, Optional, TypeAlias, Union
 
 from config import FIRST_DATE
@@ -56,7 +56,7 @@ def get_song_play_history(song: Song) -> list[spotistats.Listen]:
 
 
 def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
-    print(f'collecting streams for {album}')
+    """collects play history for every song in the album"""
 
     def inner(main_id, ids) -> tuple[str, Iterable[spotistats.Listen]]:
         return (
@@ -73,7 +73,6 @@ def get_album_play_history(album: Album) -> dict[str, list[spotistats.Listen]]:
             (song.get_variant(id).ids for (id, song) in album.songs),
         )
 
-    print(f'finished collection streams for {album}')
     return {id: list(listens) for (id, listens) in mapped}
 
 
@@ -269,20 +268,6 @@ def top_shortest_time_units_milestones_infographic(
 def top_shortest_time_album_units_milestones_infographic(
     uow: SongUOW, unit_milestone: int, extras=False
 ):
-    """
-    with futures.ThreadPoolExecutor() as executor:
-        executor.map(
-            lambda i: i.update_plays(),
-            uow.songs
-        )
-
-    contenders = [
-        album for album in uow.albums if album.units >= unit_milestone
-    ]
-
-    print(
-        f'found {len(contenders)} contenders for fastest to {unit_milestone}\n'
-    )"""
 
     with futures.ThreadPoolExecutor() as executor:
         units = executor.map(
@@ -839,6 +824,43 @@ def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
         if album.plays > threshold:
             _display_album_plays(album)
 
+def album_first_year_months(uow: SongUOW, month_count: int = 12, threshold: int = 10_000):
+    """
+    displays the first year monthly units for albums with at least `threshold` units.
+    """
+    
+    for album in uow.albums:
+        if album.units < threshold: continue
+
+        months = [0] * month_count # we count months as all being 30 days for simplicity
+        all_listens: dict[str, list[spotistats.Listen]] = get_album_play_history(album)
+
+        incomplete = False
+
+        for (id, song) in album.songs:
+            play_record = all_listens[id]
+            date_counter = Counter(i.finished_playing.date() for i in play_record)
+
+            play_record.sort(key=lambda i: i.finished_playing)
+            start = play_record[0].finished_playing.date()
+            cutoff = start + timedelta(days=30 * month_count)
+            if cutoff > date.today(): incomplete = True
+
+            for day, plays in date_counter.items():
+                if day >= cutoff: continue
+                if plays > MAX_ADJUSTED:
+                    # filter plays so they cap out at 25 per day
+                    plays = MAX_ADJUSTED
+                months[(day - start).days // 30] += plays * 2
+
+            for entry in song.entries:
+                if entry.end >= cutoff: continue
+                if entry.variant in song.get_variant(id).ids:
+                    months[(entry.end - start).days // 30] += 61 - entry.place
+
+        print(f'{album} - first year monthly units {"!!" if incomplete else ""}')
+        print(months)
+
 
 PLAYS_MILESTONES = [25, 50, 75] + list(range(100, 1500, 100))
 CERT_UNITS = [100] + list(range(200, 6000, 200))
@@ -850,10 +872,10 @@ CERTS = [SongCert.from_units(i) for i in CERT_UNITS]
 if __name__ == '__main__':
     uow = SongUOW()
 
-    """
-    update_local_plays(uow, verbose=True)
-    display_top_album_plays_infographic(uow, 1_000)
-    """
+    # update_local_plays(uow, verbose=True)
+    # display_top_album_plays_infographic(uow, 1_000)
+   
+    album_first_year_months(uow, month_count = 36)
 
     """
     for milestone in PLAYS_MILESTONES[::-1]:
@@ -871,8 +893,8 @@ if __name__ == '__main__':
     top_listeners_chart(uow)
     """
 
-    top_collection_consecutive_weeks_infographic(uow.songs)
-    top_collection_consecutive_weeks_infographic(uow.albums)
+    # top_collection_consecutive_weeks_infographic(uow.songs)
+    # top_collection_consecutive_weeks_infographic(uow.albums)
 
     """
     top_shortest_time_units_milestones_infographic(uow, 2_000)
@@ -895,6 +917,8 @@ if __name__ == '__main__':
     top_albums_month(uow, date.fromisoformat('2021-01-01'), date.fromisoformat('2022-01-01'))
     top_albums_month(uow, date.fromisoformat('2022-01-01'), date.fromisoformat('2023-01-01'))
     top_albums_month(uow, date.fromisoformat('2023-01-01'), date.fromisoformat('2024-01-01'))
+    top_albums_month(uow, date.fromisoformat('2024-01-01'), date.fromisoformat('2025-01-01'))
+    top_albums_month(uow, date.fromisoformat('2025-01-01'), date.fromisoformat('2026-01-01'))
 
     for top in ALBUM_TOP:
         top_albums_consecutive_weeks(uow, top)

@@ -79,7 +79,7 @@ def get_missing_songs(uow: SongUOW, threshold: int = 10):
         w.writerows(missing)
 
 
-def get_unused_ids(uow: SongUOW, threshold: int = 0):
+def audit_unused_ids(uow: SongUOW, threshold: int = 0):
     """
     Scans all of the songs listened to across all time, and then
     displays all of the ones that aren't actually being listened to.
@@ -237,15 +237,15 @@ def get_all_time_plays_changes(uow: SongUOW):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    audit_unique_ids(uow)
-    get_new_songs(uow)
-    print('')
-    # get_missing_songs(uow)
+    # audit_unique_ids(uow)
+    # audit_unused_ids(uow)
     # print('')
-    get_unused_ids(uow)
+    # get_new_songs(uow)
     print('')
+    get_missing_songs(uow)
+    # print('')
     # get_all_new_certs(uow)
-    print('')
+    # print('')
     # get_all_new_plays(uow)
     # print('')
     # get_all_time_plays_changes(uow)
