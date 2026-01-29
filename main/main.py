@@ -305,6 +305,8 @@ def create_song_chart(
 
         # song infos that didn't chart are filtered later on because we
         # need the entire thing for albums
+        # primary sort by points, secondary by plays
+        song_info.sort(key=lambda i: i['plays'], reverse=True)
         song_info.sort(key=lambda i: i['points'], reverse=True)
 
         # dump over two week plays as they will be eligible for plays next week
@@ -336,12 +338,13 @@ def create_song_chart(
         process_song(first_pos['id'], first_pos['plays'], 1, first_pos['points'])
 
         prev_points = first_pos['points']
+        prev_plays = first_pos['plays']
         prev_place = 1
         ties = 1
         filtered = [first_pos | {'place': prev_place}]
 
         for pos in song_info[1:]:
-            if pos['points'] == prev_points:
+            if pos['points'] == prev_points and pos['plays'] == prev_plays:
                 ties += 1
                 process_song(pos['id'], pos['plays'], prev_place, pos['points'])
                 filtered.append(pos | {'place': prev_place})
@@ -353,6 +356,7 @@ def create_song_chart(
                 filtered.append(pos | {'place': place})
                 prev_place = place
                 prev_points = pos['points']
+                prev_plays = pos['plays']
                 ties = 1
 
         yield (song_info, filtered, this_wk.start_day, this_wk.end_day)
@@ -531,12 +535,14 @@ def create_album_chart(
 
     album_plays: dict[Album, int] = get_album_plays(uow, positions)
 
-    units: list[tuple[Album, int]] = [
-        (album, u)
+    units: list[tuple[Album, int, int]] = [
+        (album, u, album_plays[album])
         for album in uow.albums
         if (u := album.get_points(end_day) + (2 * album_plays[album])) > 0
     ]
 
+    # primary sort by units, and then secondary sort by plays
+    units.sort(key=itemgetter(2), reverse=True)
     units.sort(key=itemgetter(1), reverse=True)
 
     if len(units) > 20:
@@ -599,24 +605,26 @@ def create_album_chart(
             week_count,
         ]
 
-    f_album, f_units = units[0]
+    f_album, f_units, f_plays = units[0]
     new_rows.append(process_album(f_album, f_units, 1))
 
     prev_units = f_units
+    prev_plays = f_plays
     prev_place = 1
     ties = 1
 
-    for (album, album_units) in units[1:]:
-        if album_units == prev_units:
+    for (album, a_units, a_plays) in units[1:]:
+        if a_units == prev_units and a_plays == prev_plays:
             ties += 1
-            new_rows.append(process_album(album, album_units, prev_place))
+            new_rows.append(process_album(album, a_units, prev_place))
         else:
             place = prev_place + ties
             if place > ALBUMS_CHART_LENGTH:
                 break
-            new_rows.append(process_album(album, album_units, place))
+            new_rows.append(process_album(album, a_units, place))
             prev_place = place
-            prev_units = album_units
+            prev_units = a_units
+            prev_plays = a_plays
             ties = 1
 
     return new_rows + [['']] + album_rows
@@ -707,7 +715,7 @@ def create_personal_charts():
     sheet.update_range(album_range, album_rows)
 
     # use delete range first for the above two processes, because the way
-    # that sheets works, it doens't overwrite when an empty cell is given
+    # that sheets works, it doesn't overwrite when an empty cell is given
     # to overwrite with for some reason, so we clear it first and then
     # add the new data.
 
