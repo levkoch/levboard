@@ -52,7 +52,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     variant_hold = [variant]
 
     if verbose:
-        print(f'{len(songs)} items found.')
+        print(f'Loading all songs. {len(songs)} rows found.')
 
     # first song already primed so we skip it here
     for song_title, demarcator, str_ids, _, str_artists in songs[1:]:
@@ -77,10 +77,16 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
         percentage = count / len(songs) * 100
 
         if verbose:
-            print(
-                f'{count:>5} of {len(songs)} ({percentage:.2f}%):'
+            display = (
+                f'\r <> [{count:04d}/{len(songs)}] ({percentage:.2f}%):'
                 + (' # ' if is_variant else '   ')
                 + f'{song_title} ({ids[0]})'
+            )
+
+            print(
+                display,
+                end=' ' * max(100 - len(display), 1),
+                flush=True,
             )
 
     # process final song
@@ -88,7 +94,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     uow.songs.add(song)
 
     if verbose:
-        print('Completed process. Saving all songs to database.')
+        print('\nAll songs saved.')
     uow.commit()
 
 
@@ -132,16 +138,16 @@ def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
 def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """loads albums from the spreadsheet into the songuow provided."""
 
-    print('finding rows')
+    print()
     sheet = Spreadsheet(sheet_link)
     values: Optional[list[list]] = sheet.get_range('Albums!A1:G').get('values')
     if values is None:
         raise IndexError("shouldn't happen but maybe range error")
 
-    print(f'{len(values)} rows found.')
+    print(f'Loading all albums. {len(values)} rows found.')
 
     row: list[str] = values.pop(0)
-    album_count = itertools.count()
+    album_count = itertools.count(start=1)
 
     while values:
         album_name: str = row[0]
@@ -157,7 +163,11 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
         album = Album(album_name.strip(), album_artists.strip())
         uow.albums.add(album)
         if verbose:
-            print(f'\r({next(album_count)}) Processing {album}', flush=True)
+            print(
+                f'\r<> [{next(album_count):03d}] {album}',
+                end=' ' * 50,
+                flush=True,
+            )
 
         row = values.pop(0)
         try:
@@ -178,6 +188,7 @@ def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):
         # get next album title row
         row = values.pop(0)
 
+    print('\n All albums loaded.')
     uow.commit()
 
 

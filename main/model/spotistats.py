@@ -325,26 +325,27 @@ def songs_week(
     )
 
     r = _get_address(address)
-    items: list[dict] = r.json()['items']
+    additions: list[dict] = r.json()['items']
+    items: list[dict] = additions
 
-    if len(items) % 500 == 0 or len(items) % 500 > 450:
-        # filled in everything (or almost everything, because sometimes stats.fm will
-        # glitch and return 497 or 499 songs for unknown reasons, even though we asked
-        # for 500 of them.)
+    # spotistats has different moods: sometimes it will faithfully return all 500 items
+    # if you ask for 500 items, other times there will be just a couple items missing,
+    # and sometimes they have a big purge, and a request of 500 items will return like 350.
+    # querying for the next 500 items isn't great when the system is actually working great,
+    # because it's an additional blocking request we have to go through, but this also means
+    # that we ensure no data gets lost.
 
-        offset = 500
-        while len(items) % 500 == 0 or len(items) % 500 > 450:
-            address = (
-                f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
-                f'?after={after}&before={before}'
-                f'&limit=500&offset={offset}'
-            )
-            r = _get_address(address)
-            additions = r.json()['items']
-            if not len(additions):
-                break
-            items.extend(additions)
-            offset += 500
+    offset = 500
+    while len(additions) > 0:
+        address = (
+            f'https://api.stats.fm/api/v1/users/{user}/top/tracks'
+            f'?after={after}&before={before}'
+            f'&limit=500&offset={offset}'
+        )
+        r = _get_address(address)
+        additions = r.json()['items']
+        items.extend(additions)
+        offset += 500
 
     info = [
         Position(

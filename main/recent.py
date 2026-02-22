@@ -237,7 +237,7 @@ def get_all_time_plays_changes(uow: SongUOW):
 
 if __name__ == '__main__':
     uow = SongUOW()
-    # audit_unique_ids(uow)
+    audit_unique_ids(uow)
     # audit_unused_ids(uow)
     # print('')
     # get_new_songs(uow)

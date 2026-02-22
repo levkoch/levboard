@@ -824,41 +824,56 @@ def display_top_album_plays_infographic(uow: SongUOW, threshold: int):
         if album.plays > threshold:
             _display_album_plays(album)
 
-def album_first_year_months(uow: SongUOW, month_count: int = 12, threshold: int = 10_000):
+
+def album_first_year_months(
+    uow: SongUOW, month_count: int = 12, threshold: int = 10_000
+):
     """
     displays the first year monthly units for albums with at least `threshold` units.
     """
-    
-    for album in uow.albums:
-        if album.units < threshold: continue
 
-        months = [0] * month_count # we count months as all being 30 days for simplicity
-        all_listens: dict[str, list[spotistats.Listen]] = get_album_play_history(album)
+    for album in uow.albums:
+        if album.units < threshold:
+            continue
+
+        months = [
+            0
+        ] * month_count   # we count months as all being 30 days for simplicity
+        all_listens: dict[
+            str, list[spotistats.Listen]
+        ] = get_album_play_history(album)
 
         incomplete = False
 
         for (id, song) in album.songs:
             play_record = all_listens[id]
-            date_counter = Counter(i.finished_playing.date() for i in play_record)
+            date_counter = Counter(
+                i.finished_playing.date() for i in play_record
+            )
 
             play_record.sort(key=lambda i: i.finished_playing)
             start = play_record[0].finished_playing.date()
             cutoff = start + timedelta(days=30 * month_count)
-            if cutoff > date.today(): incomplete = True
+            if cutoff > date.today():
+                incomplete = True
 
             for day, plays in date_counter.items():
-                if day >= cutoff: continue
+                if day >= cutoff:
+                    continue
                 if plays > MAX_ADJUSTED:
                     # filter plays so they cap out at 25 per day
                     plays = MAX_ADJUSTED
                 months[(day - start).days // 30] += plays * 2
 
             for entry in song.entries:
-                if entry.end >= cutoff: continue
+                if entry.end >= cutoff:
+                    continue
                 if entry.variant in song.get_variant(id).ids:
                     months[(entry.end - start).days // 30] += 61 - entry.place
 
-        print(f'{album} - first year monthly units {"!!" if incomplete else ""}')
+        print(
+            f'{album} - first year monthly units {"!!" if incomplete else ""}'
+        )
         print(months)
 
 
@@ -874,8 +889,8 @@ if __name__ == '__main__':
 
     # update_local_plays(uow, verbose=True)
     # display_top_album_plays_infographic(uow, 1_000)
-   
-    album_first_year_months(uow, month_count = 36)
+
+    album_first_year_months(uow, month_count=36)
 
     """
     for milestone in PLAYS_MILESTONES[::-1]:

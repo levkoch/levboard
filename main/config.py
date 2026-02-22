@@ -20,7 +20,7 @@ from typing import Final
 MAX_ADJUSTED: Final[int] = 25
 # the number of plays required for a chart length of 60 (or more) songs to
 # all reach for that week not be merged into another week.
-# (songs with less than this play count can still chart from previous week 
+# (songs with less than this play count can still chart from previous week
 # points, but this helps weeks be less erratic.)
 MIN_SONG_PLAYS: Final[int] = 2
 # where my google sheet is located at

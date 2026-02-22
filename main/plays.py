@@ -12,6 +12,7 @@ Functions:
 """
 
 import datetime
+import itertools
 
 from collections import defaultdict
 from concurrent import futures
@@ -26,19 +27,6 @@ from spreadsheet import Spreadsheet
 from storage import SongUOW, SongRepository, AlbumRepository
 
 
-def _create_song(song_id: str, song_name: str) -> tuple[Song, int]:
-    song_id = song_id.replace(',', ', ').replace('  ', ' ')
-    if ', ' in song_id:
-        song = Song(song_id.split(', ')[0], song_name)
-        for alt in song_id.split(', ')[1:]:
-            song.add_alt(alt)
-
-    else:
-        song = Song(song_id, song_name)
-
-    return _update_song_plays(song)
-
-
 def _update_song_plays(song: Song) -> tuple[Song, int]:
     return (song, song.adjusted_plays())
 
@@ -49,6 +37,8 @@ PlayUpdater: TypeAlias = Callable[
     ],
     tuple[Song, list[tuple[Variant, int]]],
 ]
+
+Repository: TypeAlias = Union[SongRepository, AlbumRepository]
 
 
 def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PlayUpdater:
@@ -84,19 +74,21 @@ def create_song_play_updater(uow: SongUOW, sheet_id: str) -> PlayUpdater:
         pos.id: pos.plays for pos in saved_plays
     }
     saved_plays_threshold: int = min(pos.plays for pos in saved_plays)
-    assert saved_plays_threshold == 1
-    # should be 1 with how spotistats.songs_week() works
 
     print(
-        f'{len(songs_flagged_for_filtering)} songs flagged for filtering'
-        + f' | Plays threshold is {saved_plays_threshold} plays.'
+        f'{len(songs_flagged_for_filtering)} songs flagged for filtering. '
+        + f'Plays threshold is {saved_plays_threshold} plays.'
+        + f' {len(saved_plays_mapping)} total songs found'
     )
+
+    assert saved_plays_threshold == 1
+    # should be 1 with how spotistats.songs_week() works
 
     def inner_update_song_plays(
         song: Song,
     ) -> tuple[Song, list[tuple[Variant, int]]]:
         if song in songs_flagged_for_filtering:
-            print(f'{song} flagged for filtering')
+            # print(f'{song} flagged for filtering')
             # variant_plays collects listens if the song doesn't have them already the first time
             return (
                 song,
@@ -263,13 +255,12 @@ def update_spreadsheet_variant_plays(
         load_linked_songs(uow, sheet_id)
         print('all songs loaded')
 
-    assert stored_count == song_count, "song counts uneven"  # just in case
+    assert stored_count == song_count, 'song counts uneven'  # just in case
 
     if verbose:
-        print(f'{song_count} items found.')
+        print(f'Updating spreadsheet songs. {song_count} items found.')
 
     final_songs: list[list] = []
-    chops: list[list] = []
 
     with futures.ThreadPoolExecutor() as executor:
         to_do: list[futures.Future] = []
@@ -299,18 +290,19 @@ def update_spreadsheet_variant_plays(
                 final_songs.append(info)
                 first = False
 
-                if plays == 0:
-                    chops.append(info)
-
                 if verbose:
+                    display = (
+                        f'\r<> [{count:04d}/{song_count}] '
+                        + f'<{spotistats.total_requests:03d}> '
+                        + f'{variant.title} -> {plays} plays'
+                    )
                     print(
-                        f'{count:>4} ({(count / song_count * 100.0):.02f}%) '
-                        f'| {spotistats.total_requests:>3} req | '
-                        f'updated {variant.title} by {", ".join(variant.artists)} -> {plays} plays'
+                        display,
+                        end=' ' * max(0, 100 - len(display)),
+                        flush=True,
                     )
 
     print('')
-    # print(chops)
     sheet.update_range(f'Songs!A2:F{len(final_songs) + 1}', final_songs)
 
     if verbose:
@@ -345,8 +337,10 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
                 song, plays = future.result()
                 if verbose:
                     print(
-                        f'{count:>4} ({(count / song_amt * 100.0):.02f}%) '
-                        f'updated {song} -> {plays} plays'
+                        f'\r<> [{count:04d}/{song_amt}] '
+                        f'{song} -> {plays} plays',
+                        end=' ' * 50,
+                        flush=True,
                     )
 
             uow.commit()
@@ -358,9 +352,7 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
 def year_end_collection_creator(sheet_id: str, range_name: str, quantity: int):
     sheet = Spreadsheet(sheet_id)
 
-    def inner(
-        collection: Union[SongRepository, AlbumRepository], verbose=False
-    ):
+    def inner(collection: Repository, verbose=False):
         nonlocal sheet, range_name, quantity
         item_rows: list[list] = []
         kind = type(collection.get(collection.list()[0])).__name__
@@ -468,14 +460,14 @@ def month_end_collection_creator(
 ):
     sheet = Spreadsheet(sheet_id)
 
-    def inner(
-        collection: Union[SongRepository, AlbumRepository], verbose=False
-    ):
+    def inner(collection: Repository, verbose=False):
         nonlocal sheet, range_name, quantity
         item_rows: list[list] = []
         kind: Literal['Album', 'Song'] = type(
             collection.get(collection.list()[0])
         ).__name__
+
+        print(f'Collecting top month-end {kind}s')
 
         cutoff = datetime.date.today()
 
@@ -488,15 +480,15 @@ def month_end_collection_creator(
         current_year = cutoff.year
         current_month = cutoff.month
 
+        count = itertools.count(1)
+
         # nothing actually renders for May 2021 which is when the first date is set
         # to so it counts for everything after that month
         while (current_year > FIRST_DATE.year) or (
             current_month > FIRST_DATE.month
         ):
             if verbose:
-                print(
-                    f'Collecting top {kind}s of {current_month}/{current_year}'
-                )
+                print(f'\r[{next(count):03d}] {current_month}/{current_year}')
 
             year_start = datetime.date(current_year, current_month, 1)
             next_month = 1 if current_month == 12 else current_month + 1
@@ -543,7 +535,7 @@ def month_end_collection_creator(
                     )
                 except ValueError:   # min() arg can't be an empty sequence
                     peak = '-'
-                    
+
                 peak_weeks = sum(
                     1
                     for entry in item.entries
@@ -595,9 +587,7 @@ load_month_end_albums = month_end_collection_creator(
 def milestone_collection_creator(sheet_id: str, range_name: str):
     sheet = Spreadsheet(sheet_id)
 
-    def inner(
-        collection: Union[SongRepository, AlbumRepository], verbose=False
-    ):
+    def inner(collection: Repository, verbose=False):
         nonlocal sheet, range_name
         item_rows: list[list] = []
         kind = type(collection.get(collection.list()[0])).__name__
@@ -673,6 +663,8 @@ if __name__ == '__main__':
         uow,
         verbose=True,
     )
+
+    quit()
 
     update_local_plays(uow, verbose=True)
     print('')

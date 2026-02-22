@@ -126,7 +126,13 @@ def load_all_weeks(start_day: date) -> list[spotistats.Week]:
         # not enough songs streamed to be able
         # to create an actual chart (probably)
         while (
-            len([pos for pos in week.positions.values() if pos.plays >= MIN_SONG_PLAYS])
+            len(
+                [
+                    pos
+                    for pos in week.positions.values()
+                    if pos.plays >= MIN_SONG_PLAYS
+                ]
+            )
             < SONG_CHART_LENGTH
         ):
             try:
@@ -252,7 +258,7 @@ def create_song_chart(
             )
 
         # group by variants to select the most streamed variant to chart
-        # and build the point groups for all songs that got streamed in 
+        # and build the point groups for all songs that got streamed in
         # the past 3 weeks.
 
         for id_group in id_groups:
@@ -289,7 +295,9 @@ def create_song_chart(
                 for song_id in id_group
                 if song_id in this_wk.positions
             )
-            hist_plays = sum(historical_plays.get(song_id, 0) for song_id in id_group)
+            hist_plays = sum(
+                historical_plays.get(song_id, 0) for song_id in id_group
+            )
 
             song_info.append(
                 {
@@ -311,7 +319,9 @@ def create_song_chart(
 
         # dump over two week plays as they will be eligible for plays next week
         for pos in two_wa.positions.values():
-            historical_plays[pos.id] = historical_plays.get(pos.id, 0) + pos.plays
+            historical_plays[pos.id] = (
+                historical_plays.get(pos.id, 0) + pos.plays
+            )
 
         def process_song(song_id: str, plays: int, place: int, points: int):
             """adds a song that charted into the system."""
@@ -329,13 +339,15 @@ def create_song_chart(
             )
             song.add_entry(entry)
 
-            # clear out any historical plays for songs that have charted this 
+            # clear out any historical plays for songs that have charted this
             # week, as they will no longer be eligible.
             for song_id in song.ids:
                 historical_plays[song_id] = 0
 
         first_pos = song_info[0]
-        process_song(first_pos['id'], first_pos['plays'], 1, first_pos['points'])
+        process_song(
+            first_pos['id'], first_pos['plays'], 1, first_pos['points']
+        )
 
         prev_points = first_pos['points']
         prev_plays = first_pos['plays']
@@ -346,7 +358,9 @@ def create_song_chart(
         for pos in song_info[1:]:
             if pos['points'] == prev_points and pos['plays'] == prev_plays:
                 ties += 1
-                process_song(pos['id'], pos['plays'], prev_place, pos['points'])
+                process_song(
+                    pos['id'], pos['plays'], prev_place, pos['points']
+                )
                 filtered.append(pos | {'place': prev_place})
             else:
                 place = prev_place + ties
@@ -383,7 +397,9 @@ def ask_new_song(uow: SongUOW, song_id: str) -> Song:
     if name == 'skip':
         return
     if name.lower() == 'merge':
-        merge: str = input('Name of the song to merge with: ')
+        merge: str = input('Name of the song to merge with: ').strip()
+        if merge == '':
+            merge = tester.title
         merge_into = uow.songs.get_by_name(merge)
         if merge_into is None:
             raise ValueError(
@@ -644,11 +660,18 @@ def create_personal_charts():
 
     print('\nProcessing all weeks')
 
-    for song_positions, filtered_songs, start_day, end_day in create_song_chart(
-        uow, iter(weeks), SONG_CHART_LENGTH
-    ):
+    for (
+        song_positions,
+        filtered_songs,
+        start_day,
+        end_day,
+    ) in create_song_chart(uow, iter(weeks), SONG_CHART_LENGTH):
         week_count = next(week_counter)
-        print(f'\r<> [{week_count:03d}/{len(weeks)-2}] ({end_day.isoformat()})', end='', flush=True)
+        print(
+            f'\r<> [{week_count:03d}/{len(weeks)-2}] ({end_day.isoformat()})',
+            end='',
+            flush=True,
+        )
         # show_chart(uow, song_positions, start_day, end_day, week_count)
         song_rows = update_song_sheet(
             song_rows, uow, filtered_songs, start_day, end_day, week_count
