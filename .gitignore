@@ -132,11 +132,11 @@ dmypy.json
 main/info.txt
 main/info.csv
 
+/data
 data/albums.json
 data/songs.json
 data/groupalbums.json
 data/groupsongs.json
-token.env
 
 node_modules
 .DS_Store

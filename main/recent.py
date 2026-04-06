@@ -96,7 +96,7 @@ def audit_unused_ids(uow: SongUOW, threshold: int = 0):
             if id not in listened_ids:
                 found = True
                 print(
-                    f'{song} variant with id {id} not streamed. '
+                    f'{id:<10} not found: {song} '
                     f'link: https://stats.fm/track/{id}'
                 )
 
@@ -238,11 +238,11 @@ def get_all_time_plays_changes(uow: SongUOW):
 if __name__ == '__main__':
     uow = SongUOW()
     audit_unique_ids(uow)
-    # audit_unused_ids(uow)
+    audit_unused_ids(uow)
     # print('')
     # get_new_songs(uow)
-    print('')
-    get_missing_songs(uow)
+    # print('')
+    # get_missing_songs(uow)
     # print('')
     # get_all_new_certs(uow)
     # print('')

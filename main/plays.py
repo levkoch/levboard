@@ -251,8 +251,9 @@ def update_spreadsheet_variant_plays(
 
     if stored_count != song_count:
         print('some songs are missing from the UOW, fetching them.')
-        print(f'{song_count} songs in sheet, {stored_count} in uow')
         load_linked_songs(uow, sheet_id)
+        stored_count = len(uow.songs)
+        print(f'{song_count} songs in sheet, {stored_count} in uow')
         print('all songs loaded')
 
     assert stored_count == song_count, 'song counts uneven'  # just in case
@@ -336,17 +337,17 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
             for count, future in enumerate(futures.as_completed(to_do), 1):
                 song, plays = future.result()
                 if verbose:
+                    display =  f'\r<> [{count:04d}/{song_amt}] {song} -> {plays} plays'
                     print(
-                        f'\r<> [{count:04d}/{song_amt}] '
-                        f'{song} -> {plays} plays',
-                        end=' ' * 50,
+                        display,
+                        end=' ' * max(0, 100-len(display)),
                         flush=True,
                     )
 
             uow.commit()
 
     if verbose:
-        print(f'Updated {song_amt} local song plays.')
+        print(f'\nUpdated {song_amt} local song plays.')
 
 
 def year_end_collection_creator(sheet_id: str, range_name: str, quantity: int):
@@ -488,7 +489,7 @@ def month_end_collection_creator(
             current_month > FIRST_DATE.month
         ):
             if verbose:
-                print(f'\r[{next(count):03d}] {current_month}/{current_year}')
+                print(f'\r[{next(count):03d}] {current_month}/{current_year}', end=" ", flush=True)
 
             year_start = datetime.date(current_year, current_month, 1)
             next_month = 1 if current_month == 12 else current_month + 1
@@ -573,6 +574,8 @@ def month_end_collection_creator(
         sheet.delete_range(range_name)
         sheet.append_range(range_name, item_rows)
 
+        if verbose: print() # newline for all the \r end='' nonsense
+
     return inner
 
 
@@ -636,6 +639,7 @@ def milestone_collection_creator(sheet_id: str, range_name: str):
                 year_average,
                 lifetime_average,
             ]
+
             if kind == 'Song':
                 info.append(item.sheet_id)
             item_rows.append(info)
@@ -663,8 +667,6 @@ if __name__ == '__main__':
         uow,
         verbose=True,
     )
-
-    quit()
 
     update_local_plays(uow, verbose=True)
     print('')
