@@ -3,6 +3,7 @@ levboard/main/model/spotistats.py
 
 A Module with common Spotistats requests to make it easier to make them.
 I suggest importing the model and not the requests separately for readability.
+Now it can access local listens.db data for quicker & more accurate readings.
 
 Requests:
 * `song_info`: Retrieves the info for a song.
@@ -12,6 +13,7 @@ Requests:
 """
 
 import functools
+import sqlite3
 import time
 import random
 import requests
@@ -20,9 +22,10 @@ import string
 
 from collections import Counter, defaultdict
 from concurrent import futures
+from contextlib import contextmanager
 from datetime import date, datetime
 from typing import Final, Iterable, Optional, Union
-from pydantic import BaseModel, NonNegativeInt
+from pydantic import BaseModel
 
 USER_NAME: Final[str] = 'lev'
 MIN_PLAYS: Final[int] = 1
@@ -35,6 +38,65 @@ BANNED_SONGS: Final[set[str]] = {'15225941'}
 total_requests: int = 0
 all_requests: Counter = Counter([])
 
+DB_PATH: str = 'listens.db'
+# epoch ms of the newest row in the DB
+_latest_local_ts: Optional[int] = None   
+
+
+@contextmanager
+def _db():
+    '''helper method to connect to database'''
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    try:
+        yield conn
+    finally:
+        conn.close()
+
+
+def _latest_stream_ts() -> Optional[int]:
+    """
+    Returns the epoch-ms timestamp of the most recent listen in the local DB,
+    or None if the DB is unavailable / empty.
+    """
+    global _latest_local_ts
+    if _latest_local_ts is not None:
+        return _latest_local_ts
+    if not DB_PATH:
+        return None
+    try:
+        with _db() as conn:
+            row = conn.execute('SELECT MAX(ts) as m FROM listens').fetchone()
+            _latest_local_ts = row['m'] if row and row['m'] else None
+            return _latest_local_ts
+    except Exception:
+        return None
+
+
+def _ts(day: Union[date, int, None]) -> Optional[int]:
+    """Convert a date or epoch-ms int to epoch-ms, or None if falsy."""
+    if not day:
+        return None
+    if isinstance(day, date):
+        return int(datetime(day.year, day.month, day.day).timestamp() * 1000)
+    if isinstance(day, int):
+        return day
+    raise TypeError(f'Expected date or int, got {type(day)}')
+
+
+def _within_local(before: Union[date, int, None]) -> bool:
+    """
+    True when the requested `before` bound is entirely covered by the local DB
+    (i.e. the query does not extend past the latest stored stream).
+    A None/0 `before` means "up to now", which the local DB cannot cover.
+    """
+    if not before:
+        return False
+    latest = _latest_stream_ts()
+    if latest is None:
+        return False
+    return (_ts(before) or 0) <= latest
+
 
 @tenacity.retry(stop=tenacity.stop.stop_after_attempt(3))
 def _get_address(address: str) -> requests.Response:
@@ -43,8 +105,6 @@ def _get_address(address: str) -> requests.Response:
     sends a bad gateway error like spotistats likes doing if it's
     servers are overloaded at the moment.
     """
-    # this is for getting around bot identification for the cloud scraping
-    # so they think the request is coming from an ipad
     HEADERS = {
         'User-Agent': 'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit'
         '/605.1.15 (KHTML, like Gecko) Mobile/15E148'
@@ -60,11 +120,7 @@ def _get_address(address: str) -> requests.Response:
     response.raise_for_status()
     global total_requests, all_requests
     total_requests += 1
-    all_requests.update(
-        [
-            address,
-        ]
-    )
+    all_requests.update([address])
     return response
 
 
@@ -85,86 +141,6 @@ def _timestamp_check(day: Union[date, int]) -> int:
     raise TypeError('please give a date or an int timestamp.')
 
 
-def song_info(song_id: str) -> dict:
-    """Returns the information about a song, from the song id."""
-    r = _get_address(f'http://api.stats.fm/api/v1/tracks/{song_id}')
-    return r.json()['item']
-
-
-def top_artists() -> list[tuple[str, str]]:
-    r = _get_address(
-        f'http://api.stats.fm/api/v1/users/{USER_NAME}/top/artists?limit=1000'
-    )
-    return [
-        (artist['artist']['name'], artist['artist']['id'])
-        for artist in r.json()['items']
-    ]
-
-
-def song_plays(
-    song_id: str,
-    *,
-    user: str = USER_NAME,
-    after: Union[int, date] = 0,
-    before: Union[int, date] = 0,
-    adjusted: bool = False,
-) -> int:
-    """
-    Finds the plays for a song with the specified song id, between `after`
-    and `before`, if specified. The `after` and `before` parameters can be
-    either date objects or epoch timestamps (if they are `0` then the plays
-    will not be filtered by time). If `adjusted` is true, then the song
-    plays will also be filtered.
-    """
-
-    after = _timestamp_check(after)
-    before = _timestamp_check(before)
-
-    if adjusted:
-        return _adjusted_song_plays(song_id, user, after, before)
-
-    address = (
-        f'https://api.stats.fm/api/v1/users/{user}/'
-        f'streams/tracks/{song_id}/stats'
-    )
-
-    if after or before:
-        address += '?'
-
-    if after:
-        address += f'after={after}'
-
-    if after and before:
-        address += '&'
-
-    if before:
-        address += f'before={before}'
-
-    r = _get_address(address)
-
-    return r.json()['items']['count']
-
-
-def _adjusted_song_plays(
-    song_id: str,
-    user: str,
-    after: Union[date, int, None],
-    before: Union[date, int, None],
-) -> int:
-    """
-    Internal helper method to find the adjusted plays for a song between
-    a certain period.
-    """
-
-    plays: list[Listen] = song_play_history(
-        song_id, user=user, after=after, before=before
-    )
-
-    play_dates: Iterable[date] = (i.finished_playing.date() for i in plays)
-    date_counter = Counter(play_dates)
-    return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
-
-
 class Position(BaseModel):
     """
     A single song's entry on a basic spotistats chart.
@@ -181,6 +157,27 @@ class Position(BaseModel):
 
     def __hash__(self):
         return hash((self.id, self.plays, self.place))
+
+
+class Listen(BaseModel):
+    """
+    A song listen.
+
+    * played_for (`int`): The number of milliseconds the song was played for.
+    * finished_playing (`datetime`): The time the song was finished being
+        listened to.
+    * played_from (`int`): the song id we listened to the song from.
+    """
+
+    played_for: int
+    finished_playing: datetime
+    played_from: str
+
+    def __lt__(self, other):
+        try:
+            return self.finished_playing < other.finished_playing
+        except AttributeError:
+            return NotImplemented
 
 
 class Week(BaseModel):
@@ -266,29 +263,201 @@ class Week(BaseModel):
         )
 
 
-def album_tracks(album_id: str):
-    address = f'http://api.stats.fm/api/v1/albums/{album_id}/tracks'
-    info = _get_address(address).json()
+def song_info(song_id: str) -> dict:
+    """Returns the information about a song, from the song id."""
+    if song_id.isnumeric():
+        # yay it's a stats fm id
+        r = _get_address(f'http://api.stats.fm/api/v1/tracks/{song_id}')
+        return r.json()['item']
+    
+    # it's not a stats fm id. we need to do some more digging to find it.
 
-    return [i['id'] for i in info['items']]
+    sql = """
+        SELECT track_name, artist_name
+        FROM   listens
+        WHERE  statsfm_id = ?
+    """
+    params: list = [song_id]
+
+    with _db() as conn:
+        item = conn.execute(sql, params).fetchone()
+    return {
+        'name': item['track_name'], 
+        'artists': [{ 'name': item['artist_name'] }]
+    }
 
 
-def artist_tracks(artist_id: str) -> list[str]:
-    address = f'http://api.stats.fm/api/v1/artists/{artist_id}/tracks?limit={MAX_ENTRIES}'
-    info = _get_address(address).json()
+def song_play_history(
+    song_id: str,
+    *,
+    user: str = USER_NAME,
+    after: Union[date, int, None] = None,
+    before: Union[date, int, None] = None,
+) -> list[Listen]:
+    """Returns a list of song listens for the indicated song id."""
 
-    # filter out all songs shorter than 30000 milliseconds (30 seconds)
-    return [str(i['id']) for i in info['items'] if i['durationMs'] >= 30_000]
+    if _within_local(before) or not song_id.isnumeric():
+        # if we want to search in a range that's inside our local data, we look at the local data.
+        # if the song isn't a stats fm id song (either untied, or a X____ id from a song that was 
+        # wrongly merged on stats fm), we also go look at local data only.
+        return _local_song_play_history(song_id, after=after, before=before)
+    
+    if (after is None or _ts(after) < _latest_local_ts) and (before is None or _ts(before) > _latest_local_ts):
+        # we have a section which is covered by our current local data,
+        # and then a section which isn't.
 
+        local_plays = _local_song_play_history(song_id, after=after, before=_latest_local_ts)
+        statsfm_plays = song_play_history(song_id, after=_latest_local_ts, before=before)
 
-def first_listen(user: str = USER_NAME) -> date:
+        return sorted(local_plays + statsfm_plays)
+
     address = (
-        f'http://api.stats.fm/api/v1/users/{user}/streams?limit=1&order=asc'
+        f'https://api.stats.fm/api/v1/users/{user}/streams/'
+        f'tracks/{song_id}?limit={MAX_ENTRIES}'
     )
-    info = _get_address(address).json()
-    return datetime.strptime(
-        info['items'][0]['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
-    ).date()
+
+    if after:
+        address += f'&after={_timestamp_check(after)}'
+    if before:
+        address += f'&before={_timestamp_check(before)}'
+
+    r = _get_address(address)
+
+    # datetime is formatted like '2022-04-11T05:03:15.000Z'
+    # get rid of milliseconds with string slice because they're gonna be 000 anyway
+    return [
+        Listen(
+            played_for=int(i['playedMs']),
+            finished_playing=datetime.strptime(
+                i['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
+            ),
+            played_from=song_id,
+        )
+        for i in r.json()['items']
+    ]
+
+
+def _local_song_play_history(
+    song_id: str,
+    *,
+    after: Union[date, int, None] = None,
+    before: Union[date, int, None] = None,
+) -> list[Listen]:
+    """Serves song_play_history entirely from the local DB."""
+
+    after_ts = _ts(after)
+    before_ts = _ts(before)
+
+    sql = """
+        SELECT ts, ms_played, track_id
+        FROM   listens
+        WHERE  statsfm_id = ?
+    """
+    params: list = [song_id]
+
+    if after_ts:
+        sql += ' AND ts >= ?'
+        params.append(after_ts)
+    if before_ts:
+        sql += ' AND ts <= ?'
+        params.append(before_ts)
+
+    sql += f' ORDER BY ts DESC'
+
+    with _db() as conn:
+        rows = conn.execute(sql, params).fetchall()
+
+    return [
+        Listen(
+            played_for=row['ms_played'],
+            finished_playing=datetime.fromtimestamp(row['ts'] / 1000),
+            played_from=row['track_id'],
+        )
+        for row in rows
+    ]
+
+
+def song_plays(
+    song_id: str,
+    *,
+    user: str = USER_NAME,
+    after: Union[int, date] = 0,
+    before: Union[int, date] = 0,
+    adjusted: bool = False,
+) -> int:
+    """
+    Finds the plays for a song with the specified song id, between `after`
+    and `before`, if specified. The `after` and `before` parameters can be
+    either date objects or epoch timestamps (if they are `0` then the plays
+    will not be filtered by time). If `adjusted` is true, then the song
+    plays will also be filtered.
+    """
+
+    after = _timestamp_check(after)
+    before = _timestamp_check(before)
+
+    if adjusted:
+        return _adjusted_song_plays(song_id, user, after, before)
+
+    if _within_local(before):
+        return _local_song_plays(song_id, after=after, before=before)
+
+    address = (
+        f'https://api.stats.fm/api/v1/users/{user}/'
+        f'streams/tracks/{song_id}/stats'
+    )
+
+    if after or before:
+        address += '?'
+    if after:
+        address += f'after={after}'
+    if after and before:
+        address += '&'
+    if before:
+        address += f'before={before}'
+
+    r = _get_address(address)
+    return r.json()['items']['count']
+
+
+def _local_song_plays(
+    song_id: str,
+    *,
+    after: Union[int, None] = None,
+    before: Union[int, None] = None,
+) -> int:
+    """Serves song_plays entirely from the local DB."""
+
+    sql = 'SELECT COUNT(*) as cnt FROM listens WHERE statsfm_id = ?'
+    params: list = [song_id]
+
+    if after:
+        sql += ' AND ts >= ?'
+        params.append(after)
+    if before:
+        sql += ' AND ts <= ?'
+        params.append(before)
+
+    with _db() as conn:
+        return conn.execute(sql, params).fetchone()['cnt']
+
+
+def _adjusted_song_plays(
+    song_id: str,
+    user: str,
+    after: Union[date, int, None],
+    before: Union[date, int, None],
+) -> int:
+    """
+    Internal helper method to find the adjusted plays for a song between
+    a certain period.
+    """
+    plays: list[Listen] = song_play_history(
+        song_id, user=user, after=after, before=before
+    )
+    play_dates: Iterable[date] = (i.finished_playing.date() for i in plays)
+    date_counter = Counter(play_dates)
+    return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
 
 # this gets called by `main` in two places with the same values, so we cache
@@ -310,12 +479,39 @@ def songs_week(
     Additionally allows for plays to be filtered, if `adjusted` is set to
     `True`.
 
-    The return is a list of dictionaries with two values: `'plays'` with
-    the number of plays, and `'id'` with the song id of the song they're for.
+    The return is a list of `Position` objects with related id, plays, and 
+    place information attached.
     """
 
     after = _timestamp_check(after)
     before = _timestamp_check(before)
+
+    if _within_local(before):
+        # local is auto adjusted
+        return _local_songs_week(after, before)
+    
+    if _ts(after) < _latest_local_ts and _ts(before) > _latest_local_ts:
+        # we have a section which is covered by our current local data,
+        # and then a section which isn't.
+
+        local_week = _local_songs_week(after, _latest_local_ts)
+        statsfm_week = songs_week(_latest_local_ts, before)
+
+        # and then we go ham with merging
+        combined: dict[str, int] = defaultdict(int)
+        for pos in local_week:
+            combined[pos.id] += pos.plays
+        for pos in statsfm_week:
+            combined[pos.id] += pos.plays
+
+        info = [
+            Position(id=song_id, plays=plays, place=0)
+            for song_id, plays in combined.items()
+        ]
+
+        for pos in info:
+            pos.place = len([i for i in info if i.plays > pos.plays]) + 1
+        return sorted(info, reverse=True, key=lambda i: i.plays)
 
     # max limit for this request is 500 songs and not the 10,000 like others have
     address = (
@@ -379,71 +575,35 @@ def songs_week(
     return sorted(info, reverse=True, key=lambda i: i.plays)
 
 
-class Listen(BaseModel):
+def _local_songs_week(
+    after: int,
+    before: int,
+) -> list[Position]:
     """
-    A song listen.
-
-    * played_for (`int`): The number of milliseconds the song was played for.
-    * finished_playing (`datetime`): The time the song was finished being
-        listened to.
-    * played_from (`int`): the song id we listened to the song from.
+    Serves songs_week entirely from the local DB.
+    This call is automatically adjusted, as the local database 
+    pre-filters out the overstreamed songs.
     """
 
-    played_for: int
-    finished_playing: datetime
-    played_from: str
+    sql = """
+        SELECT   statsfm_id, COUNT(*) as streams
+        FROM     listens
+        WHERE    statsfm_id IS NOT NULL
+          AND    ts >= ?
+          AND    ts <= ?
+        GROUP BY statsfm_id
+        ORDER BY streams DESC
+    """
 
+    with _db() as conn:
+        rows = conn.execute(sql, [after, before]).fetchall()
 
-def song_play_history(
-    song_id: str,
-    *,
-    user: str = USER_NAME,
-    after: Union[date, int, None] = None,
-    before: Union[date, int, None] = None,
-    max_entries: NonNegativeInt = MAX_ENTRIES,
-) -> list[Listen]:
-
-    """Returns a list of song listens for the indicated song id."""
-
-    address = (
-        f'https://api.stats.fm/api/v1/users/{user}/streams/'
-        f'tracks/{song_id}?limit={max_entries}'
-    )
-
-    if after:
-        address += f'&after={_timestamp_check(after)}'
-
-    if before:
-        address += f'&before={_timestamp_check(before)}'
-
-    r = _get_address(address)
-
-    # datetime is formatted like '2022-04-11T05:03:15.000Z'
-    # get rid of milliseconds with string slice
-    # because they're gonna be 000 anyway
-
-    return [
-        Listen(
-            played_for=int(i['playedMs']),
-            finished_playing=datetime.strptime(
-                i['endTime'][:-5], r'%Y-%m-%dT%H:%M:%S'
-            ),
-            played_from=song_id,
-        )
-        for i in r.json()['items']
+    info: list[Position] = [
+        Position(id=row['statsfm_id'], plays=row['streams'], place=0)
+        for row in rows
+        # we also don't check for banned ids, as the pre-processing already does this.
     ]
 
-
-def track_top_listener(song_id: str, user: str = USER_NAME) -> Optional[int]:
-    """
-    Returns the position `user` has in the world listening chart for the
-    song corresponding to `song_id`. Will return `None` if they're not in
-    the top 1000 users.
-    """
-
-    address = f'https://api.stats.fm/api/v1/tracks/{song_id}/top/listeners'
-    r = _get_address(address)
-    return next(
-        (i['position'] for i in r.json()['items'] if i['customId'] == user),
-        None,
-    )
+    for pos in info:
+        pos.place = sum(1 for i in info if i.plays > pos.plays) + 1
+    return info

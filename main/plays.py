@@ -224,6 +224,52 @@ def update_spreadsheet_plays(
         print(f'Updated {song_amt} spreadsheet song plays.')
 
 
+def update_spreadsheet_local_plays(
+    sheet_id: str, verbose=False
+):
+    """
+    updates the song plays in the spreadsheet. doesn't even care about uow, 
+    as the song links can be inferred from the sheet itself.
+
+    now that we filter out the over-streamed listens when we process the 
+    local music data, we can simplify this entire process so much.
+    """
+
+    sheet = Spreadsheet(sheet_id)
+    songs: list[list] = [
+        i for i in sheet.get_range('Songs!A2:G').get('values') if i[0]
+    ]
+    song_count = sum(1 for row in songs if row[1] != 'X')
+
+    if verbose:
+        print(f'Updating {song_count} songs ({len(songs)} total rows) from local DB.')
+
+    # we don't bother filtering it any more, as it already gets filtered in songs_week.
+    all_streams: dict[str, int] = {
+        pos.id: pos.plays
+        for pos in spotistats.songs_week(
+            after=datetime.date(2000, 1, 1),
+            before=datetime.date(3000, 1, 1),
+        )
+    }
+
+    final_songs: list[list] = []
+
+    for row in songs:
+        title, var_ind, statsfm_str, sheet_id, spotify_uris, artists, _ = row
+
+        statsfm_ids = [s.strip() for s in statsfm_str.split(',') if s.strip()]
+        plays = sum(all_streams.get(sid, 0) for sid in statsfm_ids)
+
+        final_songs.append(["'" + title if title[0].isnumeric() else title, 
+                            var_ind, statsfm_str, sheet_id, spotify_uris, artists, plays])
+
+    sheet.update_range(f'Songs!A2:G{len(final_songs) + 1}', final_songs)
+
+    if verbose:
+        print(f'Updated {song_count} songs ({len(final_songs)} rows).')
+
+
 def update_spreadsheet_variant_plays(
     play_updater: PlayUpdater,
     sheet_id: str,
@@ -285,6 +331,7 @@ def update_spreadsheet_variant_plays(
                     '' if first else 'X',
                     ', '.join(variant.ids),
                     song.sheet_id,
+                    ', '.join(variant.spotify_uris),
                     ', '.join(variant.artists),
                     plays,
                 ]
@@ -304,7 +351,7 @@ def update_spreadsheet_variant_plays(
                     )
 
     print('')
-    sheet.update_range(f'Songs!A2:F{len(final_songs) + 1}', final_songs)
+    sheet.update_range(f'Songs!A2:G{len(final_songs) + 1}', final_songs)
 
     if verbose:
         print(
@@ -337,10 +384,10 @@ def update_local_plays(uow: SongUOW, verbose: bool = False) -> None:
             for count, future in enumerate(futures.as_completed(to_do), 1):
                 song, plays = future.result()
                 if verbose:
-                    display =  f'\r<> [{count:04d}/{song_amt}] {song} -> {plays} plays'
+                    display = f'\r<> [{count:04d}/{song_amt}] {song} -> {plays} plays'
                     print(
                         display,
-                        end=' ' * max(0, 100-len(display)),
+                        end=' ' * max(0, 100 - len(display)),
                         flush=True,
                     )
 
@@ -489,7 +536,11 @@ def month_end_collection_creator(
             current_month > FIRST_DATE.month
         ):
             if verbose:
-                print(f'\r[{next(count):03d}] {current_month}/{current_year}', end=" ", flush=True)
+                print(
+                    f'\r[{next(count):03d}] {current_month}/{current_year}',
+                    end=' ',
+                    flush=True,
+                )
 
             year_start = datetime.date(current_year, current_month, 1)
             next_month = 1 if current_month == 12 else current_month + 1
@@ -574,7 +625,8 @@ def month_end_collection_creator(
         sheet.delete_range(range_name)
         sheet.append_range(range_name, item_rows)
 
-        if verbose: print() # newline for all the \r end='' nonsense
+        if verbose:
+            print()   # newline for all the \r end='' nonsense
 
     return inner
 
@@ -661,12 +713,13 @@ load_album_averages = milestone_collection_creator(
 if __name__ == '__main__':
     uow = SongUOW()
 
-    update_spreadsheet_variant_plays(
-        create_song_play_updater(uow, LEVBOARD_SHEET),
-        LEVBOARD_SHEET,
-        uow,
-        verbose=True,
-    )
+    # update_spreadsheet_variant_plays(
+    #    create_song_play_updater(uow, LEVBOARD_SHEET),
+    #    LEVBOARD_SHEET,
+    #    uow,
+    #    verbose=True, )
+
+    update_spreadsheet_local_plays(LEVBOARD_SHEET, verbose=True)
 
     update_local_plays(uow, verbose=True)
     print('')

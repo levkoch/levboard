@@ -21,6 +21,7 @@ class Variant(BaseModel):
     main_id: str
     title: str
     ids: set[str]
+    spotify_uris: set[str]
     artists: tuple[str, ...]
 
     def to_dict(self):
@@ -28,6 +29,7 @@ class Variant(BaseModel):
             'main_id': self.main_id,
             'title': self.title,
             'ids': list(self.ids),
+            'spotify_uris': list(self.spotify_uris),
             'artists': list(self.artists),
         }
 
@@ -44,7 +46,7 @@ class Variant(BaseModel):
         artists = tuple(i['name'] for i in info['artists'])
 
         return cls(
-            main_id=main_id, title=title, ids={main_id}, artists=artists
+            main_id=main_id, title=title, ids={main_id}, spotify_uris=set(), artists=artists
         )
 
 
@@ -106,6 +108,7 @@ class Song:
                 ids={
                     self.main_id,
                 },
+                spotify_uris=set(),
                 artists=(),
             )
         self._variants: dict[str, Variant] = {self.main_id: self.main_variant}

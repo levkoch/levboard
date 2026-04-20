@@ -132,6 +132,9 @@ dmypy.json
 main/info.txt
 main/info.csv
 
+/raw
+listens.db
+
 /data
 data/albums.json
 data/songs.json

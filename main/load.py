@@ -7,6 +7,7 @@ from config import LEVBOARD_SHEET, GROUPBOARD_SHEET, ALBUM_FILE, SONG_FILE
 from model import Album, Song, Variant
 from spreadsheet import Spreadsheet
 from storage import SongUOW
+from localprocess import process_local_streams
 
 
 def _create_new_song(ids: list[str], name: str) -> Song:
@@ -34,19 +35,21 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     """
 
     sheet = Spreadsheet(sheet_link)
-    values = sheet.get_range('Songs!A2:E').get('values')
+    values = sheet.get_range('Songs!A2:F').get('values')
     songs: list[list[str]] = [i for i in values if i[0]]
 
     counter = itertools.count(start=2)
 
     # prime first song
-    song_title, _, str_ids, _, str_artists = songs[0]
+    # missing fields are variant indicator, sheet id, and spotify uris
+    song_title, _, str_ids, _, spotify_uris, str_artists = songs[0]
     ids = str_ids.split(', ')
     prev_id: str = ids[0]
     variant = Variant(
         main_id=ids[0],
         title=song_title,
         ids=set(ids),
+        spotify_uris = set(spotify_uris.split(", ")),
         artists=str_artists.split(', '),
     )
     variant_hold = [variant]
@@ -55,7 +58,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
         print(f'Loading all songs. {len(songs)} rows found.')
 
     # first song already primed so we skip it here
-    for song_title, demarcator, str_ids, _, str_artists in songs[1:]:
+    for song_title, demarcator, str_ids, _, spotify_uris, str_artists in songs[1:]:
         is_variant = demarcator == 'X'
 
         if not is_variant:
@@ -69,6 +72,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
             main_id=ids[0],
             title=song_title,
             ids=set(ids),
+            spotify_uris = set(spotify_uris.split(", ")),
             artists=str_artists.split(', '),
         )
         variant_hold.append(variant)
@@ -203,6 +207,8 @@ def blank_storage_files(files: Iterable[str]):
 if __name__ == '__main__':
 
     blank_storage_files([ALBUM_FILE, SONG_FILE])
+    process_local_streams()
+    print('')
 
     uow = SongUOW()
     load_linked_songs(uow, LEVBOARD_SHEET, verbose=True)

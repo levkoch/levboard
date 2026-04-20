@@ -727,42 +727,6 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
         )
     print('')
 
-
-def get_top_listener(song_id: str) -> tuple[str, Optional[int]]:
-    try:
-        return song_id, spotistats.track_top_listener(song_id)
-    except Exception:
-        print('error fetching ' + song_id)
-
-
-def top_listeners_chart(uow: SongUOW):
-    """
-    NOTE: this currently doesn't work as stats.fm doesn't like third party
-    people accessing leaderboards. I'll see if i can ask for a different
-    endpoint so that this still works, because we only care about one
-    person, anyway.
-    """
-
-    all_song_ids = [song.main_id for song in uow.songs if song._plays >= 100]
-    with futures.ThreadPoolExecutor() as executor:
-        units: list[tuple[str, Optional[int]]] = list(
-            executor.map(
-                lambda i: (
-                    i,
-                    get_top_listener(i),
-                ),
-                all_song_ids,
-            )
-        )
-    units = [unit for unit in units if unit[1] is not None and unit[1] <= 50]
-    units.sort(key=itemgetter(1))
-
-    print('Top worldwide positions for songs:')
-    for song_id, position in units:
-        song = uow.songs.get(song_id)
-        print(f'{position:02d} | {str(song)} | {song._plays} plays')
-
-
 def all_number_one_weeks_album(uow: SongUOW):
     items = [
         (
