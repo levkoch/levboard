@@ -40,12 +40,12 @@ all_requests: Counter = Counter([])
 
 DB_PATH: str = 'listens.db'
 # epoch ms of the newest row in the DB
-_latest_local_ts: Optional[int] = None   
+_latest_local_ts: Optional[int] = None
 
 
 @contextmanager
 def _db():
-    '''helper method to connect to database'''
+    """helper method to connect to database"""
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     try:
@@ -269,7 +269,7 @@ def song_info(song_id: str) -> dict:
         # yay it's a stats fm id
         r = _get_address(f'http://api.stats.fm/api/v1/tracks/{song_id}')
         return r.json()['item']
-    
+
     # it's not a stats fm id. we need to do some more digging to find it.
 
     sql = """
@@ -281,9 +281,11 @@ def song_info(song_id: str) -> dict:
 
     with _db() as conn:
         item = conn.execute(sql, params).fetchone()
+    if item is None:
+        raise ValueError('track not found in database.')
     return {
-        'name': item['track_name'], 
-        'artists': [{ 'name': item['artist_name'] }]
+        'name': item['track_name'],
+        'artists': [{'name': item['artist_name']}],
     }
 
 
@@ -298,16 +300,22 @@ def song_play_history(
 
     if _within_local(before) or not song_id.isnumeric():
         # if we want to search in a range that's inside our local data, we look at the local data.
-        # if the song isn't a stats fm id song (either untied, or a X____ id from a song that was 
+        # if the song isn't a stats fm id song (either untied, or a X____ id from a song that was
         # wrongly merged on stats fm), we also go look at local data only.
         return _local_song_play_history(song_id, after=after, before=before)
-    
-    if (after is None or _ts(after) < _latest_local_ts) and (before is None or _ts(before) > _latest_local_ts):
+
+    if (after is None or _ts(after) < _latest_stream_ts()) and (
+        before is None or _ts(before) > _latest_stream_ts()
+    ):
         # we have a section which is covered by our current local data,
         # and then a section which isn't.
 
-        local_plays = _local_song_play_history(song_id, after=after, before=_latest_local_ts)
-        statsfm_plays = song_play_history(song_id, after=_latest_local_ts, before=before)
+        local_plays = _local_song_play_history(
+            song_id, after=after, before=_latest_stream_ts()
+        )
+        statsfm_plays = song_play_history(
+            song_id, after=_latest_stream_ts(), before=before
+        )
 
         return sorted(local_plays + statsfm_plays)
 
@@ -349,7 +357,7 @@ def _local_song_play_history(
     before_ts = _ts(before)
 
     sql = """
-        SELECT ts, ms_played, track_id
+        SELECT ts, ms_played, statsfm_id
         FROM   listens
         WHERE  statsfm_id = ?
     """
@@ -371,7 +379,7 @@ def _local_song_play_history(
         Listen(
             played_for=row['ms_played'],
             finished_playing=datetime.fromtimestamp(row['ts'] / 1000),
-            played_from=row['track_id'],
+            played_from=row['statsfm_id'],
         )
         for row in rows
     ]
@@ -479,7 +487,7 @@ def songs_week(
     Additionally allows for plays to be filtered, if `adjusted` is set to
     `True`.
 
-    The return is a list of `Position` objects with related id, plays, and 
+    The return is a list of `Position` objects with related id, plays, and
     place information attached.
     """
 
@@ -489,13 +497,13 @@ def songs_week(
     if _within_local(before):
         # local is auto adjusted
         return _local_songs_week(after, before)
-    
-    if _ts(after) < _latest_local_ts and _ts(before) > _latest_local_ts:
+
+    if _ts(after) < _latest_stream_ts() and _ts(before) > _latest_stream_ts():
         # we have a section which is covered by our current local data,
         # and then a section which isn't.
 
-        local_week = _local_songs_week(after, _latest_local_ts)
-        statsfm_week = songs_week(_latest_local_ts, before)
+        local_week = _local_songs_week(after, _latest_stream_ts())
+        statsfm_week = songs_week(_latest_stream_ts(), before)
 
         # and then we go ham with merging
         combined: dict[str, int] = defaultdict(int)
@@ -581,7 +589,7 @@ def _local_songs_week(
 ) -> list[Position]:
     """
     Serves songs_week entirely from the local DB.
-    This call is automatically adjusted, as the local database 
+    This call is automatically adjusted, as the local database
     pre-filters out the overstreamed songs.
     """
 

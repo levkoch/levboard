@@ -727,6 +727,7 @@ def top_albums_month(uow: SongUOW, start: date, end: date):
         )
     print('')
 
+
 def all_number_one_weeks_album(uow: SongUOW):
     items = [
         (

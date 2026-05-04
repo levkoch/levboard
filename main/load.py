@@ -49,7 +49,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
         main_id=ids[0],
         title=song_title,
         ids=set(ids),
-        spotify_uris = set(spotify_uris.split(", ")),
+        spotify_uris=set(spotify_uris.split(', ')),
         artists=str_artists.split(', '),
     )
     variant_hold = [variant]
@@ -58,7 +58,9 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
         print(f'Loading all songs. {len(songs)} rows found.')
 
     # first song already primed so we skip it here
-    for song_title, demarcator, str_ids, _, spotify_uris, str_artists in songs[1:]:
+    for song_title, demarcator, str_ids, _, spotify_uris, str_artists in songs[
+        1:
+    ]:
         is_variant = demarcator == 'X'
 
         if not is_variant:
@@ -72,7 +74,7 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
             main_id=ids[0],
             title=song_title,
             ids=set(ids),
-            spotify_uris = set(spotify_uris.split(", ")),
+            spotify_uris=set(spotify_uris.split(', ')),
             artists=str_artists.split(', '),
         )
         variant_hold.append(variant)

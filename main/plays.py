@@ -28,7 +28,7 @@ from storage import SongUOW, SongRepository, AlbumRepository
 
 
 def _update_song_plays(song: Song) -> tuple[Song, int]:
-    return (song, song.adjusted_plays())
+    return (song, song.update_plays())
 
 
 PlayUpdater: TypeAlias = Callable[
@@ -224,25 +224,25 @@ def update_spreadsheet_plays(
         print(f'Updated {song_amt} spreadsheet song plays.')
 
 
-def update_spreadsheet_local_plays(
-    sheet_id: str, verbose=False
-):
+def update_spreadsheet_local_plays(sheet_id: str, uow: SongUOW, verbose=False):
     """
-    updates the song plays in the spreadsheet. doesn't even care about uow, 
+    updates the song plays in the spreadsheet. doesn't even care about uow,
     as the song links can be inferred from the sheet itself.
 
-    now that we filter out the over-streamed listens when we process the 
+    now that we filter out the over-streamed listens when we process the
     local music data, we can simplify this entire process so much.
     """
 
     sheet = Spreadsheet(sheet_id)
-    songs: list[list] = [
+    songs: list[list[str]] = [
         i for i in sheet.get_range('Songs!A2:G').get('values') if i[0]
     ]
     song_count = sum(1 for row in songs if row[1] != 'X')
 
     if verbose:
-        print(f'Updating {song_count} songs ({len(songs)} total rows) from local DB.')
+        print(
+            f'Updating {song_count} songs ({len(songs)} total rows) from local DB.'
+        )
 
     # we don't bother filtering it any more, as it already gets filtered in songs_week.
     all_streams: dict[str, int] = {
@@ -253,16 +253,33 @@ def update_spreadsheet_local_plays(
         )
     }
 
-    final_songs: list[list] = []
+    if verbose:
+        print('all streams collected')
+
+    final_songs: list[list[str]] = []
 
     for row in songs:
-        title, var_ind, statsfm_str, sheet_id, spotify_uris, artists, _ = row
+        title, var_ind, statsfm_str, _, spotify_uris, artists, _ = row
 
         statsfm_ids = [s.strip() for s in statsfm_str.split(',') if s.strip()]
         plays = sum(all_streams.get(sid, 0) for sid in statsfm_ids)
+        # auto-reduce the sheet id (in case there were any errors induced in hand-editing.)
+        sheet_id = uow.songs.get(statsfm_ids[0]).sheet_id
 
-        final_songs.append(["'" + title if title[0].isnumeric() else title, 
-                            var_ind, statsfm_str, sheet_id, spotify_uris, artists, plays])
+        final_songs.append(
+            [
+                "'" + title if any(l.isnumeric() for l in title) else title,
+                var_ind,
+                statsfm_str,
+                sheet_id,
+                spotify_uris,
+                artists,
+                plays,
+            ]
+        )
+
+    if verbose:
+        print('song information loaded')
 
     sheet.update_range(f'Songs!A2:G{len(final_songs) + 1}', final_songs)
 
@@ -719,7 +736,7 @@ if __name__ == '__main__':
     #    uow,
     #    verbose=True, )
 
-    update_spreadsheet_local_plays(LEVBOARD_SHEET, verbose=True)
+    update_spreadsheet_local_plays(LEVBOARD_SHEET, uow, verbose=True)
 
     update_local_plays(uow, verbose=True)
     print('')

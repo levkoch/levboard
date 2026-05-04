@@ -264,8 +264,8 @@ def parse_entry(entry: dict) -> dict | None:
     spotify_id = _extract_track_id(uri)
 
     # mark hacked me :(
-    BANNED_IDS = { '2QLGkiJxugt03yGKVPt3u5' }
-    if spotify_id in BANNED_IDS: 
+    BANNED_IDS = {'2QLGkiJxugt03yGKVPt3u5'}
+    if spotify_id in BANNED_IDS:
         return None
 
     statsfm_id = spotify_to_statsfm(spotify_id) if spotify_id else None

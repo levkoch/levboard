@@ -46,7 +46,11 @@ class Variant(BaseModel):
         artists = tuple(i['name'] for i in info['artists'])
 
         return cls(
-            main_id=main_id, title=title, ids={main_id}, spotify_uris=set(), artists=artists
+            main_id=main_id,
+            title=title,
+            ids={main_id},
+            spotify_uris=set(),
+            artists=artists,
         )
 
 
@@ -135,7 +139,22 @@ class Song:
         if self.__listens is None:
             self._populate_listens()
 
-        info = spotistats.song_info(self.main_id)
+        info = {}
+
+        try:
+            info = spotistats.song_info(self.main_id)
+        except ValueError:
+            # the database was trying to find a song that is currently
+            # getting stored under some other id.
+            for id in (self.ids - {self.main_id}):
+                try:
+                    info = spotistats.song_info(id)
+                except ValueError:
+                    pass
+                else:
+                    break
+
+        if not info: raise ValueError('unable to load song information.')
 
         self.official_name = info['name']
         self.artists = [i['name'] for i in info['artists']]
@@ -439,7 +458,6 @@ class Song:
             # if none of them have been listened to, then we will keep whatever
             # it currently has as the main id since it doesn't matter anyways.
             self.main_id = common.most_common(1)[0][0]
-        self._load_info()
 
     def period_plays(
         self,
