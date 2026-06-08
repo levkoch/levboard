@@ -314,7 +314,7 @@ class Album:
 
         def period_plays_caller(variant: int, song: Song):
             return song.period_plays(
-                start=start, end=end, adjusted=True, variant=variant
+                start=start, end=end, variant=variant
             )
 
         with futures.ThreadPoolExecutor() as executor:
@@ -335,7 +335,7 @@ class Album:
         # variant we are asking for
         def period_units_caller(variant: int, song: Song):
             return song.period_units(
-                start=start, end=end, adjusted=True, variant=variant
+                start=start, end=end, variant=variant
             )
 
         with futures.ThreadPoolExecutor() as executor:

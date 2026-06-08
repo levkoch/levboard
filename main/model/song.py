@@ -9,12 +9,12 @@ from collections import Counter
 from datetime import date, timedelta
 from operator import attrgetter
 from pydantic import ValidationError, BaseModel
-from typing import Collection, Iterable, Iterator, Optional, Sequence
+from typing import Collection, Iterable, Optional
 
 from . import spotistats
 from .cert import SongCert
 from .entry import Entry
-from .spotistats import MAX_ADJUSTED, SONG_CHART_LENGTH
+from .spotistats import SONG_CHART_LENGTH
 
 
 class Variant(BaseModel):
@@ -117,7 +117,7 @@ class Song:
             )
         self._variants: dict[str, Variant] = {self.main_id: self.main_variant}
         self.active = self.main_variant
-        self._plays: int = 0
+        self._plays: Optional[int] = None
         self._entries: dict[date, Entry] = {}
         self.__listens: Optional[list[spotistats.Listen]] = None
 
@@ -233,16 +233,14 @@ class Song:
 
     @property
     def plays(self) -> int:
-        if self.__listens is None:
+        if self._plays is not None:
             return self._plays
-        # filtered plays
-        play_dates = (i.finished_playing.date() for i in self.__listens)
-        date_counter = Counter(play_dates)
-        plays = sum(
-            min(MAX_ADJUSTED, count) for count in date_counter.values()
-        )
-        self._plays = plays
-        return plays
+        
+        if self.__listens is None:
+            self._populate_listens()
+
+        self._plays = len(self.__listens)
+        return self._plays
 
     def first_stream(self, variant_id: Optional[str] = None) -> date:
         """
@@ -274,14 +272,12 @@ class Song:
         if self.__listens is None:
             self._populate_listens()
 
-        # filtered plays
-        play_dates = (
-            i.finished_playing.date()
+        # no more filtering (the devil has been defeated in preprocessing !!)
+        return sum(
+            1
             for i in self.__listens
             if i.played_from in self.get_variant(variant_id).ids
         )
-        date_counter = Counter(play_dates)
-        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
     def variant_points(self, variant_id) -> int:
         """
@@ -437,6 +433,7 @@ class Song:
                 spotistats.song_play_history(i) for i in self.ids
             )
         )
+        self._plays = len(self.__listens)
 
         if len(self.ids) > 1:
             self._update_version()
@@ -463,7 +460,6 @@ class Song:
         self,
         start: date,
         end: date,
-        adjusted=True,
         variant: Optional[str] = None,
     ) -> int:
         """
@@ -478,26 +474,14 @@ class Song:
                 raise ValueError(f'variant #{variant} not found in {self}')
             variant_ids = self.get_variant(variant).ids
 
-        listens = (
-            listen
+        # no more filtering
+        return sum(
+            1
             for listen in self.__listens
             if listen.finished_playing.date() >= start
             and listen.finished_playing.date() <= end
             and (not variant or listen.played_from in variant_ids)
         )
-
-        if not adjusted:
-            # we don't have to filter out any days that have
-            # too many streams, so simple route
-            return len(list(listens))
-
-        play_dates: Iterator[date] = (
-            listen.finished_playing.date() for listen in listens
-        )
-
-        date_counter = Counter(play_dates)
-
-        return sum(min(MAX_ADJUSTED, count) for count in date_counter.values())
 
     def period_points(
         self, start: date, end: date, variant: Optional[str] = None
@@ -530,14 +514,13 @@ class Song:
         self,
         start: date,
         end: date,
-        adjusted=True,
         variant: Optional[str] = None,
     ) -> int:
         """
         Returns the song's units gained for some period.
         """
         return self.period_plays(
-            start, end, adjusted=adjusted, variant=variant
+            start, end, variant=variant
         ) * 2 + self.period_points(start, end, variant=variant)
 
     def add_variant(self, variant: Variant) -> None:
@@ -596,44 +579,16 @@ class Song:
             else None
         )
 
-    def update_plays(self, adjusted=True) -> None:
+    def update_plays(self) -> None:
         """
         Updates the lifetime plays for the song.
-        The `adjusted` flag marks if play data will be filtered or not.
         """
-
-        if adjusted:
-            self._plays = self.adjusted_plays()
-            return
 
         if self.__listens is None:
             self._populate_listens()
 
         self._plays = len(self.__listens)
 
-    def adjusted_plays(self) -> int:
-        """
-        Returns the adjusted plays for a song. Adjusted plays count all
-        streams, unless a song got over a benchmark within a day, so it
-        will count up to that mark and no more.
-        """
-
-        self._populate_listens()
-
-        if self.plays <= MAX_ADJUSTED:
-            return self.plays
-
-        play_dates: Iterable[date] = (
-            listen.finished_playing.date() for listen in self.__listens
-        )
-        date_counter = Counter(play_dates)
-
-        total = 0
-
-        for count in date_counter.values():
-            total += count if count < MAX_ADJUSTED else MAX_ADJUSTED
-
-        return total
 
     def add_alt(self, alt_id: str) -> None:
         """

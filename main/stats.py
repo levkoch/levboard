@@ -92,9 +92,7 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     daily_units: dict[date, int] = defaultdict(int)
 
     for day, plays in date_counter.items():
-        if plays > MAX_ADJUSTED:
-            # filter plays so they cap out at 25 per day
-            plays = MAX_ADJUSTED
+        # song histories are now always filtered
         daily_units[day] += plays * 2
 
     for entry in song.entries:
@@ -147,8 +145,6 @@ def time_to_units_album(
             return (album, day, (day - first_play).days)
 
     return (album, date.today(), -1)
-    raise ValueError(f'{album} hasnt reached {units_mark} units yet')
-
 
 def top_shortest_time_units_milestones(
     uow: SongUOW, unit_milestone: int, cutoff: int = 20
@@ -232,7 +228,7 @@ def top_shortest_time_units_milestones_infographic(
         start_day: date = day - timedelta(days=time)
 
         print(
-            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
+            f'{place:<3} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
             f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
             f'{start_day.isoformat()} -> {day.isoformat()})'
         )
@@ -252,7 +248,7 @@ def top_shortest_time_units_milestones_infographic(
         start_day: date = day - timedelta(days=time)
 
         print(
-            f'{place:<2} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
+            f'{place:<3} | {song:<60} | day {(start_day - BEGINNING).days:>4}'
             f' -> {(day - BEGINNING).days:<4} ({time:<4} days / '
             f'{start_day.isoformat()} -> {day.isoformat()})'
         )
@@ -263,6 +259,49 @@ def top_shortest_time_units_milestones_infographic(
             print(
                 f'{66*" "}| {period_plays:<4} plays | {period_weeks:<2} weeks'
             )
+
+def top_upcoming_projected_milestone(
+    uow: SongUOW, unit_milestone: int, cutoff: int
+):
+    with futures.ThreadPoolExecutor() as executor:
+        executor.map(
+            lambda i: i.first_stream(),
+            (
+                song
+                for song in uow.songs
+                if (song.units >= cutoff and song.units < unit_milestone)
+                and (song.sheet_id in song.ids)
+            ),
+        )
+
+    TODAY = date.today()
+    THREEMOS = date.today() - timedelta(days=7*12)
+    YEARAGO = date.today() - timedelta(days=365)
+
+    contenders = [
+        song 
+        for song in uow.songs
+        if song.units < unit_milestone and song.units >= cutoff
+    ]
+
+    results = []
+
+    for song in contenders:
+        # assuming each song gets a steady stream of units,
+        # days to reach milestone = units remaining / units per day
+        all_time = song.units / (TODAY - song.first_stream()).days
+        three_months = song.period_units(THREEMOS, TODAY) / (7*12)
+        last_year = song.period_units(YEARAGO, TODAY) / 365
+
+        combined = three_months * 0.5 + last_year * 0.25 + all_time * 0.25
+
+        projection = int((unit_milestone - song.units) / combined)
+        results.append((song, unit_milestone - song.units, projection))
+        
+    results.sort(key=itemgetter(2))
+    print(f'next songs projected to reach {unit_milestone} units')
+    for song, remaining, projection in results[:20]:
+        print(f"{projection:<4} | {TODAY + timedelta(days=projection)} | {remaining:<4} left | {song}")
 
 
 def top_shortest_time_album_units_milestones_infographic(
@@ -855,7 +894,7 @@ if __name__ == '__main__':
     # update_local_plays(uow, verbose=True)
     # display_top_album_plays_infographic(uow, 1_000)
 
-    album_first_year_months(uow, month_count=36)
+    # album_first_year_months(uow, month_count=36)
 
     """
     for milestone in PLAYS_MILESTONES[::-1]:
@@ -863,34 +902,44 @@ if __name__ == '__main__':
  
     for milestone in MILESTONES[::-1]:
         top_albums_play_count(uow, milestone)
-    
+
     top_shortest_time_units_milestones(uow, 2_000)
     top_shortest_time_units_milestones(uow, 4_000)
-    
+
     for milestone in CERT_UNITS[::-1]:
         top_shortest_time_units_milestones(uow, milestone, cutoff=10)
 
-    top_listeners_chart(uow)
+    top_collection_consecutive_weeks_infographic(uow.songs)
+    top_collection_consecutive_weeks_infographic(uow.albums)
     """
 
-    # top_collection_consecutive_weeks_infographic(uow.songs)
-    # top_collection_consecutive_weeks_infographic(uow.albums)
+    # top_shortest_time_units_milestones_infographic(uow, 2_000)
+    top_upcoming_projected_milestone(uow, 2_000, 400)
+    print('')
+    top_upcoming_projected_milestone(uow, 4_000, 1_000)
+    print("")
+    top_upcoming_projected_milestone(uow, 6_000, 1_000)
+    print("")
+    top_upcoming_projected_milestone(uow, 8_000, 1_000)
+    print("")
+    top_upcoming_projected_milestone(uow, 10_000, 1_000)
+    print("")
+    top_upcoming_projected_milestone(uow, 12_000, 1_000)
+    print("")
+    top_upcoming_projected_milestone(uow, 14_000, 1_000)
+    print("")
 
     """
-    top_shortest_time_units_milestones_infographic(uow, 2_000)
-
     all_number_one_weeks_album(uow)
 
     for milestone in range(2_000, 12_000, 2_000):
         top_shortest_time_units_milestones_infographic(uow, milestone)
         print('')
 
-    top_listeners_chart(uow)
-
-    for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000):
+    for milestone in (5_000, 10_000, 20_000, 30_000, 40_000, 50_000, 60_000, 70_000):
         top_shortest_time_album_units_milestones_infographic(uow, milestone)
         print('')
-  
+
     for cert in CERTS[::-1]:
         top_albums_cert_count(uow, cert)
 
