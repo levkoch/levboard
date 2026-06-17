@@ -98,10 +98,10 @@ def load_linked_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
     # process final song
     song = Song.from_variants(main_id=prev_id, variants=variant_hold)
     uow.songs.add(song)
+    uow.commit()
 
     if verbose:
         print('\nAll songs saved.')
-    uow.commit()
 
 
 def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
@@ -136,9 +136,10 @@ def load_songs(uow: SongUOW, sheet_link: str, verbose: bool = False):
                     f'{count:>5} of {len(songs)} ({percentage:.2f}%): {song} ({song.main_id})'
                 )
 
+    uow.commit()
+
     if verbose:
         print('Completed process. Saving all songs to database.')
-    uow.commit()
 
 
 def load_albums(uow: SongUOW, sheet_link: str, verbose: bool = False):

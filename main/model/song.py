@@ -259,6 +259,23 @@ class Song:
             return min(eligible_listens)
         except ValueError:
             return date(1, 1, 1)
+        
+    def nth_stream(self, n: int, variant_id: Optional[str] = None) -> date:
+        '''
+        the nth stream of this song, possibly filtered by variant_id
+        '''
+        if self.__listens is None:
+            self._populate_listens()
+
+        eligible_listens = (
+            i.finished_playing.date()
+            for i in self.__listens
+            if variant_id is None or i.played_from == variant_id
+        )
+        try:
+            return sorted(eligible_listens)[n]
+        except IndexError:
+            return date(1, 1, 1)
 
     def variant_plays(self, variant_id: str) -> int:
         """
@@ -716,7 +733,7 @@ class Song:
             'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
-            'plays': self.plays,
+            'plays': -1 if self._plays is None else self.plays,
             'entries': [i.to_dict() for i in self.entries],
             'variants': list(variant.to_dict() for variant in self.variants),
         }
@@ -746,6 +763,8 @@ class Song:
             new.artists = list(info['artists'])
             new.official_name = str(info['official_name'])
             new._plays = int(info['plays'])
+            if new._plays == -1:
+                new._plays = None
             new._entries = {
                 date.fromisoformat(i['end']): Entry(**i)
                 for i in info['entries']
