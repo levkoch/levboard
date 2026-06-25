@@ -86,7 +86,7 @@ def time_to_units(song: Song, units_mark: int) -> tuple[Song, date, int]:
     date_counter = Counter(i.finished_playing.date() for i in play_record)
 
     play_record.sort(key=lambda i: i.finished_playing)
-    first_play: date = play_record[0].finished_playing.date()
+    first_play: date = play_record[9].finished_playing.date()
 
     # int() returns 0 which is what we want the slots to start at
     daily_units: dict[date, int] = defaultdict(int)
@@ -194,21 +194,10 @@ def top_shortest_time_units_milestones(
 def top_shortest_time_units_milestones_infographic(
     uow: SongUOW, unit_milestone: int, extras=False
 ):
-    with futures.ThreadPoolExecutor() as executor:
-        executor.map(
-            lambda i: i.update_plays(),
-            (
-                song
-                for song in uow.songs
-                if (song.units >= (unit_milestone / 4))
-                and (song.sheet_id in song.ids)
-            ),
-        )
-
     contenders = (
         song
         for song in uow.songs
-        if song.units >= unit_milestone and song.sheet_id in song.ids
+        if song.units >= unit_milestone
     )
 
     with futures.ThreadPoolExecutor() as executor:
@@ -261,19 +250,8 @@ def top_shortest_time_units_milestones_infographic(
             )
 
 def top_upcoming_projected_milestone(
-    uow: SongUOW, unit_milestone: int, cutoff: int
+    uow: SongUOW, unit_milestone: int, cutoff: int, show: int = 20
 ):
-    with futures.ThreadPoolExecutor() as executor:
-        executor.map(
-            lambda i: i.first_stream(),
-            (
-                song
-                for song in uow.songs
-                if (song.units >= cutoff and song.units < unit_milestone)
-                and (song.sheet_id in song.ids)
-            ),
-        )
-
     TODAY = date.today()
     THREEMOS = date.today() - timedelta(days=7*12)
     YEARAGO = date.today() - timedelta(days=365)
@@ -281,7 +259,7 @@ def top_upcoming_projected_milestone(
     contenders = [
         song 
         for song in uow.songs
-        if song.units < unit_milestone and song.units >= cutoff
+        if song.units < unit_milestone
     ]
 
     results = []
@@ -289,19 +267,24 @@ def top_upcoming_projected_milestone(
     for song in contenders:
         # assuming each song gets a steady stream of units,
         # days to reach milestone = units remaining / units per day
-        all_time = song.units / (TODAY - song.first_stream()).days
-        three_months = song.period_units(THREEMOS, TODAY) / (7*12)
-        last_year = song.period_units(YEARAGO, TODAY) / 365
+        start = song.nth_stream(5)
 
-        combined = three_months * 0.5 + last_year * 0.25 + all_time * 0.25
+        if start > THREEMOS:
+            combined = song.period_units(THREEMOS, TODAY) / (7*12)
+        else: 
+            all_time = song.units / (TODAY - start).days
+            three_months = song.period_units(THREEMOS, TODAY) / (7*12)
+            last_year = song.period_units(YEARAGO, TODAY) / 365
+            combined = three_months * 0.5 + last_year * 0.25 + all_time * 0.25
 
         projection = int((unit_milestone - song.units) / combined)
-        results.append((song, unit_milestone - song.units, projection))
+        run = (TODAY - start).days + projection
+        results.append((song, unit_milestone - song.units, projection, run))
         
     results.sort(key=itemgetter(2))
     print(f'next songs projected to reach {unit_milestone} units')
-    for song, remaining, projection in results[:20]:
-        print(f"{projection:<4} | {TODAY + timedelta(days=projection)} | {remaining:<4} left | {song}")
+    for song, remaining, projection, run in results[:show]:
+        print(f"{projection:<4} | {TODAY + timedelta(days=projection)} ({run:<4})| {remaining:<4} left | {song}")
 
 
 def top_shortest_time_album_units_milestones_infographic(
@@ -913,22 +896,17 @@ if __name__ == '__main__':
     top_collection_consecutive_weeks_infographic(uow.albums)
     """
 
-    # top_shortest_time_units_milestones_infographic(uow, 2_000)
-    top_upcoming_projected_milestone(uow, 2_000, 400)
-    print('')
-    top_upcoming_projected_milestone(uow, 4_000, 1_000)
-    print("")
-    top_upcoming_projected_milestone(uow, 6_000, 1_000)
-    print("")
-    top_upcoming_projected_milestone(uow, 8_000, 1_000)
-    print("")
-    top_upcoming_projected_milestone(uow, 10_000, 1_000)
-    print("")
-    top_upcoming_projected_milestone(uow, 12_000, 1_000)
-    print("")
-    top_upcoming_projected_milestone(uow, 14_000, 1_000)
-    print("")
+    update_local_plays(uow, verbose=True)
 
+    top_shortest_time_units_milestones_infographic(uow, 2_000)
+    print('')
+    
+    top_upcoming_projected_milestone(uow, 2_000, 400, 40)
+    print('')
+    for milestone in range(4_000, 14_000, 2_000):
+        top_upcoming_projected_milestone(uow, milestone, 1_000)
+        print('')
+    
     """
     all_number_one_weeks_album(uow)
 

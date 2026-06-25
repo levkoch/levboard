@@ -1,4 +1,3 @@
-import csv
 import functools
 import itertools
 from concurrent import futures
@@ -37,29 +36,25 @@ def get_album_top_five_weeks(week, album):
 def album_data_generator(
     filter: Callable[[date, Album], tuple[date, int]]
 ) -> Callable[
-    [Album, list[date], itertools.count, itertools.count], dict[date, int]
+    [Album, list[date], itertools.count], dict[date, int]
 ]:
     def inner(
         album: Album,
         weeks: list[date],
-        started: itertools.count,
-        completed: itertools.count,
+        counter: itertools.count,
     ):
-        print(f'[{next(started):02d}] ->  collecting info for {album}')
+        count = next(counter)
+        print(f'[{count:02d}] ->  collecting info for {album}')
         info = {
             'title': album.title,
             'artist': album.str_artists,
         }
-        with futures.ThreadPoolExecutor(
-            thread_name_prefix=album.title
-        ) as executor:
-            data = executor.map(functools.partial(filter, album=album), weeks)
-
-        for date, units in data:
-            info[date] = units
+        for week in weeks:
+            _, val = filter(week, album)
+            info[week] = val
 
         print(
-            f' !! [{next(completed):02d}] finished collecting info for {album}'
+            f' !! [{count:02d}] finished collecting info for {album}'
         )
         return info
 
@@ -78,30 +73,13 @@ def flourish_albums(
     str_weeks = list(i.isoformat() for i in weeks)
     albums = (album for album in uow.albums if threshold(album))
 
-    started_counter = itertools.count(start=1)
-    completed_counter = itertools.count(start=1)
-
-    with futures.ThreadPoolExecutor(thread_name_prefix='main') as executor:
-        data = executor.map(
-            functools.partial(
-                filter,
-                weeks=weeks,
-                started=started_counter,
-                completed=completed_counter,
-            ),
-            albums,
-        )
-
+    process_counter = itertools.count(start=1)
     sheet_rows = [['Title', 'Artist'] + str_weeks]
-    for info in data:
-        entry = [info['title'], info['artist']]
-        for date in weeks:
-            entry.append(info[date])
-        sheet_rows.append(entry)
 
-    with open('info.csv', 'a+', encoding='UTF-8') as f:
-        csv.writer(f).writerows(sheet_rows)
-        # write to csv in case google sheets is annoying
+    for album in albums:
+        info = filter(album, weeks, process_counter)
+        entry = [info['title'], info['artist']] + [info[date] for date in weeks]
+        sheet_rows.append(entry)
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     sheet.append_range(
@@ -254,11 +232,6 @@ def flourish_songs():
             entry.append(info[date])
         sheet_rows.append(entry)
 
-    """
-    with open('info.csv', 'a+', encoding='UTF-8') as f:
-        csv.writer(f).writerows(sheet_rows)
-        # write to csv in case google sheets is annoying
-    """
 
     sheet = Spreadsheet(LEVBOARD_SHEET)
     range = f'BOT_FLOURISH!A1:ZZ{len(sheet_rows)+1}'
@@ -272,9 +245,11 @@ def flourish_songs():
 if __name__ == '__main__':
     uow = SongUOW()
     update_local_plays(uow, verbose=True)
+
     album_sellings = album_data_generator(get_album_units)
     rows = flourish_albums(uow, album_sellings, (lambda i: i.units >= 1000))
     flourish_top_ten_changes(rows)
+    
     album_num_one_weeks = album_data_generator(get_album_num_one_weeks)
     # flourish_albums(album_num_one_weeks, (lambda i: i.peak == 1))
     album_con_weeks = album_data_generator(get_album_consecutive_weeks)

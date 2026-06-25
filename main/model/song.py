@@ -600,7 +600,7 @@ class Song:
         """
         Updates the lifetime plays for the song.
         """
-
+        
         if self.__listens is None:
             self._populate_listens()
 
@@ -733,6 +733,8 @@ class Song:
             'ids': list(self.ids),
             'artists': self.artists,
             'official_name': self.official_name,
+            # we use a dummy storage here, because otherwise we will be forced 
+            # to load in the real plays, which is a lot of work.
             'plays': -1 if self._plays is None else self.plays,
             'entries': [i.to_dict() for i in self.entries],
             'variants': list(variant.to_dict() for variant in self.variants),
