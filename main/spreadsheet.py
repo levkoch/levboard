@@ -92,26 +92,45 @@ class Spreadsheet:
 
         return result
 
-    def update_range(self, range: str, values: list[list]) -> dict[str, Any]:
+    def update_range(
+        self, range_: str, values: list[list], chunk_size: int = 4000
+    ) -> list[dict[str, Any]]:
         """
-        Updates the specified range in the sheet.
+        Updates the specified range in the sheet, chunking large writes to
+        avoid oversized requests that can trigger SSL/connection errors.
 
         Arguments:
         * range (`str`): The *FULL* range name, with the sheet name, to be found.
         * values (`list[list]`): The values to insert in the specified range.
+        * chunk_size (`int`): Max rows per request. Defaults to 4000.
 
         Returns:
-        * response (`dict`): The google API response dictionary.
+        * responses (`list[dict]`): One google API response dict per chunk.
         """
 
-        result = self.sheet.update(
-            spreadsheetId=self._sheet_id,
-            range=range,
-            valueInputOption='USER_ENTERED',
-            body={'values': values},
-        ).execute()
+        sheet_name, cell_range = range_.split('!')
+        start_cell, end_cell = cell_range.split(':')
+        start_letters = ''.join(c for c in start_cell if c.isalpha())
+        end_letters = ''.join(c for c in end_cell if c.isalpha())
+        start_row = int(''.join(c for c in start_cell if c.isdigit()))
 
-        return result
+        responses = []
+        for i in range(0, len(values), chunk_size):
+            chunk = values[i : i + chunk_size]
+            chunk_start = start_row + i
+            chunk_end = chunk_start + len(chunk) - 1
+            chunk_range = (f'{sheet_name}!{start_letters}{chunk_start}' 
+                           f':{end_letters}{chunk_end}')
+
+            result = self.sheet.update(
+                spreadsheetId=self._sheet_id,
+                range=chunk_range,
+                valueInputOption='USER_ENTERED',
+                body={'values': chunk},
+            ).execute()
+            responses.append(result)
+
+        return responses
 
     def append_range(self, range: str, values: list[list]) -> dict[str, Any]:
         """
